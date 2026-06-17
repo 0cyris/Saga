@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-whisky-peak",
+  "type": "bundled",
+  "title": "One Piece: Whisky Peak Arc",
+  "description": "Reviewed manga-main Loredeck for Whisky Peak trap hospitality, Baroque Works secrecy, Zoro and Luffy conflict, Vivi and Igaram reveal windows, officer-agent pressure, and Arabasta mission handoff.",
+  "fandom": "One Piece",
+  "era": "Whisky Peak Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-whisky-peak-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-whisky-peak",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-whisky-peak"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "Arabasta Saga"
+    ],
+    "familyOrder": 90
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:arabasta",
+    "arc:whisky-peak",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "canon",
+    "adaptation": "manga",
+    "medium": "manga",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "whisky_peak/whisky_peak.json",
+    "whisky_peak/baroque-works-structure.json",
+    "whisky_peak/zoro-and-luffy-conflict.json",
+    "whisky_peak/vivi-igaram-and-arabasta.json",
+    "whisky_peak/agents-and-side-characters.json",
+    "whisky_peak/crew-decision-and-pursuit.json",
+    "whisky_peak/navigation-and-course.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 36,
+    "categoryCounts": {
+      "character": 9,
+      "event": 3,
+      "faction": 4,
+      "knowledge": 2,
+      "location": 4,
+      "relationship": 4,
+      "rule": 7,
+      "secret": 3
+    },
+    "timelineAnchorCount": 9,
+    "timelineWindowCount": 9,
+    "tagCount": 40,
+    "entityCount": 27
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Whisky Peak runtime-lore pass completed: cards now emphasize trap-town hospitality, Baroque Works identity gates, Zoro/Luffy misunderstanding, Vivi and Igaram reveal windows, officer-agent pressure, and Arabasta mission commitment."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

@@ -1,0 +1,882 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_the_crew_accepts_vivi_s_mission_despite_being_targeted_by_baroque_works_027",
+      "title": "The Crew Accepts Vivi's Mission While Targeted",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "validToAnchor": "op.whisky-peak.navigation-and-course",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9560,
+        "sortKeyTo": 9672,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: The Crew Accepts Vivi's Mission While Targeted"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:straw-hat-pirates",
+          "op:nefertari-vivi",
+          "op:baroque-works",
+          "op:arabasta"
+        ],
+        "characters": [
+          "Nefertari Vivi"
+        ],
+        "locations": [
+          "Arabasta"
+        ],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates",
+          "Baroque Works"
+        ],
+        "topics": [
+          "crew accepts mission",
+          "hit list pressure",
+          "escort trust"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:straw-hat-pirates",
+        "character:nefertari-vivi",
+        "faction:baroque-works",
+        "location:arabasta",
+        "topic:baroque-works",
+        "topic:vivi-igaram"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Straw Hat Pirates",
+            "Nefertari Vivi",
+            "Baroque Works",
+            "Arabasta"
+          ],
+          "topicsAny": [
+            "crew accepts mission",
+            "hit list pressure",
+            "escort trust"
+          ],
+          "keywordsAny": [
+            "Straw Hat Pirates",
+            "Nefertari Vivi",
+            "Baroque Works",
+            "Arabasta",
+            "crew accepts mission",
+            "hit list pressure",
+            "escort trust",
+            "accept mission",
+            "hit list",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "The crew accepts Vivi's mission even after Baroque Works pressure makes helping her dangerous.",
+        "injection": "Use the decision as trust under threat: the crew is choosing obligation and risk, not a convenient passenger fare.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_nami_negotiates_danger_through_payment_and_practicality_028",
+      "title": "Nami Negotiates Danger Through Payment And Practicality",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "validToAnchor": "op.whisky-peak.navigation-and-course",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9560,
+        "sortKeyTo": 9672,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Nami Negotiates Danger Through Payment And Practicality"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:igaram",
+          "op:nefertari-vivi",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [
+          "Nami",
+          "Igaram",
+          "Nefertari Vivi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "Nami negotiation",
+          "payment promise",
+          "practical escort terms"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:igaram",
+        "character:nefertari-vivi",
+        "faction:straw-hat-pirates",
+        "topic:vivi-igaram"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Igaram",
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Igaram",
+            "Nefertari Vivi",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "Nami negotiation",
+            "payment promise",
+            "practical escort terms"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Igaram",
+            "Nefertari Vivi",
+            "Straw Hat Pirates",
+            "Nami negotiation",
+            "payment promise",
+            "practical escort terms",
+            "payment",
+            "negotiation",
+            "practical terms",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Nami negotiates the danger through payment, information, and practical terms before the crew fully commits to Vivi.",
+        "injection": "Use Nami as pragmatic under pressure: she can demand terms without reducing the mission to greed.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_igaram_creates_a_decoy_departure_to_protect_vivi_029",
+      "title": "Igaram's Decoy Departure Creates Immediate Pursuit Risk",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "validToAnchor": "op.whisky-peak.navigation-and-course",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9560,
+        "sortKeyTo": 9672,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Igaram's Decoy Departure Creates Immediate Pursuit Risk"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:igaram",
+          "op:nefertari-vivi",
+          "op:going-merry",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Igaram",
+          "Nefertari Vivi"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Igaram decoy",
+          "departure explosion",
+          "pursuit risk"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:igaram",
+        "character:nefertari-vivi",
+        "item:going-merry",
+        "faction:baroque-works",
+        "topic:baroque-works",
+        "topic:vivi-igaram"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Igaram",
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Igaram",
+            "Nefertari Vivi",
+            "Going Merry",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "Igaram decoy",
+            "departure explosion",
+            "pursuit risk"
+          ],
+          "keywordsAny": [
+            "Igaram",
+            "Nefertari Vivi",
+            "Going Merry",
+            "Baroque Works",
+            "Igaram decoy",
+            "departure explosion",
+            "pursuit risk",
+            "decoy departure",
+            "ship explosion",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Igaram creates a decoy departure to protect Vivi, and the apparent attack on his ship makes Baroque Works pursuit feel immediate.",
+        "injection": "Use the decoy as a sharp danger beat: protection requires misdirection, and the enemy can strike right as the plan starts.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_miss_all_sunday_applies_pressure_without_openly_fighting_the_crew_030",
+      "title": "Miss All Sunday Pressures The Crew Without Open Combat",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "validToAnchor": "op.whisky-peak.navigation-and-course",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9560,
+        "sortKeyTo": 9672,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Miss All Sunday Pressures The Crew Without Open Combat"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-all-sunday",
+          "op:baroque-works",
+          "op:eternal-pose",
+          "op:little-garden"
+        ],
+        "characters": [
+          "Miss All Sunday"
+        ],
+        "locations": [
+          "Little Garden"
+        ],
+        "objects": [
+          "Eternal Pose"
+        ],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Miss All Sunday route pressure",
+          "Eternal Pose rejected",
+          "ambiguous threat"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-all-sunday",
+        "faction:baroque-works",
+        "item:eternal-pose",
+        "location:little-garden",
+        "topic:officer-agents",
+        "topic:navigation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss All Sunday"
+          ],
+          "entitiesAny": [
+            "Miss All Sunday",
+            "Baroque Works",
+            "Eternal Pose",
+            "Little Garden"
+          ],
+          "topicsAny": [
+            "Miss All Sunday route pressure",
+            "Eternal Pose rejected",
+            "ambiguous threat"
+          ],
+          "keywordsAny": [
+            "Miss All Sunday",
+            "Baroque Works",
+            "Eternal Pose",
+            "Little Garden",
+            "Miss All Sunday route pressure",
+            "Eternal Pose rejected",
+            "ambiguous threat",
+            "route pressure",
+            "no open fight",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Miss All Sunday pressures the crew through knowledge and an Eternal Pose offer rather than by openly fighting them at Whisky Peak.",
+        "injection": "Use her pressure as unsettling choice architecture: she tries to shape the route, and Luffy rejects letting her decide it.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_the_decision_turns_a_route_stop_into_a_saga_objective_031",
+      "title": "The Route Stop Becomes A Saga Objective",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "validToAnchor": "op.whisky-peak.navigation-and-course",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9560,
+        "sortKeyTo": 9672,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: The Route Stop Becomes A Saga Objective"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:whisky-peak",
+          "op:arabasta",
+          "op:nefertari-vivi",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [
+          "Nefertari Vivi"
+        ],
+        "locations": [
+          "Whisky Peak",
+          "Arabasta"
+        ],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "route stop becomes mission",
+          "Arabasta objective",
+          "saga pivot"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:whisky-peak",
+        "location:arabasta",
+        "character:nefertari-vivi",
+        "faction:straw-hat-pirates",
+        "topic:vivi-igaram",
+        "topic:navigation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Whisky Peak",
+            "Arabasta",
+            "Nefertari Vivi",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "route stop becomes mission",
+            "Arabasta objective",
+            "saga pivot"
+          ],
+          "keywordsAny": [
+            "Whisky Peak",
+            "Arabasta",
+            "Nefertari Vivi",
+            "Straw Hat Pirates",
+            "route stop becomes mission",
+            "Arabasta objective",
+            "saga pivot",
+            "protect Vivi",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "The Whisky Peak decision turns an island stop into an Arabasta Saga objective: protect Vivi and move toward her kingdom.",
+        "injection": "Use this as the saga pivot once the reveal lands; before then, Whisky Peak is still trap-town survival.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Whisky Peak Arc",
+    "chapterRange": "Manga chapters 106-114",
+    "episodeRange": "Anime episodes 64-67",
+    "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+  }
+}

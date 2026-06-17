@@ -1,0 +1,865 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_miss_wednesday_and_mr_9_first_appear_as_suspicious_rogues_inside_laboon_011",
+      "title": "Miss Wednesday And Mr. 9 First Appear As Suspicious Whale Hunters",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.miss-wednesday-and-mr-9",
+        "validToAnchor": "op.reverse-mountain.straw-hats-at-twin-cape",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8256,
+        "sortKeyTo": 8384,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: Miss Wednesday And Mr. 9 First Appear As Suspicious Whale Hunters"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-wednesday",
+          "op:mr-9",
+          "op:laboon",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Miss Wednesday",
+          "Mr. 9",
+          "Laboon"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "suspicious rogues",
+          "whale hunters",
+          "first Baroque contact"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-wednesday",
+        "character:mr-9",
+        "character:laboon",
+        "faction:baroque-works",
+        "topic:laboon-promise",
+        "topic:baroque-works-hook"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Laboon"
+          ],
+          "entitiesAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Laboon",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "suspicious rogues",
+            "whale hunters",
+            "first Baroque contact"
+          ],
+          "keywordsAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Laboon",
+            "Baroque Works",
+            "suspicious rogues",
+            "whale hunters",
+            "first Baroque contact",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Miss Wednesday and Mr. 9 first appear as suspicious rogues trying to exploit Laboon before their organization is understood.",
+        "injection": "Use them as odd, dangerous intruders: they are comic in presentation but still willing to harm Laboon for their mission.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_their_whale_hunting_plan_is_dangerous_but_still_comic_in_tone_012",
+      "title": "The Whale-Hunting Plan Is Comic In Shape And Harmful In Stakes",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.miss-wednesday-and-mr-9",
+        "validToAnchor": "op.reverse-mountain.straw-hats-at-twin-cape",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8256,
+        "sortKeyTo": 8384,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: The Whale-Hunting Plan Is Comic In Shape And Harmful In Stakes"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-wednesday",
+          "op:mr-9",
+          "op:laboon",
+          "op:crocus"
+        ],
+        "characters": [
+          "Miss Wednesday",
+          "Mr. 9",
+          "Laboon",
+          "Crocus"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "whale hunting plan",
+          "comic danger",
+          "Laboon protected"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-wednesday",
+        "character:mr-9",
+        "character:laboon",
+        "character:crocus",
+        "topic:laboon-promise",
+        "topic:twin-cape",
+        "topic:baroque-works-hook"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Laboon",
+            "Crocus"
+          ],
+          "entitiesAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Laboon",
+            "Crocus"
+          ],
+          "topicsAny": [
+            "whale hunting plan",
+            "comic danger",
+            "Laboon protected"
+          ],
+          "keywordsAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Laboon",
+            "Crocus",
+            "whale hunting plan",
+            "comic danger",
+            "Laboon protected",
+            "whale hunting",
+            "bazooka",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Miss Wednesday and Mr. 9's whale-hunting plan plays oddly and comically, but the stakes are harmful because Laboon and Crocus are at risk.",
+        "injection": "Use tonal contrast: the agents can be strange and theatrical without making their attempt harmless.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_baroque_works_is_present_before_its_full_structure_is_known_013",
+      "title": "Baroque Works Is Present Before Its Structure Is Known",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.miss-wednesday-and-mr-9",
+        "validToAnchor": "op.reverse-mountain.straw-hats-at-twin-cape",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8256,
+        "sortKeyTo": 8384,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: Baroque Works Is Present Before Its Structure Is Known"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:baroque-works",
+          "op:miss-wednesday",
+          "op:mr-9"
+        ],
+        "characters": [
+          "Miss Wednesday",
+          "Mr. 9"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Baroque Works first contact",
+          "hidden organization",
+          "structure unknown"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:baroque-works",
+        "character:miss-wednesday",
+        "character:mr-9",
+        "topic:baroque-works-hook",
+        "topic:identity-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Wednesday",
+            "Mr. 9"
+          ],
+          "entitiesAny": [
+            "Baroque Works",
+            "Miss Wednesday",
+            "Mr. 9"
+          ],
+          "topicsAny": [
+            "Baroque Works first contact",
+            "hidden organization",
+            "structure unknown"
+          ],
+          "keywordsAny": [
+            "Baroque Works",
+            "Miss Wednesday",
+            "Mr. 9",
+            "Baroque Works first contact",
+            "hidden organization",
+            "structure unknown",
+            "first contact",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Baroque Works is present through Miss Wednesday and Mr. 9 before the crew understands its structure, boss, or Arabasta stakes.",
+        "injection": "Use Baroque Works as a suspicious name and pressure source only; full hierarchy and motives remain gated to later decks.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_miss_wednesday_must_not_reveal_vivi_s_royal_identity_yet_014",
+      "title": "Miss Wednesday's Later Identity Remains Locked",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 91,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.miss-wednesday-and-mr-9",
+        "validToAnchor": "op.reverse-mountain.straw-hats-at-twin-cape",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8256,
+        "sortKeyTo": 8384,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: Miss Wednesday's Later Identity Remains Locked"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-wednesday",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Miss Wednesday"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "later identity locked",
+          "Miss Wednesday identity gate",
+          "status hidden"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-wednesday",
+        "faction:baroque-works",
+        "topic:baroque-works-hook",
+        "topic:identity-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Miss Wednesday"
+          ],
+          "entitiesAny": [
+            "Miss Wednesday",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "later identity locked",
+            "Miss Wednesday identity gate",
+            "status hidden"
+          ],
+          "keywordsAny": [
+            "Miss Wednesday",
+            "Baroque Works",
+            "later identity locked",
+            "Miss Wednesday identity gate",
+            "status hidden",
+            "identity hidden",
+            "status locked",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Miss Wednesday's later identity, status, and mission remain hidden during Reverse Mountain; scenes should treat her only as Miss Wednesday.",
+        "injection": "Use this as a hard identity gate: no later-status framing, political mission, or crew escort trust belongs in Reverse Mountain scenes.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_their_invitation_points_the_route_toward_whisky_peak_015",
+      "title": "The Whisky Peak Invitation Is A Suspicious Route Hook",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.miss-wednesday-and-mr-9",
+        "validToAnchor": "op.reverse-mountain.straw-hats-at-twin-cape",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8256,
+        "sortKeyTo": 8384,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: The Whisky Peak Invitation Is A Suspicious Route Hook"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-wednesday",
+          "op:mr-9",
+          "op:whisky-peak",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Miss Wednesday",
+          "Mr. 9"
+        ],
+        "locations": [
+          "Whisky Peak"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "Whisky Peak invitation",
+          "route hook",
+          "suspicious passengers"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-wednesday",
+        "character:mr-9",
+        "location:whisky-peak",
+        "item:going-merry",
+        "topic:grand-line-navigation",
+        "topic:laboon-promise",
+        "topic:baroque-works-hook"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Wednesday",
+            "Mr. 9"
+          ],
+          "entitiesAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Whisky Peak",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "Whisky Peak invitation",
+            "route hook",
+            "suspicious passengers"
+          ],
+          "keywordsAny": [
+            "Miss Wednesday",
+            "Mr. 9",
+            "Whisky Peak",
+            "Going Merry",
+            "Whisky Peak invitation",
+            "route hook",
+            "suspicious passengers",
+            "invitation",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Miss Wednesday and Mr. 9 point the crew toward Whisky Peak as a suspicious route hook after the Laboon incident.",
+        "injection": "Use the invitation to move the party forward with uncertainty: the agents need transport, but their destination is not trustworthy yet.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Reverse Mountain Arc",
+    "chapterRange": "Manga chapters 101-105",
+    "episodeRange": "Anime episodes 62-63",
+    "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+  }
+}

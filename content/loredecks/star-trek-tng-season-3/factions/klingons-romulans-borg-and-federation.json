@@ -1,0 +1,2894 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_sheliak-treaty-legalism",
+      "title": "The Ensigns of Command makes Sheliak legalism the main obstacle",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e02.the-ensigns-of-command",
+        "validToAnchor": "tng.s3.e03.the-survivors",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 12020,
+        "sortKeyTo": 12040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Ensigns of Command",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e02.the-ensigns-of-command",
+          "label": "The Ensigns of Command",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:sheliak-corporate",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Sheliak Corporate",
+          "Starfleet"
+        ],
+        "topics": [
+          "Sheliak",
+          "Tau Cygna V",
+          "treaty legalism"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-ensigns-of-command",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:sheliak-corporate",
+        "faction:starfleet",
+        "topic:sheliak",
+        "topic:tau-cygna-v",
+        "topic:treaty-legalism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Sheliak Corporate",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Sheliak Corporate",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Sheliak",
+            "Tau Cygna V",
+            "treaty legalism"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Sheliak Corporate",
+            "Starfleet",
+            "Sheliak",
+            "Tau Cygna V",
+            "treaty legalism",
+            "The Ensigns of Command",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Sheliak insist on strict treaty terms and view the Tau Cygna V colonists as a legal removal problem rather than a humanitarian exception.",
+        "injection": "Use the Sheliak as precise, treaty-bound legal adversaries. Picard must win through contract language, not emotional appeal.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Ensigns of Command",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Ensigns_of_Command_(episode)",
+        "stardate": "Unknown (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_romulan-rescue-and-worf-refusal",
+      "title": "The Enemy forces Worf to confront Romulan hatred through a blood-donation request",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 67,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e07.the-enemy",
+        "validToAnchor": "tng.s3.e08.the-price",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 12120,
+        "sortKeyTo": 12140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Enemy",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e07.the-enemy",
+          "label": "The Enemy",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:patahk",
+          "st:romulan-star-empire",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Patahk"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Worf Romulan hatred",
+          "blood donation refusal",
+          "family trauma"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-enemy",
+        "character:worf",
+        "character:patahk",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:worf-romulan-hatred",
+        "topic:blood-donation-refusal",
+        "topic:family-trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Patahk"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Patahk",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Worf Romulan hatred",
+            "blood donation refusal",
+            "family trauma"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Patahk",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Klingon Empire",
+            "Worf Romulan hatred",
+            "blood donation refusal",
+            "family trauma",
+            "The Enemy",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Worf refuses to donate compatible blood to a dying Romulan because Romulans killed his parents, exposing deep unresolved trauma and prejudice.",
+        "injection": "After The Enemy, Worf can carry explicit Romulan hatred tied to family loss. Do not yet import full Khitomer or Kurn revelations before Sins of The Father.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Enemy",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Enemy_(episode)",
+        "stardate": "43349.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_romulan-neutral-zone-tension-season-three",
+      "title": "The Enemy keeps Romulan tension active near the Neutral Zone",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 65,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e07.the-enemy",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 12120,
+        "sortKeyTo": 12500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e07.the-enemy",
+          "label": "The Enemy",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:tomalak",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Tomalak"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Romulan tension",
+          "Neutral Zone",
+          "Tomalak"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-enemy",
+        "character:jean-luc-picard",
+        "character:tomalak",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:romulan-tension",
+        "topic:neutral-zone",
+        "topic:tomalak"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Tomalak"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Tomalak",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Romulan tension",
+            "Neutral Zone",
+            "Tomalak"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Tomalak",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Romulan tension",
+            "Neutral Zone",
+            "The Enemy",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Galorndon Core incident keeps Federation-Romulan contact dangerous, suspicious, and militarized without becoming open war.",
+        "injection": "Use season 3 Romulan encounters as tense and strategic. Do not import Sela or reunification material before their reveal windows.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Enemy",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Enemy_(episode)",
+        "stardate": "43349.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_acamarian-reconciliation-local",
+      "title": "The Vengeance Factor is a local Acamarian reconciliation mission",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e09.the-vengeance-factor",
+        "validToAnchor": "tng.s3.e10.the-defector",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 12160,
+        "sortKeyTo": 12180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Vengeance Factor",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e09.the-vengeance-factor",
+          "label": "The Vengeance Factor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:yuta",
+          "st:acamarians",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Yuta"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Acamarians",
+          "Starfleet"
+        ],
+        "topics": [
+          "Acamarian Gatherers",
+          "reconciliation",
+          "vengeance"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-vengeance-factor",
+        "character:jean-luc-picard",
+        "character:yuta",
+        "faction:acamarians",
+        "faction:starfleet",
+        "topic:acamarian-gatherers",
+        "topic:reconciliation",
+        "topic:vengeance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Yuta"
+          ],
+          "factionsAny": [
+            "Acamarians",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Yuta",
+            "Acamarians",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Acamarian Gatherers",
+            "reconciliation",
+            "vengeance"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Yuta",
+            "Acamarians",
+            "Starfleet",
+            "Acamarian Gatherers",
+            "reconciliation",
+            "vengeance",
+            "The Vengeance Factor",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard mediates between Acamarian Gatherers and Marouk government authority, but the durable issue is vengeance sabotage inside reconciliation.",
+        "injection": "Use Acamarian politics only when clan vengeance, Gatherers, or Marouk reconciliation are relevant. Keep it local.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Vengeance Factor",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Vengeance_Factor_(episode)",
+        "stardate": "43421.9 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_jarok-defection-romulan-trap",
+      "title": "The Defector uses Jarok defection to expose Romulan deception and tragedy",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 59,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e10.the-defector",
+        "validToAnchor": "tng.s3.e11.the-hunted",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 12180,
+        "sortKeyTo": 12200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Defector",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e10.the-defector",
+          "label": "The Defector",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:alidar-jarok",
+          "st:jean-luc-picard",
+          "st:tomalak",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Alidar Jarok",
+          "Jean-Luc Picard",
+          "Tomalak"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Jarok defection",
+          "Romulan trap",
+          "Tomalak"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-defector",
+        "character:alidar-jarok",
+        "character:jean-luc-picard",
+        "character:tomalak",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:jarok-defection",
+        "topic:romulan-trap",
+        "topic:tomalak"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Alidar Jarok",
+            "Jean-Luc Picard",
+            "Tomalak"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Alidar Jarok",
+            "Jean-Luc Picard",
+            "Tomalak",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Jarok defection",
+            "Romulan trap",
+            "Tomalak"
+          ],
+          "keywordsAny": [
+            "Alidar Jarok",
+            "Jean-Luc Picard",
+            "Tomalak",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Jarok defection",
+            "Romulan trap",
+            "The Defector",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Admiral Jarok defects believing he can prevent war, but the Romulans use his information as a trap and leave him personally ruined.",
+        "injection": "Use Jarok as a tragic Romulan defector gate. His knowledge is sincere, but the larger situation is Romulan strategic deception.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Defector",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Defector_(episode)",
+        "stardate": "43462.5-43465.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_picard-klingon-cloak-countermove",
+      "title": "The Defector shows Picard using Klingon support to counter Romulan pressure",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e10.the-defector",
+        "validToAnchor": "tng.s3.e11.the-hunted",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 12180,
+        "sortKeyTo": 12200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Defector",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e10.the-defector",
+          "label": "The Defector",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:tomalak",
+          "st:klingon-empire",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Tomalak"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Klingon support",
+          "Romulan standoff",
+          "Picard strategy"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-defector",
+        "character:jean-luc-picard",
+        "character:tomalak",
+        "faction:klingon-empire",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:klingon-support",
+        "topic:romulan-standoff",
+        "topic:picard-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Tomalak"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Tomalak",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Klingon support",
+            "Romulan standoff",
+            "Picard strategy"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Tomalak",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Klingon support",
+            "Romulan standoff",
+            "Picard strategy",
+            "The Defector",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard secretly brings Klingon ships to expose Tomalak bluff, showing Federation-Klingon cooperation as a strategic deterrent.",
+        "injection": "Use The Defector as a Federation-Klingon cooperation gate. The Klingons can support Picard against Romulan pressure without becoming the story focus.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Defector",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Defector_(episode)",
+        "stardate": "43462.5-43465.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_federation-membership-ethics-angosia",
+      "title": "The Hunted ties Federation membership to civil-rights scrutiny",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 55,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e11.the-hunted",
+        "validToAnchor": "tng.s3.e12.the-high-ground",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 12200,
+        "sortKeyTo": 12220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Hunted",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e11.the-hunted",
+          "label": "The Hunted",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:roga-danar",
+          "st:united-federation-of-planets",
+          "st:angosia-iii"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Roga Danar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "United Federation of Planets",
+          "Angosia III"
+        ],
+        "topics": [
+          "Federation membership",
+          "civil rights",
+          "veterans"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-hunted",
+        "character:jean-luc-picard",
+        "character:roga-danar",
+        "faction:united-federation-of-planets",
+        "faction:angosia-iii",
+        "topic:federation-membership",
+        "topic:civil-rights",
+        "topic:veterans"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Roga Danar"
+          ],
+          "factionsAny": [
+            "United Federation of Planets",
+            "Angosia III"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Roga Danar",
+            "United Federation of Planets",
+            "Angosia III"
+          ],
+          "topicsAny": [
+            "Federation membership",
+            "civil rights",
+            "veterans"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Roga Danar",
+            "United Federation of Planets",
+            "Angosia III",
+            "Federation membership",
+            "civil rights",
+            "veterans",
+            "The Hunted",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard does not treat Angosia technical eligibility as enough; the treatment of veterans affects whether the planet deserves Federation entry.",
+        "injection": "Use Angosia as a Federation-membership ethics gate: internal civil-rights abuse matters to admission.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Hunted",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Hunted_(episode)",
+        "stardate": "43489.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_q-mortality-in-deja-q",
+      "title": "Deja Q makes Q temporarily mortal and vulnerable",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e13.deja-q",
+        "validToAnchor": "tng.s3.e14.a-matter-of-perspective",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 12240,
+        "sortKeyTo": 12260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Deja Q",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e13.deja-q",
+          "label": "Deja Q",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:q",
+          "st:jean-luc-picard",
+          "st:q-continuum",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Q",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum",
+          "Starfleet"
+        ],
+        "topics": [
+          "mortal Q",
+          "Q Continuum punishment",
+          "Deja Q"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-deja-q",
+        "character:q",
+        "character:jean-luc-picard",
+        "faction:q-continuum",
+        "faction:starfleet",
+        "topic:mortal-q",
+        "topic:q-continuum-punishment",
+        "topic:deja-q"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Q",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "mortal Q",
+            "Q Continuum punishment",
+            "Deja Q"
+          ],
+          "keywordsAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Q Continuum",
+            "Starfleet",
+            "mortal Q",
+            "Q Continuum punishment",
+            "Deja Q",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Continuum strips Q of power and dumps him on the Enterprise, forcing the crew to deal with him as a vulnerable person instead of an omnipotent intruder.",
+        "injection": "Use Deja Q for mortal-Q scenes only inside and after this episode. Do not make Q permanently powerless afterward.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Deja Q",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Deja_Q_(episode)",
+        "stardate": "43539.1 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_enterprise-c-sacrifice-restores-khitomer-path",
+      "title": "Enterprise-C sacrifice protects the Federation-Klingon peace path",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e15.yesterdays-enterprise",
+        "validToAnchor": "tng.s3.e16.the-offspring",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 12280,
+        "sortKeyTo": 12300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Yesterday's Enterprise",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e15.yesterdays-enterprise",
+          "label": "Yesterday's Enterprise",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:rachel-garrett",
+          "st:jean-luc-picard",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Rachel Garrett",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Enterprise-C sacrifice",
+          "Narendra III",
+          "Klingon peace"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-yesterdays-enterprise",
+        "character:rachel-garrett",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:enterprise-c-sacrifice",
+        "topic:narendra-iii",
+        "topic:klingon-peace"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Rachel Garrett",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Rachel Garrett",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Enterprise-C sacrifice",
+            "Narendra III",
+            "Klingon peace"
+          ],
+          "keywordsAny": [
+            "Rachel Garrett",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Klingon Empire",
+            "Enterprise-C sacrifice",
+            "Narendra III",
+            "Klingon peace",
+            "Yesterday's Enterprise",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sending Enterprise-C back to Narendra III restores the history where Klingons view the sacrifice as honorable and the Federation is not at war with them.",
+        "injection": "Use Enterprise-C sacrifice as the reason the normal Federation-Klingon peace path matters. Do not keep the war timeline active after the repair.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Yesterday's Enterprise",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Yesterday's_Enterprise_(episode)",
+        "stardate": "43625.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_kurn-revealed-as-worf-brother",
+      "title": "Sins of The Father reveals Kurn as Worf's brother",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e17.sins-of-the-father",
+        "validToAnchor": "tng.s3.e18.allegiance",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 12320,
+        "sortKeyTo": 12340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Sins of The Father",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e17.sins-of-the-father",
+          "label": "Sins of The Father",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kurn",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Kurn"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Kurn",
+          "Worf brother",
+          "House of Mogh"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sins-of-the-father",
+        "character:worf",
+        "character:kurn",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:kurn",
+        "topic:worf-brother",
+        "topic:house-of-mogh"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Kurn"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Kurn",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Kurn",
+            "Worf brother",
+            "House of Mogh"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Kurn",
+            "Klingon Empire",
+            "Starfleet",
+            "Worf brother",
+            "House of Mogh",
+            "Sins of The Father",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Kurn arrives through the officer exchange and reveals he is Worf brother, opening the Mogh/Duras/Khitomer family trial.",
+        "injection": "After Sins of The Father, Kurn is Worf brother. Before that episode, keep his identity hidden.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sins of The Father",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sins_of_The_Father_(episode)",
+        "stardate": "43685.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_duras-family-framed-mogh",
+      "title": "Sins of The Father reveals Duras family guilt behind the Khitomer accusation",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e17.sins-of-the-father",
+        "validToAnchor": "tng.s3.e18.allegiance",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 12320,
+        "sortKeyTo": 12340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Sins of The Father",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e17.sins-of-the-father",
+          "label": "Sins of The Father",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:duras",
+          "st:kurn",
+          "st:klingon-empire",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Duras",
+          "Kurn"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "Duras",
+          "Khitomer",
+          "Mogh accusation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sins-of-the-father",
+        "character:worf",
+        "character:duras",
+        "character:kurn",
+        "faction:klingon-empire",
+        "faction:romulan-star-empire",
+        "topic:duras",
+        "topic:khitomer",
+        "topic:mogh-accusation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Duras",
+            "Kurn"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Duras",
+            "Kurn",
+            "Klingon Empire",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "Duras",
+            "Khitomer",
+            "Mogh accusation"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Duras",
+            "Kurn",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Khitomer",
+            "Mogh accusation",
+            "Sins of The Father",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Evidence points to Duras father as the Romulan collaborator, but Klingon politics protect Duras family by blaming Mogh.",
+        "injection": "Use Duras as a politically protected enemy after Sins of The Father. Worf knows truth but cannot expose it without destabilizing the Empire.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sins of The Father",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sins_of_The_Father_(episode)",
+        "stardate": "43685.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_worf-accepts-discommendation",
+      "title": "Worf accepts discommendation to protect Klingon political stability",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e17.sins-of-the-father",
+        "validToAnchor": "tng.s3.e18.allegiance",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 12320,
+        "sortKeyTo": 12340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Sins of The Father",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e17.sins-of-the-father",
+          "label": "Sins of The Father",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kurn",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Kurn"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Worf discommendation",
+          "Klingon politics",
+          "House of Mogh"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sins-of-the-father",
+        "character:worf",
+        "character:kurn",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:worf-discommendation",
+        "topic:klingon-politics",
+        "topic:house-of-mogh"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Kurn"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Kurn",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Worf discommendation",
+            "Klingon politics",
+            "House of Mogh"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Kurn",
+            "Klingon Empire",
+            "Starfleet",
+            "Worf discommendation",
+            "Klingon politics",
+            "House of Mogh",
+            "Sins of The Father",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Worf accepts public disgrace even though Mogh is innocent, preserving Kurn life and avoiding a Klingon civil crisis.",
+        "injection": "After Sins of The Father, Worf is discommended in Klingon society. Use this status until a later deck changes it.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sins of The Father",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sins_of_The_Father_(episode)",
+        "stardate": "43685.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_klingon-high-council-political-risk",
+      "title": "Sins of The Father makes Klingon justice subordinate to High Council politics",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e17.sins-of-the-father",
+        "validToAnchor": "tng.s3.e18.allegiance",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 12320,
+        "sortKeyTo": 12340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Sins of The Father",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e17.sins-of-the-father",
+          "label": "Sins of The Father",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kurn",
+          "st:duras",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Kurn",
+          "Duras"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire"
+        ],
+        "topics": [
+          "High Council",
+          "Klingon justice",
+          "political stability"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sins-of-the-father",
+        "character:worf",
+        "character:kurn",
+        "character:duras",
+        "faction:klingon-empire",
+        "topic:high-council",
+        "topic:klingon-justice",
+        "topic:political-stability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Kurn",
+            "Duras"
+          ],
+          "factionsAny": [
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Kurn",
+            "Duras",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "High Council",
+            "Klingon justice",
+            "political stability"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Kurn",
+            "Duras",
+            "Klingon Empire",
+            "High Council",
+            "Klingon justice",
+            "political stability",
+            "Sins of The Father",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Klingon High Council chooses political stability over truth, showing that honor rhetoric does not prevent institutional compromise.",
+        "injection": "Use this as a Klingon-politics gate after Sins of The Father: public honor and political survival can conflict.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sins of The Father",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sins_of_The_Father_(episode)",
+        "stardate": "43685.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_romulan-race-for-gomtuu",
+      "title": "Tin Man keeps Romulans competing for strategic anomalies",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e20.tin-man",
+        "validToAnchor": "tng.s3.e21.hollow-pursuits",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 12380,
+        "sortKeyTo": 12400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Tin Man",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e20.tin-man",
+          "label": "Tin Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:tam-elbrun",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Tam Elbrun"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Romulan competition",
+          "Gomtuu",
+          "strategic anomaly"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-tin-man",
+        "character:jean-luc-picard",
+        "character:tam-elbrun",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:romulan-competition",
+        "topic:gomtuu",
+        "topic:strategic-anomaly"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Tam Elbrun"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Tam Elbrun",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Romulan competition",
+            "Gomtuu",
+            "strategic anomaly"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Tam Elbrun",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Romulan competition",
+            "Gomtuu",
+            "strategic anomaly",
+            "Tin Man",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Romulans race the Enterprise to Gomtuu, reinforcing season 3 Romulan competition over rare strategic discoveries.",
+        "injection": "Use Tin Man as another Romulan strategic-pressure gate. Do not import later Romulan reconciliation arcs.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Tin Man",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tin_Man_(episode)",
+        "stardate": "43779.3 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_borg-return-best-of-both-worlds",
+      "title": "The Best of Both Worlds brings the Borg threat back as a direct invasion crisis",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 12500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Best of Both Worlds",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e26.the-best-of-both-worlds",
+          "label": "The Best of Both Worlds",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:elizabeth-shelby",
+          "st:borg-collective",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Elizabeth Shelby"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Borg Collective",
+          "Starfleet"
+        ],
+        "topics": [
+          "Borg return",
+          "Jouret IV",
+          "Best of Both Worlds"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-best-of-both-worlds",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:elizabeth-shelby",
+        "faction:borg-collective",
+        "faction:starfleet",
+        "topic:borg-return",
+        "topic:jouret-iv",
+        "topic:best-of-both-worlds"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Elizabeth Shelby"
+          ],
+          "factionsAny": [
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Elizabeth Shelby",
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Borg return",
+            "Jouret IV",
+            "Best of Both Worlds"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Elizabeth Shelby",
+            "Borg Collective",
+            "Starfleet",
+            "Borg return",
+            "Jouret IV",
+            "Best of Both Worlds",
+            "The Best of Both Worlds",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Borg return in force, destroy Jouret IV, and move toward Federation space, escalating Q Who warning into active crisis.",
+        "injection": "Use The Best of Both Worlds as the Borg active-threat gate. The Borg are no longer just a distant warning by this episode.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds_(episode)",
+        "stardate": "43989.1-43998.5 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_shelby-arrives-as-borg-specialist",
+      "title": "Shelby arrives as an ambitious Borg specialist and Riker challenger",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 12500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Best of Both Worlds",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e26.the-best-of-both-worlds",
+          "label": "The Best of Both Worlds",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:elizabeth-shelby",
+          "st:william-riker",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Elizabeth Shelby",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Shelby",
+          "Borg specialist",
+          "Riker command"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-best-of-both-worlds",
+        "character:elizabeth-shelby",
+        "character:william-riker",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:shelby",
+        "topic:borg-specialist",
+        "topic:riker-command"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Elizabeth Shelby",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Elizabeth Shelby",
+            "William Riker",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Shelby",
+            "Borg specialist",
+            "Riker command"
+          ],
+          "keywordsAny": [
+            "Elizabeth Shelby",
+            "William Riker",
+            "Starfleet",
+            "Borg Collective",
+            "Shelby",
+            "Borg specialist",
+            "Riker command",
+            "The Best of Both Worlds",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Commander Shelby joins the crisis as a Borg specialist whose ambition and directness pressure Riker command identity.",
+        "injection": "Use Shelby as a Borg-crisis specialist and Riker foil. Do not keep her as a permanent Enterprise-D officer beyond this arc unless a later deck says so.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds_(episode)",
+        "stardate": "43989.1-43998.5 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

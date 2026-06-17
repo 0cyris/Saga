@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Reverse Mountain Arc Context inside Arabasta Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Reverse Mountain Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during reverse mountain arc: grand line entry",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.reverse-mountain",
+        "label": "Reverse Mountain Arc: Grand Line entry"
+      }
+    },
+    {
+      "pattern": "during reverse mountain arc: laboon and crocus",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.laboon-and-crocus",
+        "label": "Reverse Mountain Arc: Laboon and Crocus"
+      }
+    },
+    {
+      "pattern": "during reverse mountain arc: miss wednesday and mr. 9",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.miss-wednesday-and-mr-9",
+        "label": "Reverse Mountain Arc: Miss Wednesday and Mr. 9"
+      }
+    },
+    {
+      "pattern": "during reverse mountain arc: straw hats at twin cape",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.straw-hats-at-twin-cape",
+        "label": "Reverse Mountain Arc: Straw Hats at Twin Cape"
+      }
+    },
+    {
+      "pattern": "during reverse mountain arc: geography and navigation rules",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.geography-and-navigation-rules",
+        "label": "Reverse Mountain Arc: Geography and navigation rules"
+      }
+    },
+    {
+      "pattern": "during reverse mountain arc: baroque works hook",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.baroque-works-hook",
+        "label": "Reverse Mountain Arc: Baroque Works hook"
+      }
+    },
+    {
+      "pattern": "during reverse mountain arc: timeline and spoiler gates",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.timeline-and-spoiler-gates",
+        "label": "Reverse Mountain Arc: Timeline and spoiler gates"
+      }
+    },
+    {
+      "pattern": "during reverse mountain arc: aftermath boundary",
+      "result": {
+        "anchorFrom": "op.reverse-mountain.after",
+        "label": "Reverse Mountain Arc: aftermath boundary"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

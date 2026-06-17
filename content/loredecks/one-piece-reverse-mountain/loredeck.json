@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-reverse-mountain",
+  "type": "bundled",
+  "title": "One Piece: Reverse Mountain Arc",
+  "description": "Reviewed manga-main Loredeck for Grand Line entry mechanics, Reverse Mountain, Twin Cape, Laboon and Crocus, Log Pose basics, and the first Baroque Works route hook.",
+  "fandom": "One Piece",
+  "era": "Reverse Mountain Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-reverse-mountain-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-reverse-mountain",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-reverse-mountain"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "Arabasta Saga"
+    ],
+    "familyOrder": 80
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:arabasta",
+    "arc:reverse-mountain",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "canon",
+    "adaptation": "manga",
+    "medium": "manga",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "reverse_mountain/reverse_mountain.json",
+    "reverse_mountain/laboon-and-crocus.json",
+    "reverse_mountain/miss-wednesday-and-mr-9.json",
+    "reverse_mountain/straw-hats-at-twin-cape.json",
+    "reverse_mountain/geography-and-navigation-rules.json",
+    "reverse_mountain/baroque-works-hook.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 30,
+    "categoryCounts": {
+      "character": 5,
+      "event": 5,
+      "faction": 1,
+      "knowledge": 6,
+      "location": 2,
+      "relationship": 3,
+      "rule": 8
+    },
+    "timelineAnchorCount": 8,
+    "timelineWindowCount": 8,
+    "tagCount": 33,
+    "entityCount": 21
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Reverse Mountain runtime-lore pass completed: cards now emphasize Grand Line entry mechanics, Laboon promise gates, Crocus information limits, Log Pose route constraints, and Baroque Works identity boundaries."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

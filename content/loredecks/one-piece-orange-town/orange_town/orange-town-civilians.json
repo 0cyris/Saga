@@ -1,0 +1,878 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_boodle_represents_civic_pride_in_a_town_buggy_has_emptied_012",
+      "title": "Boodle Defends Civic Pride In An Empty Town",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.orange-town-civilians",
+        "validToAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2256,
+        "sortKeyTo": 2384,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Boodle Defends Civic Pride In An Empty Town"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:boodle",
+          "op:orange-town",
+          "op:buggy"
+        ],
+        "characters": [
+          "Boodle",
+          "Buggy"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [
+          "townspeople"
+        ],
+        "topics": [
+          "mayor duty",
+          "civic pride",
+          "empty town"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:boodle",
+        "location:orange-town",
+        "topic:civilian-stakes",
+        "topic:pirate-occupation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Boodle",
+            "Buggy"
+          ],
+          "entitiesAny": [
+            "Boodle",
+            "Orange Town",
+            "Buggy"
+          ],
+          "topicsAny": [
+            "mayor duty",
+            "civic pride",
+            "empty town"
+          ],
+          "keywordsAny": [
+            "Boodle",
+            "Orange Town",
+            "Buggy",
+            "townspeople",
+            "mayor duty",
+            "civic pride",
+            "empty town",
+            "mayor",
+            "last citizen",
+            "defend town",
+            "Boodle Defends Civic Pride In An Empty Town",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Boodle stays tied to Orange Town as its mayor and civic conscience, defending the town even when Buggy's occupation has driven most residents away.",
+        "injection": "Use Boodle to keep the town from becoming scenery: his pride, fear, and reckless confrontation with Buggy show what the occupation costs locals.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_chouchou_guards_the_pet_shop_as_a_memory_of_his_owner_013",
+      "title": "Chouchou Guards The Pet Shop As Living Memory",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.orange-town-civilians",
+        "validToAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2256,
+        "sortKeyTo": 2384,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Chouchou Guards The Pet Shop As Living Memory"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:chouchou",
+          "op:pet-shop"
+        ],
+        "characters": [
+          "Chouchou"
+        ],
+        "locations": [
+          "pet shop",
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "loyalty stake",
+          "dead owner memory",
+          "pet shop guard"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:chouchou",
+        "location:pet-shop",
+        "topic:civilian-stakes",
+        "topic:loyalty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chouchou"
+          ],
+          "entitiesAny": [
+            "Chouchou",
+            "pet shop"
+          ],
+          "topicsAny": [
+            "loyalty stake",
+            "dead owner memory",
+            "pet shop guard"
+          ],
+          "keywordsAny": [
+            "Chouchou",
+            "pet shop",
+            "Orange Town",
+            "loyalty stake",
+            "dead owner memory",
+            "pet shop guard",
+            "dog",
+            "owner",
+            "guard",
+            "dog food",
+            "Chouchou Guards The Pet Shop As Living Memory",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Chouchou guards the pet shop because it is his dead owner's place, making his loyalty a local emotional stake rather than a generic animal beat.",
+        "injection": "Use Chouchou as a nonverbal loyalty anchor: he cannot explain himself, but his refusal to leave the shop should make Orange Town's damage intimate and specific.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_the_pet_shop_fire_turns_the_conflict_personal_for_luffy_014",
+      "title": "The Pet Shop Fire Makes Buggy's Occupation Personal",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.orange-town-civilians",
+        "validToAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2256,
+        "sortKeyTo": 2384,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: The Pet Shop Fire Makes Buggy's Occupation Personal"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:pet-shop",
+          "op:chouchou",
+          "op:monkey-d-luffy",
+          "op:mohji",
+          "op:richie"
+        ],
+        "characters": [
+          "Chouchou",
+          "Monkey D. Luffy",
+          "Mohji",
+          "Richie"
+        ],
+        "locations": [
+          "pet shop",
+          "Orange Town"
+        ],
+        "objects": [
+          "dog food"
+        ],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "pet shop fire",
+          "Luffy anger trigger",
+          "civilian stakes"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:chouchou",
+        "character:monkey-d-luffy",
+        "character:mohji",
+        "character:richie",
+        "location:pet-shop",
+        "topic:civilian-stakes",
+        "topic:loyalty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chouchou",
+            "Monkey D. Luffy",
+            "Mohji",
+            "Richie"
+          ],
+          "entitiesAny": [
+            "pet shop",
+            "Chouchou",
+            "Monkey D. Luffy",
+            "Mohji",
+            "Richie"
+          ],
+          "topicsAny": [
+            "pet shop fire",
+            "Luffy anger trigger",
+            "civilian stakes"
+          ],
+          "keywordsAny": [
+            "pet shop",
+            "Chouchou",
+            "Monkey D. Luffy",
+            "Mohji",
+            "Richie",
+            "Orange Town",
+            "dog food",
+            "Buggy Pirates",
+            "pet shop fire",
+            "Luffy anger trigger",
+            "civilian stakes",
+            "burned",
+            "last box",
+            "personal wrong",
+            "The Pet Shop Fire Makes Buggy's Occupation Personal",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The pet shop burning turns Buggy's crew from a general pirate threat into a personal wrong that Luffy answers on Chouchou's behalf.",
+        "injection": "Use the fire as an emotional pivot: Luffy does not need a speech about justice, because Chouchou's loss and the last box of dog food give him a concrete reason to fight.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_townspeople_are_displaced_before_the_pirates_are_defeated_015",
+      "title": "Orange Town Starts Empty Because Civilians Have Fled",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.orange-town-civilians",
+        "validToAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2256,
+        "sortKeyTo": 2384,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Orange Town Starts Empty Because Civilians Have Fled"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:orange-town",
+          "op:townspeople",
+          "op:buggy-pirates"
+        ],
+        "characters": [],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [
+          "townspeople",
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "evacuated town",
+          "civilian displacement",
+          "occupation state"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:orange-town",
+        "faction:townspeople",
+        "faction:buggy-pirates",
+        "topic:civilian-stakes",
+        "topic:pirate-occupation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Orange Town",
+            "townspeople",
+            "Buggy Pirates"
+          ],
+          "topicsAny": [
+            "evacuated town",
+            "civilian displacement",
+            "occupation state"
+          ],
+          "keywordsAny": [
+            "Orange Town",
+            "townspeople",
+            "Buggy Pirates",
+            "evacuated town",
+            "civilian displacement",
+            "occupation state",
+            "evacuated",
+            "empty streets",
+            "displaced",
+            "returning townspeople",
+            "Orange Town Starts Empty Because Civilians Have Fled",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Orange Town should feel mostly emptied during the conflict because Buggy's pirates have displaced civilians before the final fight.",
+        "injection": "Use sparse streets, shuttered homes, and returning townspeople as world-state signals; the civilians matter even when most are offscreen during the fighting.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_orange_town_should_feel_damaged_but_recoverable_after_buggy_leaves_016",
+      "title": "Orange Town Should Recover With Left-Behind Treasure",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.orange-town-civilians",
+        "validToAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2256,
+        "sortKeyTo": 2384,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Orange Town Should Recover With Left-Behind Treasure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:orange-town",
+          "op:treasure",
+          "op:monkey-d-luffy",
+          "op:nami",
+          "op:townspeople"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Nami"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "treasure"
+        ],
+        "factions": [
+          "townspeople"
+        ],
+        "topics": [
+          "rebuild aftermath",
+          "left-behind treasure",
+          "town recovery"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:orange-town",
+        "item:treasure",
+        "faction:townspeople",
+        "topic:civilian-stakes",
+        "topic:orange-town-aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Orange Town",
+            "treasure",
+            "Monkey D. Luffy",
+            "Nami",
+            "townspeople"
+          ],
+          "topicsAny": [
+            "rebuild aftermath",
+            "left-behind treasure",
+            "town recovery"
+          ],
+          "keywordsAny": [
+            "Orange Town",
+            "treasure",
+            "Monkey D. Luffy",
+            "Nami",
+            "townspeople",
+            "rebuild aftermath",
+            "left-behind treasure",
+            "town recovery",
+            "5,000,000",
+            "rebuild",
+            "treasure bag",
+            "aftermath",
+            "Orange Town Should Recover With Left-Behind Treasure",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "After Buggy is defeated, Orange Town remains damaged but recoverable, helped by the treasure Luffy leaves behind for the townspeople despite Nami's objections.",
+        "injection": "Use the aftermath as messy but hopeful: locals can rebuild, Nami is angry about lost treasure, and Luffy treats the town's recovery as more important than keeping every bag.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    }
+  ]
+}

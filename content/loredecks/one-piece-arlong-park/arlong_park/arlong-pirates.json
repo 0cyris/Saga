@@ -1,0 +1,1023 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_arlong_rules_the_region_through_fish_man_strength_and_intimidation_007",
+      "title": "Arlong Rules Through Fish-Man Strength, Money, And Fear",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.arlong-pirates",
+        "validToAnchor": "op.arlong-park.village-occupation-and-money",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5090,
+        "sortKeyTo": 5180,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Arlong Rules Through Fish-Man Strength, Money, And Fear"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:arlong",
+          "op:arlong-pirates",
+          "op:fish-men",
+          "op:cocoyasi-village"
+        ],
+        "characters": [
+          "Arlong"
+        ],
+        "locations": [
+          "Cocoyasi Village"
+        ],
+        "objects": [],
+        "factions": [
+          "Arlong Pirates",
+          "Fish-Men"
+        ],
+        "topics": [
+          "Arlong occupation",
+          "fish-man strength",
+          "money intimidation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:arlong",
+        "faction:arlong-pirates",
+        "faction:fish-men",
+        "location:cocoyasi-village",
+        "topic:arlong-occupation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Arlong"
+          ],
+          "entitiesAny": [
+            "Arlong",
+            "Arlong Pirates",
+            "Fish-Men",
+            "Cocoyasi Village"
+          ],
+          "topicsAny": [
+            "Arlong occupation",
+            "fish-man strength",
+            "money intimidation"
+          ],
+          "keywordsAny": [
+            "Arlong",
+            "Arlong Pirates",
+            "Fish-Men",
+            "Cocoyasi Village",
+            "Arlong occupation",
+            "fish-man strength",
+            "money intimidation",
+            "occupation",
+            "Arlong rule",
+            "money",
+            "Arlong Rules Through Fish-Man Strength, Money, And Fear",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Arlong rules the region through Fish-Man strength, money extraction, intimidation, and the belief that humans can be bought or broken.",
+        "injection": "Use Arlong as an occupier first: his violence, tribute demands, and superiority rhetoric should pressure every Cocoyasi scene.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_hachi_fights_with_six_swords_and_a_less_cruel_personality_than_arlong_008",
+      "title": "Hachi Fights With Six Swords Without Arlong's Cruelty",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.arlong-pirates",
+        "validToAnchor": "op.arlong-park.village-occupation-and-money",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5090,
+        "sortKeyTo": 5180,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Hachi Fights With Six Swords Without Arlong's Cruelty"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:hachi",
+          "op:roronoa-zoro",
+          "op:arlong-pirates"
+        ],
+        "characters": [
+          "Hachi",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Arlong Pirates"
+        ],
+        "topics": [
+          "Hachi matchup",
+          "six sword style",
+          "less cruel subordinate"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:hachi",
+        "character:roronoa-zoro",
+        "faction:arlong-pirates",
+        "topic:hachi-matchup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hachi",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Hachi",
+            "Roronoa Zoro",
+            "Arlong Pirates"
+          ],
+          "topicsAny": [
+            "Hachi matchup",
+            "six sword style",
+            "less cruel subordinate"
+          ],
+          "keywordsAny": [
+            "Hachi",
+            "Roronoa Zoro",
+            "Arlong Pirates",
+            "Hachi matchup",
+            "six sword style",
+            "less cruel subordinate",
+            "six swords",
+            "Zoro",
+            "Hachi Fights With Six Swords Without Arlong's Cruelty",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Hachi fights Zoro with Six Sword Style and a more affable personality than Arlong, but in this arc he still serves the occupying Arlong Pirates.",
+        "injection": "Use Hachi as distinct from Arlong without importing later redemption: he can be comic and less cruel while still an active opponent here.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_kuroobi_pressures_sanji_through_martial_arts_and_water_advantage_009",
+      "title": "Kuroobi Pressures Sanji With Martial Arts And Water Advantage",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.arlong-pirates",
+        "validToAnchor": "op.arlong-park.village-occupation-and-money",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5090,
+        "sortKeyTo": 5180,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Kuroobi Pressures Sanji With Martial Arts And Water Advantage"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:kuroobi",
+          "op:sanji",
+          "op:fish-men"
+        ],
+        "characters": [
+          "Kuroobi",
+          "Sanji"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Fish-Men"
+        ],
+        "topics": [
+          "Kuroobi matchup",
+          "underwater danger",
+          "fish-man advantage"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:kuroobi",
+        "character:sanji",
+        "faction:fish-men",
+        "topic:kuroobi-matchup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kuroobi",
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Kuroobi",
+            "Sanji",
+            "Fish-Men"
+          ],
+          "topicsAny": [
+            "Kuroobi matchup",
+            "underwater danger",
+            "fish-man advantage"
+          ],
+          "keywordsAny": [
+            "Kuroobi",
+            "Sanji",
+            "Fish-Men",
+            "Kuroobi matchup",
+            "underwater danger",
+            "fish-man advantage",
+            "underwater",
+            "martial arts",
+            "Kuroobi Pressures Sanji With Martial Arts And Water Advantage",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Kuroobi pressures Sanji through Fish-Man martial arts and underwater advantage, making rescue timing around Luffy part of the fight.",
+        "injection": "Use Kuroobi as the water-threat gate: Sanji is dangerous on land, but underwater conditions briefly tilt the fight and urgency against him.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_chew_turns_water_spitting_into_marksmanship_against_usopp_010",
+      "title": "Chew Turns Water Spitting Into Usopp's Marksmanship Test",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.arlong-pirates",
+        "validToAnchor": "op.arlong-park.village-occupation-and-money",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5090,
+        "sortKeyTo": 5180,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Chew Turns Water Spitting Into Usopp's Marksmanship Test"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:chew",
+          "op:usopp",
+          "op:fish-men"
+        ],
+        "characters": [
+          "Chew",
+          "Usopp"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Fish-Men"
+        ],
+        "topics": [
+          "Chew matchup",
+          "water shots",
+          "Usopp resolve"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:chew",
+        "character:usopp",
+        "faction:fish-men",
+        "topic:chew-matchup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chew",
+            "Usopp"
+          ],
+          "entitiesAny": [
+            "Chew",
+            "Usopp",
+            "Fish-Men"
+          ],
+          "topicsAny": [
+            "Chew matchup",
+            "water shots",
+            "Usopp resolve"
+          ],
+          "keywordsAny": [
+            "Chew",
+            "Usopp",
+            "Fish-Men",
+            "Chew matchup",
+            "water shots",
+            "Usopp resolve",
+            "Chew Turns Water Spitting Into Usopp's Marksmanship Test",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Chew turns water spitting into a ranged marksmanship threat that forces Usopp to fight through fear rather than rely on bravado.",
+        "injection": "Use Chew as Usopp's courage test: the fight should move from fake defeat and panic into improvised resolve.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_momoo_gives_the_crew_a_sea_beast_threat_before_the_park_battle_011",
+      "title": "Momoo Adds A Sea-Beast Threat Before The Main Assault",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.arlong-pirates",
+        "validToAnchor": "op.arlong-park.village-occupation-and-money",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5090,
+        "sortKeyTo": 5180,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Momoo Adds A Sea-Beast Threat Before The Main Assault"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:momoo",
+          "op:arlong-pirates",
+          "op:monkey-d-luffy",
+          "op:sanji"
+        ],
+        "characters": [
+          "Momoo",
+          "Monkey D. Luffy",
+          "Sanji"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Arlong Pirates"
+        ],
+        "topics": [
+          "Momoo threat",
+          "sea beast pressure",
+          "pre-battle scale"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:momoo",
+        "faction:arlong-pirates",
+        "character:monkey-d-luffy",
+        "character:sanji",
+        "topic:momoo-threat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Momoo",
+            "Monkey D. Luffy",
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Momoo",
+            "Arlong Pirates",
+            "Monkey D. Luffy",
+            "Sanji"
+          ],
+          "topicsAny": [
+            "Momoo threat",
+            "sea beast pressure",
+            "pre-battle scale"
+          ],
+          "keywordsAny": [
+            "Momoo",
+            "Arlong Pirates",
+            "Monkey D. Luffy",
+            "Sanji",
+            "Momoo threat",
+            "sea beast pressure",
+            "pre-battle scale",
+            "sea cow",
+            "approach",
+            "Momoo Adds A Sea-Beast Threat Before The Main Assault",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Momoo gives the crew a sea-beast threat before the main Arlong Park battle, showing that Arlong's control reaches into the surrounding waters.",
+        "injection": "Use Momoo as local sea pressure, not a broad monster entry: the point is that the approach to Arlong Park is already controlled.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_arlong_s_superiority_rhetoric_belongs_to_this_arc_without_later_fish_man_island_context_012",
+      "title": "Arlong's Superiority Rhetoric Stays Arc-Local",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.arlong-pirates",
+        "validToAnchor": "op.arlong-park.village-occupation-and-money",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5090,
+        "sortKeyTo": 5180,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Arlong's Superiority Rhetoric Stays Arc-Local"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:arlong",
+          "op:fish-men",
+          "op:arlong-pirates"
+        ],
+        "characters": [
+          "Arlong"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Fish-Men",
+          "Arlong Pirates"
+        ],
+        "topics": [
+          "fish-man superiority rhetoric",
+          "anti-lore boundary",
+          "arc-local prejudice"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:arlong",
+        "faction:fish-men",
+        "faction:arlong-pirates",
+        "topic:fish-man-superiority-rhetoric"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Arlong"
+          ],
+          "entitiesAny": [
+            "Arlong",
+            "Fish-Men",
+            "Arlong Pirates"
+          ],
+          "topicsAny": [
+            "fish-man superiority rhetoric",
+            "anti-lore boundary",
+            "arc-local prejudice"
+          ],
+          "keywordsAny": [
+            "Arlong",
+            "Fish-Men",
+            "Arlong Pirates",
+            "fish-man superiority rhetoric",
+            "anti-lore boundary",
+            "arc-local prejudice",
+            "superiority",
+            "Fish-Man Island blocked",
+            "prejudice",
+            "Arlong's Superiority Rhetoric Stays Arc-Local",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Arlong uses Fish-Man superiority rhetoric to justify rule over humans, but this deck should not import later Fish-Man Island history to explain or soften it.",
+        "injection": "Use Arlong's prejudice as the ideology of this occupation; keep later race-history context gated to later arcs.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    }
+  ]
+}

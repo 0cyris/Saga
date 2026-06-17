@@ -1,0 +1,514 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Manga-main Whisky Peak deck covering bounty-hunter hospitality, Baroque Works secrecy, Zoro and Luffy misunderstanding, Vivi and Igaram reveals, officer-agent pressure, and Arabasta mission handoff.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.whisky-peak.whisky-peak",
+      "label": "Whisky Peak Arc: Trap town and hunters",
+      "sortKey": 9000,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Trap town and hunters"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.baroque-works-structure",
+      "label": "Whisky Peak Arc: Baroque Works structure",
+      "sortKey": 9112,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Baroque Works structure"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.zoro-and-luffy-conflict",
+      "label": "Whisky Peak Arc: Zoro and Luffy conflict",
+      "sortKey": 9224,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Zoro and Luffy conflict"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.vivi-igaram-and-arabasta",
+      "label": "Whisky Peak Arc: Vivi, Igaram, and Arabasta",
+      "sortKey": 9336,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Vivi, Igaram, and Arabasta"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.agents-and-side-characters",
+      "label": "Whisky Peak Arc: Agents and side characters",
+      "sortKey": 9448,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Agents and side characters"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.crew-decision-and-pursuit",
+      "label": "Whisky Peak Arc: Crew decision and pursuit",
+      "sortKey": 9560,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Crew decision and pursuit"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.navigation-and-course",
+      "label": "Whisky Peak Arc: Navigation and course",
+      "sortKey": 9672,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Navigation and course"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.timeline-and-spoiler-gates",
+      "label": "Whisky Peak Arc: Timeline and spoiler gates",
+      "sortKey": 9784,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.whisky-peak.after",
+      "label": "Whisky Peak Arc: aftermath boundary",
+      "sortKey": 9999,
+      "arc": "Whisky Peak Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "106-114",
+      "episode": "64-67",
+      "aliases": [
+        "Whisky Peak Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.whisky-peak.window.full",
+      "label": "Whisky Peak Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.whisky-peak",
+      "anchorTo": "op.whisky-peak.after",
+      "sortKeyFrom": 9000,
+      "sortKeyTo": 9999,
+      "aliases": [
+        "Whisky Peak Arc",
+        "whisky-peak"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.whisky-peak",
+      "label": "Whisky Peak Arc: Trap town and hunters",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.whisky-peak",
+      "anchorTo": "op.whisky-peak.baroque-works-structure",
+      "sortKeyFrom": 9000,
+      "sortKeyTo": 9112,
+      "aliases": [
+        "Trap town and hunters"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.baroque-works-structure",
+      "label": "Whisky Peak Arc: Baroque Works structure",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.baroque-works-structure",
+      "anchorTo": "op.whisky-peak.zoro-and-luffy-conflict",
+      "sortKeyFrom": 9112,
+      "sortKeyTo": 9224,
+      "aliases": [
+        "Baroque Works structure"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.zoro-and-luffy-conflict",
+      "label": "Whisky Peak Arc: Zoro and Luffy conflict",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.zoro-and-luffy-conflict",
+      "anchorTo": "op.whisky-peak.vivi-igaram-and-arabasta",
+      "sortKeyFrom": 9224,
+      "sortKeyTo": 9336,
+      "aliases": [
+        "Zoro and Luffy conflict"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.vivi-igaram-and-arabasta",
+      "label": "Whisky Peak Arc: Vivi, Igaram, and Arabasta",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.vivi-igaram-and-arabasta",
+      "anchorTo": "op.whisky-peak.agents-and-side-characters",
+      "sortKeyFrom": 9336,
+      "sortKeyTo": 9448,
+      "aliases": [
+        "Vivi, Igaram, and Arabasta"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.agents-and-side-characters",
+      "label": "Whisky Peak Arc: Agents and side characters",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.agents-and-side-characters",
+      "anchorTo": "op.whisky-peak.crew-decision-and-pursuit",
+      "sortKeyFrom": 9448,
+      "sortKeyTo": 9560,
+      "aliases": [
+        "Agents and side characters"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.crew-decision-and-pursuit",
+      "label": "Whisky Peak Arc: Crew decision and pursuit",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.crew-decision-and-pursuit",
+      "anchorTo": "op.whisky-peak.navigation-and-course",
+      "sortKeyFrom": 9560,
+      "sortKeyTo": 9672,
+      "aliases": [
+        "Crew decision and pursuit"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.navigation-and-course",
+      "label": "Whisky Peak Arc: Navigation and course",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.navigation-and-course",
+      "anchorTo": "op.whisky-peak.timeline-and-spoiler-gates",
+      "sortKeyFrom": 9672,
+      "sortKeyTo": 9784,
+      "aliases": [
+        "Navigation and course"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.whisky-peak.window.timeline-and-spoiler-gates",
+      "label": "Whisky Peak Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.whisky-peak.timeline-and-spoiler-gates",
+      "anchorTo": "op.whisky-peak.after",
+      "sortKeyFrom": 9784,
+      "sortKeyTo": 9999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "arabasta"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "whisky-peak"
+      ]
+    }
+  ]
+}

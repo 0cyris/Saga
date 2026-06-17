@@ -1,0 +1,847 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_loguetown_is_framed_as_the_place_where_roger_was_born_and_executed_001",
+      "title": "Loguetown Frames Roger Legacy As A Public Threshold",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.loguetown",
+        "validToAnchor": "op.loguetown.smoker-and-tashigi",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6112,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Loguetown Frames Roger Legacy As A Public Threshold"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:loguetown",
+          "op:gold-roger",
+          "op:roger-legacy",
+          "op:execution-platform"
+        ],
+        "characters": [
+          "Gold Roger"
+        ],
+        "locations": [
+          "Loguetown",
+          "execution platform"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Roger legacy threshold",
+          "town of beginning and end",
+          "public legend"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:loguetown",
+        "character:gold-roger",
+        "knowledge:roger-legacy",
+        "location:execution-platform",
+        "topic:roger-legacy-threshold"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gold Roger"
+          ],
+          "entitiesAny": [
+            "Loguetown",
+            "Gold Roger",
+            "Roger legacy",
+            "execution platform"
+          ],
+          "topicsAny": [
+            "Roger legacy threshold",
+            "town of beginning and end",
+            "public legend"
+          ],
+          "keywordsAny": [
+            "Loguetown",
+            "Gold Roger",
+            "Roger legacy",
+            "execution platform",
+            "Roger legacy threshold",
+            "town of beginning and end",
+            "public legend",
+            "birthplace",
+            "deathplace",
+            "Pirate King",
+            "Loguetown Frames Roger Legacy As A Public Threshold",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Loguetown is framed as Gold Roger's birthplace and execution site, making the town a public threshold before the Grand Line rather than a neutral supply stop.",
+        "injection": "Use Loguetown as a place where pirate legend and present danger overlap: the crew is shopping, but Luffy is walking through the symbolic start of the pirate era.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_the_execution_platform_is_a_public_symbol_not_just_a_battlefield_002",
+      "title": "The Execution Platform Is A Symbol Before It Is A Trap",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.loguetown",
+        "validToAnchor": "op.loguetown.smoker-and-tashigi",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6112,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: The Execution Platform Is A Symbol Before It Is A Trap"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:execution-platform",
+          "op:gold-roger",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Gold Roger",
+          "Monkey D. Luffy"
+        ],
+        "locations": [
+          "execution platform"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "execution platform symbol",
+          "Roger imagery",
+          "public square"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:execution-platform",
+        "character:gold-roger",
+        "character:monkey-d-luffy",
+        "topic:execution-platform-symbol"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gold Roger",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "execution platform",
+            "Gold Roger",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "execution platform symbol",
+            "Roger imagery",
+            "public square"
+          ],
+          "keywordsAny": [
+            "execution platform",
+            "Gold Roger",
+            "Monkey D. Luffy",
+            "execution platform symbol",
+            "Roger imagery",
+            "public square",
+            "platform",
+            "symbol",
+            "The Execution Platform Is A Symbol Before It Is A Trap",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The execution platform is a public symbol of Roger's death before Buggy turns it into a trap for Luffy.",
+        "injection": "Use the platform for symbolic weight: Luffy climbing it should feel like contact with pirate history before the scene turns dangerous.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_roger_s_last_words_motivate_the_age_of_pirates_003",
+      "title": "Roger's Last Words Are Public Legend, Not A Full History Lesson",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.loguetown",
+        "validToAnchor": "op.loguetown.smoker-and-tashigi",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6112,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Roger's Last Words Are Public Legend, Not A Full History Lesson"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:gold-roger",
+          "op:roger-legacy",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Gold Roger",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Roger last words",
+          "pirate era legend",
+          "anti-lore boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:gold-roger",
+        "knowledge:roger-legacy",
+        "character:monkey-d-luffy",
+        "topic:roger-last-words"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gold Roger",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Gold Roger",
+            "Roger legacy",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Roger last words",
+            "pirate era legend",
+            "anti-lore boundary"
+          ],
+          "keywordsAny": [
+            "Gold Roger",
+            "Roger legacy",
+            "Monkey D. Luffy",
+            "Roger last words",
+            "pirate era legend",
+            "anti-lore boundary",
+            "last words",
+            "age of pirates",
+            "legend",
+            "Roger's Last Words Are Public Legend, Not A Full History Lesson",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Roger's last words motivate the age of pirates as public legend in Loguetown, but this deck should not explain later Roger history or hidden truths.",
+        "injection": "Use Roger lore as the town's mythic pressure only: enough to motivate Luffy and the public, not enough to reveal later canon.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_the_town_is_the_final_east_blue_stop_before_the_grand_line_004",
+      "title": "Loguetown Is The Final East Blue Stop Before The Grand Line",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.loguetown",
+        "validToAnchor": "op.loguetown.smoker-and-tashigi",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6112,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Loguetown Is The Final East Blue Stop Before The Grand Line"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:loguetown",
+          "op:grand-line",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [],
+        "locations": [
+          "Loguetown",
+          "Grand Line"
+        ],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "final East Blue stop",
+          "Grand Line threshold",
+          "last supplies"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:loguetown",
+        "location:grand-line",
+        "faction:straw-hat-pirates",
+        "topic:final-east-blue-stop"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Loguetown",
+            "Grand Line",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "final East Blue stop",
+            "Grand Line threshold",
+            "last supplies"
+          ],
+          "keywordsAny": [
+            "Loguetown",
+            "Grand Line",
+            "Straw Hat Pirates",
+            "final East Blue stop",
+            "Grand Line threshold",
+            "last supplies",
+            "last stop",
+            "supplies",
+            "threshold",
+            "Loguetown Is The Final East Blue Stop Before The Grand Line",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Loguetown is the crew's final major East Blue stop before the Grand Line, so shopping and Marine pressure both carry departure stakes.",
+        "injection": "Use the town as a threshold: every errand happens under the pressure that the next sea is larger, stranger, and less forgiving.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_civilian_bustle_contrasts_with_marine_pressure_005",
+      "title": "Civilian Bustle Sits Beside Smoker's Marine Pressure",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.loguetown",
+        "validToAnchor": "op.loguetown.smoker-and-tashigi",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6112,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Civilian Bustle Sits Beside Smoker's Marine Pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:loguetown",
+          "op:loguetown-marines",
+          "op:smoker"
+        ],
+        "characters": [
+          "Smoker"
+        ],
+        "locations": [
+          "Loguetown"
+        ],
+        "objects": [],
+        "factions": [
+          "Loguetown Marines"
+        ],
+        "topics": [
+          "civilian bustle",
+          "Marine control",
+          "town pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:loguetown",
+        "faction:loguetown-marines",
+        "character:smoker",
+        "topic:civilian-bustle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Smoker"
+          ],
+          "entitiesAny": [
+            "Loguetown",
+            "Loguetown Marines",
+            "Smoker"
+          ],
+          "topicsAny": [
+            "civilian bustle",
+            "Marine control",
+            "town pressure"
+          ],
+          "keywordsAny": [
+            "Loguetown",
+            "Loguetown Marines",
+            "Smoker",
+            "civilian bustle",
+            "Marine control",
+            "town pressure",
+            "shops",
+            "crowds",
+            "Marine base",
+            "Civilian Bustle Sits Beside Smoker's Marine Pressure",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Loguetown has normal civilian bustle, shops, and crowds, but Smoker's Marine control turns pirate movement through the city into immediate risk.",
+        "injection": "Use the city as busy, not empty: crowds and shops can hide or expose the crew while Marine pressure tightens.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    }
+  ]
+}

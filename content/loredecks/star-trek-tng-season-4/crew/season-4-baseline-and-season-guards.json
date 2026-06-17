@@ -1,0 +1,1324 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_post-borg-enterprise-season-four-baseline",
+      "title": "Season 4 starts from a repaired but changed Enterprise-D after the Borg crisis",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+          "label": "The Best of Both Worlds, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:worf",
+          "st:beverly-crusher",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Worf",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "post-Borg baseline",
+          "Enterprise-D repair",
+          "season 4 crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:worf",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:post-borg-baseline",
+        "topic:enterprise-d-repair",
+        "topic:season-4-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Worf",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Worf",
+            "Beverly Crusher",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "post-Borg baseline",
+            "Enterprise-D repair",
+            "season 4 crew"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Worf",
+            "Beverly Crusher",
+            "Starfleet",
+            "Borg Collective",
+            "post-Borg baseline",
+            "Enterprise-D repair",
+            "season 4 crew",
+            "The Best of Both Worlds, Part II",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Enterprise-D survives the Borg crisis, repairs at McKinley Station, and returns to exploration with the crew carrying visible Borg, family, and command consequences.",
+        "injection": "Use TNG season 4 as a post-Borg recovery baseline. The ship is operational again, but Picard, Riker, Worf, and the wider Federation should not behave as if Wolf 359 never happened.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_picard-locutus-trauma-season-four",
+      "title": "Picard carries Locutus trauma across season 4",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+          "label": "The Best of Both Worlds, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:locutus",
+          "st:robert-picard",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Locutus",
+          "Robert Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Locutus trauma",
+          "Picard recovery",
+          "Family"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii",
+        "character:jean-luc-picard",
+        "character:locutus",
+        "character:robert-picard",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:locutus-trauma",
+        "topic:picard-recovery",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Locutus",
+            "Robert Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Locutus",
+            "Robert Picard",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Locutus trauma",
+            "Picard recovery",
+            "Family"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Locutus",
+            "Robert Picard",
+            "Starfleet",
+            "Borg Collective",
+            "Locutus trauma",
+            "Picard recovery",
+            "Family",
+            "The Best of Both Worlds, Part II",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard is rescued from Borg assimilation, but Family makes clear the experience leaves anger, shame, and grief that he cannot simply command away.",
+        "injection": "Write Picard after the Borg as functional but wounded. Do not treat his rescue as emotional reset, and do not import later film-era Borg revenge unless a later deck is active.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_worf-klingon-family-politics-season-four",
+      "title": "Worf season 4 state is Starfleet duty under Klingon family pressure",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+          "label": "The Best of Both Worlds, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kurn",
+          "st:alexander-rozhenko",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Kurn",
+          "Alexander Rozhenko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Worf discommendation",
+          "Alexander",
+          "Klingon succession"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii",
+        "character:worf",
+        "character:kurn",
+        "character:alexander-rozhenko",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:worf-discommendation",
+        "topic:alexander",
+        "topic:klingon-succession"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Kurn",
+            "Alexander Rozhenko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Kurn",
+            "Alexander Rozhenko",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Worf discommendation",
+            "Alexander",
+            "Klingon succession"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Kurn",
+            "Alexander Rozhenko",
+            "Starfleet",
+            "Klingon Empire",
+            "Worf discommendation",
+            "Alexander",
+            "Klingon succession",
+            "The Best of Both Worlds, Part II",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Worf begins the season still under discommendation pressure, gains explicit fatherhood through Alexander, and is pulled into the Gowron-Duras succession crisis.",
+        "injection": "Use Worf as both Enterprise security chief and Klingon political actor. His Starfleet duty is real, but Klingon family and honor pressure can override it at Redemption.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_season-four-new-political-frontiers",
+      "title": "Season 4 adds Cardassian, Malcorian, Kaelon, and Trill contact gates without DS9 outcomes",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+          "label": "The Best of Both Worlds, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:cardassian-union",
+          "st:malcorians",
+          "st:kaelons",
+          "st:trill"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Cardassian Union",
+          "Malcorians",
+          "Kaelons",
+          "Trill"
+        ],
+        "topics": [
+          "Cardassians",
+          "first contact",
+          "Trill",
+          "Prime Directive"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii",
+        "character:jean-luc-picard",
+        "faction:cardassian-union",
+        "faction:malcorians",
+        "faction:kaelons",
+        "faction:trill",
+        "topic:cardassians",
+        "topic:first-contact",
+        "topic:trill",
+        "topic:prime-directive"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Cardassian Union",
+            "Malcorians",
+            "Kaelons",
+            "Trill"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Cardassian Union",
+            "Malcorians",
+            "Kaelons",
+            "Trill"
+          ],
+          "topicsAny": [
+            "Cardassians",
+            "first contact",
+            "Trill",
+            "Prime Directive"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Cardassian Union",
+            "Malcorians",
+            "Kaelons",
+            "Trill",
+            "Cardassians",
+            "first contact",
+            "Prime Directive",
+            "The Best of Both Worlds, Part II",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season expands the setting through Cardassian treaty tension, Malcorian first contact, Kaelon cultural law, and early Trill symbiont rules.",
+        "injection": "Use these as TNG season 4 contact gates. Do not import later DS9-era political or species continuity unless those decks are loaded.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_season-four-romulan-klingon-pressure",
+      "title": "Season 4 keeps Romulan manipulation tied to Klingon instability",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+          "label": "The Best of Both Worlds, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:sela",
+          "st:worf",
+          "st:gowron",
+          "st:romulan-star-empire",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Sela",
+          "Worf",
+          "Gowron"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Romulan manipulation",
+          "Duras family",
+          "Sela reveal"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii",
+        "character:sela",
+        "character:worf",
+        "character:gowron",
+        "faction:romulan-star-empire",
+        "faction:klingon-empire",
+        "topic:romulan-manipulation",
+        "topic:duras-family",
+        "topic:sela-reveal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Sela",
+            "Worf",
+            "Gowron"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Sela",
+            "Worf",
+            "Gowron",
+            "Romulan Star Empire",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Romulan manipulation",
+            "Duras family",
+            "Sela reveal"
+          ],
+          "keywordsAny": [
+            "Sela",
+            "Worf",
+            "Gowron",
+            "Romulan Star Empire",
+            "Klingon Empire",
+            "Romulan manipulation",
+            "Duras family",
+            "Sela reveal",
+            "The Best of Both Worlds, Part II",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Romulan pressure runs through The Mind's Eye and Redemption, where Klingon succession politics become vulnerable to covert outside support.",
+        "injection": "Use Romulan involvement as covert political pressure until Redemption reveals Sela. Before that reveal, keep Sela identity guarded.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_season-four-later-series-guard",
+      "title": "TNG season 4 should not import DS9, Voyager, film, or Picard-era material",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+          "label": "The Best of Both Worlds, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:worf",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:cardassian-union"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data",
+          "Worf"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "Cardassian Union"
+        ],
+        "topics": [
+          "future guard",
+          "DS9 spoiler",
+          "Voyager spoiler",
+          "film guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii",
+        "character:jean-luc-picard",
+        "character:data",
+        "character:worf",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:cardassian-union",
+        "topic:future-guard",
+        "topic:ds9-spoiler",
+        "topic:voyager-spoiler",
+        "topic:film-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Worf"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "Cardassian Union"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Worf",
+            "Starfleet",
+            "Borg Collective",
+            "Cardassian Union"
+          ],
+          "topicsAny": [
+            "future guard",
+            "DS9 spoiler",
+            "Voyager spoiler",
+            "film guard"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Worf",
+            "Starfleet",
+            "Borg Collective",
+            "Cardassian Union",
+            "future guard",
+            "DS9 spoiler",
+            "Voyager spoiler",
+            "film guard",
+            "The Best of Both Worlds, Part II",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 4 has its own Borg, Cardassian, Trill, Klingon, Romulan, Data, and Picard family state before later shows and films change those subjects.",
+        "injection": "Block DS9 war arcs, Maquis, Voyager, TNG film, and Picard-era material from this season unless another active deck supplies that later context.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_redemption-cliffhanger-season-boundary",
+      "title": "Season 4 ends before Redemption resolves the Klingon civil-war crisis",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+          "label": "The Best of Both Worlds, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:sela",
+          "st:gowron",
+          "st:klingon-empire",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Sela",
+          "Gowron"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Redemption cliffhanger",
+          "Klingon civil war",
+          "Sela"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii",
+        "character:worf",
+        "character:sela",
+        "character:gowron",
+        "faction:klingon-empire",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:redemption-cliffhanger",
+        "topic:klingon-civil-war",
+        "topic:sela"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Sela",
+            "Gowron"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Sela",
+            "Gowron",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Redemption cliffhanger",
+            "Klingon civil war",
+            "Sela"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Sela",
+            "Gowron",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Redemption cliffhanger",
+            "Klingon civil war",
+            "The Best of Both Worlds, Part II",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Redemption closes the season with the Klingon civil-war crisis active, Worf away from normal Starfleet duty, and Sela newly revealed.",
+        "injection": "End TNG season 4 with the Redemption cliffhanger unresolved. Do not restore Worf or resolve Sela and the civil war until season 5 context is active.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

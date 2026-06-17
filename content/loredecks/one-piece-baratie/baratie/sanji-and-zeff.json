@@ -1,0 +1,1020 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_sanji_protects_his_hands_because_they_are_for_cooking_006",
+      "title": "Sanji Protects His Hands Because They Are For Cooking",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.sanji-and-zeff",
+        "validToAnchor": "op.baratie.krieg-pirates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Sanji Protects His Hands Because They Are For Cooking"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:baratie"
+        ],
+        "characters": [
+          "Sanji"
+        ],
+        "locations": [
+          "Baratie"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hands for cooking",
+          "kick fighting",
+          "cook identity"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "location:baratie",
+        "topic:hands-for-cooking"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "Baratie"
+          ],
+          "topicsAny": [
+            "hands for cooking",
+            "kick fighting",
+            "cook identity"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "Baratie",
+            "hands for cooking",
+            "kick fighting",
+            "cook identity",
+            "kicks",
+            "hands",
+            "cooking tools",
+            "Sanji Protects His Hands Because They Are For Cooking",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji avoids using his hands in combat because his hands are for cooking, so his fighting style centers on kicks and footwork.",
+        "injection": "Use Sanji's combat style as an identity rule: his hands are professional tools, and protecting them matters as much as winning efficiently.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_zeff_s_sacrifice_and_starvation_shape_sanji_s_debt_007",
+      "title": "Zeff's Starvation Sacrifice Holds Sanji At Baratie",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.sanji-and-zeff",
+        "validToAnchor": "op.baratie.krieg-pirates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Zeff's Starvation Sacrifice Holds Sanji At Baratie"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:zeff",
+          "op:sanji",
+          "op:all-blue"
+        ],
+        "characters": [
+          "Zeff",
+          "Sanji"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "starvation debt",
+          "shared dream",
+          "protective debt"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:zeff",
+        "character:sanji",
+        "knowledge:all-blue",
+        "topic:starvation-debt"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Zeff",
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Zeff",
+            "Sanji",
+            "All Blue"
+          ],
+          "topicsAny": [
+            "starvation debt",
+            "shared dream",
+            "protective debt"
+          ],
+          "keywordsAny": [
+            "Zeff",
+            "Sanji",
+            "All Blue",
+            "starvation debt",
+            "shared dream",
+            "protective debt",
+            "starvation",
+            "island",
+            "debt",
+            "Zeff's Starvation Sacrifice Holds Sanji At Baratie",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji feels bound to Baratie because Zeff saved him, gave him food, sacrificed his own chance to sail, and shares the All Blue dream.",
+        "injection": "Use Sanji's debt as emotional gravity: he can want the sea and still feel that leaving Zeff would be betrayal until the goodbye breaks the stalemate.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_the_all_blue_dream_is_sanji_s_reason_to_leave_the_restaurant_008",
+      "title": "All Blue Gives Sanji A Valid Reason To Leave",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.sanji-and-zeff",
+        "validToAnchor": "op.baratie.krieg-pirates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: All Blue Gives Sanji A Valid Reason To Leave"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:all-blue",
+          "op:zeff",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Sanji",
+          "Zeff",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "All Blue dream",
+          "recruitment motive",
+          "cook dream"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "knowledge:all-blue",
+        "character:zeff",
+        "character:monkey-d-luffy",
+        "topic:all-blue-dream"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji",
+            "Zeff",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "All Blue",
+            "Zeff",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "All Blue dream",
+            "recruitment motive",
+            "cook dream"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "All Blue",
+            "Zeff",
+            "Monkey D. Luffy",
+            "All Blue dream",
+            "recruitment motive",
+            "cook dream",
+            "dream",
+            "cook",
+            "All Blue Gives Sanji A Valid Reason To Leave",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji's dream of finding the All Blue is a valid recruitment motive in Baratie and does not require any later family or lineage material.",
+        "injection": "Use All Blue as Sanji's forward pull: it is a cook's impossible sea-dream that Luffy respects and Zeff wants him to pursue.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_sanji_feeds_enemies_because_hunger_overrides_disgust_009",
+      "title": "Sanji Feeds Starving Gin Despite Enemy Risk",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.sanji-and-zeff",
+        "validToAnchor": "op.baratie.krieg-pirates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Sanji Feeds Starving Gin Despite Enemy Risk"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:gin",
+          "op:krieg-pirates",
+          "op:baratie"
+        ],
+        "characters": [
+          "Sanji",
+          "Gin"
+        ],
+        "locations": [
+          "Baratie"
+        ],
+        "objects": [],
+        "factions": [
+          "Krieg Pirates"
+        ],
+        "topics": [
+          "Gin fed",
+          "enemy hunger",
+          "Sanji food ethics"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "character:gin",
+        "faction:krieg-pirates",
+        "location:baratie",
+        "topic:gin-fed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji",
+            "Gin"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "Gin",
+            "Krieg Pirates",
+            "Baratie"
+          ],
+          "topicsAny": [
+            "Gin fed",
+            "enemy hunger",
+            "Sanji food ethics"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "Gin",
+            "Krieg Pirates",
+            "Baratie",
+            "Gin fed",
+            "enemy hunger",
+            "Sanji food ethics",
+            "starving Gin",
+            "meal",
+            "enemy risk",
+            "Sanji Feeds Starving Gin Despite Enemy Risk",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji secretly feeds starving Gin even though Gin is an enemy pirate, and that mercy later brings Krieg's attention to Baratie.",
+        "injection": "Use this as a high-value Baratie event gate: Sanji's best trait creates danger, so the scene should honor both mercy and consequence.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_his_kicking_style_keeps_his_hands_clean_for_cooking_010",
+      "title": "Sanji's Kicks Keep Cooking And Combat Separate",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.sanji-and-zeff",
+        "validToAnchor": "op.baratie.krieg-pirates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Sanji's Kicks Keep Cooking And Combat Separate"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:pearl",
+          "op:gin"
+        ],
+        "characters": [
+          "Sanji",
+          "Pearl",
+          "Gin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "kick combat",
+          "hands rule",
+          "Baratie fighting"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "character:pearl",
+        "character:gin",
+        "topic:kick-combat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji",
+            "Pearl",
+            "Gin"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "Pearl",
+            "Gin"
+          ],
+          "topicsAny": [
+            "kick combat",
+            "hands rule",
+            "Baratie fighting"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "Pearl",
+            "Gin",
+            "kick combat",
+            "hands rule",
+            "Baratie fighting",
+            "kicking style",
+            "chef",
+            "combat",
+            "Sanji's Kicks Keep Cooking And Combat Separate",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji fights with kicks to keep cooking and combat separate, letting him brawl without violating his standard for a cook's hands.",
+        "injection": "Use Sanji's kicks as disciplined style, not random flair: he is a chef first, and his body language should protect that identity.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_zeff_forces_sanji_toward_departure_through_harsh_affection_011",
+      "title": "Zeff Pushes Sanji Away Through Harsh Affection",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.sanji-and-zeff",
+        "validToAnchor": "op.baratie.krieg-pirates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Zeff Pushes Sanji Away Through Harsh Affection"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:zeff",
+          "op:sanji",
+          "op:baratie-cooks"
+        ],
+        "characters": [
+          "Zeff",
+          "Sanji"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baratie cooks"
+        ],
+        "topics": [
+          "Sanji goodbye setup",
+          "harsh affection",
+          "protective lie"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:zeff",
+        "character:sanji",
+        "faction:baratie-cooks",
+        "topic:sanji-goodbye-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Zeff",
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Zeff",
+            "Sanji",
+            "Baratie cooks"
+          ],
+          "topicsAny": [
+            "Sanji goodbye setup",
+            "harsh affection",
+            "protective lie"
+          ],
+          "keywordsAny": [
+            "Zeff",
+            "Sanji",
+            "Baratie cooks",
+            "Sanji goodbye setup",
+            "harsh affection",
+            "protective lie",
+            "goodbye",
+            "soup lie",
+            "leave Baratie",
+            "Zeff Pushes Sanji Away Through Harsh Affection",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Zeff and the Baratie cooks push Sanji toward departure through insults, staged complaints, and rough affection because direct tenderness would keep him trapped.",
+        "injection": "Use the goodbye setup as emotional pressure: the cooks are bad at softness, but their goal is to make Sanji accept the voyage he wants.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    }
+  ]
+}

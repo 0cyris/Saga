@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Whisky Peak Arc Context inside Arabasta Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Whisky Peak Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during whisky peak arc: trap town and hunters",
+      "result": {
+        "anchorFrom": "op.whisky-peak.whisky-peak",
+        "label": "Whisky Peak Arc: Trap town and hunters"
+      }
+    },
+    {
+      "pattern": "during whisky peak arc: baroque works structure",
+      "result": {
+        "anchorFrom": "op.whisky-peak.baroque-works-structure",
+        "label": "Whisky Peak Arc: Baroque Works structure"
+      }
+    },
+    {
+      "pattern": "during whisky peak arc: zoro and luffy conflict",
+      "result": {
+        "anchorFrom": "op.whisky-peak.zoro-and-luffy-conflict",
+        "label": "Whisky Peak Arc: Zoro and Luffy conflict"
+      }
+    },
+    {
+      "pattern": "during whisky peak arc: vivi, igaram, and arabasta",
+      "result": {
+        "anchorFrom": "op.whisky-peak.vivi-igaram-and-arabasta",
+        "label": "Whisky Peak Arc: Vivi, Igaram, and Arabasta"
+      }
+    },
+    {
+      "pattern": "during whisky peak arc: agents and side characters",
+      "result": {
+        "anchorFrom": "op.whisky-peak.agents-and-side-characters",
+        "label": "Whisky Peak Arc: Agents and side characters"
+      }
+    },
+    {
+      "pattern": "during whisky peak arc: crew decision and pursuit",
+      "result": {
+        "anchorFrom": "op.whisky-peak.crew-decision-and-pursuit",
+        "label": "Whisky Peak Arc: Crew decision and pursuit"
+      }
+    },
+    {
+      "pattern": "during whisky peak arc: navigation and course",
+      "result": {
+        "anchorFrom": "op.whisky-peak.navigation-and-course",
+        "label": "Whisky Peak Arc: Navigation and course"
+      }
+    },
+    {
+      "pattern": "during whisky peak arc: timeline and spoiler gates",
+      "result": {
+        "anchorFrom": "op.whisky-peak.timeline-and-spoiler-gates",
+        "label": "Whisky Peak Arc: Timeline and spoiler gates"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

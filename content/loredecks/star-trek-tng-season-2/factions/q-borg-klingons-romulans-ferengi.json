@@ -1,0 +1,2362 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_riker-klingon-officer-exchange",
+      "title": "Riker serves aboard the Klingon Pagh through an officer-exchange program",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e08.a-matter-of-honor",
+        "validToAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 11140,
+        "sortKeyTo": 11160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: A Matter Of Honor",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e08.a-matter-of-honor",
+          "label": "A Matter Of Honor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:kargan",
+          "st:klag",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "William Riker",
+          "Kargan",
+          "Klag"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Riker officer exchange",
+          "IKS Pagh",
+          "Klingon culture"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-a-matter-of-honor",
+        "character:william-riker",
+        "character:kargan",
+        "character:klag",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:riker-officer-exchange",
+        "topic:iks-pagh",
+        "topic:klingon-culture"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Kargan",
+            "Klag"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Kargan",
+            "Klag",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Riker officer exchange",
+            "IKS Pagh",
+            "Klingon culture"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Kargan",
+            "Klag",
+            "Starfleet",
+            "Klingon Empire",
+            "Riker officer exchange",
+            "IKS Pagh",
+            "Klingon culture",
+            "A Matter Of Honor",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "A Matter of Honor puts Riker on the IKS Pagh, where he has to adapt to Klingon discipline, food, hierarchy, and suspicion while remaining a Starfleet officer.",
+        "injection": "Use Riker Pagh service as a season 2 Klingon-culture gate. He can respect Klingon command codes without becoming Klingon or abandoning Starfleet values.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Matter Of Honor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Matter_Of_Honor_(episode)",
+        "stardate": "42506.5-42507.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_klingon-chain-of-command-pagh",
+      "title": "A Matter of Honor shows Klingon command as dominance and loyalty under pressure",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e08.a-matter-of-honor",
+        "validToAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 11140,
+        "sortKeyTo": 11160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: A Matter Of Honor",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e08.a-matter-of-honor",
+          "label": "A Matter Of Honor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:kargan",
+          "st:klag",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Kargan",
+          "Klag"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Klingon command",
+          "Pagh",
+          "officer exchange"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-a-matter-of-honor",
+        "character:william-riker",
+        "character:kargan",
+        "character:klag",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:klingon-command",
+        "topic:pagh",
+        "topic:officer-exchange"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Kargan",
+            "Klag"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Kargan",
+            "Klag",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Klingon command",
+            "Pagh",
+            "officer exchange"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Kargan",
+            "Klag",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon command",
+            "Pagh",
+            "officer exchange",
+            "A Matter Of Honor",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Pagh crisis shows Klingon command culture valuing strength, challenge, and decisive loyalty while still operating inside the Federation-Klingon peace.",
+        "injection": "Use this as a Klingon command culture gate for season 2. Do not import later High Council or civil war politics.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Matter Of Honor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Matter_Of_Honor_(episode)",
+        "stardate": "42506.5-42507.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_romulans-in-contagion-are-active-rivals",
+      "title": "Contagion keeps Romulans as active rivals after their season 1 return",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 61,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e11.contagion",
+        "validToAnchor": "tng.s2.e12.the-royale",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 11200,
+        "sortKeyTo": 11220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Contagion",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e11.contagion",
+          "label": "Contagion",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Romulan rival",
+          "Iconia",
+          "Neutral Zone"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-contagion",
+        "character:jean-luc-picard",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:romulan-rival",
+        "topic:iconia",
+        "topic:neutral-zone"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Romulan rival",
+            "Iconia",
+            "Neutral Zone"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Romulan rival",
+            "Iconia",
+            "Neutral Zone",
+            "Contagion",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "A Romulan warbird competes over Iconian technology in Contagion, confirming Romulans are again an active strategic concern.",
+        "injection": "After Contagion, Romulans can be written as cautious and dangerous rivals. Do not import later Sela, reunification, or Dominion-era alliances.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Contagion",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Contagion_(episode)",
+        "stardate": "42609.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_worf-age-of-ascension",
+      "title": "The Icarus Factor shows Worf needing Klingon ritual support from the crew",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e14.the-icarus-factor",
+        "validToAnchor": "tng.s2.e15.pen-pals",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 11260,
+        "sortKeyTo": 11280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Icarus Factor",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e14.the-icarus-factor",
+          "label": "The Icarus Factor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:wesley-crusher",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Age of Ascension",
+          "Worf ritual",
+          "crew support"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-icarus-factor",
+        "character:worf",
+        "character:wesley-crusher",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:age-of-ascension",
+        "topic:worf-ritual",
+        "topic:crew-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Wesley Crusher",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Age of Ascension",
+            "Worf ritual",
+            "crew support"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Wesley Crusher",
+            "Klingon Empire",
+            "Starfleet",
+            "Age of Ascension",
+            "Worf ritual",
+            "crew support",
+            "The Icarus Factor",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Worf undergoes the Age of Ascension ritual aboard the Enterprise, and his crewmates help provide a surrogate Klingon community.",
+        "injection": "Use Worf ritual context as a Klingon identity and crew-bond gate. It should deepen Worf, not turn every Worf scene into ritual exposition.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Icarus Factor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Icarus_Factor_(episode)",
+        "stardate": "42686.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_q-hurls-enterprise-into-borg-contact",
+      "title": "Q Who forces the Enterprise into first contact with the Borg",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e16.q-who",
+        "validToAnchor": "tng.s2.e17.samaritan-snare",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Q Who",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e16.q-who",
+          "label": "Q Who",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:q",
+          "st:jean-luc-picard",
+          "st:guinan",
+          "st:q-continuum",
+          "st:borg-collective",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Q",
+          "Jean-Luc Picard",
+          "Guinan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum",
+          "Borg Collective",
+          "Starfleet"
+        ],
+        "topics": [
+          "Borg first contact",
+          "Q Who",
+          "Q intervention"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-q-who",
+        "character:q",
+        "character:jean-luc-picard",
+        "character:guinan",
+        "faction:q-continuum",
+        "faction:borg-collective",
+        "faction:starfleet",
+        "topic:borg-first-contact",
+        "topic:q-who",
+        "topic:q-intervention"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Guinan"
+          ],
+          "factionsAny": [
+            "Q Continuum",
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Guinan",
+            "Q Continuum",
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Borg first contact",
+            "Q Who",
+            "Q intervention"
+          ],
+          "keywordsAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Guinan",
+            "Q Continuum",
+            "Borg Collective",
+            "Starfleet",
+            "Borg first contact",
+            "Q Who",
+            "Q intervention",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Q propels the Enterprise far beyond Federation space and exposes the crew to a Borg cube before Starfleet is ready.",
+        "injection": "After Q Who, the Borg are known as a real existential threat. Before Q Who, do not name the Borg as the Neutral Zone mystery.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Q Who",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q_Who_(episode)",
+        "stardate": "42761.3-42761.9 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_borg-collective-threat-baseline",
+      "title": "Q Who establishes the Borg as adaptive assimilators interested in technology and life",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 53,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e16.q-who",
+        "validToAnchor": "tng.s2.e17.samaritan-snare",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Q Who",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e16.q-who",
+          "label": "Q Who",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:guinan",
+          "st:borg-collective",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data",
+          "Guinan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Borg Collective",
+          "Starfleet"
+        ],
+        "topics": [
+          "Borg Collective",
+          "adaptation",
+          "assimilation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-q-who",
+        "character:jean-luc-picard",
+        "character:data",
+        "character:guinan",
+        "faction:borg-collective",
+        "faction:starfleet",
+        "topic:borg-collective",
+        "topic:adaptation",
+        "topic:assimilation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Guinan"
+          ],
+          "factionsAny": [
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Guinan",
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Borg Collective",
+            "adaptation",
+            "assimilation"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Guinan",
+            "Borg Collective",
+            "Starfleet",
+            "adaptation",
+            "assimilation",
+            "Q Who",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Borg cube adapts to Enterprise attacks, cuts into the ship, and treats the crew as resources, creating the first real Borg threat baseline.",
+        "injection": "Use Borg season 2 facts as first-contact baseline: adaptive, collective, technologically superior, and dangerous. Do not import Locutus, Hugh, Borg Queen, or Voyager Borg outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Q Who",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q_Who_(episode)",
+        "stardate": "42761.3-42761.9 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_guinan-borg-history-guarded",
+      "title": "Q Who reveals Guinan has prior Borg knowledge without explaining all of it",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e16.q-who",
+        "validToAnchor": "tng.s2.e17.samaritan-snare",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Q Who",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e16.q-who",
+          "label": "Q Who",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:guinan",
+          "st:jean-luc-picard",
+          "st:borg-collective",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Guinan",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Borg Collective",
+          "Starfleet"
+        ],
+        "topics": [
+          "Guinan Borg history",
+          "survivor warning",
+          "Q Who"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-q-who",
+        "character:guinan",
+        "character:jean-luc-picard",
+        "faction:borg-collective",
+        "faction:starfleet",
+        "topic:guinan-borg-history",
+        "topic:survivor-warning",
+        "topic:q-who"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Guinan",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Guinan",
+            "Jean-Luc Picard",
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Guinan Borg history",
+            "survivor warning",
+            "Q Who"
+          ],
+          "keywordsAny": [
+            "Guinan",
+            "Jean-Luc Picard",
+            "Borg Collective",
+            "Starfleet",
+            "Guinan Borg history",
+            "survivor warning",
+            "Q Who",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Guinan recognizes the Borg threat and carries survivor knowledge, but season 2 only reveals enough to warn Picard that the Borg are vastly dangerous.",
+        "injection": "After Q Who, Guinan can warn about the Borg from experience. Do not reveal later El-Aurian specifics or Nexus material.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Q Who",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q_Who_(episode)",
+        "stardate": "42761.3-42761.9 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_k-ehleyr-worf-history",
+      "title": "The Emissary reveals Worf and K'Ehleyr have unresolved romantic history",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 46,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e20.the-emissary",
+        "validToAnchor": "tng.s2.e21.peak-performance",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 11380,
+        "sortKeyTo": 11400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Emissary",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e20.the-emissary",
+          "label": "The Emissary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kehleyr",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "K'Ehleyr"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "K'Ehleyr",
+          "Worf relationship",
+          "Klingon envoy"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-emissary",
+        "character:worf",
+        "character:kehleyr",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:kehleyr",
+        "topic:worf-relationship",
+        "topic:klingon-envoy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "K'Ehleyr"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "K'Ehleyr",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "K'Ehleyr",
+            "Worf relationship",
+            "Klingon envoy"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "K'Ehleyr",
+            "Starfleet",
+            "Klingon Empire",
+            "Worf relationship",
+            "Klingon envoy",
+            "The Emissary",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "K'Ehleyr arrives as a Federation envoy with prior intimate history with Worf, creating a durable relationship gate for Worf before later Klingon family arcs.",
+        "injection": "After The Emissary, Worf and K'Ehleyr have known unresolved history. Do not import Alexander, Duras, or later succession politics yet.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Emissary",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Emissary_(episode)",
+        "stardate": "42901.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_klingon-sleeper-ship-deception",
+      "title": "The Emissary makes a Klingon sleeper ship require culturally precise deception",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e20.the-emissary",
+        "validToAnchor": "tng.s2.e21.peak-performance",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 11380,
+        "sortKeyTo": 11400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Emissary",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e20.the-emissary",
+          "label": "The Emissary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kehleyr",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "K'Ehleyr"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Klingon sleeper ship",
+          "Federation-Klingon peace",
+          "The Emissary"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-emissary",
+        "character:worf",
+        "character:kehleyr",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:klingon-sleeper-ship",
+        "topic:federation-klingon-peace",
+        "topic:the-emissary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "K'Ehleyr"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "K'Ehleyr",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Klingon sleeper ship",
+            "Federation-Klingon peace",
+            "The Emissary"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "K'Ehleyr",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon sleeper ship",
+            "Federation-Klingon peace",
+            "The Emissary",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "K'Ehleyr and Worf must prevent a Klingon sleeper crew from attacking because they awaken believing the Federation-Klingon war is still active.",
+        "injection": "Use the sleeper-ship mission as a Klingon history and deception gate. It does not mean the Federation and Klingons are currently at war.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Emissary",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Emissary_(episode)",
+        "stardate": "42901.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_q-season-two-role-before-borg",
+      "title": "Before Q Who, Q is absent from season 2 day-to-day Enterprise life",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e16.q-who",
+        "validToAnchor": "tng.s2.e16.q-who",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Q Who",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e16.q-who",
+          "label": "Q Who",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:q",
+          "st:jean-luc-picard",
+          "st:q-continuum",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Q",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum",
+          "Starfleet"
+        ],
+        "topics": [
+          "Q Who setup",
+          "Q absence",
+          "Borg contact"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-q-who",
+        "character:q",
+        "character:jean-luc-picard",
+        "faction:q-continuum",
+        "faction:starfleet",
+        "topic:q-who-setup",
+        "topic:q-absence",
+        "topic:borg-contact"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Q",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Q Who setup",
+            "Q absence",
+            "Borg contact"
+          ],
+          "keywordsAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Q Continuum",
+            "Starfleet",
+            "Q Who setup",
+            "Q absence",
+            "Borg contact",
+            "Q Who",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 2 should not make Q a constant presence before Q Who; his intervention is sudden and disruptive when it arrives.",
+        "injection": "Before Q Who, do not have characters expecting Q in ordinary season 2 scenes. After Q Who, he is the reason Borg first contact happened.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Q Who",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q_Who_(episode)",
+        "stardate": "42761.3-42761.9 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_federation-klingon-peace-season-two",
+      "title": "Season 2 Klingon stories assume peace, exchange, and lingering cultural distance",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e08.a-matter-of-honor",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 11140,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e08.a-matter-of-honor",
+          "label": "A Matter Of Honor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:william-riker",
+          "st:kehleyr",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "William Riker",
+          "K'Ehleyr"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Federation-Klingon peace",
+          "officer exchange",
+          "Klingon sleeper ship"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-a-matter-of-honor",
+        "character:worf",
+        "character:william-riker",
+        "character:kehleyr",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:federation-klingon-peace",
+        "topic:officer-exchange",
+        "topic:klingon-sleeper-ship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "William Riker",
+            "K'Ehleyr"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "William Riker",
+            "K'Ehleyr",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Federation-Klingon peace",
+            "officer exchange",
+            "Klingon sleeper ship"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "William Riker",
+            "K'Ehleyr",
+            "Klingon Empire",
+            "Starfleet",
+            "Federation-Klingon peace",
+            "officer exchange",
+            "Klingon sleeper ship",
+            "A Matter Of Honor",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "A Matter of Honor and The Emissary both depend on the Federation and Klingons being at peace while still culturally suspicious and historically burdened.",
+        "injection": "Use Federation-Klingon peace as the season 2 baseline. Klingon warriors may distrust Starfleet, but open war is not the default state.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Matter Of Honor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Matter_Of_Honor_(episode)",
+        "stardate": "42506.5-42507.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_guinan-q-prior-hostility",
+      "title": "Q Who shows Guinan and Q recognize each other with prior hostility",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e16.q-who",
+        "validToAnchor": "tng.s2.e17.samaritan-snare",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Q Who",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e16.q-who",
+          "label": "Q Who",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:guinan",
+          "st:q",
+          "st:q-continuum",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Guinan",
+          "Q"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum",
+          "Starfleet"
+        ],
+        "topics": [
+          "Guinan Q history",
+          "Q Who",
+          "prior hostility"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-q-who",
+        "character:guinan",
+        "character:q",
+        "faction:q-continuum",
+        "faction:starfleet",
+        "topic:guinan-q-history",
+        "topic:q-who",
+        "topic:prior-hostility"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Guinan",
+            "Q"
+          ],
+          "factionsAny": [
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Guinan",
+            "Q",
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Guinan Q history",
+            "Q Who",
+            "prior hostility"
+          ],
+          "keywordsAny": [
+            "Guinan",
+            "Q",
+            "Q Continuum",
+            "Starfleet",
+            "Guinan Q history",
+            "Q Who",
+            "prior hostility",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Guinan and Q have a tense recognition in Q Who, implying prior history without explaining it inside season 2.",
+        "injection": "After Q Who, Guinan can react to Q as someone she knows and distrusts. Do not reveal later El-Aurian specifics or broader Q history in season 2.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Q Who",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q_Who_(episode)",
+        "stardate": "42761.3-42761.9 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_borg-casualties-prove-threat-scale",
+      "title": "Q Who kills Enterprise crew and proves Borg contact is not theoretical",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e16.q-who",
+        "validToAnchor": "tng.s2.e17.samaritan-snare",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Q Who",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e16.q-who",
+          "label": "Q Who",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:guinan",
+          "st:q",
+          "st:borg-collective",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Guinan",
+          "Q"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Borg Collective",
+          "Starfleet"
+        ],
+        "topics": [
+          "Borg casualties",
+          "Enterprise damage",
+          "Borg threat"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-q-who",
+        "character:jean-luc-picard",
+        "character:guinan",
+        "character:q",
+        "faction:borg-collective",
+        "faction:starfleet",
+        "topic:borg-casualties",
+        "topic:enterprise-damage",
+        "topic:borg-threat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Guinan",
+            "Q"
+          ],
+          "factionsAny": [
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Guinan",
+            "Q",
+            "Borg Collective",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Borg casualties",
+            "Enterprise damage",
+            "Borg threat"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Guinan",
+            "Q",
+            "Borg Collective",
+            "Starfleet",
+            "Borg casualties",
+            "Enterprise damage",
+            "Borg threat",
+            "Q Who",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Borg encounter costs Enterprise lives and hull damage, so the threat is not just information about a distant species.",
+        "injection": "After Q Who, treat Borg contact as traumatic and operationally real for the crew, while still blocking Locutus and Wolf 359 outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Q Who",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q_Who_(episode)",
+        "stardate": "42761.3-42761.9 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

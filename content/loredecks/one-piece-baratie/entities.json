@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:all-blue": {
+      "type": "knowledge",
+      "label": "All Blue",
+      "aliases": [
+        "All Blue"
+      ],
+      "canonicalNames": [
+        "All Blue"
+      ],
+      "tags": [
+        "knowledge:all-blue"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:baratie": {
+      "type": "location",
+      "label": "Baratie",
+      "aliases": [
+        "Baratie"
+      ],
+      "canonicalNames": [
+        "Baratie"
+      ],
+      "tags": [
+        "location:baratie"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:baratie-cooks": {
+      "type": "faction",
+      "label": "Baratie cooks",
+      "aliases": [
+        "Baratie cooks"
+      ],
+      "canonicalNames": [
+        "Baratie cooks"
+      ],
+      "tags": [
+        "faction:baratie-cooks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:carne": {
+      "type": "character",
+      "label": "Carne",
+      "aliases": [
+        "Carne"
+      ],
+      "canonicalNames": [
+        "Carne"
+      ],
+      "tags": [
+        "character:carne"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:don-krieg": {
+      "type": "character",
+      "label": "Don Krieg",
+      "aliases": [
+        "Don Krieg"
+      ],
+      "canonicalNames": [
+        "Don Krieg"
+      ],
+      "tags": [
+        "character:don-krieg"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:dracule-mihawk": {
+      "type": "character",
+      "label": "Dracule Mihawk",
+      "aliases": [
+        "Dracule Mihawk"
+      ],
+      "canonicalNames": [
+        "Dracule Mihawk"
+      ],
+      "tags": [
+        "character:dracule-mihawk"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:gin": {
+      "type": "character",
+      "label": "Gin",
+      "aliases": [
+        "Gin"
+      ],
+      "canonicalNames": [
+        "Gin"
+      ],
+      "tags": [
+        "character:gin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:going-merry": {
+      "type": "item",
+      "label": "Going Merry",
+      "aliases": [
+        "Going Merry"
+      ],
+      "canonicalNames": [
+        "Going Merry"
+      ],
+      "tags": [
+        "item:going-merry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:grand-line": {
+      "type": "location",
+      "label": "Grand Line",
+      "aliases": [
+        "Grand Line"
+      ],
+      "canonicalNames": [
+        "Grand Line"
+      ],
+      "tags": [
+        "location:grand-line"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:krieg-pirates": {
+      "type": "faction",
+      "label": "Krieg Pirates",
+      "aliases": [
+        "Krieg Pirates"
+      ],
+      "canonicalNames": [
+        "Krieg Pirates"
+      ],
+      "tags": [
+        "faction:krieg-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:mh5": {
+      "type": "item",
+      "label": "MH5 poison gas",
+      "aliases": [
+        "MH5 poison gas"
+      ],
+      "canonicalNames": [
+        "MH5 poison gas"
+      ],
+      "tags": [
+        "item:mh5"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:nami": {
+      "type": "character",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "character:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:patty": {
+      "type": "character",
+      "label": "Patty",
+      "aliases": [
+        "Patty"
+      ],
+      "canonicalNames": [
+        "Patty"
+      ],
+      "tags": [
+        "character:patty"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:pearl": {
+      "type": "character",
+      "label": "Pearl",
+      "aliases": [
+        "Pearl"
+      ],
+      "canonicalNames": [
+        "Pearl"
+      ],
+      "tags": [
+        "character:pearl"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:sanji": {
+      "type": "character",
+      "label": "Sanji",
+      "aliases": [
+        "Sanji"
+      ],
+      "canonicalNames": [
+        "Sanji"
+      ],
+      "tags": [
+        "character:sanji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:sea-battlefield": {
+      "type": "location",
+      "label": "sea battlefield",
+      "aliases": [
+        "sea battlefield"
+      ],
+      "canonicalNames": [
+        "sea battlefield"
+      ],
+      "tags": [
+        "location:sea-battlefield"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:usopp": {
+      "type": "character",
+      "label": "Usopp",
+      "aliases": [
+        "Usopp"
+      ],
+      "canonicalNames": [
+        "Usopp"
+      ],
+      "tags": [
+        "character:usopp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:yosaku": {
+      "type": "character",
+      "label": "Yosaku",
+      "aliases": [
+        "Yosaku"
+      ],
+      "canonicalNames": [
+        "Yosaku"
+      ],
+      "tags": [
+        "character:yosaku"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    "op:zeff": {
+      "type": "character",
+      "label": "Zeff",
+      "aliases": [
+        "Zeff"
+      ],
+      "canonicalNames": [
+        "Zeff"
+      ],
+      "tags": [
+        "character:zeff"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    }
+  }
+}

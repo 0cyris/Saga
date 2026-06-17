@@ -1,0 +1,867 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_medicine_in_drum_island_is_about_access_ethics_and_hope_not_just_cures_027",
+      "title": "Medicine On Drum Is Access, Ethics, And Hope",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.medicine-and-identity-themes",
+        "validToAnchor": "op.drum-island.battles-and-castle",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11450,
+        "sortKeyTo": 11540,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Medicine On Drum Is Access, Ethics, And Hope"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:medicine",
+          "op:drum-island",
+          "op:doctors",
+          "op:tony-tony-chopper"
+        ],
+        "characters": [
+          "Tony Tony Chopper"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [
+          "doctors"
+        ],
+        "topics": [
+          "medicine ethics",
+          "access to care",
+          "hope"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:medicine",
+        "location:drum-island",
+        "faction:doctors",
+        "character:tony-tony-chopper",
+        "topic:medical-urgency"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper"
+          ],
+          "entitiesAny": [
+            "medicine",
+            "Drum Island",
+            "doctors",
+            "Tony Tony Chopper"
+          ],
+          "topicsAny": [
+            "medicine ethics",
+            "access to care",
+            "hope"
+          ],
+          "keywordsAny": [
+            "medicine",
+            "Drum Island",
+            "doctors",
+            "Tony Tony Chopper",
+            "medicine ethics",
+            "access to care",
+            "hope",
+            "access",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Medicine on Drum Island is about access, ethics, and hope, not just technical cures.",
+        "injection": "Use medicine as the deck's moral center: who receives care, why, and with what hope matters as much as diagnosis.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_hiriluk_is_medically_flawed_but_emotionally_transformative_for_chopper_028",
+      "title": "Chopper's Poison Mushroom Tragedy Shapes His Doctor Identity",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.medicine-and-identity-themes",
+        "validToAnchor": "op.drum-island.battles-and-castle",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11450,
+        "sortKeyTo": 11540,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Chopper's Poison Mushroom Tragedy Shapes His Doctor Identity"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dr-hiriluk",
+          "op:tony-tony-chopper",
+          "op:medicine"
+        ],
+        "characters": [
+          "Dr. Hiriluk",
+          "Tony Tony Chopper"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "poison mushroom tragedy",
+          "Chopper doctor identity",
+          "love without medical knowledge"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dr-hiriluk",
+        "character:tony-tony-chopper",
+        "topic:medicine",
+        "topic:medical-urgency",
+        "topic:chopper-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dr. Hiriluk",
+            "Tony Tony Chopper"
+          ],
+          "entitiesAny": [
+            "Dr. Hiriluk",
+            "Tony Tony Chopper",
+            "medicine"
+          ],
+          "topicsAny": [
+            "poison mushroom tragedy",
+            "Chopper doctor identity",
+            "love without medical knowledge"
+          ],
+          "keywordsAny": [
+            "Dr. Hiriluk",
+            "Tony Tony Chopper",
+            "medicine",
+            "poison mushroom tragedy",
+            "Chopper doctor identity",
+            "love without medical knowledge",
+            "poison mushroom",
+            "Hiriluk",
+            "doctor identity",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Chopper's attempt to save Hiriluk with a poisonous mushroom turns love without medical knowledge into a lasting doctor-identity wound.",
+        "injection": "Use the mushroom tragedy as Chopper's private reason to become a real doctor: good intentions are not enough if he cannot actually heal someone.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_kureha_provides_real_skill_after_hiriluk_s_impossible_dream_029",
+      "title": "Kureha Provides Real Skill After Hiriluk's Dream",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.medicine-and-identity-themes",
+        "validToAnchor": "op.drum-island.battles-and-castle",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11450,
+        "sortKeyTo": 11540,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Kureha Provides Real Skill After Hiriluk's Dream"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dr-kureha",
+          "op:dr-hiriluk",
+          "op:tony-tony-chopper",
+          "op:medicine"
+        ],
+        "characters": [
+          "Dr. Kureha",
+          "Dr. Hiriluk",
+          "Tony Tony Chopper"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kureha skill",
+          "Hiriluk dream",
+          "medical training"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dr-kureha",
+        "character:dr-hiriluk",
+        "character:tony-tony-chopper",
+        "topic:medicine",
+        "topic:medical-urgency",
+        "topic:chopper-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dr. Kureha",
+            "Dr. Hiriluk",
+            "Tony Tony Chopper"
+          ],
+          "entitiesAny": [
+            "Dr. Kureha",
+            "Dr. Hiriluk",
+            "Tony Tony Chopper",
+            "medicine"
+          ],
+          "topicsAny": [
+            "Kureha skill",
+            "Hiriluk dream",
+            "medical training"
+          ],
+          "keywordsAny": [
+            "Dr. Kureha",
+            "Dr. Hiriluk",
+            "Tony Tony Chopper",
+            "medicine",
+            "Kureha skill",
+            "Hiriluk dream",
+            "medical training",
+            "Kureha",
+            "skill",
+            "training",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Kureha provides the real medical skill that lets Chopper carry Hiriluk's impossible dream into practice.",
+        "injection": "Use Kureha as the bridge between dream and competence: she makes Chopper a doctor who can actually help.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_chopper_s_identity_conflict_is_tied_to_being_called_a_monster_030",
+      "title": "Chopper's Identity Conflict Centers On Being Called A Monster",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.medicine-and-identity-themes",
+        "validToAnchor": "op.drum-island.battles-and-castle",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11450,
+        "sortKeyTo": 11540,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Chopper's Identity Conflict Centers On Being Called A Monster"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tony-tony-chopper",
+          "op:blue-nose",
+          "op:human-human-fruit"
+        ],
+        "characters": [
+          "Tony Tony Chopper"
+        ],
+        "locations": [],
+        "objects": [
+          "Human-Human Fruit"
+        ],
+        "factions": [],
+        "topics": [
+          "monster identity",
+          "acceptance gate",
+          "Chopper insecurity"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tony-tony-chopper",
+        "topic:blue-nose",
+        "item:human-human-fruit",
+        "topic:medical-urgency",
+        "topic:chopper-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper"
+          ],
+          "entitiesAny": [
+            "Tony Tony Chopper",
+            "blue nose",
+            "Human-Human Fruit"
+          ],
+          "topicsAny": [
+            "monster identity",
+            "acceptance gate",
+            "Chopper insecurity"
+          ],
+          "keywordsAny": [
+            "Tony Tony Chopper",
+            "blue nose",
+            "Human-Human Fruit",
+            "monster identity",
+            "acceptance gate",
+            "Chopper insecurity",
+            "monster",
+            "identity",
+            "doctor",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Chopper's identity conflict is tied to being called a monster despite wanting to be accepted as a doctor and person.",
+        "injection": "Use this gate when writing Chopper hesitation, defensiveness, or surprise at kindness.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_healing_a_country_becomes_a_metaphor_before_chopper_joins_the_crew_031",
+      "title": "Healing A Country Becomes The Arc Metaphor",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.medicine-and-identity-themes",
+        "validToAnchor": "op.drum-island.battles-and-castle",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11450,
+        "sortKeyTo": 11540,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Healing A Country Becomes The Arc Metaphor"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-island",
+          "op:medicine",
+          "op:dr-hiriluk",
+          "op:sakura-powder"
+        ],
+        "characters": [
+          "Dr. Hiriluk"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [
+          "sakura powder"
+        ],
+        "factions": [],
+        "topics": [
+          "healing country",
+          "Hiriluk metaphor",
+          "Drum recovery"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-island",
+        "topic:medicine",
+        "character:dr-hiriluk",
+        "item:sakura-powder",
+        "topic:medical-urgency",
+        "topic:drum-politics",
+        "topic:chopper-identity",
+        "topic:recruitment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dr. Hiriluk"
+          ],
+          "entitiesAny": [
+            "Drum Island",
+            "medicine",
+            "Dr. Hiriluk",
+            "sakura powder"
+          ],
+          "topicsAny": [
+            "healing country",
+            "Hiriluk metaphor",
+            "Drum recovery"
+          ],
+          "keywordsAny": [
+            "Drum Island",
+            "medicine",
+            "Dr. Hiriluk",
+            "sakura powder",
+            "healing country",
+            "Hiriluk metaphor",
+            "Drum recovery",
+            "heal country",
+            "metaphor",
+            "Drum",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Healing a country becomes the arc metaphor before Chopper joins the crew, linking medicine to Drum's political recovery.",
+        "injection": "Use the metaphor locally: Drum needs both real care and a changed heart.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Drum Island Arc",
+    "chapterRange": "Manga chapters 130-154",
+    "episodeRange": "Anime episodes 78-91",
+    "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+  }
+}

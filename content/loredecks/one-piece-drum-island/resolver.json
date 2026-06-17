@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Drum Island Arc Context inside Arabasta Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Drum Island Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during drum island arc: winter kingdom and geography",
+      "result": {
+        "anchorFrom": "op.drum-island.drum-island",
+        "label": "Drum Island Arc: Winter kingdom and geography"
+      }
+    },
+    {
+      "pattern": "during drum island arc: chopper, hiriluk, and kureha",
+      "result": {
+        "anchorFrom": "op.drum-island.chopper-hiriluk-and-kureha",
+        "label": "Drum Island Arc: Chopper, Hiriluk, and Kureha"
+      }
+    },
+    {
+      "pattern": "during drum island arc: wapol and drum politics",
+      "result": {
+        "anchorFrom": "op.drum-island.wapol-and-drum-politics",
+        "label": "Drum Island Arc: Wapol and Drum politics"
+      }
+    },
+    {
+      "pattern": "during drum island arc: dalton and citizens",
+      "result": {
+        "anchorFrom": "op.drum-island.dalton-and-citizens",
+        "label": "Drum Island Arc: Dalton and citizens"
+      }
+    },
+    {
+      "pattern": "during drum island arc: straw hats and medical urgency",
+      "result": {
+        "anchorFrom": "op.drum-island.straw-hats-and-medical-urgency",
+        "label": "Drum Island Arc: Straw Hats and medical urgency"
+      }
+    },
+    {
+      "pattern": "during drum island arc: medicine and identity themes",
+      "result": {
+        "anchorFrom": "op.drum-island.medicine-and-identity-themes",
+        "label": "Drum Island Arc: Medicine and identity themes"
+      }
+    },
+    {
+      "pattern": "during drum island arc: battles and castle",
+      "result": {
+        "anchorFrom": "op.drum-island.battles-and-castle",
+        "label": "Drum Island Arc: Battles and castle"
+      }
+    },
+    {
+      "pattern": "during drum island arc: world hooks and blackbeard report",
+      "result": {
+        "anchorFrom": "op.drum-island.world-hooks-and-blackbeard-report",
+        "label": "Drum Island Arc: World hooks and Blackbeard report"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

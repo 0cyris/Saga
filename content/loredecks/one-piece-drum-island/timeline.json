@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Manga-main Drum Island deck covering medical urgency, winter survival, Wapol medical tyranny, Chopper identity and recruitment, castle battle, sakura farewell, and narrow world hooks.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.drum-island.drum-island",
+      "label": "Drum Island Arc: Winter kingdom and geography",
+      "sortKey": 11000,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Winter kingdom and geography"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.chopper-hiriluk-and-kureha",
+      "label": "Drum Island Arc: Chopper, Hiriluk, and Kureha",
+      "sortKey": 11090,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Chopper, Hiriluk, and Kureha"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.wapol-and-drum-politics",
+      "label": "Drum Island Arc: Wapol and Drum politics",
+      "sortKey": 11180,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Wapol and Drum politics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.dalton-and-citizens",
+      "label": "Drum Island Arc: Dalton and citizens",
+      "sortKey": 11270,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Dalton and citizens"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.straw-hats-and-medical-urgency",
+      "label": "Drum Island Arc: Straw Hats and medical urgency",
+      "sortKey": 11360,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Straw Hats and medical urgency"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.medicine-and-identity-themes",
+      "label": "Drum Island Arc: Medicine and identity themes",
+      "sortKey": 11450,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Medicine and identity themes"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.battles-and-castle",
+      "label": "Drum Island Arc: Battles and castle",
+      "sortKey": 11540,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Battles and castle"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.world-hooks-and-blackbeard-report",
+      "label": "Drum Island Arc: World hooks and Blackbeard report",
+      "sortKey": 11630,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: World hooks and Blackbeard report"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.recruitment-and-aftermath",
+      "label": "Drum Island Arc: Recruitment and aftermath",
+      "sortKey": 11720,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Recruitment and aftermath"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.timeline-and-spoiler-gates",
+      "label": "Drum Island Arc: Timeline and spoiler gates",
+      "sortKey": 11810,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.drum-island.after",
+      "label": "Drum Island Arc: aftermath boundary",
+      "sortKey": 11999,
+      "arc": "Drum Island Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "130-154",
+      "episode": "78-91",
+      "aliases": [
+        "Drum Island Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.drum-island.window.full",
+      "label": "Drum Island Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.drum-island",
+      "anchorTo": "op.drum-island.after",
+      "sortKeyFrom": 11000,
+      "sortKeyTo": 11999,
+      "aliases": [
+        "Drum Island Arc",
+        "drum-island"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.drum-island",
+      "label": "Drum Island Arc: Winter kingdom and geography",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.drum-island",
+      "anchorTo": "op.drum-island.chopper-hiriluk-and-kureha",
+      "sortKeyFrom": 11000,
+      "sortKeyTo": 11090,
+      "aliases": [
+        "Winter kingdom and geography"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.chopper-hiriluk-and-kureha",
+      "label": "Drum Island Arc: Chopper, Hiriluk, and Kureha",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.chopper-hiriluk-and-kureha",
+      "anchorTo": "op.drum-island.wapol-and-drum-politics",
+      "sortKeyFrom": 11090,
+      "sortKeyTo": 11180,
+      "aliases": [
+        "Chopper, Hiriluk, and Kureha"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.wapol-and-drum-politics",
+      "label": "Drum Island Arc: Wapol and Drum politics",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.wapol-and-drum-politics",
+      "anchorTo": "op.drum-island.dalton-and-citizens",
+      "sortKeyFrom": 11180,
+      "sortKeyTo": 11270,
+      "aliases": [
+        "Wapol and Drum politics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.dalton-and-citizens",
+      "label": "Drum Island Arc: Dalton and citizens",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.dalton-and-citizens",
+      "anchorTo": "op.drum-island.straw-hats-and-medical-urgency",
+      "sortKeyFrom": 11270,
+      "sortKeyTo": 11360,
+      "aliases": [
+        "Dalton and citizens"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.straw-hats-and-medical-urgency",
+      "label": "Drum Island Arc: Straw Hats and medical urgency",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.straw-hats-and-medical-urgency",
+      "anchorTo": "op.drum-island.medicine-and-identity-themes",
+      "sortKeyFrom": 11360,
+      "sortKeyTo": 11450,
+      "aliases": [
+        "Straw Hats and medical urgency"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.medicine-and-identity-themes",
+      "label": "Drum Island Arc: Medicine and identity themes",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.medicine-and-identity-themes",
+      "anchorTo": "op.drum-island.battles-and-castle",
+      "sortKeyFrom": 11450,
+      "sortKeyTo": 11540,
+      "aliases": [
+        "Medicine and identity themes"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.battles-and-castle",
+      "label": "Drum Island Arc: Battles and castle",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.battles-and-castle",
+      "anchorTo": "op.drum-island.world-hooks-and-blackbeard-report",
+      "sortKeyFrom": 11540,
+      "sortKeyTo": 11630,
+      "aliases": [
+        "Battles and castle"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.world-hooks-and-blackbeard-report",
+      "label": "Drum Island Arc: World hooks and Blackbeard report",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.world-hooks-and-blackbeard-report",
+      "anchorTo": "op.drum-island.recruitment-and-aftermath",
+      "sortKeyFrom": 11630,
+      "sortKeyTo": 11720,
+      "aliases": [
+        "World hooks and Blackbeard report"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.recruitment-and-aftermath",
+      "label": "Drum Island Arc: Recruitment and aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.recruitment-and-aftermath",
+      "anchorTo": "op.drum-island.timeline-and-spoiler-gates",
+      "sortKeyFrom": 11720,
+      "sortKeyTo": 11810,
+      "aliases": [
+        "Recruitment and aftermath"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.drum-island.window.timeline-and-spoiler-gates",
+      "label": "Drum Island Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.drum-island.timeline-and-spoiler-gates",
+      "anchorTo": "op.drum-island.after",
+      "sortKeyFrom": 11810,
+      "sortKeyTo": 11999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "arabasta"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "drum-island"
+      ]
+    }
+  ]
+}

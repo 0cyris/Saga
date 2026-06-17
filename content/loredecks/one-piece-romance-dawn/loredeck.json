@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-romance-dawn",
+  "type": "bundled",
+  "title": "One Piece: Romance Dawn Arc",
+  "description": "Reviewed manga-main Loredeck for Luffy leaving home, Shanks, Coby escaping Alvida, Zoro at Shells Town, Morgan, and the first Straw Hat alliance.",
+  "fandom": "One Piece",
+  "era": "Romance Dawn Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-romance-dawn-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-romance-dawn",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-romance-dawn"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "East Blue Saga"
+    ],
+    "familyOrder": 10
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:east-blue",
+    "arc:romance-dawn",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "canon",
+    "adaptation": "manga",
+    "medium": "manga",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Romance Dawn arc beats."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "romance_dawn/romance_dawn.json",
+    "romance_dawn/coby-alvida-and-early-marines.json",
+    "romance_dawn/zoro-and-shells-town.json",
+    "romance_dawn/crew-start-and-nami-hook.json",
+    "romance_dawn/locations-items-and-world-rules.json",
+    "romance_dawn/conflicts-and-character-rules.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 34,
+    "categoryCounts": {
+      "character": 10,
+      "event": 5,
+      "faction": 3,
+      "item": 1,
+      "knowledge": 2,
+      "location": 2,
+      "relationship": 7,
+      "rule": 4
+    },
+    "timelineAnchorCount": 8,
+    "timelineWindowCount": 8,
+    "tagCount": 49,
+    "entityCount": 18
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Romance Dawn runtime-lore pass completed: cards emphasize Luffy promise state, Coby courage, Zoro execution-yard restraint, Shells Town authority abuse, first crew bond, small-boat route limits, and early Devil Fruit spoiler gates."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

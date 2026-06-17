@@ -1,0 +1,944 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_coby_starts_as_alvida_s_frightened_cabin_boy_before_naming_his_marine_dream_007",
+      "title": "Coby begins as Alvida's coerced cabin boy",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "validToAnchor": "op.romance-dawn.zoro-and-shells-town",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1128,
+        "sortKeyTo": 1256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Coby begins as Alvida's coerced cabin boy"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:alvida",
+          "op:coby"
+        ],
+        "characters": [
+          "Alvida",
+          "Coby"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Coby captive state",
+          "Alvida cabin boy",
+          "buried Marine dream"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:alvida",
+        "character:coby",
+        "topic:captive-cabin-boy",
+        "topic:coby-alvida-and-early-marines"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Alvida",
+            "Coby"
+          ],
+          "entitiesAny": [
+            "Alvida",
+            "Coby"
+          ],
+          "topicsAny": [
+            "Coby captive state",
+            "Alvida cabin boy",
+            "buried Marine dream"
+          ],
+          "keywordsAny": [
+            "Alvida",
+            "Coby",
+            "Coby captive state",
+            "Alvida cabin boy",
+            "buried Marine dream",
+            "Coby begins as Alvida's coerced cabin boy",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Coby opens as Alvida's coerced cabin boy with his self-image crushed; his Marine dream should stay buried until Luffy challenges his fear.",
+        "injection": "Before the Alvida confrontation, write Coby as frightened, trapped, and ashamed of wanting more. Do not jump him straight to confident Marine recruit behavior.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_alvida_uses_vanity_and_violence_to_control_her_ship_008",
+      "title": "Alvida controls her crew through forced praise and violence",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "validToAnchor": "op.romance-dawn.zoro-and-shells-town",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1128,
+        "sortKeyTo": 1256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Alvida controls her crew through forced praise and violence"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:alvida",
+          "op:alvida-ship"
+        ],
+        "characters": [
+          "Alvida"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Alvida command style",
+          "forced flattery",
+          "abusive pirate captain"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:alvida",
+        "topic:alvida-ship",
+        "topic:captive-cabin-boy",
+        "topic:coby-alvida-and-early-marines"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Alvida"
+          ],
+          "entitiesAny": [
+            "Alvida",
+            "Alvida ship"
+          ],
+          "topicsAny": [
+            "Alvida command style",
+            "forced flattery",
+            "abusive pirate captain"
+          ],
+          "keywordsAny": [
+            "Alvida",
+            "Alvida command style",
+            "forced flattery",
+            "abusive pirate captain",
+            "Alvida controls her crew through forced praise and violence",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Alvida controls her ship by demanding flattery and using violence; her crew obeys fear rather than loyalty.",
+        "injection": "When Alvida is active, make her vanity and club-backed command shape the ship atmosphere. Her defeat should feel like an abusive captain losing control, not a generic pirate loss.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_luffy_pushes_coby_to_speak_his_dream_aloud_009",
+      "title": "Luffy's challenge forces Coby to name his Marine dream",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "validToAnchor": "op.romance-dawn.zoro-and-shells-town",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1128,
+        "sortKeyTo": 1256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Luffy's challenge forces Coby to name his Marine dream"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:coby",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Coby",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Coby courage pivot",
+          "Marine dream",
+          "Luffy challenge"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:coby",
+        "character:monkey-d-luffy",
+        "topic:captive-cabin-boy",
+        "topic:coby-alvida-and-early-marines"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Coby",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Coby",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Coby courage pivot",
+            "Marine dream",
+            "Luffy challenge"
+          ],
+          "keywordsAny": [
+            "Coby",
+            "Monkey D. Luffy",
+            "Coby courage pivot",
+            "Marine dream",
+            "Luffy challenge",
+            "Luffy's challenge forces Coby to name his Marine dream",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy's blunt indifference to dying for a dream pushes Coby to say aloud that he wants to join the Marines and arrest pirates like Alvida.",
+        "injection": "Use this as Coby's courage pivot: Luffy does not give him a plan, but he makes cowardice feel worse than risk. Keep the moment personal and immediate.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_coby_chooses_the_marines_even_after_traveling_with_a_pirate_010",
+      "title": "Coby separates gratitude to Luffy from joining piracy",
+      "kind": "snapshot",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "validToAnchor": "op.romance-dawn.zoro-and-shells-town",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1128,
+        "sortKeyTo": 1256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Coby separates gratitude to Luffy from joining piracy"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:coby",
+          "op:marines"
+        ],
+        "characters": [
+          "Coby",
+          "Marines"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Coby Marine choice",
+          "Luffy and Coby respect",
+          "not joining piracy"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:coby",
+        "character:marines",
+        "topic:captive-cabin-boy",
+        "topic:coby-alvida-and-early-marines"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Coby",
+            "Marines"
+          ],
+          "entitiesAny": [
+            "Coby",
+            "Marines"
+          ],
+          "topicsAny": [
+            "Coby Marine choice",
+            "Luffy and Coby respect",
+            "not joining piracy"
+          ],
+          "keywordsAny": [
+            "Coby",
+            "Marines",
+            "Coby Marine choice",
+            "Luffy and Coby respect",
+            "not joining piracy",
+            "Coby separates gratitude to Luffy from joining piracy",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "After Alvida, Coby is grateful to Luffy but still chooses the Marines instead of piracy.",
+        "injection": "For Luffy and Coby scenes, keep their bond as cross-faction respect: Coby can admire Luffy while choosing the opposite side of the law.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_early_marines_are_an_aspiration_for_coby_before_shells_town_shows_corruption_011",
+      "title": "Coby's Marine ideal is complicated by Shells Town",
+      "kind": "reference_note",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "validToAnchor": "op.romance-dawn.zoro-and-shells-town",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1128,
+        "sortKeyTo": 1256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Coby's Marine ideal is complicated by Shells Town"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:coby",
+          "op:marines",
+          "op:shells-town"
+        ],
+        "characters": [
+          "Coby",
+          "Marines",
+          "Shells Town"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Coby Marine ideal",
+          "Morgan corruption",
+          "local Marine authority"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:coby",
+        "character:marines",
+        "character:shells-town",
+        "topic:marine-dream",
+        "topic:coby-alvida-and-early-marines"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Coby",
+            "Marines",
+            "Shells Town"
+          ],
+          "entitiesAny": [
+            "Coby",
+            "Marines",
+            "Shells Town"
+          ],
+          "topicsAny": [
+            "Coby Marine ideal",
+            "Morgan corruption",
+            "local Marine authority"
+          ],
+          "keywordsAny": [
+            "Coby",
+            "Marines",
+            "Shells Town",
+            "Coby Marine ideal",
+            "Morgan corruption",
+            "local Marine authority",
+            "Coby's Marine ideal is complicated by Shells Town",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Before Shells Town, the Marines are Coby's moral aspiration; Morgan's local corruption complicates that ideal without destroying it.",
+        "injection": "When Marines come up in early Romance Dawn, distinguish Coby's ideal from Morgan's base. Do not write all Marines as corrupt or all Marine authority as clean.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_alvida_s_defeat_is_the_first_proof_that_luffy_will_challenge_abusive_captains_012",
+      "title": "Alvida's defeat proves Luffy attacks abusive command",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "validToAnchor": "op.romance-dawn.zoro-and-shells-town",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1128,
+        "sortKeyTo": 1256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Alvida's defeat proves Luffy attacks abusive command"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:alvida",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Alvida",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Alvida defeat",
+          "abusive command",
+          "Luffy protects dreams"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:alvida",
+        "character:monkey-d-luffy",
+        "topic:captive-cabin-boy",
+        "topic:coby-alvida-and-early-marines"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Alvida",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Alvida",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Alvida defeat",
+            "abusive command",
+            "Luffy protects dreams"
+          ],
+          "keywordsAny": [
+            "Alvida",
+            "Monkey D. Luffy",
+            "Alvida defeat",
+            "abusive command",
+            "Luffy protects dreams",
+            "Alvida's defeat proves Luffy attacks abusive command",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Alvida's defeat is the first proof that Luffy will strike an abusive captain when that captain crushes someone else's dream.",
+        "injection": "Use Alvida's defeat to establish Luffy's operating pattern: he responds to cruelty and dream-crushing before he cares about legality or status.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "star-trek-voy-season-1",
+  "type": "bundled",
+  "title": "Star Trek Voyager Season 1",
+  "description": "Draft season Loredeck for Voyager season 1, covering the Caretaker displacement, stranded Starfleet and Maquis crew integration, Kazon and Vidiian pressure, the Delta Quadrant survival baseline, Seska, and season-local spoiler guards.",
+  "fandom": "Star Trek",
+  "era": "Voyager Season 1",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.star-trek-voy-season-1",
+  "deckFamilyId": "star-trek-tng-ds9-voy-seasons",
+  "family": {
+    "id": "star-trek-tng-ds9-voy-seasons",
+    "title": "Star Trek: TNG, DS9, and Voyager",
+    "role": "season"
+  },
+  "recommendedStack": [
+    "star-trek-voy-season-1"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Trek",
+      "Voyager"
+    ],
+    "familyOrder": 210
+  },
+  "tags": [
+    "fandom:star-trek",
+    "continuity:star-trek-prime",
+    "series:voy",
+    "season:voy-s1",
+    "structure:season-split-loredeck",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://memory-alpha.fandom.com/wiki/Portal:Main"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-trek-prime",
+    "canonTier": "primary",
+    "adaptation": "television",
+    "medium": "television",
+    "variantOf": "star-trek-prime",
+    "sourceBoundary": "Star Trek: Voyager season 1, Memory Alpha story rows 1-15, runtime episode aliases 1-15, primary on-screen Prime continuity. Excludes later Star Trek seasons, films, Picard-era material, beta canon, novels, comics, games, deleted scenes, production trivia, and fanon."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "crew/season-1-baseline-and-season-guards.json",
+    "episodes/season-1-episode-gates-a.json",
+    "crew/season-1-character-and-faction-states-a.json",
+    "secrets/season-1-reveal-and-future-guards-a.json",
+    "rules/season-1-short-season-context-rules-a.json",
+    "episodes/season-1-episode-gates-b.json",
+    "crew/season-1-character-and-faction-states-b.json",
+    "secrets/season-1-reveal-and-future-guards-b.json",
+    "rules/season-1-short-season-context-rules-b.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 65,
+    "categoryCounts": {
+      "character": 16,
+      "event": 16,
+      "faction": 1,
+      "rule": 16,
+      "secret": 16
+    },
+    "timelineAnchorCount": 15,
+    "timelineWindowCount": 15,
+    "tagCount": 139,
+    "entityCount": 27
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "needs_review",
+    "notes": "First-pass Star Trek VOY season 1 Loredeck generated from Saga authoring plan and Memory Alpha evidence artifacts."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781740800000
+}

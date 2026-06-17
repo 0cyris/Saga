@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: The Next Generation season 5 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "tng.s5.e01.redemption-ii",
+      "label": "Redemption II",
+      "contextType": "story_anchor",
+      "sortKey": 14000,
+      "stardate": "45020.4-45025.4 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Redemption II",
+        "TNG season 5 Redemption II",
+        "TNG S5 Redemption II",
+        "TNG 5x01 story",
+        "TNG S05 story 01",
+        "TNG 5x01",
+        "TNG S05E01",
+        "TNG season 5 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-redemption-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption II",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_II_(episode)",
+        "stardate": "45020.4-45025.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e02.darmok",
+      "label": "Darmok",
+      "contextType": "story_anchor",
+      "sortKey": 14020,
+      "stardate": "45047.2-45048.8 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Darmok",
+        "TNG season 5 Darmok",
+        "TNG S5 Darmok",
+        "TNG 5x02 story",
+        "TNG S05 story 02",
+        "TNG 5x02",
+        "TNG S05E02",
+        "TNG season 5 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-darmok"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Darmok",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Darmok_(episode)",
+        "stardate": "45047.2-45048.8 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e03.ensign-ro",
+      "label": "Ensign Ro",
+      "contextType": "story_anchor",
+      "sortKey": 14040,
+      "stardate": "45076.3-45077.8 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Ensign Ro",
+        "TNG season 5 Ensign Ro",
+        "TNG S5 Ensign Ro",
+        "TNG 5x03 story",
+        "TNG S05 story 03",
+        "TNG 5x03",
+        "TNG S05E03",
+        "TNG season 5 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-ensign-ro"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ensign Ro",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ensign_Ro_(episode)",
+        "stardate": "45076.3-45077.8 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e04.silicon-avatar",
+      "label": "Silicon Avatar",
+      "contextType": "story_anchor",
+      "sortKey": 14060,
+      "stardate": "45122.3-45129.2 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Silicon Avatar",
+        "TNG season 5 Silicon Avatar",
+        "TNG S5 Silicon Avatar",
+        "TNG 5x04 story",
+        "TNG S05 story 04",
+        "TNG 5x04",
+        "TNG S05E04",
+        "TNG season 5 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-silicon-avatar"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Silicon Avatar",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Silicon_Avatar_(episode)",
+        "stardate": "45122.3-45129.2 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e05.disaster",
+      "label": "Disaster",
+      "contextType": "story_anchor",
+      "sortKey": 14080,
+      "stardate": "45156.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Disaster",
+        "TNG season 5 Disaster",
+        "TNG S5 Disaster",
+        "TNG 5x05 story",
+        "TNG S05 story 05",
+        "TNG 5x05",
+        "TNG S05E05",
+        "TNG season 5 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-disaster"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Disaster",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Disaster_(episode)",
+        "stardate": "45156.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e06.the-game",
+      "label": "The Game",
+      "contextType": "story_anchor",
+      "sortKey": 14100,
+      "stardate": "45208.2-45212.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "The Game",
+        "TNG season 5 The Game",
+        "TNG S5 The Game",
+        "TNG 5x06 story",
+        "TNG S05 story 06",
+        "TNG 5x06",
+        "TNG S05E06",
+        "TNG season 5 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-game"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Game",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Game_(episode)",
+        "stardate": "45208.2-45212.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e07.unification-i",
+      "label": "Unification I",
+      "contextType": "story_anchor",
+      "sortKey": 14120,
+      "stardate": "45233.1-45240.6 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Unification I",
+        "TNG season 5 Unification I",
+        "TNG S5 Unification I",
+        "TNG 5x07 story",
+        "TNG S05 story 07",
+        "TNG 5x07",
+        "TNG S05E07",
+        "TNG season 5 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-unification-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Unification I",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unification_I_(episode)",
+        "stardate": "45233.1-45240.6 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e08.unification-ii",
+      "label": "Unification II",
+      "contextType": "story_anchor",
+      "sortKey": 14140,
+      "stardate": "45245.8 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Unification II",
+        "TNG season 5 Unification II",
+        "TNG S5 Unification II",
+        "TNG 5x08 story",
+        "TNG S05 story 08",
+        "TNG 5x08",
+        "TNG S05E08",
+        "TNG season 5 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-unification-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Unification II",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unification_II_(episode)",
+        "stardate": "45245.8 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e09.a-matter-of-time",
+      "label": "A Matter Of Time",
+      "contextType": "story_anchor",
+      "sortKey": 14160,
+      "stardate": "45349.1-45351.9 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "A Matter Of Time",
+        "TNG season 5 A Matter Of Time",
+        "TNG S5 A Matter Of Time",
+        "TNG 5x09 story",
+        "TNG S05 story 09",
+        "TNG 5x09",
+        "TNG S05E09",
+        "TNG season 5 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-a-matter-of-time"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Matter Of Time",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Matter_Of_Time_(episode)",
+        "stardate": "45349.1-45351.9 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e10.new-ground",
+      "label": "New Ground",
+      "contextType": "story_anchor",
+      "sortKey": 14180,
+      "stardate": "45376.3-45376.8 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "New Ground",
+        "TNG season 5 New Ground",
+        "TNG S5 New Ground",
+        "TNG 5x10 story",
+        "TNG S05 story 10",
+        "TNG 5x10",
+        "TNG S05E10",
+        "TNG season 5 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-new-ground"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "New Ground",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/New_Ground_(episode)",
+        "stardate": "45376.3-45376.8 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e11.hero-worship",
+      "label": "Hero Worship",
+      "contextType": "story_anchor",
+      "sortKey": 14200,
+      "stardate": "45397.3 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Hero Worship",
+        "TNG season 5 Hero Worship",
+        "TNG S5 Hero Worship",
+        "TNG 5x11 story",
+        "TNG S05 story 11",
+        "TNG 5x11",
+        "TNG S05E11",
+        "TNG season 5 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-hero-worship"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Hero Worship",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hero_Worship_(episode)",
+        "stardate": "45397.3 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e12.violations",
+      "label": "Violations",
+      "contextType": "story_anchor",
+      "sortKey": 14220,
+      "stardate": "45429.3-45435.8 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Violations",
+        "TNG season 5 Violations",
+        "TNG S5 Violations",
+        "TNG 5x12 story",
+        "TNG S05 story 12",
+        "TNG 5x12",
+        "TNG S05E12",
+        "TNG season 5 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-violations"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Violations",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Violations_(episode)",
+        "stardate": "45429.3-45435.8 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e13.the-masterpiece-society",
+      "label": "The Masterpiece Society",
+      "contextType": "story_anchor",
+      "sortKey": 14240,
+      "stardate": "45470.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "The Masterpiece Society",
+        "TNG season 5 The Masterpiece Society",
+        "TNG S5 The Masterpiece Society",
+        "TNG 5x13 story",
+        "TNG S05 story 13",
+        "TNG 5x13",
+        "TNG S05E13",
+        "TNG season 5 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-masterpiece-society"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Masterpiece Society",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Masterpiece_Society_(episode)",
+        "stardate": "45470.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e14.conundrum",
+      "label": "Conundrum",
+      "contextType": "story_anchor",
+      "sortKey": 14260,
+      "stardate": "45494.2 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Conundrum",
+        "TNG season 5 Conundrum",
+        "TNG S5 Conundrum",
+        "TNG 5x14 story",
+        "TNG S05 story 14",
+        "TNG 5x14",
+        "TNG S05E14",
+        "TNG season 5 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-conundrum"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Conundrum",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Conundrum_(episode)",
+        "stardate": "45494.2 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e15.power-play",
+      "label": "Power Play",
+      "contextType": "story_anchor",
+      "sortKey": 14280,
+      "stardate": "45571.2-45572.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Power Play",
+        "TNG season 5 Power Play",
+        "TNG S5 Power Play",
+        "TNG 5x15 story",
+        "TNG S05 story 15",
+        "TNG 5x15",
+        "TNG S05E15",
+        "TNG season 5 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-power-play"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Power Play",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Power_Play_(episode)",
+        "stardate": "45571.2-45572.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e16.ethics",
+      "label": "Ethics",
+      "contextType": "story_anchor",
+      "sortKey": 14300,
+      "stardate": "45587.3 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Ethics",
+        "TNG season 5 Ethics",
+        "TNG S5 Ethics",
+        "TNG 5x16 story",
+        "TNG S05 story 16",
+        "TNG 5x16",
+        "TNG S05E16",
+        "TNG season 5 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-ethics"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ethics",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ethics_(episode)",
+        "stardate": "45587.3 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e17.the-outcast",
+      "label": "The Outcast",
+      "contextType": "story_anchor",
+      "sortKey": 14320,
+      "stardate": "45614.6-45620.4 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "The Outcast",
+        "TNG season 5 The Outcast",
+        "TNG S5 The Outcast",
+        "TNG 5x17 story",
+        "TNG S05 story 17",
+        "TNG 5x17",
+        "TNG S05E17",
+        "TNG season 5 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-outcast"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Outcast",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Outcast_(episode)",
+        "stardate": "45614.6-45620.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e18.cause-and-effect",
+      "label": "Cause And Effect",
+      "contextType": "story_anchor",
+      "sortKey": 14340,
+      "stardate": "45652.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Cause And Effect",
+        "TNG season 5 Cause And Effect",
+        "TNG S5 Cause And Effect",
+        "TNG 5x18 story",
+        "TNG S05 story 18",
+        "TNG 5x18",
+        "TNG S05E18",
+        "TNG season 5 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-cause-and-effect"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Cause And Effect",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cause_And_Effect_(episode)",
+        "stardate": "45652.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e19.the-first-duty",
+      "label": "The First Duty",
+      "contextType": "story_anchor",
+      "sortKey": 14360,
+      "stardate": "45703.9 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "The First Duty",
+        "TNG season 5 The First Duty",
+        "TNG S5 The First Duty",
+        "TNG 5x19 story",
+        "TNG S05 story 19",
+        "TNG 5x19",
+        "TNG S05E19",
+        "TNG season 5 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-first-duty"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The First Duty",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_First_Duty_(episode)",
+        "stardate": "45703.9 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e20.cost-of-living",
+      "label": "Cost Of Living",
+      "contextType": "story_anchor",
+      "sortKey": 14380,
+      "stardate": "45733.6 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Cost Of Living",
+        "TNG season 5 Cost Of Living",
+        "TNG S5 Cost Of Living",
+        "TNG 5x20 story",
+        "TNG S05 story 20",
+        "TNG 5x20",
+        "TNG S05E20",
+        "TNG season 5 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-cost-of-living"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Cost Of Living",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cost_Of_Living_(episode)",
+        "stardate": "45733.6 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e21.the-perfect-mate",
+      "label": "The Perfect Mate",
+      "contextType": "story_anchor",
+      "sortKey": 14400,
+      "stardate": "45761.3-45766.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "The Perfect Mate",
+        "TNG season 5 The Perfect Mate",
+        "TNG S5 The Perfect Mate",
+        "TNG 5x21 story",
+        "TNG S05 story 21",
+        "TNG 5x21",
+        "TNG S05E21",
+        "TNG season 5 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-perfect-mate"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Perfect Mate",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Perfect_Mate_(episode)",
+        "stardate": "45761.3-45766.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e22.imaginary-friend",
+      "label": "Imaginary Friend",
+      "contextType": "story_anchor",
+      "sortKey": 14420,
+      "stardate": "45852.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Imaginary Friend",
+        "TNG season 5 Imaginary Friend",
+        "TNG S5 Imaginary Friend",
+        "TNG 5x22 story",
+        "TNG S05 story 22",
+        "TNG 5x22",
+        "TNG S05E22",
+        "TNG season 5 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-imaginary-friend"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Imaginary Friend",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Imaginary_Friend_(episode)",
+        "stardate": "45852.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e23.i-borg",
+      "label": "I Borg",
+      "contextType": "story_anchor",
+      "sortKey": 14440,
+      "stardate": "45854.2 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "I Borg",
+        "TNG season 5 I Borg",
+        "TNG S5 I Borg",
+        "TNG 5x23 story",
+        "TNG S05 story 23",
+        "TNG 5x23",
+        "TNG S05E23",
+        "TNG season 5 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-i-borg"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "I Borg",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/I_Borg_(episode)",
+        "stardate": "45854.2 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e24.the-next-phase",
+      "label": "The Next Phase",
+      "contextType": "story_anchor",
+      "sortKey": 14460,
+      "stardate": "45892.4 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "The Next Phase",
+        "TNG season 5 The Next Phase",
+        "TNG S5 The Next Phase",
+        "TNG 5x24 story",
+        "TNG S05 story 24",
+        "TNG 5x24",
+        "TNG S05E24",
+        "TNG season 5 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-next-phase"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Next Phase",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Next_Phase_(episode)",
+        "stardate": "45892.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e25.the-inner-light",
+      "label": "The Inner Light",
+      "contextType": "story_anchor",
+      "sortKey": 14480,
+      "stardate": "45944.1 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "The Inner Light",
+        "TNG season 5 The Inner Light",
+        "TNG S5 The Inner Light",
+        "TNG 5x25 story",
+        "TNG S05 story 25",
+        "TNG 5x25",
+        "TNG S05E25",
+        "TNG season 5 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-inner-light"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Inner Light",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Inner_Light_(episode)",
+        "stardate": "45944.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s5.e26.times-arrow",
+      "label": "Time's Arrow",
+      "contextType": "story_anchor",
+      "sortKey": 14500,
+      "stardate": "45959.1-45965.3 (2368)",
+      "year": "2368",
+      "series": "TNG",
+      "season": 5,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Time's Arrow",
+        "TNG season 5 Time's Arrow",
+        "TNG S5 Time's Arrow",
+        "TNG 5x26 story",
+        "TNG S05 story 26",
+        "TNG 5x26",
+        "TNG S05E26",
+        "TNG season 5 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-times-arrow"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Time's Arrow",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Time's_Arrow_(episode)",
+        "stardate": "45959.1-45965.3 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "tng.s5.full-season",
+      "label": "TNG season 5 full window",
+      "anchorFrom": "tng.s5.e01.redemption-ii",
+      "anchorTo": "tng.s5.e26.times-arrow",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 14500,
+      "aliases": [
+        "TNG season 5",
+        "Star Trek: The Next Generation season 5",
+        "TNG S5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "tng.s5.e01.redemption-ii.window",
+      "label": "Redemption II episode window",
+      "anchorFrom": "tng.s5.e01.redemption-ii",
+      "anchorTo": "tng.s5.e02.darmok",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 14020,
+      "aliases": [
+        "during Redemption II",
+        "after Redemption II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-redemption-ii"
+      ]
+    },
+    {
+      "id": "tng.s5.e02.darmok.window",
+      "label": "Darmok episode window",
+      "anchorFrom": "tng.s5.e02.darmok",
+      "anchorTo": "tng.s5.e03.ensign-ro",
+      "sortKeyFrom": 14020,
+      "sortKeyTo": 14040,
+      "aliases": [
+        "during Darmok",
+        "after Darmok"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-darmok"
+      ]
+    },
+    {
+      "id": "tng.s5.e03.ensign-ro.window",
+      "label": "Ensign Ro episode window",
+      "anchorFrom": "tng.s5.e03.ensign-ro",
+      "anchorTo": "tng.s5.e04.silicon-avatar",
+      "sortKeyFrom": 14040,
+      "sortKeyTo": 14060,
+      "aliases": [
+        "during Ensign Ro",
+        "after Ensign Ro"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-ensign-ro"
+      ]
+    },
+    {
+      "id": "tng.s5.e04.silicon-avatar.window",
+      "label": "Silicon Avatar episode window",
+      "anchorFrom": "tng.s5.e04.silicon-avatar",
+      "anchorTo": "tng.s5.e05.disaster",
+      "sortKeyFrom": 14060,
+      "sortKeyTo": 14080,
+      "aliases": [
+        "during Silicon Avatar",
+        "after Silicon Avatar"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-silicon-avatar"
+      ]
+    },
+    {
+      "id": "tng.s5.e05.disaster.window",
+      "label": "Disaster episode window",
+      "anchorFrom": "tng.s5.e05.disaster",
+      "anchorTo": "tng.s5.e06.the-game",
+      "sortKeyFrom": 14080,
+      "sortKeyTo": 14100,
+      "aliases": [
+        "during Disaster",
+        "after Disaster"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-disaster"
+      ]
+    },
+    {
+      "id": "tng.s5.e06.the-game.window",
+      "label": "The Game episode window",
+      "anchorFrom": "tng.s5.e06.the-game",
+      "anchorTo": "tng.s5.e07.unification-i",
+      "sortKeyFrom": 14100,
+      "sortKeyTo": 14120,
+      "aliases": [
+        "during The Game",
+        "after The Game"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-game"
+      ]
+    },
+    {
+      "id": "tng.s5.e07.unification-i.window",
+      "label": "Unification I episode window",
+      "anchorFrom": "tng.s5.e07.unification-i",
+      "anchorTo": "tng.s5.e08.unification-ii",
+      "sortKeyFrom": 14120,
+      "sortKeyTo": 14140,
+      "aliases": [
+        "during Unification I",
+        "after Unification I"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-unification-i"
+      ]
+    },
+    {
+      "id": "tng.s5.e08.unification-ii.window",
+      "label": "Unification II episode window",
+      "anchorFrom": "tng.s5.e08.unification-ii",
+      "anchorTo": "tng.s5.e09.a-matter-of-time",
+      "sortKeyFrom": 14140,
+      "sortKeyTo": 14160,
+      "aliases": [
+        "during Unification II",
+        "after Unification II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-unification-ii"
+      ]
+    },
+    {
+      "id": "tng.s5.e09.a-matter-of-time.window",
+      "label": "A Matter Of Time episode window",
+      "anchorFrom": "tng.s5.e09.a-matter-of-time",
+      "anchorTo": "tng.s5.e10.new-ground",
+      "sortKeyFrom": 14160,
+      "sortKeyTo": 14180,
+      "aliases": [
+        "during A Matter Of Time",
+        "after A Matter Of Time"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-a-matter-of-time"
+      ]
+    },
+    {
+      "id": "tng.s5.e10.new-ground.window",
+      "label": "New Ground episode window",
+      "anchorFrom": "tng.s5.e10.new-ground",
+      "anchorTo": "tng.s5.e11.hero-worship",
+      "sortKeyFrom": 14180,
+      "sortKeyTo": 14200,
+      "aliases": [
+        "during New Ground",
+        "after New Ground"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-new-ground"
+      ]
+    },
+    {
+      "id": "tng.s5.e11.hero-worship.window",
+      "label": "Hero Worship episode window",
+      "anchorFrom": "tng.s5.e11.hero-worship",
+      "anchorTo": "tng.s5.e12.violations",
+      "sortKeyFrom": 14200,
+      "sortKeyTo": 14220,
+      "aliases": [
+        "during Hero Worship",
+        "after Hero Worship"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-hero-worship"
+      ]
+    },
+    {
+      "id": "tng.s5.e12.violations.window",
+      "label": "Violations episode window",
+      "anchorFrom": "tng.s5.e12.violations",
+      "anchorTo": "tng.s5.e13.the-masterpiece-society",
+      "sortKeyFrom": 14220,
+      "sortKeyTo": 14240,
+      "aliases": [
+        "during Violations",
+        "after Violations"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-violations"
+      ]
+    },
+    {
+      "id": "tng.s5.e13.the-masterpiece-society.window",
+      "label": "The Masterpiece Society episode window",
+      "anchorFrom": "tng.s5.e13.the-masterpiece-society",
+      "anchorTo": "tng.s5.e14.conundrum",
+      "sortKeyFrom": 14240,
+      "sortKeyTo": 14260,
+      "aliases": [
+        "during The Masterpiece Society",
+        "after The Masterpiece Society"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-masterpiece-society"
+      ]
+    },
+    {
+      "id": "tng.s5.e14.conundrum.window",
+      "label": "Conundrum episode window",
+      "anchorFrom": "tng.s5.e14.conundrum",
+      "anchorTo": "tng.s5.e15.power-play",
+      "sortKeyFrom": 14260,
+      "sortKeyTo": 14280,
+      "aliases": [
+        "during Conundrum",
+        "after Conundrum"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-conundrum"
+      ]
+    },
+    {
+      "id": "tng.s5.e15.power-play.window",
+      "label": "Power Play episode window",
+      "anchorFrom": "tng.s5.e15.power-play",
+      "anchorTo": "tng.s5.e16.ethics",
+      "sortKeyFrom": 14280,
+      "sortKeyTo": 14300,
+      "aliases": [
+        "during Power Play",
+        "after Power Play"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-power-play"
+      ]
+    },
+    {
+      "id": "tng.s5.e16.ethics.window",
+      "label": "Ethics episode window",
+      "anchorFrom": "tng.s5.e16.ethics",
+      "anchorTo": "tng.s5.e17.the-outcast",
+      "sortKeyFrom": 14300,
+      "sortKeyTo": 14320,
+      "aliases": [
+        "during Ethics",
+        "after Ethics"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-ethics"
+      ]
+    },
+    {
+      "id": "tng.s5.e17.the-outcast.window",
+      "label": "The Outcast episode window",
+      "anchorFrom": "tng.s5.e17.the-outcast",
+      "anchorTo": "tng.s5.e18.cause-and-effect",
+      "sortKeyFrom": 14320,
+      "sortKeyTo": 14340,
+      "aliases": [
+        "during The Outcast",
+        "after The Outcast"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-outcast"
+      ]
+    },
+    {
+      "id": "tng.s5.e18.cause-and-effect.window",
+      "label": "Cause And Effect episode window",
+      "anchorFrom": "tng.s5.e18.cause-and-effect",
+      "anchorTo": "tng.s5.e19.the-first-duty",
+      "sortKeyFrom": 14340,
+      "sortKeyTo": 14360,
+      "aliases": [
+        "during Cause And Effect",
+        "after Cause And Effect"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-cause-and-effect"
+      ]
+    },
+    {
+      "id": "tng.s5.e19.the-first-duty.window",
+      "label": "The First Duty episode window",
+      "anchorFrom": "tng.s5.e19.the-first-duty",
+      "anchorTo": "tng.s5.e20.cost-of-living",
+      "sortKeyFrom": 14360,
+      "sortKeyTo": 14380,
+      "aliases": [
+        "during The First Duty",
+        "after The First Duty"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-first-duty"
+      ]
+    },
+    {
+      "id": "tng.s5.e20.cost-of-living.window",
+      "label": "Cost Of Living episode window",
+      "anchorFrom": "tng.s5.e20.cost-of-living",
+      "anchorTo": "tng.s5.e21.the-perfect-mate",
+      "sortKeyFrom": 14380,
+      "sortKeyTo": 14400,
+      "aliases": [
+        "during Cost Of Living",
+        "after Cost Of Living"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-cost-of-living"
+      ]
+    },
+    {
+      "id": "tng.s5.e21.the-perfect-mate.window",
+      "label": "The Perfect Mate episode window",
+      "anchorFrom": "tng.s5.e21.the-perfect-mate",
+      "anchorTo": "tng.s5.e22.imaginary-friend",
+      "sortKeyFrom": 14400,
+      "sortKeyTo": 14420,
+      "aliases": [
+        "during The Perfect Mate",
+        "after The Perfect Mate"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-perfect-mate"
+      ]
+    },
+    {
+      "id": "tng.s5.e22.imaginary-friend.window",
+      "label": "Imaginary Friend episode window",
+      "anchorFrom": "tng.s5.e22.imaginary-friend",
+      "anchorTo": "tng.s5.e23.i-borg",
+      "sortKeyFrom": 14420,
+      "sortKeyTo": 14440,
+      "aliases": [
+        "during Imaginary Friend",
+        "after Imaginary Friend"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-imaginary-friend"
+      ]
+    },
+    {
+      "id": "tng.s5.e23.i-borg.window",
+      "label": "I Borg episode window",
+      "anchorFrom": "tng.s5.e23.i-borg",
+      "anchorTo": "tng.s5.e24.the-next-phase",
+      "sortKeyFrom": 14440,
+      "sortKeyTo": 14460,
+      "aliases": [
+        "during I Borg",
+        "after I Borg"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-i-borg"
+      ]
+    },
+    {
+      "id": "tng.s5.e24.the-next-phase.window",
+      "label": "The Next Phase episode window",
+      "anchorFrom": "tng.s5.e24.the-next-phase",
+      "anchorTo": "tng.s5.e25.the-inner-light",
+      "sortKeyFrom": 14460,
+      "sortKeyTo": 14480,
+      "aliases": [
+        "during The Next Phase",
+        "after The Next Phase"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-next-phase"
+      ]
+    },
+    {
+      "id": "tng.s5.e25.the-inner-light.window",
+      "label": "The Inner Light episode window",
+      "anchorFrom": "tng.s5.e25.the-inner-light",
+      "anchorTo": "tng.s5.e26.times-arrow",
+      "sortKeyFrom": 14480,
+      "sortKeyTo": 14500,
+      "aliases": [
+        "during The Inner Light",
+        "after The Inner Light"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-inner-light"
+      ]
+    }
+  ]
+}

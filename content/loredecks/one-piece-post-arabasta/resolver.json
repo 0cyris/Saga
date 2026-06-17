@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Post-Arabasta Arc Context inside Arabasta Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Post-Arabasta Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during post-arabasta arc: chopper and crew fit",
+      "result": {
+        "anchorFrom": "op.post-arabasta.post-arabasta",
+        "label": "Post-Arabasta Arc: Chopper and crew fit"
+      }
+    },
+    {
+      "pattern": "during post-arabasta arc: nami navigation and crew life",
+      "result": {
+        "anchorFrom": "op.post-arabasta.nami-navigation-and-crew-life",
+        "label": "Post-Arabasta Arc: Nami navigation and crew life"
+      }
+    },
+    {
+      "pattern": "during post-arabasta arc: sanji, usopp, and zoro vignettes",
+      "result": {
+        "anchorFrom": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+        "label": "Post-Arabasta Arc: Sanji, Usopp, and Zoro vignettes"
+      }
+    },
+    {
+      "pattern": "during post-arabasta arc: robin onboard tension",
+      "result": {
+        "anchorFrom": "op.post-arabasta.robin-onboard-tension",
+        "label": "Post-Arabasta Arc: Robin onboard tension"
+      }
+    },
+    {
+      "pattern": "during post-arabasta arc: shipboard routines and aftercare",
+      "result": {
+        "anchorFrom": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "label": "Post-Arabasta Arc: Shipboard routines and aftercare"
+      }
+    },
+    {
+      "pattern": "during post-arabasta arc: transition and timeline gates",
+      "result": {
+        "anchorFrom": "op.post-arabasta.transition-and-timeline-gates",
+        "label": "Post-Arabasta Arc: Transition and timeline gates"
+      }
+    },
+    {
+      "pattern": "during post-arabasta arc: aftermath boundary",
+      "result": {
+        "anchorFrom": "op.post-arabasta.after",
+        "label": "Post-Arabasta Arc: aftermath boundary"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

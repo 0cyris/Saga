@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Romance Dawn Arc Context anchors and windows for East Blue Saga.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.romance-dawn.romance-dawn",
+      "label": "Romance Dawn Arc: Luffy origin and Shanks",
+      "sortKey": 1000,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: Luffy origin and Shanks"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    },
+    {
+      "id": "op.romance-dawn.coby-alvida-and-early-marines",
+      "label": "Romance Dawn Arc: Coby, Alvida, and early Marines",
+      "sortKey": 1128,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: Coby, Alvida, and early Marines"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    },
+    {
+      "id": "op.romance-dawn.zoro-and-shells-town",
+      "label": "Romance Dawn Arc: Zoro and Shells Town",
+      "sortKey": 1256,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: Zoro and Shells Town"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    },
+    {
+      "id": "op.romance-dawn.crew-start-and-nami-hook",
+      "label": "Romance Dawn Arc: Crew start and Nami hook",
+      "sortKey": 1384,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: Crew start and Nami hook"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    },
+    {
+      "id": "op.romance-dawn.locations-items-and-world-rules",
+      "label": "Romance Dawn Arc: Locations, items, and world rules",
+      "sortKey": 1512,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: Locations, items, and world rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    },
+    {
+      "id": "op.romance-dawn.conflicts-and-character-rules",
+      "label": "Romance Dawn Arc: Conflicts and character rules",
+      "sortKey": 1640,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: Conflicts and character rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    },
+    {
+      "id": "op.romance-dawn.timeline-and-spoiler-gates",
+      "label": "Romance Dawn Arc: Timeline and spoiler gates",
+      "sortKey": 1768,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    },
+    {
+      "id": "op.romance-dawn.after",
+      "label": "Romance Dawn Arc: aftermath boundary",
+      "sortKey": 1999,
+      "arc": "Romance Dawn Arc",
+      "phase": "East Blue Saga",
+      "chapter": "1-7",
+      "episode": "1-4",
+      "aliases": [
+        "Romance Dawn Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.romance-dawn.window.full",
+      "label": "Romance Dawn Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.romance-dawn",
+      "anchorTo": "op.romance-dawn.after",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1999,
+      "aliases": [
+        "Romance Dawn Arc",
+        "romance-dawn"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "op.romance-dawn.window.romance-dawn",
+      "label": "Romance Dawn Arc: Luffy origin and Shanks",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.romance-dawn",
+      "anchorTo": "op.romance-dawn.coby-alvida-and-early-marines",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1128,
+      "aliases": [
+        "Luffy origin and Shanks"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "op.romance-dawn.window.coby-alvida-and-early-marines",
+      "label": "Romance Dawn Arc: Coby, Alvida, and early Marines",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.coby-alvida-and-early-marines",
+      "anchorTo": "op.romance-dawn.zoro-and-shells-town",
+      "sortKeyFrom": 1128,
+      "sortKeyTo": 1256,
+      "aliases": [
+        "Coby, Alvida, and early Marines"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "op.romance-dawn.window.zoro-and-shells-town",
+      "label": "Romance Dawn Arc: Zoro and Shells Town",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.zoro-and-shells-town",
+      "anchorTo": "op.romance-dawn.crew-start-and-nami-hook",
+      "sortKeyFrom": 1256,
+      "sortKeyTo": 1384,
+      "aliases": [
+        "Zoro and Shells Town"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "op.romance-dawn.window.crew-start-and-nami-hook",
+      "label": "Romance Dawn Arc: Crew start and Nami hook",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.crew-start-and-nami-hook",
+      "anchorTo": "op.romance-dawn.locations-items-and-world-rules",
+      "sortKeyFrom": 1384,
+      "sortKeyTo": 1512,
+      "aliases": [
+        "Crew start and Nami hook"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "op.romance-dawn.window.locations-items-and-world-rules",
+      "label": "Romance Dawn Arc: Locations, items, and world rules",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.locations-items-and-world-rules",
+      "anchorTo": "op.romance-dawn.conflicts-and-character-rules",
+      "sortKeyFrom": 1512,
+      "sortKeyTo": 1640,
+      "aliases": [
+        "Locations, items, and world rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "op.romance-dawn.window.conflicts-and-character-rules",
+      "label": "Romance Dawn Arc: Conflicts and character rules",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.conflicts-and-character-rules",
+      "anchorTo": "op.romance-dawn.timeline-and-spoiler-gates",
+      "sortKeyFrom": 1640,
+      "sortKeyTo": 1768,
+      "aliases": [
+        "Conflicts and character rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "op.romance-dawn.window.timeline-and-spoiler-gates",
+      "label": "Romance Dawn Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.romance-dawn.timeline-and-spoiler-gates",
+      "anchorTo": "op.romance-dawn.after",
+      "sortKeyFrom": 1768,
+      "sortKeyTo": 1999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:draft-reference"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "east-blue"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "romance-dawn"
+      ]
+    }
+  ]
+}

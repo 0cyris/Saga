@@ -1,0 +1,874 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_luffy_smiles_at_the_execution_platform_when_he_thinks_he_may_die_022",
+      "title": "Luffy Smiles At The Execution Platform When Death Seems Certain",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.execution-platform-event",
+        "validToAnchor": "op.loguetown.dragon-and-weather",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6448,
+        "sortKeyTo": 6560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Luffy Smiles At The Execution Platform When Death Seems Certain"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:execution-platform",
+          "op:gold-roger",
+          "op:smoker"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Gold Roger",
+          "Smoker"
+        ],
+        "locations": [
+          "execution platform"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy smiles at death",
+          "Roger parallel",
+          "execution climax"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "location:execution-platform",
+        "character:gold-roger",
+        "character:smoker",
+        "topic:luffy-smiles-at-death"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Gold Roger",
+            "Smoker"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "execution platform",
+            "Gold Roger",
+            "Smoker"
+          ],
+          "topicsAny": [
+            "Luffy smiles at death",
+            "Roger parallel",
+            "execution climax"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "execution platform",
+            "Gold Roger",
+            "Smoker",
+            "Luffy smiles at death",
+            "Roger parallel",
+            "execution climax",
+            "smile",
+            "death",
+            "Luffy Smiles At The Execution Platform When Death Seems Certain",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy smiles at the execution platform when he thinks he may die, creating a Roger parallel that unsettles Smoker.",
+        "injection": "Use this as the climax tone gate: Luffy is not calculating escape, he accepts the moment with impossible calm.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_lightning_interrupts_buggy_s_execution_attempt_023",
+      "title": "Lightning Interrupts Buggy's Execution Attempt",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.execution-platform-event",
+        "validToAnchor": "op.loguetown.dragon-and-weather",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6448,
+        "sortKeyTo": 6560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Lightning Interrupts Buggy's Execution Attempt"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:storm",
+          "op:buggy",
+          "op:monkey-d-luffy",
+          "op:execution-platform"
+        ],
+        "characters": [
+          "Buggy",
+          "Monkey D. Luffy"
+        ],
+        "locations": [
+          "execution platform"
+        ],
+        "objects": [
+          "storm"
+        ],
+        "factions": [],
+        "topics": [
+          "lightning interruption",
+          "execution escape",
+          "storm luck"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "rule:storm",
+        "character:buggy",
+        "character:monkey-d-luffy",
+        "location:execution-platform",
+        "topic:lightning-interruption"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Buggy",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "storm",
+            "Buggy",
+            "Monkey D. Luffy",
+            "execution platform"
+          ],
+          "topicsAny": [
+            "lightning interruption",
+            "execution escape",
+            "storm luck"
+          ],
+          "keywordsAny": [
+            "storm",
+            "Buggy",
+            "Monkey D. Luffy",
+            "execution platform",
+            "lightning interruption",
+            "execution escape",
+            "storm luck",
+            "lightning",
+            "platform destroyed",
+            "escape",
+            "Lightning Interrupts Buggy's Execution Attempt",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "A lightning bolt interrupts Buggy's execution attempt, destroys the platform, and frees Luffy at the last possible moment.",
+        "injection": "Use the lightning as sudden intervention and chaos, not as explained power; it opens the escape without solving Dragon's mystery.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_the_crowd_and_storm_turn_the_square_chaotic_024",
+      "title": "Crowd, Storm, And Marines Turn The Square Chaotic",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.execution-platform-event",
+        "validToAnchor": "op.loguetown.dragon-and-weather",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6448,
+        "sortKeyTo": 6560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Crowd, Storm, And Marines Turn The Square Chaotic"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:loguetown",
+          "op:storm",
+          "op:execution-platform",
+          "op:loguetown-marines"
+        ],
+        "characters": [],
+        "locations": [
+          "Loguetown",
+          "execution platform"
+        ],
+        "objects": [
+          "storm"
+        ],
+        "factions": [
+          "Loguetown Marines"
+        ],
+        "topics": [
+          "square chaos",
+          "storm crowd",
+          "climax pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:loguetown",
+        "rule:storm",
+        "location:execution-platform",
+        "faction:loguetown-marines",
+        "topic:square-chaos"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Loguetown",
+            "storm",
+            "execution platform",
+            "Loguetown Marines"
+          ],
+          "topicsAny": [
+            "square chaos",
+            "storm crowd",
+            "climax pressure"
+          ],
+          "keywordsAny": [
+            "Loguetown",
+            "storm",
+            "execution platform",
+            "Loguetown Marines",
+            "square chaos",
+            "storm crowd",
+            "climax pressure",
+            "crowd",
+            "square",
+            "Crowd, Storm, And Marines Turn The Square Chaotic",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The crowd, storm, Buggy's crew, and Marine response turn the execution square into overlapping chaos rather than a clean duel.",
+        "injection": "Use the square as a crowded climax space: rescue, weather, civilians, enemies, and Marines all interfere at once.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_smoker_reads_the_escape_as_more_than_ordinary_luck_025",
+      "title": "Smoker Reads Luffy's Escape As More Than Ordinary Luck",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.execution-platform-event",
+        "validToAnchor": "op.loguetown.dragon-and-weather",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6448,
+        "sortKeyTo": 6560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Smoker Reads Luffy's Escape As More Than Ordinary Luck"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:smoker",
+          "op:monkey-d-luffy",
+          "op:gold-roger",
+          "op:storm"
+        ],
+        "characters": [
+          "Smoker",
+          "Monkey D. Luffy",
+          "Gold Roger"
+        ],
+        "locations": [],
+        "objects": [
+          "storm"
+        ],
+        "factions": [],
+        "topics": [
+          "Smoker disturbed",
+          "Roger echo",
+          "unusual escape"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:smoker",
+        "character:monkey-d-luffy",
+        "character:gold-roger",
+        "rule:storm",
+        "topic:smoker-disturbed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Smoker",
+            "Monkey D. Luffy",
+            "Gold Roger"
+          ],
+          "entitiesAny": [
+            "Smoker",
+            "Monkey D. Luffy",
+            "Gold Roger",
+            "storm"
+          ],
+          "topicsAny": [
+            "Smoker disturbed",
+            "Roger echo",
+            "unusual escape"
+          ],
+          "keywordsAny": [
+            "Smoker",
+            "Monkey D. Luffy",
+            "Gold Roger",
+            "storm",
+            "Smoker disturbed",
+            "Roger echo",
+            "unusual escape",
+            "disturbed",
+            "chase",
+            "Smoker Reads Luffy's Escape As More Than Ordinary Luck",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Smoker reads Luffy's smile and lightning escape as more than ordinary luck because it echoes Roger at the execution platform.",
+        "injection": "Use Smoker's reaction to raise pursuit pressure: the escape matters because Smoker sees a pattern worth chasing.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_the_event_should_retrieve_only_for_loguetown_climax_scenes_026",
+      "title": "Execution Platform Lore Retrieves For Loguetown Climax Scenes",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.execution-platform-event",
+        "validToAnchor": "op.loguetown.dragon-and-weather",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6448,
+        "sortKeyTo": 6560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Execution Platform Lore Retrieves For Loguetown Climax Scenes"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:execution-platform",
+          "op:monkey-d-luffy",
+          "op:buggy",
+          "op:smoker"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Buggy",
+          "Smoker"
+        ],
+        "locations": [
+          "execution platform"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "execution climax retrieval",
+          "platform boundary",
+          "scene gating"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:execution-platform",
+        "character:monkey-d-luffy",
+        "character:buggy",
+        "character:smoker",
+        "topic:execution-climax-retrieval"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Buggy",
+            "Smoker"
+          ],
+          "entitiesAny": [
+            "execution platform",
+            "Monkey D. Luffy",
+            "Buggy",
+            "Smoker"
+          ],
+          "topicsAny": [
+            "execution climax retrieval",
+            "platform boundary",
+            "scene gating"
+          ],
+          "keywordsAny": [
+            "execution platform",
+            "Monkey D. Luffy",
+            "Buggy",
+            "Smoker",
+            "execution climax retrieval",
+            "platform boundary",
+            "scene gating",
+            "retrieval boundary",
+            "climax",
+            "platform",
+            "Execution Platform Lore Retrieves For Loguetown Climax Scenes",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Execution-platform event lore should retrieve for Loguetown climax scenes, not for ordinary shopping or travel moments.",
+        "injection": "Use this as a retrieval boundary: activate platform danger when Luffy, Buggy, Smoker, storm, or Roger parallels are in play.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    }
+  ]
+}

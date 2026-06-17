@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Voyager season 6 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "voy.s6.e01.equinox-part-ii",
+      "label": "Equinox, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 36000,
+      "stardate": "Unknown (2375/2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Equinox, Part II",
+        "VOY season 6 Equinox, Part II",
+        "VOY S6 Equinox, Part II",
+        "VOY 6x01 story",
+        "VOY S06 story 01",
+        "VOY 6x01",
+        "VOY S06E01",
+        "VOY season 6 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox, Part II",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox%2C_Part_II_(episode)",
+        "stardate": "Unknown (2375/2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e02.survival-instinct",
+      "label": "Survival Instinct",
+      "contextType": "story_anchor",
+      "sortKey": 36020,
+      "stardate": "53049.2 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Survival Instinct",
+        "VOY season 6 Survival Instinct",
+        "VOY S6 Survival Instinct",
+        "VOY 6x02 story",
+        "VOY S06 story 02",
+        "VOY 6x02",
+        "VOY S06E02",
+        "VOY season 6 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-survival-instinct"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Survival Instinct",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Survival_Instinct_(episode)",
+        "stardate": "53049.2 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e03.barge-of-the-dead",
+      "label": "Barge of the Dead",
+      "contextType": "story_anchor",
+      "sortKey": 36040,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Barge of the Dead",
+        "VOY season 6 Barge of the Dead",
+        "VOY S6 Barge of the Dead",
+        "VOY 6x03 story",
+        "VOY S06 story 03",
+        "VOY 6x03",
+        "VOY S06E03",
+        "VOY season 6 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-barge-of-the-dead"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Barge of the Dead",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Barge_of_the_Dead_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e04.tinker-tenor-doctor-spy",
+      "label": "Tinker Tenor Doctor Spy",
+      "contextType": "story_anchor",
+      "sortKey": 36060,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Tinker Tenor Doctor Spy",
+        "VOY season 6 Tinker Tenor Doctor Spy",
+        "VOY S6 Tinker Tenor Doctor Spy",
+        "VOY 6x04 story",
+        "VOY S06 story 04",
+        "VOY 6x04",
+        "VOY S06E04",
+        "VOY season 6 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-tinker-tenor-doctor-spy"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Tinker Tenor Doctor Spy",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tinker_Tenor_Doctor_Spy_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e05.alice",
+      "label": "Alice",
+      "contextType": "story_anchor",
+      "sortKey": 36080,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Alice",
+        "VOY season 6 Alice",
+        "VOY S6 Alice",
+        "VOY 6x05 story",
+        "VOY S06 story 05",
+        "VOY 6x05",
+        "VOY S06E05",
+        "VOY season 6 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-alice"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Alice",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Alice_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e06.riddles",
+      "label": "Riddles",
+      "contextType": "story_anchor",
+      "sortKey": 36100,
+      "stardate": "53263.2 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Riddles",
+        "VOY season 6 Riddles",
+        "VOY S6 Riddles",
+        "VOY 6x06 story",
+        "VOY S06 story 06",
+        "VOY 6x06",
+        "VOY S06E06",
+        "VOY season 6 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-riddles"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Riddles",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Riddles_(episode)",
+        "stardate": "53263.2 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e07.dragons-teeth",
+      "label": "Dragon's Teeth",
+      "contextType": "story_anchor",
+      "sortKey": 36120,
+      "stardate": "53167.9 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Dragon's Teeth",
+        "VOY season 6 Dragon's Teeth",
+        "VOY S6 Dragon's Teeth",
+        "VOY 6x07 story",
+        "VOY S06 story 07",
+        "VOY 6x07",
+        "VOY S06E07",
+        "VOY season 6 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-dragons-teeth"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Dragon's Teeth",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dragon's_Teeth_(episode)",
+        "stardate": "53167.9 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e08.one-small-step",
+      "label": "One Small Step",
+      "contextType": "story_anchor",
+      "sortKey": 36140,
+      "stardate": "53292.7-53301.2 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "One Small Step",
+        "VOY season 6 One Small Step",
+        "VOY S6 One Small Step",
+        "VOY 6x08 story",
+        "VOY S06 story 08",
+        "VOY 6x08",
+        "VOY S06E08",
+        "VOY season 6 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-one-small-step"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "One Small Step",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/One_Small_Step_(episode)",
+        "stardate": "53292.7-53301.2 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e09.the-voyager-conspiracy",
+      "label": "The Voyager Conspiracy",
+      "contextType": "story_anchor",
+      "sortKey": 36160,
+      "stardate": "53329 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "The Voyager Conspiracy",
+        "VOY season 6 The Voyager Conspiracy",
+        "VOY S6 The Voyager Conspiracy",
+        "VOY 6x09 story",
+        "VOY S06 story 09",
+        "VOY 6x09",
+        "VOY S06E09",
+        "VOY season 6 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-the-voyager-conspiracy"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Voyager Conspiracy",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Voyager_Conspiracy_(episode)",
+        "stardate": "53329 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e10.pathfinder",
+      "label": "Pathfinder",
+      "contextType": "story_anchor",
+      "sortKey": 36180,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Pathfinder",
+        "VOY season 6 Pathfinder",
+        "VOY S6 Pathfinder",
+        "VOY 6x10 story",
+        "VOY S06 story 10",
+        "VOY 6x10",
+        "VOY S06E10",
+        "VOY season 6 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-pathfinder"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Pathfinder",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Pathfinder_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e11.fair-haven",
+      "label": "Fair Haven",
+      "contextType": "story_anchor",
+      "sortKey": 36200,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Fair Haven",
+        "VOY season 6 Fair Haven",
+        "VOY S6 Fair Haven",
+        "VOY 6x11 story",
+        "VOY S06 story 11",
+        "VOY 6x11",
+        "VOY S06E11",
+        "VOY season 6 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-fair-haven"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Fair Haven",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Fair_Haven_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e12.blink-of-an-eye",
+      "label": "Blink of an Eye",
+      "contextType": "story_anchor",
+      "sortKey": 36220,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Blink of an Eye",
+        "VOY season 6 Blink of an Eye",
+        "VOY S6 Blink of an Eye",
+        "VOY 6x12 story",
+        "VOY S06 story 12",
+        "VOY 6x12",
+        "VOY S06E12",
+        "VOY season 6 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-blink-of-an-eye"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Blink of an Eye",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Blink_of_an_Eye_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e13.virtuoso",
+      "label": "Virtuoso",
+      "contextType": "story_anchor",
+      "sortKey": 36240,
+      "stardate": "53556.4 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Virtuoso",
+        "VOY season 6 Virtuoso",
+        "VOY S6 Virtuoso",
+        "VOY 6x13 story",
+        "VOY S06 story 13",
+        "VOY 6x13",
+        "VOY S06E13",
+        "VOY season 6 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-virtuoso"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Virtuoso",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Virtuoso_(episode)",
+        "stardate": "53556.4 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e14.memorial",
+      "label": "Memorial",
+      "contextType": "story_anchor",
+      "sortKey": 36260,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Memorial",
+        "VOY season 6 Memorial",
+        "VOY S6 Memorial",
+        "VOY 6x14 story",
+        "VOY S06 story 14",
+        "VOY 6x14",
+        "VOY S06E14",
+        "VOY season 6 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-memorial"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Memorial",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Memorial_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e15.tsunkatse",
+      "label": "Tsunkatse",
+      "contextType": "story_anchor",
+      "sortKey": 36280,
+      "stardate": "53447.2-53529.4 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Tsunkatse",
+        "VOY season 6 Tsunkatse",
+        "VOY S6 Tsunkatse",
+        "VOY 6x15 story",
+        "VOY S06 story 15",
+        "VOY 6x15",
+        "VOY S06E15",
+        "VOY season 6 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-tsunkatse"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Tsunkatse",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tsunkatse_(episode)",
+        "stardate": "53447.2-53529.4 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e16.collective",
+      "label": "Collective",
+      "contextType": "story_anchor",
+      "sortKey": 36300,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Collective",
+        "VOY season 6 Collective",
+        "VOY S6 Collective",
+        "VOY 6x16 story",
+        "VOY S06 story 16",
+        "VOY 6x16",
+        "VOY S06E16",
+        "VOY season 6 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-collective"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Collective",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Collective_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e17.spirit-folk",
+      "label": "Spirit Folk",
+      "contextType": "story_anchor",
+      "sortKey": 36320,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Spirit Folk",
+        "VOY season 6 Spirit Folk",
+        "VOY S6 Spirit Folk",
+        "VOY 6x17 story",
+        "VOY S06 story 17",
+        "VOY 6x17",
+        "VOY S06E17",
+        "VOY season 6 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-spirit-folk"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Spirit Folk",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Spirit_Folk_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e18.ashes-to-ashes",
+      "label": "Ashes to Ashes",
+      "contextType": "story_anchor",
+      "sortKey": 36340,
+      "stardate": "53679.4 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Ashes to Ashes",
+        "VOY season 6 Ashes to Ashes",
+        "VOY S6 Ashes to Ashes",
+        "VOY 6x18 story",
+        "VOY S06 story 18",
+        "VOY 6x18",
+        "VOY S06E18",
+        "VOY season 6 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-ashes-to-ashes"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Ashes to Ashes",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ashes_to_Ashes_(episode)",
+        "stardate": "53679.4 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e19.childs-play",
+      "label": "Child's Play",
+      "contextType": "story_anchor",
+      "sortKey": 36360,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Child's Play",
+        "VOY season 6 Child's Play",
+        "VOY S6 Child's Play",
+        "VOY 6x19 story",
+        "VOY S06 story 19",
+        "VOY 6x19",
+        "VOY S06E19",
+        "VOY season 6 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-childs-play"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Child's Play",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Child's_Play_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e20.good-shepherd",
+      "label": "Good Shepherd",
+      "contextType": "story_anchor",
+      "sortKey": 36380,
+      "stardate": "53753.2-53764.3 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Good Shepherd",
+        "VOY season 6 Good Shepherd",
+        "VOY S6 Good Shepherd",
+        "VOY 6x20 story",
+        "VOY S06 story 20",
+        "VOY 6x20",
+        "VOY S06E20",
+        "VOY season 6 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-good-shepherd"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Good Shepherd",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Good_Shepherd_(episode)",
+        "stardate": "53753.2-53764.3 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e21.live-fast-and-prosper",
+      "label": "Live Fast and Prosper",
+      "contextType": "story_anchor",
+      "sortKey": 36400,
+      "stardate": "53849.2 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Live Fast and Prosper",
+        "VOY season 6 Live Fast and Prosper",
+        "VOY S6 Live Fast and Prosper",
+        "VOY 6x21 story",
+        "VOY S06 story 21",
+        "VOY 6x21",
+        "VOY S06E21",
+        "VOY season 6 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-live-fast-and-prosper"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Live Fast and Prosper",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Live_Fast_and_Prosper_(episode)",
+        "stardate": "53849.2 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e22.muse",
+      "label": "Muse",
+      "contextType": "story_anchor",
+      "sortKey": 36420,
+      "stardate": "53918.0 (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Muse",
+        "VOY season 6 Muse",
+        "VOY S6 Muse",
+        "VOY 6x22 story",
+        "VOY S06 story 22",
+        "VOY 6x22",
+        "VOY S06E22",
+        "VOY season 6 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-muse"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Muse",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Muse_(episode)",
+        "stardate": "53918.0 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e23.fury",
+      "label": "Fury",
+      "contextType": "story_anchor",
+      "sortKey": 36440,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Fury",
+        "VOY season 6 Fury",
+        "VOY S6 Fury",
+        "VOY 6x23 story",
+        "VOY S06 story 23",
+        "VOY 6x23",
+        "VOY S06E23",
+        "VOY season 6 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-fury"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Fury",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Fury_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e24.life-line",
+      "label": "Life Line",
+      "contextType": "story_anchor",
+      "sortKey": 36460,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Life Line",
+        "VOY season 6 Life Line",
+        "VOY S6 Life Line",
+        "VOY 6x24 story",
+        "VOY S06 story 24",
+        "VOY 6x24",
+        "VOY S06E24",
+        "VOY season 6 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-life-line"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Life Line",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Life_Line_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e25.the-haunting-of-deck-twelve",
+      "label": "The Haunting of Deck Twelve",
+      "contextType": "story_anchor",
+      "sortKey": 36480,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "The Haunting of Deck Twelve",
+        "VOY season 6 The Haunting of Deck Twelve",
+        "VOY S6 The Haunting of Deck Twelve",
+        "VOY 6x25 story",
+        "VOY S06 story 25",
+        "VOY 6x25",
+        "VOY S06E25",
+        "VOY season 6 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-the-haunting-of-deck-twelve"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Haunting of Deck Twelve",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Haunting_of_Deck_Twelve_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s6.e26.unimatrix-zero",
+      "label": "Unimatrix Zero",
+      "contextType": "story_anchor",
+      "sortKey": 36500,
+      "stardate": "Unknown (2376)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 6,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Unimatrix Zero",
+        "VOY season 6 Unimatrix Zero",
+        "VOY S6 Unimatrix Zero",
+        "VOY 6x26 story",
+        "VOY S06 story 26",
+        "VOY 6x26",
+        "VOY S06E26",
+        "VOY season 6 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-unimatrix-zero"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Unimatrix Zero",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unimatrix_Zero_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "voy.s6.full-season",
+      "label": "VOY season 6 full window",
+      "anchorFrom": "voy.s6.e01.equinox-part-ii",
+      "anchorTo": "voy.s6.e26.unimatrix-zero",
+      "sortKeyFrom": 36000,
+      "sortKeyTo": 36500,
+      "aliases": [
+        "VOY season 6",
+        "Star Trek: Voyager season 6",
+        "VOY S6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "voy.s6.e01.equinox-part-ii.window",
+      "label": "Equinox, Part II episode window",
+      "anchorFrom": "voy.s6.e01.equinox-part-ii",
+      "anchorTo": "voy.s6.e02.survival-instinct",
+      "sortKeyFrom": 36000,
+      "sortKeyTo": 36020,
+      "aliases": [
+        "during Equinox, Part II",
+        "after Equinox, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s6.e02.survival-instinct.window",
+      "label": "Survival Instinct episode window",
+      "anchorFrom": "voy.s6.e02.survival-instinct",
+      "anchorTo": "voy.s6.e03.barge-of-the-dead",
+      "sortKeyFrom": 36020,
+      "sortKeyTo": 36040,
+      "aliases": [
+        "during Survival Instinct",
+        "after Survival Instinct"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-survival-instinct"
+      ]
+    },
+    {
+      "id": "voy.s6.e03.barge-of-the-dead.window",
+      "label": "Barge of the Dead episode window",
+      "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+      "anchorTo": "voy.s6.e04.tinker-tenor-doctor-spy",
+      "sortKeyFrom": 36040,
+      "sortKeyTo": 36060,
+      "aliases": [
+        "during Barge of the Dead",
+        "after Barge of the Dead"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-barge-of-the-dead"
+      ]
+    },
+    {
+      "id": "voy.s6.e04.tinker-tenor-doctor-spy.window",
+      "label": "Tinker Tenor Doctor Spy episode window",
+      "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+      "anchorTo": "voy.s6.e05.alice",
+      "sortKeyFrom": 36060,
+      "sortKeyTo": 36080,
+      "aliases": [
+        "during Tinker Tenor Doctor Spy",
+        "after Tinker Tenor Doctor Spy"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-tinker-tenor-doctor-spy"
+      ]
+    },
+    {
+      "id": "voy.s6.e05.alice.window",
+      "label": "Alice episode window",
+      "anchorFrom": "voy.s6.e05.alice",
+      "anchorTo": "voy.s6.e06.riddles",
+      "sortKeyFrom": 36080,
+      "sortKeyTo": 36100,
+      "aliases": [
+        "during Alice",
+        "after Alice"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-alice"
+      ]
+    },
+    {
+      "id": "voy.s6.e06.riddles.window",
+      "label": "Riddles episode window",
+      "anchorFrom": "voy.s6.e06.riddles",
+      "anchorTo": "voy.s6.e07.dragons-teeth",
+      "sortKeyFrom": 36100,
+      "sortKeyTo": 36120,
+      "aliases": [
+        "during Riddles",
+        "after Riddles"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-riddles"
+      ]
+    },
+    {
+      "id": "voy.s6.e07.dragons-teeth.window",
+      "label": "Dragon's Teeth episode window",
+      "anchorFrom": "voy.s6.e07.dragons-teeth",
+      "anchorTo": "voy.s6.e08.one-small-step",
+      "sortKeyFrom": 36120,
+      "sortKeyTo": 36140,
+      "aliases": [
+        "during Dragon's Teeth",
+        "after Dragon's Teeth"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-dragons-teeth"
+      ]
+    },
+    {
+      "id": "voy.s6.e08.one-small-step.window",
+      "label": "One Small Step episode window",
+      "anchorFrom": "voy.s6.e08.one-small-step",
+      "anchorTo": "voy.s6.e09.the-voyager-conspiracy",
+      "sortKeyFrom": 36140,
+      "sortKeyTo": 36160,
+      "aliases": [
+        "during One Small Step",
+        "after One Small Step"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-one-small-step"
+      ]
+    },
+    {
+      "id": "voy.s6.e09.the-voyager-conspiracy.window",
+      "label": "The Voyager Conspiracy episode window",
+      "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+      "anchorTo": "voy.s6.e10.pathfinder",
+      "sortKeyFrom": 36160,
+      "sortKeyTo": 36180,
+      "aliases": [
+        "during The Voyager Conspiracy",
+        "after The Voyager Conspiracy"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-the-voyager-conspiracy"
+      ]
+    },
+    {
+      "id": "voy.s6.e10.pathfinder.window",
+      "label": "Pathfinder episode window",
+      "anchorFrom": "voy.s6.e10.pathfinder",
+      "anchorTo": "voy.s6.e11.fair-haven",
+      "sortKeyFrom": 36180,
+      "sortKeyTo": 36200,
+      "aliases": [
+        "during Pathfinder",
+        "after Pathfinder"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-pathfinder"
+      ]
+    },
+    {
+      "id": "voy.s6.e11.fair-haven.window",
+      "label": "Fair Haven episode window",
+      "anchorFrom": "voy.s6.e11.fair-haven",
+      "anchorTo": "voy.s6.e12.blink-of-an-eye",
+      "sortKeyFrom": 36200,
+      "sortKeyTo": 36220,
+      "aliases": [
+        "during Fair Haven",
+        "after Fair Haven"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-fair-haven"
+      ]
+    },
+    {
+      "id": "voy.s6.e12.blink-of-an-eye.window",
+      "label": "Blink of an Eye episode window",
+      "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+      "anchorTo": "voy.s6.e13.virtuoso",
+      "sortKeyFrom": 36220,
+      "sortKeyTo": 36240,
+      "aliases": [
+        "during Blink of an Eye",
+        "after Blink of an Eye"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-blink-of-an-eye"
+      ]
+    },
+    {
+      "id": "voy.s6.e13.virtuoso.window",
+      "label": "Virtuoso episode window",
+      "anchorFrom": "voy.s6.e13.virtuoso",
+      "anchorTo": "voy.s6.e14.memorial",
+      "sortKeyFrom": 36240,
+      "sortKeyTo": 36260,
+      "aliases": [
+        "during Virtuoso",
+        "after Virtuoso"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-virtuoso"
+      ]
+    },
+    {
+      "id": "voy.s6.e14.memorial.window",
+      "label": "Memorial episode window",
+      "anchorFrom": "voy.s6.e14.memorial",
+      "anchorTo": "voy.s6.e15.tsunkatse",
+      "sortKeyFrom": 36260,
+      "sortKeyTo": 36280,
+      "aliases": [
+        "during Memorial",
+        "after Memorial"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-memorial"
+      ]
+    },
+    {
+      "id": "voy.s6.e15.tsunkatse.window",
+      "label": "Tsunkatse episode window",
+      "anchorFrom": "voy.s6.e15.tsunkatse",
+      "anchorTo": "voy.s6.e16.collective",
+      "sortKeyFrom": 36280,
+      "sortKeyTo": 36300,
+      "aliases": [
+        "during Tsunkatse",
+        "after Tsunkatse"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-tsunkatse"
+      ]
+    },
+    {
+      "id": "voy.s6.e16.collective.window",
+      "label": "Collective episode window",
+      "anchorFrom": "voy.s6.e16.collective",
+      "anchorTo": "voy.s6.e17.spirit-folk",
+      "sortKeyFrom": 36300,
+      "sortKeyTo": 36320,
+      "aliases": [
+        "during Collective",
+        "after Collective"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-collective"
+      ]
+    },
+    {
+      "id": "voy.s6.e17.spirit-folk.window",
+      "label": "Spirit Folk episode window",
+      "anchorFrom": "voy.s6.e17.spirit-folk",
+      "anchorTo": "voy.s6.e18.ashes-to-ashes",
+      "sortKeyFrom": 36320,
+      "sortKeyTo": 36340,
+      "aliases": [
+        "during Spirit Folk",
+        "after Spirit Folk"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-spirit-folk"
+      ]
+    },
+    {
+      "id": "voy.s6.e18.ashes-to-ashes.window",
+      "label": "Ashes to Ashes episode window",
+      "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+      "anchorTo": "voy.s6.e19.childs-play",
+      "sortKeyFrom": 36340,
+      "sortKeyTo": 36360,
+      "aliases": [
+        "during Ashes to Ashes",
+        "after Ashes to Ashes"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-ashes-to-ashes"
+      ]
+    },
+    {
+      "id": "voy.s6.e19.childs-play.window",
+      "label": "Child's Play episode window",
+      "anchorFrom": "voy.s6.e19.childs-play",
+      "anchorTo": "voy.s6.e20.good-shepherd",
+      "sortKeyFrom": 36360,
+      "sortKeyTo": 36380,
+      "aliases": [
+        "during Child's Play",
+        "after Child's Play"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-childs-play"
+      ]
+    },
+    {
+      "id": "voy.s6.e20.good-shepherd.window",
+      "label": "Good Shepherd episode window",
+      "anchorFrom": "voy.s6.e20.good-shepherd",
+      "anchorTo": "voy.s6.e21.live-fast-and-prosper",
+      "sortKeyFrom": 36380,
+      "sortKeyTo": 36400,
+      "aliases": [
+        "during Good Shepherd",
+        "after Good Shepherd"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-good-shepherd"
+      ]
+    },
+    {
+      "id": "voy.s6.e21.live-fast-and-prosper.window",
+      "label": "Live Fast and Prosper episode window",
+      "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+      "anchorTo": "voy.s6.e22.muse",
+      "sortKeyFrom": 36400,
+      "sortKeyTo": 36420,
+      "aliases": [
+        "during Live Fast and Prosper",
+        "after Live Fast and Prosper"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-live-fast-and-prosper"
+      ]
+    },
+    {
+      "id": "voy.s6.e22.muse.window",
+      "label": "Muse episode window",
+      "anchorFrom": "voy.s6.e22.muse",
+      "anchorTo": "voy.s6.e23.fury",
+      "sortKeyFrom": 36420,
+      "sortKeyTo": 36440,
+      "aliases": [
+        "during Muse",
+        "after Muse"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-muse"
+      ]
+    },
+    {
+      "id": "voy.s6.e23.fury.window",
+      "label": "Fury episode window",
+      "anchorFrom": "voy.s6.e23.fury",
+      "anchorTo": "voy.s6.e24.life-line",
+      "sortKeyFrom": 36440,
+      "sortKeyTo": 36460,
+      "aliases": [
+        "during Fury",
+        "after Fury"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-fury"
+      ]
+    },
+    {
+      "id": "voy.s6.e24.life-line.window",
+      "label": "Life Line episode window",
+      "anchorFrom": "voy.s6.e24.life-line",
+      "anchorTo": "voy.s6.e25.the-haunting-of-deck-twelve",
+      "sortKeyFrom": 36460,
+      "sortKeyTo": 36480,
+      "aliases": [
+        "during Life Line",
+        "after Life Line"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-life-line"
+      ]
+    },
+    {
+      "id": "voy.s6.e25.the-haunting-of-deck-twelve.window",
+      "label": "The Haunting of Deck Twelve episode window",
+      "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+      "anchorTo": "voy.s6.e26.unimatrix-zero",
+      "sortKeyFrom": 36480,
+      "sortKeyTo": 36500,
+      "aliases": [
+        "during The Haunting of Deck Twelve",
+        "after The Haunting of Deck Twelve"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-the-haunting-of-deck-twelve"
+      ]
+    }
+  ]
+}

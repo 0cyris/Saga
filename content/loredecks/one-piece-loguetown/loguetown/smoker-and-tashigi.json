@@ -1,0 +1,1016 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_smoker_controls_loguetown_with_a_direct_anti_pirate_marine_presence_006",
+      "title": "Smoker Controls Loguetown As An Anti-Pirate Marine Captain",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.smoker-and-tashigi",
+        "validToAnchor": "op.loguetown.crew-provisioning",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6112,
+        "sortKeyTo": 6224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Smoker Controls Loguetown As An Anti-Pirate Marine Captain"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:smoker",
+          "op:loguetown-marines",
+          "op:loguetown"
+        ],
+        "characters": [
+          "Smoker"
+        ],
+        "locations": [
+          "Loguetown"
+        ],
+        "objects": [],
+        "factions": [
+          "Loguetown Marines"
+        ],
+        "topics": [
+          "Smoker pressure",
+          "anti-pirate Marine",
+          "local control"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:smoker",
+        "faction:loguetown-marines",
+        "location:loguetown",
+        "topic:smoker-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Smoker"
+          ],
+          "entitiesAny": [
+            "Smoker",
+            "Loguetown Marines",
+            "Loguetown"
+          ],
+          "topicsAny": [
+            "Smoker pressure",
+            "anti-pirate Marine",
+            "local control"
+          ],
+          "keywordsAny": [
+            "Smoker",
+            "Loguetown Marines",
+            "Loguetown",
+            "Smoker pressure",
+            "anti-pirate Marine",
+            "local control",
+            "White Hunter",
+            "Marine captain",
+            "capture",
+            "Smoker Controls Loguetown As An Anti-Pirate Marine Captain",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Smoker controls Loguetown with direct anti-pirate authority and a reputation for not letting pirates leave his town uncaptured.",
+        "injection": "Use Smoker as disciplined local pressure: he is not background law enforcement, he is a hard stop at the Grand Line threshold.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_his_smoke_power_creates_a_problem_luffy_cannot_simply_punch_through_007",
+      "title": "Smoker's Smoke Power Blocks Early Luffy's Usual Fighting Logic",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.smoker-and-tashigi",
+        "validToAnchor": "op.loguetown.crew-provisioning",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6112,
+        "sortKeyTo": 6224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Smoker's Smoke Power Blocks Early Luffy's Usual Fighting Logic"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:smoker",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Smoker",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Smoke power counter",
+          "early Luffy blocked",
+          "intangible smoke boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:smoker",
+        "character:monkey-d-luffy",
+        "topic:smoke-power-counter"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Smoker",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Smoker",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Smoke power counter",
+            "early Luffy blocked",
+            "intangible smoke boundary"
+          ],
+          "keywordsAny": [
+            "Smoker",
+            "Monkey D. Luffy",
+            "Smoke power counter",
+            "early Luffy blocked",
+            "intangible smoke boundary",
+            "smoke",
+            "hard counter",
+            "cannot punch",
+            "Smoker's Smoke Power Blocks Early Luffy's Usual Fighting Logic",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Smoker's smoke power creates a practical problem Luffy cannot simply punch through at this stage.",
+        "injection": "Use Smoker as the high-value early hard counter: Luffy can be brave and aggressive, but ordinary rubber punches do not solve smoke.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_seastone_is_introduced_as_a_practical_countermeasure_against_devil_fruit_users_008",
+      "title": "Seastone Is A Practical Devil Fruit Countermeasure",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.smoker-and-tashigi",
+        "validToAnchor": "op.loguetown.crew-provisioning",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6112,
+        "sortKeyTo": 6224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Seastone Is A Practical Devil Fruit Countermeasure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:smoker",
+          "op:seastone",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Smoker",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [
+          "Seastone"
+        ],
+        "factions": [],
+        "topics": [
+          "Seastone countermeasure",
+          "Devil Fruit restraint",
+          "Smoker weapon"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:smoker",
+        "item:seastone",
+        "character:monkey-d-luffy",
+        "topic:seastone-countermeasure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Smoker",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Smoker",
+            "Seastone",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Seastone countermeasure",
+            "Devil Fruit restraint",
+            "Smoker weapon"
+          ],
+          "keywordsAny": [
+            "Smoker",
+            "Seastone",
+            "Monkey D. Luffy",
+            "Seastone countermeasure",
+            "Devil Fruit restraint",
+            "Smoker weapon",
+            "jitte",
+            "Sea-Prism Stone",
+            "restraint",
+            "Seastone Is A Practical Devil Fruit Countermeasure",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Seastone appears as a practical countermeasure against Devil Fruit users, giving Smoker a way to pin Luffy beyond smoke alone.",
+        "injection": "Use Seastone as a concrete restraint, not a full mineral taxonomy: it matters because Luffy cannot ignore it.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_tashigi_s_sword_knowledge_intersects_with_zoro_s_shopping_009",
+      "title": "Tashigi's Sword Knowledge Intersects With Zoro's Shopping",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.smoker-and-tashigi",
+        "validToAnchor": "op.loguetown.crew-provisioning",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6112,
+        "sortKeyTo": 6224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Tashigi's Sword Knowledge Intersects With Zoro's Shopping"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tashigi",
+          "op:roronoa-zoro",
+          "op:sandai-kitetsu",
+          "op:yubashiri",
+          "op:ipponmatsu"
+        ],
+        "characters": [
+          "Tashigi",
+          "Roronoa Zoro",
+          "Ipponmatsu"
+        ],
+        "locations": [],
+        "objects": [
+          "Sandai Kitetsu",
+          "Yubashiri"
+        ],
+        "factions": [],
+        "topics": [
+          "Tashigi sword knowledge",
+          "Zoro sword shop",
+          "named swords"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tashigi",
+        "character:roronoa-zoro",
+        "item:sandai-kitetsu",
+        "item:yubashiri",
+        "character:ipponmatsu",
+        "topic:tashigi-sword-knowledge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tashigi",
+            "Roronoa Zoro",
+            "Ipponmatsu"
+          ],
+          "entitiesAny": [
+            "Tashigi",
+            "Roronoa Zoro",
+            "Sandai Kitetsu",
+            "Yubashiri",
+            "Ipponmatsu"
+          ],
+          "topicsAny": [
+            "Tashigi sword knowledge",
+            "Zoro sword shop",
+            "named swords"
+          ],
+          "keywordsAny": [
+            "Tashigi",
+            "Roronoa Zoro",
+            "Sandai Kitetsu",
+            "Yubashiri",
+            "Ipponmatsu",
+            "Tashigi sword knowledge",
+            "Zoro sword shop",
+            "named swords",
+            "sword shop",
+            "Tashigi's Sword Knowledge Intersects With Zoro's Shopping",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Tashigi's sword knowledge intersects with Zoro's shopping when he replaces swords lost at Baratie and tests Sandai Kitetsu.",
+        "injection": "Use Tashigi as sword-focused and principled: her expertise belongs in sword-shop and Marine scenes, not as generic exposition.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_tashigi_s_resemblance_to_kuina_unsettles_zoro_without_resolving_his_past_010",
+      "title": "Tashigi's Resemblance To Kuina Unsettles Zoro Without Resolving It",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.smoker-and-tashigi",
+        "validToAnchor": "op.loguetown.crew-provisioning",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6112,
+        "sortKeyTo": 6224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Tashigi's Resemblance To Kuina Unsettles Zoro Without Resolving It"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tashigi",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Tashigi",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tashigi resemblance tension",
+          "Zoro discomfort",
+          "Kuina boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tashigi",
+        "character:roronoa-zoro",
+        "topic:tashigi-resemblance-tension"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tashigi",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Tashigi",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "Tashigi resemblance tension",
+            "Zoro discomfort",
+            "Kuina boundary"
+          ],
+          "keywordsAny": [
+            "Tashigi",
+            "Roronoa Zoro",
+            "Tashigi resemblance tension",
+            "Zoro discomfort",
+            "Kuina boundary",
+            "Kuina",
+            "resemblance",
+            "unsettled",
+            "Tashigi's Resemblance To Kuina Unsettles Zoro Without Resolving It",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Tashigi's resemblance to Kuina unsettles Zoro, but Loguetown does not resolve his past or explain Tashigi as anything beyond herself.",
+        "injection": "Use the resemblance as emotional friction for Zoro: it can throw him off without becoming a secret-identity plot.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_smoker_continues_pursuit_after_the_crew_escapes_011",
+      "title": "Smoker Leaves His Post To Pursue Luffy",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.smoker-and-tashigi",
+        "validToAnchor": "op.loguetown.crew-provisioning",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6112,
+        "sortKeyTo": 6224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Smoker Leaves His Post To Pursue Luffy"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:smoker",
+          "op:monkey-d-luffy",
+          "op:loguetown-marines"
+        ],
+        "characters": [
+          "Smoker",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Loguetown Marines"
+        ],
+        "topics": [
+          "Smoker pursuit",
+          "Marine chase begins",
+          "post-escape pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:smoker",
+        "character:monkey-d-luffy",
+        "faction:loguetown-marines",
+        "topic:smoker-pursuit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Smoker",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Smoker",
+            "Monkey D. Luffy",
+            "Loguetown Marines"
+          ],
+          "topicsAny": [
+            "Smoker pursuit",
+            "Marine chase begins",
+            "post-escape pressure"
+          ],
+          "keywordsAny": [
+            "Smoker",
+            "Monkey D. Luffy",
+            "Loguetown Marines",
+            "Smoker pursuit",
+            "Marine chase begins",
+            "post-escape pressure",
+            "pursuit",
+            "leave post",
+            "chase",
+            "Smoker Leaves His Post To Pursue Luffy",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Smoker continues pursuit after the crew escapes, turning Loguetown from a local obstacle into the start of a Marine chase.",
+        "injection": "Use this as the forward boundary for Smoker: he does not shrug off the escape; he chooses pursuit.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    }
+  ]
+}

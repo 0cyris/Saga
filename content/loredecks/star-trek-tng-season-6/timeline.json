@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: The Next Generation season 6 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "tng.s6.e01.times-arrow-part-ii",
+      "label": "Time's Arrow, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 15000,
+      "stardate": "46001.3 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Time's Arrow, Part II",
+        "TNG season 6 Time's Arrow, Part II",
+        "TNG S6 Time's Arrow, Part II",
+        "TNG 6x01 story",
+        "TNG S06 story 01",
+        "TNG 6x01",
+        "TNG S06E01",
+        "TNG season 6 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-times-arrow-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Time's Arrow, Part II",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Time's_Arrow%2C_Part_II_(episode)",
+        "stardate": "46001.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e02.realm-of-fear",
+      "label": "Realm Of Fear",
+      "contextType": "story_anchor",
+      "sortKey": 15020,
+      "stardate": "46041.1-46043.6 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Realm Of Fear",
+        "TNG season 6 Realm Of Fear",
+        "TNG S6 Realm Of Fear",
+        "TNG 6x02 story",
+        "TNG S06 story 02",
+        "TNG 6x02",
+        "TNG S06E02",
+        "TNG season 6 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-realm-of-fear"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Realm Of Fear",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Realm_Of_Fear_(episode)",
+        "stardate": "46041.1-46043.6 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e03.man-of-the-people",
+      "label": "Man Of The People",
+      "contextType": "story_anchor",
+      "sortKey": 15040,
+      "stardate": "46071.6-46075.1 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Man Of The People",
+        "TNG season 6 Man Of The People",
+        "TNG S6 Man Of The People",
+        "TNG 6x03 story",
+        "TNG S06 story 03",
+        "TNG 6x03",
+        "TNG S06E03",
+        "TNG season 6 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-man-of-the-people"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Man Of The People",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Man_Of_The_People_(episode)",
+        "stardate": "46071.6-46075.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e04.relics",
+      "label": "Relics",
+      "contextType": "story_anchor",
+      "sortKey": 15060,
+      "stardate": "46125.3 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Relics",
+        "TNG season 6 Relics",
+        "TNG S6 Relics",
+        "TNG 6x04 story",
+        "TNG S06 story 04",
+        "TNG 6x04",
+        "TNG S06E04",
+        "TNG season 6 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-relics"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Relics",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Relics_(episode)",
+        "stardate": "46125.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e05.schisms",
+      "label": "Schisms",
+      "contextType": "story_anchor",
+      "sortKey": 15080,
+      "stardate": "46154.2-46191.2 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Schisms",
+        "TNG season 6 Schisms",
+        "TNG S6 Schisms",
+        "TNG 6x05 story",
+        "TNG S06 story 05",
+        "TNG 6x05",
+        "TNG S06E05",
+        "TNG season 6 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-schisms"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Schisms",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Schisms_(episode)",
+        "stardate": "46154.2-46191.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e06.true-q",
+      "label": "True Q",
+      "contextType": "story_anchor",
+      "sortKey": 15100,
+      "stardate": "46192.3-46193.8 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "True Q",
+        "TNG season 6 True Q",
+        "TNG S6 True Q",
+        "TNG 6x06 story",
+        "TNG S06 story 06",
+        "TNG 6x06",
+        "TNG S06E06",
+        "TNG season 6 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-true-q"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "True Q",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/True_Q_(episode)",
+        "stardate": "46192.3-46193.8 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e07.rascals",
+      "label": "Rascals",
+      "contextType": "story_anchor",
+      "sortKey": 15120,
+      "stardate": "46235.7-46236.3 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Rascals",
+        "TNG season 6 Rascals",
+        "TNG S6 Rascals",
+        "TNG 6x07 story",
+        "TNG S06 story 07",
+        "TNG 6x07",
+        "TNG S06E07",
+        "TNG season 6 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-rascals"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Rascals",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rascals_(episode)",
+        "stardate": "46235.7-46236.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e08.a-fistful-of-datas",
+      "label": "A Fistful of Datas",
+      "contextType": "story_anchor",
+      "sortKey": 15140,
+      "stardate": "46271.5-46278.3 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "A Fistful of Datas",
+        "TNG season 6 A Fistful of Datas",
+        "TNG S6 A Fistful of Datas",
+        "TNG 6x08 story",
+        "TNG S06 story 08",
+        "TNG 6x08",
+        "TNG S06E08",
+        "TNG season 6 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-a-fistful-of-datas"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Fistful of Datas",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Fistful_of_Datas_(episode)",
+        "stardate": "46271.5-46278.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e09.the-quality-of-life",
+      "label": "The Quality of Life",
+      "contextType": "story_anchor",
+      "sortKey": 15160,
+      "stardate": "46307.2-46317.8 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "The Quality of Life",
+        "TNG season 6 The Quality of Life",
+        "TNG S6 The Quality of Life",
+        "TNG 6x09 story",
+        "TNG S06 story 09",
+        "TNG 6x09",
+        "TNG S06E09",
+        "TNG season 6 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-the-quality-of-life"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Quality of Life",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Quality_of_Life_(episode)",
+        "stardate": "46307.2-46317.8 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e10.chain-of-command-part-i",
+      "label": "Chain Of Command, Part I",
+      "contextType": "story_anchor",
+      "sortKey": 15180,
+      "stardate": "46357.4-46358.2 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Chain Of Command, Part I",
+        "TNG season 6 Chain Of Command, Part I",
+        "TNG S6 Chain Of Command, Part I",
+        "TNG 6x10 story",
+        "TNG S06 story 10",
+        "TNG 6x10",
+        "TNG S06E10",
+        "TNG season 6 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-chain-of-command-part-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Chain Of Command, Part I",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Chain_Of_Command%2C_Part_I_(episode)",
+        "stardate": "46357.4-46358.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e11.chain-of-command-part-ii",
+      "label": "Chain Of Command, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 15200,
+      "stardate": "46360.8 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Chain Of Command, Part II",
+        "TNG season 6 Chain Of Command, Part II",
+        "TNG S6 Chain Of Command, Part II",
+        "TNG 6x11 story",
+        "TNG S06 story 11",
+        "TNG 6x11",
+        "TNG S06E11",
+        "TNG season 6 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-chain-of-command-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Chain Of Command, Part II",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Chain_Of_Command%2C_Part_II_(episode)",
+        "stardate": "46360.8 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e12.ship-in-a-bottle",
+      "label": "Ship In A Bottle",
+      "contextType": "story_anchor",
+      "sortKey": 15220,
+      "stardate": "46424.1 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Ship In A Bottle",
+        "TNG season 6 Ship In A Bottle",
+        "TNG S6 Ship In A Bottle",
+        "TNG 6x12 story",
+        "TNG S06 story 12",
+        "TNG 6x12",
+        "TNG S06E12",
+        "TNG season 6 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-ship-in-a-bottle"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ship In A Bottle",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ship_In_A_Bottle_(episode)",
+        "stardate": "46424.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e13.aquiel",
+      "label": "Aquiel",
+      "contextType": "story_anchor",
+      "sortKey": 15240,
+      "stardate": "46461.3 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Aquiel",
+        "TNG season 6 Aquiel",
+        "TNG S6 Aquiel",
+        "TNG 6x13 story",
+        "TNG S06 story 13",
+        "TNG 6x13",
+        "TNG S06E13",
+        "TNG season 6 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-aquiel"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Aquiel",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Aquiel_(episode)",
+        "stardate": "46461.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e14.face-of-the-enemy",
+      "label": "Face Of The Enemy",
+      "contextType": "story_anchor",
+      "sortKey": 15260,
+      "stardate": "46519.1 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Face Of The Enemy",
+        "TNG season 6 Face Of The Enemy",
+        "TNG S6 Face Of The Enemy",
+        "TNG 6x14 story",
+        "TNG S06 story 14",
+        "TNG 6x14",
+        "TNG S06E14",
+        "TNG season 6 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-face-of-the-enemy"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Face Of The Enemy",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Face_Of_The_Enemy_(episode)",
+        "stardate": "46519.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e15.tapestry",
+      "label": "Tapestry",
+      "contextType": "story_anchor",
+      "sortKey": 15280,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Tapestry",
+        "TNG season 6 Tapestry",
+        "TNG S6 Tapestry",
+        "TNG 6x15 story",
+        "TNG S06 story 15",
+        "TNG 6x15",
+        "TNG S06E15",
+        "TNG season 6 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-tapestry"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Tapestry",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tapestry_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e16.birthright-part-i",
+      "label": "Birthright, Part I",
+      "contextType": "story_anchor",
+      "sortKey": 15300,
+      "stardate": "46578.4 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Birthright, Part I",
+        "TNG season 6 Birthright, Part I",
+        "TNG S6 Birthright, Part I",
+        "TNG 6x16 story",
+        "TNG S06 story 16",
+        "TNG 6x16",
+        "TNG S06E16",
+        "TNG season 6 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-birthright-part-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Birthright, Part I",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Birthright%2C_Part_I_(episode)",
+        "stardate": "46578.4 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e17.birthright-part-ii",
+      "label": "Birthright, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 15320,
+      "stardate": "46579.2 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Birthright, Part II",
+        "TNG season 6 Birthright, Part II",
+        "TNG S6 Birthright, Part II",
+        "TNG 6x17 story",
+        "TNG S06 story 17",
+        "TNG 6x17",
+        "TNG S06E17",
+        "TNG season 6 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-birthright-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Birthright, Part II",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Birthright%2C_Part_II_(episode)",
+        "stardate": "46579.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e18.starship-mine",
+      "label": "Starship Mine",
+      "contextType": "story_anchor",
+      "sortKey": 15340,
+      "stardate": "46682.4 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Starship Mine",
+        "TNG season 6 Starship Mine",
+        "TNG S6 Starship Mine",
+        "TNG 6x18 story",
+        "TNG S06 story 18",
+        "TNG 6x18",
+        "TNG S06E18",
+        "TNG season 6 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-starship-mine"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Starship Mine",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Starship_Mine_(episode)",
+        "stardate": "46682.4 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e19.lessons",
+      "label": "Lessons",
+      "contextType": "story_anchor",
+      "sortKey": 15360,
+      "stardate": "46693.1-46697.2 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Lessons",
+        "TNG season 6 Lessons",
+        "TNG S6 Lessons",
+        "TNG 6x19 story",
+        "TNG S06 story 19",
+        "TNG 6x19",
+        "TNG S06E19",
+        "TNG season 6 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-lessons"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Lessons",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lessons_(episode)",
+        "stardate": "46693.1-46697.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e20.the-chase",
+      "label": "The Chase",
+      "contextType": "story_anchor",
+      "sortKey": 15380,
+      "stardate": "46731.5-46735.2 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "The Chase",
+        "TNG season 6 The Chase",
+        "TNG S6 The Chase",
+        "TNG 6x20 story",
+        "TNG S06 story 20",
+        "TNG 6x20",
+        "TNG S06E20",
+        "TNG season 6 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-the-chase"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Chase",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Chase_(episode)",
+        "stardate": "46731.5-46735.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e21.frame-of-mind",
+      "label": "Frame of Mind",
+      "contextType": "story_anchor",
+      "sortKey": 15400,
+      "stardate": "46778.1 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Frame of Mind",
+        "TNG season 6 Frame of Mind",
+        "TNG S6 Frame of Mind",
+        "TNG 6x21 story",
+        "TNG S06 story 21",
+        "TNG 6x21",
+        "TNG S06E21",
+        "TNG season 6 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-frame-of-mind"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Frame of Mind",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Frame_of_Mind_(episode)",
+        "stardate": "46778.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e22.suspicions",
+      "label": "Suspicions",
+      "contextType": "story_anchor",
+      "sortKey": 15420,
+      "stardate": "46830.1-46831.2 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Suspicions",
+        "TNG season 6 Suspicions",
+        "TNG S6 Suspicions",
+        "TNG 6x22 story",
+        "TNG S06 story 22",
+        "TNG 6x22",
+        "TNG S06E22",
+        "TNG season 6 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-suspicions"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Suspicions",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Suspicions_(episode)",
+        "stardate": "46830.1-46831.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e23.rightful-heir",
+      "label": "Rightful Heir",
+      "contextType": "story_anchor",
+      "sortKey": 15440,
+      "stardate": "46852.2 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Rightful Heir",
+        "TNG season 6 Rightful Heir",
+        "TNG S6 Rightful Heir",
+        "TNG 6x23 story",
+        "TNG S06 story 23",
+        "TNG 6x23",
+        "TNG S06E23",
+        "TNG season 6 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-rightful-heir"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Rightful Heir",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rightful_Heir_(episode)",
+        "stardate": "46852.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e24.second-chances",
+      "label": "Second Chances",
+      "contextType": "story_anchor",
+      "sortKey": 15460,
+      "stardate": "46915.2-46920.1 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Second Chances",
+        "TNG season 6 Second Chances",
+        "TNG S6 Second Chances",
+        "TNG 6x24 story",
+        "TNG S06 story 24",
+        "TNG 6x24",
+        "TNG S06E24",
+        "TNG season 6 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-second-chances"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Second Chances",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Second_Chances_(episode)",
+        "stardate": "46915.2-46920.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e25.timescape",
+      "label": "Timescape",
+      "contextType": "story_anchor",
+      "sortKey": 15480,
+      "stardate": "46944.2-46945.3 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Timescape",
+        "TNG season 6 Timescape",
+        "TNG S6 Timescape",
+        "TNG 6x25 story",
+        "TNG S06 story 25",
+        "TNG 6x25",
+        "TNG S06E25",
+        "TNG season 6 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-timescape"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Timescape",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Timescape_(episode)",
+        "stardate": "46944.2-46945.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s6.e26.descent",
+      "label": "Descent",
+      "contextType": "story_anchor",
+      "sortKey": 15500,
+      "stardate": "46982.1-46984.6 (2369)",
+      "year": "2369",
+      "series": "TNG",
+      "season": 6,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Descent",
+        "TNG season 6 Descent",
+        "TNG S6 Descent",
+        "TNG 6x26 story",
+        "TNG S06 story 26",
+        "TNG 6x26",
+        "TNG S06E26",
+        "TNG season 6 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-descent"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Descent",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Descent_(episode)",
+        "stardate": "46982.1-46984.6 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "tng.s6.full-season",
+      "label": "TNG season 6 full window",
+      "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+      "anchorTo": "tng.s6.e26.descent",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 15500,
+      "aliases": [
+        "TNG season 6",
+        "Star Trek: The Next Generation season 6",
+        "TNG S6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "tng.s6.e01.times-arrow-part-ii.window",
+      "label": "Time's Arrow, Part II episode window",
+      "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+      "anchorTo": "tng.s6.e02.realm-of-fear",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 15020,
+      "aliases": [
+        "during Time's Arrow, Part II",
+        "after Time's Arrow, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-times-arrow-part-ii"
+      ]
+    },
+    {
+      "id": "tng.s6.e02.realm-of-fear.window",
+      "label": "Realm Of Fear episode window",
+      "anchorFrom": "tng.s6.e02.realm-of-fear",
+      "anchorTo": "tng.s6.e03.man-of-the-people",
+      "sortKeyFrom": 15020,
+      "sortKeyTo": 15040,
+      "aliases": [
+        "during Realm Of Fear",
+        "after Realm Of Fear"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-realm-of-fear"
+      ]
+    },
+    {
+      "id": "tng.s6.e03.man-of-the-people.window",
+      "label": "Man Of The People episode window",
+      "anchorFrom": "tng.s6.e03.man-of-the-people",
+      "anchorTo": "tng.s6.e04.relics",
+      "sortKeyFrom": 15040,
+      "sortKeyTo": 15060,
+      "aliases": [
+        "during Man Of The People",
+        "after Man Of The People"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-man-of-the-people"
+      ]
+    },
+    {
+      "id": "tng.s6.e04.relics.window",
+      "label": "Relics episode window",
+      "anchorFrom": "tng.s6.e04.relics",
+      "anchorTo": "tng.s6.e05.schisms",
+      "sortKeyFrom": 15060,
+      "sortKeyTo": 15080,
+      "aliases": [
+        "during Relics",
+        "after Relics"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-relics"
+      ]
+    },
+    {
+      "id": "tng.s6.e05.schisms.window",
+      "label": "Schisms episode window",
+      "anchorFrom": "tng.s6.e05.schisms",
+      "anchorTo": "tng.s6.e06.true-q",
+      "sortKeyFrom": 15080,
+      "sortKeyTo": 15100,
+      "aliases": [
+        "during Schisms",
+        "after Schisms"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-schisms"
+      ]
+    },
+    {
+      "id": "tng.s6.e06.true-q.window",
+      "label": "True Q episode window",
+      "anchorFrom": "tng.s6.e06.true-q",
+      "anchorTo": "tng.s6.e07.rascals",
+      "sortKeyFrom": 15100,
+      "sortKeyTo": 15120,
+      "aliases": [
+        "during True Q",
+        "after True Q"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-true-q"
+      ]
+    },
+    {
+      "id": "tng.s6.e07.rascals.window",
+      "label": "Rascals episode window",
+      "anchorFrom": "tng.s6.e07.rascals",
+      "anchorTo": "tng.s6.e08.a-fistful-of-datas",
+      "sortKeyFrom": 15120,
+      "sortKeyTo": 15140,
+      "aliases": [
+        "during Rascals",
+        "after Rascals"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-rascals"
+      ]
+    },
+    {
+      "id": "tng.s6.e08.a-fistful-of-datas.window",
+      "label": "A Fistful of Datas episode window",
+      "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+      "anchorTo": "tng.s6.e09.the-quality-of-life",
+      "sortKeyFrom": 15140,
+      "sortKeyTo": 15160,
+      "aliases": [
+        "during A Fistful of Datas",
+        "after A Fistful of Datas"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-a-fistful-of-datas"
+      ]
+    },
+    {
+      "id": "tng.s6.e09.the-quality-of-life.window",
+      "label": "The Quality of Life episode window",
+      "anchorFrom": "tng.s6.e09.the-quality-of-life",
+      "anchorTo": "tng.s6.e10.chain-of-command-part-i",
+      "sortKeyFrom": 15160,
+      "sortKeyTo": 15180,
+      "aliases": [
+        "during The Quality of Life",
+        "after The Quality of Life"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-the-quality-of-life"
+      ]
+    },
+    {
+      "id": "tng.s6.e10.chain-of-command-part-i.window",
+      "label": "Chain Of Command, Part I episode window",
+      "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+      "anchorTo": "tng.s6.e11.chain-of-command-part-ii",
+      "sortKeyFrom": 15180,
+      "sortKeyTo": 15200,
+      "aliases": [
+        "during Chain Of Command, Part I",
+        "after Chain Of Command, Part I"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-chain-of-command-part-i"
+      ]
+    },
+    {
+      "id": "tng.s6.e11.chain-of-command-part-ii.window",
+      "label": "Chain Of Command, Part II episode window",
+      "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+      "anchorTo": "tng.s6.e12.ship-in-a-bottle",
+      "sortKeyFrom": 15200,
+      "sortKeyTo": 15220,
+      "aliases": [
+        "during Chain Of Command, Part II",
+        "after Chain Of Command, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-chain-of-command-part-ii"
+      ]
+    },
+    {
+      "id": "tng.s6.e12.ship-in-a-bottle.window",
+      "label": "Ship In A Bottle episode window",
+      "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+      "anchorTo": "tng.s6.e13.aquiel",
+      "sortKeyFrom": 15220,
+      "sortKeyTo": 15240,
+      "aliases": [
+        "during Ship In A Bottle",
+        "after Ship In A Bottle"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-ship-in-a-bottle"
+      ]
+    },
+    {
+      "id": "tng.s6.e13.aquiel.window",
+      "label": "Aquiel episode window",
+      "anchorFrom": "tng.s6.e13.aquiel",
+      "anchorTo": "tng.s6.e14.face-of-the-enemy",
+      "sortKeyFrom": 15240,
+      "sortKeyTo": 15260,
+      "aliases": [
+        "during Aquiel",
+        "after Aquiel"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-aquiel"
+      ]
+    },
+    {
+      "id": "tng.s6.e14.face-of-the-enemy.window",
+      "label": "Face Of The Enemy episode window",
+      "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+      "anchorTo": "tng.s6.e15.tapestry",
+      "sortKeyFrom": 15260,
+      "sortKeyTo": 15280,
+      "aliases": [
+        "during Face Of The Enemy",
+        "after Face Of The Enemy"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-face-of-the-enemy"
+      ]
+    },
+    {
+      "id": "tng.s6.e15.tapestry.window",
+      "label": "Tapestry episode window",
+      "anchorFrom": "tng.s6.e15.tapestry",
+      "anchorTo": "tng.s6.e16.birthright-part-i",
+      "sortKeyFrom": 15280,
+      "sortKeyTo": 15300,
+      "aliases": [
+        "during Tapestry",
+        "after Tapestry"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-tapestry"
+      ]
+    },
+    {
+      "id": "tng.s6.e16.birthright-part-i.window",
+      "label": "Birthright, Part I episode window",
+      "anchorFrom": "tng.s6.e16.birthright-part-i",
+      "anchorTo": "tng.s6.e17.birthright-part-ii",
+      "sortKeyFrom": 15300,
+      "sortKeyTo": 15320,
+      "aliases": [
+        "during Birthright, Part I",
+        "after Birthright, Part I"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-birthright-part-i"
+      ]
+    },
+    {
+      "id": "tng.s6.e17.birthright-part-ii.window",
+      "label": "Birthright, Part II episode window",
+      "anchorFrom": "tng.s6.e17.birthright-part-ii",
+      "anchorTo": "tng.s6.e18.starship-mine",
+      "sortKeyFrom": 15320,
+      "sortKeyTo": 15340,
+      "aliases": [
+        "during Birthright, Part II",
+        "after Birthright, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-birthright-part-ii"
+      ]
+    },
+    {
+      "id": "tng.s6.e18.starship-mine.window",
+      "label": "Starship Mine episode window",
+      "anchorFrom": "tng.s6.e18.starship-mine",
+      "anchorTo": "tng.s6.e19.lessons",
+      "sortKeyFrom": 15340,
+      "sortKeyTo": 15360,
+      "aliases": [
+        "during Starship Mine",
+        "after Starship Mine"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-starship-mine"
+      ]
+    },
+    {
+      "id": "tng.s6.e19.lessons.window",
+      "label": "Lessons episode window",
+      "anchorFrom": "tng.s6.e19.lessons",
+      "anchorTo": "tng.s6.e20.the-chase",
+      "sortKeyFrom": 15360,
+      "sortKeyTo": 15380,
+      "aliases": [
+        "during Lessons",
+        "after Lessons"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-lessons"
+      ]
+    },
+    {
+      "id": "tng.s6.e20.the-chase.window",
+      "label": "The Chase episode window",
+      "anchorFrom": "tng.s6.e20.the-chase",
+      "anchorTo": "tng.s6.e21.frame-of-mind",
+      "sortKeyFrom": 15380,
+      "sortKeyTo": 15400,
+      "aliases": [
+        "during The Chase",
+        "after The Chase"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-the-chase"
+      ]
+    },
+    {
+      "id": "tng.s6.e21.frame-of-mind.window",
+      "label": "Frame of Mind episode window",
+      "anchorFrom": "tng.s6.e21.frame-of-mind",
+      "anchorTo": "tng.s6.e22.suspicions",
+      "sortKeyFrom": 15400,
+      "sortKeyTo": 15420,
+      "aliases": [
+        "during Frame of Mind",
+        "after Frame of Mind"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-frame-of-mind"
+      ]
+    },
+    {
+      "id": "tng.s6.e22.suspicions.window",
+      "label": "Suspicions episode window",
+      "anchorFrom": "tng.s6.e22.suspicions",
+      "anchorTo": "tng.s6.e23.rightful-heir",
+      "sortKeyFrom": 15420,
+      "sortKeyTo": 15440,
+      "aliases": [
+        "during Suspicions",
+        "after Suspicions"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-suspicions"
+      ]
+    },
+    {
+      "id": "tng.s6.e23.rightful-heir.window",
+      "label": "Rightful Heir episode window",
+      "anchorFrom": "tng.s6.e23.rightful-heir",
+      "anchorTo": "tng.s6.e24.second-chances",
+      "sortKeyFrom": 15440,
+      "sortKeyTo": 15460,
+      "aliases": [
+        "during Rightful Heir",
+        "after Rightful Heir"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-rightful-heir"
+      ]
+    },
+    {
+      "id": "tng.s6.e24.second-chances.window",
+      "label": "Second Chances episode window",
+      "anchorFrom": "tng.s6.e24.second-chances",
+      "anchorTo": "tng.s6.e25.timescape",
+      "sortKeyFrom": 15460,
+      "sortKeyTo": 15480,
+      "aliases": [
+        "during Second Chances",
+        "after Second Chances"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-second-chances"
+      ]
+    },
+    {
+      "id": "tng.s6.e25.timescape.window",
+      "label": "Timescape episode window",
+      "anchorFrom": "tng.s6.e25.timescape",
+      "anchorTo": "tng.s6.e26.descent",
+      "sortKeyFrom": 15480,
+      "sortKeyTo": 15500,
+      "aliases": [
+        "during Timescape",
+        "after Timescape"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-timescape"
+      ]
+    }
+  ]
+}

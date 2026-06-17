@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:black-cat-pirates": {
+      "type": "faction",
+      "label": "Black Cat Pirates",
+      "aliases": [
+        "Black Cat Pirates"
+      ],
+      "canonicalNames": [
+        "Black Cat Pirates"
+      ],
+      "tags": [
+        "faction:black-cat-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:buchi": {
+      "type": "character",
+      "label": "Buchi",
+      "aliases": [
+        "Buchi"
+      ],
+      "canonicalNames": [
+        "Buchi"
+      ],
+      "tags": [
+        "character:buchi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:coastal-slope": {
+      "type": "location",
+      "label": "coastal slope",
+      "aliases": [
+        "coastal slope"
+      ],
+      "canonicalNames": [
+        "coastal slope"
+      ],
+      "tags": [
+        "location:coastal-slope"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:going-merry": {
+      "type": "item",
+      "label": "Going Merry",
+      "aliases": [
+        "Going Merry"
+      ],
+      "canonicalNames": [
+        "Going Merry"
+      ],
+      "tags": [
+        "item:going-merry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:hypnosis": {
+      "type": "rule",
+      "label": "hypnosis",
+      "aliases": [
+        "hypnosis"
+      ],
+      "canonicalNames": [
+        "hypnosis"
+      ],
+      "tags": [
+        "rule:hypnosis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:jango": {
+      "type": "character",
+      "label": "Jango",
+      "aliases": [
+        "Jango"
+      ],
+      "canonicalNames": [
+        "Jango"
+      ],
+      "tags": [
+        "character:jango"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:kaya": {
+      "type": "character",
+      "label": "Kaya",
+      "aliases": [
+        "Kaya"
+      ],
+      "canonicalNames": [
+        "Kaya"
+      ],
+      "tags": [
+        "character:kaya"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:kaya-mansion": {
+      "type": "location",
+      "label": "Kaya mansion",
+      "aliases": [
+        "Kaya mansion"
+      ],
+      "canonicalNames": [
+        "Kaya mansion"
+      ],
+      "tags": [
+        "location:kaya-mansion"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:klahadore": {
+      "type": "character",
+      "label": "Klahadore",
+      "aliases": [
+        "Klahadore"
+      ],
+      "canonicalNames": [
+        "Klahadore"
+      ],
+      "tags": [
+        "character:klahadore"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:kuro": {
+      "type": "character",
+      "label": "Kuro",
+      "aliases": [
+        "Kuro"
+      ],
+      "canonicalNames": [
+        "Kuro"
+      ],
+      "tags": [
+        "character:kuro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:merry": {
+      "type": "character",
+      "label": "Merry",
+      "aliases": [
+        "Merry"
+      ],
+      "canonicalNames": [
+        "Merry"
+      ],
+      "tags": [
+        "character:merry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:nami": {
+      "type": "character",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "character:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:ninjin": {
+      "type": "character",
+      "label": "Ninjin",
+      "aliases": [
+        "Ninjin"
+      ],
+      "canonicalNames": [
+        "Ninjin"
+      ],
+      "tags": [
+        "character:ninjin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:nyaban-brothers": {
+      "type": "faction",
+      "label": "Nyaban Brothers",
+      "aliases": [
+        "Nyaban Brothers"
+      ],
+      "canonicalNames": [
+        "Nyaban Brothers"
+      ],
+      "tags": [
+        "faction:nyaban-brothers"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:piiman": {
+      "type": "character",
+      "label": "Piiman",
+      "aliases": [
+        "Piiman"
+      ],
+      "canonicalNames": [
+        "Piiman"
+      ],
+      "tags": [
+        "character:piiman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:sham": {
+      "type": "character",
+      "label": "Sham",
+      "aliases": [
+        "Sham"
+      ],
+      "canonicalNames": [
+        "Sham"
+      ],
+      "tags": [
+        "character:sham"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:shanks": {
+      "type": "character",
+      "label": "Shanks",
+      "aliases": [
+        "Shanks"
+      ],
+      "canonicalNames": [
+        "Shanks"
+      ],
+      "tags": [
+        "character:shanks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:syrup-village": {
+      "type": "location",
+      "label": "Syrup Village",
+      "aliases": [
+        "Syrup Village"
+      ],
+      "canonicalNames": [
+        "Syrup Village"
+      ],
+      "tags": [
+        "location:syrup-village"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:tamanegi": {
+      "type": "character",
+      "label": "Tamanegi",
+      "aliases": [
+        "Tamanegi"
+      ],
+      "canonicalNames": [
+        "Tamanegi"
+      ],
+      "tags": [
+        "character:tamanegi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:usopp": {
+      "type": "character",
+      "label": "Usopp",
+      "aliases": [
+        "Usopp"
+      ],
+      "canonicalNames": [
+        "Usopp"
+      ],
+      "tags": [
+        "character:usopp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:usopp-pirates": {
+      "type": "faction",
+      "label": "Usopp Pirates",
+      "aliases": [
+        "Usopp Pirates"
+      ],
+      "canonicalNames": [
+        "Usopp Pirates"
+      ],
+      "tags": [
+        "faction:usopp-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:will": {
+      "type": "item",
+      "label": "Kaya will",
+      "aliases": [
+        "Kaya will"
+      ],
+      "canonicalNames": [
+        "Kaya will"
+      ],
+      "tags": [
+        "item:will"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    "op:yasopp": {
+      "type": "character",
+      "label": "Yasopp",
+      "aliases": [
+        "Yasopp"
+      ],
+      "canonicalNames": [
+        "Yasopp"
+      ],
+      "tags": [
+        "character:yasopp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    }
+  }
+}

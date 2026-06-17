@@ -1,0 +1,2729 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_descent-part-ii-state-gate",
+      "title": "Descent, Part II state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e01.descent-part-ii",
+        "validToAnchor": "tng.s7.e02.liaisons",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 16000,
+        "sortKeyTo": 16020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Descent, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e01.descent-part-ii",
+          "label": "Descent, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:geordi-la-forge",
+          "st:beverly-crusher",
+          "st:deanna-troi",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data",
+          "Geordi La Forge",
+          "Beverly Crusher",
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Descent",
+          "Borg encounter/assimilation gate",
+          "Data/Lore android-family gate",
+          "Lore",
+          "Jean-Luc Picard",
+          "Deanna Troi",
+          "Geordi La Forge",
+          "Data"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-descent-part-ii",
+        "character:jean-luc-picard",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:beverly-crusher",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:descent",
+        "topic:borg-encounterassimilation-gate",
+        "topic:datalore-android-family-gate",
+        "topic:lore",
+        "topic:jean-luc-picard",
+        "topic:deanna-troi",
+        "topic:geordi-la-forge",
+        "topic:data"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Descent",
+            "Borg encounter/assimilation gate",
+            "Data/Lore android-family gate",
+            "Lore",
+            "Jean-Luc Picard",
+            "Deanna Troi",
+            "Geordi La Forge",
+            "Data"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Starfleet",
+            "Borg Collective",
+            "Descent",
+            "Borg encounter/assimilation gate",
+            "Data/Lore android-family gate",
+            "Lore",
+            "Descent, Part II",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Descent, Part II constrains Jean-Luc Picard, Data, Geordi La Forge around Descent and the episode-local faction state.",
+        "injection": "Inside Descent, Part II, write Jean-Luc Picard, Data, Geordi La Forge with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Descent, Part II",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Descent%2C_Part_II_(episode)",
+        "stardate": "47025.4 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_liaisons-state-gate",
+      "title": "Liaisons state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e02.liaisons",
+        "validToAnchor": "tng.s7.e03.interface",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 16020,
+        "sortKeyTo": 16040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Liaisons",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e02.liaisons",
+          "label": "Liaisons",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:worf",
+          "st:william-riker",
+          "st:iyaaran",
+          "st:loquel",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Worf",
+          "William Riker",
+          "Iyaaran",
+          "Loquel"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Worf",
+          "mirror",
+          "Starfleet dress uniform",
+          "Klingon",
+          "baldric",
+          "door chime",
+          "Liaisons"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-liaisons",
+        "character:jean-luc-picard",
+        "character:worf",
+        "character:william-riker",
+        "character:iyaaran",
+        "character:loquel",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:worf",
+        "topic:mirror",
+        "topic:starfleet-dress-uniform",
+        "topic:klingon",
+        "topic:baldric",
+        "topic:door-chime",
+        "topic:liaisons"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "William Riker",
+            "Iyaaran",
+            "Loquel"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "William Riker",
+            "Iyaaran",
+            "Loquel",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Worf",
+            "mirror",
+            "Starfleet dress uniform",
+            "Klingon",
+            "baldric",
+            "door chime",
+            "Liaisons"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "William Riker",
+            "Iyaaran",
+            "Loquel",
+            "Starfleet",
+            "Klingon Empire",
+            "Klingon duty/faction-status gate",
+            "mirror",
+            "Starfleet dress uniform",
+            "Klingon",
+            "baldric",
+            "door chime",
+            "Liaisons",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Liaisons constrains Jean-Luc Picard, Worf, William Riker around Klingon duty/faction-status gate and the episode-local faction state.",
+        "injection": "Inside Liaisons, write Jean-Luc Picard, Worf, William Riker with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Liaisons",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Liaisons_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_interface-state-gate",
+      "title": "Interface state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e03.interface",
+        "validToAnchor": "tng.s7.e04.gambit-part-i",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 16040,
+        "sortKeyTo": 16060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Interface",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e03.interface",
+          "label": "Interface",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:geordi-la-forge",
+          "st:beverly-crusher",
+          "st:visor",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data",
+          "Geordi La Forge",
+          "Beverly Crusher",
+          "VISOR"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data/Lore android-family gate",
+          "Geordi La Forge",
+          "Data",
+          "Beverly Crusher",
+          "science lab",
+          "VISOR",
+          "neural implant",
+          "Interface"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-interface",
+        "character:jean-luc-picard",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:beverly-crusher",
+        "character:visor",
+        "faction:starfleet",
+        "topic:datalore-android-family-gate",
+        "topic:geordi-la-forge",
+        "topic:data",
+        "topic:beverly-crusher",
+        "topic:science-lab",
+        "topic:visor",
+        "topic:neural-implant",
+        "topic:interface"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "VISOR"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "VISOR",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data/Lore android-family gate",
+            "Geordi La Forge",
+            "Data",
+            "Beverly Crusher",
+            "science lab",
+            "VISOR",
+            "neural implant",
+            "Interface"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "VISOR",
+            "Starfleet",
+            "Data/Lore android-family gate",
+            "science lab",
+            "neural implant",
+            "Interface",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Interface constrains Jean-Luc Picard, Data, Geordi La Forge around Data/Lore android-family gate and the episode-local faction state.",
+        "injection": "Inside Interface, write Jean-Luc Picard, Data, Geordi La Forge with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Interface",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Interface_(episode)",
+        "stardate": "47215.5 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_gambit-part-i-state-gate",
+      "title": "Gambit, Part I state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e04.gambit-part-i",
+        "validToAnchor": "tng.s7.e05.gambit-part-ii",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 16060,
+        "sortKeyTo": 16080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Gambit, Part I",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e04.gambit-part-i",
+          "label": "Gambit, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:william-riker",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:deanna-troi",
+          "st:starfleet",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Worf",
+          "William Riker",
+          "Dr.",
+          "Beverly Crusher",
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "Gambit",
+          "Romulan secrecy/political pressure gate",
+          "death/status-change gate",
+          "Riker",
+          "Dr.",
+          "Crusher",
+          "Troi",
+          "Worf"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-gambit-part-i",
+        "character:worf",
+        "character:william-riker",
+        "character:dr",
+        "character:beverly-crusher",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "topic:gambit",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:deathstatus-change-gate",
+        "topic:riker",
+        "topic:dr",
+        "topic:crusher",
+        "topic:troi",
+        "topic:worf"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher",
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "Gambit",
+            "Romulan secrecy/political pressure gate",
+            "death/status-change gate",
+            "Riker",
+            "Dr.",
+            "Crusher",
+            "Troi",
+            "Worf"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Gambit",
+            "Romulan secrecy/political pressure gate",
+            "death/status-change gate",
+            "Riker",
+            "Crusher",
+            "Troi",
+            "Gambit, Part I",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Gambit, Part I constrains Worf, William Riker, Dr. around Gambit and the episode-local faction state.",
+        "injection": "Inside Gambit, Part I, write Worf, William Riker, Dr. with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Gambit, Part I",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Gambit%2C_Part_I_(episode)",
+        "stardate": "47135.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_gambit-part-ii-state-gate",
+      "title": "Gambit, Part II state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e05.gambit-part-ii",
+        "validToAnchor": "tng.s7.e06.phantasms",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 16080,
+        "sortKeyTo": 16100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Gambit, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e05.gambit-part-ii",
+          "label": "Gambit, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:geordi-la-forge",
+          "st:william-riker",
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Geordi La Forge",
+          "William Riker",
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Gambit",
+          "episode-local fact/status gate",
+          "nacelle",
+          "mercenary vessel",
+          "Riker",
+          "Worf",
+          "Troi",
+          "Data"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-gambit-part-ii",
+        "character:data",
+        "character:worf",
+        "character:geordi-la-forge",
+        "character:william-riker",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:gambit",
+        "topic:episode-local-factstatus-gate",
+        "topic:nacelle",
+        "topic:mercenary-vessel",
+        "topic:riker",
+        "topic:worf",
+        "topic:troi",
+        "topic:data"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "William Riker",
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "William Riker",
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Gambit",
+            "episode-local fact/status gate",
+            "nacelle",
+            "mercenary vessel",
+            "Riker",
+            "Worf",
+            "Troi",
+            "Data"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "William Riker",
+            "Deanna Troi",
+            "Starfleet",
+            "Gambit",
+            "episode-local fact/status gate",
+            "nacelle",
+            "mercenary vessel",
+            "Riker",
+            "Troi",
+            "Gambit, Part II",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Gambit, Part II constrains Data, Worf, Geordi La Forge around Gambit and the episode-local faction state.",
+        "injection": "Inside Gambit, Part II, write Data, Worf, Geordi La Forge with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Gambit, Part II",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Gambit%2C_Part_II_(episode)",
+        "stardate": "47160.1-47169.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_phantasms-state-gate",
+      "title": "Phantasms state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e06.phantasms",
+        "validToAnchor": "tng.s7.e07.dark-page",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 16100,
+        "sortKeyTo": 16120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Phantasms",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e06.phantasms",
+          "label": "Phantasms",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:jean-luc-picard",
+          "st:admirals-banquet",
+          "st:nakamura",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Jean-Luc Picard",
+          "Admirals' Banquet",
+          "Nakamura"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Data",
+          "Geordi La Forge",
+          "bulkhead",
+          "plasma conduit",
+          "warp core",
+          "deck",
+          "Phantasms"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-phantasms",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:jean-luc-picard",
+        "character:admirals-banquet",
+        "character:nakamura",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:data",
+        "topic:geordi-la-forge",
+        "topic:bulkhead",
+        "topic:plasma-conduit",
+        "topic:warp-core",
+        "topic:deck",
+        "topic:phantasms"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Jean-Luc Picard",
+            "Admirals' Banquet",
+            "Nakamura"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Jean-Luc Picard",
+            "Admirals' Banquet",
+            "Nakamura",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Data",
+            "Geordi La Forge",
+            "bulkhead",
+            "plasma conduit",
+            "warp core",
+            "deck",
+            "Phantasms"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Jean-Luc Picard",
+            "Admirals' Banquet",
+            "Nakamura",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "bulkhead",
+            "plasma conduit",
+            "warp core",
+            "deck",
+            "Phantasms",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Phantasms constrains Data, Geordi La Forge, Jean-Luc Picard around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Phantasms, write Data, Geordi La Forge, Jean-Luc Picard with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Phantasms",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Phantasms_(episode)",
+        "stardate": "47225.7 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_dark-page-state-gate",
+      "title": "Dark Page state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 71,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e07.dark-page",
+        "validToAnchor": "tng.s7.e08.attached",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 16120,
+        "sortKeyTo": 16140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Dark Page",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e07.dark-page",
+          "label": "Dark Page",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:lwaxana-troi",
+          "st:cairn",
+          "st:maques",
+          "st:hedril",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Lwaxana Troi",
+          "Cairn",
+          "Maques",
+          "Hedril"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "secret-knowledge gate",
+          "Lwaxana Troi",
+          "teacher",
+          "Cairn",
+          "telepathy",
+          "Maques",
+          "Hedril",
+          "Dark Page"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-dark-page",
+        "character:worf",
+        "character:lwaxana-troi",
+        "character:cairn",
+        "character:maques",
+        "character:hedril",
+        "faction:starfleet",
+        "topic:secret-knowledge-gate",
+        "topic:lwaxana-troi",
+        "topic:teacher",
+        "topic:cairn",
+        "topic:telepathy",
+        "topic:maques",
+        "topic:hedril",
+        "topic:dark-page"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Lwaxana Troi",
+            "Cairn",
+            "Maques",
+            "Hedril"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Lwaxana Troi",
+            "Cairn",
+            "Maques",
+            "Hedril",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "secret-knowledge gate",
+            "Lwaxana Troi",
+            "teacher",
+            "Cairn",
+            "telepathy",
+            "Maques",
+            "Hedril",
+            "Dark Page"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Lwaxana Troi",
+            "Cairn",
+            "Maques",
+            "Hedril",
+            "Starfleet",
+            "secret-knowledge gate",
+            "teacher",
+            "telepathy",
+            "Dark Page",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Dark Page constrains Worf, Lwaxana Troi, Cairn around secret-knowledge gate and the episode-local faction state.",
+        "injection": "Inside Dark Page, write Worf, Lwaxana Troi, Cairn with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Dark Page",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dark_Page_(episode)",
+        "stardate": "47254.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_attached-state-gate",
+      "title": "Attached state gate for Dr.",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e08.attached",
+        "validToAnchor": "tng.s7.e09.force-of-nature",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 16140,
+        "sortKeyTo": 16160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Attached",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e08.attached",
+          "label": "Attached",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:dr",
+          "st:beverly-crusher",
+          "st:jean-luc-picard",
+          "st:nurse",
+          "st:alyssa-ogawa",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Dr.",
+          "Beverly Crusher",
+          "Jean-Luc Picard",
+          "Nurse",
+          "Alyssa Ogawa"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Enterprise",
+          "Kesprytt III",
+          "Dr.",
+          "Crusher",
+          "Picard",
+          "breakfast",
+          "Attached"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-attached",
+        "character:dr",
+        "character:beverly-crusher",
+        "character:jean-luc-picard",
+        "character:nurse",
+        "character:alyssa-ogawa",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:enterprise",
+        "topic:kesprytt-iii",
+        "topic:dr",
+        "topic:crusher",
+        "topic:picard",
+        "topic:breakfast",
+        "topic:attached"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dr.",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Nurse",
+            "Alyssa Ogawa"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Dr.",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Nurse",
+            "Alyssa Ogawa",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Enterprise",
+            "Kesprytt III",
+            "Dr.",
+            "Crusher",
+            "Picard",
+            "breakfast",
+            "Attached"
+          ],
+          "keywordsAny": [
+            "Dr.",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Nurse",
+            "Alyssa Ogawa",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "Enterprise",
+            "Kesprytt III",
+            "Crusher",
+            "Picard",
+            "breakfast",
+            "Attached",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Attached constrains Dr., Beverly Crusher, Jean-Luc Picard around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Attached, write Dr., Beverly Crusher, Jean-Luc Picard with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Attached",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Attached_(episode)",
+        "stardate": "47304.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_force-of-nature-state-gate",
+      "title": "Force of Nature state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 65,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e09.force-of-nature",
+        "validToAnchor": "tng.s7.e10.inheritance",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 16160,
+        "sortKeyTo": 16180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Force of Nature",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e09.force-of-nature",
+          "label": "Force of Nature",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:geordi-la-forge",
+          "st:spot",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Geordi La Forge",
+          "Spot",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Data",
+          "Geordi La Forge",
+          "Spot",
+          "cat",
+          "Riker",
+          "senior staff",
+          "Force of Nature"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-force-of-nature",
+        "character:data",
+        "character:worf",
+        "character:geordi-la-forge",
+        "character:spot",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:data",
+        "topic:geordi-la-forge",
+        "topic:spot",
+        "topic:cat",
+        "topic:riker",
+        "topic:senior-staff",
+        "topic:force-of-nature"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Spot",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Spot",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Data",
+            "Geordi La Forge",
+            "Spot",
+            "cat",
+            "Riker",
+            "senior staff",
+            "Force of Nature"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Spot",
+            "William Riker",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "cat",
+            "Riker",
+            "senior staff",
+            "Force of Nature",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Force of Nature constrains Data, Worf, Geordi La Forge around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Force of Nature, write Data, Worf, Geordi La Forge with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Force of Nature",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Force_of_Nature_(episode)",
+        "stardate": "47310.2-47314.5 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_inheritance-state-gate",
+      "title": "Inheritance state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e10.inheritance",
+        "validToAnchor": "tng.s7.e11.parallels",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 16180,
+        "sortKeyTo": 16200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Inheritance",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e10.inheritance",
+          "label": "Inheritance",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:atrean",
+          "st:dr",
+          "st:pran-tainer",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Atrean",
+          "Dr.",
+          "Pran Tainer"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Soong android lineage gate",
+          "secret-knowledge gate",
+          "Atrean government",
+          "geologist",
+          "Atrea IV",
+          "Atrean",
+          "core",
+          "homeworld"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-inheritance",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:atrean",
+        "character:dr",
+        "character:pran-tainer",
+        "faction:starfleet",
+        "topic:soong-android-lineage-gate",
+        "topic:secret-knowledge-gate",
+        "topic:atrean-government",
+        "topic:geologist",
+        "topic:atrea-iv",
+        "topic:atrean",
+        "topic:core",
+        "topic:homeworld"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Atrean",
+            "Dr.",
+            "Pran Tainer"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Atrean",
+            "Dr.",
+            "Pran Tainer",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Soong android lineage gate",
+            "secret-knowledge gate",
+            "Atrean government",
+            "geologist",
+            "Atrea IV",
+            "Atrean",
+            "core",
+            "homeworld"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Atrean",
+            "Dr.",
+            "Pran Tainer",
+            "Starfleet",
+            "Soong android lineage gate",
+            "secret-knowledge gate",
+            "Atrean government",
+            "geologist",
+            "Atrea IV",
+            "core",
+            "homeworld",
+            "Inheritance",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Inheritance constrains Data, Geordi La Forge, Atrean around Soong android lineage gate and the episode-local faction state.",
+        "injection": "Inside Inheritance, write Data, Geordi La Forge, Atrean with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Inheritance",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Inheritance_(episode)",
+        "stardate": "47410.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_parallels-state-gate",
+      "title": "Parallels state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 59,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e11.parallels",
+        "validToAnchor": "tng.s7.e12.the-pegasus",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 16200,
+        "sortKeyTo": 16220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Parallels",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e11.parallels",
+          "label": "Parallels",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:champion-standing",
+          "st:william-riker",
+          "st:argus-array",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Champion Standing",
+          "William Riker",
+          "Argus Array"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Worf",
+          "log entry",
+          "Type 6 shuttlecraft",
+          "Personal log",
+          "47391.2",
+          "bat'leth",
+          "Parallels"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-parallels",
+        "character:worf",
+        "character:champion-standing",
+        "character:william-riker",
+        "character:argus-array",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:worf",
+        "topic:log-entry",
+        "topic:type-6-shuttlecraft",
+        "topic:personal-log",
+        "topic:47391-2",
+        "topic:batleth",
+        "topic:parallels"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Champion Standing",
+            "William Riker",
+            "Argus Array"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Champion Standing",
+            "William Riker",
+            "Argus Array",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Worf",
+            "log entry",
+            "Type 6 shuttlecraft",
+            "Personal log",
+            "47391.2",
+            "bat'leth",
+            "Parallels"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Champion Standing",
+            "William Riker",
+            "Argus Array",
+            "Starfleet",
+            "Klingon Empire",
+            "Klingon duty/faction-status gate",
+            "log entry",
+            "Type 6 shuttlecraft",
+            "Personal log",
+            "47391.2",
+            "bat'leth",
+            "Parallels",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Parallels constrains Worf, Champion Standing, William Riker around Klingon duty/faction-status gate and the episode-local faction state.",
+        "injection": "Inside Parallels, write Worf, Champion Standing, William Riker with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Parallels",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Parallels_(episode)",
+        "stardate": "47391.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_the-pegasus-state-gate",
+      "title": "The Pegasus state gate for Deanna Troi",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e12.the-pegasus",
+        "validToAnchor": "tng.s7.e13.homeward",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 16220,
+        "sortKeyTo": 16240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: The Pegasus",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e12.the-pegasus",
+          "label": "The Pegasus",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:captain-picard-day",
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:vice-admiral",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi",
+          "Captain Picard Day",
+          "Jean-Luc Picard",
+          "William Riker",
+          "Vice Admiral"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker and the Pegasus",
+          "episode-local fact/status gate",
+          "observation lounge",
+          "viewport",
+          "Captain Picard Day",
+          "Picard",
+          "Deanna Troi",
+          "Riker"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-the-pegasus",
+        "character:deanna-troi",
+        "character:captain-picard-day",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:vice-admiral",
+        "faction:starfleet",
+        "topic:riker-and-the-pegasus",
+        "topic:episode-local-factstatus-gate",
+        "topic:observation-lounge",
+        "topic:viewport",
+        "topic:captain-picard-day",
+        "topic:picard",
+        "topic:deanna-troi",
+        "topic:riker"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi",
+            "Captain Picard Day",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Vice Admiral"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Captain Picard Day",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Vice Admiral",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker and the Pegasus",
+            "episode-local fact/status gate",
+            "observation lounge",
+            "viewport",
+            "Captain Picard Day",
+            "Picard",
+            "Deanna Troi",
+            "Riker"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Captain Picard Day",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Vice Admiral",
+            "Starfleet",
+            "Riker and the Pegasus",
+            "episode-local fact/status gate",
+            "observation lounge",
+            "viewport",
+            "Picard",
+            "Riker",
+            "The Pegasus",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Pegasus constrains Deanna Troi, Captain Picard Day, Jean-Luc Picard around Riker and the Pegasus and the episode-local faction state.",
+        "injection": "Inside The Pegasus, write Deanna Troi, Captain Picard Day, Jean-Luc Picard with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Pegasus",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Pegasus_(episode)",
+        "stardate": "47457.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s7_homeward-state-gate",
+      "title": "Homeward state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 53,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s7.e13.homeward",
+        "validToAnchor": "tng.s7.e14.sub-rosa",
+        "series": "TNG",
+        "season": "7",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 16240,
+        "sortKeyTo": 16260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 7: Homeward",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s7",
+          "label": "TNG season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s7.e13.homeward",
+          "label": "Homeward",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:nikolai-rozhenko",
+          "st:jean-luc-picard",
+          "st:prime-directive",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Nikolai Rozhenko",
+          "Jean-Luc Picard",
+          "Prime Directive"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Boraal II",
+          "emergency distress call",
+          "Worf",
+          "foster brother",
+          "Nikolai Rozhenko",
+          "cultural observer",
+          "Homeward"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-homeward",
+        "character:data",
+        "character:worf",
+        "character:nikolai-rozhenko",
+        "character:jean-luc-picard",
+        "character:prime-directive",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:boraal-ii",
+        "topic:emergency-distress-call",
+        "topic:worf",
+        "topic:foster-brother",
+        "topic:nikolai-rozhenko",
+        "topic:cultural-observer",
+        "topic:homeward"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Nikolai Rozhenko",
+            "Jean-Luc Picard",
+            "Prime Directive"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Nikolai Rozhenko",
+            "Jean-Luc Picard",
+            "Prime Directive",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Boraal II",
+            "emergency distress call",
+            "Worf",
+            "foster brother",
+            "Nikolai Rozhenko",
+            "cultural observer",
+            "Homeward"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Nikolai Rozhenko",
+            "Jean-Luc Picard",
+            "Prime Directive",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "Boraal II",
+            "emergency distress call",
+            "foster brother",
+            "cultural observer",
+            "Homeward",
+            "TNG season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Homeward constrains Data, Worf, Nikolai Rozhenko around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Homeward, write Data, Worf, Nikolai Rozhenko with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Homeward",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Homeward_(episode)",
+        "stardate": "47423.9 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

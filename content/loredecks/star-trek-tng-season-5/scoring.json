@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "scoringProfiles": {
+    "default": {
+      "label": "Star Trek TNG Season Default",
+      "contextBoost": "medium",
+      "retrievalBias": "topic_or_entity",
+      "notes": "Prefer specific episode, character, faction, and technology topics over broad Star Trek keywords."
+    }
+  }
+}

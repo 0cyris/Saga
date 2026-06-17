@@ -1,0 +1,940 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_voy-season-5-baseline",
+      "title": "VOY season 5 has its own active cast and story baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e01.night",
+        "validToAnchor": "voy.s5.e25.equinox",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 35480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e01.night",
+          "label": "Night",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:seven-of-nine",
+          "st:tom-paris",
+          "st:captain-proton",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Seven of Nine",
+          "Tom Paris",
+          "Captain Proton"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "season baseline",
+          "The Silver Blood",
+          "Future's End",
+          "Equinox"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-night",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:seven-of-nine",
+        "character:tom-paris",
+        "character:captain-proton",
+        "faction:uss-voyager-crew",
+        "topic:season-baseline",
+        "topic:the-silver-blood",
+        "topic:futures-end",
+        "topic:equinox"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Seven of Nine",
+            "Tom Paris",
+            "Captain Proton"
+          ],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Seven of Nine",
+            "Tom Paris",
+            "Captain Proton",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "season baseline",
+            "The Silver Blood",
+            "Future's End",
+            "Equinox"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Seven of Nine",
+            "Tom Paris",
+            "Captain Proton",
+            "USS Voyager crew",
+            "season baseline",
+            "The Silver Blood",
+            "Future's End",
+            "Equinox",
+            "Night",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Star Trek: Voyager season 5 covers Memory Alpha story rows 1-25, anchored by The Silver Blood, Future's End, Equinox.",
+        "injection": "Use VOY season 5 as the active Star Trek context when those episode windows are selected. Do not substitute prior or later season status unless another active deck supplies it.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Night",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_(episode)",
+        "stardate": "52081.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_voy-season-5-major-arcs",
+      "title": "VOY season 5 major arcs stay season-local",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e01.night",
+        "validToAnchor": "voy.s5.e25.equinox",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 35480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e01.night",
+          "label": "Night",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:seven-of-nine",
+          "st:tom-paris",
+          "st:captain-proton",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Seven of Nine",
+          "Tom Paris",
+          "Captain Proton"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "major arcs",
+          "Delta Quadrant isolation gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "Borg encounter/assimilation gate",
+          "Species 8472/Borg conflict gate",
+          "episode-local fact/status gate",
+          "death/status-change gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-night",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:seven-of-nine",
+        "character:tom-paris",
+        "character:captain-proton",
+        "faction:uss-voyager-crew",
+        "topic:major-arcs",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:borg-encounterassimilation-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:deathstatus-change-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Seven of Nine",
+            "Tom Paris",
+            "Captain Proton"
+          ],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Seven of Nine",
+            "Tom Paris",
+            "Captain Proton",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "major arcs",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "episode-local fact/status gate",
+            "death/status-change gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Seven of Nine",
+            "Tom Paris",
+            "Captain Proton",
+            "USS Voyager crew",
+            "major arcs",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "episode-local fact/status gate",
+            "death/status-change gate",
+            "Klingon duty/faction-status gate",
+            "Night",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season evidence highlights Delta Quadrant isolation gate, EMH autonomy/identity gate, Seven/Borg recovery gate, Borg encounter/assimilation gate, Species 8472/Borg conflict gate, episode-local fact/status gate, death/status-change gate, Klingon duty/faction-status gate, with arcs and one-off episodes bounded by their Memory Alpha story rows.",
+        "injection": "Treat season 5 arcs as Context-gated story state, not a license to import the final outcomes of later Star Trek episodes or series.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Night",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_(episode)",
+        "stardate": "52081.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_voy-season-5-faction-boundary",
+      "title": "VOY season 5 faction state should follow the loaded episode window",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e01.night",
+        "validToAnchor": "voy.s5.e25.equinox",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 35480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e01.night",
+          "label": "Night",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "faction boundary",
+          "Delta Quadrant isolation gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "Borg encounter/assimilation gate",
+          "Species 8472/Borg conflict gate",
+          "episode-local fact/status gate",
+          "death/status-change gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-night",
+        "faction:uss-voyager-crew",
+        "topic:faction-boundary",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:borg-encounterassimilation-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:deathstatus-change-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "faction boundary",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "episode-local fact/status gate",
+            "death/status-change gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "faction boundary",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "episode-local fact/status gate",
+            "death/status-change gate",
+            "Klingon duty/faction-status gate",
+            "Night",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Faction status in this deck comes from season 5 evidence rows and should not be flattened into all-era Star Trek politics.",
+        "injection": "Use the currently active episode anchor before injecting faction status, especially for Klingon, Romulan, Cardassian, Bajoran, Borg, Dominion, Maquis, or Delta Quadrant material.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Night",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_(episode)",
+        "stardate": "52081.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_voy-season-5-technology-and-anomaly-boundary",
+      "title": "VOY season 5 technology and anomaly facts are episode-bounded",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e01.night",
+        "validToAnchor": "voy.s5.e25.equinox",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 35480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e01.night",
+          "label": "Night",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "technology boundary",
+          "anomaly boundary",
+          "Delta Quadrant isolation gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "Borg encounter/assimilation gate",
+          "Species 8472/Borg conflict gate",
+          "episode-local fact/status gate",
+          "death/status-change gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-night",
+        "faction:uss-voyager-crew",
+        "topic:technology-boundary",
+        "topic:anomaly-boundary",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:borg-encounterassimilation-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:deathstatus-change-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "technology boundary",
+            "anomaly boundary",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "episode-local fact/status gate",
+            "death/status-change gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "technology boundary",
+            "anomaly boundary",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "episode-local fact/status gate",
+            "death/status-change gate",
+            "Klingon duty/faction-status gate",
+            "Night",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 5 includes technology, anomaly, medical, legal, and cultural constraints that are often local to one episode.",
+        "injection": "Do not generalize an episode anomaly or technology into routine Starfleet capability unless a later active Loredeck explicitly broadens it.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Night",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_(episode)",
+        "stardate": "52081.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_voy-season-5-future-guard",
+      "title": "VOY season 5 should not import later Star Trek outcomes",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e01.night",
+        "validToAnchor": "voy.s5.e25.equinox",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 35480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e01.night",
+          "label": "Night",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-night",
+        "faction:uss-voyager-crew",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "future guard",
+            "spoiler guard",
+            "Night",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "This deck is a season-local draft reference for Star Trek: Voyager season 5, not an all-era Star Trek encyclopedia.",
+        "injection": "Block later season, film, Picard-era, beta-canon, novel, comic, game, and fanon outcomes unless another active deck supplies that later Context.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Night",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_(episode)",
+        "stardate": "52081.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

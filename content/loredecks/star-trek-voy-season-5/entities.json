@@ -1,0 +1,1097 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:belanna-torres": {
+      "type": "character",
+      "label": "B'Elanna Torres",
+      "aliases": [
+        "B'Elanna Torres"
+      ],
+      "canonicalNames": [
+        "B'Elanna Torres"
+      ],
+      "tags": [
+        "character:belanna-torres"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:borg-collective": {
+      "type": "faction",
+      "label": "Borg Collective",
+      "aliases": [
+        "Borg Collective"
+      ],
+      "canonicalNames": [
+        "Borg Collective"
+      ],
+      "tags": [
+        "faction:borg-collective"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bullock": {
+      "type": "character",
+      "label": "Bullock",
+      "aliases": [
+        "Bullock"
+      ],
+      "canonicalNames": [
+        "Bullock"
+      ],
+      "tags": [
+        "character:bullock"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:buster-kincaid": {
+      "type": "character",
+      "label": "Buster Kincaid",
+      "aliases": [
+        "Buster Kincaid"
+      ],
+      "canonicalNames": [
+        "Buster Kincaid"
+      ],
+      "tags": [
+        "character:buster-kincaid"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:captain-janeway": {
+      "type": "character",
+      "label": "Captain Janeway",
+      "aliases": [
+        "Captain Janeway"
+      ],
+      "canonicalNames": [
+        "Captain Janeway"
+      ],
+      "tags": [
+        "character:captain-janeway"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:captain-proton": {
+      "type": "character",
+      "label": "Captain Proton",
+      "aliases": [
+        "Captain Proton"
+      ],
+      "canonicalNames": [
+        "Captain Proton"
+      ],
+      "tags": [
+        "character:captain-proton"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cardassian-union": {
+      "type": "faction",
+      "label": "Cardassian Union",
+      "aliases": [
+        "Cardassian Union"
+      ],
+      "canonicalNames": [
+        "Cardassian Union"
+      ],
+      "tags": [
+        "faction:cardassian-union"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chakotay": {
+      "type": "character",
+      "label": "Chakotay",
+      "aliases": [
+        "Chakotay"
+      ],
+      "canonicalNames": [
+        "Chakotay"
+      ],
+      "tags": [
+        "character:chakotay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chinese": {
+      "type": "character",
+      "label": "Chinese",
+      "aliases": [
+        "Chinese"
+      ],
+      "canonicalNames": [
+        "Chinese"
+      ],
+      "tags": [
+        "character:chinese"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:flotter": {
+      "type": "character",
+      "label": "Flotter",
+      "aliases": [
+        "Flotter"
+      ],
+      "canonicalNames": [
+        "Flotter"
+      ],
+      "tags": [
+        "character:flotter"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:harry-kim": {
+      "type": "character",
+      "label": "Harry Kim",
+      "aliases": [
+        "Harry Kim"
+      ],
+      "canonicalNames": [
+        "Harry Kim"
+      ],
+      "tags": [
+        "character:harry-kim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:hazari": {
+      "type": "character",
+      "label": "Hazari",
+      "aliases": [
+        "Hazari"
+      ],
+      "canonicalNames": [
+        "Hazari"
+      ],
+      "tags": [
+        "character:hazari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kathryn-janeway": {
+      "type": "character",
+      "label": "Kathryn Janeway",
+      "aliases": [
+        "Kathryn Janeway"
+      ],
+      "canonicalNames": [
+        "Kathryn Janeway"
+      ],
+      "tags": [
+        "character:kathryn-janeway"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kinis": {
+      "type": "character",
+      "label": "Kinis",
+      "aliases": [
+        "Kinis"
+      ],
+      "canonicalNames": [
+        "Kinis"
+      ],
+      "tags": [
+        "character:kinis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kurros": {
+      "type": "character",
+      "label": "Kurros",
+      "aliases": [
+        "Kurros"
+      ],
+      "canonicalNames": [
+        "Kurros"
+      ],
+      "tags": [
+        "character:kurros"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:malon": {
+      "type": "character",
+      "label": "Malon",
+      "aliases": [
+        "Malon"
+      ],
+      "canonicalNames": [
+        "Malon"
+      ],
+      "tags": [
+        "character:malon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:maquis": {
+      "type": "faction",
+      "label": "Maquis",
+      "aliases": [
+        "Maquis"
+      ],
+      "canonicalNames": [
+        "Maquis"
+      ],
+      "tags": [
+        "faction:maquis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:mustang": {
+      "type": "character",
+      "label": "Mustang",
+      "aliases": [
+        "Mustang"
+      ],
+      "canonicalNames": [
+        "Mustang"
+      ],
+      "tags": [
+        "character:mustang"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:naomi-wildman": {
+      "type": "character",
+      "label": "Naomi Wildman",
+      "aliases": [
+        "Naomi Wildman"
+      ],
+      "canonicalNames": [
+        "Naomi Wildman"
+      ],
+      "tags": [
+        "character:naomi-wildman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:neelix": {
+      "type": "character",
+      "label": "Neelix",
+      "aliases": [
+        "Neelix"
+      ],
+      "canonicalNames": [
+        "Neelix"
+      ],
+      "tags": [
+        "character:neelix"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:noss": {
+      "type": "character",
+      "label": "Noss",
+      "aliases": [
+        "Noss"
+      ],
+      "canonicalNames": [
+        "Noss"
+      ],
+      "tags": [
+        "character:noss"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:owen-paris": {
+      "type": "character",
+      "label": "Owen Paris",
+      "aliases": [
+        "Owen Paris"
+      ],
+      "canonicalNames": [
+        "Owen Paris"
+      ],
+      "tags": [
+        "character:owen-paris"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:patterson": {
+      "type": "character",
+      "label": "Patterson",
+      "aliases": [
+        "Patterson"
+      ],
+      "canonicalNames": [
+        "Patterson"
+      ],
+      "tags": [
+        "character:patterson"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:proton": {
+      "type": "character",
+      "label": "Proton",
+      "aliases": [
+        "Proton"
+      ],
+      "canonicalNames": [
+        "Proton"
+      ],
+      "tags": [
+        "character:proton"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ransom": {
+      "type": "character",
+      "label": "Ransom",
+      "aliases": [
+        "Ransom"
+      ],
+      "canonicalNames": [
+        "Ransom"
+      ],
+      "tags": [
+        "character:ransom"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:rudolph-ransom": {
+      "type": "character",
+      "label": "Rudolph Ransom",
+      "aliases": [
+        "Rudolph Ransom"
+      ],
+      "canonicalNames": [
+        "Rudolph Ransom"
+      ],
+      "tags": [
+        "character:rudolph-ransom"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:sam-wildman": {
+      "type": "character",
+      "label": "Sam Wildman",
+      "aliases": [
+        "Sam Wildman"
+      ],
+      "canonicalNames": [
+        "Sam Wildman"
+      ],
+      "tags": [
+        "character:sam-wildman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:san-francisco": {
+      "type": "character",
+      "label": "San Francisco",
+      "aliases": [
+        "San Francisco"
+      ],
+      "canonicalNames": [
+        "San Francisco"
+      ],
+      "tags": [
+        "character:san-francisco"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:saowin": {
+      "type": "character",
+      "label": "Saowin",
+      "aliases": [
+        "Saowin"
+      ],
+      "canonicalNames": [
+        "Saowin"
+      ],
+      "tags": [
+        "character:saowin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:seven-of-nine": {
+      "type": "character",
+      "label": "Seven of Nine",
+      "aliases": [
+        "Seven of Nine"
+      ],
+      "canonicalNames": [
+        "Seven of Nine"
+      ],
+      "tags": [
+        "character:seven-of-nine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:species-8472": {
+      "type": "faction",
+      "label": "Species 8472",
+      "aliases": [
+        "Species 8472"
+      ],
+      "canonicalNames": [
+        "Species 8472"
+      ],
+      "tags": [
+        "faction:species-8472"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:the-doctor": {
+      "type": "character",
+      "label": "The Doctor",
+      "aliases": [
+        "The Doctor"
+      ],
+      "canonicalNames": [
+        "The Doctor"
+      ],
+      "tags": [
+        "character:the-doctor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tom-paris": {
+      "type": "character",
+      "label": "Tom Paris",
+      "aliases": [
+        "Tom Paris"
+      ],
+      "canonicalNames": [
+        "Tom Paris"
+      ],
+      "tags": [
+        "character:tom-paris"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:trevis": {
+      "type": "character",
+      "label": "Trevis",
+      "aliases": [
+        "Trevis"
+      ],
+      "canonicalNames": [
+        "Trevis"
+      ],
+      "tags": [
+        "character:trevis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tuvok": {
+      "type": "character",
+      "label": "Tuvok",
+      "aliases": [
+        "Tuvok"
+      ],
+      "canonicalNames": [
+        "Tuvok"
+      ],
+      "tags": [
+        "character:tuvok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:uss-voyager-crew": {
+      "type": "faction",
+      "label": "USS Voyager crew",
+      "aliases": [
+        "USS Voyager crew"
+      ],
+      "canonicalNames": [
+        "USS Voyager crew"
+      ],
+      "tags": [
+        "faction:uss-voyager-crew"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:utopia-planitia": {
+      "type": "character",
+      "label": "Utopia Planitia",
+      "aliases": [
+        "Utopia Planitia"
+      ],
+      "canonicalNames": [
+        "Utopia Planitia"
+      ],
+      "tags": [
+        "character:utopia-planitia"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:varro": {
+      "type": "character",
+      "label": "Varro",
+      "aliases": [
+        "Varro"
+      ],
+      "canonicalNames": [
+        "Varro"
+      ],
+      "tags": [
+        "character:varro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vulcan-master": {
+      "type": "character",
+      "label": "Vulcan Master",
+      "aliases": [
+        "Vulcan Master"
+      ],
+      "canonicalNames": [
+        "Vulcan Master"
+      ],
+      "tags": [
+        "character:vulcan-master"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vulcans": {
+      "type": "faction",
+      "label": "Vulcans",
+      "aliases": [
+        "Vulcans"
+      ],
+      "canonicalNames": [
+        "Vulcans"
+      ],
+      "tags": [
+        "faction:vulcans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 5."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    }
+  }
+}

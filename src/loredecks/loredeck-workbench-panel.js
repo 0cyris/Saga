@@ -14,6 +14,9 @@ import {
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
 import {
+    preserveInputFocusAfterRender,
+} from '../ui/input-focus-preservation.js';
+import {
     appendLoredeckStatusPills,
     createLoredeckEmptyState,
 } from './loredeck-ui-kit.js';
@@ -389,12 +392,9 @@ function createLoredeckWorkbenchTagRegistryPanel(pack = {}, tagRegistry = normal
     search.className = 'saga-loredeck-workbench-registry-search';
     addTooltip(search, 'Search tag IDs, labels, descriptions, aliases, and parents.');
     search.addEventListener('input', () => {
-        loredeckWorkbenchRegistryQuery = search.value;
-        renderLoredeckWorkbench();
-        requestAnimationFrame(() => {
-            const next = document.querySelector(`#${LOREDECK_WORKBENCH_ID} .saga-loredeck-workbench-registry-search`);
-            next?.focus?.();
-            next?.setSelectionRange?.(next.value.length, next.value.length);
+        preserveInputFocusAfterRender(search, `#${LOREDECK_WORKBENCH_ID} .saga-loredeck-workbench-registry-search`, () => {
+            loredeckWorkbenchRegistryQuery = search.value;
+            renderLoredeckWorkbench();
         });
     });
     controls.appendChild(search);
@@ -894,14 +894,11 @@ function createLoredeckWorkbenchControls(pack = {}) {
         placeholder: 'Search Lorecards...',
         value: loredeckWorkbenchQuery,
         tooltip: 'Search by Lorecard title, ID, summary, tags, category, Context, or source file.',
-        onInput: value => {
-            loredeckWorkbenchQuery = value;
-            renderLoredeckWorkbench();
-            const next = document.querySelector(`#${LOREDECK_WORKBENCH_ID} .saga-lore-workbench-search`);
-            if (next) {
-                next.focus();
-                next.setSelectionRange?.(next.value.length, next.value.length);
-            }
+        onInput: (value, input) => {
+            preserveInputFocusAfterRender(input, `#${LOREDECK_WORKBENCH_ID} .saga-lore-workbench-search`, () => {
+                loredeckWorkbenchQuery = value;
+                renderLoredeckWorkbench();
+            });
         },
     }));
 

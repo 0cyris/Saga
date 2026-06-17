@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:boodle": {
+      "type": "character",
+      "label": "Boodle",
+      "aliases": [
+        "Boodle"
+      ],
+      "canonicalNames": [
+        "Boodle"
+      ],
+      "tags": [
+        "character:boodle"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:buggy": {
+      "type": "character",
+      "label": "Buggy",
+      "aliases": [
+        "Buggy"
+      ],
+      "canonicalNames": [
+        "Buggy"
+      ],
+      "tags": [
+        "character:buggy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:buggy-ball": {
+      "type": "item",
+      "label": "Buggy Ball",
+      "aliases": [
+        "Buggy Ball"
+      ],
+      "canonicalNames": [
+        "Buggy Ball"
+      ],
+      "tags": [
+        "item:buggy-ball"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:buggy-pirates": {
+      "type": "faction",
+      "label": "Buggy Pirates",
+      "aliases": [
+        "Buggy Pirates"
+      ],
+      "canonicalNames": [
+        "Buggy Pirates"
+      ],
+      "tags": [
+        "faction:buggy-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:cabaji": {
+      "type": "character",
+      "label": "Cabaji",
+      "aliases": [
+        "Cabaji"
+      ],
+      "canonicalNames": [
+        "Cabaji"
+      ],
+      "tags": [
+        "character:cabaji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:cannon": {
+      "type": "item",
+      "label": "cannon fire",
+      "aliases": [
+        "cannon fire"
+      ],
+      "canonicalNames": [
+        "cannon fire"
+      ],
+      "tags": [
+        "item:cannon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:chop-chop-fruit": {
+      "type": "ability",
+      "label": "Chop-Chop Fruit",
+      "aliases": [
+        "Chop-Chop Fruit"
+      ],
+      "canonicalNames": [
+        "Chop-Chop Fruit"
+      ],
+      "tags": [
+        "ability:chop-chop-fruit"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:chouchou": {
+      "type": "character",
+      "label": "Chouchou",
+      "aliases": [
+        "Chouchou"
+      ],
+      "canonicalNames": [
+        "Chouchou"
+      ],
+      "tags": [
+        "character:chouchou"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:grand-line-map": {
+      "type": "item",
+      "label": "Grand Line map",
+      "aliases": [
+        "Grand Line map"
+      ],
+      "canonicalNames": [
+        "Grand Line map"
+      ],
+      "tags": [
+        "item:grand-line-map"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:gum-gum-fruit": {
+      "type": "ability",
+      "label": "Gum-Gum Fruit",
+      "aliases": [
+        "Gum-Gum Fruit"
+      ],
+      "canonicalNames": [
+        "Gum-Gum Fruit"
+      ],
+      "tags": [
+        "ability:gum-gum-fruit"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:mohji": {
+      "type": "character",
+      "label": "Mohji",
+      "aliases": [
+        "Mohji"
+      ],
+      "canonicalNames": [
+        "Mohji"
+      ],
+      "tags": [
+        "character:mohji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:nami": {
+      "type": "character",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "character:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:orange-town": {
+      "type": "location",
+      "label": "Orange Town",
+      "aliases": [
+        "Orange Town"
+      ],
+      "canonicalNames": [
+        "Orange Town"
+      ],
+      "tags": [
+        "location:orange-town"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:pet-shop": {
+      "type": "location",
+      "label": "pet shop",
+      "aliases": [
+        "pet shop"
+      ],
+      "canonicalNames": [
+        "pet shop"
+      ],
+      "tags": [
+        "location:pet-shop"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:richie": {
+      "type": "character",
+      "label": "Richie",
+      "aliases": [
+        "Richie"
+      ],
+      "canonicalNames": [
+        "Richie"
+      ],
+      "tags": [
+        "character:richie"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:shanks": {
+      "type": "character",
+      "label": "Shanks",
+      "aliases": [
+        "Shanks"
+      ],
+      "canonicalNames": [
+        "Shanks"
+      ],
+      "tags": [
+        "character:shanks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:small-boats": {
+      "type": "item",
+      "label": "small boats",
+      "aliases": [
+        "small boats"
+      ],
+      "canonicalNames": [
+        "small boats"
+      ],
+      "tags": [
+        "item:small-boats"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:townspeople": {
+      "type": "faction",
+      "label": "townspeople",
+      "aliases": [
+        "townspeople"
+      ],
+      "canonicalNames": [
+        "townspeople"
+      ],
+      "tags": [
+        "faction:townspeople"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    "op:treasure": {
+      "type": "item",
+      "label": "treasure",
+      "aliases": [
+        "treasure"
+      ],
+      "canonicalNames": [
+        "treasure"
+      ],
+      "tags": [
+        "item:treasure"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    }
+  }
+}

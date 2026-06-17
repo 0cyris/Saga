@@ -1,0 +1,667 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Manga-main Arabasta deck covering kingdom-war pressure, Crocodile and Baroque Works manipulation, Vivi leadership, desert route constraints, Alubarna matchups, Poneglyph/Pluton gates, civil-war resolution, farewell, Robin boarding, and immediate world-state cover-up.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.arabasta.arabasta",
+      "label": "Arabasta Arc: Kingdom drought and civil war",
+      "sortKey": 12000,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Kingdom drought and civil war"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.vivi-family-and-royal-guard",
+      "label": "Arabasta Arc: Vivi, family, and royal guard",
+      "sortKey": 12081,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Vivi, family, and royal guard"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.crocodile-rainbase-and-cover",
+      "label": "Arabasta Arc: Crocodile, Rainbase, and cover",
+      "sortKey": 12162,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Crocodile, Rainbase, and cover"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.baroque-works-endgame",
+      "label": "Arabasta Arc: Baroque Works endgame",
+      "sortKey": 12243,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Baroque Works endgame"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.straw-hat-roles-and-splits",
+      "label": "Arabasta Arc: Straw Hat roles and splits",
+      "sortKey": 12324,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Straw Hat roles and splits"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.rebels-koza-yuba-and-nanohana",
+      "label": "Arabasta Arc: Rebels, Koza, Yuba, and Nanohana",
+      "sortKey": 12405,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Rebels, Koza, Yuba, and Nanohana"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.poneglyph-pluton-and-robin",
+      "label": "Arabasta Arc: Poneglyph, Pluton, and Robin",
+      "sortKey": 12486,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Poneglyph, Pluton, and Robin"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.desert-travel-and-local-worldbuilding",
+      "label": "Arabasta Arc: Desert travel and local worldbuilding",
+      "sortKey": 12567,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Desert travel and local worldbuilding"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.alubarna-battles",
+      "label": "Arabasta Arc: Alubarna battles",
+      "sortKey": 12648,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Alubarna battles"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.bomb-palace-and-climax",
+      "label": "Arabasta Arc: Bomb, palace, and climax",
+      "sortKey": 12729,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Bomb, palace, and climax"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.aftermath-vivi-and-robin",
+      "label": "Arabasta Arc: Aftermath, Vivi, and Robin",
+      "sortKey": 12810,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: Aftermath, Vivi, and Robin"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.arabasta.after",
+      "label": "Arabasta Arc: aftermath boundary",
+      "sortKey": 12999,
+      "arc": "Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "155-217",
+      "episode": "92-130",
+      "aliases": [
+        "Arabasta Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.arabasta.window.full",
+      "label": "Arabasta Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.arabasta",
+      "anchorTo": "op.arabasta.after",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 12999,
+      "aliases": [
+        "Arabasta Arc",
+        "arabasta"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.arabasta",
+      "label": "Arabasta Arc: Kingdom drought and civil war",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.arabasta",
+      "anchorTo": "op.arabasta.vivi-family-and-royal-guard",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 12081,
+      "aliases": [
+        "Kingdom drought and civil war"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.vivi-family-and-royal-guard",
+      "label": "Arabasta Arc: Vivi, family, and royal guard",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.vivi-family-and-royal-guard",
+      "anchorTo": "op.arabasta.crocodile-rainbase-and-cover",
+      "sortKeyFrom": 12081,
+      "sortKeyTo": 12162,
+      "aliases": [
+        "Vivi, family, and royal guard"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.crocodile-rainbase-and-cover",
+      "label": "Arabasta Arc: Crocodile, Rainbase, and cover",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.crocodile-rainbase-and-cover",
+      "anchorTo": "op.arabasta.baroque-works-endgame",
+      "sortKeyFrom": 12162,
+      "sortKeyTo": 12243,
+      "aliases": [
+        "Crocodile, Rainbase, and cover"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.baroque-works-endgame",
+      "label": "Arabasta Arc: Baroque Works endgame",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.baroque-works-endgame",
+      "anchorTo": "op.arabasta.straw-hat-roles-and-splits",
+      "sortKeyFrom": 12243,
+      "sortKeyTo": 12324,
+      "aliases": [
+        "Baroque Works endgame"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.straw-hat-roles-and-splits",
+      "label": "Arabasta Arc: Straw Hat roles and splits",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.straw-hat-roles-and-splits",
+      "anchorTo": "op.arabasta.rebels-koza-yuba-and-nanohana",
+      "sortKeyFrom": 12324,
+      "sortKeyTo": 12405,
+      "aliases": [
+        "Straw Hat roles and splits"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.rebels-koza-yuba-and-nanohana",
+      "label": "Arabasta Arc: Rebels, Koza, Yuba, and Nanohana",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.rebels-koza-yuba-and-nanohana",
+      "anchorTo": "op.arabasta.poneglyph-pluton-and-robin",
+      "sortKeyFrom": 12405,
+      "sortKeyTo": 12486,
+      "aliases": [
+        "Rebels, Koza, Yuba, and Nanohana"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.poneglyph-pluton-and-robin",
+      "label": "Arabasta Arc: Poneglyph, Pluton, and Robin",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.poneglyph-pluton-and-robin",
+      "anchorTo": "op.arabasta.desert-travel-and-local-worldbuilding",
+      "sortKeyFrom": 12486,
+      "sortKeyTo": 12567,
+      "aliases": [
+        "Poneglyph, Pluton, and Robin"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.desert-travel-and-local-worldbuilding",
+      "label": "Arabasta Arc: Desert travel and local worldbuilding",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.desert-travel-and-local-worldbuilding",
+      "anchorTo": "op.arabasta.alubarna-battles",
+      "sortKeyFrom": 12567,
+      "sortKeyTo": 12648,
+      "aliases": [
+        "Desert travel and local worldbuilding"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.alubarna-battles",
+      "label": "Arabasta Arc: Alubarna battles",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.alubarna-battles",
+      "anchorTo": "op.arabasta.bomb-palace-and-climax",
+      "sortKeyFrom": 12648,
+      "sortKeyTo": 12729,
+      "aliases": [
+        "Alubarna battles"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.bomb-palace-and-climax",
+      "label": "Arabasta Arc: Bomb, palace, and climax",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.bomb-palace-and-climax",
+      "anchorTo": "op.arabasta.aftermath-vivi-and-robin",
+      "sortKeyFrom": 12729,
+      "sortKeyTo": 12810,
+      "aliases": [
+        "Bomb, palace, and climax"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arabasta.window.aftermath-vivi-and-robin",
+      "label": "Arabasta Arc: Aftermath, Vivi, and Robin",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arabasta.aftermath-vivi-and-robin",
+      "anchorTo": "op.arabasta.after",
+      "sortKeyFrom": 12810,
+      "sortKeyTo": 12999,
+      "aliases": [
+        "Aftermath, Vivi, and Robin"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "arabasta"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "arabasta"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Voyager season 4 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "voy.s4.e01.scorpion-part-ii",
+      "label": "Scorpion, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 34000,
+      "stardate": "51003.7 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Scorpion, Part II",
+        "VOY season 4 Scorpion, Part II",
+        "VOY S4 Scorpion, Part II",
+        "VOY 4x01 story",
+        "VOY S04 story 01",
+        "VOY 4x01",
+        "VOY S04E01",
+        "VOY season 4 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion%2C_Part_II_(episode)",
+        "stardate": "51003.7 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e02.the-gift",
+      "label": "The Gift",
+      "contextType": "story_anchor",
+      "sortKey": 34020,
+      "stardate": "51008 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "The Gift",
+        "VOY season 4 The Gift",
+        "VOY S4 The Gift",
+        "VOY 4x02 story",
+        "VOY S04 story 02",
+        "VOY 4x02",
+        "VOY S04E02",
+        "VOY season 4 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-gift"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Gift",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Gift_(episode)",
+        "stardate": "51008 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e03.day-of-honor",
+      "label": "Day of Honor",
+      "contextType": "story_anchor",
+      "sortKey": 34040,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Day of Honor",
+        "VOY season 4 Day of Honor",
+        "VOY S4 Day of Honor",
+        "VOY 4x03 story",
+        "VOY S04 story 03",
+        "VOY 4x03",
+        "VOY S04E03",
+        "VOY season 4 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-day-of-honor"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Day of Honor",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Day_of_Honor_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e04.nemesis",
+      "label": "Nemesis",
+      "contextType": "story_anchor",
+      "sortKey": 34060,
+      "stardate": "51082.4-51096.5 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Nemesis",
+        "VOY season 4 Nemesis",
+        "VOY S4 Nemesis",
+        "VOY 4x04 story",
+        "VOY S04 story 04",
+        "VOY 4x04",
+        "VOY S04E04",
+        "VOY season 4 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-nemesis"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Nemesis",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Nemesis_(episode)",
+        "stardate": "51082.4-51096.5 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e05.revulsion",
+      "label": "Revulsion",
+      "contextType": "story_anchor",
+      "sortKey": 34080,
+      "stardate": "51186.2 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Revulsion",
+        "VOY season 4 Revulsion",
+        "VOY S4 Revulsion",
+        "VOY 4x05 story",
+        "VOY S04 story 05",
+        "VOY 4x05",
+        "VOY S04E05",
+        "VOY season 4 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-revulsion"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Revulsion",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Revulsion_(episode)",
+        "stardate": "51186.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e06.the-raven",
+      "label": "The Raven",
+      "contextType": "story_anchor",
+      "sortKey": 34100,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "The Raven",
+        "VOY season 4 The Raven",
+        "VOY S4 The Raven",
+        "VOY 4x06 story",
+        "VOY S04 story 06",
+        "VOY 4x06",
+        "VOY S04E06",
+        "VOY season 4 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-raven"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Raven",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Raven_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e07.scientific-method",
+      "label": "Scientific Method",
+      "contextType": "story_anchor",
+      "sortKey": 34120,
+      "stardate": "51244.3 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Scientific Method",
+        "VOY season 4 Scientific Method",
+        "VOY S4 Scientific Method",
+        "VOY 4x07 story",
+        "VOY S04 story 07",
+        "VOY 4x07",
+        "VOY S04E07",
+        "VOY season 4 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scientific-method"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scientific Method",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scientific_Method_(episode)",
+        "stardate": "51244.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e08.year-of-hell",
+      "label": "Year of Hell",
+      "contextType": "story_anchor",
+      "sortKey": 34140,
+      "stardate": "51268.4 (March|month 16 - May 28, 2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Year of Hell",
+        "VOY season 4 Year of Hell",
+        "VOY S4 Year of Hell",
+        "VOY 4x08 story",
+        "VOY S04 story 08",
+        "VOY 4x08",
+        "VOY S04E08",
+        "VOY season 4 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-year-of-hell"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Year of Hell",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Year_of_Hell_(episode)",
+        "stardate": "51268.4 (March|month 16 - May 28, 2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e09.year-of-hell-part-ii",
+      "label": "Year of Hell, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 34160,
+      "stardate": "51425.4 (July 27 - November 29 / March|month 16, 2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Year of Hell, Part II",
+        "VOY season 4 Year of Hell, Part II",
+        "VOY S4 Year of Hell, Part II",
+        "VOY 4x09 story",
+        "VOY S04 story 09",
+        "VOY 4x09",
+        "VOY S04E09",
+        "VOY season 4 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-year-of-hell-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Year of Hell, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Year_of_Hell%2C_Part_II_(episode)",
+        "stardate": "51425.4 (July 27 - November 29 / March|month 16, 2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e10.random-thoughts",
+      "label": "Random Thoughts",
+      "contextType": "story_anchor",
+      "sortKey": 34180,
+      "stardate": "51367.2 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Random Thoughts",
+        "VOY season 4 Random Thoughts",
+        "VOY S4 Random Thoughts",
+        "VOY 4x10 story",
+        "VOY S04 story 10",
+        "VOY 4x10",
+        "VOY S04E10",
+        "VOY season 4 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-random-thoughts"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Random Thoughts",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Random_Thoughts_(episode)",
+        "stardate": "51367.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e11.concerning-flight",
+      "label": "Concerning Flight",
+      "contextType": "story_anchor",
+      "sortKey": 34200,
+      "stardate": "51386.4-51408.3 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Concerning Flight",
+        "VOY season 4 Concerning Flight",
+        "VOY S4 Concerning Flight",
+        "VOY 4x11 story",
+        "VOY S04 story 11",
+        "VOY 4x11",
+        "VOY S04E11",
+        "VOY season 4 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-concerning-flight"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Concerning Flight",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Concerning_Flight_(episode)",
+        "stardate": "51386.4-51408.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e12.mortal-coil",
+      "label": "Mortal Coil",
+      "contextType": "story_anchor",
+      "sortKey": 34220,
+      "stardate": "51449.2 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Mortal Coil",
+        "VOY season 4 Mortal Coil",
+        "VOY S4 Mortal Coil",
+        "VOY 4x12 story",
+        "VOY S04 story 12",
+        "VOY 4x12",
+        "VOY S04E12",
+        "VOY season 4 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-mortal-coil"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Mortal Coil",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Mortal_Coil_(episode)",
+        "stardate": "51449.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e13.waking-moments",
+      "label": "Waking Moments",
+      "contextType": "story_anchor",
+      "sortKey": 34240,
+      "stardate": "51471.3 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Waking Moments",
+        "VOY season 4 Waking Moments",
+        "VOY S4 Waking Moments",
+        "VOY 4x13 story",
+        "VOY S04 story 13",
+        "VOY 4x13",
+        "VOY S04E13",
+        "VOY season 4 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-waking-moments"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Waking Moments",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Waking_Moments_(episode)",
+        "stardate": "51471.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e14.message-in-a-bottle",
+      "label": "Message in a Bottle",
+      "contextType": "story_anchor",
+      "sortKey": 34260,
+      "stardate": "51462 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Message in a Bottle",
+        "VOY season 4 Message in a Bottle",
+        "VOY S4 Message in a Bottle",
+        "VOY 4x14 story",
+        "VOY S04 story 14",
+        "VOY 4x14",
+        "VOY S04E14",
+        "VOY season 4 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-message-in-a-bottle"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Message in a Bottle",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Message_in_a_Bottle_(episode)",
+        "stardate": "51462 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e15.hunters",
+      "label": "Hunters",
+      "contextType": "story_anchor",
+      "sortKey": 34280,
+      "stardate": "51501.4 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Hunters",
+        "VOY season 4 Hunters",
+        "VOY S4 Hunters",
+        "VOY 4x15 story",
+        "VOY S04 story 15",
+        "VOY 4x15",
+        "VOY S04E15",
+        "VOY season 4 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-hunters"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Hunters",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hunters_(episode)",
+        "stardate": "51501.4 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e16.prey",
+      "label": "Prey",
+      "contextType": "story_anchor",
+      "sortKey": 34300,
+      "stardate": "51652.3 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Prey",
+        "VOY season 4 Prey",
+        "VOY S4 Prey",
+        "VOY 4x16 story",
+        "VOY S04 story 16",
+        "VOY 4x16",
+        "VOY S04E16",
+        "VOY season 4 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-prey"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Prey",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Prey_(episode)",
+        "stardate": "51652.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e17.retrospect",
+      "label": "Retrospect",
+      "contextType": "story_anchor",
+      "sortKey": 34320,
+      "stardate": "51658.2 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Retrospect",
+        "VOY season 4 Retrospect",
+        "VOY S4 Retrospect",
+        "VOY 4x17 story",
+        "VOY S04 story 17",
+        "VOY 4x17",
+        "VOY S04E17",
+        "VOY season 4 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-retrospect"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Retrospect",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Retrospect_(episode)",
+        "stardate": "51658.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e18.the-killing-game",
+      "label": "The Killing Game",
+      "contextType": "story_anchor",
+      "sortKey": 34340,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "The Killing Game",
+        "VOY season 4 The Killing Game",
+        "VOY S4 The Killing Game",
+        "VOY 4x18 story",
+        "VOY S04 story 18",
+        "VOY 4x18",
+        "VOY S04E18",
+        "VOY season 4 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-killing-game"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Killing Game",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Killing_Game_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e19.the-killing-game-part-ii",
+      "label": "The Killing Game, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 34360,
+      "stardate": "51715.2 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "The Killing Game, Part II",
+        "VOY season 4 The Killing Game, Part II",
+        "VOY S4 The Killing Game, Part II",
+        "VOY 4x19 story",
+        "VOY S04 story 19",
+        "VOY 4x19",
+        "VOY S04E19",
+        "VOY season 4 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-killing-game-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Killing Game, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Killing_Game%2C_Part_II_(episode)",
+        "stardate": "51715.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e20.vis-a-vis",
+      "label": "Vis à Vis",
+      "contextType": "story_anchor",
+      "sortKey": 34380,
+      "stardate": "51762.4-51775.2 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Vis à Vis",
+        "VOY season 4 Vis à Vis",
+        "VOY S4 Vis à Vis",
+        "VOY 4x20 story",
+        "VOY S04 story 20",
+        "VOY 4x20",
+        "VOY S04E20",
+        "VOY season 4 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-vis-a-vis"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Vis à Vis",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Vis_%C3%A0_Vis_(episode)",
+        "stardate": "51762.4-51775.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e21.the-omega-directive",
+      "label": "The Omega Directive",
+      "contextType": "story_anchor",
+      "sortKey": 34400,
+      "stardate": "B51781.2↓-51793.4 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "The Omega Directive",
+        "VOY season 4 The Omega Directive",
+        "VOY S4 The Omega Directive",
+        "VOY 4x21 story",
+        "VOY S04 story 21",
+        "VOY 4x21",
+        "VOY S04E21",
+        "VOY season 4 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-omega-directive"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Omega Directive",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Omega_Directive_(episode)",
+        "stardate": "B51781.2↓-51793.4 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e22.unforgettable",
+      "label": "Unforgettable",
+      "contextType": "story_anchor",
+      "sortKey": 34420,
+      "stardate": "51813.4 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Unforgettable",
+        "VOY season 4 Unforgettable",
+        "VOY S4 Unforgettable",
+        "VOY 4x22 story",
+        "VOY S04 story 22",
+        "VOY 4x22",
+        "VOY S04E22",
+        "VOY season 4 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-unforgettable"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Unforgettable",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unforgettable_(episode)",
+        "stardate": "51813.4 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e23.living-witness",
+      "label": "Living Witness",
+      "contextType": "story_anchor",
+      "sortKey": 34440,
+      "stardate": "Far future",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Living Witness",
+        "VOY season 4 Living Witness",
+        "VOY S4 Living Witness",
+        "VOY 4x23 story",
+        "VOY S04 story 23",
+        "VOY 4x23",
+        "VOY S04E23",
+        "VOY season 4 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-living-witness"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Living Witness",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Living_Witness_(episode)",
+        "stardate": "Far future",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e24.demon",
+      "label": "Demon",
+      "contextType": "story_anchor",
+      "sortKey": 34460,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Demon",
+        "VOY season 4 Demon",
+        "VOY S4 Demon",
+        "VOY 4x24 story",
+        "VOY S04 story 24",
+        "VOY 4x24",
+        "VOY S04E24",
+        "VOY season 4 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-demon"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Demon",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Demon_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e25.one",
+      "label": "One",
+      "contextType": "story_anchor",
+      "sortKey": 34480,
+      "stardate": "51929.3-51932.4 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "One",
+        "VOY season 4 One",
+        "VOY S4 One",
+        "VOY 4x25 story",
+        "VOY S04 story 25",
+        "VOY 4x25",
+        "VOY S04E25",
+        "VOY season 4 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-one"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "One",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/One_(episode)",
+        "stardate": "51929.3-51932.4 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s4.e26.hope-and-fear",
+      "label": "Hope and Fear",
+      "contextType": "story_anchor",
+      "sortKey": 34500,
+      "stardate": "51978.2-51981.6 (2374)",
+      "year": "2374",
+      "series": "VOY",
+      "season": 4,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Hope and Fear",
+        "VOY season 4 Hope and Fear",
+        "VOY S4 Hope and Fear",
+        "VOY 4x26 story",
+        "VOY S04 story 26",
+        "VOY 4x26",
+        "VOY S04E26",
+        "VOY season 4 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-hope-and-fear"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Hope and Fear",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hope_and_Fear_(episode)",
+        "stardate": "51978.2-51981.6 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "voy.s4.full-season",
+      "label": "VOY season 4 full window",
+      "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+      "anchorTo": "voy.s4.e26.hope-and-fear",
+      "sortKeyFrom": 34000,
+      "sortKeyTo": 34500,
+      "aliases": [
+        "VOY season 4",
+        "Star Trek: Voyager season 4",
+        "VOY S4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "voy.s4.e01.scorpion-part-ii.window",
+      "label": "Scorpion, Part II episode window",
+      "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+      "anchorTo": "voy.s4.e02.the-gift",
+      "sortKeyFrom": 34000,
+      "sortKeyTo": 34020,
+      "aliases": [
+        "during Scorpion, Part II",
+        "after Scorpion, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s4.e02.the-gift.window",
+      "label": "The Gift episode window",
+      "anchorFrom": "voy.s4.e02.the-gift",
+      "anchorTo": "voy.s4.e03.day-of-honor",
+      "sortKeyFrom": 34020,
+      "sortKeyTo": 34040,
+      "aliases": [
+        "during The Gift",
+        "after The Gift"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-gift"
+      ]
+    },
+    {
+      "id": "voy.s4.e03.day-of-honor.window",
+      "label": "Day of Honor episode window",
+      "anchorFrom": "voy.s4.e03.day-of-honor",
+      "anchorTo": "voy.s4.e04.nemesis",
+      "sortKeyFrom": 34040,
+      "sortKeyTo": 34060,
+      "aliases": [
+        "during Day of Honor",
+        "after Day of Honor"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-day-of-honor"
+      ]
+    },
+    {
+      "id": "voy.s4.e04.nemesis.window",
+      "label": "Nemesis episode window",
+      "anchorFrom": "voy.s4.e04.nemesis",
+      "anchorTo": "voy.s4.e05.revulsion",
+      "sortKeyFrom": 34060,
+      "sortKeyTo": 34080,
+      "aliases": [
+        "during Nemesis",
+        "after Nemesis"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-nemesis"
+      ]
+    },
+    {
+      "id": "voy.s4.e05.revulsion.window",
+      "label": "Revulsion episode window",
+      "anchorFrom": "voy.s4.e05.revulsion",
+      "anchorTo": "voy.s4.e06.the-raven",
+      "sortKeyFrom": 34080,
+      "sortKeyTo": 34100,
+      "aliases": [
+        "during Revulsion",
+        "after Revulsion"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-revulsion"
+      ]
+    },
+    {
+      "id": "voy.s4.e06.the-raven.window",
+      "label": "The Raven episode window",
+      "anchorFrom": "voy.s4.e06.the-raven",
+      "anchorTo": "voy.s4.e07.scientific-method",
+      "sortKeyFrom": 34100,
+      "sortKeyTo": 34120,
+      "aliases": [
+        "during The Raven",
+        "after The Raven"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-raven"
+      ]
+    },
+    {
+      "id": "voy.s4.e07.scientific-method.window",
+      "label": "Scientific Method episode window",
+      "anchorFrom": "voy.s4.e07.scientific-method",
+      "anchorTo": "voy.s4.e08.year-of-hell",
+      "sortKeyFrom": 34120,
+      "sortKeyTo": 34140,
+      "aliases": [
+        "during Scientific Method",
+        "after Scientific Method"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scientific-method"
+      ]
+    },
+    {
+      "id": "voy.s4.e08.year-of-hell.window",
+      "label": "Year of Hell episode window",
+      "anchorFrom": "voy.s4.e08.year-of-hell",
+      "anchorTo": "voy.s4.e09.year-of-hell-part-ii",
+      "sortKeyFrom": 34140,
+      "sortKeyTo": 34160,
+      "aliases": [
+        "during Year of Hell",
+        "after Year of Hell"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-year-of-hell"
+      ]
+    },
+    {
+      "id": "voy.s4.e09.year-of-hell-part-ii.window",
+      "label": "Year of Hell, Part II episode window",
+      "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+      "anchorTo": "voy.s4.e10.random-thoughts",
+      "sortKeyFrom": 34160,
+      "sortKeyTo": 34180,
+      "aliases": [
+        "during Year of Hell, Part II",
+        "after Year of Hell, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-year-of-hell-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s4.e10.random-thoughts.window",
+      "label": "Random Thoughts episode window",
+      "anchorFrom": "voy.s4.e10.random-thoughts",
+      "anchorTo": "voy.s4.e11.concerning-flight",
+      "sortKeyFrom": 34180,
+      "sortKeyTo": 34200,
+      "aliases": [
+        "during Random Thoughts",
+        "after Random Thoughts"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-random-thoughts"
+      ]
+    },
+    {
+      "id": "voy.s4.e11.concerning-flight.window",
+      "label": "Concerning Flight episode window",
+      "anchorFrom": "voy.s4.e11.concerning-flight",
+      "anchorTo": "voy.s4.e12.mortal-coil",
+      "sortKeyFrom": 34200,
+      "sortKeyTo": 34220,
+      "aliases": [
+        "during Concerning Flight",
+        "after Concerning Flight"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-concerning-flight"
+      ]
+    },
+    {
+      "id": "voy.s4.e12.mortal-coil.window",
+      "label": "Mortal Coil episode window",
+      "anchorFrom": "voy.s4.e12.mortal-coil",
+      "anchorTo": "voy.s4.e13.waking-moments",
+      "sortKeyFrom": 34220,
+      "sortKeyTo": 34240,
+      "aliases": [
+        "during Mortal Coil",
+        "after Mortal Coil"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-mortal-coil"
+      ]
+    },
+    {
+      "id": "voy.s4.e13.waking-moments.window",
+      "label": "Waking Moments episode window",
+      "anchorFrom": "voy.s4.e13.waking-moments",
+      "anchorTo": "voy.s4.e14.message-in-a-bottle",
+      "sortKeyFrom": 34240,
+      "sortKeyTo": 34260,
+      "aliases": [
+        "during Waking Moments",
+        "after Waking Moments"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-waking-moments"
+      ]
+    },
+    {
+      "id": "voy.s4.e14.message-in-a-bottle.window",
+      "label": "Message in a Bottle episode window",
+      "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+      "anchorTo": "voy.s4.e15.hunters",
+      "sortKeyFrom": 34260,
+      "sortKeyTo": 34280,
+      "aliases": [
+        "during Message in a Bottle",
+        "after Message in a Bottle"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-message-in-a-bottle"
+      ]
+    },
+    {
+      "id": "voy.s4.e15.hunters.window",
+      "label": "Hunters episode window",
+      "anchorFrom": "voy.s4.e15.hunters",
+      "anchorTo": "voy.s4.e16.prey",
+      "sortKeyFrom": 34280,
+      "sortKeyTo": 34300,
+      "aliases": [
+        "during Hunters",
+        "after Hunters"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-hunters"
+      ]
+    },
+    {
+      "id": "voy.s4.e16.prey.window",
+      "label": "Prey episode window",
+      "anchorFrom": "voy.s4.e16.prey",
+      "anchorTo": "voy.s4.e17.retrospect",
+      "sortKeyFrom": 34300,
+      "sortKeyTo": 34320,
+      "aliases": [
+        "during Prey",
+        "after Prey"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-prey"
+      ]
+    },
+    {
+      "id": "voy.s4.e17.retrospect.window",
+      "label": "Retrospect episode window",
+      "anchorFrom": "voy.s4.e17.retrospect",
+      "anchorTo": "voy.s4.e18.the-killing-game",
+      "sortKeyFrom": 34320,
+      "sortKeyTo": 34340,
+      "aliases": [
+        "during Retrospect",
+        "after Retrospect"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-retrospect"
+      ]
+    },
+    {
+      "id": "voy.s4.e18.the-killing-game.window",
+      "label": "The Killing Game episode window",
+      "anchorFrom": "voy.s4.e18.the-killing-game",
+      "anchorTo": "voy.s4.e19.the-killing-game-part-ii",
+      "sortKeyFrom": 34340,
+      "sortKeyTo": 34360,
+      "aliases": [
+        "during The Killing Game",
+        "after The Killing Game"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-killing-game"
+      ]
+    },
+    {
+      "id": "voy.s4.e19.the-killing-game-part-ii.window",
+      "label": "The Killing Game, Part II episode window",
+      "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+      "anchorTo": "voy.s4.e20.vis-a-vis",
+      "sortKeyFrom": 34360,
+      "sortKeyTo": 34380,
+      "aliases": [
+        "during The Killing Game, Part II",
+        "after The Killing Game, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-killing-game-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s4.e20.vis-a-vis.window",
+      "label": "Vis à Vis episode window",
+      "anchorFrom": "voy.s4.e20.vis-a-vis",
+      "anchorTo": "voy.s4.e21.the-omega-directive",
+      "sortKeyFrom": 34380,
+      "sortKeyTo": 34400,
+      "aliases": [
+        "during Vis à Vis",
+        "after Vis à Vis"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-vis-a-vis"
+      ]
+    },
+    {
+      "id": "voy.s4.e21.the-omega-directive.window",
+      "label": "The Omega Directive episode window",
+      "anchorFrom": "voy.s4.e21.the-omega-directive",
+      "anchorTo": "voy.s4.e22.unforgettable",
+      "sortKeyFrom": 34400,
+      "sortKeyTo": 34420,
+      "aliases": [
+        "during The Omega Directive",
+        "after The Omega Directive"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-omega-directive"
+      ]
+    },
+    {
+      "id": "voy.s4.e22.unforgettable.window",
+      "label": "Unforgettable episode window",
+      "anchorFrom": "voy.s4.e22.unforgettable",
+      "anchorTo": "voy.s4.e23.living-witness",
+      "sortKeyFrom": 34420,
+      "sortKeyTo": 34440,
+      "aliases": [
+        "during Unforgettable",
+        "after Unforgettable"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-unforgettable"
+      ]
+    },
+    {
+      "id": "voy.s4.e23.living-witness.window",
+      "label": "Living Witness episode window",
+      "anchorFrom": "voy.s4.e23.living-witness",
+      "anchorTo": "voy.s4.e24.demon",
+      "sortKeyFrom": 34440,
+      "sortKeyTo": 34460,
+      "aliases": [
+        "during Living Witness",
+        "after Living Witness"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-living-witness"
+      ]
+    },
+    {
+      "id": "voy.s4.e24.demon.window",
+      "label": "Demon episode window",
+      "anchorFrom": "voy.s4.e24.demon",
+      "anchorTo": "voy.s4.e25.one",
+      "sortKeyFrom": 34460,
+      "sortKeyTo": 34480,
+      "aliases": [
+        "during Demon",
+        "after Demon"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-demon"
+      ]
+    },
+    {
+      "id": "voy.s4.e25.one.window",
+      "label": "One episode window",
+      "anchorFrom": "voy.s4.e25.one",
+      "anchorTo": "voy.s4.e26.hope-and-fear",
+      "sortKeyFrom": 34480,
+      "sortKeyTo": 34500,
+      "aliases": [
+        "during One",
+        "after One"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-one"
+      ]
+    }
+  ]
+}

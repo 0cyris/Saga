@@ -1,0 +1,2639 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_sons-of-mogh-state-gate",
+      "title": "Sons of Mogh state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e14.sons-of-mogh",
+        "validToAnchor": "ds9.s4.e15.bar-association",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 24260,
+        "sortKeyTo": 24280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Sons of Mogh",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e14.sons-of-mogh",
+          "label": "Sons of Mogh",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kurn",
+          "st:jadzia-dax",
+          "st:odo",
+          "st:mauk-tovor",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Kurn",
+          "Jadzia Dax",
+          "Odo",
+          "Mauk-to'Vor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans"
+        ],
+        "topics": [
+          "Klingon War",
+          "Klingon duty/faction-status gate",
+          "Bajoran occupation/religion gate",
+          "Worf",
+          "Jadzia Dax",
+          "holosuite",
+          "Klingon",
+          "bat'leth"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-sons-of-mogh",
+        "character:worf",
+        "character:kurn",
+        "character:jadzia-dax",
+        "character:odo",
+        "character:mauk-tovor",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "topic:klingon-war",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:worf",
+        "topic:jadzia-dax",
+        "topic:holosuite",
+        "topic:klingon",
+        "topic:batleth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Kurn",
+            "Jadzia Dax",
+            "Odo",
+            "Mauk-to'Vor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Kurn",
+            "Jadzia Dax",
+            "Odo",
+            "Mauk-to'Vor",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "Worf",
+            "Jadzia Dax",
+            "holosuite",
+            "Klingon",
+            "bat'leth"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Kurn",
+            "Jadzia Dax",
+            "Odo",
+            "Mauk-to'Vor",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "holosuite",
+            "Klingon",
+            "bat'leth",
+            "Sons of Mogh",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sons of Mogh constrains Worf, Kurn, Jadzia Dax around Klingon War and the episode-local faction state.",
+        "injection": "Inside Sons of Mogh, write Worf, Kurn, Jadzia Dax with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sons of Mogh",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sons_of_Mogh_(episode)",
+        "stardate": "49556.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_bar-association-state-gate",
+      "title": "Bar Association state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 47,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e15.bar-association",
+        "validToAnchor": "ds9.s4.e16.accession",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 24280,
+        "sortKeyTo": 24300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Bar Association",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e15.bar-association",
+          "label": "Bar Association",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:quark",
+          "st:rom",
+          "st:gamma-quadrant",
+          "st:jadzia-dax",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Quark",
+          "Rom",
+          "Gamma Quadrant",
+          "Jadzia Dax"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "Gamma Quadrant",
+          "Worf",
+          "Dax",
+          "Quark's",
+          "Bajoran Time of Cleansing",
+          "Quark",
+          "Bar Association"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-bar-association",
+        "character:worf",
+        "character:quark",
+        "character:rom",
+        "character:gamma-quadrant",
+        "character:jadzia-dax",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:gamma-quadrant",
+        "topic:worf",
+        "topic:dax",
+        "topic:quarks",
+        "topic:bajoran-time-of-cleansing",
+        "topic:quark",
+        "topic:bar-association"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Quark",
+            "Rom",
+            "Gamma Quadrant",
+            "Jadzia Dax"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Quark",
+            "Rom",
+            "Gamma Quadrant",
+            "Jadzia Dax",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "Gamma Quadrant",
+            "Worf",
+            "Dax",
+            "Quark's",
+            "Bajoran Time of Cleansing",
+            "Quark",
+            "Bar Association"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Quark",
+            "Rom",
+            "Gamma Quadrant",
+            "Jadzia Dax",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "Dax",
+            "Quark's",
+            "Bajoran Time of Cleansing",
+            "Bar Association",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Bar Association constrains Worf, Quark, Rom around Bajoran occupation/religion gate and the episode-local faction state.",
+        "injection": "Inside Bar Association, write Worf, Quark, Rom with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Bar Association",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Bar_Association_(episode)",
+        "stardate": "49565 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_accession-state-gate",
+      "title": "Accession state gate for Miles O'Brien",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e16.accession",
+        "validToAnchor": "ds9.s4.e17.rules-of-engagement",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 24300,
+        "sortKeyTo": 24320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Accession",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e16.accession",
+          "label": "Accession",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:julian-bashir",
+          "st:keiko",
+          "st:bajor",
+          "st:molly",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Julian Bashir",
+          "Keiko",
+          "Bajor",
+          "Molly"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "Prophets/Emissary gate",
+          "wormhole/anomaly route gate",
+          "Chief",
+          "O'Brien",
+          "Bashir",
+          "Battle of Britain",
+          "holosuite"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-accession",
+        "character:miles-obrien",
+        "character:julian-bashir",
+        "character:keiko",
+        "character:bajor",
+        "character:molly",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:prophetsemissary-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:chief",
+        "topic:obrien",
+        "topic:bashir",
+        "topic:battle-of-britain",
+        "topic:holosuite"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Keiko",
+            "Bajor",
+            "Molly"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Keiko",
+            "Bajor",
+            "Molly",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "wormhole/anomaly route gate",
+            "Chief",
+            "O'Brien",
+            "Bashir",
+            "Battle of Britain",
+            "holosuite"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Keiko",
+            "Bajor",
+            "Molly",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "wormhole/anomaly route gate",
+            "Chief",
+            "O'Brien",
+            "Bashir",
+            "Battle of Britain",
+            "holosuite",
+            "Accession",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Accession constrains Miles O'Brien, Julian Bashir, Keiko around Bajoran occupation/religion gate and the episode-local faction state.",
+        "injection": "Inside Accession, write Miles O'Brien, Julian Bashir, Keiko with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Accession",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Accession_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_rules-of-engagement-state-gate",
+      "title": "Rules of Engagement state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e17.rules-of-engagement",
+        "validToAnchor": "ds9.s4.e18.hard-time",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 24320,
+        "sortKeyTo": 24340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Rules of Engagement",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e17.rules-of-engagement",
+          "label": "Rules of Engagement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:odo",
+          "st:tlara",
+          "st:chpok",
+          "st:klingon-empire",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Odo",
+          "T'Lara",
+          "Ch'Pok",
+          "Klingon Empire"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans"
+        ],
+        "topics": [
+          "Klingon War",
+          "Klingon duty/faction-status gate",
+          "Worf",
+          "Klingon",
+          "bat'leth",
+          "dream",
+          "brig",
+          "Odo"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-rules-of-engagement",
+        "character:worf",
+        "character:odo",
+        "character:tlara",
+        "character:chpok",
+        "character:klingon-empire",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "topic:klingon-war",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:worf",
+        "topic:klingon",
+        "topic:batleth",
+        "topic:dream",
+        "topic:brig",
+        "topic:odo"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Odo",
+            "T'Lara",
+            "Ch'Pok",
+            "Klingon Empire"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Odo",
+            "T'Lara",
+            "Ch'Pok",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "Worf",
+            "Klingon",
+            "bat'leth",
+            "dream",
+            "brig",
+            "Odo"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Odo",
+            "T'Lara",
+            "Ch'Pok",
+            "Klingon Empire",
+            "Starfleet",
+            "Bajorans",
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "Klingon",
+            "bat'leth",
+            "dream",
+            "brig",
+            "Rules of Engagement",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Rules of Engagement constrains Worf, Odo, T'Lara around Klingon War and the episode-local faction state.",
+        "injection": "Inside Rules of Engagement, write Worf, Odo, T'Lara with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rules of Engagement",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rules_of_Engagement_(episode)",
+        "stardate": "49665.3 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_hard-time-state-gate",
+      "title": "Hard Time state gate for Miles O'Brien",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e18.hard-time",
+        "validToAnchor": "ds9.s4.e19.shattered-mirror",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 24340,
+        "sortKeyTo": 24360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Hard Time",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e18.hard-time",
+          "label": "Hard Time",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:argrathi",
+          "st:kira-nerys",
+          "st:benjamin-sisko",
+          "st:keiko",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Argrathi",
+          "Kira Nerys",
+          "Benjamin Sisko",
+          "Keiko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "death/status-change gate",
+          "beard",
+          "Miles O'Brien",
+          "Argrathi",
+          "sand",
+          "Major",
+          "Kira",
+          "Hard Time"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-hard-time",
+        "character:miles-obrien",
+        "character:argrathi",
+        "character:kira-nerys",
+        "character:benjamin-sisko",
+        "character:keiko",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:deathstatus-change-gate",
+        "topic:beard",
+        "topic:miles-obrien",
+        "topic:argrathi",
+        "topic:sand",
+        "topic:major",
+        "topic:kira",
+        "topic:hard-time"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Argrathi",
+            "Kira Nerys",
+            "Benjamin Sisko",
+            "Keiko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Argrathi",
+            "Kira Nerys",
+            "Benjamin Sisko",
+            "Keiko",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "death/status-change gate",
+            "beard",
+            "Miles O'Brien",
+            "Argrathi",
+            "sand",
+            "Major",
+            "Kira",
+            "Hard Time"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Argrathi",
+            "Kira Nerys",
+            "Benjamin Sisko",
+            "Keiko",
+            "Starfleet",
+            "Bajorans",
+            "death/status-change gate",
+            "beard",
+            "sand",
+            "Major",
+            "Kira",
+            "Hard Time",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Hard Time constrains Miles O'Brien, Argrathi, Kira Nerys around death/status-change gate and the episode-local faction state.",
+        "injection": "Inside Hard Time, write Miles O'Brien, Argrathi, Kira Nerys with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Hard Time",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hard_Time_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_shattered-mirror-state-gate",
+      "title": "Shattered Mirror state gate for Odo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e19.shattered-mirror",
+        "validToAnchor": "ds9.s4.e20.the-muse",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 24360,
+        "sortKeyTo": 24380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Shattered Mirror",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e19.shattered-mirror",
+          "label": "Shattered Mirror",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:jake-sisko",
+          "st:nog",
+          "st:promenade",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Jake Sisko",
+          "Nog",
+          "Promenade"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Mirror universe",
+          "Bajoran occupation/religion gate",
+          "Defiant/station militarization gate",
+          "Mirror universe branch gate",
+          "Jake Sisko",
+          "Promenade",
+          "Odo",
+          "Nog"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-shattered-mirror",
+        "character:odo",
+        "character:quark",
+        "character:jake-sisko",
+        "character:nog",
+        "character:promenade",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:mirror-universe",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:mirror-universe-branch-gate",
+        "topic:jake-sisko",
+        "topic:promenade",
+        "topic:odo",
+        "topic:nog"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Nog",
+            "Promenade"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Nog",
+            "Promenade",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Mirror universe",
+            "Bajoran occupation/religion gate",
+            "Defiant/station militarization gate",
+            "Mirror universe branch gate",
+            "Jake Sisko",
+            "Promenade",
+            "Odo",
+            "Nog"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Nog",
+            "Promenade",
+            "Starfleet",
+            "Bajorans",
+            "Mirror universe",
+            "Bajoran occupation/religion gate",
+            "Defiant/station militarization gate",
+            "Mirror universe branch gate",
+            "Shattered Mirror",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Shattered Mirror constrains Odo, Quark, Jake Sisko around Mirror universe and the episode-local faction state.",
+        "injection": "Inside Shattered Mirror, write Odo, Quark, Jake Sisko with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Shattered Mirror",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shattered_Mirror_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_the-muse-state-gate",
+      "title": "The Muse state gate for Odo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e20.the-muse",
+        "validToAnchor": "ds9.s4.e21.for-the-cause",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 24380,
+        "sortKeyTo": 24400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: The Muse",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e20.the-muse",
+          "label": "The Muse",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:jake-sisko",
+          "st:promenade",
+          "st:lwaxana-troi",
+          "st:jeyal",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Jake Sisko",
+          "Promenade",
+          "Lwaxana Troi",
+          "Jeyal"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Jake Sisko",
+          "Promenade",
+          "space station",
+          "airlock",
+          "Odo",
+          "Lwaxana Troi",
+          "The Muse"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-muse",
+        "character:odo",
+        "character:jake-sisko",
+        "character:promenade",
+        "character:lwaxana-troi",
+        "character:jeyal",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:jake-sisko",
+        "topic:promenade",
+        "topic:space-station",
+        "topic:airlock",
+        "topic:odo",
+        "topic:lwaxana-troi",
+        "topic:the-muse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Jake Sisko",
+            "Promenade",
+            "Lwaxana Troi",
+            "Jeyal"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Jake Sisko",
+            "Promenade",
+            "Lwaxana Troi",
+            "Jeyal",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Jake Sisko",
+            "Promenade",
+            "space station",
+            "airlock",
+            "Odo",
+            "Lwaxana Troi",
+            "The Muse"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Jake Sisko",
+            "Promenade",
+            "Lwaxana Troi",
+            "Jeyal",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "space station",
+            "airlock",
+            "The Muse",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Muse constrains Odo, Jake Sisko, Promenade around Cardassian occupation or border-pressure gate and the episode-local faction state.",
+        "injection": "Inside The Muse, write Odo, Jake Sisko, Promenade with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Muse",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Muse_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_for-the-cause-state-gate",
+      "title": "For the Cause state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e21.for-the-cause",
+        "validToAnchor": "ds9.s4.e22.to-the-death",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 24400,
+        "sortKeyTo": 24420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: For the Cause",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e21.for-the-cause",
+          "label": "For the Cause",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:jadzia-dax",
+          "st:odo",
+          "st:kasidy-yates",
+          "st:benjamin-sisko",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:maquis",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Jadzia Dax",
+          "Odo",
+          "Kasidy Yates",
+          "Benjamin Sisko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Maquis",
+          "Bajorans"
+        ],
+        "topics": [
+          "Eddington vs. Sisko",
+          "Cardassian occupation or border-pressure gate",
+          "Maquis political/crew-loyalty gate",
+          "Kasidy Yates",
+          "Sisko",
+          "bed",
+          "engineer",
+          "wardroom"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-for-the-cause",
+        "character:worf",
+        "character:jadzia-dax",
+        "character:odo",
+        "character:kasidy-yates",
+        "character:benjamin-sisko",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:maquis",
+        "faction:bajorans",
+        "topic:eddington-vs-sisko",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:maquis-politicalcrew-loyalty-gate",
+        "topic:kasidy-yates",
+        "topic:sisko",
+        "topic:bed",
+        "topic:engineer",
+        "topic:wardroom"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Jadzia Dax",
+            "Odo",
+            "Kasidy Yates",
+            "Benjamin Sisko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Maquis",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Jadzia Dax",
+            "Odo",
+            "Kasidy Yates",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Cardassian Union",
+            "Maquis",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Eddington vs. Sisko",
+            "Cardassian occupation or border-pressure gate",
+            "Maquis political/crew-loyalty gate",
+            "Kasidy Yates",
+            "Sisko",
+            "bed",
+            "engineer",
+            "wardroom"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Jadzia Dax",
+            "Odo",
+            "Kasidy Yates",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Cardassian Union",
+            "Maquis",
+            "Bajorans",
+            "Eddington vs. Sisko",
+            "Cardassian occupation or border-pressure gate",
+            "Maquis political/crew-loyalty gate",
+            "Sisko",
+            "bed",
+            "engineer",
+            "wardroom",
+            "For the Cause",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "For the Cause constrains Worf, Jadzia Dax, Odo around Eddington vs. Sisko and the episode-local faction state.",
+        "injection": "Inside For the Cause, write Worf, Jadzia Dax, Odo with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "For the Cause",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/For_the_Cause_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_to-the-death-state-gate",
+      "title": "To the Death state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e22.to-the-death",
+        "validToAnchor": "ds9.s4.e23.the-quickening",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 24420,
+        "sortKeyTo": 24440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: To the Death",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e22.to-the-death",
+          "label": "To the Death",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:breen",
+          "st:free-haven",
+          "st:jadzia-dax",
+          "st:miles-obrien",
+          "st:starfleet",
+          "st:bajorans",
+          "st:dominion",
+          "st:jemhadar"
+        ],
+        "characters": [
+          "Worf",
+          "Breen",
+          "Free Haven",
+          "Jadzia Dax",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans",
+          "Dominion",
+          "Jem'Hadar"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "death/status-change gate",
+          "Breen",
+          "Bajoran",
+          "Free Haven",
+          "Deep Space 9"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-to-the-death",
+        "character:worf",
+        "character:breen",
+        "character:free-haven",
+        "character:jadzia-dax",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "faction:bajorans",
+        "faction:dominion",
+        "faction:jemhadar",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:deathstatus-change-gate",
+        "topic:breen",
+        "topic:bajoran",
+        "topic:free-haven",
+        "topic:deep-space-9"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Breen",
+            "Free Haven",
+            "Jadzia Dax",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans",
+            "Dominion",
+            "Jem'Hadar"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Breen",
+            "Free Haven",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans",
+            "Dominion",
+            "Jem'Hadar"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "death/status-change gate",
+            "Breen",
+            "Bajoran",
+            "Free Haven",
+            "Deep Space 9"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Breen",
+            "Free Haven",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "death/status-change gate",
+            "Bajoran",
+            "Deep Space 9",
+            "To the Death",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "To the Death constrains Worf, Breen, Free Haven around Bajoran occupation/religion gate and the episode-local faction state.",
+        "injection": "Inside To the Death, write Worf, Breen, Free Haven with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "To the Death",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/To_the_Death_(episode)",
+        "stardate": "49904.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_the-quickening-state-gate",
+      "title": "The Quickening state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e23.the-quickening",
+        "validToAnchor": "ds9.s4.e24.body-parts",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 24440,
+        "sortKeyTo": 24460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: The Quickening",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e23.the-quickening",
+          "label": "The Quickening",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:odo",
+          "st:quark",
+          "st:kira-nerys",
+          "st:miles-obrien",
+          "st:starfleet",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Odo",
+          "Quark",
+          "Kira Nerys",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion strategic-threat gate",
+          "wardroom",
+          "Major",
+          "Kira",
+          "Chief",
+          "O'Brien",
+          "Quark",
+          "The Quickening"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-quickening",
+        "character:worf",
+        "character:odo",
+        "character:quark",
+        "character:kira-nerys",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:dominion-strategic-threat-gate",
+        "topic:wardroom",
+        "topic:major",
+        "topic:kira",
+        "topic:chief",
+        "topic:obrien",
+        "topic:quark",
+        "topic:the-quickening"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Odo",
+            "Quark",
+            "Kira Nerys",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Odo",
+            "Quark",
+            "Kira Nerys",
+            "Miles O'Brien",
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion strategic-threat gate",
+            "wardroom",
+            "Major",
+            "Kira",
+            "Chief",
+            "O'Brien",
+            "Quark",
+            "The Quickening"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Odo",
+            "Quark",
+            "Kira Nerys",
+            "Miles O'Brien",
+            "Starfleet",
+            "Dominion",
+            "Bajorans",
+            "Dominion strategic-threat gate",
+            "wardroom",
+            "Major",
+            "Kira",
+            "Chief",
+            "O'Brien",
+            "The Quickening",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Quickening constrains Worf, Odo, Quark around Dominion strategic-threat gate and the episode-local faction state.",
+        "injection": "Inside The Quickening, write Worf, Odo, Quark with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Quickening",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Quickening_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_body-parts-state-gate",
+      "title": "Body Parts state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e24.body-parts",
+        "validToAnchor": "ds9.s4.e25.broken-link",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 24460,
+        "sortKeyTo": 24480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Body Parts",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e24.body-parts",
+          "label": "Body Parts",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:quark",
+          "st:rom",
+          "st:jadzia-dax",
+          "st:miles-obrien",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Quark",
+          "Rom",
+          "Jadzia Dax",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Dax",
+          "Chief",
+          "O'Brien",
+          "Worf",
+          "Ops",
+          "Bashir",
+          "Body Parts"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-body-parts",
+        "character:worf",
+        "character:quark",
+        "character:rom",
+        "character:jadzia-dax",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:episode-local-factstatus-gate",
+        "topic:dax",
+        "topic:chief",
+        "topic:obrien",
+        "topic:worf",
+        "topic:ops",
+        "topic:bashir",
+        "topic:body-parts"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Quark",
+            "Rom",
+            "Jadzia Dax",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Quark",
+            "Rom",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Dax",
+            "Chief",
+            "O'Brien",
+            "Worf",
+            "Ops",
+            "Bashir",
+            "Body Parts"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Quark",
+            "Rom",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans",
+            "episode-local fact/status gate",
+            "Dax",
+            "Chief",
+            "O'Brien",
+            "Ops",
+            "Bashir",
+            "Body Parts",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Body Parts constrains Worf, Quark, Rom around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Body Parts, write Worf, Quark, Rom with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Body Parts",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Body_Parts_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s4_broken-link-state-gate",
+      "title": "Broken Link state gate for Odo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s4.e25.broken-link",
+        "validToAnchor": "ds9.s4.e25.broken-link",
+        "series": "DS9",
+        "season": "4",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 24480,
+        "sortKeyTo": 24480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 4: Broken Link",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s4",
+          "label": "DS9 season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s4.e25.broken-link",
+          "label": "Broken Link",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:garak",
+          "st:elim-garak",
+          "st:chalan-aroya",
+          "st:celestial-cafe",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Garak",
+          "Elim Garak",
+          "Chalan Aroya",
+          "Celestial Cafe"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Klingon War",
+          "Klingon duty/faction-status gate",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Odo",
+          "Elim Garak",
+          "shop",
+          "Cardassian"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-broken-link",
+        "character:odo",
+        "character:garak",
+        "character:elim-garak",
+        "character:chalan-aroya",
+        "character:celestial-cafe",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:klingon-war",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:odo",
+        "topic:elim-garak",
+        "topic:shop",
+        "topic:cardassian"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Garak",
+            "Elim Garak",
+            "Chalan Aroya",
+            "Celestial Cafe"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Garak",
+            "Elim Garak",
+            "Chalan Aroya",
+            "Celestial Cafe",
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Odo",
+            "Elim Garak",
+            "shop",
+            "Cardassian"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Garak",
+            "Elim Garak",
+            "Chalan Aroya",
+            "Celestial Cafe",
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans",
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "shop",
+            "Cardassian",
+            "Broken Link",
+            "DS9 season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 4, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Broken Link constrains Odo, Garak, Elim Garak around Klingon War and the episode-local faction state.",
+        "injection": "Inside Broken Link, write Odo, Garak, Elim Garak with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Broken Link",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Broken_Link_(episode)",
+        "stardate": "49962.4 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

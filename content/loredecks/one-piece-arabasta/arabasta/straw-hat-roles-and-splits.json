@@ -1,0 +1,1024 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_the_straw_hats_split_roles_because_the_kingdom_scale_battle_is_too_large_for_one_group_022",
+      "title": "The Straw Hats Split Roles Because The War Is Too Large",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.straw-hat-roles-and-splits",
+        "validToAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12324,
+        "sortKeyTo": 12405,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: The Straw Hats Split Roles Because The War Is Too Large"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:nefertari-vivi",
+          "op:alubarna",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Nefertari Vivi"
+        ],
+        "locations": [
+          "Alubarna"
+        ],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "crew split roles",
+          "kingdom-scale battle",
+          "Alubarna rush"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:monkey-d-luffy",
+        "character:nefertari-vivi",
+        "location:alubarna",
+        "faction:baroque-works",
+        "topic:kingdom-war",
+        "topic:alubarna-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Nefertari Vivi",
+            "Alubarna",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "crew split roles",
+            "kingdom-scale battle",
+            "Alubarna rush"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Nefertari Vivi",
+            "Alubarna",
+            "Baroque Works",
+            "crew split roles",
+            "kingdom-scale battle",
+            "Alubarna rush",
+            "Straw Hats",
+            "split roles",
+            "war",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "The Straw Hats split roles because Arabasta's war is too large for one party to solve in one place.",
+        "injection": "Use parallel pressure: rescue, matchups, bomb search, and Crocodile's fight can all matter at once.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_luffy_repeatedly_returns_to_fight_crocodile_after_defeat_023",
+      "title": "Luffy Returns After Defeat Because Crocodile's Worldview Is The Enemy",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.straw-hat-roles-and-splits",
+        "validToAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12324,
+        "sortKeyTo": 12405,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Luffy Returns After Defeat Because Crocodile's Worldview Is The Enemy"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:crocodile",
+          "op:nefertari-vivi"
+        ],
+        "characters": [
+          "Crocodile",
+          "Nefertari Vivi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy returns",
+          "Crocodile worldview",
+          "defeat refusal"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:monkey-d-luffy",
+        "character:crocodile",
+        "character:nefertari-vivi",
+        "topic:vivi-leadership",
+        "topic:crocodile"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Crocodile",
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Crocodile",
+            "Nefertari Vivi"
+          ],
+          "topicsAny": [
+            "Luffy returns",
+            "Crocodile worldview",
+            "defeat refusal"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Crocodile",
+            "Nefertari Vivi",
+            "Luffy returns",
+            "Crocodile worldview",
+            "defeat refusal",
+            "Luffy",
+            "returns",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Luffy repeatedly returns after Crocodile defeats him because Crocodile's contempt for Vivi, dreams, and the country is the real enemy.",
+        "injection": "Use Luffy's returns as moral refusal before power escalation: he rejects Crocodile's cynicism as much as his strength.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_zoro_s_steel_cutting_breakthrough_stays_local_to_the_mr_1_fight_024",
+      "title": "Zoro's Steel-Cutting Breakthrough Stays Local To Mr. 1",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.straw-hat-roles-and-splits",
+        "validToAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12324,
+        "sortKeyTo": 12405,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Zoro's Steel-Cutting Breakthrough Stays Local To Mr. 1"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:mr-1",
+          "op:daz-bones"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Mr. 1",
+          "Daz Bones"
+        ],
+        "topics": [
+          "steel cutting boundary",
+          "Mr. 1 fight",
+          "Zoro local breakthrough"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:roronoa-zoro",
+        "faction:mr-1",
+        "faction:daz-bones",
+        "topic:baroque-works",
+        "topic:alubarna-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Mr. 1",
+            "Daz Bones"
+          ],
+          "topicsAny": [
+            "steel cutting boundary",
+            "Mr. 1 fight",
+            "Zoro local breakthrough"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Mr. 1",
+            "Daz Bones",
+            "steel cutting boundary",
+            "Mr. 1 fight",
+            "Zoro local breakthrough",
+            "Zoro",
+            "steel cutting",
+            "boundary",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Zoro's steel-cutting breakthrough belongs to the Mr. 1 fight and should not become a broad later power-system explanation.",
+        "injection": "Use the breakthrough as a focused scene state: Zoro learns what this fight demands, not everything swords will mean later.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_nami_s_clima_tact_debut_matters_because_it_is_imperfect_but_decisive_025",
+      "title": "Nami's Clima-Tact Debut Is Imperfect But Decisive",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.straw-hat-roles-and-splits",
+        "validToAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12324,
+        "sortKeyTo": 12405,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Nami's Clima-Tact Debut Is Imperfect But Decisive"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:clima-tact",
+          "op:usopp",
+          "op:miss-doublefinger"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [
+          "Clima-Tact"
+        ],
+        "factions": [
+          "Miss Doublefinger"
+        ],
+        "topics": [
+          "Clima-Tact item state",
+          "Nami combat debut",
+          "imperfect weapon"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:nami",
+        "item:clima-tact",
+        "topic:usopp",
+        "faction:miss-doublefinger",
+        "topic:alubarna-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Nami",
+            "Clima-Tact",
+            "Usopp",
+            "Miss Doublefinger"
+          ],
+          "topicsAny": [
+            "Clima-Tact item state",
+            "Nami combat debut",
+            "imperfect weapon"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Clima-Tact",
+            "Usopp",
+            "Miss Doublefinger",
+            "Clima-Tact item state",
+            "Nami combat debut",
+            "imperfect weapon",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Nami's Clima-Tact debut matters because it begins as an imperfect Usopp-made device that she learns to weaponize under pressure.",
+        "injection": "Use the Clima-Tact as early and unstable: no later upgrades, clean mastery, or post-Arabasta weather tech should leak in.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_usopp_and_chopper_win_through_teamwork_and_endurance_026",
+      "title": "Usopp And Chopper Win Through Teamwork, Endurance, And Belief",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.straw-hat-roles-and-splits",
+        "validToAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12324,
+        "sortKeyTo": 12405,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Usopp And Chopper Win Through Teamwork, Endurance, And Belief"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:usopp",
+          "op:tony-tony-chopper",
+          "op:mr-4",
+          "op:miss-merry-christmas"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Mr. 4",
+          "Miss Merry Christmas"
+        ],
+        "topics": [
+          "Usopp Chopper teamwork",
+          "Luffy's dream",
+          "endurance"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:usopp",
+        "topic:tony-tony-chopper",
+        "faction:mr-4",
+        "faction:miss-merry-christmas"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Usopp",
+            "Tony Tony Chopper",
+            "Mr. 4",
+            "Miss Merry Christmas"
+          ],
+          "topicsAny": [
+            "Usopp Chopper teamwork",
+            "Luffy's dream",
+            "endurance"
+          ],
+          "keywordsAny": [
+            "Usopp",
+            "Tony Tony Chopper",
+            "Mr. 4",
+            "Miss Merry Christmas",
+            "Usopp Chopper teamwork",
+            "Luffy's dream",
+            "endurance",
+            "Chopper",
+            "teamwork",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Usopp and Chopper win through teamwork and endurance, with Usopp's refusal to let Luffy's dream be mocked anchoring the emotional turn.",
+        "injection": "Use their victory as courage under injury: the scene is not a comedy side battle once their loyalty is tested.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_the_x_marks_protect_identity_and_become_farewell_language_027",
+      "title": "X Marks Defeat Disguise And Become Farewell Language",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.straw-hat-roles-and-splits",
+        "validToAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12324,
+        "sortKeyTo": 12405,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: X Marks Defeat Disguise And Become Farewell Language"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:x-marks",
+          "op:mr-2-bon-clay",
+          "op:nefertari-vivi",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Nefertari Vivi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Mr. 2 Bon Clay"
+        ],
+        "topics": [
+          "X marks",
+          "identity check",
+          "silent farewell"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:x-marks",
+        "faction:mr-2-bon-clay",
+        "character:nefertari-vivi",
+        "topic:going-merry",
+        "topic:vivi-leadership",
+        "topic:baroque-works",
+        "topic:farewell"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "X marks",
+            "Mr. 2 Bon Clay",
+            "Nefertari Vivi",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "X marks",
+            "identity check",
+            "silent farewell"
+          ],
+          "keywordsAny": [
+            "X marks",
+            "Mr. 2 Bon Clay",
+            "Nefertari Vivi",
+            "Going Merry",
+            "identity check",
+            "silent farewell",
+            "farewell",
+            "disguise",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "The X marks begin as a counter to Bon Kurei's disguise and become the silent farewell language between Vivi and the crew.",
+        "injection": "Use the marks as continuity of trust: the same sign solves identity danger and later protects Vivi's public position.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Arabasta Arc",
+    "chapterRange": "Manga chapters 155-217",
+    "episodeRange": "Anime episodes 92-130",
+    "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+    "confidence": 0.91,
+    "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+  }
+}

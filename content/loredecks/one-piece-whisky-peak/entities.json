@@ -1,0 +1,761 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:arabasta": {
+      "type": "location",
+      "label": "Arabasta",
+      "aliases": [
+        "Arabasta"
+      ],
+      "canonicalNames": [
+        "Arabasta"
+      ],
+      "tags": [
+        "location:arabasta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:baroque-works": {
+      "type": "faction",
+      "label": "Baroque Works",
+      "aliases": [
+        "Baroque Works"
+      ],
+      "canonicalNames": [
+        "Baroque Works"
+      ],
+      "tags": [
+        "faction:baroque-works"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:billions": {
+      "type": "faction",
+      "label": "Billions",
+      "aliases": [
+        "Billions"
+      ],
+      "canonicalNames": [
+        "Billions"
+      ],
+      "tags": [
+        "faction:billions"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:bounty-hunters": {
+      "type": "faction",
+      "label": "bounty hunters",
+      "aliases": [
+        "bounty hunters"
+      ],
+      "canonicalNames": [
+        "bounty hunters"
+      ],
+      "tags": [
+        "faction:bounty-hunters"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:eternal-pose": {
+      "type": "item",
+      "label": "Eternal Pose",
+      "aliases": [
+        "Eternal Pose"
+      ],
+      "canonicalNames": [
+        "Eternal Pose"
+      ],
+      "tags": [
+        "item:eternal-pose"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:going-merry": {
+      "type": "item",
+      "label": "Going Merry",
+      "aliases": [
+        "Going Merry"
+      ],
+      "canonicalNames": [
+        "Going Merry"
+      ],
+      "tags": [
+        "item:going-merry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:grand-line": {
+      "type": "location",
+      "label": "Grand Line",
+      "aliases": [
+        "Grand Line"
+      ],
+      "canonicalNames": [
+        "Grand Line"
+      ],
+      "tags": [
+        "location:grand-line"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:igaram": {
+      "type": "character",
+      "label": "Igaram",
+      "aliases": [
+        "Igaram"
+      ],
+      "canonicalNames": [
+        "Igaram"
+      ],
+      "tags": [
+        "character:igaram"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:karoo": {
+      "type": "character",
+      "label": "Karoo",
+      "aliases": [
+        "Karoo"
+      ],
+      "canonicalNames": [
+        "Karoo"
+      ],
+      "tags": [
+        "character:karoo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:little-garden": {
+      "type": "location",
+      "label": "Little Garden",
+      "aliases": [
+        "Little Garden"
+      ],
+      "canonicalNames": [
+        "Little Garden"
+      ],
+      "tags": [
+        "location:little-garden"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:log-pose": {
+      "type": "item",
+      "label": "Log Pose",
+      "aliases": [
+        "Log Pose"
+      ],
+      "canonicalNames": [
+        "Log Pose"
+      ],
+      "tags": [
+        "item:log-pose"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:millions": {
+      "type": "faction",
+      "label": "Millions",
+      "aliases": [
+        "Millions"
+      ],
+      "canonicalNames": [
+        "Millions"
+      ],
+      "tags": [
+        "faction:millions"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:miss-all-sunday": {
+      "type": "character",
+      "label": "Miss All Sunday",
+      "aliases": [
+        "Miss All Sunday"
+      ],
+      "canonicalNames": [
+        "Miss All Sunday"
+      ],
+      "tags": [
+        "character:miss-all-sunday"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:miss-monday": {
+      "type": "character",
+      "label": "Miss Monday",
+      "aliases": [
+        "Miss Monday"
+      ],
+      "canonicalNames": [
+        "Miss Monday"
+      ],
+      "tags": [
+        "character:miss-monday"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:miss-valentine": {
+      "type": "character",
+      "label": "Miss Valentine",
+      "aliases": [
+        "Miss Valentine"
+      ],
+      "canonicalNames": [
+        "Miss Valentine"
+      ],
+      "tags": [
+        "character:miss-valentine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:miss-wednesday": {
+      "type": "character",
+      "label": "Miss Wednesday",
+      "aliases": [
+        "Miss Wednesday"
+      ],
+      "canonicalNames": [
+        "Miss Wednesday"
+      ],
+      "tags": [
+        "character:miss-wednesday"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:mr-0": {
+      "type": "knowledge",
+      "label": "Mr. 0",
+      "aliases": [
+        "Mr. 0"
+      ],
+      "canonicalNames": [
+        "Mr. 0"
+      ],
+      "tags": [
+        "topic:mr-0"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:mr-5": {
+      "type": "character",
+      "label": "Mr. 5",
+      "aliases": [
+        "Mr. 5"
+      ],
+      "canonicalNames": [
+        "Mr. 5"
+      ],
+      "tags": [
+        "character:mr-5"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:mr-8": {
+      "type": "character",
+      "label": "Mr. 8",
+      "aliases": [
+        "Mr. 8"
+      ],
+      "canonicalNames": [
+        "Mr. 8"
+      ],
+      "tags": [
+        "character:mr-8"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:mr-9": {
+      "type": "character",
+      "label": "Mr. 9",
+      "aliases": [
+        "Mr. 9"
+      ],
+      "canonicalNames": [
+        "Mr. 9"
+      ],
+      "tags": [
+        "character:mr-9"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:nami": {
+      "type": "character",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "character:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:nefertari-vivi": {
+      "type": "character",
+      "label": "Nefertari Vivi",
+      "aliases": [
+        "Nefertari Vivi"
+      ],
+      "canonicalNames": [
+        "Nefertari Vivi"
+      ],
+      "tags": [
+        "character:nefertari-vivi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:straw-hat-pirates": {
+      "type": "faction",
+      "label": "Straw Hat Pirates",
+      "aliases": [
+        "Straw Hat Pirates"
+      ],
+      "canonicalNames": [
+        "Straw Hat Pirates"
+      ],
+      "tags": [
+        "faction:straw-hat-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:townspeople": {
+      "type": "faction",
+      "label": "Whisky Peak townspeople",
+      "aliases": [
+        "Whisky Peak townspeople"
+      ],
+      "canonicalNames": [
+        "Whisky Peak townspeople"
+      ],
+      "tags": [
+        "faction:whisky-peak-townspeople"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:whisky-peak": {
+      "type": "location",
+      "label": "Whisky Peak",
+      "aliases": [
+        "Whisky Peak"
+      ],
+      "canonicalNames": [
+        "Whisky Peak"
+      ],
+      "tags": [
+        "location:whisky-peak"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    }
+  }
+}

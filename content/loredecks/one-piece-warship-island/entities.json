@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:apis": {
+      "type": "character",
+      "label": "Apis",
+      "aliases": [
+        "Apis"
+      ],
+      "canonicalNames": [
+        "Apis"
+      ],
+      "tags": [
+        "character:apis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:branch-8-marines": {
+      "type": "faction",
+      "label": "Branch 8 Marines",
+      "aliases": [
+        "Branch 8 Marines"
+      ],
+      "canonicalNames": [
+        "Branch 8 Marines"
+      ],
+      "tags": [
+        "faction:branch-8-marines"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:calm-belt": {
+      "type": "location",
+      "label": "Calm Belt",
+      "aliases": [
+        "Calm Belt"
+      ],
+      "canonicalNames": [
+        "Calm Belt"
+      ],
+      "tags": [
+        "location:calm-belt"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:dragon-bones": {
+      "type": "item",
+      "label": "dragon bones",
+      "aliases": [
+        "dragon bones"
+      ],
+      "canonicalNames": [
+        "dragon bones"
+      ],
+      "tags": [
+        "item:dragon-bones"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:eric": {
+      "type": "character",
+      "label": "Eric",
+      "aliases": [
+        "Eric"
+      ],
+      "canonicalNames": [
+        "Eric"
+      ],
+      "tags": [
+        "character:eric"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:going-merry": {
+      "type": "item",
+      "label": "Going Merry",
+      "aliases": [
+        "Going Merry"
+      ],
+      "canonicalNames": [
+        "Going Merry"
+      ],
+      "tags": [
+        "item:going-merry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:grand-line": {
+      "type": "location",
+      "label": "Grand Line",
+      "aliases": [
+        "Grand Line"
+      ],
+      "canonicalNames": [
+        "Grand Line"
+      ],
+      "tags": [
+        "location:grand-line"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:laboon": {
+      "type": "character",
+      "label": "Laboon",
+      "aliases": [
+        "Laboon"
+      ],
+      "canonicalNames": [
+        "Laboon"
+      ],
+      "tags": [
+        "character:laboon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:lost-island": {
+      "type": "location",
+      "label": "Lost Island",
+      "aliases": [
+        "Lost Island"
+      ],
+      "canonicalNames": [
+        "Lost Island"
+      ],
+      "tags": [
+        "location:lost-island"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:nami": {
+      "type": "character",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "character:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:nelson-royale": {
+      "type": "character",
+      "label": "Nelson Royale",
+      "aliases": [
+        "Nelson Royale"
+      ],
+      "canonicalNames": [
+        "Nelson Royale"
+      ],
+      "tags": [
+        "character:nelson-royale"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:reverse-mountain": {
+      "type": "location",
+      "label": "Reverse Mountain",
+      "aliases": [
+        "Reverse Mountain"
+      ],
+      "canonicalNames": [
+        "Reverse Mountain"
+      ],
+      "tags": [
+        "location:reverse-mountain"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:ryu": {
+      "type": "character",
+      "label": "Ryu",
+      "aliases": [
+        "Ryu"
+      ],
+      "canonicalNames": [
+        "Ryu"
+      ],
+      "tags": [
+        "character:ryu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:sanji": {
+      "type": "character",
+      "label": "Sanji",
+      "aliases": [
+        "Sanji"
+      ],
+      "canonicalNames": [
+        "Sanji"
+      ],
+      "tags": [
+        "character:sanji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:sea-kings": {
+      "type": "knowledge",
+      "label": "Sea Kings",
+      "aliases": [
+        "Sea Kings"
+      ],
+      "canonicalNames": [
+        "Sea Kings"
+      ],
+      "tags": [
+        "topic:sea-kings"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:sennenryu": {
+      "type": "knowledge",
+      "label": "Sennenryu",
+      "aliases": [
+        "Sennenryu"
+      ],
+      "canonicalNames": [
+        "Sennenryu"
+      ],
+      "tags": [
+        "topic:sennenryu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:straw-hat-pirates": {
+      "type": "faction",
+      "label": "Straw Hat Pirates",
+      "aliases": [
+        "Straw Hat Pirates"
+      ],
+      "canonicalNames": [
+        "Straw Hat Pirates"
+      ],
+      "tags": [
+        "faction:straw-hat-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:thousand-year-dragon": {
+      "type": "knowledge",
+      "label": "Thousand Year Dragon",
+      "aliases": [
+        "Thousand Year Dragon"
+      ],
+      "canonicalNames": [
+        "Thousand Year Dragon"
+      ],
+      "tags": [
+        "topic:thousand-year-dragon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:usopp": {
+      "type": "character",
+      "label": "Usopp",
+      "aliases": [
+        "Usopp"
+      ],
+      "canonicalNames": [
+        "Usopp"
+      ],
+      "tags": [
+        "character:usopp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    },
+    "op:warship-island": {
+      "type": "location",
+      "label": "Warship Island",
+      "aliases": [
+        "Warship Island"
+      ],
+      "canonicalNames": [
+        "Warship Island"
+      ],
+      "tags": [
+        "location:warship-island"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.82
+      },
+      "extensions": {}
+    }
+  }
+}

@@ -1,0 +1,879 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_arlong_taxes_adults_and_children_to_keep_villages_alive_but_controlled_013",
+      "title": "Arlong's Tribute System Keeps Villages Alive But Owned",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.village-occupation-and-money",
+        "validToAnchor": "op.arlong-park.straw-hats-response",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5180,
+        "sortKeyTo": 5270,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Arlong's Tribute System Keeps Villages Alive But Owned"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:arlong",
+          "op:tribute-system",
+          "op:cocoyasi-village",
+          "op:arlong-pirates"
+        ],
+        "characters": [
+          "Arlong"
+        ],
+        "locations": [
+          "Cocoyasi Village"
+        ],
+        "objects": [
+          "tribute system"
+        ],
+        "factions": [
+          "Arlong Pirates"
+        ],
+        "topics": [
+          "tribute system",
+          "occupation economy",
+          "adult and child tax"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:arlong",
+        "rule:tribute-system",
+        "location:cocoyasi-village",
+        "faction:arlong-pirates",
+        "topic:tribute-system"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Arlong"
+          ],
+          "entitiesAny": [
+            "Arlong",
+            "tribute system",
+            "Cocoyasi Village",
+            "Arlong Pirates"
+          ],
+          "topicsAny": [
+            "tribute system",
+            "occupation economy",
+            "adult and child tax"
+          ],
+          "keywordsAny": [
+            "Arlong",
+            "tribute system",
+            "Cocoyasi Village",
+            "Arlong Pirates",
+            "occupation economy",
+            "adult and child tax",
+            "adult tax",
+            "child tax",
+            "tribute",
+            "Arlong's Tribute System Keeps Villages Alive But Owned",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Arlong taxes adults and children to let villages keep living while proving their lives remain purchasable and controlled.",
+        "injection": "Use the tribute system as occupation mechanics: money is not background wealth, it is the price of survival under Arlong.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_nami_draws_maps_for_arlong_because_her_skill_is_coerced_014",
+      "title": "Nami Draws Maps Because Arlong Coerces Her Talent",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.village-occupation-and-money",
+        "validToAnchor": "op.arlong-park.straw-hats-response",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5180,
+        "sortKeyTo": 5270,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Nami Draws Maps Because Arlong Coerces Her Talent"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:arlong",
+          "op:map-room",
+          "op:cartography"
+        ],
+        "characters": [
+          "Nami",
+          "Arlong"
+        ],
+        "locations": [
+          "map room"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "coerced maps",
+          "map-room prison",
+          "Nami talent"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:arlong",
+        "location:map-room",
+        "knowledge:cartography",
+        "topic:coerced-maps"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Arlong"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Arlong",
+            "map room",
+            "cartography"
+          ],
+          "topicsAny": [
+            "coerced maps",
+            "map-room prison",
+            "Nami talent"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Arlong",
+            "map room",
+            "cartography",
+            "coerced maps",
+            "map-room prison",
+            "Nami talent",
+            "maps",
+            "forced labor",
+            "Nami Draws Maps Because Arlong Coerces Her Talent",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nami draws maps for Arlong because he coerces her cartography talent and ties her work to the false hope of buying Cocoyasi back.",
+        "injection": "Use Nami's map work as forced labor, not simple employment: her skill is valuable enough that Arlong builds a prison around it.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_the_buy_back_promise_gives_nami_a_reason_to_endure_him_015",
+      "title": "Arlong's Buyback Promise Gives Nami A Reason To Endure",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.village-occupation-and-money",
+        "validToAnchor": "op.arlong-park.straw-hats-response",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5180,
+        "sortKeyTo": 5270,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Arlong's Buyback Promise Gives Nami A Reason To Endure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:arlong",
+          "op:village-savings",
+          "op:cocoyasi-village"
+        ],
+        "characters": [
+          "Nami",
+          "Arlong"
+        ],
+        "locations": [
+          "Cocoyasi Village"
+        ],
+        "objects": [
+          "village savings"
+        ],
+        "factions": [],
+        "topics": [
+          "false buyback promise",
+          "endurance strategy",
+          "control bargain"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:arlong",
+        "item:village-savings",
+        "location:cocoyasi-village",
+        "topic:false-buyback-promise"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Arlong"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Arlong",
+            "village savings",
+            "Cocoyasi Village"
+          ],
+          "topicsAny": [
+            "false buyback promise",
+            "endurance strategy",
+            "control bargain"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Arlong",
+            "village savings",
+            "Cocoyasi Village",
+            "false buyback promise",
+            "endurance strategy",
+            "control bargain",
+            "buyback",
+            "deal",
+            "false promise",
+            "Arlong's Buyback Promise Gives Nami A Reason To Endure",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Arlong's promise that Nami can buy back Cocoyasi gives her a reason to endure him until Nezumi exposes the bargain as control.",
+        "injection": "Use the promise as a fragile strategy before betrayal and as a broken chain after Nezumi confiscates the money.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_nezumi_s_corruption_destroys_nami_s_apparent_path_to_freedom_016",
+      "title": "Nezumi Confiscates The Savings And Breaks Nami's Plan",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.village-occupation-and-money",
+        "validToAnchor": "op.arlong-park.straw-hats-response",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5180,
+        "sortKeyTo": 5270,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Nezumi Confiscates The Savings And Breaks Nami's Plan"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nezumi",
+          "op:corrupt-marines",
+          "op:nami",
+          "op:village-savings",
+          "op:nojiko"
+        ],
+        "characters": [
+          "Nezumi",
+          "Nami",
+          "Nojiko"
+        ],
+        "locations": [],
+        "objects": [
+          "village savings"
+        ],
+        "factions": [
+          "corrupt Marines"
+        ],
+        "topics": [
+          "Nezumi betrayal",
+          "confiscated savings",
+          "plan collapse"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nezumi",
+        "faction:corrupt-marines",
+        "character:nami",
+        "item:village-savings",
+        "character:nojiko",
+        "topic:nezumi-betrayal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nezumi",
+            "Nami",
+            "Nojiko"
+          ],
+          "entitiesAny": [
+            "Nezumi",
+            "corrupt Marines",
+            "Nami",
+            "village savings",
+            "Nojiko"
+          ],
+          "topicsAny": [
+            "Nezumi betrayal",
+            "confiscated savings",
+            "plan collapse"
+          ],
+          "keywordsAny": [
+            "Nezumi",
+            "corrupt Marines",
+            "Nami",
+            "village savings",
+            "Nojiko",
+            "Nezumi betrayal",
+            "confiscated savings",
+            "plan collapse",
+            "confiscation",
+            "savings",
+            "Nezumi Confiscates The Savings And Breaks Nami's Plan",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nezumi's corrupt Marine raid confiscates Nami's hidden savings and breaks the apparent path she endured Arlong to complete.",
+        "injection": "Use this as the high-value collapse event: Nami loses not just money, but the strategy that made years of suffering bearable.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_the_villagers_know_more_about_nami_s_sacrifice_than_they_first_admit_017",
+      "title": "Cocoyasi Knows More Of Nami's Sacrifice Than She Thinks",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.village-occupation-and-money",
+        "validToAnchor": "op.arlong-park.straw-hats-response",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5180,
+        "sortKeyTo": 5270,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Cocoyasi Knows More Of Nami's Sacrifice Than She Thinks"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:cocoyasi-village",
+          "op:genzo",
+          "op:nojiko"
+        ],
+        "characters": [
+          "Nami",
+          "Genzo",
+          "Nojiko"
+        ],
+        "locations": [
+          "Cocoyasi Village"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "villagers know",
+          "hidden support",
+          "shared burden"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "location:cocoyasi-village",
+        "character:genzo",
+        "character:nojiko",
+        "topic:villagers-know"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Genzo",
+            "Nojiko"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Cocoyasi Village",
+            "Genzo",
+            "Nojiko"
+          ],
+          "topicsAny": [
+            "villagers know",
+            "hidden support",
+            "shared burden"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Cocoyasi Village",
+            "Genzo",
+            "Nojiko",
+            "villagers know",
+            "hidden support",
+            "shared burden",
+            "villagers knew",
+            "Cocoyasi Knows More Of Nami's Sacrifice Than She Thinks",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Cocoyasi villagers know more about Nami's sacrifice than they first admit, preserving her burden while waiting for the moment they can act.",
+        "injection": "Use the village as complicit in care, not ignorance: their silence is painful, protective, and finally unsustainable after Nezumi.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Arabasta Arc Context inside Arabasta Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Arabasta Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during arabasta arc: kingdom drought and civil war",
+      "result": {
+        "anchorFrom": "op.arabasta.arabasta",
+        "label": "Arabasta Arc: Kingdom drought and civil war"
+      }
+    },
+    {
+      "pattern": "during arabasta arc: vivi, family, and royal guard",
+      "result": {
+        "anchorFrom": "op.arabasta.vivi-family-and-royal-guard",
+        "label": "Arabasta Arc: Vivi, family, and royal guard"
+      }
+    },
+    {
+      "pattern": "during arabasta arc: crocodile, rainbase, and cover",
+      "result": {
+        "anchorFrom": "op.arabasta.crocodile-rainbase-and-cover",
+        "label": "Arabasta Arc: Crocodile, Rainbase, and cover"
+      }
+    },
+    {
+      "pattern": "during arabasta arc: baroque works endgame",
+      "result": {
+        "anchorFrom": "op.arabasta.baroque-works-endgame",
+        "label": "Arabasta Arc: Baroque Works endgame"
+      }
+    },
+    {
+      "pattern": "during arabasta arc: straw hat roles and splits",
+      "result": {
+        "anchorFrom": "op.arabasta.straw-hat-roles-and-splits",
+        "label": "Arabasta Arc: Straw Hat roles and splits"
+      }
+    },
+    {
+      "pattern": "during arabasta arc: rebels, koza, yuba, and nanohana",
+      "result": {
+        "anchorFrom": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "label": "Arabasta Arc: Rebels, Koza, Yuba, and Nanohana"
+      }
+    },
+    {
+      "pattern": "during arabasta arc: poneglyph, pluton, and robin",
+      "result": {
+        "anchorFrom": "op.arabasta.poneglyph-pluton-and-robin",
+        "label": "Arabasta Arc: Poneglyph, Pluton, and Robin"
+      }
+    },
+    {
+      "pattern": "during arabasta arc: desert travel and local worldbuilding",
+      "result": {
+        "anchorFrom": "op.arabasta.desert-travel-and-local-worldbuilding",
+        "label": "Arabasta Arc: Desert travel and local worldbuilding"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

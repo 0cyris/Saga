@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_eric_is_the_active_field_threat_during_the_warship_island_chase_011",
+      "title": "Eric Is The Active Field Threat During The Marine Chase",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.eric-nelson-and-marines",
+        "validToAnchor": "op.warship-island.straw-hat-show-dynamics",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Eric Is The Active Field Threat During The Marine Chase"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:eric",
+          "op:apis",
+          "op:ryu",
+          "op:branch-8-marines"
+        ],
+        "characters": [
+          "Eric",
+          "Apis",
+          "Ryu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Eric pursuit",
+          "field threat",
+          "Warship chase"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:eric",
+        "character:apis",
+        "character:ryu",
+        "faction:branch-8-marines",
+        "topic:apis-and-ryu",
+        "topic:marine-pursuit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eric",
+            "Apis",
+            "Ryu"
+          ],
+          "entitiesAny": [
+            "Eric",
+            "Apis",
+            "Ryu",
+            "Branch 8 Marines"
+          ],
+          "topicsAny": [
+            "Eric pursuit",
+            "field threat",
+            "Warship chase"
+          ],
+          "keywordsAny": [
+            "Eric",
+            "Apis",
+            "Ryu",
+            "Branch 8 Marines",
+            "Eric pursuit",
+            "field threat",
+            "Warship chase",
+            "wind-cutting",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Eric is the active field threat pursuing Apis and Ryu, using wind-cutting attacks while Nelson's Marine force supplies the larger chase pressure.",
+        "injection": "Use Eric when the scene needs mobile danger: he can personally close distance, threaten the ship, and force action while Nelson commands from behind.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_nelson_royale_wants_dragon_bones_for_selfish_gain_012",
+      "title": "Nelson Royale Is A Local Marine Antagonist Driven By Greed",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.eric-nelson-and-marines",
+        "validToAnchor": "op.warship-island.straw-hat-show-dynamics",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Nelson Royale Is A Local Marine Antagonist Driven By Greed"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nelson-royale",
+          "op:branch-8-marines",
+          "op:dragon-bones",
+          "op:sennenryu"
+        ],
+        "characters": [
+          "Nelson Royale"
+        ],
+        "locations": [],
+        "objects": [
+          "dragon bones"
+        ],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Nelson greed",
+          "local Marine antagonist",
+          "dragon bone pursuit"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nelson-royale",
+        "faction:branch-8-marines",
+        "item:dragon-bones",
+        "topic:sennenryu",
+        "topic:apis-and-ryu",
+        "topic:marine-pursuit",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nelson Royale"
+          ],
+          "entitiesAny": [
+            "Nelson Royale",
+            "Branch 8 Marines",
+            "dragon bones",
+            "Sennenryu"
+          ],
+          "topicsAny": [
+            "Nelson greed",
+            "local Marine antagonist",
+            "dragon bone pursuit"
+          ],
+          "keywordsAny": [
+            "Nelson Royale",
+            "Branch 8 Marines",
+            "dragon bones",
+            "Sennenryu",
+            "Nelson greed",
+            "local Marine antagonist",
+            "dragon bone pursuit",
+            "greed",
+            "Branch 8",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Nelson Royale is a local anime-only Marine antagonist whose pursuit of dragon bones is selfish and exploitative.",
+        "injection": "Use Nelson as corrupt local pressure for this filler arc: he wants the dragon prize more than justice or careful Marine duty.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_marine_ships_create_pursuit_pressure_after_loguetown_013",
+      "title": "Branch 8 Ships Create Local Pursuit Pressure After Loguetown",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.eric-nelson-and-marines",
+        "validToAnchor": "op.warship-island.straw-hat-show-dynamics",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Branch 8 Ships Create Local Pursuit Pressure After Loguetown"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:branch-8-marines",
+          "op:going-merry",
+          "op:warship-island",
+          "op:grand-line"
+        ],
+        "characters": [],
+        "locations": [
+          "Warship Island",
+          "Grand Line"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Branch 8 pursuit",
+          "local Marine ships",
+          "post-Loguetown pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:branch-8-marines",
+        "item:going-merry",
+        "location:warship-island",
+        "location:grand-line",
+        "topic:marine-pursuit",
+        "topic:grand-line-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Branch 8 Marines",
+            "Going Merry",
+            "Warship Island",
+            "Grand Line"
+          ],
+          "topicsAny": [
+            "Branch 8 pursuit",
+            "local Marine ships",
+            "post-Loguetown pressure"
+          ],
+          "keywordsAny": [
+            "Branch 8 Marines",
+            "Going Merry",
+            "Warship Island",
+            "Grand Line",
+            "Branch 8 pursuit",
+            "local Marine ships",
+            "post-Loguetown pressure",
+            "Branch 8",
+            "Marine ships",
+            "pursuit",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Branch 8 Marine ships create local pursuit pressure between Loguetown and Reverse Mountain in anime continuity.",
+        "injection": "Use Branch 8 as a local naval obstacle around Apis and Ryu; do not make them the defining Marine presence for East Blue manga continuity.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_eric_s_wind_cutting_power_belongs_to_show_continuity_scenes_014",
+      "title": "Eric's Wind-Cutting Threat Is Anime-Continuity Only",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.eric-nelson-and-marines",
+        "validToAnchor": "op.warship-island.straw-hat-show-dynamics",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Eric's Wind-Cutting Threat Is Anime-Continuity Only"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:eric"
+        ],
+        "characters": [
+          "Eric"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "wind-cutting attack",
+          "anime-only antagonist ability",
+          "Eric boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:eric",
+        "topic:marine-pursuit",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eric"
+          ],
+          "entitiesAny": [
+            "Eric"
+          ],
+          "topicsAny": [
+            "wind-cutting attack",
+            "anime-only antagonist ability",
+            "Eric boundary"
+          ],
+          "keywordsAny": [
+            "Eric",
+            "wind-cutting attack",
+            "anime-only antagonist ability",
+            "Eric boundary",
+            "wind-cutting",
+            "anime-only ability",
+            "combat boundary",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Eric's wind-cutting attacks belong to Warship Island show-continuity scenes and should not become a manga-primary combat reference.",
+        "injection": "Use the ability for immediate chase and shipboard danger in this arc, while keeping later combat scaling and power taxonomy out.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_nelson_s_command_should_not_rewrite_smoker_s_role_in_manga_backed_arcs_015",
+      "title": "Nelson's Command Does Not Rewrite Manga-Backed Marine Roles",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.eric-nelson-and-marines",
+        "validToAnchor": "op.warship-island.straw-hat-show-dynamics",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Nelson's Command Does Not Rewrite Manga-Backed Marine Roles"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nelson-royale",
+          "op:branch-8-marines"
+        ],
+        "characters": [
+          "Nelson Royale"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Marine continuity gate",
+          "Nelson boundary",
+          "show-only command"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nelson-royale",
+        "faction:branch-8-marines",
+        "topic:marine-pursuit",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nelson Royale"
+          ],
+          "entitiesAny": [
+            "Nelson Royale",
+            "Branch 8 Marines"
+          ],
+          "topicsAny": [
+            "Marine continuity gate",
+            "Nelson boundary",
+            "show-only command"
+          ],
+          "keywordsAny": [
+            "Nelson Royale",
+            "Branch 8 Marines",
+            "Marine continuity gate",
+            "Nelson boundary",
+            "show-only command",
+            "Marine boundary",
+            "show-only Marines",
+            "Nelson command",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Nelson Royale and Branch 8 are local anime-only Marine pressure and should not redefine Smoker, Marine ranks, or manga-backed Marine conduct.",
+        "injection": "Use this as the Marine continuity gate: Nelson can be corrupt and greedy inside Warship Island without changing the Marines elsewhere.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Warship Island Arc",
+    "chapterRange": "Filler arc",
+    "episodeRange": "Anime episodes 54-61",
+    "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+    "confidence": 0.82,
+    "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+  }
+}

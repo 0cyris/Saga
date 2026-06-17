@@ -1,0 +1,2739 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_conundrum-episode-gate",
+      "title": "Conundrum anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 51,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e14.conundrum",
+        "validToAnchor": "tng.s5.e15.power-play",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 14260,
+        "sortKeyTo": 14280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: Conundrum",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e14.conundrum",
+          "label": "Conundrum",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:beverly-crusher",
+          "st:deanna-troi",
+          "st:ten-forward",
+          "st:dr",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Beverly Crusher",
+          "Deanna Troi",
+          "Ten Forward",
+          "Dr."
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Epsilon Silar system",
+          "Data",
+          "Ten Forward",
+          "Deanna Troi",
+          "Samarian sunset",
+          "three-dimensional chess",
+          "Conundrum"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-conundrum",
+        "character:data",
+        "character:beverly-crusher",
+        "character:deanna-troi",
+        "character:ten-forward",
+        "character:dr",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:epsilon-silar-system",
+        "topic:data",
+        "topic:ten-forward",
+        "topic:deanna-troi",
+        "topic:samarian-sunset",
+        "topic:three-dimensional-chess",
+        "topic:conundrum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Ten Forward",
+            "Dr."
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Ten Forward",
+            "Dr.",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Epsilon Silar system",
+            "Data",
+            "Ten Forward",
+            "Deanna Troi",
+            "Samarian sunset",
+            "three-dimensional chess",
+            "Conundrum"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Ten Forward",
+            "Dr.",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "Epsilon Silar system",
+            "Samarian sunset",
+            "three-dimensional chess",
+            "Conundrum",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Conundrum (45494.2 (2368)) is Memory Alpha story row 14 for this season. Conundrum is a TNG season 5 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Conundrum as the active episode Context gate when scenes reference episode-local fact/status gate, Epsilon Silar system, Data.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Conundrum",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Conundrum_(episode)",
+        "stardate": "45494.2 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_power-play-episode-gate",
+      "title": "Power Play anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e15.power-play",
+        "validToAnchor": "tng.s5.e16.ethics",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 14280,
+        "sortKeyTo": 14300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: Power Play",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e15.power-play",
+          "label": "Power Play",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:deanna-troi",
+          "st:jean-luc-picard",
+          "st:bryce-shumar",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Deanna Troi",
+          "Jean-Luc Picard",
+          "Bryce Shumar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "moon",
+          "Mab-Bu VI",
+          "distress call",
+          "Data",
+          "172 years",
+          "Picard",
+          "Power Play"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-power-play",
+        "character:data",
+        "character:worf",
+        "character:deanna-troi",
+        "character:jean-luc-picard",
+        "character:bryce-shumar",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:moon",
+        "topic:mab-bu-vi",
+        "topic:distress-call",
+        "topic:data",
+        "topic:172-years",
+        "topic:picard",
+        "topic:power-play"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Deanna Troi",
+            "Jean-Luc Picard",
+            "Bryce Shumar"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Deanna Troi",
+            "Jean-Luc Picard",
+            "Bryce Shumar",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "moon",
+            "Mab-Bu VI",
+            "distress call",
+            "Data",
+            "172 years",
+            "Picard",
+            "Power Play"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Deanna Troi",
+            "Jean-Luc Picard",
+            "Bryce Shumar",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "moon",
+            "Mab-Bu VI",
+            "distress call",
+            "172 years",
+            "Picard",
+            "Power Play",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Power Play (45571.2-45572.1 (2368)) is Memory Alpha story row 15 for this season. Power Play is a TNG season 5 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Power Play as the active episode Context gate when scenes reference episode-local fact/status gate, moon, Mab-Bu VI.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Power Play",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Power_Play_(episode)",
+        "stardate": "45571.2-45572.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_ethics-episode-gate",
+      "title": "Ethics anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e16.ethics",
+        "validToAnchor": "tng.s5.e17.the-outcast",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 14300,
+        "sortKeyTo": 14320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: Ethics",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e16.ethics",
+          "label": "Ethics",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:geordi-la-forge",
+          "st:deanna-troi",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Geordi La Forge",
+          "Deanna Troi",
+          "Dr.",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "death/status-change gate",
+          "Worf",
+          "Geordi La Forge",
+          "tricorder",
+          "Deanna Troi",
+          "poker",
+          "restraining field"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-ethics",
+        "character:worf",
+        "character:geordi-la-forge",
+        "character:deanna-troi",
+        "character:dr",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:worf",
+        "topic:geordi-la-forge",
+        "topic:tricorder",
+        "topic:deanna-troi",
+        "topic:poker",
+        "topic:restraining-field"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Dr.",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "Worf",
+            "Geordi La Forge",
+            "tricorder",
+            "Deanna Troi",
+            "poker",
+            "restraining field"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet",
+            "Klingon Empire",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "tricorder",
+            "poker",
+            "restraining field",
+            "Ethics",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Ethics (45587.3 (2368)) is Memory Alpha story row 16 for this season. Ethics is a TNG season 5 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate; death/status-change gate.",
+        "injection": "Use Ethics as the active episode Context gate when scenes reference Klingon duty/faction-status gate, death/status-change gate, Worf.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ethics",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ethics_(episode)",
+        "stardate": "45587.3 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_the-outcast-episode-gate",
+      "title": "The Outcast anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e17.the-outcast",
+        "validToAnchor": "tng.s5.e18.cause-and-effect",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 14320,
+        "sortKeyTo": 14340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: The Outcast",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e17.the-outcast",
+          "label": "The Outcast",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:beverly-crusher",
+          "st:jnaii",
+          "st:william-riker",
+          "st:soren",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Beverly Crusher",
+          "J'naii",
+          "William Riker",
+          "Soren"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "J'naii",
+          "Data",
+          "neutrino",
+          "null space",
+          "Riker",
+          "specialist",
+          "The Outcast"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-outcast",
+        "character:data",
+        "character:beverly-crusher",
+        "character:jnaii",
+        "character:william-riker",
+        "character:soren",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:jnaii",
+        "topic:data",
+        "topic:neutrino",
+        "topic:null-space",
+        "topic:riker",
+        "topic:specialist",
+        "topic:the-outcast"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Beverly Crusher",
+            "J'naii",
+            "William Riker",
+            "Soren"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Beverly Crusher",
+            "J'naii",
+            "William Riker",
+            "Soren",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "J'naii",
+            "Data",
+            "neutrino",
+            "null space",
+            "Riker",
+            "specialist",
+            "The Outcast"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Beverly Crusher",
+            "J'naii",
+            "William Riker",
+            "Soren",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "neutrino",
+            "null space",
+            "Riker",
+            "specialist",
+            "The Outcast",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Outcast (45614.6-45620.4 (2368)) is Memory Alpha story row 17 for this season. The Outcast is a TNG season 5 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use The Outcast as the active episode Context gate when scenes reference episode-local fact/status gate, J'naii, Data.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Outcast",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Outcast_(episode)",
+        "stardate": "45614.6-45620.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_cause-and-effect-episode-gate",
+      "title": "Cause And Effect anchors temporal anomaly/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e18.cause-and-effect",
+        "validToAnchor": "tng.s5.e19.the-first-duty",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 14340,
+        "sortKeyTo": 14360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: Cause And Effect",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e18.cause-and-effect",
+          "label": "Cause And Effect",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:beverly-crusher",
+          "st:william-riker",
+          "st:geordi-la-forge",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Beverly Crusher",
+          "William Riker",
+          "Geordi La Forge"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "temporal anomaly/status gate",
+          "death/status-change gate",
+          "warp nacelle",
+          "Riker",
+          "escape pod",
+          "La Forge",
+          "Data",
+          "Picard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-cause-and-effect",
+        "character:data",
+        "character:worf",
+        "character:beverly-crusher",
+        "character:william-riker",
+        "character:geordi-la-forge",
+        "faction:starfleet",
+        "topic:temporal-anomalystatus-gate",
+        "topic:deathstatus-change-gate",
+        "topic:warp-nacelle",
+        "topic:riker",
+        "topic:escape-pod",
+        "topic:la-forge",
+        "topic:data",
+        "topic:picard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "William Riker",
+            "Geordi La Forge"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "William Riker",
+            "Geordi La Forge",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "temporal anomaly/status gate",
+            "death/status-change gate",
+            "warp nacelle",
+            "Riker",
+            "escape pod",
+            "La Forge",
+            "Data",
+            "Picard"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "William Riker",
+            "Geordi La Forge",
+            "Starfleet",
+            "temporal anomaly/status gate",
+            "death/status-change gate",
+            "warp nacelle",
+            "Riker",
+            "escape pod",
+            "La Forge",
+            "Picard",
+            "Cause And Effect",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Cause And Effect (45652.1 (2368)) is Memory Alpha story row 18 for this season. Cause And Effect is a TNG season 5 story gate centered on temporal anomaly/status gate; the evidence marks temporal anomaly/status gate; death/status-change gate.",
+        "injection": "Use Cause And Effect as the active episode Context gate when scenes reference temporal anomaly/status gate, death/status-change gate, warp nacelle.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Cause And Effect",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cause_And_Effect_(episode)",
+        "stardate": "45652.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_the-first-duty-episode-gate",
+      "title": "The First Duty anchors death/status-change gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e19.the-first-duty",
+        "validToAnchor": "tng.s5.e20.cost-of-living",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 14360,
+        "sortKeyTo": 14380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: The First Duty",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e19.the-first-duty",
+          "label": "The First Duty",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:wesley-crusher",
+          "st:saturn",
+          "st:jean-luc-picard",
+          "st:starfleet-academy",
+          "st:starfleet",
+          "st:vulcans"
+        ],
+        "characters": [
+          "Worf",
+          "Wesley Crusher",
+          "Saturn",
+          "Jean-Luc Picard",
+          "Starfleet Academy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Vulcans"
+        ],
+        "topics": [
+          "death/status-change gate",
+          "Wesley Crusher",
+          "flight team",
+          "Saturn",
+          "Picard",
+          "Starfleet Academy",
+          "Worf",
+          "The First Duty"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-first-duty",
+        "character:worf",
+        "character:wesley-crusher",
+        "character:saturn",
+        "character:jean-luc-picard",
+        "character:starfleet-academy",
+        "faction:starfleet",
+        "faction:vulcans",
+        "topic:deathstatus-change-gate",
+        "topic:wesley-crusher",
+        "topic:flight-team",
+        "topic:saturn",
+        "topic:picard",
+        "topic:starfleet-academy",
+        "topic:worf",
+        "topic:the-first-duty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Wesley Crusher",
+            "Saturn",
+            "Jean-Luc Picard",
+            "Starfleet Academy"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Vulcans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Wesley Crusher",
+            "Saturn",
+            "Jean-Luc Picard",
+            "Starfleet Academy",
+            "Starfleet",
+            "Vulcans"
+          ],
+          "topicsAny": [
+            "death/status-change gate",
+            "Wesley Crusher",
+            "flight team",
+            "Saturn",
+            "Picard",
+            "Starfleet Academy",
+            "Worf",
+            "The First Duty"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Wesley Crusher",
+            "Saturn",
+            "Jean-Luc Picard",
+            "Starfleet Academy",
+            "Starfleet",
+            "Vulcans",
+            "death/status-change gate",
+            "flight team",
+            "Picard",
+            "The First Duty",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The First Duty (45703.9 (2368)) is Memory Alpha story row 19 for this season. The First Duty is a TNG season 5 story gate centered on death/status-change gate; the evidence marks death/status-change gate.",
+        "injection": "Use The First Duty as the active episode Context gate when scenes reference death/status-change gate, Wesley Crusher, flight team.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The First Duty",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_First_Duty_(episode)",
+        "stardate": "45703.9 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_cost-of-living-episode-gate",
+      "title": "Cost Of Living anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e20.cost-of-living",
+        "validToAnchor": "tng.s5.e21.the-perfect-mate",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 14380,
+        "sortKeyTo": 14400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: Cost Of Living",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e20.cost-of-living",
+          "label": "Cost Of Living",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:deanna-troi",
+          "st:alexander",
+          "st:lwaxana-troi",
+          "st:ten-forward",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Deanna Troi",
+          "Alexander",
+          "Lwaxana Troi",
+          "Ten Forward"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "asteroid",
+          "navigational deflector",
+          "Tessen III",
+          "Starbase 117",
+          "Moselina system",
+          "Worf",
+          "Cost Of Living"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-cost-of-living",
+        "character:worf",
+        "character:deanna-troi",
+        "character:alexander",
+        "character:lwaxana-troi",
+        "character:ten-forward",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:asteroid",
+        "topic:navigational-deflector",
+        "topic:tessen-iii",
+        "topic:starbase-117",
+        "topic:moselina-system",
+        "topic:worf",
+        "topic:cost-of-living"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Deanna Troi",
+            "Alexander",
+            "Lwaxana Troi",
+            "Ten Forward"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Deanna Troi",
+            "Alexander",
+            "Lwaxana Troi",
+            "Ten Forward",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "asteroid",
+            "navigational deflector",
+            "Tessen III",
+            "Starbase 117",
+            "Moselina system",
+            "Worf",
+            "Cost Of Living"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Deanna Troi",
+            "Alexander",
+            "Lwaxana Troi",
+            "Ten Forward",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "asteroid",
+            "navigational deflector",
+            "Tessen III",
+            "Starbase 117",
+            "Moselina system",
+            "Cost Of Living",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Cost Of Living (45733.6 (2368)) is Memory Alpha story row 20 for this season. Cost Of Living is a TNG season 5 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Cost Of Living as the active episode Context gate when scenes reference episode-local fact/status gate, asteroid, navigational deflector.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Cost Of Living",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cost_Of_Living_(episode)",
+        "stardate": "45733.6 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_the-perfect-mate-episode-gate",
+      "title": "The Perfect Mate anchors Ferengi family/rule-of-acquisition gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e21.the-perfect-mate",
+        "validToAnchor": "tng.s5.e22.imaginary-friend",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: The Perfect Mate",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e21.the-perfect-mate",
+          "label": "The Perfect Mate",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:krios",
+          "st:valt-minor",
+          "st:valtese",
+          "st:kriosian",
+          "st:starfleet",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "Worf",
+          "Krios",
+          "Valt Minor",
+          "Valtese",
+          "Kriosian"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Ferengi family/rule-of-acquisition gate",
+          "Krios",
+          "Valt Minor",
+          "Enterprise",
+          "Valtese",
+          "Kriosian",
+          "Briam",
+          "The Perfect Mate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-perfect-mate",
+        "character:worf",
+        "character:krios",
+        "character:valt-minor",
+        "character:valtese",
+        "character:kriosian",
+        "faction:starfleet",
+        "faction:ferengi-alliance",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:krios",
+        "topic:valt-minor",
+        "topic:enterprise",
+        "topic:valtese",
+        "topic:kriosian",
+        "topic:briam",
+        "topic:the-perfect-mate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Krios",
+            "Valt Minor",
+            "Valtese",
+            "Kriosian"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Krios",
+            "Valt Minor",
+            "Valtese",
+            "Kriosian",
+            "Starfleet",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Ferengi family/rule-of-acquisition gate",
+            "Krios",
+            "Valt Minor",
+            "Enterprise",
+            "Valtese",
+            "Kriosian",
+            "Briam",
+            "The Perfect Mate"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Krios",
+            "Valt Minor",
+            "Valtese",
+            "Kriosian",
+            "Starfleet",
+            "Ferengi Alliance",
+            "Ferengi family/rule-of-acquisition gate",
+            "Enterprise",
+            "Briam",
+            "The Perfect Mate",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Perfect Mate (45761.3-45766.1 (2368)) is Memory Alpha story row 21 for this season. The Perfect Mate is a TNG season 5 story gate centered on Ferengi family/rule-of-acquisition gate; the evidence marks Ferengi family/rule-of-acquisition gate.",
+        "injection": "Use The Perfect Mate as the active episode Context gate when scenes reference Ferengi family/rule-of-acquisition gate, Krios, Valt Minor.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Perfect Mate",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Perfect_Mate_(episode)",
+        "stardate": "45761.3-45766.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_imaginary-friend-episode-gate",
+      "title": "Imaginary Friend anchors Data/Lore android-family gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e22.imaginary-friend",
+        "validToAnchor": "tng.s5.e23.i-borg",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 14420,
+        "sortKeyTo": 14440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: Imaginary Friend",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e22.imaginary-friend",
+          "label": "Imaginary Friend",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:deanna-troi",
+          "st:clara",
+          "st:sutter",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Deanna Troi",
+          "Clara",
+          "Sutter"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data/Lore android-family gate",
+          "Clara",
+          "Sutter",
+          "Deanna Troi",
+          "Isabella",
+          "FGC-47",
+          "nebula",
+          "Imaginary Friend"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-imaginary-friend",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:deanna-troi",
+        "character:clara",
+        "character:sutter",
+        "faction:starfleet",
+        "topic:datalore-android-family-gate",
+        "topic:clara",
+        "topic:sutter",
+        "topic:deanna-troi",
+        "topic:isabella",
+        "topic:fgc-47",
+        "topic:nebula",
+        "topic:imaginary-friend"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Clara",
+            "Sutter"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Clara",
+            "Sutter",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data/Lore android-family gate",
+            "Clara",
+            "Sutter",
+            "Deanna Troi",
+            "Isabella",
+            "FGC-47",
+            "nebula",
+            "Imaginary Friend"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Clara",
+            "Sutter",
+            "Starfleet",
+            "Data/Lore android-family gate",
+            "Isabella",
+            "FGC-47",
+            "nebula",
+            "Imaginary Friend",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Imaginary Friend (45852.1 (2368)) is Memory Alpha story row 22 for this season. Imaginary Friend is a TNG season 5 story gate centered on Data/Lore android-family gate; the evidence marks Data/Lore android-family gate.",
+        "injection": "Use Imaginary Friend as the active episode Context gate when scenes reference Data/Lore android-family gate, Clara, Sutter.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Imaginary Friend",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Imaginary_Friend_(episode)",
+        "stardate": "45852.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_i-borg-episode-gate",
+      "title": "I Borg anchors Hugh",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e23.i-borg",
+        "validToAnchor": "tng.s5.e24.the-next-phase",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 14440,
+        "sortKeyTo": 14460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: I Borg",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e23.i-borg",
+          "label": "I Borg",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Worf",
+          "Jean-Luc Picard",
+          "William Riker",
+          "Dr.",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Hugh",
+          "Borg encounter/assimilation gate",
+          "star system",
+          "Argolis Cluster",
+          "moon",
+          "distress call",
+          "Picard",
+          "Riker"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-i-borg",
+        "character:worf",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:dr",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:hugh",
+        "topic:borg-encounterassimilation-gate",
+        "topic:star-system",
+        "topic:argolis-cluster",
+        "topic:moon",
+        "topic:distress-call",
+        "topic:picard",
+        "topic:riker"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Hugh",
+            "Borg encounter/assimilation gate",
+            "star system",
+            "Argolis Cluster",
+            "moon",
+            "distress call",
+            "Picard",
+            "Riker"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet",
+            "Borg Collective",
+            "Hugh",
+            "Borg encounter/assimilation gate",
+            "star system",
+            "Argolis Cluster",
+            "moon",
+            "distress call",
+            "Picard",
+            "Riker",
+            "I Borg",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "I Borg (45854.2 (2368)) is Memory Alpha story row 23 for this season. I Borg is a TNG season 5 story gate centered on Hugh; the evidence marks Borg encounter/assimilation gate.",
+        "injection": "Use I Borg as the active episode Context gate when scenes reference Hugh, Borg encounter/assimilation gate, star system.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "I Borg",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/I_Borg_(episode)",
+        "stardate": "45854.2 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_the-next-phase-episode-gate",
+      "title": "The Next Phase anchors Romulan secrecy/political pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e24.the-next-phase",
+        "validToAnchor": "tng.s5.e25.the-inner-light",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 14460,
+        "sortKeyTo": 14480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: The Next Phase",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e24.the-next-phase",
+          "label": "The Next Phase",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:geordi-la-forge",
+          "st:ro-laren",
+          "st:william-t-riker",
+          "st:starfleet",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Geordi La Forge",
+          "Ro Laren",
+          "William T. Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "Romulan secrecy/political pressure gate",
+          "death/status-change gate",
+          "Romulan",
+          "William T. Riker",
+          "Lt. Commander",
+          "Geordi La Forge",
+          "Ro Laren",
+          "Worf"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-next-phase",
+        "character:data",
+        "character:worf",
+        "character:geordi-la-forge",
+        "character:ro-laren",
+        "character:william-t-riker",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:deathstatus-change-gate",
+        "topic:romulan",
+        "topic:william-t-riker",
+        "topic:lt-commander",
+        "topic:geordi-la-forge",
+        "topic:ro-laren",
+        "topic:worf"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Ro Laren",
+            "William T. Riker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Ro Laren",
+            "William T. Riker",
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "Romulan secrecy/political pressure gate",
+            "death/status-change gate",
+            "Romulan",
+            "William T. Riker",
+            "Lt. Commander",
+            "Geordi La Forge",
+            "Ro Laren",
+            "Worf"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Ro Laren",
+            "William T. Riker",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Romulan secrecy/political pressure gate",
+            "death/status-change gate",
+            "Romulan",
+            "Lt. Commander",
+            "The Next Phase",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Next Phase (45892.4 (2368)) is Memory Alpha story row 24 for this season. The Next Phase is a TNG season 5 story gate centered on Romulan secrecy/political pressure gate; the evidence marks Romulan secrecy/political pressure gate; death/status-change gate.",
+        "injection": "Use The Next Phase as the active episode Context gate when scenes reference Romulan secrecy/political pressure gate, death/status-change gate, Romulan.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Next Phase",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Next_Phase_(episode)",
+        "stardate": "45892.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_the-inner-light-episode-gate",
+      "title": "The Inner Light anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e25.the-inner-light",
+        "validToAnchor": "tng.s5.e26.times-arrow",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 14480,
+        "sortKeyTo": 14500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: The Inner Light",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e25.the-inner-light",
+          "label": "The Inner Light",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:kamin",
+          "st:batai",
+          "st:eline",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Kamin",
+          "Batai",
+          "Eline"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "magnetic wave survey",
+          "Parvenium system",
+          "nucleonic beam",
+          "Jean-Luc Picard",
+          "Riker",
+          "Kamin",
+          "The Inner Light"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-the-inner-light",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:kamin",
+        "character:batai",
+        "character:eline",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:magnetic-wave-survey",
+        "topic:parvenium-system",
+        "topic:nucleonic-beam",
+        "topic:jean-luc-picard",
+        "topic:riker",
+        "topic:kamin",
+        "topic:the-inner-light"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Kamin",
+            "Batai",
+            "Eline"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Kamin",
+            "Batai",
+            "Eline",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "magnetic wave survey",
+            "Parvenium system",
+            "nucleonic beam",
+            "Jean-Luc Picard",
+            "Riker",
+            "Kamin",
+            "The Inner Light"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Kamin",
+            "Batai",
+            "Eline",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "magnetic wave survey",
+            "Parvenium system",
+            "nucleonic beam",
+            "Riker",
+            "The Inner Light",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Inner Light (45944.1 (2368)) is Memory Alpha story row 25 for this season. The Inner Light is a TNG season 5 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use The Inner Light as the active episode Context gate when scenes reference episode-local fact/status gate, magnetic wave survey, Parvenium system.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Inner Light",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Inner_Light_(episode)",
+        "stardate": "45944.1 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_times-arrow-episode-gate",
+      "title": "Time's Arrow anchors Time's Arrow",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e26.times-arrow",
+        "validToAnchor": "tng.s5.e26.times-arrow",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 14500,
+        "sortKeyTo": 14500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 5: Time's Arrow",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e26.times-arrow",
+          "label": "Time's Arrow",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:jean-luc-picard",
+          "st:san-francisco",
+          "st:colt-firearms",
+          "st:s-l-c",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Jean-Luc Picard",
+          "San Francisco",
+          "Colt Firearms",
+          "S.L.C."
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Time's Arrow",
+          "episode-local fact/status gate",
+          "Enterprise",
+          "Sector 001",
+          "Picard",
+          "Data",
+          "cavern",
+          "San Francisco"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-times-arrow",
+        "character:data",
+        "character:jean-luc-picard",
+        "character:san-francisco",
+        "character:colt-firearms",
+        "character:s-l-c",
+        "faction:starfleet",
+        "topic:times-arrow",
+        "topic:episode-local-factstatus-gate",
+        "topic:enterprise",
+        "topic:sector-001",
+        "topic:picard",
+        "topic:data",
+        "topic:cavern",
+        "topic:san-francisco"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "San Francisco",
+            "Colt Firearms",
+            "S.L.C."
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "San Francisco",
+            "Colt Firearms",
+            "S.L.C.",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Time's Arrow",
+            "episode-local fact/status gate",
+            "Enterprise",
+            "Sector 001",
+            "Picard",
+            "Data",
+            "cavern",
+            "San Francisco"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "San Francisco",
+            "Colt Firearms",
+            "S.L.C.",
+            "Starfleet",
+            "Time's Arrow",
+            "episode-local fact/status gate",
+            "Enterprise",
+            "Sector 001",
+            "Picard",
+            "cavern",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Time's Arrow (45959.1-45965.3 (2368)) is Memory Alpha story row 26 for this season. Time's Arrow is a TNG season 5 story gate centered on Time's Arrow; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Time's Arrow as the active episode Context gate when scenes reference Time's Arrow, episode-local fact/status gate, Enterprise.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Time's Arrow",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Time's_Arrow_(episode)",
+        "stardate": "45959.1-45965.3 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

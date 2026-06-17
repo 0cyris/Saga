@@ -1,0 +1,1767 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: The Next Generation season 1 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "tng.s1.e01.encounter-at-farpoint",
+      "label": "Encounter at Farpoint",
+      "contextType": "story_anchor",
+      "sortKey": 10000,
+      "stardate": "41153.7-41174.2 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1,
+        2
+      ],
+      "episode": "1, 2",
+      "aliases": [
+        "Encounter at Farpoint",
+        "TNG season 1 Encounter at Farpoint",
+        "TNG S1 Encounter at Farpoint",
+        "TNG 1x01 story",
+        "TNG S01 story 01",
+        "TNG 1x01",
+        "TNG S01E01",
+        "TNG season 1 episode 1",
+        "TNG 1x02",
+        "TNG S01E02",
+        "TNG season 1 episode 2",
+        "Encounter at Farpoint Part I",
+        "Encounter at Farpoint Part II",
+        "Encounter at Farpoint Part 1",
+        "Encounter at Farpoint Part 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e02.the-naked-now",
+      "label": "The Naked Now",
+      "contextType": "story_anchor",
+      "sortKey": 10020,
+      "stardate": "41209.2-41209.3 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "The Naked Now",
+        "TNG season 1 The Naked Now",
+        "TNG S1 The Naked Now",
+        "TNG 1x02 story",
+        "TNG S01 story 02",
+        "TNG 1x03",
+        "TNG S01E03",
+        "TNG season 1 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-naked-now"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Naked Now",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Naked_Now_(episode)",
+        "stardate": "41209.2-41209.3 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e03.code-of-honor",
+      "label": "Code of Honor",
+      "contextType": "story_anchor",
+      "sortKey": 10040,
+      "stardate": "41235.25-41235.32 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Code of Honor",
+        "TNG season 1 Code of Honor",
+        "TNG S1 Code of Honor",
+        "TNG 1x03 story",
+        "TNG S01 story 03",
+        "TNG 1x04",
+        "TNG S01E04",
+        "TNG season 1 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-code-of-honor"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Code of Honor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Code_of_Honor_(episode)",
+        "stardate": "41235.25-41235.32 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e04.the-last-outpost",
+      "label": "The Last Outpost",
+      "contextType": "story_anchor",
+      "sortKey": 10060,
+      "stardate": "41386.4-41386.5 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "The Last Outpost",
+        "TNG season 1 The Last Outpost",
+        "TNG S1 The Last Outpost",
+        "TNG 1x04 story",
+        "TNG S01 story 04",
+        "TNG 1x05",
+        "TNG S01E05",
+        "TNG season 1 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-last-outpost"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Last Outpost",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Last_Outpost_(episode)",
+        "stardate": "41386.4-41386.5 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e05.where-no-one-has-gone-before",
+      "label": "Where No One Has Gone Before",
+      "contextType": "story_anchor",
+      "sortKey": 10080,
+      "stardate": "41263.1-41263.4 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Where No One Has Gone Before",
+        "TNG season 1 Where No One Has Gone Before",
+        "TNG S1 Where No One Has Gone Before",
+        "TNG 1x05 story",
+        "TNG S01 story 05",
+        "TNG 1x06",
+        "TNG S01E06",
+        "TNG season 1 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-where-no-one-has-gone-before"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Where No One Has Gone Before",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Where_No_One_Has_Gone_Before_(episode)",
+        "stardate": "41263.1-41263.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e06.lonely-among-us",
+      "label": "Lonely Among Us",
+      "contextType": "story_anchor",
+      "sortKey": 10100,
+      "stardate": "41249.3-41249.4 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Lonely Among Us",
+        "TNG season 1 Lonely Among Us",
+        "TNG S1 Lonely Among Us",
+        "TNG 1x06 story",
+        "TNG S01 story 06",
+        "TNG 1x07",
+        "TNG S01E07",
+        "TNG season 1 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-lonely-among-us"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Lonely Among Us",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lonely_Among_Us_(episode)",
+        "stardate": "41249.3-41249.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e07.justice",
+      "label": "Justice",
+      "contextType": "story_anchor",
+      "sortKey": 10120,
+      "stardate": "41255.6-41255.9 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Justice",
+        "TNG season 1 Justice",
+        "TNG S1 Justice",
+        "TNG 1x07 story",
+        "TNG S01 story 07",
+        "TNG 1x08",
+        "TNG S01E08",
+        "TNG season 1 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-justice"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Justice",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Justice_(episode)",
+        "stardate": "41255.6-41255.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e08.the-battle",
+      "label": "The Battle",
+      "contextType": "story_anchor",
+      "sortKey": 10140,
+      "stardate": "41723.9 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "The Battle",
+        "TNG season 1 The Battle",
+        "TNG S1 The Battle",
+        "TNG 1x08 story",
+        "TNG S01 story 08",
+        "TNG 1x09",
+        "TNG S01E09",
+        "TNG season 1 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-battle"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Battle",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Battle_(episode)",
+        "stardate": "41723.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e09.hide-and-q",
+      "label": "Hide And Q",
+      "contextType": "story_anchor",
+      "sortKey": 10160,
+      "stardate": "41590.5-41591.4 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Hide And Q",
+        "TNG season 1 Hide And Q",
+        "TNG S1 Hide And Q",
+        "TNG 1x09 story",
+        "TNG S01 story 09",
+        "TNG 1x10",
+        "TNG S01E10",
+        "TNG season 1 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-hide-and-q"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Hide And Q",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hide_And_Q_(episode)",
+        "stardate": "41590.5-41591.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e10.haven",
+      "label": "Haven",
+      "contextType": "story_anchor",
+      "sortKey": 10180,
+      "stardate": "41294.5-41294.6 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Haven",
+        "TNG season 1 Haven",
+        "TNG S1 Haven",
+        "TNG 1x10 story",
+        "TNG S01 story 10",
+        "TNG 1x11",
+        "TNG S01E11",
+        "TNG season 1 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-haven"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Haven",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Haven_(episode)",
+        "stardate": "41294.5-41294.6 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e11.the-big-goodbye",
+      "label": "The Big Goodbye",
+      "contextType": "story_anchor",
+      "sortKey": 10200,
+      "stardate": "41997.7 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "The Big Goodbye",
+        "TNG season 1 The Big Goodbye",
+        "TNG S1 The Big Goodbye",
+        "TNG 1x11 story",
+        "TNG S01 story 11",
+        "TNG 1x12",
+        "TNG S01E12",
+        "TNG season 1 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-big-goodbye"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Big Goodbye",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Big_Goodbye_(episode)",
+        "stardate": "41997.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e12.datalore",
+      "label": "Datalore",
+      "contextType": "story_anchor",
+      "sortKey": 10220,
+      "stardate": "41242.4-41242.5 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Datalore",
+        "TNG season 1 Datalore",
+        "TNG S1 Datalore",
+        "TNG 1x12 story",
+        "TNG S01 story 12",
+        "TNG 1x13",
+        "TNG S01E13",
+        "TNG season 1 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-datalore"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Datalore",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Datalore_(episode)",
+        "stardate": "41242.4-41242.5 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e13.angel-one",
+      "label": "Angel One",
+      "contextType": "story_anchor",
+      "sortKey": 10240,
+      "stardate": "41636.9 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Angel One",
+        "TNG season 1 Angel One",
+        "TNG S1 Angel One",
+        "TNG 1x13 story",
+        "TNG S01 story 13",
+        "TNG 1x14",
+        "TNG S01E14",
+        "TNG season 1 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-angel-one"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Angel One",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Angel_One_(episode)",
+        "stardate": "41636.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e14.11001001",
+      "label": "11001001",
+      "contextType": "story_anchor",
+      "sortKey": 10260,
+      "stardate": "41365.9 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "11001001",
+        "TNG season 1 11001001",
+        "TNG S1 11001001",
+        "TNG 1x14 story",
+        "TNG S01 story 14",
+        "TNG 1x15",
+        "TNG S01E15",
+        "TNG season 1 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-11001001"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "11001001",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/11001001_(episode)",
+        "stardate": "41365.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e15.too-short-a-season",
+      "label": "Too Short A Season",
+      "contextType": "story_anchor",
+      "sortKey": 10280,
+      "stardate": "41309.5 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Too Short A Season",
+        "TNG season 1 Too Short A Season",
+        "TNG S1 Too Short A Season",
+        "TNG 1x15 story",
+        "TNG S01 story 15",
+        "TNG 1x16",
+        "TNG S01E16",
+        "TNG season 1 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-too-short-a-season"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Too Short A Season",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Too_Short_A_Season_(episode)",
+        "stardate": "41309.5 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e16.when-the-bough-breaks",
+      "label": "When The Bough Breaks",
+      "contextType": "story_anchor",
+      "sortKey": 10300,
+      "stardate": "41509.1-41512.9 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "When The Bough Breaks",
+        "TNG season 1 When The Bough Breaks",
+        "TNG S1 When The Bough Breaks",
+        "TNG 1x16 story",
+        "TNG S01 story 16",
+        "TNG 1x17",
+        "TNG S01E17",
+        "TNG season 1 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-when-the-bough-breaks"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "When The Bough Breaks",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/When_The_Bough_Breaks_(episode)",
+        "stardate": "41509.1-41512.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e17.home-soil",
+      "label": "Home Soil",
+      "contextType": "story_anchor",
+      "sortKey": 10320,
+      "stardate": "41463.9-41464.8 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Home Soil",
+        "TNG season 1 Home Soil",
+        "TNG S1 Home Soil",
+        "TNG 1x17 story",
+        "TNG S01 story 17",
+        "TNG 1x18",
+        "TNG S01E18",
+        "TNG season 1 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-home-soil"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Home Soil",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Home_Soil_(episode)",
+        "stardate": "41463.9-41464.8 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e18.coming-of-age",
+      "label": "Coming of Age",
+      "contextType": "story_anchor",
+      "sortKey": 10340,
+      "stardate": "41416.2 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Coming of Age",
+        "TNG season 1 Coming of Age",
+        "TNG S1 Coming of Age",
+        "TNG 1x18 story",
+        "TNG S01 story 18",
+        "TNG 1x19",
+        "TNG S01E19",
+        "TNG season 1 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-coming-of-age"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Coming of Age",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Coming_of_Age_(episode)",
+        "stardate": "41416.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e19.heart-of-glory",
+      "label": "Heart of Glory",
+      "contextType": "story_anchor",
+      "sortKey": 10360,
+      "stardate": "41503.7 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Heart of Glory",
+        "TNG season 1 Heart of Glory",
+        "TNG S1 Heart of Glory",
+        "TNG 1x19 story",
+        "TNG S01 story 19",
+        "TNG 1x20",
+        "TNG S01E20",
+        "TNG season 1 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-heart-of-glory"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Heart of Glory",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Heart_of_Glory_(episode)",
+        "stardate": "41503.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e20.the-arsenal-of-freedom",
+      "label": "The Arsenal of Freedom",
+      "contextType": "story_anchor",
+      "sortKey": 10380,
+      "stardate": "41798.2 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "The Arsenal of Freedom",
+        "TNG season 1 The Arsenal of Freedom",
+        "TNG S1 The Arsenal of Freedom",
+        "TNG 1x20 story",
+        "TNG S01 story 20",
+        "TNG 1x21",
+        "TNG S01E21",
+        "TNG season 1 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-arsenal-of-freedom"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Arsenal of Freedom",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Arsenal_of_Freedom_(episode)",
+        "stardate": "41798.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e21.symbiosis",
+      "label": "Symbiosis",
+      "contextType": "story_anchor",
+      "sortKey": 10400,
+      "stardate": "Unknown (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Symbiosis",
+        "TNG season 1 Symbiosis",
+        "TNG S1 Symbiosis",
+        "TNG 1x21 story",
+        "TNG S01 story 21",
+        "TNG 1x22",
+        "TNG S01E22",
+        "TNG season 1 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-symbiosis"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Symbiosis",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Symbiosis_(episode)",
+        "stardate": "Unknown (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e22.skin-of-evil",
+      "label": "Skin Of Evil",
+      "contextType": "story_anchor",
+      "sortKey": 10420,
+      "stardate": "41601.3-41602.1 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Skin Of Evil",
+        "TNG season 1 Skin Of Evil",
+        "TNG S1 Skin Of Evil",
+        "TNG 1x22 story",
+        "TNG S01 story 22",
+        "TNG 1x23",
+        "TNG S01E23",
+        "TNG season 1 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-skin-of-evil"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Skin Of Evil",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Skin_Of_Evil_(episode)",
+        "stardate": "41601.3-41602.1 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e23.well-always-have-paris",
+      "label": "We'll Always Have Paris",
+      "contextType": "story_anchor",
+      "sortKey": 10440,
+      "stardate": "41697.9 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "We'll Always Have Paris",
+        "TNG season 1 We'll Always Have Paris",
+        "TNG S1 We'll Always Have Paris",
+        "TNG 1x23 story",
+        "TNG S01 story 23",
+        "TNG 1x24",
+        "TNG S01E24",
+        "TNG season 1 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-well-always-have-paris"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "We'll Always Have Paris",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/We'll_Always_Have_Paris_(episode)",
+        "stardate": "41697.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e24.conspiracy",
+      "label": "Conspiracy",
+      "contextType": "story_anchor",
+      "sortKey": 10460,
+      "stardate": "41775.5-41780.2 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Conspiracy",
+        "TNG season 1 Conspiracy",
+        "TNG S1 Conspiracy",
+        "TNG 1x24 story",
+        "TNG S01 story 24",
+        "TNG 1x25",
+        "TNG S01E25",
+        "TNG season 1 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-conspiracy"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Conspiracy",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Conspiracy_(episode)",
+        "stardate": "41775.5-41780.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s1.e25.the-neutral-zone",
+      "label": "The Neutral Zone",
+      "contextType": "story_anchor",
+      "sortKey": 10480,
+      "stardate": "41986.0 (2364)",
+      "year": "2364",
+      "series": "TNG",
+      "season": 1,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "The Neutral Zone",
+        "TNG season 1 The Neutral Zone",
+        "TNG S1 The Neutral Zone",
+        "TNG 1x25 story",
+        "TNG S01 story 25",
+        "TNG 1x26",
+        "TNG S01E26",
+        "TNG season 1 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-neutral-zone"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Neutral Zone",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Neutral_Zone_(episode)",
+        "stardate": "41986.0 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "tng.s1.full-season",
+      "label": "TNG season 1 full window",
+      "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+      "anchorTo": "tng.s1.e25.the-neutral-zone",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 10480,
+      "aliases": [
+        "TNG season 1",
+        "Star Trek The Next Generation season 1",
+        "TNG S1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "tng.s1.e01.encounter-at-farpoint.window",
+      "label": "Encounter at Farpoint episode window",
+      "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+      "anchorTo": "tng.s1.e02.the-naked-now",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 10020,
+      "aliases": [
+        "during Encounter at Farpoint",
+        "after Encounter at Farpoint"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint"
+      ]
+    },
+    {
+      "id": "tng.s1.e02.the-naked-now.window",
+      "label": "The Naked Now episode window",
+      "anchorFrom": "tng.s1.e02.the-naked-now",
+      "anchorTo": "tng.s1.e03.code-of-honor",
+      "sortKeyFrom": 10020,
+      "sortKeyTo": 10040,
+      "aliases": [
+        "during The Naked Now",
+        "after The Naked Now"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-naked-now"
+      ]
+    },
+    {
+      "id": "tng.s1.e03.code-of-honor.window",
+      "label": "Code of Honor episode window",
+      "anchorFrom": "tng.s1.e03.code-of-honor",
+      "anchorTo": "tng.s1.e04.the-last-outpost",
+      "sortKeyFrom": 10040,
+      "sortKeyTo": 10060,
+      "aliases": [
+        "during Code of Honor",
+        "after Code of Honor"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-code-of-honor"
+      ]
+    },
+    {
+      "id": "tng.s1.e04.the-last-outpost.window",
+      "label": "The Last Outpost episode window",
+      "anchorFrom": "tng.s1.e04.the-last-outpost",
+      "anchorTo": "tng.s1.e05.where-no-one-has-gone-before",
+      "sortKeyFrom": 10060,
+      "sortKeyTo": 10080,
+      "aliases": [
+        "during The Last Outpost",
+        "after The Last Outpost"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-last-outpost"
+      ]
+    },
+    {
+      "id": "tng.s1.e05.where-no-one-has-gone-before.window",
+      "label": "Where No One Has Gone Before episode window",
+      "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+      "anchorTo": "tng.s1.e06.lonely-among-us",
+      "sortKeyFrom": 10080,
+      "sortKeyTo": 10100,
+      "aliases": [
+        "during Where No One Has Gone Before",
+        "after Where No One Has Gone Before"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-where-no-one-has-gone-before"
+      ]
+    },
+    {
+      "id": "tng.s1.e06.lonely-among-us.window",
+      "label": "Lonely Among Us episode window",
+      "anchorFrom": "tng.s1.e06.lonely-among-us",
+      "anchorTo": "tng.s1.e07.justice",
+      "sortKeyFrom": 10100,
+      "sortKeyTo": 10120,
+      "aliases": [
+        "during Lonely Among Us",
+        "after Lonely Among Us"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-lonely-among-us"
+      ]
+    },
+    {
+      "id": "tng.s1.e07.justice.window",
+      "label": "Justice episode window",
+      "anchorFrom": "tng.s1.e07.justice",
+      "anchorTo": "tng.s1.e08.the-battle",
+      "sortKeyFrom": 10120,
+      "sortKeyTo": 10140,
+      "aliases": [
+        "during Justice",
+        "after Justice"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-justice"
+      ]
+    },
+    {
+      "id": "tng.s1.e08.the-battle.window",
+      "label": "The Battle episode window",
+      "anchorFrom": "tng.s1.e08.the-battle",
+      "anchorTo": "tng.s1.e09.hide-and-q",
+      "sortKeyFrom": 10140,
+      "sortKeyTo": 10160,
+      "aliases": [
+        "during The Battle",
+        "after The Battle"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-battle"
+      ]
+    },
+    {
+      "id": "tng.s1.e09.hide-and-q.window",
+      "label": "Hide And Q episode window",
+      "anchorFrom": "tng.s1.e09.hide-and-q",
+      "anchorTo": "tng.s1.e10.haven",
+      "sortKeyFrom": 10160,
+      "sortKeyTo": 10180,
+      "aliases": [
+        "during Hide And Q",
+        "after Hide And Q"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-hide-and-q"
+      ]
+    },
+    {
+      "id": "tng.s1.e10.haven.window",
+      "label": "Haven episode window",
+      "anchorFrom": "tng.s1.e10.haven",
+      "anchorTo": "tng.s1.e11.the-big-goodbye",
+      "sortKeyFrom": 10180,
+      "sortKeyTo": 10200,
+      "aliases": [
+        "during Haven",
+        "after Haven"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-haven"
+      ]
+    },
+    {
+      "id": "tng.s1.e11.the-big-goodbye.window",
+      "label": "The Big Goodbye episode window",
+      "anchorFrom": "tng.s1.e11.the-big-goodbye",
+      "anchorTo": "tng.s1.e12.datalore",
+      "sortKeyFrom": 10200,
+      "sortKeyTo": 10220,
+      "aliases": [
+        "during The Big Goodbye",
+        "after The Big Goodbye"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-big-goodbye"
+      ]
+    },
+    {
+      "id": "tng.s1.e12.datalore.window",
+      "label": "Datalore episode window",
+      "anchorFrom": "tng.s1.e12.datalore",
+      "anchorTo": "tng.s1.e13.angel-one",
+      "sortKeyFrom": 10220,
+      "sortKeyTo": 10240,
+      "aliases": [
+        "during Datalore",
+        "after Datalore"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-datalore"
+      ]
+    },
+    {
+      "id": "tng.s1.e13.angel-one.window",
+      "label": "Angel One episode window",
+      "anchorFrom": "tng.s1.e13.angel-one",
+      "anchorTo": "tng.s1.e14.11001001",
+      "sortKeyFrom": 10240,
+      "sortKeyTo": 10260,
+      "aliases": [
+        "during Angel One",
+        "after Angel One"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-angel-one"
+      ]
+    },
+    {
+      "id": "tng.s1.e14.11001001.window",
+      "label": "11001001 episode window",
+      "anchorFrom": "tng.s1.e14.11001001",
+      "anchorTo": "tng.s1.e15.too-short-a-season",
+      "sortKeyFrom": 10260,
+      "sortKeyTo": 10280,
+      "aliases": [
+        "during 11001001",
+        "after 11001001"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-11001001"
+      ]
+    },
+    {
+      "id": "tng.s1.e15.too-short-a-season.window",
+      "label": "Too Short A Season episode window",
+      "anchorFrom": "tng.s1.e15.too-short-a-season",
+      "anchorTo": "tng.s1.e16.when-the-bough-breaks",
+      "sortKeyFrom": 10280,
+      "sortKeyTo": 10300,
+      "aliases": [
+        "during Too Short A Season",
+        "after Too Short A Season"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-too-short-a-season"
+      ]
+    },
+    {
+      "id": "tng.s1.e16.when-the-bough-breaks.window",
+      "label": "When The Bough Breaks episode window",
+      "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+      "anchorTo": "tng.s1.e17.home-soil",
+      "sortKeyFrom": 10300,
+      "sortKeyTo": 10320,
+      "aliases": [
+        "during When The Bough Breaks",
+        "after When The Bough Breaks"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-when-the-bough-breaks"
+      ]
+    },
+    {
+      "id": "tng.s1.e17.home-soil.window",
+      "label": "Home Soil episode window",
+      "anchorFrom": "tng.s1.e17.home-soil",
+      "anchorTo": "tng.s1.e18.coming-of-age",
+      "sortKeyFrom": 10320,
+      "sortKeyTo": 10340,
+      "aliases": [
+        "during Home Soil",
+        "after Home Soil"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-home-soil"
+      ]
+    },
+    {
+      "id": "tng.s1.e18.coming-of-age.window",
+      "label": "Coming of Age episode window",
+      "anchorFrom": "tng.s1.e18.coming-of-age",
+      "anchorTo": "tng.s1.e19.heart-of-glory",
+      "sortKeyFrom": 10340,
+      "sortKeyTo": 10360,
+      "aliases": [
+        "during Coming of Age",
+        "after Coming of Age"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-coming-of-age"
+      ]
+    },
+    {
+      "id": "tng.s1.e19.heart-of-glory.window",
+      "label": "Heart of Glory episode window",
+      "anchorFrom": "tng.s1.e19.heart-of-glory",
+      "anchorTo": "tng.s1.e20.the-arsenal-of-freedom",
+      "sortKeyFrom": 10360,
+      "sortKeyTo": 10380,
+      "aliases": [
+        "during Heart of Glory",
+        "after Heart of Glory"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-heart-of-glory"
+      ]
+    },
+    {
+      "id": "tng.s1.e20.the-arsenal-of-freedom.window",
+      "label": "The Arsenal of Freedom episode window",
+      "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+      "anchorTo": "tng.s1.e21.symbiosis",
+      "sortKeyFrom": 10380,
+      "sortKeyTo": 10400,
+      "aliases": [
+        "during The Arsenal of Freedom",
+        "after The Arsenal of Freedom"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-arsenal-of-freedom"
+      ]
+    },
+    {
+      "id": "tng.s1.e21.symbiosis.window",
+      "label": "Symbiosis episode window",
+      "anchorFrom": "tng.s1.e21.symbiosis",
+      "anchorTo": "tng.s1.e22.skin-of-evil",
+      "sortKeyFrom": 10400,
+      "sortKeyTo": 10420,
+      "aliases": [
+        "during Symbiosis",
+        "after Symbiosis"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-symbiosis"
+      ]
+    },
+    {
+      "id": "tng.s1.e22.skin-of-evil.window",
+      "label": "Skin Of Evil episode window",
+      "anchorFrom": "tng.s1.e22.skin-of-evil",
+      "anchorTo": "tng.s1.e23.well-always-have-paris",
+      "sortKeyFrom": 10420,
+      "sortKeyTo": 10440,
+      "aliases": [
+        "during Skin Of Evil",
+        "after Skin Of Evil"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-skin-of-evil"
+      ]
+    },
+    {
+      "id": "tng.s1.e23.well-always-have-paris.window",
+      "label": "We'll Always Have Paris episode window",
+      "anchorFrom": "tng.s1.e23.well-always-have-paris",
+      "anchorTo": "tng.s1.e24.conspiracy",
+      "sortKeyFrom": 10440,
+      "sortKeyTo": 10460,
+      "aliases": [
+        "during We'll Always Have Paris",
+        "after We'll Always Have Paris"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-well-always-have-paris"
+      ]
+    },
+    {
+      "id": "tng.s1.e24.conspiracy.window",
+      "label": "Conspiracy episode window",
+      "anchorFrom": "tng.s1.e24.conspiracy",
+      "anchorTo": "tng.s1.e25.the-neutral-zone",
+      "sortKeyFrom": 10460,
+      "sortKeyTo": 10480,
+      "aliases": [
+        "during Conspiracy",
+        "after Conspiracy"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-conspiracy"
+      ]
+    }
+  ]
+}

@@ -89,6 +89,8 @@ const {
   DEFAULT_JJK_LOREDECK_IDS,
   DEFAULT_LOTR_LOREDECK_IDS,
   DEFAULT_MHA_LOREDECK_IDS,
+  DEFAULT_ONE_PIECE_LOREDECK_IDS,
+  DEFAULT_STAR_TREK_LOREDECK_IDS,
   DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS,
   HP_LEGACY_LOREDECK_ID,
 } = await import('../../src/loredecks/loredeck-defaults.js');
@@ -109,6 +111,8 @@ const hpDefaultIds = Array.from(DEFAULT_HP_LOREDECK_IDS);
 const lotrDefaultIds = Array.from(DEFAULT_LOTR_LOREDECK_IDS);
 const mhaDefaultIds = Array.from(DEFAULT_MHA_LOREDECK_IDS);
 const jjkDefaultIds = Array.from(DEFAULT_JJK_LOREDECK_IDS);
+const onePieceDefaultIds = Array.from(DEFAULT_ONE_PIECE_LOREDECK_IDS);
+const starTrekDefaultIds = Array.from(DEFAULT_STAR_TREK_LOREDECK_IDS);
 const starWarsDefaultIds = Array.from(DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS);
 const hpFolderPath = ['Harry Potter', 'Golden Trio'];
 const lotrFolderPath = ['Lord of The Rings', 'War of the Ring'];
@@ -146,7 +150,9 @@ assert.deepEqual(hpDefaultIds, bundledDefaultIds.slice(0, hpDefaultIds.length), 
 assert.deepEqual(lotrDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length), 'LOTR bundled decks should follow HP bundled decks.');
 assert.deepEqual(mhaDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length), 'MHA bundled decks should follow LOTR bundled decks.');
 assert.deepEqual(jjkDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length), 'JJK bundled decks should follow MHA bundled decks.');
-assert.deepEqual(starWarsDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length), 'Star Wars bundled decks should follow JJK bundled decks.');
+assert.deepEqual(onePieceDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length + onePieceDefaultIds.length), 'One Piece bundled decks should follow JJK bundled decks.');
+assert.deepEqual(starTrekDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length + onePieceDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length + onePieceDefaultIds.length + starTrekDefaultIds.length), 'Star Trek bundled decks should follow One Piece bundled decks.');
+assert.deepEqual(starWarsDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length + jjkDefaultIds.length + onePieceDefaultIds.length + starTrekDefaultIds.length), 'Star Wars bundled decks should follow Star Trek bundled decks.');
 assert.deepEqual(getFolderPath(lotrFolderId, defaultLibraryIndex), lotrFolderPath, 'Default Library index should create the Lord of The Rings War of the Ring folder.');
 assert.deepEqual(getFolderPath(mhaFolderId, defaultLibraryIndex), mhaFolderPath, 'Default Library index should create the My Hero Academia Manga Main folder.');
 assert.deepEqual(getFolderPath(jjkFolderId, defaultLibraryIndex), jjkFolderPath, 'Default Library index should create the Jujutsu Kaisen Manga Main folder.');
@@ -175,6 +181,22 @@ for (const deckId of jjkDefaultIds) {
   assert.deepEqual(getFolderPath(expectedFolderId, defaultLibraryIndex), suggestedPath, `${deckId} default Library index should create its Jujutsu Kaisen folder.`);
   assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
   assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, expectedFolderId, `${deckId} should be placed in its default Jujutsu Kaisen folder.`);
+}
+
+for (const deckId of onePieceDefaultIds) {
+  const suggestedPath = DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath || [];
+  const expectedFolderId = createFolderIdFromPath(suggestedPath);
+  assert.deepEqual(getFolderPath(expectedFolderId, defaultLibraryIndex), suggestedPath, `${deckId} default Library index should create its One Piece folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, expectedFolderId, `${deckId} should be placed in its default One Piece folder.`);
+}
+
+for (const deckId of starTrekDefaultIds) {
+  const suggestedPath = DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath || [];
+  const expectedFolderId = createFolderIdFromPath(suggestedPath);
+  assert.deepEqual(getFolderPath(expectedFolderId, defaultLibraryIndex), suggestedPath, `${deckId} default Library index should create its Star Trek folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, expectedFolderId, `${deckId} should be placed in its default Star Trek folder.`);
 }
 
 for (const deckId of starWarsDefaultIds) {
@@ -239,11 +261,11 @@ for (const deckId of bundledDefaultIds) {
 
   const source = await loadLoredeckSourceById(deckId);
   assert.equal(source.health.errors.length, 0, `${deckId} should have no Pack Health errors.`);
-  if (hpDefaultIds.includes(deckId) || mhaDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId)) {
+  if (hpDefaultIds.includes(deckId) || mhaDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId) || starTrekDefaultIds.includes(deckId)) {
     assert.equal(source.health.status, 'good', `${deckId} Pack Health should be good.`);
     assert.equal(source.health.warnings.length, 0, `${deckId} should have no Pack Health warnings.`);
   }
-  if (hpDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId)) {
+  if (hpDefaultIds.includes(deckId) || jjkDefaultIds.includes(deckId) || starTrekDefaultIds.includes(deckId)) {
     assert.equal(source.health.suggestions.length, 0, `${deckId} should have no Pack Health suggestions.`);
   }
   assert.equal(source.health.summary.entryCount, manifest.stats.entryCount, `${deckId} health entry count should match manifest.`);

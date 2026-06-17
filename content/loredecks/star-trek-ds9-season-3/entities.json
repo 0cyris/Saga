@@ -1,0 +1,1461 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:alenis-grem": {
+      "type": "character",
+      "label": "Alenis Grem",
+      "aliases": [
+        "Alenis Grem"
+      ],
+      "canonicalNames": [
+        "Alenis Grem"
+      ],
+      "tags": [
+        "character:alenis-grem"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:annual-starfleet-symposium": {
+      "type": "character",
+      "label": "Annual Starfleet Symposium",
+      "aliases": [
+        "Annual Starfleet Symposium"
+      ],
+      "canonicalNames": [
+        "Annual Starfleet Symposium"
+      ],
+      "tags": [
+        "character:annual-starfleet-symposium"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:avesta": {
+      "type": "character",
+      "label": "Avesta",
+      "aliases": [
+        "Avesta"
+      ],
+      "canonicalNames": [
+        "Avesta"
+      ],
+      "tags": [
+        "character:avesta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bajoran-central-archives": {
+      "type": "character",
+      "label": "Bajoran Central Archives",
+      "aliases": [
+        "Bajoran Central Archives"
+      ],
+      "canonicalNames": [
+        "Bajoran Central Archives"
+      ],
+      "tags": [
+        "character:bajoran-central-archives"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bajoran-gratitude-festival": {
+      "type": "character",
+      "label": "Bajoran Gratitude Festival",
+      "aliases": [
+        "Bajoran Gratitude Festival"
+      ],
+      "canonicalNames": [
+        "Bajoran Gratitude Festival"
+      ],
+      "tags": [
+        "character:bajoran-gratitude-festival"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bajorans": {
+      "type": "faction",
+      "label": "Bajorans",
+      "aliases": [
+        "Bajorans"
+      ],
+      "canonicalNames": [
+        "Bajorans"
+      ],
+      "tags": [
+        "faction:bajorans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:benjamin-sisko": {
+      "type": "character",
+      "label": "Benjamin Sisko",
+      "aliases": [
+        "Benjamin Sisko"
+      ],
+      "canonicalNames": [
+        "Benjamin Sisko"
+      ],
+      "tags": [
+        "character:benjamin-sisko"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:biddle-coleridge": {
+      "type": "character",
+      "label": "Biddle Coleridge",
+      "aliases": [
+        "Biddle Coleridge"
+      ],
+      "canonicalNames": [
+        "Biddle Coleridge"
+      ],
+      "tags": [
+        "character:biddle-coleridge"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:byzallian": {
+      "type": "character",
+      "label": "Byzallian",
+      "aliases": [
+        "Byzallian"
+      ],
+      "canonicalNames": [
+        "Byzallian"
+      ],
+      "tags": [
+        "character:byzallian"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cardassian-union": {
+      "type": "faction",
+      "label": "Cardassian Union",
+      "aliases": [
+        "Cardassian Union"
+      ],
+      "canonicalNames": [
+        "Cardassian Union"
+      ],
+      "tags": [
+        "faction:cardassian-union"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:changeling": {
+      "type": "character",
+      "label": "Changeling",
+      "aliases": [
+        "Changeling"
+      ],
+      "canonicalNames": [
+        "Changeling"
+      ],
+      "tags": [
+        "character:changeling"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chateau-cleon": {
+      "type": "character",
+      "label": "Chateau Cleon",
+      "aliases": [
+        "Chateau Cleon"
+      ],
+      "canonicalNames": [
+        "Chateau Cleon"
+      ],
+      "tags": [
+        "character:chateau-cleon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:constable": {
+      "type": "character",
+      "label": "Constable",
+      "aliases": [
+        "Constable"
+      ],
+      "canonicalNames": [
+        "Constable"
+      ],
+      "tags": [
+        "character:constable"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:data": {
+      "type": "character",
+      "label": "Data",
+      "aliases": [
+        "Data"
+      ],
+      "canonicalNames": [
+        "Data"
+      ],
+      "tags": [
+        "character:data"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:defiant": {
+      "type": "character",
+      "label": "Defiant",
+      "aliases": [
+        "Defiant"
+      ],
+      "canonicalNames": [
+        "Defiant"
+      ],
+      "tags": [
+        "character:defiant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:district-processing-center": {
+      "type": "character",
+      "label": "District Processing Center",
+      "aliases": [
+        "District Processing Center"
+      ],
+      "canonicalNames": [
+        "District Processing Center"
+      ],
+      "tags": [
+        "character:district-processing-center"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:dominion": {
+      "type": "faction",
+      "label": "Dominion",
+      "aliases": [
+        "Dominion"
+      ],
+      "canonicalNames": [
+        "Dominion"
+      ],
+      "tags": [
+        "faction:dominion"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:dr": {
+      "type": "character",
+      "label": "Dr.",
+      "aliases": [
+        "Dr."
+      ],
+      "canonicalNames": [
+        "Dr."
+      ],
+      "tags": [
+        "character:dr"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:dukat": {
+      "type": "character",
+      "label": "Dukat",
+      "aliases": [
+        "Dukat"
+      ],
+      "canonicalNames": [
+        "Dukat"
+      ],
+      "tags": [
+        "character:dukat"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:elim-garak": {
+      "type": "character",
+      "label": "Elim Garak",
+      "aliases": [
+        "Elim Garak"
+      ],
+      "canonicalNames": [
+        "Elim Garak"
+      ],
+      "tags": [
+        "character:elim-garak"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:emi": {
+      "type": "character",
+      "label": "Emi",
+      "aliases": [
+        "Emi"
+      ],
+      "canonicalNames": [
+        "Emi"
+      ],
+      "tags": [
+        "character:emi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ferengi-alliance": {
+      "type": "faction",
+      "label": "Ferengi Alliance",
+      "aliases": [
+        "Ferengi Alliance"
+      ],
+      "canonicalNames": [
+        "Ferengi Alliance"
+      ],
+      "tags": [
+        "faction:ferengi-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:gabriel-bell": {
+      "type": "character",
+      "label": "Gabriel Bell",
+      "aliases": [
+        "Gabriel Bell"
+      ],
+      "canonicalNames": [
+        "Gabriel Bell"
+      ],
+      "tags": [
+        "character:gabriel-bell"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:gamma-quadrant": {
+      "type": "character",
+      "label": "Gamma Quadrant",
+      "aliases": [
+        "Gamma Quadrant"
+      ],
+      "canonicalNames": [
+        "Gamma Quadrant"
+      ],
+      "tags": [
+        "character:gamma-quadrant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:garak": {
+      "type": "character",
+      "label": "Garak",
+      "aliases": [
+        "Garak"
+      ],
+      "canonicalNames": [
+        "Garak"
+      ],
+      "tags": [
+        "character:garak"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:grand-nagus": {
+      "type": "character",
+      "label": "Grand Nagus",
+      "aliases": [
+        "Grand Nagus"
+      ],
+      "canonicalNames": [
+        "Grand Nagus"
+      ],
+      "tags": [
+        "character:grand-nagus"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:great-link": {
+      "type": "character",
+      "label": "Great Link",
+      "aliases": [
+        "Great Link"
+      ],
+      "canonicalNames": [
+        "Great Link"
+      ],
+      "tags": [
+        "character:great-link"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jadzia-dax": {
+      "type": "character",
+      "label": "Jadzia Dax",
+      "aliases": [
+        "Jadzia Dax"
+      ],
+      "canonicalNames": [
+        "Jadzia Dax"
+      ],
+      "tags": [
+        "character:jadzia-dax"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jake": {
+      "type": "character",
+      "label": "Jake",
+      "aliases": [
+        "Jake"
+      ],
+      "canonicalNames": [
+        "Jake"
+      ],
+      "tags": [
+        "character:jake"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jake-sisko": {
+      "type": "character",
+      "label": "Jake Sisko",
+      "aliases": [
+        "Jake Sisko"
+      ],
+      "canonicalNames": [
+        "Jake Sisko"
+      ],
+      "tags": [
+        "character:jake-sisko"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jemhadar": {
+      "type": "faction",
+      "label": "Jem'Hadar",
+      "aliases": [
+        "Jem'Hadar"
+      ],
+      "canonicalNames": [
+        "Jem'Hadar"
+      ],
+      "tags": [
+        "faction:jemhadar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:julian-bashir": {
+      "type": "character",
+      "label": "Julian Bashir",
+      "aliases": [
+        "Julian Bashir"
+      ],
+      "canonicalNames": [
+        "Julian Bashir"
+      ],
+      "tags": [
+        "character:julian-bashir"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kira-nerys": {
+      "type": "character",
+      "label": "Kira Nerys",
+      "aliases": [
+        "Kira Nerys"
+      ],
+      "canonicalNames": [
+        "Kira Nerys"
+      ],
+      "tags": [
+        "character:kira-nerys"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:krajensky": {
+      "type": "character",
+      "label": "Krajensky",
+      "aliases": [
+        "Krajensky"
+      ],
+      "canonicalNames": [
+        "Krajensky"
+      ],
+      "tags": [
+        "character:krajensky"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:leanne": {
+      "type": "character",
+      "label": "Leanne",
+      "aliases": [
+        "Leanne"
+      ],
+      "canonicalNames": [
+        "Leanne"
+      ],
+      "tags": [
+        "character:leanne"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:lethean": {
+      "type": "character",
+      "label": "Lethean",
+      "aliases": [
+        "Lethean"
+      ],
+      "canonicalNames": [
+        "Lethean"
+      ],
+      "tags": [
+        "character:lethean"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:maquis": {
+      "type": "faction",
+      "label": "Maquis",
+      "aliases": [
+        "Maquis"
+      ],
+      "canonicalNames": [
+        "Maquis"
+      ],
+      "tags": [
+        "faction:maquis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:mardah": {
+      "type": "character",
+      "label": "Mardah",
+      "aliases": [
+        "Mardah"
+      ],
+      "canonicalNames": [
+        "Mardah"
+      ],
+      "tags": [
+        "character:mardah"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:miles-obrien": {
+      "type": "character",
+      "label": "Miles O'Brien",
+      "aliases": [
+        "Miles O'Brien"
+      ],
+      "canonicalNames": [
+        "Miles O'Brien"
+      ],
+      "tags": [
+        "character:miles-obrien"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:morn": {
+      "type": "character",
+      "label": "Morn",
+      "aliases": [
+        "Morn"
+      ],
+      "canonicalNames": [
+        "Morn"
+      ],
+      "tags": [
+        "character:morn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nog": {
+      "type": "character",
+      "label": "Nog",
+      "aliases": [
+        "Nog"
+      ],
+      "canonicalNames": [
+        "Nog"
+      ],
+      "tags": [
+        "character:nog"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:odo": {
+      "type": "character",
+      "label": "Odo",
+      "aliases": [
+        "Odo"
+      ],
+      "canonicalNames": [
+        "Odo"
+      ],
+      "tags": [
+        "character:odo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:okalar": {
+      "type": "character",
+      "label": "Okalar",
+      "aliases": [
+        "Okalar"
+      ],
+      "canonicalNames": [
+        "Okalar"
+      ],
+      "tags": [
+        "character:okalar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:portland": {
+      "type": "character",
+      "label": "Portland",
+      "aliases": [
+        "Portland"
+      ],
+      "canonicalNames": [
+        "Portland"
+      ],
+      "tags": [
+        "character:portland"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:promenade": {
+      "type": "character",
+      "label": "Promenade",
+      "aliases": [
+        "Promenade"
+      ],
+      "canonicalNames": [
+        "Promenade"
+      ],
+      "tags": [
+        "character:promenade"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:prophets-landing": {
+      "type": "character",
+      "label": "Prophet's Landing",
+      "aliases": [
+        "Prophet's Landing"
+      ],
+      "canonicalNames": [
+        "Prophet's Landing"
+      ],
+      "tags": [
+        "character:prophets-landing"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:quark": {
+      "type": "character",
+      "label": "Quark",
+      "aliases": [
+        "Quark"
+      ],
+      "canonicalNames": [
+        "Quark"
+      ],
+      "tags": [
+        "character:quark"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:quarks": {
+      "type": "character",
+      "label": "Quark's",
+      "aliases": [
+        "Quark's"
+      ],
+      "canonicalNames": [
+        "Quark's"
+      ],
+      "tags": [
+        "character:quarks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:rom": {
+      "type": "character",
+      "label": "Rom",
+      "aliases": [
+        "Rom"
+      ],
+      "canonicalNames": [
+        "Rom"
+      ],
+      "tags": [
+        "character:rom"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:romulan-star-empire": {
+      "type": "faction",
+      "label": "Romulan Star Empire",
+      "aliases": [
+        "Romulan Star Empire"
+      ],
+      "canonicalNames": [
+        "Romulan Star Empire"
+      ],
+      "tags": [
+        "faction:romulan-star-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet-academy": {
+      "type": "character",
+      "label": "Starfleet Academy",
+      "aliases": [
+        "Starfleet Academy"
+      ],
+      "canonicalNames": [
+        "Starfleet Academy"
+      ],
+      "tags": [
+        "character:starfleet-academy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tiron": {
+      "type": "character",
+      "label": "Tiron",
+      "aliases": [
+        "Tiron"
+      ],
+      "canonicalNames": [
+        "Tiron"
+      ],
+      "tags": [
+        "character:tiron"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ulani-belor": {
+      "type": "character",
+      "label": "Ulani Belor",
+      "aliases": [
+        "Ulani Belor"
+      ],
+      "canonicalNames": [
+        "Ulani Belor"
+      ],
+      "tags": [
+        "character:ulani-belor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:zek": {
+      "type": "character",
+      "label": "Zek",
+      "aliases": [
+        "Zek"
+      ],
+      "canonicalNames": [
+        "Zek"
+      ],
+      "tags": [
+        "character:zek"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    }
+  }
+}

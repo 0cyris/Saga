@@ -1,0 +1,673 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_fish_men_are_introduced_as_physically_powerful_compared_with_ordinary_humans_033",
+      "title": "Fish-Men Are Introduced As Physically Powerful In East Blue Scale",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.fish-men-and-east-blue-context",
+        "validToAnchor": "op.arlong-park.cartography-and-navigation",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5540,
+        "sortKeyTo": 5630,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Fish-Men Are Introduced As Physically Powerful In East Blue Scale"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:fish-men",
+          "op:arlong-pirates"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Fish-Men",
+          "Arlong Pirates"
+        ],
+        "topics": [
+          "fish-man strength",
+          "East Blue combat scale",
+          "physical power"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:fish-men",
+        "faction:arlong-pirates",
+        "topic:fish-man-strength"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Fish-Men",
+            "Arlong Pirates"
+          ],
+          "topicsAny": [
+            "fish-man strength",
+            "East Blue combat scale",
+            "physical power"
+          ],
+          "keywordsAny": [
+            "Fish-Men",
+            "Arlong Pirates",
+            "fish-man strength",
+            "East Blue combat scale",
+            "physical power",
+            "water",
+            "East Blue",
+            "Fish-Men Are Introduced As Physically Powerful In East Blue Scale",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Fish-Men are introduced as physically powerful compared with ordinary humans, especially around water, within the immediate East Blue combat scale.",
+        "injection": "Use Fish-Man strength as an arc-local combat rule: it explains pressure in matchups without importing later race history or politics.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_arlong_uses_that_strength_to_justify_rule_over_humans_034",
+      "title": "Arlong Uses Strength To Justify Rule Over Humans",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.fish-men-and-east-blue-context",
+        "validToAnchor": "op.arlong-park.cartography-and-navigation",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5540,
+        "sortKeyTo": 5630,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Arlong Uses Strength To Justify Rule Over Humans"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:arlong",
+          "op:fish-men",
+          "op:cocoyasi-village"
+        ],
+        "characters": [
+          "Arlong"
+        ],
+        "locations": [
+          "Cocoyasi Village"
+        ],
+        "objects": [],
+        "factions": [
+          "Fish-Men"
+        ],
+        "topics": [
+          "strength as ideology",
+          "human rule",
+          "occupation rhetoric"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:arlong",
+        "faction:fish-men",
+        "location:cocoyasi-village",
+        "topic:strength-as-ideology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Arlong"
+          ],
+          "entitiesAny": [
+            "Arlong",
+            "Fish-Men",
+            "Cocoyasi Village"
+          ],
+          "topicsAny": [
+            "strength as ideology",
+            "human rule",
+            "occupation rhetoric"
+          ],
+          "keywordsAny": [
+            "Arlong",
+            "Fish-Men",
+            "Cocoyasi Village",
+            "strength as ideology",
+            "human rule",
+            "occupation rhetoric",
+            "ideology",
+            "rule humans",
+            "superiority",
+            "Arlong Uses Strength To Justify Rule Over Humans",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Arlong uses Fish-Man strength to justify ruling humans, turning physical advantage into occupation ideology.",
+        "injection": "Use this as Arlong's rhetoric gate: he is not merely strong, he treats strength as proof that he should own people.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_jinbe_and_the_seven_warlords_are_mentioned_only_as_arc_local_world_hooks_035",
+      "title": "Jinbe And Warlords Stay Name-Level World Hooks",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.fish-men-and-east-blue-context",
+        "validToAnchor": "op.arlong-park.cartography-and-navigation",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5540,
+        "sortKeyTo": 5630,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Jinbe And Warlords Stay Name-Level World Hooks"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:jinbe",
+          "op:seven-warlords",
+          "op:arlong",
+          "op:yosaku"
+        ],
+        "characters": [
+          "Jinbe",
+          "Arlong",
+          "Yosaku"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Seven Warlords of the Sea"
+        ],
+        "topics": [
+          "Jinbe mention boundary",
+          "Warlord name hook",
+          "anti-lore gate"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:jinbe",
+        "faction:seven-warlords",
+        "character:arlong",
+        "character:yosaku",
+        "topic:jinbe-mention-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jinbe",
+            "Arlong",
+            "Yosaku"
+          ],
+          "entitiesAny": [
+            "Jinbe",
+            "Seven Warlords of the Sea",
+            "Arlong",
+            "Yosaku"
+          ],
+          "topicsAny": [
+            "Jinbe mention boundary",
+            "Warlord name hook",
+            "anti-lore gate"
+          ],
+          "keywordsAny": [
+            "Jinbe",
+            "Seven Warlords of the Sea",
+            "Arlong",
+            "Yosaku",
+            "Jinbe mention boundary",
+            "Warlord name hook",
+            "anti-lore gate",
+            "Seven Warlords",
+            "name only",
+            "Jinbe And Warlords Stay Name-Level World Hooks",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Jinbe and the Seven Warlords may be mentioned at name or rumor level in Arlong Park, but their later history stays outside this deck.",
+        "injection": "Use these names as limited world hooks only; do not explain Jinbe, Fisher Tiger, the Sun Pirates, or later Warlord politics.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_den_den_mushi_communication_appears_as_practical_world_technology_036",
+      "title": "Den Den Mushi Works As Practical Communication Tech",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.fish-men-and-east-blue-context",
+        "validToAnchor": "op.arlong-park.cartography-and-navigation",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5540,
+        "sortKeyTo": 5630,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Den Den Mushi Works As Practical Communication Tech"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:den-den-mushi",
+          "op:arlong-pirates",
+          "op:corrupt-marines"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [
+          "Den Den Mushi"
+        ],
+        "factions": [
+          "Arlong Pirates",
+          "corrupt Marines"
+        ],
+        "topics": [
+          "Den Den Mushi communication",
+          "practical technology",
+          "local coordination"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:den-den-mushi",
+        "faction:arlong-pirates",
+        "faction:corrupt-marines",
+        "topic:den-den-mushi-communication"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Den Den Mushi",
+            "Arlong Pirates",
+            "corrupt Marines"
+          ],
+          "topicsAny": [
+            "Den Den Mushi communication",
+            "practical technology",
+            "local coordination"
+          ],
+          "keywordsAny": [
+            "Den Den Mushi",
+            "Arlong Pirates",
+            "corrupt Marines",
+            "Den Den Mushi communication",
+            "practical technology",
+            "local coordination",
+            "snail phone",
+            "communication",
+            "report",
+            "Den Den Mushi Works As Practical Communication Tech",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Den Den Mushi communication appears as practical world technology for coordination, warnings, or reports without needing a broad technology explainer.",
+        "injection": "Use Den Den Mushi only when communication logistics matter; keep it as ordinary setting tech rather than a lore lecture.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    }
+  ]
+}

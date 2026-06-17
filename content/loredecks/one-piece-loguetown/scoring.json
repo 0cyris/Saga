@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "scoringProfiles": {
+    "default": {
+      "label": "One Piece Arc Default",
+      "contextBoost": "medium",
+      "retrievalBias": "topic_or_entity",
+      "notes": "Prefer specific arc entities and topics over broad fandom keywords."
+    }
+  }
+}

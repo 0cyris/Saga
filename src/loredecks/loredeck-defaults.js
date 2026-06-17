@@ -10,18 +10,39 @@ export const DEFAULT_HP_LOREDECK_UPDATED_AT = 1780876800000;
 export const DEFAULT_LOTR_LOREDECK_UPDATED_AT = 1780876800000;
 export const DEFAULT_MHA_LOREDECK_UPDATED_AT = 1780876800000;
 export const DEFAULT_JJK_LOREDECK_UPDATED_AT = 1781136000000;
+export const DEFAULT_ONE_PIECE_LOREDECK_UPDATED_AT = 1781654400000;
+export const DEFAULT_STAR_TREK_LOREDECK_UPDATED_AT = 1781740800000;
 export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_UPDATED_AT = 1780876800000;
 
 const HP_LIBRARY_PATH = Object.freeze(['Harry Potter', 'Golden Trio']);
 const LOTR_LIBRARY_PATH = Object.freeze(['Lord of The Rings', 'War of the Ring']);
 const MHA_LIBRARY_PATH = Object.freeze(['My Hero Academia', 'Manga Main']);
 const JJK_LIBRARY_PATH = Object.freeze(['Jujutsu Kaisen', 'Manga Main']);
+const ONE_PIECE_LIBRARY_PATH = Object.freeze(['One Piece']);
+const STAR_TREK_LIBRARY_PATH = Object.freeze(['Star Trek']);
 const STAR_WARS_LEGENDS_LIBRARY_PATH = Object.freeze(['Star Wars', 'Legends']);
 const HP_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const LOTR_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const MHA_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const JJK_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
+const ONE_PIECE_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
+const STAR_TREK_SOURCE = Object.freeze({ kind: 'bundled', url: 'https://memory-alpha.fandom.com/wiki/Portal:Main' });
 const STAR_WARS_LEGENDS_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
+const ONE_PIECE_LOREDECK_VERSION_OVERRIDES = Object.freeze({
+    'one-piece-orange-town': '0.4.1-orange-town-runtime-lore',
+    'one-piece-syrup-village': '0.4.1-syrup-village-runtime-lore',
+    'one-piece-baratie': '0.4.1-baratie-runtime-lore',
+    'one-piece-arlong-park': '0.4.1-arlong-park-runtime-lore',
+    'one-piece-loguetown': '0.4.1-loguetown-runtime-lore',
+    'one-piece-warship-island': '0.4.1-warship-island-runtime-lore',
+    'one-piece-reverse-mountain': '0.4.1-reverse-mountain-runtime-lore',
+    'one-piece-whisky-peak': '0.4.1-whisky-peak-runtime-lore',
+    'one-piece-little-garden': '0.4.1-little-garden-runtime-lore',
+    'one-piece-drum-island': '0.4.1-drum-island-runtime-lore',
+});
+const STAR_TREK_LOREDECK_DESCRIPTION_OVERRIDES = Object.freeze({
+    'star-trek-ds9-season-2': 'Draft season Loredeck for Star Trek: Deep Space Nine season 2, covering Bajoran coup d\'\u00e9tat, The Maquis, Mirror universe, Dominion introduction with season-local spoiler guards.',
+});
 
 const HP_SPLIT_LOREDECKS = Object.freeze([
     {
@@ -177,7 +198,7 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
     {
         "packId": "hp-year-5-order-of-the-phoenix",
         "title": "Harry Potter Year 5: Order of the Phoenix",
-        "description": "Year 5 Golden Trio Loredeck for Ministry denial, Umbridge, Dumbledore’s Army, Occlumency, OWLs, and the Department of Mysteries.",
+        "description": "Year 5 Golden Trio Loredeck for Ministry denial, Umbridge, Dumbledore's Army, Occlumency, OWLs, and the Department of Mysteries.",
         "era": "Year 5: Order of the Phoenix",
         "familyOrder": 60,
         "tags": [
@@ -379,7 +400,7 @@ const LOTR_SPLIT_LOREDECKS = Object.freeze([
     {
         packId: 'middle-earth-return-of-the-king',
         title: 'Middle-earth: The Return of the King',
-        description: 'Context-gated War of the Ring lore for The Return of the King book arc, including Gondor, Rohan, Pelennor, Mordor, Mount Doom, Sauron’s fall, Scouring of the Shire, and the Grey Havens.',
+        description: 'Context-gated War of the Ring lore for The Return of the King book arc, including Gondor, Rohan, Pelennor, Mordor, Mount Doom, Sauron\'s fall, Scouring of the Shire, and the Grey Havens.',
         era: 'The Return of the King',
         familyOrder: 40,
         tags: ['fandom:middle-earth', 'era:war-of-the-ring', 'book:return-of-the-king', 'continuity:lotr-books', 'density:hp-reference-band', 'quality:reviewed-draft', 'density:volume-reference-candidate', 'quality:v8-density-pass'],
@@ -917,6 +938,1114 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
     },
 ]);
 
+const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
+    {
+        "packId": "one-piece-romance-dawn",
+        "title": "One Piece: Romance Dawn Arc",
+        "description": "Reviewed manga-main Loredeck for Luffy leaving home, Shanks, Coby escaping Alvida, Zoro at Shells Town, Morgan, and the first Straw Hat alliance.",
+        "era": "Romance Dawn Arc",
+        "familyOrder": 10,
+        "libraryPath": [
+            "One Piece",
+            "East Blue Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:east-blue",
+            "arc:romance-dawn",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 34,
+            "categoryCounts": {
+                "character": 10,
+                "event": 5,
+                "faction": 3,
+                "item": 1,
+                "knowledge": 2,
+                "location": 2,
+                "relationship": 7,
+                "rule": 4
+            },
+            "timelineAnchorCount": 8,
+            "timelineWindowCount": 8,
+            "tagCount": 49,
+            "entityCount": 18
+        }
+    },
+    {
+        "packId": "one-piece-orange-town",
+        "title": "One Piece: Orange Town Arc",
+        "description": "Reviewed manga-main Loredeck for Orange Town occupation stakes, Nami reveal gates, Buggy combat rules, Chouchou and Boodle civilian pressure, and the provisional Luffy-Zoro-Nami alliance.",
+        "era": "Orange Town Arc",
+        "familyOrder": 20,
+        "libraryPath": [
+            "One Piece",
+            "East Blue Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:east-blue",
+            "arc:orange-town",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 31,
+            "categoryCounts": {
+                "character": 7,
+                "event": 5,
+                "faction": 1,
+                "knowledge": 3,
+                "location": 2,
+                "relationship": 5,
+                "rule": 8
+            },
+            "timelineAnchorCount": 8,
+            "timelineWindowCount": 8,
+            "tagCount": 51,
+            "entityCount": 21
+        }
+    },
+    {
+        "packId": "one-piece-syrup-village",
+        "title": "One Piece: Syrup Village Arc",
+        "description": "Reviewed manga-main Loredeck for Usopp credibility gates, Kaya and Kuro deception, Syrup Village defense geography, Black Cat battle pressure, and Going Merry provenance.",
+        "era": "Syrup Village Arc",
+        "familyOrder": 30,
+        "libraryPath": [
+            "One Piece",
+            "East Blue Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:east-blue",
+            "arc:syrup-village",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 37,
+            "categoryCounts": {
+                "character": 7,
+                "event": 4,
+                "faction": 3,
+                "item": 5,
+                "knowledge": 10,
+                "location": 4,
+                "relationship": 3,
+                "rule": 1
+            },
+            "timelineAnchorCount": 9,
+            "timelineWindowCount": 9,
+            "tagCount": 66,
+            "entityCount": 25
+        }
+    },
+    {
+        "packId": "one-piece-baratie",
+        "title": "One Piece: Baratie Arc",
+        "description": "Reviewed manga-main Loredeck for Baratie food ethics, Sanji and Zeff debt, Krieg siege pressure, Mihawk and Zoro scale shock, Nami pursuit gating, and Sanji goodbye.",
+        "era": "Baratie Arc",
+        "familyOrder": 40,
+        "libraryPath": [
+            "One Piece",
+            "East Blue Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:east-blue",
+            "arc:baratie",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 41,
+            "categoryCounts": {
+                "character": 6,
+                "event": 10,
+                "faction": 2,
+                "knowledge": 6,
+                "location": 3,
+                "relationship": 9,
+                "rule": 5
+            },
+            "timelineAnchorCount": 10,
+            "timelineWindowCount": 10,
+            "tagCount": 68,
+            "entityCount": 21
+        }
+    },
+    {
+        "packId": "one-piece-arlong-park",
+        "title": "One Piece: Arlong Park Arc",
+        "description": "Reviewed manga-main Loredeck for Nami reveal timing, Cocoyasi occupation, Arlong tribute and map-room coercion, Nezumi corruption, crew trust, and Arlong Park matchups.",
+        "era": "Arlong Park Arc",
+        "familyOrder": 50,
+        "libraryPath": [
+            "One Piece",
+            "East Blue Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:east-blue",
+            "arc:arlong-park",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 41,
+            "categoryCounts": {
+                "character": 6,
+                "event": 11,
+                "faction": 2,
+                "knowledge": 8,
+                "location": 2,
+                "relationship": 6,
+                "rule": 6
+            },
+            "timelineAnchorCount": 11,
+            "timelineWindowCount": 11,
+            "tagCount": 77,
+            "entityCount": 30
+        }
+    },
+    {
+        "packId": "one-piece-loguetown",
+        "title": "One Piece: Loguetown Arc",
+        "description": "Reviewed manga-main Loredeck for Loguetown as East Blue threshold, Roger legacy, Smoker and Tashigi pressure, Buggy and Alvida revenge, Dragon mystery, and Grand Line departure.",
+        "era": "Loguetown Arc",
+        "familyOrder": 60,
+        "libraryPath": [
+            "One Piece",
+            "East Blue Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:east-blue",
+            "arc:loguetown",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 35,
+            "categoryCounts": {
+                "character": 6,
+                "event": 8,
+                "faction": 2,
+                "item": 1,
+                "knowledge": 5,
+                "location": 7,
+                "relationship": 2,
+                "rule": 4
+            },
+            "timelineAnchorCount": 9,
+            "timelineWindowCount": 9,
+            "tagCount": 68,
+            "entityCount": 27
+        }
+    },
+    {
+        "packId": "one-piece-warship-island",
+        "title": "One Piece: Warship Island Arc",
+        "description": "Reviewed show-continuity Loredeck for Apis, Ryu, Warship Island, Lost Island, local Marine pursuit, Eric and Nelson pressure, and the anime bridge into Reverse Mountain.",
+        "era": "Warship Island Arc",
+        "familyOrder": 70,
+        "libraryPath": [
+            "One Piece",
+            "East Blue Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-anime-main",
+            "adaptation:anime",
+            "saga:east-blue",
+            "arc:warship-island",
+            "topic:show-only",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 25,
+            "categoryCounts": {
+                "character": 6,
+                "event": 3,
+                "faction": 1,
+                "item": 1,
+                "knowledge": 3,
+                "location": 2,
+                "relationship": 3,
+                "rule": 6
+            },
+            "timelineAnchorCount": 7,
+            "timelineWindowCount": 7,
+            "tagCount": 36,
+            "entityCount": 22
+        }
+    },
+    {
+        "packId": "one-piece-reverse-mountain",
+        "title": "One Piece: Reverse Mountain Arc",
+        "description": "Reviewed manga-main Loredeck for Grand Line entry mechanics, Reverse Mountain, Twin Cape, Laboon and Crocus, Log Pose basics, and the first Baroque Works route hook.",
+        "era": "Reverse Mountain Arc",
+        "familyOrder": 80,
+        "libraryPath": [
+            "One Piece",
+            "Arabasta Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:arabasta",
+            "arc:reverse-mountain",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 30,
+            "categoryCounts": {
+                "character": 5,
+                "event": 5,
+                "faction": 1,
+                "knowledge": 6,
+                "location": 2,
+                "relationship": 3,
+                "rule": 8
+            },
+            "timelineAnchorCount": 8,
+            "timelineWindowCount": 8,
+            "tagCount": 33,
+            "entityCount": 21
+        }
+    },
+    {
+        "packId": "one-piece-whisky-peak",
+        "title": "One Piece: Whisky Peak Arc",
+        "description": "Reviewed manga-main Loredeck for Whisky Peak trap hospitality, Baroque Works secrecy, Zoro and Luffy conflict, Vivi and Igaram reveal windows, officer-agent pressure, and Arabasta mission handoff.",
+        "era": "Whisky Peak Arc",
+        "familyOrder": 90,
+        "libraryPath": [
+            "One Piece",
+            "Arabasta Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:arabasta",
+            "arc:whisky-peak",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 36,
+            "categoryCounts": {
+                "character": 9,
+                "event": 3,
+                "faction": 4,
+                "knowledge": 2,
+                "location": 4,
+                "relationship": 4,
+                "rule": 7,
+                "secret": 3
+            },
+            "timelineAnchorCount": 9,
+            "timelineWindowCount": 9,
+            "tagCount": 40,
+            "entityCount": 27
+        }
+    },
+    {
+        "packId": "one-piece-little-garden",
+        "title": "One Piece: Little Garden Arc",
+        "description": "Reviewed manga-main Loredeck for Little Garden hazards, Dorry and Brogy honor, Elbaf boundaries, Baroque Works sabotage, wax and color tactics, Sanji route recovery, and Nami illness bridge.",
+        "era": "Little Garden Arc",
+        "familyOrder": 100,
+        "libraryPath": [
+            "One Piece",
+            "Arabasta Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:arabasta",
+            "arc:little-garden",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 40,
+            "categoryCounts": {
+                "character": 7,
+                "event": 7,
+                "faction": 2,
+                "knowledge": 6,
+                "location": 4,
+                "relationship": 4,
+                "rule": 10
+            },
+            "timelineAnchorCount": 10,
+            "timelineWindowCount": 10,
+            "tagCount": 40,
+            "entityCount": 27
+        }
+    },
+    {
+        "packId": "one-piece-drum-island",
+        "title": "One Piece: Drum Island Arc",
+        "description": "Reviewed manga-main Loredeck for Drum Island medical urgency, winter terrain, Wapol medical tyranny, Dalton and citizen pressure, Chopper/Hiriluk/Kureha identity gates, castle battle, sakura farewell, and narrow Ace/Blackbeard/Roger hooks.",
+        "era": "Drum Island Arc",
+        "familyOrder": 110,
+        "libraryPath": [
+            "One Piece",
+            "Arabasta Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:arabasta",
+            "arc:drum-island",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 44,
+            "categoryCounts": {
+                "character": 8,
+                "event": 11,
+                "faction": 3,
+                "knowledge": 7,
+                "location": 2,
+                "relationship": 6,
+                "rule": 4,
+                "secret": 3
+            },
+            "timelineAnchorCount": 11,
+            "timelineWindowCount": 11,
+            "tagCount": 44,
+            "entityCount": 31
+        }
+    },
+    {
+        "packId": "one-piece-arabasta",
+        "title": "One Piece: Arabasta Arc",
+        "description": "Reviewed manga-main Loredeck for Arabasta kingdom-war pressure, Crocodile and Baroque Works manipulation, Vivi leadership, desert route constraints, Alubarna matchups, Poneglyph and Pluton gates, civil-war resolution, farewell, Robin boarding, and immediate cover-up state.",
+        "era": "Arabasta Arc",
+        "familyOrder": 120,
+        "libraryPath": [
+            "One Piece",
+            "Arabasta Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-manga-main",
+            "saga:arabasta",
+            "arc:arabasta",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 58,
+            "categoryCounts": {
+                "character": 7,
+                "event": 13,
+                "faction": 4,
+                "item": 3,
+                "knowledge": 2,
+                "location": 5,
+                "relationship": 6,
+                "rule": 8,
+                "secret": 10
+            },
+            "timelineAnchorCount": 12,
+            "timelineWindowCount": 12,
+            "tagCount": 70,
+            "entityCount": 55
+        }
+    },
+    {
+        "packId": "one-piece-post-arabasta",
+        "title": "One Piece: Post-Arabasta Arc",
+        "description": "Reviewed show-continuity Loredeck for Post-Arabasta episodes 131-135, covering anime-only shipboard decompression, Chopper Rumble Ball memory, Nami world-map paper, Sanji Tajio curry mentorship, Usopp Kodama fireworks, Zoro Johnny/Yosaku flashback, Robin early suspicion, Vivi absence, and next-island containment.",
+        "era": "Post-Arabasta Arc",
+        "familyOrder": 130,
+        "libraryPath": [
+            "One Piece",
+            "Arabasta Saga"
+        ],
+        "tags": [
+            "fandom:one-piece",
+            "continuity:one-piece-anime-main",
+            "adaptation:anime",
+            "saga:arabasta",
+            "arc:post-arabasta",
+            "topic:show-only",
+            "structure:arc-split-loredeck",
+            "quality:reviewed-baseline"
+        ],
+        "stats": {
+            "entryCount": 25,
+            "categoryCounts": {
+                "character": 5,
+                "event": 5,
+                "knowledge": 1,
+                "location": 1,
+                "relationship": 4,
+                "rule": 6,
+                "secret": 3
+            },
+            "timelineAnchorCount": 7,
+            "timelineWindowCount": 7,
+            "tagCount": 45,
+            "entityCount": 28
+        }
+    }]);
+const ONE_PIECE_ARC_LOREDECKS_BY_STORY_ORDER = Object.freeze(
+    [...ONE_PIECE_ARC_LOREDECKS].sort((left, right) => (Number(left.familyOrder) || 0) - (Number(right.familyOrder) || 0))
+);
+
+const STAR_TREK_LOREDECKS = Object.freeze([
+    {
+        packId: 'star-trek-tng-season-1',
+        title: 'Star Trek TNG Season 1',
+        description: 'Draft season Loredeck for the Enterprise-D launch year, Q at Farpoint, early crew baselines, Ferengi and Romulan contact, Data/Lore, Yar death, and season 1 spoiler guards.',
+        era: 'The Next Generation Season 1',
+        familyOrder: 10,
+        libraryPath: ['Star Trek', 'The Next Generation'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:tng',
+            'season:tng-s1',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 75,
+            categoryCounts: {
+                character: 23,
+                event: 11,
+                faction: 6,
+                knowledge: 2,
+                relationship: 4,
+                rule: 14,
+                secret: 15,
+            },
+            timelineAnchorCount: 25,
+            timelineWindowCount: 25,
+            tagCount: 255,
+            entityCount: 26,
+        },
+    },
+    {
+        packId: 'star-trek-tng-season-2',
+        title: 'Star Trek TNG Season 2',
+        description: 'Draft season Loredeck for Pulaski and Guinan, Ten Forward, Data personhood, Moriarty, Klingon exchange, Q-forced Borg first contact, Picard artificial-heart vulnerability, and season 2 spoiler guards.',
+        era: 'The Next Generation Season 2',
+        familyOrder: 20,
+        libraryPath: ['Star Trek', 'The Next Generation'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:tng',
+            'season:tng-s2',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 70,
+            categoryCounts: {
+                character: 15,
+                event: 17,
+                faction: 4,
+                relationship: 7,
+                rule: 9,
+                secret: 18,
+            },
+            timelineAnchorCount: 22,
+            timelineWindowCount: 22,
+            tagCount: 251,
+            entityCount: 36,
+        },
+    },
+    {
+        packId: 'star-trek-tng-season-3',
+        title: 'Star Trek TNG Season 3',
+        description: 'Draft season Loredeck for the mature Enterprise-D baseline, Romulan pressure, Data/Lal, Worf/Kurn/Duras, Barclay, Sarek, Yesterday\'s Enterprise, and the Borg cliffhanger.',
+        era: 'The Next Generation Season 3',
+        familyOrder: 30,
+        libraryPath: ['Star Trek', 'The Next Generation'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:tng',
+            'season:tng-s3',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 85,
+            categoryCounts: {
+                character: 20,
+                event: 11,
+                faction: 7,
+                relationship: 6,
+                rule: 11,
+                secret: 30,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 322,
+            entityCount: 58,
+        },
+    },
+    {
+        packId: 'star-trek-tng-season-4',
+        title: 'Star Trek TNG Season 4',
+        description: 'Draft season Loredeck for the Borg aftermath, Picard recovery, Soong/Lore, Klingon succession, Cardassian first contact, Drumhead, Trill/Odan, Mind\'s Eye, and the Redemption cliffhanger.',
+        era: 'The Next Generation Season 4',
+        familyOrder: 40,
+        libraryPath: ['Star Trek', 'The Next Generation'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:tng',
+            'season:tng-s4',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 85,
+            categoryCounts: {
+                character: 29,
+                event: 26,
+                faction: 2,
+                secret: 28,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 218,
+            entityCount: 66,
+        },
+    },
+    {
+        packId: 'star-trek-tng-season-5',
+        title: 'Star Trek TNG Season 5',
+        description: 'Draft season Loredeck for Star Trek: The Next Generation season 5, covering Redemption, Crystalline Entity, Vulcan/Romulan reunification, Hugh, Time\'s Arrow with season-local spoiler guards.',
+        era: 'The Next Generation Season 5',
+        familyOrder: 50,
+        libraryPath: ['Star Trek', 'The Next Generation'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:tng',
+            'season:tng-s5',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 257,
+            entityCount: 68,
+        },
+    },
+    {
+        packId: 'star-trek-tng-season-6',
+        title: 'Star Trek TNG Season 6',
+        description: 'Draft season Loredeck for Star Trek: The Next Generation season 6, covering Time\'s Arrow, Chain Of Command, Professor James Moriarty, Vulcan/Romulan reunification, Birthright with season-local spoiler guards.',
+        era: 'The Next Generation Season 6',
+        familyOrder: 60,
+        libraryPath: ['Star Trek', 'The Next Generation'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:tng',
+            'season:tng-s6',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 256,
+            entityCount: 67,
+        },
+    },
+    {
+        packId: 'star-trek-tng-season-7',
+        title: 'Star Trek TNG Season 7',
+        description: 'Draft season Loredeck for Star Trek: The Next Generation season 7, covering Descent, Gambit, Riker and the Pegasus, The Traveler, Worf vs. Duras with season-local spoiler guards.',
+        era: 'The Next Generation Season 7',
+        familyOrder: 70,
+        libraryPath: ['Star Trek', 'The Next Generation'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:tng',
+            'season:tng-s7',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 80,
+            categoryCounts: {
+                character: 26,
+                event: 26,
+                faction: 1,
+                rule: 1,
+                secret: 26,
+            },
+            timelineAnchorCount: 25,
+            timelineWindowCount: 25,
+            tagCount: 239,
+            entityCount: 60,
+        },
+    },
+    {
+        packId: 'star-trek-ds9-season-1',
+        title: 'Star Trek DS9 Season 1',
+        description: 'Draft season Loredeck for Deep Space Nine season 1, covering Sisko as Emissary, post-occupation Bajor, Cardassian pressure, the wormhole and Prophets, Odo, Dax, Ferengi station politics, Duet, and season-local spoiler guards.',
+        era: 'Deep Space Nine Season 1',
+        familyOrder: 110,
+        libraryPath: ['Star Trek', 'Deep Space Nine'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:ds9',
+            'season:ds9-s1',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 62,
+            categoryCounts: {
+                character: 20,
+                event: 20,
+                faction: 1,
+                rule: 1,
+                secret: 20,
+            },
+            timelineAnchorCount: 19,
+            timelineWindowCount: 19,
+            tagCount: 182,
+            entityCount: 53,
+        },
+    },
+    {
+        packId: 'star-trek-ds9-season-2',
+        title: 'Star Trek DS9 Season 2',
+        description: 'Draft season Loredeck for Star Trek: Deep Space Nine season 2, covering Bajoran coup d\'etat, The Maquis, Mirror universe, Dominion introduction with season-local spoiler guards.',
+        era: 'Deep Space Nine Season 2',
+        familyOrder: 120,
+        libraryPath: ['Star Trek', 'Deep Space Nine'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:ds9',
+            'season:ds9-s2',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 224,
+            entityCount: 64,
+        },
+    },
+    {
+        packId: 'star-trek-ds9-season-3',
+        title: 'Star Trek DS9 Season 3',
+        description: 'Draft season Loredeck for Star Trek: Deep Space Nine season 3, covering Dominion introduction, Quark and Grilka, Thomas Riker, Past Tense, Mirror universe with season-local spoiler guards.',
+        era: 'Deep Space Nine Season 3',
+        familyOrder: 130,
+        libraryPath: ['Star Trek', 'Deep Space Nine'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:ds9',
+            'season:ds9-s3',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 209,
+            entityCount: 56,
+        },
+    },
+    {
+        packId: 'star-trek-ds9-season-4',
+        title: 'Star Trek DS9 Season 4',
+        description: 'Draft season Loredeck for Star Trek: Deep Space Nine season 4, covering Changeling infiltration, Worf vs. Duras, Starfleet coup, Klingon War, Mirror universe with season-local spoiler guards.',
+        era: 'Deep Space Nine Season 4',
+        familyOrder: 140,
+        libraryPath: ['Star Trek', 'Deep Space Nine'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:ds9',
+            'season:ds9-s4',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 80,
+            categoryCounts: {
+                character: 26,
+                event: 26,
+                faction: 1,
+                rule: 1,
+                secret: 26,
+            },
+            timelineAnchorCount: 25,
+            timelineWindowCount: 25,
+            tagCount: 207,
+            entityCount: 56,
+        },
+    },
+    {
+        packId: 'star-trek-ds9-season-5',
+        title: 'Star Trek DS9 Season 5',
+        description: 'Draft season Loredeck for Star Trek: Deep Space Nine season 5, covering Changeling infiltration, Quark and Grilka, Klingon War, Tribble troubles, Eddington vs. Sisko with season-local spoiler guards.',
+        era: 'Deep Space Nine Season 5',
+        familyOrder: 150,
+        libraryPath: ['Star Trek', 'Deep Space Nine'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:ds9',
+            'season:ds9-s5',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 207,
+            entityCount: 54,
+        },
+    },
+    {
+        packId: 'star-trek-ds9-season-6',
+        title: 'Star Trek DS9 Season 6',
+        description: 'Draft season Loredeck for Star Trek: Deep Space Nine season 6, covering Dominion invasion, Mirror universe, Section 31 and Julian Bashir, The death of Jadzia and the Sisko\'s purpose with season-local spoiler guards.',
+        era: 'Deep Space Nine Season 6',
+        familyOrder: 160,
+        libraryPath: ['Star Trek', 'Deep Space Nine'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:ds9',
+            'season:ds9-s6',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 207,
+            entityCount: 58,
+        },
+    },
+    {
+        packId: 'star-trek-ds9-season-7',
+        title: 'Star Trek DS9 Season 7',
+        description: 'Draft season Loredeck for Star Trek: Deep Space Nine season 7, covering The death of Jadzia and the Sisko\'s purpose, Nog and AR-558, Mirror universe, Section 31 and Julian Bashir, The Final Chapter with season-local spoiler guards.',
+        era: 'Deep Space Nine Season 7',
+        familyOrder: 170,
+        libraryPath: ['Star Trek', 'Deep Space Nine'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:ds9',
+            'season:ds9-s7',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 80,
+            categoryCounts: {
+                character: 26,
+                event: 26,
+                faction: 1,
+                rule: 1,
+                secret: 26,
+            },
+            timelineAnchorCount: 25,
+            timelineWindowCount: 25,
+            tagCount: 197,
+            entityCount: 54,
+        },
+    },
+    {
+        packId: 'star-trek-voy-season-1',
+        title: 'Star Trek Voyager Season 1',
+        description: 'Draft season Loredeck for Voyager season 1, covering the Caretaker displacement, stranded Starfleet and Maquis crew integration, Kazon and Vidiian pressure, the Delta Quadrant survival baseline, Seska, and season-local spoiler guards.',
+        era: 'Voyager Season 1',
+        familyOrder: 210,
+        libraryPath: ['Star Trek', 'Voyager'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:voy',
+            'season:voy-s1',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 65,
+            categoryCounts: {
+                character: 16,
+                event: 16,
+                faction: 1,
+                rule: 16,
+                secret: 16,
+            },
+            timelineAnchorCount: 15,
+            timelineWindowCount: 15,
+            tagCount: 139,
+            entityCount: 27,
+        },
+    },
+    {
+        packId: 'star-trek-voy-season-2',
+        title: 'Star Trek Voyager Season 2',
+        description: 'Draft season Loredeck for Star Trek: Voyager season 2, covering Seska, Suder\'s Penance, Q Civil War, Basics with season-local spoiler guards.',
+        era: 'Voyager Season 2',
+        familyOrder: 220,
+        libraryPath: ['Star Trek', 'Voyager'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:voy',
+            'season:voy-s2',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 190,
+            entityCount: 37,
+        },
+    },
+    {
+        packId: 'star-trek-voy-season-3',
+        title: 'Star Trek Voyager Season 3',
+        description: 'Draft season Loredeck for Star Trek: Voyager season 3, covering Basics, Arridor and Kol, Future\'s End, Q Civil War, Nekrit Expanse with season-local spoiler guards.',
+        era: 'Voyager Season 3',
+        familyOrder: 230,
+        libraryPath: ['Star Trek', 'Voyager'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:voy',
+            'season:voy-s3',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 244,
+            entityCount: 57,
+        },
+    },
+    {
+        packId: 'star-trek-voy-season-4',
+        title: 'Star Trek Voyager Season 4',
+        description: 'Draft season Loredeck for Star Trek: Voyager season 4, covering Scorpion, Year of Hell, The Killing Game, The Silver Blood with season-local spoiler guards.',
+        era: 'Voyager Season 4',
+        familyOrder: 240,
+        libraryPath: ['Star Trek', 'Voyager'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:voy',
+            'season:voy-s4',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 196,
+            entityCount: 37,
+        },
+    },
+    {
+        packId: 'star-trek-voy-season-5',
+        title: 'Star Trek Voyager Season 5',
+        description: 'Draft season Loredeck for Star Trek: Voyager season 5, covering The Silver Blood, Future\'s End, Equinox with season-local spoiler guards.',
+        era: 'Voyager Season 5',
+        familyOrder: 250,
+        libraryPath: ['Star Trek', 'Voyager'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:voy',
+            'season:voy-s5',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 80,
+            categoryCounts: {
+                character: 26,
+                event: 26,
+                faction: 1,
+                rule: 1,
+                secret: 26,
+            },
+            timelineAnchorCount: 25,
+            timelineWindowCount: 25,
+            tagCount: 206,
+            entityCount: 42,
+        },
+    },
+    {
+        packId: 'star-trek-voy-season-6',
+        title: 'Star Trek Voyager Season 6',
+        description: 'Draft season Loredeck for Star Trek: Voyager season 6, covering Equinox, The Pathfinder Project, Fair Haven, Unimatrix Zero with season-local spoiler guards.',
+        era: 'Voyager Season 6',
+        familyOrder: 260,
+        libraryPath: ['Star Trek', 'Voyager'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:voy',
+            'season:voy-s6',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 83,
+            categoryCounts: {
+                character: 27,
+                event: 27,
+                faction: 1,
+                rule: 1,
+                secret: 27,
+            },
+            timelineAnchorCount: 26,
+            timelineWindowCount: 26,
+            tagCount: 227,
+            entityCount: 50,
+        },
+    },
+    {
+        packId: 'star-trek-voy-season-7',
+        title: 'Star Trek Voyager Season 7',
+        description: 'Draft season Loredeck for Star Trek: Voyager season 7, covering Unimatrix Zero, The Pathfinder Project, The Killing Game, Seska, Workforce with season-local spoiler guards.',
+        era: 'Voyager Season 7',
+        familyOrder: 270,
+        libraryPath: ['Star Trek', 'Voyager'],
+        tags: [
+            'fandom:star-trek',
+            'continuity:star-trek-prime',
+            'series:voy',
+            'season:voy-s7',
+            'structure:season-split-loredeck',
+            'quality:draft-reference',
+        ],
+        stats: {
+            entryCount: 77,
+            categoryCounts: {
+                character: 25,
+                event: 25,
+                faction: 1,
+                rule: 1,
+                secret: 25,
+            },
+            timelineAnchorCount: 24,
+            timelineWindowCount: 24,
+            tagCount: 201,
+            entityCount: 43,
+        },
+    },
+]);
+
 const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
     {
         packId: 'sw-legends-core',
@@ -1165,7 +2294,7 @@ function buildBundledLoredeckRecord(deck, options = {}) {
         fandom: options.fandom || '',
         era: deck.era,
         author: 'Saga',
-        version: options.version || '0.1.0',
+        version: deck.version || options.version || '0.1.0',
         entrySchemaVersion: 3,
         manifest: `content/loredecks/${deck.packId}/loredeck.json`,
         source: options.source || { kind: 'bundled', url: '' },
@@ -1221,6 +2350,36 @@ function buildJjkLoredeckRecord(deck) {
         source: JJK_SOURCE,
         libraryPath: JJK_LIBRARY_PATH,
         updatedAt: DEFAULT_JJK_LOREDECK_UPDATED_AT,
+        defaultAssets: false,
+    });
+}
+
+function buildOnePieceLoredeckRecord(deck) {
+    const packId = String(deck?.packId || '').trim();
+    return buildBundledLoredeckRecord({
+        ...deck,
+        version: ONE_PIECE_LOREDECK_VERSION_OVERRIDES[packId] || deck.version,
+    }, {
+        fandom: 'One Piece',
+        version: '0.4.0-development-pass',
+        source: ONE_PIECE_SOURCE,
+        libraryPath: ONE_PIECE_LIBRARY_PATH,
+        updatedAt: DEFAULT_ONE_PIECE_LOREDECK_UPDATED_AT,
+        defaultAssets: false,
+    });
+}
+
+function buildStarTrekLoredeckRecord(deck) {
+    const packId = String(deck?.packId || '').trim();
+    return buildBundledLoredeckRecord({
+        ...deck,
+        description: STAR_TREK_LOREDECK_DESCRIPTION_OVERRIDES[packId] || deck.description,
+    }, {
+        fandom: 'Star Trek',
+        version: '0.1.0-dev',
+        source: STAR_TREK_SOURCE,
+        libraryPath: STAR_TREK_LIBRARY_PATH,
+        updatedAt: DEFAULT_STAR_TREK_LOREDECK_UPDATED_AT,
         defaultAssets: false,
     });
 }
@@ -1283,6 +2442,14 @@ function buildJjkLoredeckContext(deck) {
     return buildLoredeckContext(deck, 'anchor_window');
 }
 
+function buildOnePieceLoredeckContext(deck) {
+    return buildLoredeckContext(deck, 'anchor_window');
+}
+
+function buildStarTrekLoredeckContext(deck) {
+    return buildLoredeckContext(deck, 'anchor_window');
+}
+
 function buildStarWarsLegendsLoredeckContext(deck) {
     return buildLoredeckContext(deck, 'anchor_window');
 }
@@ -1320,6 +2487,22 @@ export const DEFAULT_JJK_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
     JJK_SPLIT_LOREDECKS.map(deck => [deck.packId, buildJjkLoredeckContext(deck)])
 ));
 export const DEFAULT_JJK_LOREDECK_IDS = Object.freeze(JJK_SPLIT_LOREDECKS.map(deck => deck.packId));
+export const DEFAULT_ONE_PIECE_LOREDECK_LIBRARY_RECORDS = Object.freeze(ONE_PIECE_ARC_LOREDECKS_BY_STORY_ORDER.map(buildOnePieceLoredeckRecord));
+export const DEFAULT_ONE_PIECE_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
+    DEFAULT_ONE_PIECE_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
+));
+export const DEFAULT_ONE_PIECE_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
+    ONE_PIECE_ARC_LOREDECKS_BY_STORY_ORDER.map(deck => [deck.packId, buildOnePieceLoredeckContext(deck)])
+));
+export const DEFAULT_ONE_PIECE_LOREDECK_IDS = Object.freeze(ONE_PIECE_ARC_LOREDECKS_BY_STORY_ORDER.map(deck => deck.packId));
+export const DEFAULT_STAR_TREK_LOREDECK_LIBRARY_RECORDS = Object.freeze(STAR_TREK_LOREDECKS.map(buildStarTrekLoredeckRecord));
+export const DEFAULT_STAR_TREK_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
+    DEFAULT_STAR_TREK_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
+));
+export const DEFAULT_STAR_TREK_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
+    STAR_TREK_LOREDECKS.map(deck => [deck.packId, buildStarTrekLoredeckContext(deck)])
+));
+export const DEFAULT_STAR_TREK_LOREDECK_IDS = Object.freeze(STAR_TREK_LOREDECKS.map(deck => deck.packId));
 export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_RECORDS = Object.freeze(STAR_WARS_LEGENDS_LOREDECKS.map(buildStarWarsLegendsLoredeckRecord));
 export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
     DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
@@ -1333,6 +2516,8 @@ export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS = Object.freeze([
     ...DEFAULT_LOTR_LOREDECK_LIBRARY_RECORDS,
     ...DEFAULT_MHA_LOREDECK_LIBRARY_RECORDS,
     ...DEFAULT_JJK_LOREDECK_LIBRARY_RECORDS,
+    ...DEFAULT_ONE_PIECE_LOREDECK_LIBRARY_RECORDS,
+    ...DEFAULT_STAR_TREK_LOREDECK_LIBRARY_RECORDS,
     ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_RECORDS,
 ]);
 export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS = Object.freeze({
@@ -1340,6 +2525,8 @@ export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS = Object.freeze({
     ...DEFAULT_LOTR_LOREDECK_LIBRARY_PACKS,
     ...DEFAULT_MHA_LOREDECK_LIBRARY_PACKS,
     ...DEFAULT_JJK_LOREDECK_LIBRARY_PACKS,
+    ...DEFAULT_ONE_PIECE_LOREDECK_LIBRARY_PACKS,
+    ...DEFAULT_STAR_TREK_LOREDECK_LIBRARY_PACKS,
     ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_PACKS,
 });
 export const DEFAULT_BUNDLED_LOREDECK_CONTEXTS = Object.freeze({
@@ -1347,6 +2534,8 @@ export const DEFAULT_BUNDLED_LOREDECK_CONTEXTS = Object.freeze({
     ...DEFAULT_LOTR_LOREDECK_CONTEXTS,
     ...DEFAULT_MHA_LOREDECK_CONTEXTS,
     ...DEFAULT_JJK_LOREDECK_CONTEXTS,
+    ...DEFAULT_ONE_PIECE_LOREDECK_CONTEXTS,
+    ...DEFAULT_STAR_TREK_LOREDECK_CONTEXTS,
     ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_CONTEXTS,
 });
 export const DEFAULT_BUNDLED_LOREDECK_IDS = Object.freeze([
@@ -1354,6 +2543,8 @@ export const DEFAULT_BUNDLED_LOREDECK_IDS = Object.freeze([
     ...DEFAULT_LOTR_LOREDECK_IDS,
     ...DEFAULT_MHA_LOREDECK_IDS,
     ...DEFAULT_JJK_LOREDECK_IDS,
+    ...DEFAULT_ONE_PIECE_LOREDECK_IDS,
+    ...DEFAULT_STAR_TREK_LOREDECK_IDS,
     ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS,
 ]);
 
@@ -1362,6 +2553,8 @@ const DEFAULT_LOREDECK_CONTEXT_TYPES = Object.freeze({
     ...Object.fromEntries(DEFAULT_LOTR_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
     ...Object.fromEntries(DEFAULT_MHA_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
     ...Object.fromEntries(DEFAULT_JJK_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
+    ...Object.fromEntries(DEFAULT_ONE_PIECE_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
+    ...Object.fromEntries(DEFAULT_STAR_TREK_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
     ...Object.fromEntries(DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
 });
 
@@ -1379,6 +2572,14 @@ export function isDefaultMyHeroAcademiaLoredeckId(packId = '') {
 
 export function isDefaultJujutsuKaisenLoredeckId(packId = '') {
     return DEFAULT_JJK_LOREDECK_IDS.includes(String(packId || '').trim());
+}
+
+export function isDefaultOnePieceLoredeckId(packId = '') {
+    return DEFAULT_ONE_PIECE_LOREDECK_IDS.includes(String(packId || '').trim());
+}
+
+export function isDefaultStarTrekLoredeckId(packId = '') {
+    return DEFAULT_STAR_TREK_LOREDECK_IDS.includes(String(packId || '').trim());
 }
 
 export function isDefaultStarWarsLegendsLoredeckId(packId = '') {

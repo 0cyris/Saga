@@ -1,0 +1,710 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_lost_island_is_the_hidden_focus_of_the_warship_island_storyline_007",
+      "title": "Lost Island Search Drives The Detour Objective",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.lost-island-and-dragons",
+        "validToAnchor": "op.warship-island.eric-nelson-and-marines",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Lost Island Search Drives The Detour Objective"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:lost-island",
+          "op:warship-island",
+          "op:ryu",
+          "op:apis"
+        ],
+        "characters": [
+          "Ryu",
+          "Apis"
+        ],
+        "locations": [
+          "Lost Island",
+          "Warship Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Lost Island search",
+          "Ryu homeland",
+          "Warship detour objective"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:lost-island",
+        "location:warship-island",
+        "character:ryu",
+        "character:apis",
+        "topic:apis-and-ryu",
+        "topic:lost-island"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryu",
+            "Apis"
+          ],
+          "entitiesAny": [
+            "Lost Island",
+            "Warship Island",
+            "Ryu",
+            "Apis"
+          ],
+          "topicsAny": [
+            "Lost Island search",
+            "Ryu homeland",
+            "Warship detour objective"
+          ],
+          "keywordsAny": [
+            "Lost Island",
+            "Warship Island",
+            "Ryu",
+            "Apis",
+            "Lost Island search",
+            "Ryu homeland",
+            "Warship detour objective",
+            "hidden destination",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Lost Island is the hidden destination of the Warship Island storyline because it is the place Apis believes Ryu must reach.",
+        "injection": "Use Lost Island as the route objective when Apis, Ryu, dragon memory, or the island mystery is active; keep ordinary Grand Line navigation separate.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_sennenryu_are_show_only_dragon_creatures_tied_to_the_island_mystery_008",
+      "title": "Sennenryu Lore Is Show-Only And Route-Locked",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.lost-island-and-dragons",
+        "validToAnchor": "op.warship-island.eric-nelson-and-marines",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Sennenryu Lore Is Show-Only And Route-Locked"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sennenryu",
+          "op:thousand-year-dragon",
+          "op:lost-island",
+          "op:warship-island"
+        ],
+        "characters": [],
+        "locations": [
+          "Lost Island",
+          "Warship Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "show-only dragon lore",
+          "Sennenryu boundary",
+          "route-locked creature lore"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:sennenryu",
+        "topic:thousand-year-dragon",
+        "location:lost-island",
+        "location:warship-island",
+        "topic:apis-and-ryu",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Sennenryu",
+            "Thousand Year Dragon",
+            "Lost Island",
+            "Warship Island"
+          ],
+          "topicsAny": [
+            "show-only dragon lore",
+            "Sennenryu boundary",
+            "route-locked creature lore"
+          ],
+          "keywordsAny": [
+            "Sennenryu",
+            "Thousand Year Dragon",
+            "Lost Island",
+            "Warship Island",
+            "show-only dragon lore",
+            "Sennenryu boundary",
+            "route-locked creature lore",
+            "show-only dragons",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Sennenryu and Thousand Year Dragon lore belong to the Warship Island anime route and should not become manga-primary species assumptions.",
+        "injection": "Use this as a hard continuity gate: dragon lore can shape Apis and Ryu scenes, but manga-primary decks should be able to omit it cleanly.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_dragon_bones_motivate_the_antagonists_search_009",
+      "title": "Dragon Bones Motivate Nelson And Eric Without Becoming Reliable Science",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.lost-island-and-dragons",
+        "validToAnchor": "op.warship-island.eric-nelson-and-marines",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Dragon Bones Motivate Nelson And Eric Without Becoming Reliable Science"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dragon-bones",
+          "op:nelson-royale",
+          "op:eric",
+          "op:sennenryu"
+        ],
+        "characters": [
+          "Nelson Royale",
+          "Eric"
+        ],
+        "locations": [],
+        "objects": [
+          "dragon bones"
+        ],
+        "factions": [],
+        "topics": [
+          "dragon bones motive",
+          "eternal youth rumor",
+          "antagonist greed"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:dragon-bones",
+        "character:nelson-royale",
+        "character:eric",
+        "topic:sennenryu",
+        "topic:apis-and-ryu",
+        "topic:marine-pursuit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nelson Royale",
+            "Eric"
+          ],
+          "entitiesAny": [
+            "dragon bones",
+            "Nelson Royale",
+            "Eric",
+            "Sennenryu"
+          ],
+          "topicsAny": [
+            "dragon bones motive",
+            "eternal youth rumor",
+            "antagonist greed"
+          ],
+          "keywordsAny": [
+            "dragon bones",
+            "Nelson Royale",
+            "Eric",
+            "Sennenryu",
+            "dragon bones motive",
+            "eternal youth rumor",
+            "antagonist greed",
+            "eternal youth",
+            "medicine claim",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Nelson Royale and Eric pursue dragon bones because the show presents them as valuable for a youth or medicine claim, not because the deck should validate the claim as reliable science.",
+        "injection": "Use dragon bones as greed-driven pursuit pressure: Nelson and Eric believe the prize is worth exploiting Ryu, which gives the crew a protection conflict.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_the_island_s_timing_and_resurfacing_make_it_a_route_specific_episode_event_010",
+      "title": "Lost Island Resurfacing Resolves The Dragon Plot Locally",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "event_moment",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.lost-island-and-dragons",
+        "validToAnchor": "op.warship-island.eric-nelson-and-marines",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Lost Island Resurfacing Resolves The Dragon Plot Locally"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:lost-island",
+          "op:ryu",
+          "op:sennenryu",
+          "op:apis"
+        ],
+        "characters": [
+          "Ryu",
+          "Apis"
+        ],
+        "locations": [
+          "Lost Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Lost Island resurfacing",
+          "dragon resolution",
+          "local route event"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:lost-island",
+        "character:ryu",
+        "topic:sennenryu",
+        "character:apis",
+        "topic:apis-and-ryu",
+        "topic:lost-island",
+        "topic:grand-line-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryu",
+            "Apis"
+          ],
+          "entitiesAny": [
+            "Lost Island",
+            "Ryu",
+            "Sennenryu",
+            "Apis"
+          ],
+          "topicsAny": [
+            "Lost Island resurfacing",
+            "dragon resolution",
+            "local route event"
+          ],
+          "keywordsAny": [
+            "Lost Island",
+            "Ryu",
+            "Sennenryu",
+            "Apis",
+            "Lost Island resurfacing",
+            "dragon resolution",
+            "local route event",
+            "resurfacing",
+            "local event",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Lost Island resurfacing resolves the Warship Island dragon plot locally and should not alter the crew's broader Grand Line navigation rules.",
+        "injection": "Use the resurfacing as the anime arc resolution: it answers Ryu and Apis, then hands the crew back to the Grand Line approach.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Warship Island Arc",
+    "chapterRange": "Filler arc",
+    "episodeRange": "Anime episodes 54-61",
+    "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+    "confidence": 0.82,
+    "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+  }
+}

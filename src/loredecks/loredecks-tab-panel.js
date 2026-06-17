@@ -39,6 +39,9 @@ import {
 import {
     isRuntimeMobileShell,
 } from '../runtime/runtime-shell.js';
+import {
+    preserveInputFocusAfterRender,
+} from '../ui/input-focus-preservation.js';
 
 let loredecksTabDeps = {};
 
@@ -411,15 +414,11 @@ function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [
     addTooltip(search, 'Search in-progress Deck Maker projects by title, fandom, scope, stage, or linked Generated Loredeck.');
     search.addEventListener('click', event => event.stopPropagation());
     search.addEventListener('input', () => {
-        loredeckCreatorProjectQuery = search.value;
-        const target = shelfCard || controls.closest('.saga-loredeck-creator-project-shelf');
-        if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
-        const next = document.querySelector('.saga-loredeck-creator-project-search');
-        if (next) {
-            next.focus();
-            const end = next.value.length;
-            next.setSelectionRange?.(end, end);
-        }
+        preserveInputFocusAfterRender(search, '.saga-loredeck-creator-project-search', () => {
+            loredeckCreatorProjectQuery = search.value;
+            const target = shelfCard || controls.closest('.saga-loredeck-creator-project-shelf');
+            if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
+        });
     });
     controls.appendChild(search);
 

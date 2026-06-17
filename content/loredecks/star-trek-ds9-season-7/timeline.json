@@ -1,0 +1,1758 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Deep Space Nine season 7 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ds9.s7.e01.image-in-the-sand",
+      "label": "Image in the Sand",
+      "contextType": "story_anchor",
+      "sortKey": 27000,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Image in the Sand",
+        "DS9 season 7 Image in the Sand",
+        "DS9 S7 Image in the Sand",
+        "DS9 7x01 story",
+        "DS9 S07 story 01",
+        "DS9 7x01",
+        "DS9 S07E01",
+        "DS9 season 7 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Image in the Sand",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Image_in_the_Sand_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e02.shadows-and-symbols",
+      "label": "Shadows and Symbols",
+      "contextType": "story_anchor",
+      "sortKey": 27020,
+      "stardate": "52152.6 (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Shadows and Symbols",
+        "DS9 season 7 Shadows and Symbols",
+        "DS9 S7 Shadows and Symbols",
+        "DS9 7x02 story",
+        "DS9 S07 story 02",
+        "DS9 7x02",
+        "DS9 S07E02",
+        "DS9 season 7 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-shadows-and-symbols"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Shadows and Symbols",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shadows_and_Symbols_(episode)",
+        "stardate": "52152.6 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e03.afterimage",
+      "label": "Afterimage",
+      "contextType": "story_anchor",
+      "sortKey": 27040,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Afterimage",
+        "DS9 season 7 Afterimage",
+        "DS9 S7 Afterimage",
+        "DS9 7x03 story",
+        "DS9 S07 story 03",
+        "DS9 7x03",
+        "DS9 S07E03",
+        "DS9 season 7 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-afterimage"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Afterimage",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Afterimage_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e04.take-me-out-to-the-holosuite",
+      "label": "Take Me Out to the Holosuite",
+      "contextType": "story_anchor",
+      "sortKey": 27060,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Take Me Out to the Holosuite",
+        "DS9 season 7 Take Me Out to the Holosuite",
+        "DS9 S7 Take Me Out to the Holosuite",
+        "DS9 7x04 story",
+        "DS9 S07 story 04",
+        "DS9 7x04",
+        "DS9 S07E04",
+        "DS9 season 7 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-take-me-out-to-the-holosuite"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Take Me Out to the Holosuite",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Take_Me_Out_to_the_Holosuite_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e05.chrysalis",
+      "label": "Chrysalis",
+      "contextType": "story_anchor",
+      "sortKey": 27080,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Chrysalis",
+        "DS9 season 7 Chrysalis",
+        "DS9 S7 Chrysalis",
+        "DS9 7x05 story",
+        "DS9 S07 story 05",
+        "DS9 7x05",
+        "DS9 S07E05",
+        "DS9 season 7 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-chrysalis"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Chrysalis",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Chrysalis_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e06.treachery-faith-and-the-great-river",
+      "label": "Treachery, Faith and the Great River",
+      "contextType": "story_anchor",
+      "sortKey": 27100,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Treachery, Faith and the Great River",
+        "DS9 season 7 Treachery, Faith and the Great River",
+        "DS9 S7 Treachery, Faith and the Great River",
+        "DS9 7x06 story",
+        "DS9 S07 story 06",
+        "DS9 7x06",
+        "DS9 S07E06",
+        "DS9 season 7 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-treachery-faith-and-the-great-river"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Treachery, Faith and the Great River",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Treachery%2C_Faith_and_the_Great_River_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e07.once-more-unto-the-breach",
+      "label": "Once More Unto the Breach",
+      "contextType": "story_anchor",
+      "sortKey": 27120,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Once More Unto the Breach",
+        "DS9 season 7 Once More Unto the Breach",
+        "DS9 S7 Once More Unto the Breach",
+        "DS9 7x07 story",
+        "DS9 S07 story 07",
+        "DS9 7x07",
+        "DS9 S07E07",
+        "DS9 season 7 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-once-more-unto-the-breach"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Once More Unto the Breach",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Once_More_Unto_the_Breach_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e08.the-siege-of-ar-558",
+      "label": "The Siege of AR-558",
+      "contextType": "story_anchor",
+      "sortKey": 27140,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "The Siege of AR-558",
+        "DS9 season 7 The Siege of AR-558",
+        "DS9 S7 The Siege of AR-558",
+        "DS9 7x08 story",
+        "DS9 S07 story 08",
+        "DS9 7x08",
+        "DS9 S07E08",
+        "DS9 season 7 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-siege-of-ar-558"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Siege of AR-558",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Siege_of_AR-558_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e09.covenant",
+      "label": "Covenant",
+      "contextType": "story_anchor",
+      "sortKey": 27160,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Covenant",
+        "DS9 season 7 Covenant",
+        "DS9 S7 Covenant",
+        "DS9 7x09 story",
+        "DS9 S07 story 09",
+        "DS9 7x09",
+        "DS9 S07E09",
+        "DS9 season 7 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-covenant"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Covenant",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Covenant_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e10.its-only-a-paper-moon",
+      "label": "It's Only a Paper Moon",
+      "contextType": "story_anchor",
+      "sortKey": 27180,
+      "stardate": "2375",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "It's Only a Paper Moon",
+        "DS9 season 7 It's Only a Paper Moon",
+        "DS9 S7 It's Only a Paper Moon",
+        "DS9 7x10 story",
+        "DS9 S07 story 10",
+        "DS9 7x10",
+        "DS9 S07E10",
+        "DS9 season 7 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-its-only-a-paper-moon"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "It's Only a Paper Moon",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/It's_Only_a_Paper_Moon_(episode)",
+        "stardate": "2375",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e11.prodigal-daughter",
+      "label": "Prodigal Daughter",
+      "contextType": "story_anchor",
+      "sortKey": 27200,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Prodigal Daughter",
+        "DS9 season 7 Prodigal Daughter",
+        "DS9 S7 Prodigal Daughter",
+        "DS9 7x11 story",
+        "DS9 S07 story 11",
+        "DS9 7x11",
+        "DS9 S07E11",
+        "DS9 season 7 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-prodigal-daughter"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Prodigal Daughter",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Prodigal_Daughter_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e12.the-emperors-new-cloak",
+      "label": "The Emperor's New Cloak",
+      "contextType": "story_anchor",
+      "sortKey": 27220,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "The Emperor's New Cloak",
+        "DS9 season 7 The Emperor's New Cloak",
+        "DS9 S7 The Emperor's New Cloak",
+        "DS9 7x12 story",
+        "DS9 S07 story 12",
+        "DS9 7x12",
+        "DS9 S07E12",
+        "DS9 season 7 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-emperors-new-cloak"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Emperor's New Cloak",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Emperor's_New_Cloak_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e13.field-of-fire",
+      "label": "Field of Fire",
+      "contextType": "story_anchor",
+      "sortKey": 27240,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Field of Fire",
+        "DS9 season 7 Field of Fire",
+        "DS9 S7 Field of Fire",
+        "DS9 7x13 story",
+        "DS9 S07 story 13",
+        "DS9 7x13",
+        "DS9 S07E13",
+        "DS9 season 7 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-field-of-fire"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Field of Fire",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Field_of_Fire_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e14.chimera",
+      "label": "Chimera",
+      "contextType": "story_anchor",
+      "sortKey": 27260,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Chimera",
+        "DS9 season 7 Chimera",
+        "DS9 S7 Chimera",
+        "DS9 7x14 story",
+        "DS9 S07 story 14",
+        "DS9 7x14",
+        "DS9 S07E14",
+        "DS9 season 7 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-chimera"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Chimera",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Chimera_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e15.badda-bing-badda-bang",
+      "label": "Badda-Bing, Badda-Bang",
+      "contextType": "story_anchor",
+      "sortKey": 27280,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Badda-Bing, Badda-Bang",
+        "DS9 season 7 Badda-Bing, Badda-Bang",
+        "DS9 S7 Badda-Bing, Badda-Bang",
+        "DS9 7x15 story",
+        "DS9 S07 story 15",
+        "DS9 7x15",
+        "DS9 S07E15",
+        "DS9 season 7 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-badda-bing-badda-bang"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Badda-Bing, Badda-Bang",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Badda-Bing%2C_Badda-Bang_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e16.inter-arma-enim-silent-leges",
+      "label": "Inter Arma Enim Silent Leges",
+      "contextType": "story_anchor",
+      "sortKey": 27300,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Inter Arma Enim Silent Leges",
+        "DS9 season 7 Inter Arma Enim Silent Leges",
+        "DS9 S7 Inter Arma Enim Silent Leges",
+        "DS9 7x16 story",
+        "DS9 S07 story 16",
+        "DS9 7x16",
+        "DS9 S07E16",
+        "DS9 season 7 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-inter-arma-enim-silent-leges"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Inter Arma Enim Silent Leges",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Inter_Arma_Enim_Silent_Leges_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e17.penumbra",
+      "label": "Penumbra",
+      "contextType": "story_anchor",
+      "sortKey": 27320,
+      "stardate": "52576.2 (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Penumbra",
+        "DS9 season 7 Penumbra",
+        "DS9 S7 Penumbra",
+        "DS9 7x17 story",
+        "DS9 S07 story 17",
+        "DS9 7x17",
+        "DS9 S07E17",
+        "DS9 season 7 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-penumbra"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Penumbra",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Penumbra_(episode)",
+        "stardate": "52576.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e18.til-death-do-us-part",
+      "label": "'Til Death Do Us Part",
+      "contextType": "story_anchor",
+      "sortKey": 27340,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "'Til Death Do Us Part",
+        "DS9 season 7 'Til Death Do Us Part",
+        "DS9 S7 'Til Death Do Us Part",
+        "DS9 7x18 story",
+        "DS9 S07 story 18",
+        "DS9 7x18",
+        "DS9 S07E18",
+        "DS9 season 7 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-til-death-do-us-part"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "'Til Death Do Us Part",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/'Til_Death_Do_Us_Part_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e19.strange-bedfellows",
+      "label": "Strange Bedfellows",
+      "contextType": "story_anchor",
+      "sortKey": 27360,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Strange Bedfellows",
+        "DS9 season 7 Strange Bedfellows",
+        "DS9 S7 Strange Bedfellows",
+        "DS9 7x19 story",
+        "DS9 S07 story 19",
+        "DS9 7x19",
+        "DS9 S07E19",
+        "DS9 season 7 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-strange-bedfellows"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Strange Bedfellows",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Strange_Bedfellows_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e20.the-changing-face-of-evil",
+      "label": "The Changing Face of Evil",
+      "contextType": "story_anchor",
+      "sortKey": 27380,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "The Changing Face of Evil",
+        "DS9 season 7 The Changing Face of Evil",
+        "DS9 S7 The Changing Face of Evil",
+        "DS9 7x20 story",
+        "DS9 S07 story 20",
+        "DS9 7x20",
+        "DS9 S07E20",
+        "DS9 season 7 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-changing-face-of-evil"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Changing Face of Evil",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Changing_Face_of_Evil_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e21.when-it-rains",
+      "label": "When It Rains...",
+      "contextType": "story_anchor",
+      "sortKey": 27400,
+      "stardate": "52684.3 (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "When It Rains...",
+        "DS9 season 7 When It Rains...",
+        "DS9 S7 When It Rains...",
+        "DS9 7x21 story",
+        "DS9 S07 story 21",
+        "DS9 7x21",
+        "DS9 S07E21",
+        "DS9 season 7 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-when-it-rains"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "When It Rains...",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/When_It_Rains..._(episode)",
+        "stardate": "52684.3 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e22.tacking-into-the-wind",
+      "label": "Tacking Into the Wind",
+      "contextType": "story_anchor",
+      "sortKey": 27420,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Tacking Into the Wind",
+        "DS9 season 7 Tacking Into the Wind",
+        "DS9 S7 Tacking Into the Wind",
+        "DS9 7x22 story",
+        "DS9 S07 story 22",
+        "DS9 7x22",
+        "DS9 S07E22",
+        "DS9 season 7 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-tacking-into-the-wind"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Tacking Into the Wind",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tacking_Into_the_Wind_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e23.extreme-measures",
+      "label": "Extreme Measures",
+      "contextType": "story_anchor",
+      "sortKey": 27440,
+      "stardate": "52645.7 (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Extreme Measures",
+        "DS9 season 7 Extreme Measures",
+        "DS9 S7 Extreme Measures",
+        "DS9 7x23 story",
+        "DS9 S07 story 23",
+        "DS9 7x23",
+        "DS9 S07E23",
+        "DS9 season 7 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-extreme-measures"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Extreme Measures",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Extreme_Measures_(episode)",
+        "stardate": "52645.7 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e24.the-dogs-of-war",
+      "label": "The Dogs of War",
+      "contextType": "story_anchor",
+      "sortKey": 27460,
+      "stardate": "52861.3 (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "The Dogs of War",
+        "DS9 season 7 The Dogs of War",
+        "DS9 S7 The Dogs of War",
+        "DS9 7x24 story",
+        "DS9 S07 story 24",
+        "DS9 7x24",
+        "DS9 S07E24",
+        "DS9 season 7 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-dogs-of-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Dogs of War",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Dogs_of_War_(episode)",
+        "stardate": "52861.3 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s7.e25.what-you-leave-behind",
+      "label": "What You Leave Behind",
+      "contextType": "story_anchor",
+      "sortKey": 27480,
+      "stardate": "52902.0 (2375)",
+      "year": "2375",
+      "series": "DS9",
+      "season": 7,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "What You Leave Behind",
+        "DS9 season 7 What You Leave Behind",
+        "DS9 S7 What You Leave Behind",
+        "DS9 7x25 story",
+        "DS9 S07 story 25",
+        "DS9 7x25",
+        "DS9 S07E25",
+        "DS9 season 7 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-what-you-leave-behind"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "What You Leave Behind",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/What_You_Leave_Behind_(episode)",
+        "stardate": "52902.0 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "ds9.s7.full-season",
+      "label": "DS9 season 7 full window",
+      "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+      "anchorTo": "ds9.s7.e25.what-you-leave-behind",
+      "sortKeyFrom": 27000,
+      "sortKeyTo": 27480,
+      "aliases": [
+        "DS9 season 7",
+        "Star Trek: Deep Space Nine season 7",
+        "DS9 S7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "ds9.s7.e01.image-in-the-sand.window",
+      "label": "Image in the Sand episode window",
+      "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+      "anchorTo": "ds9.s7.e02.shadows-and-symbols",
+      "sortKeyFrom": 27000,
+      "sortKeyTo": 27020,
+      "aliases": [
+        "during Image in the Sand",
+        "after Image in the Sand"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand"
+      ]
+    },
+    {
+      "id": "ds9.s7.e02.shadows-and-symbols.window",
+      "label": "Shadows and Symbols episode window",
+      "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+      "anchorTo": "ds9.s7.e03.afterimage",
+      "sortKeyFrom": 27020,
+      "sortKeyTo": 27040,
+      "aliases": [
+        "during Shadows and Symbols",
+        "after Shadows and Symbols"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-shadows-and-symbols"
+      ]
+    },
+    {
+      "id": "ds9.s7.e03.afterimage.window",
+      "label": "Afterimage episode window",
+      "anchorFrom": "ds9.s7.e03.afterimage",
+      "anchorTo": "ds9.s7.e04.take-me-out-to-the-holosuite",
+      "sortKeyFrom": 27040,
+      "sortKeyTo": 27060,
+      "aliases": [
+        "during Afterimage",
+        "after Afterimage"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-afterimage"
+      ]
+    },
+    {
+      "id": "ds9.s7.e04.take-me-out-to-the-holosuite.window",
+      "label": "Take Me Out to the Holosuite episode window",
+      "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+      "anchorTo": "ds9.s7.e05.chrysalis",
+      "sortKeyFrom": 27060,
+      "sortKeyTo": 27080,
+      "aliases": [
+        "during Take Me Out to the Holosuite",
+        "after Take Me Out to the Holosuite"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-take-me-out-to-the-holosuite"
+      ]
+    },
+    {
+      "id": "ds9.s7.e05.chrysalis.window",
+      "label": "Chrysalis episode window",
+      "anchorFrom": "ds9.s7.e05.chrysalis",
+      "anchorTo": "ds9.s7.e06.treachery-faith-and-the-great-river",
+      "sortKeyFrom": 27080,
+      "sortKeyTo": 27100,
+      "aliases": [
+        "during Chrysalis",
+        "after Chrysalis"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-chrysalis"
+      ]
+    },
+    {
+      "id": "ds9.s7.e06.treachery-faith-and-the-great-river.window",
+      "label": "Treachery, Faith and the Great River episode window",
+      "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+      "anchorTo": "ds9.s7.e07.once-more-unto-the-breach",
+      "sortKeyFrom": 27100,
+      "sortKeyTo": 27120,
+      "aliases": [
+        "during Treachery, Faith and the Great River",
+        "after Treachery, Faith and the Great River"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-treachery-faith-and-the-great-river"
+      ]
+    },
+    {
+      "id": "ds9.s7.e07.once-more-unto-the-breach.window",
+      "label": "Once More Unto the Breach episode window",
+      "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+      "anchorTo": "ds9.s7.e08.the-siege-of-ar-558",
+      "sortKeyFrom": 27120,
+      "sortKeyTo": 27140,
+      "aliases": [
+        "during Once More Unto the Breach",
+        "after Once More Unto the Breach"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-once-more-unto-the-breach"
+      ]
+    },
+    {
+      "id": "ds9.s7.e08.the-siege-of-ar-558.window",
+      "label": "The Siege of AR-558 episode window",
+      "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+      "anchorTo": "ds9.s7.e09.covenant",
+      "sortKeyFrom": 27140,
+      "sortKeyTo": 27160,
+      "aliases": [
+        "during The Siege of AR-558",
+        "after The Siege of AR-558"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-siege-of-ar-558"
+      ]
+    },
+    {
+      "id": "ds9.s7.e09.covenant.window",
+      "label": "Covenant episode window",
+      "anchorFrom": "ds9.s7.e09.covenant",
+      "anchorTo": "ds9.s7.e10.its-only-a-paper-moon",
+      "sortKeyFrom": 27160,
+      "sortKeyTo": 27180,
+      "aliases": [
+        "during Covenant",
+        "after Covenant"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-covenant"
+      ]
+    },
+    {
+      "id": "ds9.s7.e10.its-only-a-paper-moon.window",
+      "label": "It's Only a Paper Moon episode window",
+      "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+      "anchorTo": "ds9.s7.e11.prodigal-daughter",
+      "sortKeyFrom": 27180,
+      "sortKeyTo": 27200,
+      "aliases": [
+        "during It's Only a Paper Moon",
+        "after It's Only a Paper Moon"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-its-only-a-paper-moon"
+      ]
+    },
+    {
+      "id": "ds9.s7.e11.prodigal-daughter.window",
+      "label": "Prodigal Daughter episode window",
+      "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+      "anchorTo": "ds9.s7.e12.the-emperors-new-cloak",
+      "sortKeyFrom": 27200,
+      "sortKeyTo": 27220,
+      "aliases": [
+        "during Prodigal Daughter",
+        "after Prodigal Daughter"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-prodigal-daughter"
+      ]
+    },
+    {
+      "id": "ds9.s7.e12.the-emperors-new-cloak.window",
+      "label": "The Emperor's New Cloak episode window",
+      "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+      "anchorTo": "ds9.s7.e13.field-of-fire",
+      "sortKeyFrom": 27220,
+      "sortKeyTo": 27240,
+      "aliases": [
+        "during The Emperor's New Cloak",
+        "after The Emperor's New Cloak"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-emperors-new-cloak"
+      ]
+    },
+    {
+      "id": "ds9.s7.e13.field-of-fire.window",
+      "label": "Field of Fire episode window",
+      "anchorFrom": "ds9.s7.e13.field-of-fire",
+      "anchorTo": "ds9.s7.e14.chimera",
+      "sortKeyFrom": 27240,
+      "sortKeyTo": 27260,
+      "aliases": [
+        "during Field of Fire",
+        "after Field of Fire"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-field-of-fire"
+      ]
+    },
+    {
+      "id": "ds9.s7.e14.chimera.window",
+      "label": "Chimera episode window",
+      "anchorFrom": "ds9.s7.e14.chimera",
+      "anchorTo": "ds9.s7.e15.badda-bing-badda-bang",
+      "sortKeyFrom": 27260,
+      "sortKeyTo": 27280,
+      "aliases": [
+        "during Chimera",
+        "after Chimera"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-chimera"
+      ]
+    },
+    {
+      "id": "ds9.s7.e15.badda-bing-badda-bang.window",
+      "label": "Badda-Bing, Badda-Bang episode window",
+      "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+      "anchorTo": "ds9.s7.e16.inter-arma-enim-silent-leges",
+      "sortKeyFrom": 27280,
+      "sortKeyTo": 27300,
+      "aliases": [
+        "during Badda-Bing, Badda-Bang",
+        "after Badda-Bing, Badda-Bang"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-badda-bing-badda-bang"
+      ]
+    },
+    {
+      "id": "ds9.s7.e16.inter-arma-enim-silent-leges.window",
+      "label": "Inter Arma Enim Silent Leges episode window",
+      "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+      "anchorTo": "ds9.s7.e17.penumbra",
+      "sortKeyFrom": 27300,
+      "sortKeyTo": 27320,
+      "aliases": [
+        "during Inter Arma Enim Silent Leges",
+        "after Inter Arma Enim Silent Leges"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-inter-arma-enim-silent-leges"
+      ]
+    },
+    {
+      "id": "ds9.s7.e17.penumbra.window",
+      "label": "Penumbra episode window",
+      "anchorFrom": "ds9.s7.e17.penumbra",
+      "anchorTo": "ds9.s7.e18.til-death-do-us-part",
+      "sortKeyFrom": 27320,
+      "sortKeyTo": 27340,
+      "aliases": [
+        "during Penumbra",
+        "after Penumbra"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-penumbra"
+      ]
+    },
+    {
+      "id": "ds9.s7.e18.til-death-do-us-part.window",
+      "label": "'Til Death Do Us Part episode window",
+      "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+      "anchorTo": "ds9.s7.e19.strange-bedfellows",
+      "sortKeyFrom": 27340,
+      "sortKeyTo": 27360,
+      "aliases": [
+        "during 'Til Death Do Us Part",
+        "after 'Til Death Do Us Part"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-til-death-do-us-part"
+      ]
+    },
+    {
+      "id": "ds9.s7.e19.strange-bedfellows.window",
+      "label": "Strange Bedfellows episode window",
+      "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+      "anchorTo": "ds9.s7.e20.the-changing-face-of-evil",
+      "sortKeyFrom": 27360,
+      "sortKeyTo": 27380,
+      "aliases": [
+        "during Strange Bedfellows",
+        "after Strange Bedfellows"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-strange-bedfellows"
+      ]
+    },
+    {
+      "id": "ds9.s7.e20.the-changing-face-of-evil.window",
+      "label": "The Changing Face of Evil episode window",
+      "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+      "anchorTo": "ds9.s7.e21.when-it-rains",
+      "sortKeyFrom": 27380,
+      "sortKeyTo": 27400,
+      "aliases": [
+        "during The Changing Face of Evil",
+        "after The Changing Face of Evil"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-changing-face-of-evil"
+      ]
+    },
+    {
+      "id": "ds9.s7.e21.when-it-rains.window",
+      "label": "When It Rains... episode window",
+      "anchorFrom": "ds9.s7.e21.when-it-rains",
+      "anchorTo": "ds9.s7.e22.tacking-into-the-wind",
+      "sortKeyFrom": 27400,
+      "sortKeyTo": 27420,
+      "aliases": [
+        "during When It Rains...",
+        "after When It Rains..."
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-when-it-rains"
+      ]
+    },
+    {
+      "id": "ds9.s7.e22.tacking-into-the-wind.window",
+      "label": "Tacking Into the Wind episode window",
+      "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+      "anchorTo": "ds9.s7.e23.extreme-measures",
+      "sortKeyFrom": 27420,
+      "sortKeyTo": 27440,
+      "aliases": [
+        "during Tacking Into the Wind",
+        "after Tacking Into the Wind"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-tacking-into-the-wind"
+      ]
+    },
+    {
+      "id": "ds9.s7.e23.extreme-measures.window",
+      "label": "Extreme Measures episode window",
+      "anchorFrom": "ds9.s7.e23.extreme-measures",
+      "anchorTo": "ds9.s7.e24.the-dogs-of-war",
+      "sortKeyFrom": 27440,
+      "sortKeyTo": 27460,
+      "aliases": [
+        "during Extreme Measures",
+        "after Extreme Measures"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-extreme-measures"
+      ]
+    },
+    {
+      "id": "ds9.s7.e24.the-dogs-of-war.window",
+      "label": "The Dogs of War episode window",
+      "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+      "anchorTo": "ds9.s7.e25.what-you-leave-behind",
+      "sortKeyFrom": 27460,
+      "sortKeyTo": 27480,
+      "aliases": [
+        "during The Dogs of War",
+        "after The Dogs of War"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-dogs-of-war"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,872 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_merry_the_steward_helps_turn_kaya_s_gratitude_into_a_ship_gift_023",
+      "title": "Merry Bridges Kaya's Gratitude Into The Ship Gift",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.going-merry-and-merry",
+        "validToAnchor": "op.syrup-village.deception-and-reveal",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3448,
+        "sortKeyTo": 3560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Merry Bridges Kaya's Gratitude Into The Ship Gift"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:merry",
+          "op:kaya",
+          "op:going-merry",
+          "op:kuro"
+        ],
+        "characters": [
+          "Merry",
+          "Kaya",
+          "Kuro"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "Merry steward",
+          "ship gift",
+          "surviving witness"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:merry",
+        "character:kaya",
+        "item:going-merry",
+        "character:kuro",
+        "topic:merry-steward"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Merry",
+            "Kaya",
+            "Kuro"
+          ],
+          "entitiesAny": [
+            "Merry",
+            "Kaya",
+            "Going Merry",
+            "Kuro"
+          ],
+          "topicsAny": [
+            "Merry steward",
+            "ship gift",
+            "surviving witness"
+          ],
+          "keywordsAny": [
+            "Merry",
+            "Kaya",
+            "Going Merry",
+            "Kuro",
+            "Merry steward",
+            "ship gift",
+            "surviving witness",
+            "steward",
+            "ship design",
+            "gift",
+            "survives attack",
+            "Merry Bridges Kaya's Gratitude Into The Ship Gift",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Merry is the loyal steward who survives Kuro's attack, confirms the betrayal to Kaya, and helps turn Kaya's gratitude into the Going Merry gift.",
+        "injection": "Use Merry as the household bridge between private rescue and public departure: his loyalty and ship design make the gift feel earned, not random.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_the_going_merry_is_the_crew_s_first_true_vessel_024",
+      "title": "The Going Merry Is The Crew's First True Vessel",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.going-merry-and-merry",
+        "validToAnchor": "op.syrup-village.deception-and-reveal",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3448,
+        "sortKeyTo": 3560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: The Going Merry Is The Crew's First True Vessel"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:going-merry",
+          "op:monkey-d-luffy",
+          "op:nami",
+          "op:roronoa-zoro",
+          "op:usopp"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Nami",
+          "Roronoa Zoro",
+          "Usopp"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "first real ship",
+          "crew mobility",
+          "voyage upgrade"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:going-merry",
+        "character:monkey-d-luffy",
+        "character:nami",
+        "character:roronoa-zoro",
+        "character:usopp",
+        "topic:first-real-ship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "Roronoa Zoro",
+            "Usopp"
+          ],
+          "entitiesAny": [
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Nami",
+            "Roronoa Zoro",
+            "Usopp"
+          ],
+          "topicsAny": [
+            "first real ship",
+            "crew mobility",
+            "voyage upgrade"
+          ],
+          "keywordsAny": [
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Nami",
+            "Roronoa Zoro",
+            "Usopp",
+            "first real ship",
+            "crew mobility",
+            "voyage upgrade",
+            "first ship",
+            "vessel",
+            "shared space",
+            "voyage",
+            "The Going Merry Is The Crew's First True Vessel",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Going Merry is the crew's first true vessel, changing travel from small-boat survival into a more stable voyage with named shared space.",
+        "injection": "Use the Going Merry as a practical transition: after Syrup Village, the crew has a real ship to maintain, sleep aboard, defend, and identify as theirs.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_the_ship_is_given_not_stolen_as_loot_025",
+      "title": "The Going Merry Is Given, Not Taken As Loot",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.going-merry-and-merry",
+        "validToAnchor": "op.syrup-village.deception-and-reveal",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3448,
+        "sortKeyTo": 3560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: The Going Merry Is Given, Not Taken As Loot"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:going-merry",
+          "op:kaya",
+          "op:merry"
+        ],
+        "characters": [
+          "Kaya",
+          "Merry"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "gratitude gift",
+          "not loot",
+          "ship provenance"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:going-merry",
+        "character:kaya",
+        "character:merry",
+        "topic:gratitude-gift"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kaya",
+            "Merry"
+          ],
+          "entitiesAny": [
+            "Going Merry",
+            "Kaya",
+            "Merry"
+          ],
+          "topicsAny": [
+            "gratitude gift",
+            "not loot",
+            "ship provenance"
+          ],
+          "keywordsAny": [
+            "Going Merry",
+            "Kaya",
+            "Merry",
+            "gratitude gift",
+            "not loot",
+            "ship provenance",
+            "gift",
+            "gratitude",
+            "not stolen",
+            "The Going Merry Is Given, Not Taken As Loot",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Going Merry is given by Kaya in gratitude after the battle, so it should not be framed as loot, theft, or pirate spoils.",
+        "injection": "Use this as the ship provenance gate: the crew receives Merry because they protected Kaya and the village, not because they stole from a rich estate.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_its_figurehead_and_compact_design_make_it_immediately_identifiable_026",
+      "title": "Going Merry's Compact Design Is Arc-Local Identification",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.going-merry-and-merry",
+        "validToAnchor": "op.syrup-village.deception-and-reveal",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3448,
+        "sortKeyTo": 3560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Going Merry's Compact Design Is Arc-Local Identification"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:going-merry",
+          "op:merry"
+        ],
+        "characters": [
+          "Merry"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "ship design",
+          "figurehead",
+          "visual identity"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:going-merry",
+        "character:merry",
+        "topic:ship-design"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Merry"
+          ],
+          "entitiesAny": [
+            "Going Merry",
+            "Merry"
+          ],
+          "topicsAny": [
+            "ship design",
+            "figurehead",
+            "visual identity"
+          ],
+          "keywordsAny": [
+            "Going Merry",
+            "Merry",
+            "ship design",
+            "figurehead",
+            "visual identity",
+            "compact",
+            "caravel",
+            "visual",
+            "Going Merry's Compact Design Is Arc-Local Identification",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Going Merry's compact design and figurehead make it immediately identifiable as the new crew ship, but Syrup Village should not carry later ship-spirit history.",
+        "injection": "Use the figurehead and small caravel-like profile for visual grounding only; keep later emotional ship mythology out of this arc.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_the_going_merry_marks_the_transition_from_small_boats_to_a_real_voyage_027",
+      "title": "Going Merry Ends The Small-Boat Phase",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.going-merry-and-merry",
+        "validToAnchor": "op.syrup-village.deception-and-reveal",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3448,
+        "sortKeyTo": 3560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Going Merry Ends The Small-Boat Phase"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:going-merry",
+          "op:monkey-d-luffy",
+          "op:nami",
+          "op:roronoa-zoro",
+          "op:usopp"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Nami",
+          "Roronoa Zoro",
+          "Usopp"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "small-boat transition",
+          "crew departure",
+          "voyage stability"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:going-merry",
+        "character:monkey-d-luffy",
+        "character:nami",
+        "character:roronoa-zoro",
+        "character:usopp",
+        "topic:small-boat-transition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "Roronoa Zoro",
+            "Usopp"
+          ],
+          "entitiesAny": [
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Nami",
+            "Roronoa Zoro",
+            "Usopp"
+          ],
+          "topicsAny": [
+            "small-boat transition",
+            "crew departure",
+            "voyage stability"
+          ],
+          "keywordsAny": [
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Nami",
+            "Roronoa Zoro",
+            "Usopp",
+            "small-boat transition",
+            "crew departure",
+            "voyage stability",
+            "small boats",
+            "departure",
+            "proper voyage",
+            "Grand Line",
+            "Going Merry Ends The Small-Boat Phase",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Going Merry marks the transition from improvised small-boat travel to an actual pirate voyage with Usopp aboard.",
+        "injection": "Use the departure as a logistics upgrade: the crew now has a ship, a new crewmate, and a clearer sense of moving toward the Grand Line.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    }
+  ]
+}

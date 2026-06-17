@@ -1,0 +1,1758 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Voyager season 5 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "voy.s5.e01.night",
+      "label": "Night",
+      "contextType": "story_anchor",
+      "sortKey": 35000,
+      "stardate": "52081.2 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Night",
+        "VOY season 5 Night",
+        "VOY S5 Night",
+        "VOY 5x01 story",
+        "VOY S05 story 01",
+        "VOY 5x01",
+        "VOY S05E01",
+        "VOY season 5 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-night"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Night",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_(episode)",
+        "stardate": "52081.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e02.drone",
+      "label": "Drone",
+      "contextType": "story_anchor",
+      "sortKey": 35020,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Drone",
+        "VOY season 5 Drone",
+        "VOY S5 Drone",
+        "VOY 5x02 story",
+        "VOY S05 story 02",
+        "VOY 5x02",
+        "VOY S05E02",
+        "VOY season 5 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-drone"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Drone",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Drone_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e03.extreme-risk",
+      "label": "Extreme Risk",
+      "contextType": "story_anchor",
+      "sortKey": 35040,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Extreme Risk",
+        "VOY season 5 Extreme Risk",
+        "VOY S5 Extreme Risk",
+        "VOY 5x03 story",
+        "VOY S05 story 03",
+        "VOY 5x03",
+        "VOY S05E03",
+        "VOY season 5 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-extreme-risk"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Extreme Risk",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Extreme_Risk_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e04.in-the-flesh",
+      "label": "In the Flesh",
+      "contextType": "story_anchor",
+      "sortKey": 35060,
+      "stardate": "52136.4 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "In the Flesh",
+        "VOY season 5 In the Flesh",
+        "VOY S5 In the Flesh",
+        "VOY 5x04 story",
+        "VOY S05 story 04",
+        "VOY 5x04",
+        "VOY S05E04",
+        "VOY season 5 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-in-the-flesh"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "In the Flesh",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_the_Flesh_(episode)",
+        "stardate": "52136.4 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e05.once-upon-a-time",
+      "label": "Once Upon a Time",
+      "contextType": "story_anchor",
+      "sortKey": 35080,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Once Upon a Time",
+        "VOY season 5 Once Upon a Time",
+        "VOY S5 Once Upon a Time",
+        "VOY 5x05 story",
+        "VOY S05 story 05",
+        "VOY 5x05",
+        "VOY S05E05",
+        "VOY season 5 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-once-upon-a-time"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Once Upon a Time",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Once_Upon_a_Time_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e06.timeless",
+      "label": "Timeless",
+      "contextType": "story_anchor",
+      "sortKey": 35100,
+      "stardate": "52143.6 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Timeless",
+        "VOY season 5 Timeless",
+        "VOY S5 Timeless",
+        "VOY 5x06 story",
+        "VOY S05 story 06",
+        "VOY 5x06",
+        "VOY S05E06",
+        "VOY season 5 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-timeless"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Timeless",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Timeless_(episode)",
+        "stardate": "52143.6 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e07.infinite-regress",
+      "label": "Infinite Regress",
+      "contextType": "story_anchor",
+      "sortKey": 35120,
+      "stardate": "52356.2 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Infinite Regress",
+        "VOY season 5 Infinite Regress",
+        "VOY S5 Infinite Regress",
+        "VOY 5x07 story",
+        "VOY S05 story 07",
+        "VOY 5x07",
+        "VOY S05E07",
+        "VOY season 5 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-infinite-regress"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Infinite Regress",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Infinite_Regress_(episode)",
+        "stardate": "52356.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e08.nothing-human",
+      "label": "Nothing Human",
+      "contextType": "story_anchor",
+      "sortKey": 35140,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Nothing Human",
+        "VOY season 5 Nothing Human",
+        "VOY S5 Nothing Human",
+        "VOY 5x08 story",
+        "VOY S05 story 08",
+        "VOY 5x08",
+        "VOY S05E08",
+        "VOY season 5 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-nothing-human"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Nothing Human",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Nothing_Human_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e09.thirty-days",
+      "label": "Thirty Days",
+      "contextType": "story_anchor",
+      "sortKey": 35160,
+      "stardate": "52179.4 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Thirty Days",
+        "VOY season 5 Thirty Days",
+        "VOY S5 Thirty Days",
+        "VOY 5x09 story",
+        "VOY S05 story 09",
+        "VOY 5x09",
+        "VOY S05E09",
+        "VOY season 5 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-thirty-days"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Thirty Days",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Thirty_Days_(episode)",
+        "stardate": "52179.4 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e10.counterpoint",
+      "label": "Counterpoint",
+      "contextType": "story_anchor",
+      "sortKey": 35180,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Counterpoint",
+        "VOY season 5 Counterpoint",
+        "VOY S5 Counterpoint",
+        "VOY 5x10 story",
+        "VOY S05 story 10",
+        "VOY 5x10",
+        "VOY S05E10",
+        "VOY season 5 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-counterpoint"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Counterpoint",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Counterpoint_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e11.latent-image",
+      "label": "Latent Image",
+      "contextType": "story_anchor",
+      "sortKey": 35200,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Latent Image",
+        "VOY season 5 Latent Image",
+        "VOY S5 Latent Image",
+        "VOY 5x11 story",
+        "VOY S05 story 11",
+        "VOY 5x11",
+        "VOY S05E11",
+        "VOY season 5 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-latent-image"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Latent Image",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Latent_Image_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e12.bride-of-chaotica",
+      "label": "Bride of Chaotica!",
+      "contextType": "story_anchor",
+      "sortKey": 35220,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Bride of Chaotica!",
+        "VOY season 5 Bride of Chaotica!",
+        "VOY S5 Bride of Chaotica!",
+        "VOY 5x12 story",
+        "VOY S05 story 12",
+        "VOY 5x12",
+        "VOY S05E12",
+        "VOY season 5 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-bride-of-chaotica"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Bride of Chaotica!",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Bride_of_Chaotica!_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e13.gravity",
+      "label": "Gravity",
+      "contextType": "story_anchor",
+      "sortKey": 35240,
+      "stardate": "52438.9 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Gravity",
+        "VOY season 5 Gravity",
+        "VOY S5 Gravity",
+        "VOY 5x13 story",
+        "VOY S05 story 13",
+        "VOY 5x13",
+        "VOY S05E13",
+        "VOY season 5 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-gravity"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Gravity",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Gravity_(episode)",
+        "stardate": "52438.9 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e14.bliss",
+      "label": "Bliss",
+      "contextType": "story_anchor",
+      "sortKey": 35260,
+      "stardate": "52542.3 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Bliss",
+        "VOY season 5 Bliss",
+        "VOY S5 Bliss",
+        "VOY 5x14 story",
+        "VOY S05 story 14",
+        "VOY 5x14",
+        "VOY S05E14",
+        "VOY season 5 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-bliss"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Bliss",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Bliss_(episode)",
+        "stardate": "52542.3 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e15.dark-frontier",
+      "label": "Dark Frontier",
+      "contextType": "story_anchor",
+      "sortKey": 35280,
+      "stardate": "52619.2 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Dark Frontier",
+        "VOY season 5 Dark Frontier",
+        "VOY S5 Dark Frontier",
+        "VOY 5x15 story",
+        "VOY S05 story 15",
+        "VOY 5x15",
+        "VOY S05E15",
+        "VOY season 5 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-dark-frontier"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Dark Frontier",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dark_Frontier_(episode)",
+        "stardate": "52619.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e16.the-disease",
+      "label": "The Disease",
+      "contextType": "story_anchor",
+      "sortKey": 35300,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "The Disease",
+        "VOY season 5 The Disease",
+        "VOY S5 The Disease",
+        "VOY 5x16 story",
+        "VOY S05 story 16",
+        "VOY 5x16",
+        "VOY S05E16",
+        "VOY season 5 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-the-disease"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Disease",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Disease_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e17.course-oblivion",
+      "label": "Course: Oblivion",
+      "contextType": "story_anchor",
+      "sortKey": 35320,
+      "stardate": "52586.3-52597.4 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Course: Oblivion",
+        "VOY season 5 Course: Oblivion",
+        "VOY S5 Course: Oblivion",
+        "VOY 5x17 story",
+        "VOY S05 story 17",
+        "VOY 5x17",
+        "VOY S05E17",
+        "VOY season 5 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-course-oblivion"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Course: Oblivion",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Course%3A_Oblivion_(episode)",
+        "stardate": "52586.3-52597.4 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e18.the-fight",
+      "label": "The Fight",
+      "contextType": "story_anchor",
+      "sortKey": 35340,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "The Fight",
+        "VOY season 5 The Fight",
+        "VOY S5 The Fight",
+        "VOY 5x18 story",
+        "VOY S05 story 18",
+        "VOY 5x18",
+        "VOY S05E18",
+        "VOY season 5 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-the-fight"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Fight",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Fight_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e19.think-tank",
+      "label": "Think Tank",
+      "contextType": "story_anchor",
+      "sortKey": 35360,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Think Tank",
+        "VOY season 5 Think Tank",
+        "VOY S5 Think Tank",
+        "VOY 5x19 story",
+        "VOY S05 story 19",
+        "VOY 5x19",
+        "VOY S05E19",
+        "VOY season 5 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-think-tank"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Think Tank",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Think_Tank_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e20.juggernaut",
+      "label": "Juggernaut",
+      "contextType": "story_anchor",
+      "sortKey": 35380,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Juggernaut",
+        "VOY season 5 Juggernaut",
+        "VOY S5 Juggernaut",
+        "VOY 5x20 story",
+        "VOY S05 story 20",
+        "VOY 5x20",
+        "VOY S05E20",
+        "VOY season 5 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-juggernaut"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Juggernaut",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Juggernaut_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e21.someone-to-watch-over-me",
+      "label": "Someone to Watch Over Me",
+      "contextType": "story_anchor",
+      "sortKey": 35400,
+      "stardate": "52648.0 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Someone to Watch Over Me",
+        "VOY season 5 Someone to Watch Over Me",
+        "VOY S5 Someone to Watch Over Me",
+        "VOY 5x21 story",
+        "VOY S05 story 21",
+        "VOY 5x21",
+        "VOY S05E21",
+        "VOY season 5 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-someone-to-watch-over-me"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Someone to Watch Over Me",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Someone_to_Watch_Over_Me_(episode)",
+        "stardate": "52648.0 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e22.1159",
+      "label": "11:59",
+      "contextType": "story_anchor",
+      "sortKey": 35420,
+      "stardate": "52840 (April 22, 2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "11:59",
+        "VOY season 5 11:59",
+        "VOY S5 11:59",
+        "VOY 5x22 story",
+        "VOY S05 story 22",
+        "VOY 5x22",
+        "VOY S05E22",
+        "VOY season 5 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-1159"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "11:59",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/11%3A59_(episode)",
+        "stardate": "52840 (April 22, 2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e23.relativity",
+      "label": "Relativity",
+      "contextType": "story_anchor",
+      "sortKey": 35440,
+      "stardate": "52861.274 (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Relativity",
+        "VOY season 5 Relativity",
+        "VOY S5 Relativity",
+        "VOY 5x23 story",
+        "VOY S05 story 23",
+        "VOY 5x23",
+        "VOY S05E23",
+        "VOY season 5 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-relativity"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Relativity",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Relativity_(episode)",
+        "stardate": "52861.274 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e24.warhead",
+      "label": "Warhead",
+      "contextType": "story_anchor",
+      "sortKey": 35460,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Warhead",
+        "VOY season 5 Warhead",
+        "VOY S5 Warhead",
+        "VOY 5x24 story",
+        "VOY S05 story 24",
+        "VOY 5x24",
+        "VOY S05E24",
+        "VOY season 5 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-warhead"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Warhead",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Warhead_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s5.e25.equinox",
+      "label": "Equinox",
+      "contextType": "story_anchor",
+      "sortKey": 35480,
+      "stardate": "Unknown (2375)",
+      "year": "2375",
+      "series": "VOY",
+      "season": 5,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Equinox",
+        "VOY season 5 Equinox",
+        "VOY S5 Equinox",
+        "VOY 5x25 story",
+        "VOY S05 story 25",
+        "VOY 5x25",
+        "VOY S05E25",
+        "VOY season 5 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-equinox"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "voy.s5.full-season",
+      "label": "VOY season 5 full window",
+      "anchorFrom": "voy.s5.e01.night",
+      "anchorTo": "voy.s5.e25.equinox",
+      "sortKeyFrom": 35000,
+      "sortKeyTo": 35480,
+      "aliases": [
+        "VOY season 5",
+        "Star Trek: Voyager season 5",
+        "VOY S5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "voy.s5.e01.night.window",
+      "label": "Night episode window",
+      "anchorFrom": "voy.s5.e01.night",
+      "anchorTo": "voy.s5.e02.drone",
+      "sortKeyFrom": 35000,
+      "sortKeyTo": 35020,
+      "aliases": [
+        "during Night",
+        "after Night"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-night"
+      ]
+    },
+    {
+      "id": "voy.s5.e02.drone.window",
+      "label": "Drone episode window",
+      "anchorFrom": "voy.s5.e02.drone",
+      "anchorTo": "voy.s5.e03.extreme-risk",
+      "sortKeyFrom": 35020,
+      "sortKeyTo": 35040,
+      "aliases": [
+        "during Drone",
+        "after Drone"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-drone"
+      ]
+    },
+    {
+      "id": "voy.s5.e03.extreme-risk.window",
+      "label": "Extreme Risk episode window",
+      "anchorFrom": "voy.s5.e03.extreme-risk",
+      "anchorTo": "voy.s5.e04.in-the-flesh",
+      "sortKeyFrom": 35040,
+      "sortKeyTo": 35060,
+      "aliases": [
+        "during Extreme Risk",
+        "after Extreme Risk"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-extreme-risk"
+      ]
+    },
+    {
+      "id": "voy.s5.e04.in-the-flesh.window",
+      "label": "In the Flesh episode window",
+      "anchorFrom": "voy.s5.e04.in-the-flesh",
+      "anchorTo": "voy.s5.e05.once-upon-a-time",
+      "sortKeyFrom": 35060,
+      "sortKeyTo": 35080,
+      "aliases": [
+        "during In the Flesh",
+        "after In the Flesh"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-in-the-flesh"
+      ]
+    },
+    {
+      "id": "voy.s5.e05.once-upon-a-time.window",
+      "label": "Once Upon a Time episode window",
+      "anchorFrom": "voy.s5.e05.once-upon-a-time",
+      "anchorTo": "voy.s5.e06.timeless",
+      "sortKeyFrom": 35080,
+      "sortKeyTo": 35100,
+      "aliases": [
+        "during Once Upon a Time",
+        "after Once Upon a Time"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-once-upon-a-time"
+      ]
+    },
+    {
+      "id": "voy.s5.e06.timeless.window",
+      "label": "Timeless episode window",
+      "anchorFrom": "voy.s5.e06.timeless",
+      "anchorTo": "voy.s5.e07.infinite-regress",
+      "sortKeyFrom": 35100,
+      "sortKeyTo": 35120,
+      "aliases": [
+        "during Timeless",
+        "after Timeless"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-timeless"
+      ]
+    },
+    {
+      "id": "voy.s5.e07.infinite-regress.window",
+      "label": "Infinite Regress episode window",
+      "anchorFrom": "voy.s5.e07.infinite-regress",
+      "anchorTo": "voy.s5.e08.nothing-human",
+      "sortKeyFrom": 35120,
+      "sortKeyTo": 35140,
+      "aliases": [
+        "during Infinite Regress",
+        "after Infinite Regress"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-infinite-regress"
+      ]
+    },
+    {
+      "id": "voy.s5.e08.nothing-human.window",
+      "label": "Nothing Human episode window",
+      "anchorFrom": "voy.s5.e08.nothing-human",
+      "anchorTo": "voy.s5.e09.thirty-days",
+      "sortKeyFrom": 35140,
+      "sortKeyTo": 35160,
+      "aliases": [
+        "during Nothing Human",
+        "after Nothing Human"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-nothing-human"
+      ]
+    },
+    {
+      "id": "voy.s5.e09.thirty-days.window",
+      "label": "Thirty Days episode window",
+      "anchorFrom": "voy.s5.e09.thirty-days",
+      "anchorTo": "voy.s5.e10.counterpoint",
+      "sortKeyFrom": 35160,
+      "sortKeyTo": 35180,
+      "aliases": [
+        "during Thirty Days",
+        "after Thirty Days"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-thirty-days"
+      ]
+    },
+    {
+      "id": "voy.s5.e10.counterpoint.window",
+      "label": "Counterpoint episode window",
+      "anchorFrom": "voy.s5.e10.counterpoint",
+      "anchorTo": "voy.s5.e11.latent-image",
+      "sortKeyFrom": 35180,
+      "sortKeyTo": 35200,
+      "aliases": [
+        "during Counterpoint",
+        "after Counterpoint"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-counterpoint"
+      ]
+    },
+    {
+      "id": "voy.s5.e11.latent-image.window",
+      "label": "Latent Image episode window",
+      "anchorFrom": "voy.s5.e11.latent-image",
+      "anchorTo": "voy.s5.e12.bride-of-chaotica",
+      "sortKeyFrom": 35200,
+      "sortKeyTo": 35220,
+      "aliases": [
+        "during Latent Image",
+        "after Latent Image"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-latent-image"
+      ]
+    },
+    {
+      "id": "voy.s5.e12.bride-of-chaotica.window",
+      "label": "Bride of Chaotica! episode window",
+      "anchorFrom": "voy.s5.e12.bride-of-chaotica",
+      "anchorTo": "voy.s5.e13.gravity",
+      "sortKeyFrom": 35220,
+      "sortKeyTo": 35240,
+      "aliases": [
+        "during Bride of Chaotica!",
+        "after Bride of Chaotica!"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-bride-of-chaotica"
+      ]
+    },
+    {
+      "id": "voy.s5.e13.gravity.window",
+      "label": "Gravity episode window",
+      "anchorFrom": "voy.s5.e13.gravity",
+      "anchorTo": "voy.s5.e14.bliss",
+      "sortKeyFrom": 35240,
+      "sortKeyTo": 35260,
+      "aliases": [
+        "during Gravity",
+        "after Gravity"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-gravity"
+      ]
+    },
+    {
+      "id": "voy.s5.e14.bliss.window",
+      "label": "Bliss episode window",
+      "anchorFrom": "voy.s5.e14.bliss",
+      "anchorTo": "voy.s5.e15.dark-frontier",
+      "sortKeyFrom": 35260,
+      "sortKeyTo": 35280,
+      "aliases": [
+        "during Bliss",
+        "after Bliss"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-bliss"
+      ]
+    },
+    {
+      "id": "voy.s5.e15.dark-frontier.window",
+      "label": "Dark Frontier episode window",
+      "anchorFrom": "voy.s5.e15.dark-frontier",
+      "anchorTo": "voy.s5.e16.the-disease",
+      "sortKeyFrom": 35280,
+      "sortKeyTo": 35300,
+      "aliases": [
+        "during Dark Frontier",
+        "after Dark Frontier"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-dark-frontier"
+      ]
+    },
+    {
+      "id": "voy.s5.e16.the-disease.window",
+      "label": "The Disease episode window",
+      "anchorFrom": "voy.s5.e16.the-disease",
+      "anchorTo": "voy.s5.e17.course-oblivion",
+      "sortKeyFrom": 35300,
+      "sortKeyTo": 35320,
+      "aliases": [
+        "during The Disease",
+        "after The Disease"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-the-disease"
+      ]
+    },
+    {
+      "id": "voy.s5.e17.course-oblivion.window",
+      "label": "Course: Oblivion episode window",
+      "anchorFrom": "voy.s5.e17.course-oblivion",
+      "anchorTo": "voy.s5.e18.the-fight",
+      "sortKeyFrom": 35320,
+      "sortKeyTo": 35340,
+      "aliases": [
+        "during Course: Oblivion",
+        "after Course: Oblivion"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-course-oblivion"
+      ]
+    },
+    {
+      "id": "voy.s5.e18.the-fight.window",
+      "label": "The Fight episode window",
+      "anchorFrom": "voy.s5.e18.the-fight",
+      "anchorTo": "voy.s5.e19.think-tank",
+      "sortKeyFrom": 35340,
+      "sortKeyTo": 35360,
+      "aliases": [
+        "during The Fight",
+        "after The Fight"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-the-fight"
+      ]
+    },
+    {
+      "id": "voy.s5.e19.think-tank.window",
+      "label": "Think Tank episode window",
+      "anchorFrom": "voy.s5.e19.think-tank",
+      "anchorTo": "voy.s5.e20.juggernaut",
+      "sortKeyFrom": 35360,
+      "sortKeyTo": 35380,
+      "aliases": [
+        "during Think Tank",
+        "after Think Tank"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-think-tank"
+      ]
+    },
+    {
+      "id": "voy.s5.e20.juggernaut.window",
+      "label": "Juggernaut episode window",
+      "anchorFrom": "voy.s5.e20.juggernaut",
+      "anchorTo": "voy.s5.e21.someone-to-watch-over-me",
+      "sortKeyFrom": 35380,
+      "sortKeyTo": 35400,
+      "aliases": [
+        "during Juggernaut",
+        "after Juggernaut"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-juggernaut"
+      ]
+    },
+    {
+      "id": "voy.s5.e21.someone-to-watch-over-me.window",
+      "label": "Someone to Watch Over Me episode window",
+      "anchorFrom": "voy.s5.e21.someone-to-watch-over-me",
+      "anchorTo": "voy.s5.e22.1159",
+      "sortKeyFrom": 35400,
+      "sortKeyTo": 35420,
+      "aliases": [
+        "during Someone to Watch Over Me",
+        "after Someone to Watch Over Me"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-someone-to-watch-over-me"
+      ]
+    },
+    {
+      "id": "voy.s5.e22.1159.window",
+      "label": "11:59 episode window",
+      "anchorFrom": "voy.s5.e22.1159",
+      "anchorTo": "voy.s5.e23.relativity",
+      "sortKeyFrom": 35420,
+      "sortKeyTo": 35440,
+      "aliases": [
+        "during 11:59",
+        "after 11:59"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-1159"
+      ]
+    },
+    {
+      "id": "voy.s5.e23.relativity.window",
+      "label": "Relativity episode window",
+      "anchorFrom": "voy.s5.e23.relativity",
+      "anchorTo": "voy.s5.e24.warhead",
+      "sortKeyFrom": 35440,
+      "sortKeyTo": 35460,
+      "aliases": [
+        "during Relativity",
+        "after Relativity"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-relativity"
+      ]
+    },
+    {
+      "id": "voy.s5.e24.warhead.window",
+      "label": "Warhead episode window",
+      "anchorFrom": "voy.s5.e24.warhead",
+      "anchorTo": "voy.s5.e25.equinox",
+      "sortKeyFrom": 35460,
+      "sortKeyTo": 35480,
+      "aliases": [
+        "during Warhead",
+        "after Warhead"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-warhead"
+      ]
+    }
+  ]
+}

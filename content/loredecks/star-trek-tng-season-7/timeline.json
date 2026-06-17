@@ -1,0 +1,1758 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: The Next Generation season 7 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "tng.s7.e01.descent-part-ii",
+      "label": "Descent, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 16000,
+      "stardate": "47025.4 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Descent, Part II",
+        "TNG season 7 Descent, Part II",
+        "TNG S7 Descent, Part II",
+        "TNG 7x01 story",
+        "TNG S07 story 01",
+        "TNG 7x01",
+        "TNG S07E01",
+        "TNG season 7 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-descent-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Descent, Part II",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Descent%2C_Part_II_(episode)",
+        "stardate": "47025.4 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e02.liaisons",
+      "label": "Liaisons",
+      "contextType": "story_anchor",
+      "sortKey": 16020,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Liaisons",
+        "TNG season 7 Liaisons",
+        "TNG S7 Liaisons",
+        "TNG 7x02 story",
+        "TNG S07 story 02",
+        "TNG 7x02",
+        "TNG S07E02",
+        "TNG season 7 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-liaisons"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Liaisons",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Liaisons_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e03.interface",
+      "label": "Interface",
+      "contextType": "story_anchor",
+      "sortKey": 16040,
+      "stardate": "47215.5 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Interface",
+        "TNG season 7 Interface",
+        "TNG S7 Interface",
+        "TNG 7x03 story",
+        "TNG S07 story 03",
+        "TNG 7x03",
+        "TNG S07E03",
+        "TNG season 7 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-interface"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Interface",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Interface_(episode)",
+        "stardate": "47215.5 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e04.gambit-part-i",
+      "label": "Gambit, Part I",
+      "contextType": "story_anchor",
+      "sortKey": 16060,
+      "stardate": "47135.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Gambit, Part I",
+        "TNG season 7 Gambit, Part I",
+        "TNG S7 Gambit, Part I",
+        "TNG 7x04 story",
+        "TNG S07 story 04",
+        "TNG 7x04",
+        "TNG S07E04",
+        "TNG season 7 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-gambit-part-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Gambit, Part I",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Gambit%2C_Part_I_(episode)",
+        "stardate": "47135.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e05.gambit-part-ii",
+      "label": "Gambit, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 16080,
+      "stardate": "47160.1-47169.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Gambit, Part II",
+        "TNG season 7 Gambit, Part II",
+        "TNG S7 Gambit, Part II",
+        "TNG 7x05 story",
+        "TNG S07 story 05",
+        "TNG 7x05",
+        "TNG S07E05",
+        "TNG season 7 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-gambit-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Gambit, Part II",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Gambit%2C_Part_II_(episode)",
+        "stardate": "47160.1-47169.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e06.phantasms",
+      "label": "Phantasms",
+      "contextType": "story_anchor",
+      "sortKey": 16100,
+      "stardate": "47225.7 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Phantasms",
+        "TNG season 7 Phantasms",
+        "TNG S7 Phantasms",
+        "TNG 7x06 story",
+        "TNG S07 story 06",
+        "TNG 7x06",
+        "TNG S07E06",
+        "TNG season 7 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-phantasms"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Phantasms",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Phantasms_(episode)",
+        "stardate": "47225.7 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e07.dark-page",
+      "label": "Dark Page",
+      "contextType": "story_anchor",
+      "sortKey": 16120,
+      "stardate": "47254.1 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Dark Page",
+        "TNG season 7 Dark Page",
+        "TNG S7 Dark Page",
+        "TNG 7x07 story",
+        "TNG S07 story 07",
+        "TNG 7x07",
+        "TNG S07E07",
+        "TNG season 7 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-dark-page"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Dark Page",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dark_Page_(episode)",
+        "stardate": "47254.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e08.attached",
+      "label": "Attached",
+      "contextType": "story_anchor",
+      "sortKey": 16140,
+      "stardate": "47304.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Attached",
+        "TNG season 7 Attached",
+        "TNG S7 Attached",
+        "TNG 7x08 story",
+        "TNG S07 story 08",
+        "TNG 7x08",
+        "TNG S07E08",
+        "TNG season 7 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-attached"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Attached",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Attached_(episode)",
+        "stardate": "47304.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e09.force-of-nature",
+      "label": "Force of Nature",
+      "contextType": "story_anchor",
+      "sortKey": 16160,
+      "stardate": "47310.2-47314.5 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Force of Nature",
+        "TNG season 7 Force of Nature",
+        "TNG S7 Force of Nature",
+        "TNG 7x09 story",
+        "TNG S07 story 09",
+        "TNG 7x09",
+        "TNG S07E09",
+        "TNG season 7 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-force-of-nature"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Force of Nature",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Force_of_Nature_(episode)",
+        "stardate": "47310.2-47314.5 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e10.inheritance",
+      "label": "Inheritance",
+      "contextType": "story_anchor",
+      "sortKey": 16180,
+      "stardate": "47410.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Inheritance",
+        "TNG season 7 Inheritance",
+        "TNG S7 Inheritance",
+        "TNG 7x10 story",
+        "TNG S07 story 10",
+        "TNG 7x10",
+        "TNG S07E10",
+        "TNG season 7 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-inheritance"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Inheritance",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Inheritance_(episode)",
+        "stardate": "47410.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e11.parallels",
+      "label": "Parallels",
+      "contextType": "story_anchor",
+      "sortKey": 16200,
+      "stardate": "47391.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Parallels",
+        "TNG season 7 Parallels",
+        "TNG S7 Parallels",
+        "TNG 7x11 story",
+        "TNG S07 story 11",
+        "TNG 7x11",
+        "TNG S07E11",
+        "TNG season 7 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-parallels"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Parallels",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Parallels_(episode)",
+        "stardate": "47391.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e12.the-pegasus",
+      "label": "The Pegasus",
+      "contextType": "story_anchor",
+      "sortKey": 16220,
+      "stardate": "47457.1 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "The Pegasus",
+        "TNG season 7 The Pegasus",
+        "TNG S7 The Pegasus",
+        "TNG 7x12 story",
+        "TNG S07 story 12",
+        "TNG 7x12",
+        "TNG S07E12",
+        "TNG season 7 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-the-pegasus"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Pegasus",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Pegasus_(episode)",
+        "stardate": "47457.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e13.homeward",
+      "label": "Homeward",
+      "contextType": "story_anchor",
+      "sortKey": 16240,
+      "stardate": "47423.9 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Homeward",
+        "TNG season 7 Homeward",
+        "TNG S7 Homeward",
+        "TNG 7x13 story",
+        "TNG S07 story 13",
+        "TNG 7x13",
+        "TNG S07E13",
+        "TNG season 7 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-homeward"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Homeward",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Homeward_(episode)",
+        "stardate": "47423.9 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e14.sub-rosa",
+      "label": "Sub Rosa",
+      "contextType": "story_anchor",
+      "sortKey": 16260,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Sub Rosa",
+        "TNG season 7 Sub Rosa",
+        "TNG S7 Sub Rosa",
+        "TNG 7x14 story",
+        "TNG S07 story 14",
+        "TNG 7x14",
+        "TNG S07E14",
+        "TNG season 7 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-sub-rosa"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sub Rosa",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sub_Rosa_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e15.lower-decks",
+      "label": "Lower Decks",
+      "contextType": "story_anchor",
+      "sortKey": 16280,
+      "stardate": "47566.7 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Lower Decks",
+        "TNG season 7 Lower Decks",
+        "TNG S7 Lower Decks",
+        "TNG 7x15 story",
+        "TNG S07 story 15",
+        "TNG 7x15",
+        "TNG S07E15",
+        "TNG season 7 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-lower-decks"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Lower Decks",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lower_Decks_(episode)",
+        "stardate": "47566.7 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e16.thine-own-self",
+      "label": "Thine Own Self",
+      "contextType": "story_anchor",
+      "sortKey": 16300,
+      "stardate": "47611.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Thine Own Self",
+        "TNG season 7 Thine Own Self",
+        "TNG S7 Thine Own Self",
+        "TNG 7x16 story",
+        "TNG S07 story 16",
+        "TNG 7x16",
+        "TNG S07E16",
+        "TNG season 7 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-thine-own-self"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Thine Own Self",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Thine_Own_Self_(episode)",
+        "stardate": "47611.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e17.masks",
+      "label": "Masks",
+      "contextType": "story_anchor",
+      "sortKey": 16320,
+      "stardate": "47615.2-47618.4 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Masks",
+        "TNG season 7 Masks",
+        "TNG S7 Masks",
+        "TNG 7x17 story",
+        "TNG S07 story 17",
+        "TNG 7x17",
+        "TNG S07E17",
+        "TNG season 7 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-masks"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Masks",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Masks_(episode)",
+        "stardate": "47615.2-47618.4 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e18.eye-of-the-beholder",
+      "label": "Eye of the Beholder",
+      "contextType": "story_anchor",
+      "sortKey": 16340,
+      "stardate": "47623.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Eye of the Beholder",
+        "TNG season 7 Eye of the Beholder",
+        "TNG S7 Eye of the Beholder",
+        "TNG 7x18 story",
+        "TNG S07 story 18",
+        "TNG 7x18",
+        "TNG S07E18",
+        "TNG season 7 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-eye-of-the-beholder"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Eye of the Beholder",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Eye_of_the_Beholder_(episode)",
+        "stardate": "47623.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e19.genesis",
+      "label": "Genesis",
+      "contextType": "story_anchor",
+      "sortKey": 16360,
+      "stardate": "47653.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Genesis",
+        "TNG season 7 Genesis",
+        "TNG S7 Genesis",
+        "TNG 7x19 story",
+        "TNG S07 story 19",
+        "TNG 7x19",
+        "TNG S07E19",
+        "TNG season 7 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-genesis"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Genesis",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Genesis_(episode)",
+        "stardate": "47653.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e20.journeys-end",
+      "label": "Journey's End",
+      "contextType": "story_anchor",
+      "sortKey": 16380,
+      "stardate": "47751.2-47755.3 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Journey's End",
+        "TNG season 7 Journey's End",
+        "TNG S7 Journey's End",
+        "TNG 7x20 story",
+        "TNG S07 story 20",
+        "TNG 7x20",
+        "TNG S07E20",
+        "TNG season 7 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-journeys-end"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Journey's End",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Journey's_End_(episode)",
+        "stardate": "47751.2-47755.3 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e21.firstborn",
+      "label": "Firstborn",
+      "contextType": "story_anchor",
+      "sortKey": 16400,
+      "stardate": "47779.4 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Firstborn",
+        "TNG season 7 Firstborn",
+        "TNG S7 Firstborn",
+        "TNG 7x21 story",
+        "TNG S07 story 21",
+        "TNG 7x21",
+        "TNG S07E21",
+        "TNG season 7 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-firstborn"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Firstborn",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Firstborn_(episode)",
+        "stardate": "47779.4 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e22.bloodlines",
+      "label": "Bloodlines",
+      "contextType": "story_anchor",
+      "sortKey": 16420,
+      "stardate": "47829.1 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Bloodlines",
+        "TNG season 7 Bloodlines",
+        "TNG S7 Bloodlines",
+        "TNG 7x22 story",
+        "TNG S07 story 22",
+        "TNG 7x22",
+        "TNG S07E22",
+        "TNG season 7 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-bloodlines"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Bloodlines",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Bloodlines_(episode)",
+        "stardate": "47829.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e23.emergence",
+      "label": "Emergence",
+      "contextType": "story_anchor",
+      "sortKey": 16440,
+      "stardate": "47869.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Emergence",
+        "TNG season 7 Emergence",
+        "TNG S7 Emergence",
+        "TNG 7x23 story",
+        "TNG S07 story 23",
+        "TNG 7x23",
+        "TNG S07E23",
+        "TNG season 7 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-emergence"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Emergence",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Emergence_(episode)",
+        "stardate": "47869.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e24.preemptive-strike",
+      "label": "Preemptive Strike",
+      "contextType": "story_anchor",
+      "sortKey": 16460,
+      "stardate": "47941.7-47943.2 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Preemptive Strike",
+        "TNG season 7 Preemptive Strike",
+        "TNG S7 Preemptive Strike",
+        "TNG 7x24 story",
+        "TNG S07 story 24",
+        "TNG 7x24",
+        "TNG S07E24",
+        "TNG season 7 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-preemptive-strike"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Preemptive Strike",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Preemptive_Strike_(episode)",
+        "stardate": "47941.7-47943.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s7.e25.all-good-things",
+      "label": "All Good Things...",
+      "contextType": "story_anchor",
+      "sortKey": 16480,
+      "stardate": "47988 (2370)",
+      "year": "2370",
+      "series": "TNG",
+      "season": 7,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "All Good Things...",
+        "TNG season 7 All Good Things...",
+        "TNG S7 All Good Things...",
+        "TNG 7x25 story",
+        "TNG S07 story 25",
+        "TNG 7x25",
+        "TNG S07E25",
+        "TNG season 7 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-all-good-things"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "All Good Things...",
+        "series": "TNG",
+        "season": 7,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/All_Good_Things..._(episode)",
+        "stardate": "47988 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "tng.s7.full-season",
+      "label": "TNG season 7 full window",
+      "anchorFrom": "tng.s7.e01.descent-part-ii",
+      "anchorTo": "tng.s7.e25.all-good-things",
+      "sortKeyFrom": 16000,
+      "sortKeyTo": 16480,
+      "aliases": [
+        "TNG season 7",
+        "Star Trek: The Next Generation season 7",
+        "TNG S7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "tng.s7.e01.descent-part-ii.window",
+      "label": "Descent, Part II episode window",
+      "anchorFrom": "tng.s7.e01.descent-part-ii",
+      "anchorTo": "tng.s7.e02.liaisons",
+      "sortKeyFrom": 16000,
+      "sortKeyTo": 16020,
+      "aliases": [
+        "during Descent, Part II",
+        "after Descent, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-descent-part-ii"
+      ]
+    },
+    {
+      "id": "tng.s7.e02.liaisons.window",
+      "label": "Liaisons episode window",
+      "anchorFrom": "tng.s7.e02.liaisons",
+      "anchorTo": "tng.s7.e03.interface",
+      "sortKeyFrom": 16020,
+      "sortKeyTo": 16040,
+      "aliases": [
+        "during Liaisons",
+        "after Liaisons"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-liaisons"
+      ]
+    },
+    {
+      "id": "tng.s7.e03.interface.window",
+      "label": "Interface episode window",
+      "anchorFrom": "tng.s7.e03.interface",
+      "anchorTo": "tng.s7.e04.gambit-part-i",
+      "sortKeyFrom": 16040,
+      "sortKeyTo": 16060,
+      "aliases": [
+        "during Interface",
+        "after Interface"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-interface"
+      ]
+    },
+    {
+      "id": "tng.s7.e04.gambit-part-i.window",
+      "label": "Gambit, Part I episode window",
+      "anchorFrom": "tng.s7.e04.gambit-part-i",
+      "anchorTo": "tng.s7.e05.gambit-part-ii",
+      "sortKeyFrom": 16060,
+      "sortKeyTo": 16080,
+      "aliases": [
+        "during Gambit, Part I",
+        "after Gambit, Part I"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-gambit-part-i"
+      ]
+    },
+    {
+      "id": "tng.s7.e05.gambit-part-ii.window",
+      "label": "Gambit, Part II episode window",
+      "anchorFrom": "tng.s7.e05.gambit-part-ii",
+      "anchorTo": "tng.s7.e06.phantasms",
+      "sortKeyFrom": 16080,
+      "sortKeyTo": 16100,
+      "aliases": [
+        "during Gambit, Part II",
+        "after Gambit, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-gambit-part-ii"
+      ]
+    },
+    {
+      "id": "tng.s7.e06.phantasms.window",
+      "label": "Phantasms episode window",
+      "anchorFrom": "tng.s7.e06.phantasms",
+      "anchorTo": "tng.s7.e07.dark-page",
+      "sortKeyFrom": 16100,
+      "sortKeyTo": 16120,
+      "aliases": [
+        "during Phantasms",
+        "after Phantasms"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-phantasms"
+      ]
+    },
+    {
+      "id": "tng.s7.e07.dark-page.window",
+      "label": "Dark Page episode window",
+      "anchorFrom": "tng.s7.e07.dark-page",
+      "anchorTo": "tng.s7.e08.attached",
+      "sortKeyFrom": 16120,
+      "sortKeyTo": 16140,
+      "aliases": [
+        "during Dark Page",
+        "after Dark Page"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-dark-page"
+      ]
+    },
+    {
+      "id": "tng.s7.e08.attached.window",
+      "label": "Attached episode window",
+      "anchorFrom": "tng.s7.e08.attached",
+      "anchorTo": "tng.s7.e09.force-of-nature",
+      "sortKeyFrom": 16140,
+      "sortKeyTo": 16160,
+      "aliases": [
+        "during Attached",
+        "after Attached"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-attached"
+      ]
+    },
+    {
+      "id": "tng.s7.e09.force-of-nature.window",
+      "label": "Force of Nature episode window",
+      "anchorFrom": "tng.s7.e09.force-of-nature",
+      "anchorTo": "tng.s7.e10.inheritance",
+      "sortKeyFrom": 16160,
+      "sortKeyTo": 16180,
+      "aliases": [
+        "during Force of Nature",
+        "after Force of Nature"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-force-of-nature"
+      ]
+    },
+    {
+      "id": "tng.s7.e10.inheritance.window",
+      "label": "Inheritance episode window",
+      "anchorFrom": "tng.s7.e10.inheritance",
+      "anchorTo": "tng.s7.e11.parallels",
+      "sortKeyFrom": 16180,
+      "sortKeyTo": 16200,
+      "aliases": [
+        "during Inheritance",
+        "after Inheritance"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-inheritance"
+      ]
+    },
+    {
+      "id": "tng.s7.e11.parallels.window",
+      "label": "Parallels episode window",
+      "anchorFrom": "tng.s7.e11.parallels",
+      "anchorTo": "tng.s7.e12.the-pegasus",
+      "sortKeyFrom": 16200,
+      "sortKeyTo": 16220,
+      "aliases": [
+        "during Parallels",
+        "after Parallels"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-parallels"
+      ]
+    },
+    {
+      "id": "tng.s7.e12.the-pegasus.window",
+      "label": "The Pegasus episode window",
+      "anchorFrom": "tng.s7.e12.the-pegasus",
+      "anchorTo": "tng.s7.e13.homeward",
+      "sortKeyFrom": 16220,
+      "sortKeyTo": 16240,
+      "aliases": [
+        "during The Pegasus",
+        "after The Pegasus"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-the-pegasus"
+      ]
+    },
+    {
+      "id": "tng.s7.e13.homeward.window",
+      "label": "Homeward episode window",
+      "anchorFrom": "tng.s7.e13.homeward",
+      "anchorTo": "tng.s7.e14.sub-rosa",
+      "sortKeyFrom": 16240,
+      "sortKeyTo": 16260,
+      "aliases": [
+        "during Homeward",
+        "after Homeward"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-homeward"
+      ]
+    },
+    {
+      "id": "tng.s7.e14.sub-rosa.window",
+      "label": "Sub Rosa episode window",
+      "anchorFrom": "tng.s7.e14.sub-rosa",
+      "anchorTo": "tng.s7.e15.lower-decks",
+      "sortKeyFrom": 16260,
+      "sortKeyTo": 16280,
+      "aliases": [
+        "during Sub Rosa",
+        "after Sub Rosa"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-sub-rosa"
+      ]
+    },
+    {
+      "id": "tng.s7.e15.lower-decks.window",
+      "label": "Lower Decks episode window",
+      "anchorFrom": "tng.s7.e15.lower-decks",
+      "anchorTo": "tng.s7.e16.thine-own-self",
+      "sortKeyFrom": 16280,
+      "sortKeyTo": 16300,
+      "aliases": [
+        "during Lower Decks",
+        "after Lower Decks"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-lower-decks"
+      ]
+    },
+    {
+      "id": "tng.s7.e16.thine-own-self.window",
+      "label": "Thine Own Self episode window",
+      "anchorFrom": "tng.s7.e16.thine-own-self",
+      "anchorTo": "tng.s7.e17.masks",
+      "sortKeyFrom": 16300,
+      "sortKeyTo": 16320,
+      "aliases": [
+        "during Thine Own Self",
+        "after Thine Own Self"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-thine-own-self"
+      ]
+    },
+    {
+      "id": "tng.s7.e17.masks.window",
+      "label": "Masks episode window",
+      "anchorFrom": "tng.s7.e17.masks",
+      "anchorTo": "tng.s7.e18.eye-of-the-beholder",
+      "sortKeyFrom": 16320,
+      "sortKeyTo": 16340,
+      "aliases": [
+        "during Masks",
+        "after Masks"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-masks"
+      ]
+    },
+    {
+      "id": "tng.s7.e18.eye-of-the-beholder.window",
+      "label": "Eye of the Beholder episode window",
+      "anchorFrom": "tng.s7.e18.eye-of-the-beholder",
+      "anchorTo": "tng.s7.e19.genesis",
+      "sortKeyFrom": 16340,
+      "sortKeyTo": 16360,
+      "aliases": [
+        "during Eye of the Beholder",
+        "after Eye of the Beholder"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-eye-of-the-beholder"
+      ]
+    },
+    {
+      "id": "tng.s7.e19.genesis.window",
+      "label": "Genesis episode window",
+      "anchorFrom": "tng.s7.e19.genesis",
+      "anchorTo": "tng.s7.e20.journeys-end",
+      "sortKeyFrom": 16360,
+      "sortKeyTo": 16380,
+      "aliases": [
+        "during Genesis",
+        "after Genesis"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-genesis"
+      ]
+    },
+    {
+      "id": "tng.s7.e20.journeys-end.window",
+      "label": "Journey's End episode window",
+      "anchorFrom": "tng.s7.e20.journeys-end",
+      "anchorTo": "tng.s7.e21.firstborn",
+      "sortKeyFrom": 16380,
+      "sortKeyTo": 16400,
+      "aliases": [
+        "during Journey's End",
+        "after Journey's End"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-journeys-end"
+      ]
+    },
+    {
+      "id": "tng.s7.e21.firstborn.window",
+      "label": "Firstborn episode window",
+      "anchorFrom": "tng.s7.e21.firstborn",
+      "anchorTo": "tng.s7.e22.bloodlines",
+      "sortKeyFrom": 16400,
+      "sortKeyTo": 16420,
+      "aliases": [
+        "during Firstborn",
+        "after Firstborn"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-firstborn"
+      ]
+    },
+    {
+      "id": "tng.s7.e22.bloodlines.window",
+      "label": "Bloodlines episode window",
+      "anchorFrom": "tng.s7.e22.bloodlines",
+      "anchorTo": "tng.s7.e23.emergence",
+      "sortKeyFrom": 16420,
+      "sortKeyTo": 16440,
+      "aliases": [
+        "during Bloodlines",
+        "after Bloodlines"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-bloodlines"
+      ]
+    },
+    {
+      "id": "tng.s7.e23.emergence.window",
+      "label": "Emergence episode window",
+      "anchorFrom": "tng.s7.e23.emergence",
+      "anchorTo": "tng.s7.e24.preemptive-strike",
+      "sortKeyFrom": 16440,
+      "sortKeyTo": 16460,
+      "aliases": [
+        "during Emergence",
+        "after Emergence"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-emergence"
+      ]
+    },
+    {
+      "id": "tng.s7.e24.preemptive-strike.window",
+      "label": "Preemptive Strike episode window",
+      "anchorFrom": "tng.s7.e24.preemptive-strike",
+      "anchorTo": "tng.s7.e25.all-good-things",
+      "sortKeyFrom": 16460,
+      "sortKeyTo": 16480,
+      "aliases": [
+        "during Preemptive Strike",
+        "after Preemptive Strike"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s7-preemptive-strike"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1091 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: Deep Space Nine season 1 Context from episode titles, story rows, runtime aliases, and common DS9 S1 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer DS9 season 1 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "emissary",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 emissary",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "ds9 s1 emissary",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "ds9 1x01 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 01",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "ds9 1x01",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "ds9 s01e01",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 1",
+      "result": {
+        "anchorFrom": "ds9.s1.e01.emissary",
+        "label": "Emissary"
+      }
+    },
+    {
+      "pattern": "past prologue",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 past prologue",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "ds9 s1 past prologue",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "ds9 1x02 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 02",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "ds9 1x02",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "ds9 s01e02",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 2",
+      "result": {
+        "anchorFrom": "ds9.s1.e02.past-prologue",
+        "label": "Past Prologue"
+      }
+    },
+    {
+      "pattern": "a man alone",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 a man alone",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "ds9 s1 a man alone",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "ds9 1x03 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 03",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "ds9 1x03",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "ds9 s01e03",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 3",
+      "result": {
+        "anchorFrom": "ds9.s1.e03.a-man-alone",
+        "label": "A Man Alone"
+      }
+    },
+    {
+      "pattern": "babel",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 babel",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "ds9 s1 babel",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "ds9 1x04 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 04",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "ds9 1x04",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "ds9 s01e04",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 4",
+      "result": {
+        "anchorFrom": "ds9.s1.e04.babel",
+        "label": "Babel"
+      }
+    },
+    {
+      "pattern": "captive pursuit",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 captive pursuit",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "ds9 s1 captive pursuit",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "ds9 1x05 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 05",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "ds9 1x05",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "ds9 s01e05",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 5",
+      "result": {
+        "anchorFrom": "ds9.s1.e05.captive-pursuit",
+        "label": "Captive Pursuit"
+      }
+    },
+    {
+      "pattern": "q-less",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 q-less",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "ds9 s1 q-less",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "ds9 1x06 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 06",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "ds9 1x06",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "ds9 s01e06",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 6",
+      "result": {
+        "anchorFrom": "ds9.s1.e06.q-less",
+        "label": "Q-Less"
+      }
+    },
+    {
+      "pattern": "dax",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 dax",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "ds9 s1 dax",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "ds9 1x07 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 07",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "ds9 1x07",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "ds9 s01e07",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 7",
+      "result": {
+        "anchorFrom": "ds9.s1.e07.dax",
+        "label": "Dax"
+      }
+    },
+    {
+      "pattern": "the passenger",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 the passenger",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "ds9 s1 the passenger",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "ds9 1x08 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 08",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "ds9 1x08",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "ds9 s01e08",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 8",
+      "result": {
+        "anchorFrom": "ds9.s1.e08.the-passenger",
+        "label": "The Passenger"
+      }
+    },
+    {
+      "pattern": "move along home",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 move along home",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "ds9 s1 move along home",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "ds9 1x09 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 09",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "ds9 1x09",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "ds9 s01e09",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 9",
+      "result": {
+        "anchorFrom": "ds9.s1.e09.move-along-home",
+        "label": "Move Along Home"
+      }
+    },
+    {
+      "pattern": "the nagus",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 the nagus",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "ds9 s1 the nagus",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "ds9 1x10 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 10",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "ds9 1x10",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "ds9 s01e10",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 10",
+      "result": {
+        "anchorFrom": "ds9.s1.e10.the-nagus",
+        "label": "The Nagus"
+      }
+    },
+    {
+      "pattern": "vortex",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 vortex",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "ds9 s1 vortex",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "ds9 1x11 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 11",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "ds9 1x11",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "ds9 s01e11",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 11",
+      "result": {
+        "anchorFrom": "ds9.s1.e11.vortex",
+        "label": "Vortex"
+      }
+    },
+    {
+      "pattern": "battle lines",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 battle lines",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "ds9 s1 battle lines",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "ds9 1x12 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 12",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "ds9 1x12",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "ds9 s01e12",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 12",
+      "result": {
+        "anchorFrom": "ds9.s1.e12.battle-lines",
+        "label": "Battle Lines"
+      }
+    },
+    {
+      "pattern": "the storyteller",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 the storyteller",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "ds9 s1 the storyteller",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "ds9 1x13 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 13",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "ds9 1x13",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "ds9 s01e13",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 13",
+      "result": {
+        "anchorFrom": "ds9.s1.e13.the-storyteller",
+        "label": "The Storyteller"
+      }
+    },
+    {
+      "pattern": "progress",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 progress",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "ds9 s1 progress",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "ds9 1x14 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 14",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "ds9 1x14",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "ds9 s01e14",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 14",
+      "result": {
+        "anchorFrom": "ds9.s1.e14.progress",
+        "label": "Progress"
+      }
+    },
+    {
+      "pattern": "if wishes were horses",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 if wishes were horses",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "ds9 s1 if wishes were horses",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "ds9 1x15 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 15",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "ds9 1x15",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "ds9 s01e15",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 15",
+      "result": {
+        "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+        "label": "If Wishes Were Horses"
+      }
+    },
+    {
+      "pattern": "the forsaken",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 the forsaken",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "ds9 s1 the forsaken",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "ds9 1x16 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 16",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "ds9 1x16",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "ds9 s01e16",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 16",
+      "result": {
+        "anchorFrom": "ds9.s1.e16.the-forsaken",
+        "label": "The Forsaken"
+      }
+    },
+    {
+      "pattern": "dramatis personae",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 dramatis personae",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "ds9 s1 dramatis personae",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "ds9 1x17 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 17",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "ds9 1x17",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "ds9 s01e17",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 17",
+      "result": {
+        "anchorFrom": "ds9.s1.e17.dramatis-personae",
+        "label": "Dramatis Personae"
+      }
+    },
+    {
+      "pattern": "duet",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 duet",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "ds9 s1 duet",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "ds9 1x18 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 18",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "ds9 1x18",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "ds9 s01e18",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 18",
+      "result": {
+        "anchorFrom": "ds9.s1.e18.duet",
+        "label": "Duet"
+      }
+    },
+    {
+      "pattern": "in the hands of the prophets",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 in the hands of the prophets",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    },
+    {
+      "pattern": "ds9 s1 in the hands of the prophets",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    },
+    {
+      "pattern": "ds9 1x19 story",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    },
+    {
+      "pattern": "ds9 s01 story 19",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    },
+    {
+      "pattern": "ds9 1x19",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    },
+    {
+      "pattern": "ds9 s01e19",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    },
+    {
+      "pattern": "ds9 season 1 episode 19",
+      "result": {
+        "anchorFrom": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "label": "In the Hands of the Prophets"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

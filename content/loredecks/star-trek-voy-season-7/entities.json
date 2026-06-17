@@ -1,0 +1,1123 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:annika-hansen": {
+      "type": "character",
+      "label": "Annika Hansen",
+      "aliases": [
+        "Annika Hansen"
+      ],
+      "canonicalNames": [
+        "Annika Hansen"
+      ],
+      "tags": [
+        "character:annika-hansen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:azan": {
+      "type": "character",
+      "label": "Azan",
+      "aliases": [
+        "Azan"
+      ],
+      "canonicalNames": [
+        "Azan"
+      ],
+      "tags": [
+        "character:azan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:belanna-torres": {
+      "type": "character",
+      "label": "B'Elanna Torres",
+      "aliases": [
+        "B'Elanna Torres"
+      ],
+      "canonicalNames": [
+        "B'Elanna Torres"
+      ],
+      "tags": [
+        "character:belanna-torres"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:borg-collective": {
+      "type": "faction",
+      "label": "Borg Collective",
+      "aliases": [
+        "Borg Collective"
+      ],
+      "canonicalNames": [
+        "Borg Collective"
+      ],
+      "tags": [
+        "faction:borg-collective"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cadet": {
+      "type": "character",
+      "label": "Cadet",
+      "aliases": [
+        "Cadet"
+      ],
+      "canonicalNames": [
+        "Cadet"
+      ],
+      "tags": [
+        "character:cadet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chakotay": {
+      "type": "character",
+      "label": "Chakotay",
+      "aliases": [
+        "Chakotay"
+      ],
+      "canonicalNames": [
+        "Chakotay"
+      ],
+      "tags": [
+        "character:chakotay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chellick": {
+      "type": "character",
+      "label": "Chellick",
+      "aliases": [
+        "Chellick"
+      ],
+      "canonicalNames": [
+        "Chellick"
+      ],
+      "tags": [
+        "character:chellick"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:delta-quadrant": {
+      "type": "character",
+      "label": "Delta Quadrant",
+      "aliases": [
+        "Delta Quadrant"
+      ],
+      "canonicalNames": [
+        "Delta Quadrant"
+      ],
+      "tags": [
+        "character:delta-quadrant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:first-contact-day": {
+      "type": "character",
+      "label": "First Contact Day",
+      "aliases": [
+        "First Contact Day"
+      ],
+      "canonicalNames": [
+        "First Contact Day"
+      ],
+      "tags": [
+        "character:first-contact-day"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:gar": {
+      "type": "character",
+      "label": "Gar",
+      "aliases": [
+        "Gar"
+      ],
+      "canonicalNames": [
+        "Gar"
+      ],
+      "tags": [
+        "character:gar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:general": {
+      "type": "character",
+      "label": "General",
+      "aliases": [
+        "General"
+      ],
+      "canonicalNames": [
+        "General"
+      ],
+      "tags": [
+        "character:general"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:harry-kim": {
+      "type": "character",
+      "label": "Harry Kim",
+      "aliases": [
+        "Harry Kim"
+      ],
+      "canonicalNames": [
+        "Harry Kim"
+      ],
+      "tags": [
+        "character:harry-kim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:hendricks": {
+      "type": "character",
+      "label": "Hendricks",
+      "aliases": [
+        "Hendricks"
+      ],
+      "canonicalNames": [
+        "Hendricks"
+      ],
+      "tags": [
+        "character:hendricks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:hirogen": {
+      "type": "faction",
+      "label": "Hirogen",
+      "aliases": [
+        "Hirogen"
+      ],
+      "canonicalNames": [
+        "Hirogen"
+      ],
+      "tags": [
+        "faction:hirogen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:icheb": {
+      "type": "character",
+      "label": "Icheb",
+      "aliases": [
+        "Icheb"
+      ],
+      "canonicalNames": [
+        "Icheb"
+      ],
+      "tags": [
+        "character:icheb"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:irina": {
+      "type": "character",
+      "label": "Irina",
+      "aliases": [
+        "Irina"
+      ],
+      "canonicalNames": [
+        "Irina"
+      ],
+      "tags": [
+        "character:irina"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jaffen": {
+      "type": "character",
+      "label": "Jaffen",
+      "aliases": [
+        "Jaffen"
+      ],
+      "canonicalNames": [
+        "Jaffen"
+      ],
+      "tags": [
+        "character:jaffen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kathryn-janeway": {
+      "type": "character",
+      "label": "Kathryn Janeway",
+      "aliases": [
+        "Kathryn Janeway"
+      ],
+      "canonicalNames": [
+        "Kathryn Janeway"
+      ],
+      "tags": [
+        "character:kathryn-janeway"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kazon": {
+      "type": "faction",
+      "label": "Kazon",
+      "aliases": [
+        "Kazon"
+      ],
+      "canonicalNames": [
+        "Kazon"
+      ],
+      "tags": [
+        "faction:kazon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kohlar": {
+      "type": "character",
+      "label": "Kohlar",
+      "aliases": [
+        "Kohlar"
+      ],
+      "canonicalNames": [
+        "Kohlar"
+      ],
+      "tags": [
+        "character:kohlar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ledos": {
+      "type": "character",
+      "label": "Ledos",
+      "aliases": [
+        "Ledos"
+      ],
+      "canonicalNames": [
+        "Ledos"
+      ],
+      "tags": [
+        "character:ledos"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:maquis": {
+      "type": "faction",
+      "label": "Maquis",
+      "aliases": [
+        "Maquis"
+      ],
+      "canonicalNames": [
+        "Maquis"
+      ],
+      "tags": [
+        "faction:maquis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:mezoti": {
+      "type": "character",
+      "label": "Mezoti",
+      "aliases": [
+        "Mezoti"
+      ],
+      "canonicalNames": [
+        "Mezoti"
+      ],
+      "tags": [
+        "character:mezoti"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:naomi-wildman": {
+      "type": "character",
+      "label": "Naomi Wildman",
+      "aliases": [
+        "Naomi Wildman"
+      ],
+      "canonicalNames": [
+        "Naomi Wildman"
+      ],
+      "tags": [
+        "character:naomi-wildman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:neelix": {
+      "type": "character",
+      "label": "Neelix",
+      "aliases": [
+        "Neelix"
+      ],
+      "canonicalNames": [
+        "Neelix"
+      ],
+      "tags": [
+        "character:neelix"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:operation-watson": {
+      "type": "character",
+      "label": "Operation Watson",
+      "aliases": [
+        "Operation Watson"
+      ],
+      "canonicalNames": [
+        "Operation Watson"
+      ],
+      "tags": [
+        "character:operation-watson"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:photons-be-free": {
+      "type": "character",
+      "label": "Photons Be Free",
+      "aliases": [
+        "Photons Be Free"
+      ],
+      "canonicalNames": [
+        "Photons Be Free"
+      ],
+      "tags": [
+        "character:photons-be-free"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:q-continuum": {
+      "type": "faction",
+      "label": "Q Continuum",
+      "aliases": [
+        "Q Continuum"
+      ],
+      "canonicalNames": [
+        "Q Continuum"
+      ],
+      "tags": [
+        "faction:q-continuum"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:rebi": {
+      "type": "character",
+      "label": "Rebi",
+      "aliases": [
+        "Rebi"
+      ],
+      "canonicalNames": [
+        "Rebi"
+      ],
+      "tags": [
+        "character:rebi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:reginald-barclay": {
+      "type": "character",
+      "label": "Reginald Barclay",
+      "aliases": [
+        "Reginald Barclay"
+      ],
+      "canonicalNames": [
+        "Reginald Barclay"
+      ],
+      "tags": [
+        "character:reginald-barclay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:seska": {
+      "type": "character",
+      "label": "Seska",
+      "aliases": [
+        "Seska"
+      ],
+      "canonicalNames": [
+        "Seska"
+      ],
+      "tags": [
+        "character:seska"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:seven-of-nine": {
+      "type": "character",
+      "label": "Seven of Nine",
+      "aliases": [
+        "Seven of Nine"
+      ],
+      "canonicalNames": [
+        "Seven of Nine"
+      ],
+      "tags": [
+        "character:seven-of-nine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:the-doctor": {
+      "type": "character",
+      "label": "The Doctor",
+      "aliases": [
+        "The Doctor"
+      ],
+      "canonicalNames": [
+        "The Doctor"
+      ],
+      "tags": [
+        "character:the-doctor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:the-four-seasons": {
+      "type": "character",
+      "label": "The Four Seasons",
+      "aliases": [
+        "The Four Seasons"
+      ],
+      "canonicalNames": [
+        "The Four Seasons"
+      ],
+      "tags": [
+        "character:the-four-seasons"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tom-paris": {
+      "type": "character",
+      "label": "Tom Paris",
+      "aliases": [
+        "Tom Paris"
+      ],
+      "canonicalNames": [
+        "Tom Paris"
+      ],
+      "tags": [
+        "character:tom-paris"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tuvok": {
+      "type": "character",
+      "label": "Tuvok",
+      "aliases": [
+        "Tuvok"
+      ],
+      "canonicalNames": [
+        "Tuvok"
+      ],
+      "tags": [
+        "character:tuvok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:uss-voyager-crew": {
+      "type": "faction",
+      "label": "USS Voyager crew",
+      "aliases": [
+        "USS Voyager crew"
+      ],
+      "canonicalNames": [
+        "USS Voyager crew"
+      ],
+      "tags": [
+        "faction:uss-voyager-crew"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:val-jean": {
+      "type": "character",
+      "label": "Val Jean",
+      "aliases": [
+        "Val Jean"
+      ],
+      "canonicalNames": [
+        "Val Jean"
+      ],
+      "tags": [
+        "character:val-jean"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:valen": {
+      "type": "character",
+      "label": "Valen",
+      "aliases": [
+        "Valen"
+      ],
+      "canonicalNames": [
+        "Valen"
+      ],
+      "tags": [
+        "character:valen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vice-admiral": {
+      "type": "character",
+      "label": "Vice Admiral",
+      "aliases": [
+        "Vice Admiral"
+      ],
+      "canonicalNames": [
+        "Vice Admiral"
+      ],
+      "tags": [
+        "character:vice-admiral"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vulcans": {
+      "type": "faction",
+      "label": "Vulcans",
+      "aliases": [
+        "Vulcans"
+      ],
+      "canonicalNames": [
+        "Vulcans"
+      ],
+      "tags": [
+        "faction:vulcans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    }
+  }
+}

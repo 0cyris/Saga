@@ -49,6 +49,11 @@ import {
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
 import {
+    captureTextInputFocus,
+    preserveInputFocusAfterRender,
+    restoreTextInputFocus,
+} from '../ui/input-focus-preservation.js';
+import {
     truncateCleanText as truncateText,
 } from '../runtime/runtime-formatters.js';
 import {
@@ -77,6 +82,7 @@ let loreWorkbenchMode = 'accepted';
 let loreWorkbenchSelectedId = '';
 let loreWorkbenchPendingQuery = '';
 let loreWorkbenchFocusSelector = '';
+let loreWorkbenchFocusSnapshot = null;
 const loreWorkbenchScrollState = { accepted: 0, pending: 0 };
 let mobileLorecardsStageRenderToken = 0;
 
@@ -369,12 +375,15 @@ function renderLoreWorkbench() {
     if (previousTable) loreWorkbenchScrollState[loreWorkbenchMode] = previousTable.scrollTop || 0;
 
     const focusSelector = loreWorkbenchFocusSelector;
+    const focusSnapshot = loreWorkbenchFocusSnapshot;
     loreWorkbenchFocusSelector = '';
+    loreWorkbenchFocusSnapshot = null;
     overlay.replaceChildren(createLoreWorkbenchShell(state));
     requestAnimationFrame(() => {
         const focusTarget = focusSelector ? overlay.querySelector(focusSelector) : overlay;
-        focusTarget?.focus?.();
-        if (focusTarget && typeof focusTarget.setSelectionRange === 'function') {
+        const restored = focusSelector && restoreTextInputFocus(focusTarget, focusSnapshot, { requirePreviouslyFocused: false });
+        if (!restored) focusTarget?.focus?.();
+        if (!restored && focusTarget && typeof focusTarget.setSelectionRange === 'function') {
             const len = String(focusTarget.value || '').length;
             focusTarget.setSelectionRange(len, len);
         }
@@ -482,6 +491,7 @@ function createAcceptedWorkbenchControls(state) {
     search.addEventListener('input', () => {
         setPanelState({ search: search.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
         loreWorkbenchFocusSelector = '[data-workbench-focus="accepted-search"]';
+        loreWorkbenchFocusSnapshot = captureTextInputFocus(search);
         scheduleAcceptedLoreListRender(getPanelRoot());
         scheduleLoreWorkbenchRefresh();
     });
@@ -704,6 +714,7 @@ function createPendingWorkbenchControls(state) {
     search.addEventListener('input', () => {
         loreWorkbenchPendingQuery = search.value;
         loreWorkbenchFocusSelector = '[data-workbench-focus="pending-search"]';
+        loreWorkbenchFocusSnapshot = captureTextInputFocus(search);
         scheduleLoreWorkbenchRefresh();
     });
     controls.appendChild(search);
@@ -4920,11 +4931,13 @@ function createLorecardWorkspace(state = getState(), options = {}) {
     search.value = panelState.search || '';
     addTooltip(search, 'Search pending and accepted Lorecards by title, tags, fact text, notes, or ID.');
     search.addEventListener('input', (event) => {
-        setPanelState({
-            search: event.target.value,
-            acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
-        }, { deferSave: true });
-        refreshPanelBody({ preserveScroll: true });
+        preserveInputFocusAfterRender(search, '.saga-lorecard-workspace-search', () => {
+            setPanelState({
+                search: event.target.value,
+                acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit(),
+            }, { deferSave: true });
+            refreshPanelBody({ preserveScroll: true });
+        });
     });
     searchRow.appendChild(search);
     searchRow.appendChild(createLorecardWorkspaceSortToggle(activeSort));

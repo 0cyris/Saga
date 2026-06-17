@@ -1,0 +1,1427 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: Deep Space Nine season 7 Context from episode titles, story rows, runtime aliases, and common DS9 S7 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer DS9 season 7 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "image in the sand",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 image in the sand",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "ds9 s7 image in the sand",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "ds9 7x01 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 01",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "ds9 7x01",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "ds9 s07e01",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 1",
+      "result": {
+        "anchorFrom": "ds9.s7.e01.image-in-the-sand",
+        "label": "Image in the Sand"
+      }
+    },
+    {
+      "pattern": "shadows and symbols",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 shadows and symbols",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "ds9 s7 shadows and symbols",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "ds9 7x02 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 02",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "ds9 7x02",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "ds9 s07e02",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 2",
+      "result": {
+        "anchorFrom": "ds9.s7.e02.shadows-and-symbols",
+        "label": "Shadows and Symbols"
+      }
+    },
+    {
+      "pattern": "afterimage",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 afterimage",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "ds9 s7 afterimage",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "ds9 7x03 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 03",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "ds9 7x03",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "ds9 s07e03",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 3",
+      "result": {
+        "anchorFrom": "ds9.s7.e03.afterimage",
+        "label": "Afterimage"
+      }
+    },
+    {
+      "pattern": "take me out to the holosuite",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 take me out to the holosuite",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "ds9 s7 take me out to the holosuite",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "ds9 7x04 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 04",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "ds9 7x04",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "ds9 s07e04",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 4",
+      "result": {
+        "anchorFrom": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "label": "Take Me Out to the Holosuite"
+      }
+    },
+    {
+      "pattern": "chrysalis",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 chrysalis",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "ds9 s7 chrysalis",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "ds9 7x05 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 05",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "ds9 7x05",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "ds9 s07e05",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 5",
+      "result": {
+        "anchorFrom": "ds9.s7.e05.chrysalis",
+        "label": "Chrysalis"
+      }
+    },
+    {
+      "pattern": "treachery, faith and the great river",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 treachery, faith and the great river",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "ds9 s7 treachery, faith and the great river",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "ds9 7x06 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 06",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "ds9 7x06",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "ds9 s07e06",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 6",
+      "result": {
+        "anchorFrom": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "label": "Treachery, Faith and the Great River"
+      }
+    },
+    {
+      "pattern": "once more unto the breach",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 once more unto the breach",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "ds9 s7 once more unto the breach",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "ds9 7x07 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 07",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "ds9 7x07",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "ds9 s07e07",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 7",
+      "result": {
+        "anchorFrom": "ds9.s7.e07.once-more-unto-the-breach",
+        "label": "Once More Unto the Breach"
+      }
+    },
+    {
+      "pattern": "the siege of ar-558",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 the siege of ar-558",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "ds9 s7 the siege of ar-558",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "ds9 7x08 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 08",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "ds9 7x08",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "ds9 s07e08",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 8",
+      "result": {
+        "anchorFrom": "ds9.s7.e08.the-siege-of-ar-558",
+        "label": "The Siege of AR-558"
+      }
+    },
+    {
+      "pattern": "covenant",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 covenant",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "ds9 s7 covenant",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "ds9 7x09 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 09",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "ds9 7x09",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "ds9 s07e09",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 9",
+      "result": {
+        "anchorFrom": "ds9.s7.e09.covenant",
+        "label": "Covenant"
+      }
+    },
+    {
+      "pattern": "it's only a paper moon",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 it's only a paper moon",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "ds9 s7 it's only a paper moon",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "ds9 7x10 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 10",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "ds9 7x10",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "ds9 s07e10",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 10",
+      "result": {
+        "anchorFrom": "ds9.s7.e10.its-only-a-paper-moon",
+        "label": "It's Only a Paper Moon"
+      }
+    },
+    {
+      "pattern": "prodigal daughter",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 prodigal daughter",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "ds9 s7 prodigal daughter",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "ds9 7x11 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 11",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "ds9 7x11",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "ds9 s07e11",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 11",
+      "result": {
+        "anchorFrom": "ds9.s7.e11.prodigal-daughter",
+        "label": "Prodigal Daughter"
+      }
+    },
+    {
+      "pattern": "the emperor's new cloak",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 the emperor's new cloak",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "ds9 s7 the emperor's new cloak",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "ds9 7x12 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 12",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "ds9 7x12",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "ds9 s07e12",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 12",
+      "result": {
+        "anchorFrom": "ds9.s7.e12.the-emperors-new-cloak",
+        "label": "The Emperor's New Cloak"
+      }
+    },
+    {
+      "pattern": "field of fire",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 field of fire",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "ds9 s7 field of fire",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "ds9 7x13 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 13",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "ds9 7x13",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "ds9 s07e13",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 13",
+      "result": {
+        "anchorFrom": "ds9.s7.e13.field-of-fire",
+        "label": "Field of Fire"
+      }
+    },
+    {
+      "pattern": "chimera",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 chimera",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "ds9 s7 chimera",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "ds9 7x14 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 14",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "ds9 7x14",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "ds9 s07e14",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 14",
+      "result": {
+        "anchorFrom": "ds9.s7.e14.chimera",
+        "label": "Chimera"
+      }
+    },
+    {
+      "pattern": "badda-bing, badda-bang",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 badda-bing, badda-bang",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "ds9 s7 badda-bing, badda-bang",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "ds9 7x15 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 15",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "ds9 7x15",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "ds9 s07e15",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 15",
+      "result": {
+        "anchorFrom": "ds9.s7.e15.badda-bing-badda-bang",
+        "label": "Badda-Bing, Badda-Bang"
+      }
+    },
+    {
+      "pattern": "inter arma enim silent leges",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 inter arma enim silent leges",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "ds9 s7 inter arma enim silent leges",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "ds9 7x16 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 16",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "ds9 7x16",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "ds9 s07e16",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 16",
+      "result": {
+        "anchorFrom": "ds9.s7.e16.inter-arma-enim-silent-leges",
+        "label": "Inter Arma Enim Silent Leges"
+      }
+    },
+    {
+      "pattern": "penumbra",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 penumbra",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "ds9 s7 penumbra",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "ds9 7x17 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 17",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "ds9 7x17",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "ds9 s07e17",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 17",
+      "result": {
+        "anchorFrom": "ds9.s7.e17.penumbra",
+        "label": "Penumbra"
+      }
+    },
+    {
+      "pattern": "'til death do us part",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 'til death do us part",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "ds9 s7 'til death do us part",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "ds9 7x18 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 18",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "ds9 7x18",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "ds9 s07e18",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 18",
+      "result": {
+        "anchorFrom": "ds9.s7.e18.til-death-do-us-part",
+        "label": "'Til Death Do Us Part"
+      }
+    },
+    {
+      "pattern": "strange bedfellows",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 strange bedfellows",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "ds9 s7 strange bedfellows",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "ds9 7x19 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 19",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "ds9 7x19",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "ds9 s07e19",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 19",
+      "result": {
+        "anchorFrom": "ds9.s7.e19.strange-bedfellows",
+        "label": "Strange Bedfellows"
+      }
+    },
+    {
+      "pattern": "the changing face of evil",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 the changing face of evil",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "ds9 s7 the changing face of evil",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "ds9 7x20 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 20",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "ds9 7x20",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "ds9 s07e20",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 20",
+      "result": {
+        "anchorFrom": "ds9.s7.e20.the-changing-face-of-evil",
+        "label": "The Changing Face of Evil"
+      }
+    },
+    {
+      "pattern": "when it rains...",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "ds9 season 7 when it rains...",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "ds9 s7 when it rains...",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "ds9 7x21 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 21",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "ds9 7x21",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "ds9 s07e21",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 21",
+      "result": {
+        "anchorFrom": "ds9.s7.e21.when-it-rains",
+        "label": "When It Rains..."
+      }
+    },
+    {
+      "pattern": "tacking into the wind",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 tacking into the wind",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "ds9 s7 tacking into the wind",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "ds9 7x22 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 22",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "ds9 7x22",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "ds9 s07e22",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 22",
+      "result": {
+        "anchorFrom": "ds9.s7.e22.tacking-into-the-wind",
+        "label": "Tacking Into the Wind"
+      }
+    },
+    {
+      "pattern": "extreme measures",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 extreme measures",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "ds9 s7 extreme measures",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "ds9 7x23 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 23",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "ds9 7x23",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "ds9 s07e23",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 23",
+      "result": {
+        "anchorFrom": "ds9.s7.e23.extreme-measures",
+        "label": "Extreme Measures"
+      }
+    },
+    {
+      "pattern": "the dogs of war",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 the dogs of war",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "ds9 s7 the dogs of war",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "ds9 7x24 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 24",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "ds9 7x24",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "ds9 s07e24",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 24",
+      "result": {
+        "anchorFrom": "ds9.s7.e24.the-dogs-of-war",
+        "label": "The Dogs of War"
+      }
+    },
+    {
+      "pattern": "what you leave behind",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 what you leave behind",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    },
+    {
+      "pattern": "ds9 s7 what you leave behind",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    },
+    {
+      "pattern": "ds9 7x25 story",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    },
+    {
+      "pattern": "ds9 s07 story 25",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    },
+    {
+      "pattern": "ds9 7x25",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    },
+    {
+      "pattern": "ds9 s07e25",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    },
+    {
+      "pattern": "ds9 season 7 episode 25",
+      "result": {
+        "anchorFrom": "ds9.s7.e25.what-you-leave-behind",
+        "label": "What You Leave Behind"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

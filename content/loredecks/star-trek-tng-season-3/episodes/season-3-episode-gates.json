@@ -1,0 +1,1941 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_wesley-nanites-threaten-stellar-experiment",
+      "title": "Evolution turns Wesley nanites into an emergent threat to the Kavis Alpha experiment",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e01.evolution",
+        "validToAnchor": "tng.s3.e02.the-ensigns-of-command",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Evolution",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e01.evolution",
+          "label": "Evolution",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:paul-stubbs",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher",
+          "Paul Stubbs",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "nanites",
+          "Kavis Alpha",
+          "Wesley mistake"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution",
+        "character:wesley-crusher",
+        "character:paul-stubbs",
+        "character:data",
+        "faction:starfleet",
+        "topic:nanites",
+        "topic:kavis-alpha",
+        "topic:wesley-mistake"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher",
+            "Paul Stubbs",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Paul Stubbs",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "nanites",
+            "Kavis Alpha",
+            "Wesley mistake"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Paul Stubbs",
+            "Data",
+            "Starfleet",
+            "nanites",
+            "Kavis Alpha",
+            "Wesley mistake",
+            "Evolution",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Wesley accidentally releases self-replicating nanites that interfere with Dr. Stubbs mission and endanger Enterprise systems.",
+        "injection": "Use Evolution as a Wesley accountability and emergent-technology gate. Do not treat the nanites as ordinary ship malware.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Evolution",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Evolution_(episode)",
+        "stardate": "43125.8 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_mintakan-truth-boundary",
+      "title": "Mintakan Federation knowledge remains narrow after the contamination repair",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e04.who-watches-the-watchers",
+        "validToAnchor": "tng.s3.e05.the-bonding",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 12060,
+        "sortKeyTo": 12080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Who Watches The Watchers",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e04.who-watches-the-watchers",
+          "label": "Who Watches The Watchers",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:nuria",
+          "st:liko",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Nuria",
+          "Liko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Mintakan aftermath",
+          "Nuria",
+          "contact boundary"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-who-watches-the-watchers",
+        "character:jean-luc-picard",
+        "character:nuria",
+        "character:liko",
+        "faction:starfleet",
+        "topic:mintakan-aftermath",
+        "topic:nuria",
+        "topic:contact-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Nuria",
+            "Liko"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Nuria",
+            "Liko",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Mintakan aftermath",
+            "Nuria",
+            "contact boundary"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Nuria",
+            "Liko",
+            "Starfleet",
+            "Mintakan aftermath",
+            "contact boundary",
+            "Who Watches The Watchers",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "After Who Watches The Watchers, some Mintakans know enough to reject the Picard god myth, but they do not become Federation members or broad galactic actors.",
+        "injection": "Keep Mintakan knowledge narrow and local. Do not turn them into a recurring Federation contact society in season 3.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Who Watches The Watchers",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Who_Watches_The_Watchers_(episode)",
+        "stardate": "43173.5-43174.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_marla-aster-death-away-mission",
+      "title": "The Bonding starts with Marla Aster death on an away mission",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e05.the-bonding",
+        "validToAnchor": "tng.s3.e06.booby-trap",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 12080,
+        "sortKeyTo": 12100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Bonding",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e05.the-bonding",
+          "label": "The Bonding",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:marla-aster",
+          "st:jeremy-aster",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Marla Aster",
+          "Jeremy Aster",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Marla Aster death",
+          "away mission casualty",
+          "crew grief"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-bonding",
+        "character:marla-aster",
+        "character:jeremy-aster",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:marla-aster-death",
+        "topic:away-mission-casualty",
+        "topic:crew-grief"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Marla Aster",
+            "Jeremy Aster",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Marla Aster",
+            "Jeremy Aster",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Marla Aster death",
+            "away mission casualty",
+            "crew grief"
+          ],
+          "keywordsAny": [
+            "Marla Aster",
+            "Jeremy Aster",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Marla Aster death",
+            "away mission casualty",
+            "crew grief",
+            "The Bonding",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Marla Aster dies under Picard command, making the episode about grief, command responsibility, and how the ship supports a bereaved child.",
+        "injection": "Use Marla Aster death as a crew grief and command-responsibility gate. Do not generalize it into broad ship casualty lore.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Bonding",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Bonding_(episode)",
+        "stardate": "43198.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_geordi-bochra-survival-cooperation",
+      "title": "The Enemy makes Geordi and Bochra cooperate to survive Galorndon Core",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e07.the-enemy",
+        "validToAnchor": "tng.s3.e08.the-price",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 12120,
+        "sortKeyTo": 12140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Enemy",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e07.the-enemy",
+          "label": "The Enemy",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:bochra",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge",
+          "Bochra"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Bochra",
+          "Galorndon Core",
+          "enemy cooperation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-enemy",
+        "character:geordi-la-forge",
+        "character:bochra",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:bochra",
+        "topic:galorndon-core",
+        "topic:enemy-cooperation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge",
+            "Bochra"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Bochra",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Bochra",
+            "Galorndon Core",
+            "enemy cooperation"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Bochra",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Galorndon Core",
+            "enemy cooperation",
+            "The Enemy",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Geordi and Romulan officer Bochra survive only by cooperating despite enemy assumptions, giving the episode a local enemy-humanization gate.",
+        "injection": "Use Geordi-Bochra cooperation as episode-local proof that individual Romulans can work with Starfleet under survival pressure.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Enemy",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Enemy_(episode)",
+        "stardate": "43349.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_angosian-soldier-program-revolt",
+      "title": "The Hunted reveals Angosia made unstable enhanced veterans",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e11.the-hunted",
+        "validToAnchor": "tng.s3.e12.the-high-ground",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 12200,
+        "sortKeyTo": 12220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Hunted",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e11.the-hunted",
+          "label": "The Hunted",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:roga-danar",
+          "st:angosia-iii",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Roga Danar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Angosia III",
+          "Starfleet"
+        ],
+        "topics": [
+          "Angosian veterans",
+          "Roga Danar",
+          "Federation membership"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-hunted",
+        "character:jean-luc-picard",
+        "character:roga-danar",
+        "faction:angosia-iii",
+        "faction:starfleet",
+        "topic:angosian-veterans",
+        "topic:roga-danar",
+        "topic:federation-membership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Roga Danar"
+          ],
+          "factionsAny": [
+            "Angosia III",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Roga Danar",
+            "Angosia III",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Angosian veterans",
+            "Roga Danar",
+            "Federation membership"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Roga Danar",
+            "Angosia III",
+            "Starfleet",
+            "Angosian veterans",
+            "Federation membership",
+            "The Hunted",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Angosia III seeks Federation membership while hiding that it chemically and psychologically altered soldiers it cannot reintegrate.",
+        "injection": "Use The Hunted as a veteran-treatment and engineered-soldier gate. The Angosian state should not read as cleanly Federation-ready.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Hunted",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Hunted_(episode)",
+        "stardate": "43489.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_rutan-terrorism-and-crusher-hostage",
+      "title": "The High Ground puts Crusher inside Rutian insurgency politics",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e12.the-high-ground",
+        "validToAnchor": "tng.s3.e13.deja-q",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 12220,
+        "sortKeyTo": 12240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The High Ground",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e12.the-high-ground",
+          "label": "The High Ground",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:beverly-crusher",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Beverly Crusher",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Ansata",
+          "Rutia IV",
+          "hostage crisis"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-high-ground",
+        "character:beverly-crusher",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:ansata",
+        "topic:rutia-iv",
+        "topic:hostage-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Ansata",
+            "Rutia IV",
+            "hostage crisis"
+          ],
+          "keywordsAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Ansata",
+            "Rutia IV",
+            "hostage crisis",
+            "The High Ground",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Crusher is kidnapped by Ansata separatists on Rutia IV, forcing Picard to confront terrorism, state violence, and medical hostage pressure.",
+        "injection": "Use The High Ground as a terrorism and hostage gate. Do not simplify the conflict into clean heroes and villains.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The High Ground",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_High_Ground_(episode)",
+        "stardate": "43510.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_riker-accusation-local",
+      "title": "A Matter of Perspective is a local Riker accusation and forensic dispute",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e14.a-matter-of-perspective",
+        "validToAnchor": "tng.s3.e15.yesterdays-enterprise",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 12260,
+        "sortKeyTo": 12280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: A Matter of Perspective",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e14.a-matter-of-perspective",
+          "label": "A Matter of Perspective",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:nel-apgar",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Nel Apgar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker accusation",
+          "Apgar",
+          "forensic dispute"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-a-matter-of-perspective",
+        "character:william-riker",
+        "character:nel-apgar",
+        "faction:starfleet",
+        "topic:riker-accusation",
+        "topic:apgar",
+        "topic:forensic-dispute"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Nel Apgar"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Nel Apgar",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker accusation",
+            "Apgar",
+            "forensic dispute"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Nel Apgar",
+            "Starfleet",
+            "Riker accusation",
+            "Apgar",
+            "forensic dispute",
+            "A Matter of Perspective",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riker is accused of murder after Dr. Apgar death, but the durable gate is contested testimony resolved by technical investigation.",
+        "injection": "Keep the Apgar accusation local. Do not treat Riker as carrying a continuing criminal status after the episode.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Matter of Perspective",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Matter_of_Perspective_(episode)",
+        "stardate": "43610.4-43611.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_allegiance-picard-duplicate-command-test",
+      "title": "Allegiance uses a Picard duplicate to test crew obedience",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e18.allegiance",
+        "validToAnchor": "tng.s3.e19.captains-holiday",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 12340,
+        "sortKeyTo": 12360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Allegiance",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e18.allegiance",
+          "label": "Allegiance",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Picard duplicate",
+          "command test",
+          "captivity"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-allegiance",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:picard-duplicate",
+        "topic:command-test",
+        "topic:captivity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Picard duplicate",
+            "command test",
+            "captivity"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet",
+            "Picard duplicate",
+            "command test",
+            "captivity",
+            "Allegiance",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Aliens replace Picard with a duplicate while the real Picard is held with other captives, creating a command-authenticity and crew-obedience test.",
+        "injection": "Use Allegiance as episode-local command-authenticity context. Do not keep a duplicate Picard active after the episode.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Allegiance",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Allegiance_(episode)",
+        "stardate": "43714.1 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_lwaxana-ferengi-abduction-local",
+      "title": "Ménage à Troi uses Ferengi abduction for Lwaxana and Troi family pressure",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e24.menage-a-troi",
+        "validToAnchor": "tng.s3.e25.transfigurations",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 12460,
+        "sortKeyTo": 12480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Ménage à Troi",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e24.menage-a-troi",
+          "label": "Ménage à Troi",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:lwaxana-troi",
+          "st:deanna-troi",
+          "st:william-riker",
+          "st:ferengi-alliance",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Lwaxana Troi",
+          "Deanna Troi",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Ferengi Alliance",
+          "Starfleet"
+        ],
+        "topics": [
+          "Lwaxana abduction",
+          "Ferengi",
+          "Troi family"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-menage-a-troi",
+        "character:lwaxana-troi",
+        "character:deanna-troi",
+        "character:william-riker",
+        "faction:ferengi-alliance",
+        "faction:starfleet",
+        "topic:lwaxana-abduction",
+        "topic:ferengi",
+        "topic:troi-family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lwaxana Troi",
+            "Deanna Troi",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Lwaxana Troi",
+            "Deanna Troi",
+            "William Riker",
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Lwaxana abduction",
+            "Ferengi",
+            "Troi family"
+          ],
+          "keywordsAny": [
+            "Lwaxana Troi",
+            "Deanna Troi",
+            "William Riker",
+            "Ferengi Alliance",
+            "Starfleet",
+            "Lwaxana abduction",
+            "Ferengi",
+            "Troi family",
+            "Ménage à Troi",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Ferengi abduct Lwaxana, Deanna, and Riker, making the episode a local Ferengi leverage and Troi-family crisis.",
+        "injection": "Keep Ménage à Troi local to Lwaxana, Ferengi coercion, and Troi/Riker dynamics. Do not import DS9 Ferengi family politics.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ménage à Troi",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/M%C3%A9nage_%C3%A0_Troi_(episode)",
+        "stardate": "43930.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_wesley-academy-delay-menage",
+      "title": "Ménage à Troi delays Wesley Academy departure by keeping him aboard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e24.menage-a-troi",
+        "validToAnchor": "tng.s3.e25.transfigurations",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 12460,
+        "sortKeyTo": 12480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Ménage à Troi",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e24.menage-a-troi",
+          "label": "Ménage à Troi",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Wesley Academy",
+          "acting ensign",
+          "season 3"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-menage-a-troi",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:wesley-academy",
+        "topic:acting-ensign",
+        "topic:season-3"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Wesley Academy",
+            "acting ensign",
+            "season 3"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Starfleet",
+            "Wesley Academy",
+            "acting ensign",
+            "season 3",
+            "Ménage à Troi",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Wesley is preparing for Starfleet Academy but remains on the Enterprise after helping resolve the Ferengi crisis.",
+        "injection": "Use Ménage à Troi as a Wesley Academy-delay gate: he is moving toward Academy but is not gone yet.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ménage à Troi",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/M%C3%A9nage_%C3%A0_Troi_(episode)",
+        "stardate": "43930.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_john-doe-healing-boundary",
+      "title": "John Doe healing ability is tied to his transformation state",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e25.transfigurations",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 12480,
+        "sortKeyTo": 12500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Transfigurations",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e25.transfigurations",
+          "label": "Transfigurations",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:john-doe",
+          "st:beverly-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "John Doe",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "John Doe healing",
+          "Zalkonian",
+          "medical anomaly"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-transfigurations",
+        "character:john-doe",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "topic:john-doe-healing",
+        "topic:zalkonian",
+        "topic:medical-anomaly"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "John Doe",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "John Doe",
+            "Beverly Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "John Doe healing",
+            "Zalkonian",
+            "medical anomaly"
+          ],
+          "keywordsAny": [
+            "John Doe",
+            "Beverly Crusher",
+            "Starfleet",
+            "John Doe healing",
+            "Zalkonian",
+            "medical anomaly",
+            "Transfigurations",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "John Doe can heal others during his transformation, but the ability is not a Federation medical technique or ordinary power available to the crew.",
+        "injection": "Use John Doe healing only inside Transfigurations context. Do not give Starfleet that healing ability afterward.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Transfigurations",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Transfigurations_(episode)",
+        "stardate": "43957.2-43960.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

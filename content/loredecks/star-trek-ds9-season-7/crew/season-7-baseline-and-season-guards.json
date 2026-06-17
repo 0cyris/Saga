@@ -1,0 +1,948 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_ds9-season-7-baseline",
+      "title": "DS9 season 7 has its own active cast and story baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e01.image-in-the-sand",
+        "validToAnchor": "ds9.s7.e25.what-you-leave-behind",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 27000,
+        "sortKeyTo": 27480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 7",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e01.image-in-the-sand",
+          "label": "Image in the Sand",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:nog",
+          "st:jadzia",
+          "st:promenade",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Nog",
+          "Jadzia",
+          "Promenade"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "season baseline",
+          "The death of Jadzia and the Sisko's purpose",
+          "Nog and AR-558",
+          "Mirror universe",
+          "Section 31 and Julian Bashir",
+          "The Final Chapter"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:nog",
+        "character:jadzia",
+        "character:promenade",
+        "faction:starfleet",
+        "topic:season-baseline",
+        "topic:the-death-of-jadzia-and-the-siskos-purpose",
+        "topic:nog-and-ar-558",
+        "topic:mirror-universe",
+        "topic:section-31-and-julian-bashir",
+        "topic:the-final-chapter"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "season baseline",
+            "The death of Jadzia and the Sisko's purpose",
+            "Nog and AR-558",
+            "Mirror universe",
+            "Section 31 and Julian Bashir",
+            "The Final Chapter"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade",
+            "Starfleet",
+            "season baseline",
+            "The death of Jadzia and the Sisko's purpose",
+            "Nog and AR-558",
+            "Mirror universe",
+            "Section 31 and Julian Bashir",
+            "The Final Chapter",
+            "Image in the Sand",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Star Trek: Deep Space Nine season 7 covers Memory Alpha story rows 1-25, anchored by The death of Jadzia and the Sisko's purpose, Nog and AR-558, Mirror universe, Section 31 and Julian Bashir, The Final Chapter.",
+        "injection": "Use DS9 season 7 as the active Star Trek context when those episode windows are selected. Do not substitute prior or later season status unless another active deck supplies it.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Image in the Sand",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Image_in_the_Sand_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_ds9-season-7-major-arcs",
+      "title": "DS9 season 7 major arcs stay season-local",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e01.image-in-the-sand",
+        "validToAnchor": "ds9.s7.e25.what-you-leave-behind",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 27000,
+        "sortKeyTo": 27480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 7",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e01.image-in-the-sand",
+          "label": "Image in the Sand",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:nog",
+          "st:jadzia",
+          "st:promenade",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Nog",
+          "Jadzia",
+          "Promenade"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "major arcs",
+          "Bajoran occupation/religion gate",
+          "Prophets/Emissary gate",
+          "Pah-wraith secrecy/endgame gate",
+          "wormhole/anomaly route gate",
+          "death/status-change gate",
+          "Romulan secrecy/political pressure gate",
+          "Dominion strategic-threat gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:nog",
+        "character:jadzia",
+        "character:promenade",
+        "faction:starfleet",
+        "topic:major-arcs",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:prophetsemissary-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:deathstatus-change-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "major arcs",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade",
+            "Starfleet",
+            "major arcs",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "Klingon duty/faction-status gate",
+            "Image in the Sand",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season evidence highlights Bajoran occupation/religion gate, Prophets/Emissary gate, Pah-wraith secrecy/endgame gate, wormhole/anomaly route gate, death/status-change gate, Romulan secrecy/political pressure gate, Dominion strategic-threat gate, Klingon duty/faction-status gate, with arcs and one-off episodes bounded by their Memory Alpha story rows.",
+        "injection": "Treat season 7 arcs as Context-gated story state, not a license to import the final outcomes of later Star Trek episodes or series.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Image in the Sand",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Image_in_the_Sand_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_ds9-season-7-faction-boundary",
+      "title": "DS9 season 7 faction state should follow the loaded episode window",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e01.image-in-the-sand",
+        "validToAnchor": "ds9.s7.e25.what-you-leave-behind",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 27000,
+        "sortKeyTo": 27480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 7",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e01.image-in-the-sand",
+          "label": "Image in the Sand",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "faction boundary",
+          "Bajoran occupation/religion gate",
+          "Prophets/Emissary gate",
+          "Pah-wraith secrecy/endgame gate",
+          "wormhole/anomaly route gate",
+          "death/status-change gate",
+          "Romulan secrecy/political pressure gate",
+          "Dominion strategic-threat gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand",
+        "faction:starfleet",
+        "topic:faction-boundary",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:prophetsemissary-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:deathstatus-change-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "faction boundary",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "faction boundary",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "Klingon duty/faction-status gate",
+            "Image in the Sand",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Faction status in this deck comes from season 7 evidence rows and should not be flattened into all-era Star Trek politics.",
+        "injection": "Use the currently active episode anchor before injecting faction status, especially for Klingon, Romulan, Cardassian, Bajoran, Borg, Dominion, Maquis, or Delta Quadrant material.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Image in the Sand",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Image_in_the_Sand_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_ds9-season-7-technology-and-anomaly-boundary",
+      "title": "DS9 season 7 technology and anomaly facts are episode-bounded",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e01.image-in-the-sand",
+        "validToAnchor": "ds9.s7.e25.what-you-leave-behind",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 27000,
+        "sortKeyTo": 27480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 7",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e01.image-in-the-sand",
+          "label": "Image in the Sand",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "technology boundary",
+          "anomaly boundary",
+          "Bajoran occupation/religion gate",
+          "Prophets/Emissary gate",
+          "Pah-wraith secrecy/endgame gate",
+          "wormhole/anomaly route gate",
+          "death/status-change gate",
+          "Romulan secrecy/political pressure gate",
+          "Dominion strategic-threat gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand",
+        "faction:starfleet",
+        "topic:technology-boundary",
+        "topic:anomaly-boundary",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:prophetsemissary-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:deathstatus-change-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "technology boundary",
+            "anomaly boundary",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "technology boundary",
+            "anomaly boundary",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "Klingon duty/faction-status gate",
+            "Image in the Sand",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 7 includes technology, anomaly, medical, legal, and cultural constraints that are often local to one episode.",
+        "injection": "Do not generalize an episode anomaly or technology into routine Starfleet capability unless a later active Loredeck explicitly broadens it.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Image in the Sand",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Image_in_the_Sand_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_ds9-season-7-future-guard",
+      "title": "DS9 season 7 should not import later Star Trek outcomes",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e01.image-in-the-sand",
+        "validToAnchor": "ds9.s7.e25.what-you-leave-behind",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 27000,
+        "sortKeyTo": 27480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 7",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e01.image-in-the-sand",
+          "label": "Image in the Sand",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand",
+        "faction:starfleet",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "future guard",
+            "spoiler guard",
+            "Image in the Sand",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "This deck is a season-local draft reference for Star Trek: Deep Space Nine season 7, not an all-era Star Trek encyclopedia.",
+        "injection": "Block later season, film, Picard-era, beta-canon, novel, comic, game, and fanon outcomes unless another active deck supplies that later Context.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Image in the Sand",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Image_in_the_Sand_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

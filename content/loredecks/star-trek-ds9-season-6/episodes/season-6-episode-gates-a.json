@@ -1,0 +1,2928 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_a-time-to-stand-episode-gate",
+      "title": "A Time to Stand anchors Dominion invasion",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e01.a-time-to-stand",
+        "validToAnchor": "ds9.s6.e02.rocks-and-shoals",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 26000,
+        "sortKeyTo": 26020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: A Time to Stand",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e01.a-time-to-stand",
+          "label": "A Time to Stand",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:julian-bashir",
+          "st:nog",
+          "st:garak",
+          "st:dominion",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:dominion",
+          "st:jemhadar",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Julian Bashir",
+          "Nog",
+          "Garak",
+          "Dominion"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Dominion",
+          "Jem'Hadar",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion invasion",
+          "Klingon duty/faction-status gate",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "genetic secret gate",
+          "reveal timing gate",
+          "Klingon",
+          "war"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-a-time-to-stand",
+        "character:miles-obrien",
+        "character:julian-bashir",
+        "character:nog",
+        "character:garak",
+        "character:dominion",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:dominion",
+        "faction:jemhadar",
+        "faction:bajorans",
+        "topic:dominion-invasion",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:genetic-secret-gate",
+        "topic:reveal-timing-gate",
+        "topic:klingon",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Nog",
+            "Garak",
+            "Dominion"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Nog",
+            "Garak",
+            "Dominion",
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "genetic secret gate",
+            "reveal timing gate",
+            "Klingon",
+            "war"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Nog",
+            "Garak",
+            "Dominion",
+            "Starfleet",
+            "Klingon Empire",
+            "Jem'Hadar",
+            "Bajorans",
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "genetic secret gate",
+            "reveal timing gate",
+            "Klingon",
+            "war",
+            "A Time to Stand",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "A Time to Stand (Unknown (2374)) is Memory Alpha story row 1 for this season. A Time to Stand is a DS9 season 6 story gate centered on Dominion invasion; the evidence marks Klingon duty/faction-status gate; Dominion strategic-threat gate; Jem'Hadar reveal or war gate; genetic secret gate; reveal timing gate.",
+        "injection": "Use A Time to Stand as the active episode Context gate when scenes reference Dominion invasion, Klingon duty/faction-status gate, Dominion strategic-threat gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "A Time to Stand",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Time_to_Stand_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_rocks-and-shoals-episode-gate",
+      "title": "Rocks and Shoals anchors Dominion invasion",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e02.rocks-and-shoals",
+        "validToAnchor": "ds9.s6.e03.sons-and-daughters",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 26020,
+        "sortKeyTo": 26040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Rocks and Shoals",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e02.rocks-and-shoals",
+          "label": "Rocks and Shoals",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:benjamin-sisko",
+          "st:jadzia-dax",
+          "st:julian-bashir",
+          "st:nog",
+          "st:starfleet",
+          "st:dominion",
+          "st:jemhadar",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Benjamin Sisko",
+          "Jadzia Dax",
+          "Julian Bashir",
+          "Nog"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Jem'Hadar",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion invasion",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "Jem'Hadar fighter",
+          "Benjamin Sisko",
+          "stranded deep",
+          "Dominion",
+          "Jem'Hadar"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-rocks-and-shoals",
+        "character:miles-obrien",
+        "character:benjamin-sisko",
+        "character:jadzia-dax",
+        "character:julian-bashir",
+        "character:nog",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:jemhadar",
+        "faction:bajorans",
+        "topic:dominion-invasion",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:jemhadar-fighter",
+        "topic:benjamin-sisko",
+        "topic:stranded-deep",
+        "topic:dominion",
+        "topic:jemhadar"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Nog"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Nog",
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion invasion",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Jem'Hadar fighter",
+            "Benjamin Sisko",
+            "stranded deep",
+            "Dominion",
+            "Jem'Hadar"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Nog",
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans",
+            "Dominion invasion",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Jem'Hadar fighter",
+            "stranded deep",
+            "Rocks and Shoals",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Rocks and Shoals (Unknown (2374)) is Memory Alpha story row 2 for this season. Rocks and Shoals is a DS9 season 6 story gate centered on Dominion invasion; the evidence marks Dominion strategic-threat gate; Jem'Hadar reveal or war gate.",
+        "injection": "Use Rocks and Shoals as the active episode Context gate when scenes reference Dominion invasion, Dominion strategic-threat gate, Jem'Hadar reveal or war gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rocks and Shoals",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rocks_and_Shoals_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_sons-and-daughters-episode-gate",
+      "title": "Sons and Daughters anchors Dominion invasion",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e03.sons-and-daughters",
+        "validToAnchor": "ds9.s6.e04.behind-the-lines",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 26040,
+        "sortKeyTo": 26060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Sons and Daughters",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e03.sons-and-daughters",
+          "label": "Sons and Daughters",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:benjamin-sisko",
+          "st:jadzia-dax",
+          "st:dominion",
+          "st:miles-obrien",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Benjamin Sisko",
+          "Jadzia Dax",
+          "Dominion",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion invasion",
+          "Klingon duty/faction-status gate",
+          "Dominion strategic-threat gate",
+          "crew-join/status-change gate",
+          "Benjamin Sisko",
+          "dark matter nebula",
+          "Dominion",
+          "crashed"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-sons-and-daughters",
+        "character:worf",
+        "character:benjamin-sisko",
+        "character:jadzia-dax",
+        "character:dominion",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:dominion-invasion",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:crew-joinstatus-change-gate",
+        "topic:benjamin-sisko",
+        "topic:dark-matter-nebula",
+        "topic:dominion",
+        "topic:crashed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Dominion",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Dominion",
+            "Miles O'Brien",
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "crew-join/status-change gate",
+            "Benjamin Sisko",
+            "dark matter nebula",
+            "Dominion",
+            "crashed"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Dominion",
+            "Miles O'Brien",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "crew-join/status-change gate",
+            "dark matter nebula",
+            "crashed",
+            "Sons and Daughters",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sons and Daughters (Unknown (2374)) is Memory Alpha story row 3 for this season. Sons and Daughters is a DS9 season 6 story gate centered on Dominion invasion; the evidence marks Klingon duty/faction-status gate; Dominion strategic-threat gate; crew-join/status-change gate.",
+        "injection": "Use Sons and Daughters as the active episode Context gate when scenes reference Dominion invasion, Klingon duty/faction-status gate, Dominion strategic-threat gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sons and Daughters",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sons_and_Daughters_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_behind-the-lines-episode-gate",
+      "title": "Behind the Lines anchors Dominion invasion",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e04.behind-the-lines",
+        "validToAnchor": "ds9.s6.e05.favor-the-bold",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 26060,
+        "sortKeyTo": 26080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Behind the Lines",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e04.behind-the-lines",
+          "label": "Behind the Lines",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:rom",
+          "st:william-ross",
+          "st:starfleet-intelligence",
+          "st:dominion",
+          "st:starfleet",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Rom",
+          "William Ross",
+          "Starfleet Intelligence",
+          "Dominion"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion invasion",
+          "Dominion strategic-threat gate",
+          "Changeling identity/Founder gate",
+          "Defiant/station militarization gate",
+          "Starbase 375",
+          "Dominion space",
+          "Benjamin Sisko",
+          "power cell"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-behind-the-lines",
+        "character:benjamin-sisko",
+        "character:rom",
+        "character:william-ross",
+        "character:starfleet-intelligence",
+        "character:dominion",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:dominion-invasion",
+        "topic:dominion-strategic-threat-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:starbase-375",
+        "topic:dominion-space",
+        "topic:benjamin-sisko",
+        "topic:power-cell"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Rom",
+            "William Ross",
+            "Starfleet Intelligence",
+            "Dominion"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Rom",
+            "William Ross",
+            "Starfleet Intelligence",
+            "Dominion",
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion invasion",
+            "Dominion strategic-threat gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Starbase 375",
+            "Dominion space",
+            "Benjamin Sisko",
+            "power cell"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Rom",
+            "William Ross",
+            "Starfleet Intelligence",
+            "Dominion",
+            "Starfleet",
+            "Bajorans",
+            "Dominion invasion",
+            "Dominion strategic-threat gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Starbase 375",
+            "Dominion space",
+            "power cell",
+            "Behind the Lines",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Behind the Lines (51145.3-51149.5 (2374)) is Memory Alpha story row 4 for this season. Behind the Lines is a DS9 season 6 story gate centered on Dominion invasion; the evidence marks Dominion strategic-threat gate; Changeling identity/Founder gate; Defiant/station militarization gate.",
+        "injection": "Use Behind the Lines as the active episode Context gate when scenes reference Dominion invasion, Dominion strategic-threat gate, Changeling identity/Founder gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Behind the Lines",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Behind_the_Lines_(episode)",
+        "stardate": "51145.3-51149.5 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_favor-the-bold-episode-gate",
+      "title": "Favor the Bold anchors Dominion invasion",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e05.favor-the-bold",
+        "validToAnchor": "ds9.s6.e06.sacrifice-of-angels",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 26080,
+        "sortKeyTo": 26100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Favor the Bold",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e05.favor-the-bold",
+          "label": "Favor the Bold",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:miles-obrien",
+          "st:jadzia-dax",
+          "st:julian-bashir",
+          "st:dominion",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:dominion",
+          "st:jemhadar",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Miles O'Brien",
+          "Jadzia Dax",
+          "Julian Bashir",
+          "Dominion"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Dominion",
+          "Jem'Hadar",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion invasion",
+          "Klingon duty/faction-status gate",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "plasma",
+          "shields",
+          "Dominion",
+          "ships"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-favor-the-bold",
+        "character:worf",
+        "character:miles-obrien",
+        "character:jadzia-dax",
+        "character:julian-bashir",
+        "character:dominion",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:dominion",
+        "faction:jemhadar",
+        "faction:bajorans",
+        "topic:dominion-invasion",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:plasma",
+        "topic:shields",
+        "topic:dominion",
+        "topic:ships"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Dominion"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Dominion",
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "plasma",
+            "shields",
+            "Dominion",
+            "ships"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Dominion",
+            "Starfleet",
+            "Klingon Empire",
+            "Jem'Hadar",
+            "Bajorans",
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "plasma",
+            "shields",
+            "ships",
+            "Favor the Bold",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Favor the Bold (Unknown (2374)) is Memory Alpha story row 5 for this season. Favor the Bold is a DS9 season 6 story gate centered on Dominion invasion; the evidence marks Klingon duty/faction-status gate; Dominion strategic-threat gate; Jem'Hadar reveal or war gate.",
+        "injection": "Use Favor the Bold as the active episode Context gate when scenes reference Dominion invasion, Klingon duty/faction-status gate, Dominion strategic-threat gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Favor the Bold",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Favor_the_Bold_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_sacrifice-of-angels-episode-gate",
+      "title": "Sacrifice of Angels anchors Dominion invasion",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e06.sacrifice-of-angels",
+        "validToAnchor": "ds9.s6.e07.you-are-cordially-invited",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 26100,
+        "sortKeyTo": 26120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Sacrifice of Angels",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e06.sacrifice-of-angels",
+          "label": "Sacrifice of Angels",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:nog",
+          "st:garak",
+          "st:jadzia-dax",
+          "st:elim-garak",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:cardassian-union",
+          "st:bajorans",
+          "st:dominion"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Nog",
+          "Garak",
+          "Jadzia Dax",
+          "Elim Garak"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Cardassian Union",
+          "Bajorans",
+          "Dominion"
+        ],
+        "topics": [
+          "Dominion invasion",
+          "Klingon duty/faction-status gate",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Dominion strategic-threat gate",
+          "Bajoran wormhole route gate",
+          "Benjamin Sisko",
+          "cruiser"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-sacrifice-of-angels",
+        "character:benjamin-sisko",
+        "character:nog",
+        "character:garak",
+        "character:jadzia-dax",
+        "character:elim-garak",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "faction:dominion",
+        "topic:dominion-invasion",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:bajoran-wormhole-route-gate",
+        "topic:benjamin-sisko",
+        "topic:cruiser"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Nog",
+            "Garak",
+            "Jadzia Dax",
+            "Elim Garak"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans",
+            "Dominion"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Nog",
+            "Garak",
+            "Jadzia Dax",
+            "Elim Garak",
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans",
+            "Dominion"
+          ],
+          "topicsAny": [
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Bajoran wormhole route gate",
+            "Benjamin Sisko",
+            "cruiser"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Nog",
+            "Garak",
+            "Jadzia Dax",
+            "Elim Garak",
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans",
+            "Dominion",
+            "Dominion invasion",
+            "Klingon duty/faction-status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Bajoran wormhole route gate",
+            "cruiser",
+            "Sacrifice of Angels",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sacrifice of Angels (Unknown (2374)) is Memory Alpha story row 6 for this season. Sacrifice of Angels is a DS9 season 6 story gate centered on Dominion invasion; the evidence marks Klingon duty/faction-status gate; Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate; Dominion strategic-threat gate; Bajoran wormhole route gate.",
+        "injection": "Use Sacrifice of Angels as the active episode Context gate when scenes reference Dominion invasion, Klingon duty/faction-status gate, Cardassian occupation or border-pressure gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sacrifice of Angels",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sacrifice_of_Angels_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_you-are-cordially-invited-episode-gate",
+      "title": "You Are Cordially Invited anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e07.you-are-cordially-invited",
+        "validToAnchor": "ds9.s6.e08.resurrection",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 26120,
+        "sortKeyTo": 26140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: You Are Cordially Invited",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e07.you-are-cordially-invited",
+          "label": "You Are Cordially Invited",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:ninth-fleet",
+          "st:quadrant",
+          "st:promenade",
+          "st:benjamin-sisko",
+          "st:klingon-empire",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans",
+          "st:dominion"
+        ],
+        "characters": [
+          "Ninth Fleet",
+          "Quadrant",
+          "Promenade",
+          "Benjamin Sisko",
+          "Klingon Empire"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans",
+          "Dominion"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Bajoran occupation/religion gate",
+          "Dominion strategic-threat gate",
+          "wormhole/anomaly route gate",
+          "relationship-status gate",
+          "return",
+          "Deep Space 9",
+          "war"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-you-are-cordially-invited",
+        "character:ninth-fleet",
+        "character:quadrant",
+        "character:promenade",
+        "character:benjamin-sisko",
+        "character:klingon-empire",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "faction:dominion",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:relationship-status-gate",
+        "topic:return",
+        "topic:deep-space-9",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ninth Fleet",
+            "Quadrant",
+            "Promenade",
+            "Benjamin Sisko",
+            "Klingon Empire"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Dominion"
+          ],
+          "entitiesAny": [
+            "Ninth Fleet",
+            "Quadrant",
+            "Promenade",
+            "Benjamin Sisko",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Dominion"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "wormhole/anomaly route gate",
+            "relationship-status gate",
+            "return",
+            "Deep Space 9",
+            "war"
+          ],
+          "keywordsAny": [
+            "Ninth Fleet",
+            "Quadrant",
+            "Promenade",
+            "Benjamin Sisko",
+            "Klingon Empire",
+            "Starfleet",
+            "Bajorans",
+            "Dominion",
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "wormhole/anomaly route gate",
+            "relationship-status gate",
+            "return",
+            "Deep Space 9",
+            "war",
+            "You Are Cordially Invited",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "You Are Cordially Invited (51247.5 (2374)) is Memory Alpha story row 7 for this season. You Are Cordially Invited is a DS9 season 6 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate; Bajoran occupation/religion gate; Dominion strategic-threat gate; wormhole/anomaly route gate; relationship-status gate.",
+        "injection": "Use You Are Cordially Invited as the active episode Context gate when scenes reference Klingon duty/faction-status gate, Bajoran occupation/religion gate, Dominion strategic-threat gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "You Are Cordially Invited",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/You_Are_Cordially_Invited_(episode)",
+        "stardate": "51247.5 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_resurrection-episode-gate",
+      "title": "Resurrection anchors Mirror universe",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e08.resurrection",
+        "validToAnchor": "ds9.s6.e09.statistical-probabilities",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 26140,
+        "sortKeyTo": 26160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Resurrection",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e08.resurrection",
+          "label": "Resurrection",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:boday",
+          "st:miles-obrien",
+          "st:vedek",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Boday",
+          "Miles O'Brien",
+          "Vedek"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Mirror universe",
+          "Mirror universe branch gate",
+          "Major",
+          "Kira",
+          "Dax",
+          "Ops",
+          "Boday",
+          "O'Brien"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-resurrection",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:boday",
+        "character:miles-obrien",
+        "character:vedek",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:mirror-universe",
+        "topic:mirror-universe-branch-gate",
+        "topic:major",
+        "topic:kira",
+        "topic:dax",
+        "topic:ops",
+        "topic:boday",
+        "topic:obrien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Boday",
+            "Miles O'Brien",
+            "Vedek"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Boday",
+            "Miles O'Brien",
+            "Vedek",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Mirror universe",
+            "Mirror universe branch gate",
+            "Major",
+            "Kira",
+            "Dax",
+            "Ops",
+            "Boday",
+            "O'Brien"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Boday",
+            "Miles O'Brien",
+            "Vedek",
+            "Starfleet",
+            "Bajorans",
+            "Mirror universe",
+            "Mirror universe branch gate",
+            "Major",
+            "Kira",
+            "Dax",
+            "Ops",
+            "O'Brien",
+            "Resurrection",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Resurrection (Unknown (2374)) is Memory Alpha story row 8 for this season. Resurrection is a DS9 season 6 story gate centered on Mirror universe; the evidence marks Mirror universe branch gate.",
+        "injection": "Use Resurrection as the active episode Context gate when scenes reference Mirror universe, Mirror universe branch gate, Major.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Resurrection",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Resurrection_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_statistical-probabilities-episode-gate",
+      "title": "Statistical Probabilities anchors Dominion strategic-threat gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e09.statistical-probabilities",
+        "validToAnchor": "ds9.s6.e10.the-magnificent-ferengi",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 26160,
+        "sortKeyTo": 26180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Statistical Probabilities",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e09.statistical-probabilities",
+          "label": "Statistical Probabilities",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:karen-loews",
+          "st:dr",
+          "st:julian-bashir",
+          "st:lauren",
+          "st:patrick",
+          "st:starfleet",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Karen Loews",
+          "Dr.",
+          "Julian Bashir",
+          "Lauren",
+          "Patrick"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion strategic-threat gate",
+          "genetic secret gate",
+          "Karen Loews",
+          "psychiatrist",
+          "genetically-engineered",
+          "Deep Space 9",
+          "Dr.",
+          "Bashir"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-statistical-probabilities",
+        "character:karen-loews",
+        "character:dr",
+        "character:julian-bashir",
+        "character:lauren",
+        "character:patrick",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:dominion-strategic-threat-gate",
+        "topic:genetic-secret-gate",
+        "topic:karen-loews",
+        "topic:psychiatrist",
+        "topic:genetically-engineered",
+        "topic:deep-space-9",
+        "topic:dr",
+        "topic:bashir"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Karen Loews",
+            "Dr.",
+            "Julian Bashir",
+            "Lauren",
+            "Patrick"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Karen Loews",
+            "Dr.",
+            "Julian Bashir",
+            "Lauren",
+            "Patrick",
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion strategic-threat gate",
+            "genetic secret gate",
+            "Karen Loews",
+            "psychiatrist",
+            "genetically-engineered",
+            "Deep Space 9",
+            "Dr.",
+            "Bashir"
+          ],
+          "keywordsAny": [
+            "Karen Loews",
+            "Dr.",
+            "Julian Bashir",
+            "Lauren",
+            "Patrick",
+            "Starfleet",
+            "Dominion",
+            "Bajorans",
+            "Dominion strategic-threat gate",
+            "genetic secret gate",
+            "psychiatrist",
+            "genetically-engineered",
+            "Deep Space 9",
+            "Bashir",
+            "Statistical Probabilities",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Statistical Probabilities (Unknown (2374)) is Memory Alpha story row 9 for this season. Statistical Probabilities is a DS9 season 6 story gate centered on Dominion strategic-threat gate; the evidence marks Dominion strategic-threat gate; genetic secret gate.",
+        "injection": "Use Statistical Probabilities as the active episode Context gate when scenes reference Dominion strategic-threat gate, genetic secret gate, Karen Loews.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Statistical Probabilities",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Statistical_Probabilities_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_the-magnificent-ferengi-episode-gate",
+      "title": "The Magnificent Ferengi anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e10.the-magnificent-ferengi",
+        "validToAnchor": "ds9.s6.e11.waltz",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 26180,
+        "sortKeyTo": 26200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: The Magnificent Ferengi",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e10.the-magnificent-ferengi",
+          "label": "The Magnificent Ferengi",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:quarks",
+          "st:balancar",
+          "st:jadzia-dax",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:ferengi-alliance",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Quark's",
+          "Balancar",
+          "Jadzia Dax"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Ferengi Alliance",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Dominion strategic-threat gate",
+          "Ferengi family/rule-of-acquisition gate",
+          "Quark's",
+          "Quark",
+          "syrup of squill",
+          "drought",
+          "Balancar"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-the-magnificent-ferengi",
+        "character:odo",
+        "character:quark",
+        "character:quarks",
+        "character:balancar",
+        "character:jadzia-dax",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:ferengi-alliance",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:quarks",
+        "topic:quark",
+        "topic:syrup-of-squill",
+        "topic:drought",
+        "topic:balancar"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Balancar",
+            "Jadzia Dax"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Ferengi Alliance",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Balancar",
+            "Jadzia Dax",
+            "Starfleet",
+            "Cardassian Union",
+            "Ferengi Alliance",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Dominion strategic-threat gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Quark's",
+            "Quark",
+            "syrup of squill",
+            "drought",
+            "Balancar"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Balancar",
+            "Jadzia Dax",
+            "Starfleet",
+            "Cardassian Union",
+            "Ferengi Alliance",
+            "Dominion",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Dominion strategic-threat gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "syrup of squill",
+            "drought",
+            "The Magnificent Ferengi",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Magnificent Ferengi (Unknown (2374)) is Memory Alpha story row 10 for this season. The Magnificent Ferengi is a DS9 season 6 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Dominion strategic-threat gate; Ferengi family/rule-of-acquisition gate.",
+        "injection": "Use The Magnificent Ferengi as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Dominion strategic-threat gate, Ferengi family/rule-of-acquisition gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Magnificent Ferengi",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Magnificent_Ferengi_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_waltz-episode-gate",
+      "title": "Waltz anchors Dominion strategic-threat gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e11.waltz",
+        "validToAnchor": "ds9.s6.e12.who-mourns-for-morn",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 26200,
+        "sortKeyTo": 26220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Waltz",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e11.waltz",
+          "label": "Waltz",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:kira-nerys",
+          "st:dukat",
+          "st:gul",
+          "st:dominion-war",
+          "st:starfleet",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Kira Nerys",
+          "Dukat",
+          "Gul",
+          "Dominion War"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion strategic-threat gate",
+          "empire",
+          "his daughter",
+          "Benjamin Sisko",
+          "brig",
+          "Gul",
+          "Dukat",
+          "Waltz"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-waltz",
+        "character:benjamin-sisko",
+        "character:kira-nerys",
+        "character:dukat",
+        "character:gul",
+        "character:dominion-war",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:dominion-strategic-threat-gate",
+        "topic:empire",
+        "topic:his-daughter",
+        "topic:benjamin-sisko",
+        "topic:brig",
+        "topic:gul",
+        "topic:dukat",
+        "topic:waltz"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Dukat",
+            "Gul",
+            "Dominion War"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Dukat",
+            "Gul",
+            "Dominion War",
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion strategic-threat gate",
+            "empire",
+            "his daughter",
+            "Benjamin Sisko",
+            "brig",
+            "Gul",
+            "Dukat",
+            "Waltz"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Dukat",
+            "Gul",
+            "Dominion War",
+            "Starfleet",
+            "Dominion",
+            "Bajorans",
+            "Dominion strategic-threat gate",
+            "empire",
+            "his daughter",
+            "brig",
+            "Waltz",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Waltz (51408.6-51413.6 (2374)) is Memory Alpha story row 11 for this season. Waltz is a DS9 season 6 story gate centered on Dominion strategic-threat gate; the evidence marks Dominion strategic-threat gate.",
+        "injection": "Use Waltz as the active episode Context gate when scenes reference Dominion strategic-threat gate, empire, his daughter.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Waltz",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Waltz_(episode)",
+        "stardate": "51408.6-51413.6 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_who-mourns-for-morn-episode-gate",
+      "title": "Who Mourns for Morn? anchors Bajoran occupation/religion gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e12.who-mourns-for-morn",
+        "validToAnchor": "ds9.s6.e13.far-beyond-the-stars",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 26220,
+        "sortKeyTo": 26240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Who Mourns for Morn?",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e12.who-mourns-for-morn",
+          "label": "Who Mourns for Morn?",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:quarks",
+          "st:morn",
+          "st:miles-obrien",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Quark's",
+          "Morn",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "death/status-change gate",
+          "Odo",
+          "Quark's",
+          "Morn",
+          "Livanian beet",
+          "hologram",
+          "Quark"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-who-mourns-for-morn",
+        "character:odo",
+        "character:quark",
+        "character:quarks",
+        "character:morn",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:deathstatus-change-gate",
+        "topic:odo",
+        "topic:quarks",
+        "topic:morn",
+        "topic:livanian-beet",
+        "topic:hologram",
+        "topic:quark"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Morn",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Morn",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "death/status-change gate",
+            "Odo",
+            "Quark's",
+            "Morn",
+            "Livanian beet",
+            "hologram",
+            "Quark"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Morn",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "death/status-change gate",
+            "Livanian beet",
+            "hologram",
+            "Who Mourns for Morn?",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Who Mourns for Morn? (Unknown (2374)) is Memory Alpha story row 12 for this season. Who Mourns for Morn? is a DS9 season 6 story gate centered on Bajoran occupation/religion gate; the evidence marks Bajoran occupation/religion gate; death/status-change gate.",
+        "injection": "Use Who Mourns for Morn? as the active episode Context gate when scenes reference Bajoran occupation/religion gate, death/status-change gate, Odo.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Who Mourns for Morn?",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Who_Mourns_for_Morn%3F_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s6_far-beyond-the-stars-episode-gate",
+      "title": "Far Beyond the Stars anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s6.e13.far-beyond-the-stars",
+        "validToAnchor": "ds9.s6.e14.one-little-ship",
+        "series": "DS9",
+        "season": "6",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 26240,
+        "sortKeyTo": 26260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 6: Far Beyond the Stars",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s6",
+          "label": "DS9 season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s6.e13.far-beyond-the-stars",
+          "label": "Far Beyond the Stars",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:joseph-sisko",
+          "st:quentin-swofford",
+          "st:jadzia-dax",
+          "st:kasidy-yates",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Joseph Sisko",
+          "Quentin Swofford",
+          "Jadzia Dax",
+          "Kasidy Yates"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Prophets/Emissary gate",
+          "Joseph Sisko",
+          "Benjamin Sisko",
+          "Deep Space 9",
+          "Cardassian border",
+          "Quentin Swofford",
+          "1950s"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-far-beyond-the-stars",
+        "character:benjamin-sisko",
+        "character:joseph-sisko",
+        "character:quentin-swofford",
+        "character:jadzia-dax",
+        "character:kasidy-yates",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:prophetsemissary-gate",
+        "topic:joseph-sisko",
+        "topic:benjamin-sisko",
+        "topic:deep-space-9",
+        "topic:cardassian-border",
+        "topic:quentin-swofford",
+        "topic:1950s"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Joseph Sisko",
+            "Quentin Swofford",
+            "Jadzia Dax",
+            "Kasidy Yates"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Joseph Sisko",
+            "Quentin Swofford",
+            "Jadzia Dax",
+            "Kasidy Yates",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Prophets/Emissary gate",
+            "Joseph Sisko",
+            "Benjamin Sisko",
+            "Deep Space 9",
+            "Cardassian border",
+            "Quentin Swofford",
+            "1950s"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Joseph Sisko",
+            "Quentin Swofford",
+            "Jadzia Dax",
+            "Kasidy Yates",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Prophets/Emissary gate",
+            "Deep Space 9",
+            "Cardassian border",
+            "1950s",
+            "Far Beyond the Stars",
+            "DS9 season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Far Beyond the Stars (Unknown (2374)) is Memory Alpha story row 13 for this season. Far Beyond the Stars is a DS9 season 6 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Prophets/Emissary gate.",
+        "injection": "Use Far Beyond the Stars as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Prophets/Emissary gate, Joseph Sisko.",
+        "constraints": [
+          "Keep this card inside DS9 season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Far Beyond the Stars",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Far_Beyond_the_Stars_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

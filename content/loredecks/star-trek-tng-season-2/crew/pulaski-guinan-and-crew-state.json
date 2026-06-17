@@ -1,0 +1,2753 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_pulaski-replaces-crusher-season-two",
+      "title": "Pulaski is the Enterprise-D chief medical officer for season 2",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e02.where-silence-has-lease",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Child",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:katherine-pulaski",
+          "st:beverly-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Katherine Pulaski",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Pulaski chief medical officer",
+          "Crusher absent",
+          "season 2 crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:katherine-pulaski",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "topic:pulaski-chief-medical-officer",
+        "topic:crusher-absent",
+        "topic:season-2-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katherine Pulaski",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Katherine Pulaski",
+            "Beverly Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Pulaski chief medical officer",
+            "Crusher absent",
+            "season 2 crew"
+          ],
+          "keywordsAny": [
+            "Katherine Pulaski",
+            "Beverly Crusher",
+            "Starfleet",
+            "Pulaski chief medical officer",
+            "Crusher absent",
+            "season 2 crew",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 2 uses Katherine Pulaski as chief medical officer while Beverly Crusher is away from the Enterprise-D, so Crusher should not be written as the active ship doctor in ordinary season 2 scenes.",
+        "injection": "Write Pulaski as the season 2 chief medical officer: blunt, experienced, medically confident, and not Beverly Crusher. Do not import Crusher as active CMO until the season 3 return window.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_guinan-ten-forward-baseline",
+      "title": "Guinan and Ten Forward become active Enterprise-D social infrastructure",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:guinan",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Guinan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Guinan",
+          "Ten Forward",
+          "Enterprise-D social baseline"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:guinan",
+        "faction:starfleet",
+        "topic:guinan",
+        "topic:ten-forward",
+        "topic:enterprise-d-social-baseline"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Guinan"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Guinan",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Guinan",
+            "Ten Forward",
+            "Enterprise-D social baseline"
+          ],
+          "keywordsAny": [
+            "Guinan",
+            "Starfleet",
+            "Ten Forward",
+            "Enterprise-D social baseline",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 2 introduces Guinan as Ten Forward bartender and informal listener, giving the crew a non-command social space for counsel, morale, and guarded insight.",
+        "injection": "Use Guinan as a calm, perceptive Ten Forward presence in season 2. She can offer oblique counsel and read people well, but do not import later El-Aurian or Nexus details.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_geordi-chief-engineer-season-two",
+      "title": "Geordi is chief engineer by season 2",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Geordi chief engineer",
+          "engineering",
+          "season 2 crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:geordi-la-forge",
+        "faction:starfleet",
+        "topic:geordi-chief-engineer",
+        "topic:engineering",
+        "topic:season-2-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Geordi chief engineer",
+            "engineering",
+            "season 2 crew"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Starfleet",
+            "Geordi chief engineer",
+            "engineering",
+            "season 2 crew",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 2 establishes Geordi La Forge in the chief engineer role, moving him out of the season 1 conn-officer baseline.",
+        "injection": "Write Geordi in season 2 as the Enterprise-D chief engineer: technically responsible for ship systems, comfortable in engineering, and still growing into command pressure.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_worf-security-chief-after-yar",
+      "title": "Worf is the settled security lead after Yar death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:natasha-yar",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Natasha Yar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Worf security chief",
+          "Yar death aftermath",
+          "season 2 crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:worf",
+        "character:natasha-yar",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:worf-security-chief",
+        "topic:yar-death-aftermath",
+        "topic:season-2-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Natasha Yar"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Natasha Yar",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Worf security chief",
+            "Yar death aftermath",
+            "season 2 crew"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Natasha Yar",
+            "Starfleet",
+            "Klingon Empire",
+            "Worf security chief",
+            "Yar death aftermath",
+            "season 2 crew",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 2 treats Worf as the Enterprise-D security chief after Tasha Yar death, making Klingon heritage and Starfleet security responsibilities part of his routine role.",
+        "injection": "Use Worf as security chief throughout season 2. Do not write Tasha Yar as active except in references to her death or past service.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_wesley-acting-ensign-season-two",
+      "title": "Wesley functions as an acting ensign under adult supervision",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Wesley acting ensign",
+          "young officer",
+          "bridge duty"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:wesley-acting-ensign",
+        "topic:young-officer",
+        "topic:bridge-duty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Wesley acting ensign",
+            "young officer",
+            "bridge duty"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Starfleet",
+            "Wesley acting ensign",
+            "young officer",
+            "bridge duty",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "In season 2, Wesley can work bridge and technical problems as an acting ensign, but he remains a young provisional officer rather than a full Starfleet adult.",
+        "injection": "Write Wesley as gifted and useful but still supervised. He can contribute to bridge or engineering solutions without outranking adult officers.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_troi-pregnancy-alien-child-local",
+      "title": "Troi pregnancy in The Child is an episode-local alien life event",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e02.where-silence-has-lease",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Child",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Troi pregnancy",
+          "Ian Andrew Troi",
+          "alien child"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:troi-pregnancy",
+        "topic:ian-andrew-troi",
+        "topic:alien-child"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Troi pregnancy",
+            "Ian Andrew Troi",
+            "alien child"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Starfleet",
+            "Troi pregnancy",
+            "Ian Andrew Troi",
+            "alien child",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Troi rapidly conceives, carries, and loses Ian Andrew Troi in The Child, but the event does not create a season-long pregnancy or child status.",
+        "injection": "Use The Child as an episode-local emotional and alien-life event for Troi. Do not keep Ian alive or make Troi pregnant after the episode window.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_data-comedy-learning-okona",
+      "title": "Data studies humor as learned social behavior in The Outrageous Okona",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e04.the-outrageous-okona",
+        "validToAnchor": "tng.s2.e05.loud-as-a-whisper",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 11060,
+        "sortKeyTo": 11080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Outrageous Okona",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e04.the-outrageous-okona",
+          "label": "The Outrageous Okona",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:guinan",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Guinan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data humor",
+          "comedy learning",
+          "Okona"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-outrageous-okona",
+        "character:data",
+        "character:guinan",
+        "faction:starfleet",
+        "topic:data-humor",
+        "topic:comedy-learning",
+        "topic:okona"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Guinan"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Guinan",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data humor",
+            "comedy learning",
+            "Okona"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Guinan",
+            "Starfleet",
+            "Data humor",
+            "comedy learning",
+            "Okona",
+            "The Outrageous Okona",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Outrageous Okona gives Data a direct humor-learning thread, making comedy a social skill he studies rather than naturally feels.",
+        "injection": "Write Data humor in season 2 as exploratory and studied. Do not make him suddenly socially fluent because he practices jokes.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Outrageous Okona",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Outrageous_Okona_(episode)",
+        "stardate": "42402.7 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_riker-father-conflict-icarus",
+      "title": "The Icarus Factor exposes Riker conflict with his father Kyle",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e14.the-icarus-factor",
+        "validToAnchor": "tng.s2.e15.pen-pals",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 11260,
+        "sortKeyTo": 11280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Icarus Factor",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e14.the-icarus-factor",
+          "label": "The Icarus Factor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:kyle-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Kyle Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker father",
+          "Aries command",
+          "career choice"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-icarus-factor",
+        "character:william-riker",
+        "character:kyle-riker",
+        "faction:starfleet",
+        "topic:riker-father",
+        "topic:aries-command",
+        "topic:career-choice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Kyle Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Kyle Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker father",
+            "Aries command",
+            "career choice"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Kyle Riker",
+            "Starfleet",
+            "Riker father",
+            "Aries command",
+            "career choice",
+            "The Icarus Factor",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riker is offered Aries command while unresolved resentment with Kyle Riker surfaces, making family pride and career ambition active season 2 character context.",
+        "injection": "Use The Icarus Factor for Riker family tension and career temptation. Do not assume he has left the Enterprise after declining the Aries path.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Icarus Factor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Icarus_Factor_(episode)",
+        "stardate": "42686.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_picard-artificial-heart-vulnerability",
+      "title": "Samaritan Snare reveals Picard has an artificial heart vulnerability",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e17.samaritan-snare",
+        "validToAnchor": "tng.s2.e18.up-the-long-ladder",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 11320,
+        "sortKeyTo": 11340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Samaritan Snare",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e17.samaritan-snare",
+          "label": "Samaritan Snare",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Picard artificial heart",
+          "medical vulnerability",
+          "Samaritan Snare"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-samaritan-snare",
+        "character:jean-luc-picard",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:picard-artificial-heart",
+        "topic:medical-vulnerability",
+        "topic:samaritan-snare"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Picard artificial heart",
+            "medical vulnerability",
+            "Samaritan Snare"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet",
+            "Picard artificial heart",
+            "medical vulnerability",
+            "Samaritan Snare",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard travels for a medical replacement related to his artificial heart, exposing a private vulnerability beneath his command image.",
+        "injection": "After Samaritan Snare, Picard artificial-heart history can matter in medical or vulnerability scenes. Do not import Tapestry details yet.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Samaritan Snare",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Samaritan_Snare_(episode)",
+        "stardate": "42779.1-42779.5 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_data-confidence-after-kolrami",
+      "title": "Peak Performance gives Data a confidence crisis after losing to Kolrami",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e21.peak-performance",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Peak Performance",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e21.peak-performance",
+          "label": "Peak Performance",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:sirna-kolrami",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Sirna Kolrami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data confidence",
+          "Strategema",
+          "Kolrami"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-peak-performance",
+        "character:data",
+        "character:sirna-kolrami",
+        "faction:starfleet",
+        "topic:data-confidence",
+        "topic:strategema",
+        "topic:kolrami"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Sirna Kolrami"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Sirna Kolrami",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data confidence",
+            "Strategema",
+            "Kolrami"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Sirna Kolrami",
+            "Starfleet",
+            "Data confidence",
+            "Strategema",
+            "Kolrami",
+            "Peak Performance",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data briefly withdraws after losing at Strategema to Kolrami, then recovers by reframing the game and forcing a stalemate.",
+        "injection": "Use this as a Data confidence and logic gate. Data can experience performance doubt without becoming emotionally human or incompetent.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Peak Performance",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Peak_Performance_(episode)",
+        "stardate": "42923.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_pulaski-data-skepticism-softens",
+      "title": "Pulaski starts skeptical of Data but must adjust after seeing his autonomy and competence",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 11160,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e09.the-measure-of-a-man",
+          "label": "The Measure Of A Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:katherine-pulaski",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Katherine Pulaski",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Pulaski Data skepticism",
+          "Data personhood",
+          "season 2 relationship"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-measure-of-a-man",
+        "character:katherine-pulaski",
+        "character:data",
+        "faction:starfleet",
+        "topic:pulaski-data-skepticism",
+        "topic:data-personhood",
+        "topic:season-2-relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Katherine Pulaski",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Pulaski Data skepticism",
+            "Data personhood",
+            "season 2 relationship"
+          ],
+          "keywordsAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Starfleet",
+            "Pulaski Data skepticism",
+            "Data personhood",
+            "season 2 relationship",
+            "The Measure Of A Man",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Across season 2, Pulaski often questions Data's personhood or capacities, but events including The Measure of a Man and Unnatural Selection require her to revise that stance.",
+        "injection": "Write Pulaski as blunt and sometimes wrong about Data, not malicious. Her skepticism should soften under evidence, especially after Data autonomy is recognized.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Measure Of A Man",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Measure_Of_A_Man_(episode)",
+        "stardate": "42523.7-42527.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_picard-season-two-command-baseline",
+      "title": "Season 2 Picard remains diplomacy-first but more willing to admit unpreparedness",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Picard command",
+          "season 2 baseline",
+          "Q Who"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:picard-command",
+        "topic:season-2-baseline",
+        "topic:q-who"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Picard command",
+            "season 2 baseline",
+            "Q Who"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Borg Collective",
+            "Picard command",
+            "season 2 baseline",
+            "Q Who",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "In season 2, Picard continues legal and diplomatic command but Q Who forces him to admit the Enterprise is not ready for every threat.",
+        "injection": "Write Picard season 2 as principled and controlled, with the Borg encounter adding humility about unknown threats. Do not import post-assimilation trauma.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_riker-season-two-command-baseline",
+      "title": "Season 2 Riker is a proven first officer with independent command capacity",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e08.a-matter-of-honor",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 11140,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e08.a-matter-of-honor",
+          "label": "A Matter Of Honor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Riker command",
+          "officer exchange",
+          "Peak Performance"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-a-matter-of-honor",
+        "character:william-riker",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:riker-command",
+        "topic:officer-exchange",
+        "topic:peak-performance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Riker command",
+            "officer exchange",
+            "Peak Performance"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Starfleet",
+            "Klingon Empire",
+            "Riker command",
+            "officer exchange",
+            "Peak Performance",
+            "A Matter Of Honor",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "A Matter of Honor and Peak Performance show Riker adapting to alien command cultures and independent command exercises without leaving the Enterprise.",
+        "injection": "Use Riker as a confident first officer who can command independently but still chooses the Enterprise-D path in season 2.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Matter Of Honor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Matter_Of_Honor_(episode)",
+        "stardate": "42506.5-42507.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_data-season-two-autonomy-baseline",
+      "title": "Season 2 makes Data autonomy a legal and social theme",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 11160,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e09.the-measure-of-a-man",
+          "label": "The Measure Of A Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data autonomy",
+          "Data season 2",
+          "personhood"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-measure-of-a-man",
+        "character:data",
+        "faction:starfleet",
+        "topic:data-autonomy",
+        "topic:data-season-2",
+        "topic:personhood"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data autonomy",
+            "Data season 2",
+            "personhood"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Starfleet",
+            "Data autonomy",
+            "Data season 2",
+            "personhood",
+            "The Measure Of A Man",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data's season 2 arc includes humor study, body violation by Graves, Moriarty as a Data-targeted challenge, and the Maddox hearing, all reinforcing that he is not equipment.",
+        "injection": "After The Measure of a Man, Data autonomy is a season-defining fact. Before that, use the individual episode gates for humor, Graves, and Moriarty without jumping to the ruling.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Measure Of A Man",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Measure_Of_A_Man_(episode)",
+        "stardate": "42523.7-42527.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_pulaski-blunt-medical-style",
+      "title": "Pulaski brings a blunt old-school medical style to the Enterprise",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:katherine-pulaski",
+          "st:data",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Katherine Pulaski",
+          "Data",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Pulaski bedside manner",
+          "medical command",
+          "season 2 tone"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:katherine-pulaski",
+        "character:data",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:pulaski-bedside-manner",
+        "topic:medical-command",
+        "topic:season-2-tone"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Pulaski bedside manner",
+            "medical command",
+            "season 2 tone"
+          ],
+          "keywordsAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Pulaski bedside manner",
+            "medical command",
+            "season 2 tone",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Pulaski is direct, sometimes abrasive, and willing to challenge command or Data from a medical and humanist posture, making her season 2 tone distinct from Crusher.",
+        "injection": "Write Pulaski as experienced and blunt rather than cruel. She may misjudge Data, but she also takes medical risks seriously and can revise her stance.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_picard-wesley-shuttle-bonding",
+      "title": "Samaritan Snare gives Picard and Wesley a private shuttle-bonding window",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e17.samaritan-snare",
+        "validToAnchor": "tng.s2.e18.up-the-long-ladder",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 11320,
+        "sortKeyTo": 11340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Samaritan Snare",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e17.samaritan-snare",
+          "label": "Samaritan Snare",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Picard Wesley shuttle",
+          "Starbase 515",
+          "mentor bond"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-samaritan-snare",
+        "character:jean-luc-picard",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:picard-wesley-shuttle",
+        "topic:starbase-515",
+        "topic:mentor-bond"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Picard Wesley shuttle",
+            "Starbase 515",
+            "mentor bond"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet",
+            "Picard Wesley shuttle",
+            "Starbase 515",
+            "mentor bond",
+            "Samaritan Snare",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard and Wesley share a shuttle trip to Starbase 515, giving Wesley access to Picard vulnerability and creating a quieter mentor-bond beat.",
+        "injection": "Use the shuttle trip for Picard-Wesley trust and awkward mentorship. Keep it tied to Picard medical vulnerability and Wesley youth, not a full father-son replacement.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Samaritan Snare",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Samaritan_Snare_(episode)",
+        "stardate": "42779.1-42779.5 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

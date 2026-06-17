@@ -1,0 +1,853 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_zoro_fights_hachi_while_still_wounded_from_mihawk_023",
+      "title": "Zoro Fights Hachi While Still Wounded From Mihawk",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.battles-and-matchups",
+        "validToAnchor": "op.arlong-park.nami-and-luffy-bond",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5360,
+        "sortKeyTo": 5450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Zoro Fights Hachi While Still Wounded From Mihawk"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:hachi",
+          "op:arlong-pirates"
+        ],
+        "characters": [
+          "Roronoa Zoro",
+          "Hachi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Arlong Pirates"
+        ],
+        "topics": [
+          "Zoro wounded matchup",
+          "Hachi duel",
+          "Mihawk wound"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "character:hachi",
+        "faction:arlong-pirates",
+        "topic:zoro-wounded-matchup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro",
+            "Hachi"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Hachi",
+            "Arlong Pirates"
+          ],
+          "topicsAny": [
+            "Zoro wounded matchup",
+            "Hachi duel",
+            "Mihawk wound"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Hachi",
+            "Arlong Pirates",
+            "Zoro wounded matchup",
+            "Hachi duel",
+            "Mihawk wound",
+            "wound",
+            "fever",
+            "six swords",
+            "Zoro Fights Hachi While Still Wounded From Mihawk",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Zoro fights Hachi while still suffering from Mihawk's wound and fever, making the Six Sword Style matchup an endurance test.",
+        "injection": "Use Zoro's injury as active constraint: the win should cost him and remind scenes that Baratie damage carries forward.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_sanji_s_fight_with_kuroobi_turns_underwater_danger_into_urgency_024",
+      "title": "Sanji's Kuroobi Fight Makes Underwater Danger Urgent",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.battles-and-matchups",
+        "validToAnchor": "op.arlong-park.nami-and-luffy-bond",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5360,
+        "sortKeyTo": 5450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Sanji's Kuroobi Fight Makes Underwater Danger Urgent"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:kuroobi",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Sanji",
+          "Kuroobi",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sanji underwater rescue",
+          "Kuroobi fight",
+          "Luffy drowning"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "character:kuroobi",
+        "character:monkey-d-luffy",
+        "topic:sanji-underwater-rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji",
+            "Kuroobi",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "Kuroobi",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Sanji underwater rescue",
+            "Kuroobi fight",
+            "Luffy drowning"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "Kuroobi",
+            "Monkey D. Luffy",
+            "Sanji underwater rescue",
+            "Kuroobi fight",
+            "Luffy drowning",
+            "underwater",
+            "rescue Luffy",
+            "Sanji's Kuroobi Fight Makes Underwater Danger Urgent",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji's fight with Kuroobi turns underwater danger into urgency because Luffy is trapped in the sea while Sanji is fighting at a Fish-Man disadvantage.",
+        "injection": "Use the fight as split-pressure: Sanji must handle Kuroobi and the practical emergency of getting Luffy out of the water.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_usopp_beats_chew_through_fear_trickery_and_resolve_025",
+      "title": "Usopp Beats Chew Through Fear, Trickery, And Resolve",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.battles-and-matchups",
+        "validToAnchor": "op.arlong-park.nami-and-luffy-bond",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5360,
+        "sortKeyTo": 5450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Usopp Beats Chew Through Fear, Trickery, And Resolve"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:usopp",
+          "op:chew"
+        ],
+        "characters": [
+          "Usopp",
+          "Chew"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Usopp courage fight",
+          "Chew defeat",
+          "fear and trickery"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:usopp",
+        "character:chew",
+        "topic:usopp-courage-fight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Usopp",
+            "Chew"
+          ],
+          "entitiesAny": [
+            "Usopp",
+            "Chew"
+          ],
+          "topicsAny": [
+            "Usopp courage fight",
+            "Chew defeat",
+            "fear and trickery"
+          ],
+          "keywordsAny": [
+            "Usopp",
+            "Chew",
+            "Usopp courage fight",
+            "Chew defeat",
+            "fear and trickery",
+            "hammer",
+            "alcohol",
+            "fake defeat",
+            "Usopp Beats Chew Through Fear, Trickery, And Resolve",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Usopp beats Chew by moving through fear, faking weakness, using trickery, and finally choosing direct resolve for Nami's sake.",
+        "injection": "Use Usopp's win as courage under panic, not clean heroism: the fear stays visible and the victory matters because he acts anyway.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_luffy_s_anger_peaks_when_he_sees_the_room_that_trapped_nami_026",
+      "title": "Luffy's Anger Peaks In Nami's Map Room",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.battles-and-matchups",
+        "validToAnchor": "op.arlong-park.nami-and-luffy-bond",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5360,
+        "sortKeyTo": 5450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Luffy's Anger Peaks In Nami's Map Room"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:nami",
+          "op:map-room",
+          "op:arlong"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Nami",
+          "Arlong"
+        ],
+        "locations": [
+          "map room"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "map room anger",
+          "Nami prison",
+          "Arlong fight pivot"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:nami",
+        "location:map-room",
+        "character:arlong",
+        "topic:map-room-anger"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "Arlong"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "map room",
+            "Arlong"
+          ],
+          "topicsAny": [
+            "map room anger",
+            "Nami prison",
+            "Arlong fight pivot"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "map room",
+            "Arlong",
+            "map room anger",
+            "Nami prison",
+            "Arlong fight pivot",
+            "forced labor",
+            "anger",
+            "Luffy's Anger Peaks In Nami's Map Room",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy's anger peaks when he sees the room where Arlong trapped Nami into years of mapmaking and calls her talent something he can use.",
+        "injection": "Use the map room reveal as the fight pivot: Luffy understands the prison through the room even if he rejected long explanations earlier.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arlong_park_destroying_the_map_room_matters_more_than_simply_defeating_arlong_027",
+      "title": "Map Room Destruction Breaks Nami's Prison",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arlong-park.battles-and-matchups",
+        "validToAnchor": "op.arlong-park.nami-and-luffy-bond",
+        "arc": "Arlong Park Arc",
+        "arcId": "arlong-park",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "69-95",
+        "episode": "31-44",
+        "sortKeyFrom": 5360,
+        "sortKeyTo": 5450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Arlong Park Arc: Map Room Destruction Breaks Nami's Prison"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arlong-park",
+          "label": "Arlong Park Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:nami",
+          "op:map-room",
+          "op:arlong-park"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Nami"
+        ],
+        "locations": [
+          "map room",
+          "Arlong Park"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "map room destruction",
+          "prison breaking",
+          "Nami freedom"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:nami",
+        "location:map-room",
+        "location:arlong-park",
+        "topic:map-room-destruction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "map room",
+            "Arlong Park"
+          ],
+          "topicsAny": [
+            "map room destruction",
+            "prison breaking",
+            "Nami freedom"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "map room",
+            "Arlong Park",
+            "map room destruction",
+            "prison breaking",
+            "Nami freedom",
+            "destroyed room",
+            "liberation",
+            "maps",
+            "Map Room Destruction Breaks Nami's Prison",
+            "Arlong Park Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arlong Park Arc, manga chapters 69-95, anime episodes 31-44, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Destroying the map room matters more than simply beating Arlong because it breaks the workplace-prison that embodied Nami's forced labor.",
+        "injection": "Use this as the high-value liberation event: Luffy is destroying the room that hurt Nami, and that emotional target is as important as Arlong falling.",
+        "constraints": [
+          "Keep this card inside Arlong Park Arc, manga chapters 69-95, anime episodes 31-44.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Fish-Man Island, Fisher Tiger, Sun Pirates, later fish-man politics, or later Jinbe history.",
+          "Do not import later Hachi redemption, Sabaody material, or future Hatchan side-story outcomes unless a later Context is active.",
+          "Do not import later Nami weather tools, bounty material, or post-East-Blue crew dynamics.",
+          "Do not turn Arlong's prejudice into a general-series race-history essay; keep it arc-local to his occupation and rhetoric."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Arlong Park Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arlong-park",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "arlong-park-runtime-lore"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2762 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_equinox-part-ii-episode-gate",
+      "title": "Equinox, Part II anchors Equinox",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e01.equinox-part-ii",
+        "validToAnchor": "voy.s6.e02.survival-instinct",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Equinox, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e01.equinox-part-ii",
+          "label": "Equinox, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:kathryn-janeway",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Kathryn Janeway",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Equinox",
+          "EMH autonomy/identity gate",
+          "Equinox ethics gate",
+          "nucleogenic lifeform",
+          "Janeway",
+          "deck",
+          "thermionic radiation",
+          "tactical control"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:kathryn-janeway",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:equinox",
+        "topic:emh-autonomyidentity-gate",
+        "topic:equinox-ethics-gate",
+        "topic:nucleogenic-lifeform",
+        "topic:janeway",
+        "topic:deck",
+        "topic:thermionic-radiation",
+        "topic:tactical-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Equinox",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "nucleogenic lifeform",
+            "Janeway",
+            "deck",
+            "thermionic radiation",
+            "tactical control"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew",
+            "Equinox",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "nucleogenic lifeform",
+            "Janeway",
+            "deck",
+            "thermionic radiation",
+            "tactical control",
+            "Equinox, Part II",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Equinox, Part II (Unknown (2375/2376)) is Memory Alpha story row 1 for this season. Equinox, Part II is a VOY season 6 story gate centered on Equinox; the evidence marks EMH autonomy/identity gate; Equinox ethics gate.",
+        "injection": "Use Equinox, Part II as the active episode Context gate when scenes reference Equinox, EMH autonomy/identity gate, Equinox ethics gate.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox, Part II",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox%2C_Part_II_(episode)",
+        "stardate": "Unknown (2375/2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_survival-instinct-episode-gate",
+      "title": "Survival Instinct anchors Borg encounter/assimilation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e02.survival-instinct",
+        "validToAnchor": "voy.s6.e03.barge-of-the-dead",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 36020,
+        "sortKeyTo": 36040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Survival Instinct",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e02.survival-instinct",
+          "label": "Survival Instinct",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:seven-of-nine",
+          "st:borg-collective",
+          "st:kathryn-janeway",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Seven of Nine",
+          "Borg Collective",
+          "Kathryn Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "Borg",
+          "sphere",
+          "fog",
+          "Borg drone",
+          "Seven of Nine",
+          "Unimatrix 01"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-survival-instinct",
+        "character:seven-of-nine",
+        "character:borg-collective",
+        "character:kathryn-janeway",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:borg",
+        "topic:sphere",
+        "topic:fog",
+        "topic:borg-drone",
+        "topic:seven-of-nine",
+        "topic:unimatrix-01"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Seven of Nine",
+            "Borg Collective",
+            "Kathryn Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Seven of Nine",
+            "Borg Collective",
+            "Kathryn Janeway",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Borg",
+            "sphere",
+            "fog",
+            "Borg drone",
+            "Seven of Nine",
+            "Unimatrix 01"
+          ],
+          "keywordsAny": [
+            "Seven of Nine",
+            "Borg Collective",
+            "Kathryn Janeway",
+            "Starfleet",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Borg",
+            "sphere",
+            "fog",
+            "Borg drone",
+            "Unimatrix 01",
+            "Survival Instinct",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Survival Instinct (53049.2 (2376)) is Memory Alpha story row 2 for this season. Survival Instinct is a VOY season 6 story gate centered on Borg encounter/assimilation gate; the evidence marks Borg encounter/assimilation gate; Seven/Borg recovery gate.",
+        "injection": "Use Survival Instinct as the active episode Context gate when scenes reference Borg encounter/assimilation gate, Seven/Borg recovery gate, Borg.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Survival Instinct",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Survival_Instinct_(episode)",
+        "stardate": "53049.2 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_barge-of-the-dead-episode-gate",
+      "title": "Barge of the Dead anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e03.barge-of-the-dead",
+        "validToAnchor": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 36040,
+        "sortKeyTo": 36060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Barge of the Dead",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e03.barge-of-the-dead",
+          "label": "Barge of the Dead",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:kathryn-janeway",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Kathryn Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "death/status-change gate",
+          "B'Elanna Torres",
+          "away mission",
+          "multi-spatial probe",
+          "Janeway",
+          "ion storm",
+          "helm"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-barge-of-the-dead",
+        "character:chakotay",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:kathryn-janeway",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:uss-voyager-crew",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:belanna-torres",
+        "topic:away-mission",
+        "topic:multi-spatial-probe",
+        "topic:janeway",
+        "topic:ion-storm",
+        "topic:helm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Kathryn Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Kathryn Janeway",
+            "Starfleet",
+            "Klingon Empire",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "B'Elanna Torres",
+            "away mission",
+            "multi-spatial probe",
+            "Janeway",
+            "ion storm",
+            "helm"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Kathryn Janeway",
+            "Starfleet",
+            "Klingon Empire",
+            "USS Voyager crew",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "away mission",
+            "multi-spatial probe",
+            "Janeway",
+            "ion storm",
+            "helm",
+            "Barge of the Dead",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Barge of the Dead (Unknown (2376)) is Memory Alpha story row 3 for this season. Barge of the Dead is a VOY season 6 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate; death/status-change gate.",
+        "injection": "Use Barge of the Dead as the active episode Context gate when scenes reference Klingon duty/faction-status gate, death/status-change gate, B'Elanna Torres.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Barge of the Dead",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Barge_of_the_Dead_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_tinker-tenor-doctor-spy-episode-gate",
+      "title": "Tinker Tenor Doctor Spy anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "validToAnchor": "voy.s6.e05.alice",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 36060,
+        "sortKeyTo": 36080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Tinker Tenor Doctor Spy",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e04.tinker-tenor-doctor-spy",
+          "label": "Tinker Tenor Doctor Spy",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tuvok",
+          "st:tom-paris",
+          "st:the-doctor",
+          "st:italian",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tuvok",
+          "Tom Paris",
+          "The Doctor",
+          "Italian"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "mess hall",
+          "The Doctor",
+          "holographic",
+          "chief medical officer",
+          "Italian",
+          "opera",
+          "Tinker Tenor Doctor Spy"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-tinker-tenor-doctor-spy",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:the-doctor",
+        "character:italian",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:mess-hall",
+        "topic:the-doctor",
+        "topic:holographic",
+        "topic:chief-medical-officer",
+        "topic:italian",
+        "topic:opera",
+        "topic:tinker-tenor-doctor-spy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Italian"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Italian",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "mess hall",
+            "The Doctor",
+            "holographic",
+            "chief medical officer",
+            "Italian",
+            "opera",
+            "Tinker Tenor Doctor Spy"
+          ],
+          "keywordsAny": [
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Italian",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "mess hall",
+            "holographic",
+            "chief medical officer",
+            "opera",
+            "Tinker Tenor Doctor Spy",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Tinker Tenor Doctor Spy (Unknown (2376)) is Memory Alpha story row 4 for this season. Tinker Tenor Doctor Spy is a VOY season 6 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Tinker Tenor Doctor Spy as the active episode Context gate when scenes reference EMH autonomy/identity gate, mess hall, The Doctor.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Tinker Tenor Doctor Spy",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tinker_Tenor_Doctor_Spy_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_alice-episode-gate",
+      "title": "Alice anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e05.alice",
+        "validToAnchor": "voy.s6.e06.riddles",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 36080,
+        "sortKeyTo": 36100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Alice",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e05.alice",
+          "label": "Alice",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Tom Paris",
+          "Harry Kim",
+          "Tuvok",
+          "fleet",
+          "armada",
+          "Kathryn Janeway",
+          "Alice"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-alice",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:tom-paris",
+        "topic:harry-kim",
+        "topic:tuvok",
+        "topic:fleet",
+        "topic:armada",
+        "topic:kathryn-janeway",
+        "topic:alice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Tom Paris",
+            "Harry Kim",
+            "Tuvok",
+            "fleet",
+            "armada",
+            "Kathryn Janeway",
+            "Alice"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "fleet",
+            "armada",
+            "Alice",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Alice (Unknown (2376)) is Memory Alpha story row 5 for this season. Alice is a VOY season 6 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Alice as the active episode Context gate when scenes reference episode-local fact/status gate, Tom Paris, Harry Kim.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Alice",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Alice_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_riddles-episode-gate",
+      "title": "Riddles anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e06.riddles",
+        "validToAnchor": "voy.s6.e07.dragons-teeth",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 36100,
+        "sortKeyTo": 36120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Riddles",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e06.riddles",
+          "label": "Riddles",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tuvok",
+          "st:the-doctor",
+          "st:neelix",
+          "st:starfleet",
+          "st:vulcans",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tuvok",
+          "The Doctor",
+          "Neelix"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Vulcans",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "Kesat homeworld",
+          "Tuvok",
+          "Neelix",
+          "Vulcan",
+          "riddle",
+          "class L",
+          "Riddles"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-riddles",
+        "character:tuvok",
+        "character:the-doctor",
+        "character:neelix",
+        "faction:starfleet",
+        "faction:vulcans",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:kesat-homeworld",
+        "topic:tuvok",
+        "topic:neelix",
+        "topic:vulcan",
+        "topic:riddle",
+        "topic:class-l",
+        "topic:riddles"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tuvok",
+            "The Doctor",
+            "Neelix"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tuvok",
+            "The Doctor",
+            "Neelix",
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "Kesat homeworld",
+            "Tuvok",
+            "Neelix",
+            "Vulcan",
+            "riddle",
+            "class L",
+            "Riddles"
+          ],
+          "keywordsAny": [
+            "Tuvok",
+            "The Doctor",
+            "Neelix",
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "Kesat homeworld",
+            "Vulcan",
+            "riddle",
+            "class L",
+            "Riddles",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riddles (53263.2 (2376)) is Memory Alpha story row 6 for this season. Riddles is a VOY season 6 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Riddles as the active episode Context gate when scenes reference EMH autonomy/identity gate, Kesat homeworld, Tuvok.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Riddles",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Riddles_(episode)",
+        "stardate": "53263.2 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_dragons-teeth-episode-gate",
+      "title": "Dragon's Teeth anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e07.dragons-teeth",
+        "validToAnchor": "voy.s6.e08.one-small-step",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 36120,
+        "sortKeyTo": 36140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Dragon's Teeth",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e07.dragons-teeth",
+          "label": "Dragon's Teeth",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tom-paris",
+          "st:turei",
+          "st:kathryn-janeway",
+          "st:alpha-quadrant",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tom Paris",
+          "Turei",
+          "Kathryn Janeway",
+          "Alpha Quadrant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Some time in the past",
+          "torpedo",
+          "stasis pod",
+          "892 years later",
+          "subspace corridor",
+          "asteroid",
+          "Dragon's Teeth"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-dragons-teeth",
+        "character:tom-paris",
+        "character:turei",
+        "character:kathryn-janeway",
+        "character:alpha-quadrant",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:some-time-in-the-past",
+        "topic:torpedo",
+        "topic:stasis-pod",
+        "topic:892-years-later",
+        "topic:subspace-corridor",
+        "topic:asteroid",
+        "topic:dragons-teeth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tom Paris",
+            "Turei",
+            "Kathryn Janeway",
+            "Alpha Quadrant"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tom Paris",
+            "Turei",
+            "Kathryn Janeway",
+            "Alpha Quadrant",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Some time in the past",
+            "torpedo",
+            "stasis pod",
+            "892 years later",
+            "subspace corridor",
+            "asteroid",
+            "Dragon's Teeth"
+          ],
+          "keywordsAny": [
+            "Tom Paris",
+            "Turei",
+            "Kathryn Janeway",
+            "Alpha Quadrant",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "Some time in the past",
+            "torpedo",
+            "stasis pod",
+            "892 years later",
+            "subspace corridor",
+            "asteroid",
+            "Dragon's Teeth",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Dragon's Teeth (53167.9 (2376)) is Memory Alpha story row 7 for this season. Dragon's Teeth is a VOY season 6 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Dragon's Teeth as the active episode Context gate when scenes reference episode-local fact/status gate, Some time in the past, torpedo.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Dragon's Teeth",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dragon's_Teeth_(episode)",
+        "stardate": "53167.9 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_one-small-step-episode-gate",
+      "title": "One Small Step anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e08.one-small-step",
+        "validToAnchor": "voy.s6.e09.the-voyager-conspiracy",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 36140,
+        "sortKeyTo": 36160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: One Small Step",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e08.one-small-step",
+          "label": "One Small Step",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:mars",
+          "st:john-kelly",
+          "st:rose-kumagawa",
+          "st:andrei-novakovich",
+          "st:world-series",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Mars",
+          "John Kelly",
+          "Rose Kumagawa",
+          "Andrei Novakovich",
+          "World Series"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "October 19",
+          "2032",
+          "Sol system",
+          "Mars",
+          "Ares IV",
+          "John Kelly",
+          "One Small Step"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-one-small-step",
+        "character:mars",
+        "character:john-kelly",
+        "character:rose-kumagawa",
+        "character:andrei-novakovich",
+        "character:world-series",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:october-19",
+        "topic:2032",
+        "topic:sol-system",
+        "topic:mars",
+        "topic:ares-iv",
+        "topic:john-kelly",
+        "topic:one-small-step"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mars",
+            "John Kelly",
+            "Rose Kumagawa",
+            "Andrei Novakovich",
+            "World Series"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Mars",
+            "John Kelly",
+            "Rose Kumagawa",
+            "Andrei Novakovich",
+            "World Series",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "October 19",
+            "2032",
+            "Sol system",
+            "Mars",
+            "Ares IV",
+            "John Kelly",
+            "One Small Step"
+          ],
+          "keywordsAny": [
+            "Mars",
+            "John Kelly",
+            "Rose Kumagawa",
+            "Andrei Novakovich",
+            "World Series",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "October 19",
+            "2032",
+            "Sol system",
+            "Ares IV",
+            "One Small Step",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "One Small Step (53292.7-53301.2 (2376)) is Memory Alpha story row 8 for this season. One Small Step is a VOY season 6 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use One Small Step as the active episode Context gate when scenes reference episode-local fact/status gate, October 19, 2032.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "One Small Step",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/One_Small_Step_(episode)",
+        "stardate": "53292.7-53301.2 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_the-voyager-conspiracy-episode-gate",
+      "title": "The Voyager Conspiracy anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e09.the-voyager-conspiracy",
+        "validToAnchor": "voy.s6.e10.pathfinder",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 36160,
+        "sortKeyTo": 36180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: The Voyager Conspiracy",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e09.the-voyager-conspiracy",
+          "label": "The Voyager Conspiracy",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:seven-of-nine",
+          "st:naomi-wildman",
+          "st:kathryn-janeway",
+          "st:belanna-torres",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:cardassian-union",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Seven of Nine",
+          "Naomi Wildman",
+          "Kathryn Janeway",
+          "B'Elanna Torres"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "Cardassian Union",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Caretaker displacement gate",
+          "Delta Quadrant isolation gate",
+          "Seven/Borg recovery gate",
+          "Naomi Wildman",
+          "Seven of Nine",
+          "kadis-kot",
+          "regeneration"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-the-voyager-conspiracy",
+        "character:chakotay",
+        "character:seven-of-nine",
+        "character:naomi-wildman",
+        "character:kathryn-janeway",
+        "character:belanna-torres",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:cardassian-union",
+        "faction:uss-voyager-crew",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:caretaker-displacement-gate",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:naomi-wildman",
+        "topic:seven-of-nine",
+        "topic:kadis-kot",
+        "topic:regeneration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Seven of Nine",
+            "Naomi Wildman",
+            "Kathryn Janeway",
+            "B'Elanna Torres"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "Cardassian Union",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Seven of Nine",
+            "Naomi Wildman",
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Starfleet",
+            "Borg Collective",
+            "Cardassian Union",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Caretaker displacement gate",
+            "Delta Quadrant isolation gate",
+            "Seven/Borg recovery gate",
+            "Naomi Wildman",
+            "Seven of Nine",
+            "kadis-kot",
+            "regeneration"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Seven of Nine",
+            "Naomi Wildman",
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Starfleet",
+            "Borg Collective",
+            "Cardassian Union",
+            "USS Voyager crew",
+            "Cardassian occupation or border-pressure gate",
+            "Caretaker displacement gate",
+            "Delta Quadrant isolation gate",
+            "Seven/Borg recovery gate",
+            "kadis-kot",
+            "regeneration",
+            "The Voyager Conspiracy",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Voyager Conspiracy (53329 (2376)) is Memory Alpha story row 9 for this season. The Voyager Conspiracy is a VOY season 6 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Caretaker displacement gate; Delta Quadrant isolation gate; Seven/Borg recovery gate.",
+        "injection": "Use The Voyager Conspiracy as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Caretaker displacement gate, Delta Quadrant isolation gate.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Voyager Conspiracy",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Voyager_Conspiracy_(episode)",
+        "stardate": "53329 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_pathfinder-episode-gate",
+      "title": "Pathfinder anchors The Pathfinder Project",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e10.pathfinder",
+        "validToAnchor": "voy.s6.e11.fair-haven",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 36180,
+        "sortKeyTo": 36200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Pathfinder",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e10.pathfinder",
+          "label": "Pathfinder",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:reginald-barclay",
+          "st:pathfinder-project",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Deanna Troi",
+          "Reginald Barclay",
+          "Pathfinder Project"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "The Pathfinder Project",
+          "wormhole/anomaly route gate",
+          "Alpha Quadrant contact gate",
+          "Barclay Pathfinder support gate",
+          "apartment",
+          "door",
+          "Reginald Barclay",
+          "Deanna Troi"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-pathfinder",
+        "character:deanna-troi",
+        "character:reginald-barclay",
+        "character:pathfinder-project",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:the-pathfinder-project",
+        "topic:wormholeanomaly-route-gate",
+        "topic:alpha-quadrant-contact-gate",
+        "topic:barclay-pathfinder-support-gate",
+        "topic:apartment",
+        "topic:door",
+        "topic:reginald-barclay",
+        "topic:deanna-troi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi",
+            "Reginald Barclay",
+            "Pathfinder Project"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Reginald Barclay",
+            "Pathfinder Project",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "The Pathfinder Project",
+            "wormhole/anomaly route gate",
+            "Alpha Quadrant contact gate",
+            "Barclay Pathfinder support gate",
+            "apartment",
+            "door",
+            "Reginald Barclay",
+            "Deanna Troi"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Reginald Barclay",
+            "Pathfinder Project",
+            "Starfleet",
+            "USS Voyager crew",
+            "The Pathfinder Project",
+            "wormhole/anomaly route gate",
+            "Alpha Quadrant contact gate",
+            "Barclay Pathfinder support gate",
+            "apartment",
+            "door",
+            "Pathfinder",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Pathfinder (Unknown (2376)) is Memory Alpha story row 10 for this season. Pathfinder is a VOY season 6 story gate centered on The Pathfinder Project; the evidence marks wormhole/anomaly route gate; Alpha Quadrant contact gate; Barclay Pathfinder support gate.",
+        "injection": "Use Pathfinder as the active episode Context gate when scenes reference The Pathfinder Project, wormhole/anomaly route gate, Alpha Quadrant contact gate.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Pathfinder",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Pathfinder_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_fair-haven-episode-gate",
+      "title": "Fair Haven anchors Fair Haven",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e11.fair-haven",
+        "validToAnchor": "voy.s6.e12.blink-of-an-eye",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 36200,
+        "sortKeyTo": 36220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Fair Haven",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e11.fair-haven",
+          "label": "Fair Haven",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:ireland",
+          "st:fair-haven",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tom Paris",
+          "Harry Kim",
+          "The Doctor",
+          "Ireland",
+          "Fair Haven"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Fair Haven",
+          "EMH autonomy/identity gate",
+          "holodeck reality/safety gate",
+          "Tom Paris",
+          "19th century",
+          "Ireland",
+          "Harry Kim",
+          "Maggie O'Halloran"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-fair-haven",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:the-doctor",
+        "character:ireland",
+        "character:fair-haven",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:fair-haven",
+        "topic:emh-autonomyidentity-gate",
+        "topic:holodeck-realitysafety-gate",
+        "topic:tom-paris",
+        "topic:19th-century",
+        "topic:ireland",
+        "topic:harry-kim",
+        "topic:maggie-ohalloran"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Ireland",
+            "Fair Haven"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Ireland",
+            "Fair Haven",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Fair Haven",
+            "EMH autonomy/identity gate",
+            "holodeck reality/safety gate",
+            "Tom Paris",
+            "19th century",
+            "Ireland",
+            "Harry Kim",
+            "Maggie O'Halloran"
+          ],
+          "keywordsAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Ireland",
+            "Fair Haven",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "holodeck reality/safety gate",
+            "19th century",
+            "Maggie O'Halloran",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Fair Haven (Unknown (2376)) is Memory Alpha story row 11 for this season. Fair Haven is a VOY season 6 story gate centered on Fair Haven; the evidence marks EMH autonomy/identity gate; holodeck reality/safety gate.",
+        "injection": "Use Fair Haven as the active episode Context gate when scenes reference Fair Haven, EMH autonomy/identity gate, holodeck reality/safety gate.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Fair Haven",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Fair_Haven_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_blink-of-an-eye-episode-gate",
+      "title": "Blink of an Eye anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e12.blink-of-an-eye",
+        "validToAnchor": "voy.s6.e13.virtuoso",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 36220,
+        "sortKeyTo": 36240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Blink of an Eye",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e12.blink-of-an-eye",
+          "label": "Blink of an Eye",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:belanna-torres",
+          "st:tahal",
+          "st:ground-shaker",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "B'Elanna Torres",
+          "Tahal",
+          "Ground Shaker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "a planet",
+          "gravimetric gradient",
+          "earthquake",
+          "star",
+          "Tahal",
+          "Ground Shaker",
+          "Blink of an Eye"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-blink-of-an-eye",
+        "character:chakotay",
+        "character:belanna-torres",
+        "character:tahal",
+        "character:ground-shaker",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:a-planet",
+        "topic:gravimetric-gradient",
+        "topic:earthquake",
+        "topic:star",
+        "topic:tahal",
+        "topic:ground-shaker",
+        "topic:blink-of-an-eye"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tahal",
+            "Ground Shaker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tahal",
+            "Ground Shaker",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "a planet",
+            "gravimetric gradient",
+            "earthquake",
+            "star",
+            "Tahal",
+            "Ground Shaker",
+            "Blink of an Eye"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tahal",
+            "Ground Shaker",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "a planet",
+            "gravimetric gradient",
+            "earthquake",
+            "star",
+            "Blink of an Eye",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Blink of an Eye (Unknown (2376)) is Memory Alpha story row 12 for this season. Blink of an Eye is a VOY season 6 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Blink of an Eye as the active episode Context gate when scenes reference episode-local fact/status gate, a planet, gravimetric gradient.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Blink of an Eye",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Blink_of_an_Eye_(episode)",
+        "stardate": "Unknown (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_virtuoso-episode-gate",
+      "title": "Virtuoso anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e13.virtuoso",
+        "validToAnchor": "voy.s6.e14.memorial",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 36240,
+        "sortKeyTo": 36260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 6: Virtuoso",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e13.virtuoso",
+          "label": "Virtuoso",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:the-doctor",
+          "st:qomar",
+          "st:prelate",
+          "st:koru",
+          "st:kathryn-janeway",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "The Doctor",
+          "Qomar",
+          "Prelate",
+          "Koru",
+          "Kathryn Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "The Doctor",
+          "Qomar",
+          "impulse engine",
+          "subroutine",
+          "I've Been Working on the Railroad",
+          "Prelate",
+          "Virtuoso"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-virtuoso",
+        "character:the-doctor",
+        "character:qomar",
+        "character:prelate",
+        "character:koru",
+        "character:kathryn-janeway",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:the-doctor",
+        "topic:qomar",
+        "topic:impulse-engine",
+        "topic:subroutine",
+        "topic:ive-been-working-on-the-railroad",
+        "topic:prelate",
+        "topic:virtuoso"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "The Doctor",
+            "Qomar",
+            "Prelate",
+            "Koru",
+            "Kathryn Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "The Doctor",
+            "Qomar",
+            "Prelate",
+            "Koru",
+            "Kathryn Janeway",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "The Doctor",
+            "Qomar",
+            "impulse engine",
+            "subroutine",
+            "I've Been Working on the Railroad",
+            "Prelate",
+            "Virtuoso"
+          ],
+          "keywordsAny": [
+            "The Doctor",
+            "Qomar",
+            "Prelate",
+            "Koru",
+            "Kathryn Janeway",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "impulse engine",
+            "subroutine",
+            "I've Been Working on the Railroad",
+            "Virtuoso",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Virtuoso (53556.4 (2376)) is Memory Alpha story row 13 for this season. Virtuoso is a VOY season 6 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Virtuoso as the active episode Context gate when scenes reference EMH autonomy/identity gate, The Doctor, Qomar.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Virtuoso",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Virtuoso_(episode)",
+        "stardate": "53556.4 (2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

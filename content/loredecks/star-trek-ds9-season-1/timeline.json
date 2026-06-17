@@ -1,0 +1,1344 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Deep Space Nine season 1 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ds9.s1.e01.emissary",
+      "label": "Emissary",
+      "contextType": "story_anchor",
+      "sortKey": 21000,
+      "stardate": "46379.1-46393.1 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Emissary",
+        "DS9 season 1 Emissary",
+        "DS9 S1 Emissary",
+        "DS9 1x01 story",
+        "DS9 S01 story 01",
+        "DS9 1x01",
+        "DS9 S01E01",
+        "DS9 season 1 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-emissary"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Emissary",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Emissary_(episode)",
+        "stardate": "46379.1-46393.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e02.past-prologue",
+      "label": "Past Prologue",
+      "contextType": "story_anchor",
+      "sortKey": 21020,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Past Prologue",
+        "DS9 season 1 Past Prologue",
+        "DS9 S1 Past Prologue",
+        "DS9 1x02 story",
+        "DS9 S01 story 02",
+        "DS9 1x02",
+        "DS9 S01E02",
+        "DS9 season 1 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-past-prologue"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Past Prologue",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Past_Prologue_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e03.a-man-alone",
+      "label": "A Man Alone",
+      "contextType": "story_anchor",
+      "sortKey": 21040,
+      "stardate": "46384-46421.5 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "A Man Alone",
+        "DS9 season 1 A Man Alone",
+        "DS9 S1 A Man Alone",
+        "DS9 1x03 story",
+        "DS9 S01 story 03",
+        "DS9 1x03",
+        "DS9 S01E03",
+        "DS9 season 1 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-a-man-alone"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "A Man Alone",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Man_Alone_(episode)",
+        "stardate": "46384-46421.5 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e04.babel",
+      "label": "Babel",
+      "contextType": "story_anchor",
+      "sortKey": 21060,
+      "stardate": "46423.7-46425.8 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Babel",
+        "DS9 season 1 Babel",
+        "DS9 S1 Babel",
+        "DS9 1x04 story",
+        "DS9 S01 story 04",
+        "DS9 1x04",
+        "DS9 S01E04",
+        "DS9 season 1 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-babel"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Babel",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Babel_(episode)",
+        "stardate": "46423.7-46425.8 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e05.captive-pursuit",
+      "label": "Captive Pursuit",
+      "contextType": "story_anchor",
+      "sortKey": 21080,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Captive Pursuit",
+        "DS9 season 1 Captive Pursuit",
+        "DS9 S1 Captive Pursuit",
+        "DS9 1x05 story",
+        "DS9 S01 story 05",
+        "DS9 1x05",
+        "DS9 S01E05",
+        "DS9 season 1 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-captive-pursuit"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Captive Pursuit",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Captive_Pursuit_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e06.q-less",
+      "label": "Q-Less",
+      "contextType": "story_anchor",
+      "sortKey": 21100,
+      "stardate": "46531.2-46532.3 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Q-Less",
+        "DS9 season 1 Q-Less",
+        "DS9 S1 Q-Less",
+        "DS9 1x06 story",
+        "DS9 S01 story 06",
+        "DS9 1x06",
+        "DS9 S01E06",
+        "DS9 season 1 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-q-less"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Q-Less",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q-Less_(episode)",
+        "stardate": "46531.2-46532.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e07.dax",
+      "label": "Dax",
+      "contextType": "story_anchor",
+      "sortKey": 21120,
+      "stardate": "46910.1 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Dax",
+        "DS9 season 1 Dax",
+        "DS9 S1 Dax",
+        "DS9 1x07 story",
+        "DS9 S01 story 07",
+        "DS9 1x07",
+        "DS9 S01E07",
+        "DS9 season 1 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-dax"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Dax",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dax_(episode)",
+        "stardate": "46910.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e08.the-passenger",
+      "label": "The Passenger",
+      "contextType": "story_anchor",
+      "sortKey": 21140,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "The Passenger",
+        "DS9 season 1 The Passenger",
+        "DS9 S1 The Passenger",
+        "DS9 1x08 story",
+        "DS9 S01 story 08",
+        "DS9 1x08",
+        "DS9 S01E08",
+        "DS9 season 1 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-passenger"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Passenger",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Passenger_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e09.move-along-home",
+      "label": "Move Along Home",
+      "contextType": "story_anchor",
+      "sortKey": 21160,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Move Along Home",
+        "DS9 season 1 Move Along Home",
+        "DS9 S1 Move Along Home",
+        "DS9 1x09 story",
+        "DS9 S01 story 09",
+        "DS9 1x09",
+        "DS9 S01E09",
+        "DS9 season 1 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-move-along-home"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Move Along Home",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Move_Along_Home_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e10.the-nagus",
+      "label": "The Nagus",
+      "contextType": "story_anchor",
+      "sortKey": 21180,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "The Nagus",
+        "DS9 season 1 The Nagus",
+        "DS9 S1 The Nagus",
+        "DS9 1x10 story",
+        "DS9 S01 story 10",
+        "DS9 1x10",
+        "DS9 S01E10",
+        "DS9 season 1 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-nagus"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Nagus",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Nagus_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e11.vortex",
+      "label": "Vortex",
+      "contextType": "story_anchor",
+      "sortKey": 21200,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Vortex",
+        "DS9 season 1 Vortex",
+        "DS9 S1 Vortex",
+        "DS9 1x11 story",
+        "DS9 S01 story 11",
+        "DS9 1x11",
+        "DS9 S01E11",
+        "DS9 season 1 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-vortex"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Vortex",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Vortex_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e12.battle-lines",
+      "label": "Battle Lines",
+      "contextType": "story_anchor",
+      "sortKey": 21220,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Battle Lines",
+        "DS9 season 1 Battle Lines",
+        "DS9 S1 Battle Lines",
+        "DS9 1x12 story",
+        "DS9 S01 story 12",
+        "DS9 1x12",
+        "DS9 S01E12",
+        "DS9 season 1 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-battle-lines"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Battle Lines",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Battle_Lines_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e13.the-storyteller",
+      "label": "The Storyteller",
+      "contextType": "story_anchor",
+      "sortKey": 21240,
+      "stardate": "46729.1 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "The Storyteller",
+        "DS9 season 1 The Storyteller",
+        "DS9 S1 The Storyteller",
+        "DS9 1x13 story",
+        "DS9 S01 story 13",
+        "DS9 1x13",
+        "DS9 S01E13",
+        "DS9 season 1 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-storyteller"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Storyteller",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Storyteller_(episode)",
+        "stardate": "46729.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e14.progress",
+      "label": "Progress",
+      "contextType": "story_anchor",
+      "sortKey": 21260,
+      "stardate": "46844.3 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Progress",
+        "DS9 season 1 Progress",
+        "DS9 S1 Progress",
+        "DS9 1x14 story",
+        "DS9 S01 story 14",
+        "DS9 1x14",
+        "DS9 S01E14",
+        "DS9 season 1 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-progress"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Progress",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Progress_(episode)",
+        "stardate": "46844.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e15.if-wishes-were-horses",
+      "label": "If Wishes Were Horses",
+      "contextType": "story_anchor",
+      "sortKey": 21280,
+      "stardate": "46853.2 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "If Wishes Were Horses",
+        "DS9 season 1 If Wishes Were Horses",
+        "DS9 S1 If Wishes Were Horses",
+        "DS9 1x15 story",
+        "DS9 S01 story 15",
+        "DS9 1x15",
+        "DS9 S01E15",
+        "DS9 season 1 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-if-wishes-were-horses"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "If Wishes Were Horses",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/If_Wishes_Were_Horses_(episode)",
+        "stardate": "46853.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e16.the-forsaken",
+      "label": "The Forsaken",
+      "contextType": "story_anchor",
+      "sortKey": 21300,
+      "stardate": "46925.1 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "The Forsaken",
+        "DS9 season 1 The Forsaken",
+        "DS9 S1 The Forsaken",
+        "DS9 1x16 story",
+        "DS9 S01 story 16",
+        "DS9 1x16",
+        "DS9 S01E16",
+        "DS9 season 1 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-forsaken"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Forsaken",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Forsaken_(episode)",
+        "stardate": "46925.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e17.dramatis-personae",
+      "label": "Dramatis Personae",
+      "contextType": "story_anchor",
+      "sortKey": 21320,
+      "stardate": "46922.3 (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Dramatis Personae",
+        "DS9 season 1 Dramatis Personae",
+        "DS9 S1 Dramatis Personae",
+        "DS9 1x17 story",
+        "DS9 S01 story 17",
+        "DS9 1x17",
+        "DS9 S01E17",
+        "DS9 season 1 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-dramatis-personae"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Dramatis Personae",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dramatis_Personae_(episode)",
+        "stardate": "46922.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e18.duet",
+      "label": "Duet",
+      "contextType": "story_anchor",
+      "sortKey": 21340,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Duet",
+        "DS9 season 1 Duet",
+        "DS9 S1 Duet",
+        "DS9 1x18 story",
+        "DS9 S01 story 18",
+        "DS9 1x18",
+        "DS9 S01E18",
+        "DS9 season 1 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-duet"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Duet",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Duet_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s1.e19.in-the-hands-of-the-prophets",
+      "label": "In the Hands of the Prophets",
+      "contextType": "story_anchor",
+      "sortKey": 21360,
+      "stardate": "Unknown (2369)",
+      "year": "2369",
+      "series": "DS9",
+      "season": 1,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "In the Hands of the Prophets",
+        "DS9 season 1 In the Hands of the Prophets",
+        "DS9 S1 In the Hands of the Prophets",
+        "DS9 1x19 story",
+        "DS9 S01 story 19",
+        "DS9 1x19",
+        "DS9 S01E19",
+        "DS9 season 1 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-in-the-hands-of-the-prophets"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "In the Hands of the Prophets",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_the_Hands_of_the_Prophets_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "ds9.s1.full-season",
+      "label": "DS9 season 1 full window",
+      "anchorFrom": "ds9.s1.e01.emissary",
+      "anchorTo": "ds9.s1.e19.in-the-hands-of-the-prophets",
+      "sortKeyFrom": 21000,
+      "sortKeyTo": 21360,
+      "aliases": [
+        "DS9 season 1",
+        "Star Trek: Deep Space Nine season 1",
+        "DS9 S1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "ds9.s1.e01.emissary.window",
+      "label": "Emissary episode window",
+      "anchorFrom": "ds9.s1.e01.emissary",
+      "anchorTo": "ds9.s1.e02.past-prologue",
+      "sortKeyFrom": 21000,
+      "sortKeyTo": 21020,
+      "aliases": [
+        "during Emissary",
+        "after Emissary"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-emissary"
+      ]
+    },
+    {
+      "id": "ds9.s1.e02.past-prologue.window",
+      "label": "Past Prologue episode window",
+      "anchorFrom": "ds9.s1.e02.past-prologue",
+      "anchorTo": "ds9.s1.e03.a-man-alone",
+      "sortKeyFrom": 21020,
+      "sortKeyTo": 21040,
+      "aliases": [
+        "during Past Prologue",
+        "after Past Prologue"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-past-prologue"
+      ]
+    },
+    {
+      "id": "ds9.s1.e03.a-man-alone.window",
+      "label": "A Man Alone episode window",
+      "anchorFrom": "ds9.s1.e03.a-man-alone",
+      "anchorTo": "ds9.s1.e04.babel",
+      "sortKeyFrom": 21040,
+      "sortKeyTo": 21060,
+      "aliases": [
+        "during A Man Alone",
+        "after A Man Alone"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-a-man-alone"
+      ]
+    },
+    {
+      "id": "ds9.s1.e04.babel.window",
+      "label": "Babel episode window",
+      "anchorFrom": "ds9.s1.e04.babel",
+      "anchorTo": "ds9.s1.e05.captive-pursuit",
+      "sortKeyFrom": 21060,
+      "sortKeyTo": 21080,
+      "aliases": [
+        "during Babel",
+        "after Babel"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-babel"
+      ]
+    },
+    {
+      "id": "ds9.s1.e05.captive-pursuit.window",
+      "label": "Captive Pursuit episode window",
+      "anchorFrom": "ds9.s1.e05.captive-pursuit",
+      "anchorTo": "ds9.s1.e06.q-less",
+      "sortKeyFrom": 21080,
+      "sortKeyTo": 21100,
+      "aliases": [
+        "during Captive Pursuit",
+        "after Captive Pursuit"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-captive-pursuit"
+      ]
+    },
+    {
+      "id": "ds9.s1.e06.q-less.window",
+      "label": "Q-Less episode window",
+      "anchorFrom": "ds9.s1.e06.q-less",
+      "anchorTo": "ds9.s1.e07.dax",
+      "sortKeyFrom": 21100,
+      "sortKeyTo": 21120,
+      "aliases": [
+        "during Q-Less",
+        "after Q-Less"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-q-less"
+      ]
+    },
+    {
+      "id": "ds9.s1.e07.dax.window",
+      "label": "Dax episode window",
+      "anchorFrom": "ds9.s1.e07.dax",
+      "anchorTo": "ds9.s1.e08.the-passenger",
+      "sortKeyFrom": 21120,
+      "sortKeyTo": 21140,
+      "aliases": [
+        "during Dax",
+        "after Dax"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-dax"
+      ]
+    },
+    {
+      "id": "ds9.s1.e08.the-passenger.window",
+      "label": "The Passenger episode window",
+      "anchorFrom": "ds9.s1.e08.the-passenger",
+      "anchorTo": "ds9.s1.e09.move-along-home",
+      "sortKeyFrom": 21140,
+      "sortKeyTo": 21160,
+      "aliases": [
+        "during The Passenger",
+        "after The Passenger"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-passenger"
+      ]
+    },
+    {
+      "id": "ds9.s1.e09.move-along-home.window",
+      "label": "Move Along Home episode window",
+      "anchorFrom": "ds9.s1.e09.move-along-home",
+      "anchorTo": "ds9.s1.e10.the-nagus",
+      "sortKeyFrom": 21160,
+      "sortKeyTo": 21180,
+      "aliases": [
+        "during Move Along Home",
+        "after Move Along Home"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-move-along-home"
+      ]
+    },
+    {
+      "id": "ds9.s1.e10.the-nagus.window",
+      "label": "The Nagus episode window",
+      "anchorFrom": "ds9.s1.e10.the-nagus",
+      "anchorTo": "ds9.s1.e11.vortex",
+      "sortKeyFrom": 21180,
+      "sortKeyTo": 21200,
+      "aliases": [
+        "during The Nagus",
+        "after The Nagus"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-nagus"
+      ]
+    },
+    {
+      "id": "ds9.s1.e11.vortex.window",
+      "label": "Vortex episode window",
+      "anchorFrom": "ds9.s1.e11.vortex",
+      "anchorTo": "ds9.s1.e12.battle-lines",
+      "sortKeyFrom": 21200,
+      "sortKeyTo": 21220,
+      "aliases": [
+        "during Vortex",
+        "after Vortex"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-vortex"
+      ]
+    },
+    {
+      "id": "ds9.s1.e12.battle-lines.window",
+      "label": "Battle Lines episode window",
+      "anchorFrom": "ds9.s1.e12.battle-lines",
+      "anchorTo": "ds9.s1.e13.the-storyteller",
+      "sortKeyFrom": 21220,
+      "sortKeyTo": 21240,
+      "aliases": [
+        "during Battle Lines",
+        "after Battle Lines"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-battle-lines"
+      ]
+    },
+    {
+      "id": "ds9.s1.e13.the-storyteller.window",
+      "label": "The Storyteller episode window",
+      "anchorFrom": "ds9.s1.e13.the-storyteller",
+      "anchorTo": "ds9.s1.e14.progress",
+      "sortKeyFrom": 21240,
+      "sortKeyTo": 21260,
+      "aliases": [
+        "during The Storyteller",
+        "after The Storyteller"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-storyteller"
+      ]
+    },
+    {
+      "id": "ds9.s1.e14.progress.window",
+      "label": "Progress episode window",
+      "anchorFrom": "ds9.s1.e14.progress",
+      "anchorTo": "ds9.s1.e15.if-wishes-were-horses",
+      "sortKeyFrom": 21260,
+      "sortKeyTo": 21280,
+      "aliases": [
+        "during Progress",
+        "after Progress"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-progress"
+      ]
+    },
+    {
+      "id": "ds9.s1.e15.if-wishes-were-horses.window",
+      "label": "If Wishes Were Horses episode window",
+      "anchorFrom": "ds9.s1.e15.if-wishes-were-horses",
+      "anchorTo": "ds9.s1.e16.the-forsaken",
+      "sortKeyFrom": 21280,
+      "sortKeyTo": 21300,
+      "aliases": [
+        "during If Wishes Were Horses",
+        "after If Wishes Were Horses"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-if-wishes-were-horses"
+      ]
+    },
+    {
+      "id": "ds9.s1.e16.the-forsaken.window",
+      "label": "The Forsaken episode window",
+      "anchorFrom": "ds9.s1.e16.the-forsaken",
+      "anchorTo": "ds9.s1.e17.dramatis-personae",
+      "sortKeyFrom": 21300,
+      "sortKeyTo": 21320,
+      "aliases": [
+        "during The Forsaken",
+        "after The Forsaken"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-forsaken"
+      ]
+    },
+    {
+      "id": "ds9.s1.e17.dramatis-personae.window",
+      "label": "Dramatis Personae episode window",
+      "anchorFrom": "ds9.s1.e17.dramatis-personae",
+      "anchorTo": "ds9.s1.e18.duet",
+      "sortKeyFrom": 21320,
+      "sortKeyTo": 21340,
+      "aliases": [
+        "during Dramatis Personae",
+        "after Dramatis Personae"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-dramatis-personae"
+      ]
+    },
+    {
+      "id": "ds9.s1.e18.duet.window",
+      "label": "Duet episode window",
+      "anchorFrom": "ds9.s1.e18.duet",
+      "anchorTo": "ds9.s1.e19.in-the-hands-of-the-prophets",
+      "sortKeyFrom": 21340,
+      "sortKeyTo": 21360,
+      "aliases": [
+        "during Duet",
+        "after Duet"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-duet"
+      ]
+    }
+  ]
+}

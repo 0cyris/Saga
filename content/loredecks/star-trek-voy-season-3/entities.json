@@ -1,0 +1,1487 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:akritiri": {
+      "type": "character",
+      "label": "Akritiri",
+      "aliases": [
+        "Akritiri"
+      ],
+      "canonicalNames": [
+        "Akritiri"
+      ],
+      "tags": [
+        "character:akritiri"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:akritirian": {
+      "type": "character",
+      "label": "Akritirian",
+      "aliases": [
+        "Akritirian"
+      ],
+      "canonicalNames": [
+        "Akritirian"
+      ],
+      "tags": [
+        "character:akritirian"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:alpha-quadrant": {
+      "type": "character",
+      "label": "Alpha Quadrant",
+      "aliases": [
+        "Alpha Quadrant"
+      ],
+      "canonicalNames": [
+        "Alpha Quadrant"
+      ],
+      "tags": [
+        "character:alpha-quadrant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:belanna-torres": {
+      "type": "character",
+      "label": "B'Elanna Torres",
+      "aliases": [
+        "B'Elanna Torres"
+      ],
+      "canonicalNames": [
+        "B'Elanna Torres"
+      ],
+      "tags": [
+        "character:belanna-torres"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:belle": {
+      "type": "character",
+      "label": "Belle",
+      "aliases": [
+        "Belle"
+      ],
+      "canonicalNames": [
+        "Belle"
+      ],
+      "tags": [
+        "character:belle"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:borg-collective": {
+      "type": "faction",
+      "label": "Borg Collective",
+      "aliases": [
+        "Borg Collective"
+      ],
+      "canonicalNames": [
+        "Borg Collective"
+      ],
+      "tags": [
+        "faction:borg-collective"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bronze-age": {
+      "type": "character",
+      "label": "Bronze Age",
+      "aliases": [
+        "Bronze Age"
+      ],
+      "canonicalNames": [
+        "Bronze Age"
+      ],
+      "tags": [
+        "character:bronze-age"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chakotay": {
+      "type": "character",
+      "label": "Chakotay",
+      "aliases": [
+        "Chakotay"
+      ],
+      "canonicalNames": [
+        "Chakotay"
+      ],
+      "tags": [
+        "character:chakotay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:charlene": {
+      "type": "character",
+      "label": "Charlene",
+      "aliases": [
+        "Charlene"
+      ],
+      "canonicalNames": [
+        "Charlene"
+      ],
+      "tags": [
+        "character:charlene"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cpr": {
+      "type": "character",
+      "label": "CPR",
+      "aliases": [
+        "CPR"
+      ],
+      "canonicalNames": [
+        "CPR"
+      ],
+      "tags": [
+        "character:cpr"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:delta-quadrant": {
+      "type": "character",
+      "label": "Delta Quadrant",
+      "aliases": [
+        "Delta Quadrant"
+      ],
+      "canonicalNames": [
+        "Delta Quadrant"
+      ],
+      "tags": [
+        "character:delta-quadrant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:enara-prime": {
+      "type": "character",
+      "label": "Enara Prime",
+      "aliases": [
+        "Enara Prime"
+      ],
+      "canonicalNames": [
+        "Enara Prime"
+      ],
+      "tags": [
+        "character:enara-prime"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:enaran": {
+      "type": "character",
+      "label": "Enaran",
+      "aliases": [
+        "Enaran"
+      ],
+      "canonicalNames": [
+        "Enaran"
+      ],
+      "tags": [
+        "character:enaran"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:engineering": {
+      "type": "character",
+      "label": "Engineering",
+      "aliases": [
+        "Engineering"
+      ],
+      "canonicalNames": [
+        "Engineering"
+      ],
+      "tags": [
+        "character:engineering"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ferengi-alliance": {
+      "type": "faction",
+      "label": "Ferengi Alliance",
+      "aliases": [
+        "Ferengi Alliance"
+      ],
+      "canonicalNames": [
+        "Ferengi Alliance"
+      ],
+      "tags": [
+        "faction:ferengi-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:forra-gegen": {
+      "type": "character",
+      "label": "Forra Gegen",
+      "aliases": [
+        "Forra Gegen"
+      ],
+      "canonicalNames": [
+        "Forra Gegen"
+      ],
+      "tags": [
+        "character:forra-gegen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:harry-kim": {
+      "type": "character",
+      "label": "Harry Kim",
+      "aliases": [
+        "Harry Kim"
+      ],
+      "canonicalNames": [
+        "Harry Kim"
+      ],
+      "tags": [
+        "character:harry-kim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:high-sierras": {
+      "type": "character",
+      "label": "High Sierras",
+      "aliases": [
+        "High Sierras"
+      ],
+      "canonicalNames": [
+        "High Sierras"
+      ],
+      "tags": [
+        "character:high-sierras"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jeffrey": {
+      "type": "character",
+      "label": "Jeffrey",
+      "aliases": [
+        "Jeffrey"
+      ],
+      "canonicalNames": [
+        "Jeffrey"
+      ],
+      "tags": [
+        "character:jeffrey"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jessen": {
+      "type": "character",
+      "label": "Jessen",
+      "aliases": [
+        "Jessen"
+      ],
+      "canonicalNames": [
+        "Jessen"
+      ],
+      "tags": [
+        "character:jessen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kaplan": {
+      "type": "character",
+      "label": "Kaplan",
+      "aliases": [
+        "Kaplan"
+      ],
+      "canonicalNames": [
+        "Kaplan"
+      ],
+      "tags": [
+        "character:kaplan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kathryn-janeway": {
+      "type": "character",
+      "label": "Kathryn Janeway",
+      "aliases": [
+        "Kathryn Janeway"
+      ],
+      "canonicalNames": [
+        "Kathryn Janeway"
+      ],
+      "tags": [
+        "character:kathryn-janeway"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kazon": {
+      "type": "faction",
+      "label": "Kazon",
+      "aliases": [
+        "Kazon"
+      ],
+      "canonicalNames": [
+        "Kazon"
+      ],
+      "tags": [
+        "faction:kazon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kes": {
+      "type": "character",
+      "label": "Kes",
+      "aliases": [
+        "Kes"
+      ],
+      "canonicalNames": [
+        "Kes"
+      ],
+      "tags": [
+        "character:kes"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:linnis": {
+      "type": "character",
+      "label": "Linnis",
+      "aliases": [
+        "Linnis"
+      ],
+      "canonicalNames": [
+        "Linnis"
+      ],
+      "tags": [
+        "character:linnis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:los-angeles": {
+      "type": "character",
+      "label": "Los Angeles",
+      "aliases": [
+        "Los Angeles"
+      ],
+      "canonicalNames": [
+        "Los Angeles"
+      ],
+      "tags": [
+        "character:los-angeles"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:maquis": {
+      "type": "faction",
+      "label": "Maquis",
+      "aliases": [
+        "Maquis"
+      ],
+      "canonicalNames": [
+        "Maquis"
+      ],
+      "tags": [
+        "faction:maquis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:mikhal-traveler": {
+      "type": "character",
+      "label": "Mikhal Traveler",
+      "aliases": [
+        "Mikhal Traveler"
+      ],
+      "canonicalNames": [
+        "Mikhal Traveler"
+      ],
+      "tags": [
+        "character:mikhal-traveler"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:minister": {
+      "type": "character",
+      "label": "Minister",
+      "aliases": [
+        "Minister"
+      ],
+      "canonicalNames": [
+        "Minister"
+      ],
+      "tags": [
+        "character:minister"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nakahn": {
+      "type": "character",
+      "label": "Nakahn",
+      "aliases": [
+        "Nakahn"
+      ],
+      "canonicalNames": [
+        "Nakahn"
+      ],
+      "tags": [
+        "character:nakahn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nechani": {
+      "type": "character",
+      "label": "Nechani",
+      "aliases": [
+        "Nechani"
+      ],
+      "canonicalNames": [
+        "Nechani"
+      ],
+      "tags": [
+        "character:nechani"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:neelix": {
+      "type": "character",
+      "label": "Neelix",
+      "aliases": [
+        "Neelix"
+      ],
+      "canonicalNames": [
+        "Neelix"
+      ],
+      "tags": [
+        "character:neelix"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nezu": {
+      "type": "character",
+      "label": "Nezu",
+      "aliases": [
+        "Nezu"
+      ],
+      "canonicalNames": [
+        "Nezu"
+      ],
+      "tags": [
+        "character:nezu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:northwest-passage": {
+      "type": "character",
+      "label": "Northwest Passage",
+      "aliases": [
+        "Northwest Passage"
+      ],
+      "canonicalNames": [
+        "Northwest Passage"
+      ],
+      "tags": [
+        "character:northwest-passage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nyrian": {
+      "type": "character",
+      "label": "Nyrian",
+      "aliases": [
+        "Nyrian"
+      ],
+      "canonicalNames": [
+        "Nyrian"
+      ],
+      "tags": [
+        "character:nyrian"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:puccini": {
+      "type": "character",
+      "label": "Puccini",
+      "aliases": [
+        "Puccini"
+      ],
+      "canonicalNames": [
+        "Puccini"
+      ],
+      "tags": [
+        "character:puccini"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:q-continuum": {
+      "type": "faction",
+      "label": "Q Continuum",
+      "aliases": [
+        "Q Continuum"
+      ],
+      "canonicalNames": [
+        "Q Continuum"
+      ],
+      "tags": [
+        "faction:q-continuum"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:rain-robinson": {
+      "type": "character",
+      "label": "Rain Robinson",
+      "aliases": [
+        "Rain Robinson"
+      ],
+      "canonicalNames": [
+        "Rain Robinson"
+      ],
+      "tags": [
+        "character:rain-robinson"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:riley-frazier": {
+      "type": "character",
+      "label": "Riley Frazier",
+      "aliases": [
+        "Riley Frazier"
+      ],
+      "canonicalNames": [
+        "Riley Frazier"
+      ],
+      "tags": [
+        "character:riley-frazier"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:sacajawea": {
+      "type": "character",
+      "label": "Sacajawea",
+      "aliases": [
+        "Sacajawea"
+      ],
+      "canonicalNames": [
+        "Sacajawea"
+      ],
+      "tags": [
+        "character:sacajawea"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:species-8472": {
+      "type": "faction",
+      "label": "Species 8472",
+      "aliases": [
+        "Species 8472"
+      ],
+      "canonicalNames": [
+        "Species 8472"
+      ],
+      "tags": [
+        "faction:species-8472"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tak-tak": {
+      "type": "character",
+      "label": "Tak Tak",
+      "aliases": [
+        "Tak Tak"
+      ],
+      "canonicalNames": [
+        "Tak Tak"
+      ],
+      "tags": [
+        "character:tak-tak"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:the-doctor": {
+      "type": "character",
+      "label": "The Doctor",
+      "aliases": [
+        "The Doctor"
+      ],
+      "canonicalNames": [
+        "The Doctor"
+      ],
+      "tags": [
+        "character:the-doctor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tom-paris": {
+      "type": "character",
+      "label": "Tom Paris",
+      "aliases": [
+        "Tom Paris"
+      ],
+      "canonicalNames": [
+        "Tom Paris"
+      ],
+      "tags": [
+        "character:tom-paris"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tova-veer": {
+      "type": "character",
+      "label": "Tova Veer",
+      "aliases": [
+        "Tova Veer"
+      ],
+      "canonicalNames": [
+        "Tova Veer"
+      ],
+      "tags": [
+        "character:tova-veer"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tuvok": {
+      "type": "character",
+      "label": "Tuvok",
+      "aliases": [
+        "Tuvok"
+      ],
+      "canonicalNames": [
+        "Tuvok"
+      ],
+      "tags": [
+        "character:tuvok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ufo": {
+      "type": "character",
+      "label": "UFO",
+      "aliases": [
+        "UFO"
+      ],
+      "canonicalNames": [
+        "UFO"
+      ],
+      "tags": [
+        "character:ufo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:uss-voyager-crew": {
+      "type": "faction",
+      "label": "USS Voyager crew",
+      "aliases": [
+        "USS Voyager crew"
+      ],
+      "canonicalNames": [
+        "USS Voyager crew"
+      ],
+      "tags": [
+        "faction:uss-voyager-crew"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vatm": {
+      "type": "character",
+      "label": "Vatm",
+      "aliases": [
+        "Vatm"
+      ],
+      "canonicalNames": [
+        "Vatm"
+      ],
+      "tags": [
+        "character:vatm"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vidiians": {
+      "type": "faction",
+      "label": "Vidiians",
+      "aliases": [
+        "Vidiians"
+      ],
+      "canonicalNames": [
+        "Vidiians"
+      ],
+      "tags": [
+        "faction:vidiians"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:volkswagen": {
+      "type": "character",
+      "label": "Volkswagen",
+      "aliases": [
+        "Volkswagen"
+      ],
+      "canonicalNames": [
+        "Volkswagen"
+      ],
+      "tags": [
+        "character:volkswagen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vorik": {
+      "type": "character",
+      "label": "Vorik",
+      "aliases": [
+        "Vorik"
+      ],
+      "canonicalNames": [
+        "Vorik"
+      ],
+      "tags": [
+        "character:vorik"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:voth": {
+      "type": "character",
+      "label": "Voth",
+      "aliases": [
+        "Voth"
+      ],
+      "canonicalNames": [
+        "Voth"
+      ],
+      "tags": [
+        "character:voth"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:voyager": {
+      "type": "character",
+      "label": "Voyager",
+      "aliases": [
+        "Voyager"
+      ],
+      "canonicalNames": [
+        "Voyager"
+      ],
+      "tags": [
+        "character:voyager"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vulcans": {
+      "type": "faction",
+      "label": "Vulcans",
+      "aliases": [
+        "Vulcans"
+      ],
+      "canonicalNames": [
+        "Vulcans"
+      ],
+      "tags": [
+        "faction:vulcans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    }
+  }
+}

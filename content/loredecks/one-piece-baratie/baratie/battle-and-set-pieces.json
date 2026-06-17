@@ -1,0 +1,874 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_krieg_tries_to_seize_baratie_as_a_replacement_ship_032",
+      "title": "Krieg Tries To Seize Baratie As A Replacement Ship",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.battle-and-set-pieces",
+        "validToAnchor": "op.baratie.world-scale-and-dreams",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Krieg Tries To Seize Baratie As A Replacement Ship"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:don-krieg",
+          "op:krieg-pirates",
+          "op:baratie",
+          "op:zeff"
+        ],
+        "characters": [
+          "Don Krieg",
+          "Zeff"
+        ],
+        "locations": [
+          "Baratie"
+        ],
+        "objects": [],
+        "factions": [
+          "Krieg Pirates"
+        ],
+        "topics": [
+          "Krieg siege",
+          "replacement ship",
+          "Baratie seizure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:don-krieg",
+        "faction:krieg-pirates",
+        "location:baratie",
+        "character:zeff",
+        "topic:krieg-siege"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Don Krieg",
+            "Zeff"
+          ],
+          "entitiesAny": [
+            "Don Krieg",
+            "Krieg Pirates",
+            "Baratie",
+            "Zeff"
+          ],
+          "topicsAny": [
+            "Krieg siege",
+            "replacement ship",
+            "Baratie seizure"
+          ],
+          "keywordsAny": [
+            "Don Krieg",
+            "Krieg Pirates",
+            "Baratie",
+            "Zeff",
+            "Krieg siege",
+            "replacement ship",
+            "Baratie seizure",
+            "seize Baratie",
+            "siege",
+            "Krieg Tries To Seize Baratie As A Replacement Ship",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "After being fed, Krieg tries to seize Baratie as the replacement ship and food base he needs to rebuild from Grand Line failure.",
+        "injection": "Use the siege motive clearly: Krieg wants Baratie because it solves ship, food, and pride problems at once.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_the_restaurant_deck_becomes_a_battlefield_while_customers_and_cooks_are_at_risk_033",
+      "title": "The Restaurant Deck Becomes A Sea Battlefield",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.battle-and-set-pieces",
+        "validToAnchor": "op.baratie.world-scale-and-dreams",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: The Restaurant Deck Becomes A Sea Battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:baratie",
+          "op:sea-battlefield",
+          "op:baratie-cooks",
+          "op:krieg-pirates"
+        ],
+        "characters": [],
+        "locations": [
+          "Baratie",
+          "sea battlefield"
+        ],
+        "objects": [],
+        "factions": [
+          "Baratie cooks",
+          "Krieg Pirates"
+        ],
+        "topics": [
+          "restaurant battlefield",
+          "cooks at risk",
+          "ship siege"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:baratie",
+        "location:sea-battlefield",
+        "faction:baratie-cooks",
+        "faction:krieg-pirates",
+        "topic:restaurant-battlefield"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Baratie",
+            "sea battlefield",
+            "Baratie cooks",
+            "Krieg Pirates"
+          ],
+          "topicsAny": [
+            "restaurant battlefield",
+            "cooks at risk",
+            "ship siege"
+          ],
+          "keywordsAny": [
+            "Baratie",
+            "sea battlefield",
+            "Baratie cooks",
+            "Krieg Pirates",
+            "restaurant battlefield",
+            "cooks at risk",
+            "ship siege",
+            "deck battle",
+            "customers",
+            "wreckage",
+            "The Restaurant Deck Becomes A Sea Battlefield",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Baratie deck becomes a battlefield while cooks, customers, the restaurant structure, and nearby wreckage all remain at risk.",
+        "injection": "Use the battle space as crowded and unstable: this is not an empty arena, it is a restaurant-ship under siege on open water.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_poison_gas_escalates_krieg_s_willingness_to_sacrifice_everyone_034",
+      "title": "MH5 Poison Gas Shows Krieg Will Sacrifice Everyone",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.battle-and-set-pieces",
+        "validToAnchor": "op.baratie.world-scale-and-dreams",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: MH5 Poison Gas Shows Krieg Will Sacrifice Everyone"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:don-krieg",
+          "op:mh5",
+          "op:gin",
+          "op:sanji",
+          "op:krieg-pirates"
+        ],
+        "characters": [
+          "Don Krieg",
+          "Gin",
+          "Sanji"
+        ],
+        "locations": [],
+        "objects": [
+          "MH5 poison gas"
+        ],
+        "factions": [
+          "Krieg Pirates"
+        ],
+        "topics": [
+          "MH5 escalation",
+          "poison gas",
+          "sacrificing allies"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:don-krieg",
+        "item:mh5",
+        "character:gin",
+        "character:sanji",
+        "faction:krieg-pirates",
+        "topic:mh5-escalation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Don Krieg",
+            "Gin",
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Don Krieg",
+            "MH5 poison gas",
+            "Gin",
+            "Sanji",
+            "Krieg Pirates"
+          ],
+          "topicsAny": [
+            "MH5 escalation",
+            "poison gas",
+            "sacrificing allies"
+          ],
+          "keywordsAny": [
+            "Don Krieg",
+            "MH5 poison gas",
+            "Gin",
+            "Sanji",
+            "Krieg Pirates",
+            "MH5 escalation",
+            "poison gas",
+            "sacrificing allies",
+            "MH5",
+            "gas mask",
+            "Gin poisoned",
+            "MH5 Poison Gas Shows Krieg Will Sacrifice Everyone",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Krieg using MH5 poison gas escalates the fight because he is willing to endanger enemies and allies, including Gin, to enforce command.",
+        "injection": "Use MH5 as moral and tactical escalation: the weapon proves Krieg values victory over crew survival.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_gin_s_refusal_to_finish_sanji_breaks_krieg_s_command_logic_035",
+      "title": "Gin Refuses To Finish Sanji And Breaks Krieg's Logic",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.battle-and-set-pieces",
+        "validToAnchor": "op.baratie.world-scale-and-dreams",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Gin Refuses To Finish Sanji And Breaks Krieg's Logic"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:gin",
+          "op:sanji",
+          "op:don-krieg"
+        ],
+        "characters": [
+          "Gin",
+          "Sanji",
+          "Don Krieg"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gin refusal",
+          "gratitude over command",
+          "loyalty break"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:gin",
+        "character:sanji",
+        "character:don-krieg",
+        "topic:gin-refusal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gin",
+            "Sanji",
+            "Don Krieg"
+          ],
+          "entitiesAny": [
+            "Gin",
+            "Sanji",
+            "Don Krieg"
+          ],
+          "topicsAny": [
+            "Gin refusal",
+            "gratitude over command",
+            "loyalty break"
+          ],
+          "keywordsAny": [
+            "Gin",
+            "Sanji",
+            "Don Krieg",
+            "Gin refusal",
+            "gratitude over command",
+            "loyalty break",
+            "refuse to kill",
+            "gratitude",
+            "command break",
+            "Gin Refuses To Finish Sanji And Breaks Krieg's Logic",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Gin cannot bring himself to kill Sanji, and that refusal breaks Krieg's command logic because gratitude outweighs obedience at the critical moment.",
+        "injection": "Use Gin's refusal as the emotional fracture in the enemy side: Sanji's earlier mercy returns as resistance inside Krieg's own crew.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_luffy_beats_krieg_by_outlasting_weapons_rather_than_matching_armor_036",
+      "title": "Luffy Beats Krieg By Outlasting The Arsenal",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.battle-and-set-pieces",
+        "validToAnchor": "op.baratie.world-scale-and-dreams",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Luffy Beats Krieg By Outlasting The Arsenal"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:don-krieg",
+          "op:baratie",
+          "op:sea-battlefield"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Don Krieg"
+        ],
+        "locations": [
+          "Baratie",
+          "sea battlefield"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy vs Krieg",
+          "outlasting weapons",
+          "armor arsenal"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:don-krieg",
+        "location:baratie",
+        "location:sea-battlefield",
+        "topic:luffy-vs-krieg"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Don Krieg"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Don Krieg",
+            "Baratie",
+            "sea battlefield"
+          ],
+          "topicsAny": [
+            "Luffy vs Krieg",
+            "outlasting weapons",
+            "armor arsenal"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Don Krieg",
+            "Baratie",
+            "sea battlefield",
+            "Luffy vs Krieg",
+            "outlasting weapons",
+            "armor arsenal",
+            "armor",
+            "net",
+            "wreckage fight",
+            "Luffy Beats Krieg By Outlasting The Arsenal",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy beats Krieg by pushing through layers of weapons and armor rather than matching Krieg with equipment or tactics of the same kind.",
+        "injection": "Use the fight as stubborn impact against over-armed dishonesty: Luffy keeps coming until the arsenal stops mattering.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    }
+  ]
+}

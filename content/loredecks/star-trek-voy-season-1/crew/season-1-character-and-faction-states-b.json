@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s1_jetrel-state-gate",
+      "title": "Jetrel state gate for Tuvok",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s1.e14.jetrel",
+        "validToAnchor": "voy.s1.e15.learning-curve",
+        "series": "VOY",
+        "season": "1",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 31260,
+        "sortKeyTo": 31280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 1: Jetrel",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s1",
+          "label": "VOY season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s1.e14.jetrel",
+          "label": "Jetrel",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tuvok",
+          "st:neelix",
+          "st:tom-paris",
+          "st:kathryn-janeway",
+          "st:haakonian",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tuvok",
+          "Neelix",
+          "Tom Paris",
+          "Kathryn Janeway",
+          "Haakonian"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "death/status-change gate",
+          "Neelix",
+          "Tuvok",
+          "pool",
+          "Chez Sandríne",
+          "Paris",
+          "Janeway",
+          "Jetrel"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-jetrel",
+        "character:tuvok",
+        "character:neelix",
+        "character:tom-paris",
+        "character:kathryn-janeway",
+        "character:haakonian",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:deathstatus-change-gate",
+        "topic:neelix",
+        "topic:tuvok",
+        "topic:pool",
+        "topic:chez-sandrine",
+        "topic:paris",
+        "topic:janeway",
+        "topic:jetrel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tuvok",
+            "Neelix",
+            "Tom Paris",
+            "Kathryn Janeway",
+            "Haakonian"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tuvok",
+            "Neelix",
+            "Tom Paris",
+            "Kathryn Janeway",
+            "Haakonian",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "death/status-change gate",
+            "Neelix",
+            "Tuvok",
+            "pool",
+            "Chez Sandríne",
+            "Paris",
+            "Janeway",
+            "Jetrel"
+          ],
+          "keywordsAny": [
+            "Tuvok",
+            "Neelix",
+            "Tom Paris",
+            "Kathryn Janeway",
+            "Haakonian",
+            "Starfleet",
+            "USS Voyager crew",
+            "death/status-change gate",
+            "pool",
+            "Chez Sandríne",
+            "Paris",
+            "Janeway",
+            "Jetrel",
+            "VOY season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 1, Memory Alpha story rows 1-15, runtime episode aliases 1-15, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Jetrel constrains Tuvok, Neelix, Tom Paris around death/status-change gate and the episode-local faction state.",
+        "injection": "Inside Jetrel, write Tuvok, Neelix, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Jetrel",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Jetrel_(episode)",
+        "stardate": "48832.1-48840.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s1_learning-curve-state-gate",
+      "title": "Learning Curve state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s1.e15.learning-curve",
+        "validToAnchor": "voy.s1.e15.learning-curve",
+        "series": "VOY",
+        "season": "1",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 31280,
+        "sortKeyTo": 31280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 1: Learning Curve",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s1",
+          "label": "VOY season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s1.e15.learning-curve",
+          "label": "Learning Curve",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:tuvok",
+          "st:kathryn-janeway",
+          "st:crewman",
+          "st:dalby",
+          "st:starfleet",
+          "st:maquis",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Tuvok",
+          "Kathryn Janeway",
+          "Crewman",
+          "Dalby"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Maquis",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Maquis political/crew-loyalty gate",
+          "Delta Quadrant isolation gate",
+          "Janeway",
+          "holonovel",
+          "energy grid",
+          "Tuvok",
+          "Crewman",
+          "Dalby"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-learning-curve",
+        "character:chakotay",
+        "character:tuvok",
+        "character:kathryn-janeway",
+        "character:crewman",
+        "character:dalby",
+        "faction:starfleet",
+        "faction:maquis",
+        "faction:uss-voyager-crew",
+        "topic:maquis-politicalcrew-loyalty-gate",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:janeway",
+        "topic:holonovel",
+        "topic:energy-grid",
+        "topic:tuvok",
+        "topic:crewman",
+        "topic:dalby"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Tuvok",
+            "Kathryn Janeway",
+            "Crewman",
+            "Dalby"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Maquis",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Tuvok",
+            "Kathryn Janeway",
+            "Crewman",
+            "Dalby",
+            "Starfleet",
+            "Maquis",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Maquis political/crew-loyalty gate",
+            "Delta Quadrant isolation gate",
+            "Janeway",
+            "holonovel",
+            "energy grid",
+            "Tuvok",
+            "Crewman",
+            "Dalby"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Tuvok",
+            "Kathryn Janeway",
+            "Crewman",
+            "Dalby",
+            "Starfleet",
+            "Maquis",
+            "USS Voyager crew",
+            "Maquis political/crew-loyalty gate",
+            "Delta Quadrant isolation gate",
+            "Janeway",
+            "holonovel",
+            "energy grid",
+            "Learning Curve",
+            "VOY season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 1, Memory Alpha story rows 1-15, runtime episode aliases 1-15, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Learning Curve constrains Chakotay, Tuvok, Kathryn Janeway around Maquis political/crew-loyalty gate and the episode-local faction state.",
+        "injection": "Inside Learning Curve, write Chakotay, Tuvok, Kathryn Janeway with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Learning Curve",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Learning_Curve_(episode)",
+        "stardate": "48846.5-48859.3 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

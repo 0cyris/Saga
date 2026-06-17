@@ -9,12 +9,104 @@
 import { normalizeLoreMatrix, normalizeLoreEntry, LORE_LIFECYCLE_STATUSES } from '../lorecards/lore-matrix.js';
 import { LORE_RELEVANCE_TIERS, LORE_RELEVANCE_LABELS, normalizeLoreRelevance, LORE_CATEGORY_VALUES, LORE_PURPOSE_LABELS } from '../lorecards/lore-relevance.js';
 import {
+    LOREDECK_CREATOR_ENTRY_BATCH_MAX,
+    LOREDECK_CREATOR_ENTRY_BATCH_SIZE,
+    clampLoredeckCreatorInteger,
+} from '../loredecks/loredeck-creator-generation-settings.js';
+import {
+    createLoredeckCreatorAdvancedGenerationSettings as createLoredeckCreatorAdvancedGenerationSettingsPanel,
+} from '../loredecks/loredeck-creator-generation-settings-panel.js';
+import {
+    createLoredeckCreatorGenerationSettingsController,
+} from '../loredecks/loredeck-creator-generation-settings-controller.js';
+import {
+    attachLoredeckCreatorLiveGeneration,
+    deleteLoredeckCreatorGenerationController,
+    forgetLoredeckCreatorLiveGeneration,
+    getLoredeckCreatorActiveGenerationByJobIdMap,
+    getLoredeckCreatorGenerationController,
+    getLoredeckCreatorGenerationJobId,
+    rememberLoredeckCreatorLiveGeneration,
+} from '../loredecks/loredeck-creator-generation-state.js';
+import {
+    createLoredeckCreatorGenerationProgressController,
+    isLoredeckCreatorAbortError,
+} from '../loredecks/loredeck-creator-generation-progress.js';
+import {
+    buildLoredeckCreatorRetrySmallerConfig,
+    buildLoredeckCreatorRetryUnitId,
+    formatLoredeckCreatorRecoveryStageLabel,
+    getLoredeckCreatorUnitMeta,
+    isStaleLoredeckCreatorInterruptedResult,
+    isLoredeckCreatorRecoverableUnit,
+    recoverLoredeckCreatorInterruptedActiveGeneration as recoverLoredeckCreatorInterruptedActiveGenerationWithDeps,
+    selectLoredeckCreatorLatestRecoverableUnit,
+} from '../loredecks/loredeck-creator-generation-recovery.js';
+import {
+    createLoredeckCreatorGenerationController,
+} from '../loredecks/loredeck-creator-generation-controller.js';
+import {
+    createLoredeckCreatorGenerationSessionController,
+} from '../loredecks/loredeck-creator-generation-session.js';
+import {
+    buildLoredeckCreatorGenerationFailureDiagnostic,
+    formatLoredeckCreatorGenerationFailureMessage,
+    formatLoredeckCreatorStageLabel,
+    getLoredeckCreatorFailureCode,
+    prepareLoredeckCreatorStageFailure,
+    warnLoredeckCreatorGenerationFailure,
+} from '../loredecks/loredeck-creator-generation-diagnostics.js';
+import {
+    isLoredeckCreatorParsedArtifactUsable,
+    isLoredeckCreatorParsedEntryDraftUsable,
+    isLoredeckCreatorParsedPlanningUsable,
+    isLoredeckCreatorParsedTitlePassUsable,
+    isLoredeckCreatorPlanningProposal,
+    validateLoredeckCreatorArtifactResult,
+    validateLoredeckCreatorEntryDraftResult,
+    validateLoredeckCreatorPlanningResult,
+    validateLoredeckCreatorTitlePassResult,
+} from '../loredecks/loredeck-creator-generation-validation.js';
+import {
+    buildLoredeckCreatorEntryGenerationUnitId,
+    buildLoredeckCreatorPlanningGenerationUnitId,
+    buildLoredeckCreatorTitleGenerationUnitId,
+    createLoredeckCreatorEntryChangeId,
+    getLoredeckCreatorEntryTargetIds,
+    getLoredeckCreatorPlanningBatchIdentity,
+} from '../loredecks/loredeck-creator-generation-units.js';
+import {
+    buildLoredeckCreatorGeneratedPackRecord,
+    getLoredeckCreatorGeneratedPackId,
+} from '../loredecks/loredeck-creator-generated-pack.js';
+import {
+    createLoredeckCreatorGeneratedPackCacheController,
+} from '../loredecks/loredeck-creator-generated-pack-cache.js';
+import {
+    createLoredeckCreatorWorkbenchCacheController,
+} from '../loredecks/loredeck-creator-workbench-cache.js';
+import {
+    repairLoredeckCreatorBriefResponse,
+    repairLoredeckCreatorEntryResponse,
+    repairLoredeckCreatorOutlineResponse,
+    repairLoredeckCreatorPlanningResponse,
+    repairLoredeckCreatorTitleResponse,
+    requestLoredeckCreatorBriefResponse,
+    requestLoredeckCreatorEntryResponse,
+    requestLoredeckCreatorOutlineResponse,
+    requestLoredeckCreatorPlanningResponse,
+    requestLoredeckCreatorTitleResponse,
+} from '../loredecks/loredeck-creator-generation-requests.js';
+import {
     getDefaultState,
     DEFAULT_SETTINGS,
 } from '../state/constants.js';
 import { applyExperienceModeSettings } from './runtime-experience-mode.js';
 import { hasSelectedLoredeckContext } from './runtime-basic-readiness.js';
-import { configureSessionBasicPanel } from './session-basic-panel.js';
+import { configureRuntimeComposition } from './runtime-composition.js';
+import { configureContextComposition } from './context-composition.js';
+import { configureLoredeckEditorComposition } from './loredeck-editor-composition.js';
+import { configureLoredeckWorkflowComposition } from './loredeck-workflow-composition.js';
 import {
     addLoredeckFolderToStack,
     addLoredeckToStack,
@@ -46,22 +138,18 @@ import {
     setLoredeckStackItemEnabled,
 } from './active-stack-panel.js';
 import {
-    configureAdvancedRuntimePanel,
     renderSessionTab,
 } from './advanced-runtime-panel.js';
 import {
     appendSettingsResetButton,
-    configureRuntimeSafetyPanel,
     createDangerZoneCard,
     createStateSafetyCard,
     resetSettingKeysToDefaults,
 } from './runtime-safety-panel.js';
 import {
-    configureRuntimeGuidePrep,
     prepareRuntimeGuideStep,
 } from './runtime-guide-prep.js';
 import {
-    configureRuntimeTabRegistry,
     createRuntimeRenderErrorCard,
     renderPanelBody,
 } from './tab-registry.js';
@@ -74,7 +162,6 @@ import {
 } from './runtime-rail-metrics.js';
 import {
     appendGenerationStatus,
-    configureRuntimeFeatureProgress,
     ensureContinuityProviderReadyForAction,
     ensureLoreProviderReadyForAction,
     resetFeatureProgress,
@@ -87,7 +174,6 @@ import {
     getLoreRegistryValues,
 } from './runtime-lore-registry.js';
 import {
-    configureRuntimeSettingControls,
     createAutomationModeCard,
     createNumberSettingRow,
     createRangeSettingRow,
@@ -106,14 +192,12 @@ import {
     validateLoredeckV3EditorFields,
 } from './loredeck-editor-fields.js';
 import {
-    configureLoredeckEditorLoader,
     loadLoredeckEntriesForEditor,
     loadLoredeckManifestPreview,
     loadLoredeckTagRegistryForEditor,
     loadLoredeckTimelineRegistryForEditor,
 } from './loredeck-editor-loader.js';
 import {
-    configureLoredeckEditorValidation,
     getCachedLoredeckManifest,
     getExpectedLoredeckEntrySchemaVersion,
     validateLoredeckForEditor,
@@ -121,7 +205,6 @@ import {
 import {
     buildCustomDuplicateLoredeckRecord,
     buildFinalizedCustomLoredeckRecordFromGenerated,
-    configureLoredeckEditorActions,
     createCustomDuplicateLoredeckRecord,
     cancelLoredeckHealthRepairRun,
     continueLoredeckHealthModelRepairSession,
@@ -141,29 +224,29 @@ import {
     syncLoredeckMetadataFromManifest,
 } from './loredeck-editor-actions.js';
 import {
-    configureLoredeckEntryOverridesPanel,
     createLoredeckEntryOverrideCard,
 } from './loredeck-entry-overrides-panel.js';
 import {
-    configureLoredeckTimelineRegistryPanel,
     createLoredeckTimelineRegistryCard,
 } from './loredeck-timeline-registry-panel.js';
 import {
-    configureLoredeckTagManagerPanel,
     createLoredeckTagManagerCard,
 } from './loredeck-tag-manager-panel.js';
 import {
-    configureLoredeckPendingReviewPanel,
     createLoredeckPendingReviewCard,
 } from './loredeck-pending-review-panel.js';
 import {
-    configureLoredeckAssistantReviewPanel,
     createLoredeckAssistantCard,
     createLoredeckAssistantDraftBatchCard,
 } from './loredeck-assistant-review-panel.js';
 import {
+    createLoredeckAssistantDraftHandoffController,
+} from './loredeck-assistant-draft-handoff.js';
+import {
+    createLoredeckAssistantDraftCacheController,
+} from './loredeck-assistant-draft-cache.js';
+import {
     appendLoredeckPendingQualityPills,
-    configureLoredeckReviewHelpers,
     createLoredeckPendingDiffList,
     createLoredeckPendingHealthImpactPill,
     createLoredeckPendingHealthStalePill,
@@ -181,7 +264,6 @@ import {
     normalizeLoredeckPendingRubricLevel,
 } from './loredeck-review-helpers.js';
 import {
-    configureLoredeckPendingChangeModel,
     createLoredeckRecordPatchChange,
     getLoredeckPendingChanges,
     normalizeLoredeckPendingChanges,
@@ -190,7 +272,6 @@ import {
 } from './loredeck-pending-change-model.js';
 import {
     acceptLoredeckPendingChanges,
-    configureLoredeckPendingChangeActions,
     queueLoredeckPendingChange,
     queueLoredeckPendingChanges,
     rejectLoredeckPendingChanges,
@@ -198,7 +279,6 @@ import {
 import {
     buildBulkLoredeckTagOverrideEntry,
     computeLoredeckBulkTagUpdates,
-    configureLoredeckEditProposals,
     queueLoredeckBulkContextUpdate,
     queueLoredeckBulkTagUpdate,
     queueLoredeckTagRenameProposal,
@@ -218,15 +298,11 @@ import {
     getLoredeckTagRegistryCount,
     getLoredeckTimelineRegistryCount,
     normalizeLoredeckEntryId,
-    normalizeLoredeckPackId,
-    parseLoredeckTags,
 } from './loredeck-package-helpers.js';
 import {
-    configureLoredeckPackageExport,
     exportSelectedLoredeckBundles,
 } from './loredeck-package-export.js';
 import {
-    configureLoredeckPackageInstallPanel,
     installLoredeckBundleFromFile,
 } from './loredeck-package-install-panel.js';
 import {
@@ -265,15 +341,15 @@ import {
     getLoredeckSourceSummary,
 } from './loredeck-source-summary.js';
 import {
-    configureLoredeckManifestPreview,
     createLoredeckManifestPreview,
 } from './loredeck-manifest-preview.js';
 import {
-    configureGeneratedLoredeckExportCard,
+    createLoredeckPreviewCacheController,
+} from './loredeck-preview-cache.js';
+import {
     createGeneratedLoredeckExportReadinessCard,
 } from './loredeck-generated-export-card.js';
 import {
-    configureGeneratedLoredeckReadiness,
     getGeneratedLoredeckExportReadiness,
 } from './loredeck-generated-readiness.js';
 import {
@@ -307,7 +383,6 @@ import {
     validateLoreProviderConfiguration,
 } from '../providers/lore-llm-client.js';
 import {
-    describeLoreResponse,
     LORE_RESPONSE_ERROR_CODES,
 } from '../providers/lore-response-normalizer.js';
 import { proposeCanonLoreForContext, previewCanonLoreForContext, addCanonLorePreviewEntriesToPending, loadCanonLoreDatabase, getCanonLoreDatabaseSync, clearCanonLoreDatabaseCache } from '../context/canon-lore-db.js';
@@ -334,19 +409,9 @@ import {
     buildLoredeckAssistantSystemPrompt,
     buildLoredeckAssistantUserPrompt,
     parseLoredeckAssistantResponse,
-    buildLoredeckCreatorBriefSystemPrompt,
-    buildLoredeckCreatorBriefUserPrompt,
     parseLoredeckCreatorBriefResponse,
-    buildLoredeckCreatorOutlineSystemPrompt,
-    buildLoredeckCreatorOutlineUserPrompt,
     parseLoredeckCreatorOutlineResponse,
-    buildLoredeckCreatorTitleSystemPrompt,
-    buildLoredeckCreatorTitleUserPrompt,
     parseLoredeckCreatorTitleResponse,
-    buildLoredeckCreatorPlanningSystemPrompt,
-    buildLoredeckCreatorPlanningUserPrompt,
-    buildLoredeckCreatorEntrySystemPrompt,
-    buildLoredeckCreatorEntryUserPrompt,
     extractLoredeckAssistantResponseText,
 } from '../loredecks/loredeck-assistant.js';
 import { analyzeContextQuery, clearContextIndexCache, findContextAnchors, getContextIndexSync, loadContextIndex, normalizeContextSearchText, rankContextAnchors, contextTextIncludesTerm } from '../context/context-index.js';
@@ -377,7 +442,6 @@ import {
 } from '../loredecks/loredeck-library-view.js';
 import {
     GENERATION_ERROR_CODES,
-    runGenerationUnits,
 } from '../generation/generation-job-runner.js';
 import {
     redactDiagnosticValue,
@@ -444,7 +508,6 @@ import {
 } from '../theme/runtime-theme.js';
 import {
     closeSagaTour,
-    configureRuntimeTour,
     markTourTarget,
 } from './runtime-tour.js';
 import { getRuntimeGuideSteps } from './runtime-guide-content.js';
@@ -460,7 +523,6 @@ import {
     applyRuntimeShellGeometry,
     clampRuntimeShellToViewport,
     clampNumber,
-    configureRuntimeShell,
     getActiveNestedScrollElement,
     getActiveTabScrollElement,
     getConstrainedDrawerHeight,
@@ -476,7 +538,6 @@ import {
     updateDrawerScrollMetrics,
 } from './runtime-shell.js';
 import {
-    configureRuntimeShellView,
     refreshRuntimeHeader,
     refreshRuntimeRailIcons as refreshRuntimeRailIconImages,
     renderPanelFallbackShell,
@@ -486,7 +547,6 @@ import {
     buildLoredeckHealthPackSummary,
     buildLoredeckHealthReport,
     collectLoredeckHealthIssueTags,
-    configureLoredeckHealthPanel,
     formatRelativeHealthTime,
     getCachedLoredeckHealthRecord,
     getLoredeckHealthStatusDescriptor,
@@ -499,7 +559,6 @@ import {
     buildLoredeckPackScopedHealth,
     clearLoredeckLibrarySelectedFolderDetails,
     closeLoredeckLibraryWindow,
-    configureLoredeckLibraryPanel,
     createLoredeckDeckVisual,
     createLoredeckLibraryEditableTitle,
     getBundledLoredeckLibraryRecords,
@@ -524,10 +583,6 @@ import {
     setLoredeckLibrarySelectedFolder,
 } from '../loredecks/loredeck-library-panel.js';
 import {
-    configureLoredecksTabPanel,
-} from '../loredecks/loredecks-tab-panel.js';
-import {
-    configureLoredeckWorkbenchPanel,
     closeLoredeckWorkbench,
     openLoredeckWorkbench,
 } from '../loredecks/loredeck-workbench-panel.js';
@@ -547,7 +602,6 @@ import {
     createLoredeckCreatorPlanningCard,
     createLoredeckCreatorStageGuide,
     createLoredeckCreatorTitlePassCard,
-    formatLoredeckCreatorLiveSnippet,
     getLoredeckCreatorGenerationWaitMessage,
     getLoredeckCreatorNextTitleBatch,
     getLoredeckCreatorOutlineRows,
@@ -572,16 +626,16 @@ import {
     selectLoredeckCreatorEntryDraftBatchId,
 } from '../loredecks/loredeck-creator-entry-draft-pool.js';
 import {
-    buildLoredeckCreatorResetWarning,
-    getLoredeckCreatorResetStepLabel,
-    hasLoredeckCreatorResetForwardData,
-    resetGeneratedLoredeckPackAfterStep,
-    resetLoredeckCreatorJobAfterStep,
-    shouldRemoveGeneratedPackForCreatorReset,
-} from '../loredecks/loredeck-creator-reset.js';
+    createLoredeckCreatorResetController,
+} from '../loredecks/loredeck-creator-reset-controller.js';
 import * as loredeckCreatorCoverage from '../loredecks/loredeck-creator-coverage.js';
 import {
-    configureContextPanel,
+    createLoredeckCreatorCoverageFinalizationController,
+} from '../loredecks/loredeck-creator-finalization.js';
+import {
+    createLoredeckCreatorCoverageActionsController,
+} from '../loredecks/loredeck-creator-coverage-actions.js';
+import {
     createContextAutomationAuditPanel,
     createContextResolutionAuditPanel,
     createContextResolutionProposalPanel,
@@ -595,7 +649,7 @@ function openLoredeckCreatorWorkbench(options = {}) {
         const job = getLoredeckCreatorJobForPack({ packId });
         if (job?.jobId) {
             const activated = activateLoredeckCreatorJob(job.jobId, { syncPrompt: false });
-            loredeckCreatorBriefCache.set('current', activated?.job || job);
+            loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(activated?.job || job);
         }
     }
     openLoredeckCreatorWorkbenchBase(options);
@@ -604,25 +658,11 @@ import {
     formatContextBriefUpdatedAt,
 } from '../context/context-formatters.js';
 import {
-    configureContextWorkbenchPanel,
     createContextWorkbenchPackSelector,
     createContextWorkbenchShell,
     getContextWorkbenchValidationIssues,
 } from '../context/context-workbench-panel.js';
 import {
-    configureContinuityPanel,
-} from '../continuity/continuity-panel.js';
-import {
-    configureInjectionPreviewPanel,
-} from './injection-preview-panel.js';
-import {
-    configureSettingsPanel,
-} from '../settings/settings-panel.js';
-import {
-    configureRuntimeSettingsTab,
-} from '../settings/runtime-settings-tab.js';
-import {
-    configureLoreTimelinePanel,
     openLoreTimeline,
     refreshLoreTimeline,
 } from '../lorecards/lore-timeline-panel.js';
@@ -653,7 +693,6 @@ import {
     configureThemeActions,
 } from '../settings/theme-actions.js';
 import {
-    configureRuntimeCollapsible,
     createCollapsibleSection,
     setSectionCollapsed,
 } from './runtime-collapsible.js';
@@ -690,36 +729,8 @@ const CONTEXT_SOURCE_OPTIONS = Object.freeze([
     ['unknown', 'Unknown'],
 ]);
 
-const loredeckManifestPreviewCache = new Map();
-const loredeckEntryPreviewCache = new Map();
-const loredeckTagRegistryCache = new Map();
-const loredeckTimelineRegistryCache = new Map();
-const loredeckAssistantDraftCache = new Map();
-const loredeckCreatorBriefCache = new Map();
-const loredeckCreatorGeneratedPackPayloadCache = new Map();
-const loredeckCreatorGeneratedPackHydrationRequests = new Map();
-const LOREDECK_CREATOR_TITLE_AUTORUN_BATCHES = 5;
-const LOREDECK_CREATOR_ENTRY_BATCH_SIZE = 3;
-const LOREDECK_CREATOR_ENTRY_BATCH_MAX = 6;
-const LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES = 5;
-const LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS = Object.freeze({
-    titleBatchLimit: 8,
-    planningProposalLimit: 12,
-    entryBatchSize: LOREDECK_CREATOR_ENTRY_BATCH_SIZE,
-    titleRunRemainingLimit: LOREDECK_CREATOR_TITLE_AUTORUN_BATCHES,
-    entryRunRemainingLimit: LOREDECK_CREATOR_ENTRY_AUTORUN_BATCHES,
-    retryAttempts: 1,
-    retrySmaller: true,
-    useUtilityProviderForSplitRetries: false,
-    showStreamingProgress: true,
-});
-const LOREDECK_CREATOR_GENERATION_SETTING_LIMITS = Object.freeze({
-    titleBatchLimit: [4, 12],
-    planningProposalLimit: [6, 24],
-    entryBatchSize: [1, LOREDECK_CREATOR_ENTRY_BATCH_MAX],
-    titleRunRemainingLimit: [1, 10],
-    entryRunRemainingLimit: [1, 10],
-    retryAttempts: [0, 4],
+const loredeckPreviewCacheController = createLoredeckPreviewCacheController({
+    clearDraftCache: packId => loredeckAssistantDraftCacheController.deleteRecord(packId),
 });
 let loredeckEntryOverrideQuery = '';
 let loredeckTagManagerQuery = '';
@@ -735,10 +746,132 @@ let loredeckCreatorNotes = '';
 let loredeckCreatorRevisionInstruction = '';
 let loredeckCreatorOutlineRevisionInstruction = '';
 let loredeckCreatorTitleRevisionInstruction = '';
-let loredeckCreatorGenerationTicker = null;
-const loredeckCreatorGenerationControllers = new Map();
-const loredeckCreatorLiveGenerationsByJobId = new Map();
-const loredeckCreatorLiveGenerationJobs = new Map();
+const loredeckCreatorWorkbenchCacheController = createLoredeckCreatorWorkbenchCacheController({
+    getActiveGeneration: job => getActiveLoredeckCreatorGeneration(job),
+    getGenerationController: generationId => getLoredeckCreatorGenerationController(generationId),
+    deleteGenerationController: generationId => deleteLoredeckCreatorGenerationController(generationId),
+    forgetLiveGeneration: generation => forgetLoredeckCreatorLiveGeneration(generation),
+    stopGenerationTicker: () => stopLoredeckCreatorGenerationTicker(),
+    clearDraftInputs: () => clearLoredeckCreatorDraftInputs(),
+    refreshWorkbenchBody: options => refreshLoredeckCreatorWorkbenchBody(options),
+    getJobGeneratedPackId: job => getLoredeckCreatorJobGeneratedPackId(job),
+});
+const loredeckCreatorGenerationSettingsController = createLoredeckCreatorGenerationSettingsController({
+    getCurrentJob: () => getLoredeckCreatorBriefCache(),
+    setCurrentJob: (job, options) => setLoredeckCreatorBriefCache(job, options),
+    setCurrentJobLocal: job => loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(job),
+    validateProvider: providerKind => validateLoreProviderConfiguration(providerKind),
+});
+const loredeckCreatorGenerationProgressController = createLoredeckCreatorGenerationProgressController({
+    getCurrentJob: () => getLoredeckCreatorBriefCache(),
+    setCurrentJob: (job, options) => setLoredeckCreatorBriefCache(job, options),
+    setCurrentJobLocal: job => loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(job),
+    queueWorkbenchRefresh: () => queueLoredeckCreatorWorkbenchRefresh(),
+    refreshGenerationStatusUi: generationId => refreshLoredeckCreatorGenerationStatusUi(generationId),
+    getGenerationWaitMessage: active => getLoredeckCreatorGenerationWaitMessage(active),
+    getGenerationSettings: () => getLoredeckCreatorGenerationSettings(),
+});
+const loredeckCreatorGenerationSessionController = createLoredeckCreatorGenerationSessionController({
+    getCurrentJob: () => getLoredeckCreatorBriefCache(),
+    setCurrentJob: (job, options) => setLoredeckCreatorBriefCache(job, options),
+    setCurrentJobLocal: job => loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(job),
+    getGenerationSettings: job => getLoredeckCreatorGenerationSettings(job),
+    getActiveGeneration: job => getActiveLoredeckCreatorGeneration(job),
+    inferUiStage: job => inferLoredeckCreatorUiStage(job),
+    startTicker: generationId => startLoredeckCreatorGenerationTicker(generationId),
+    stopTicker: () => stopLoredeckCreatorGenerationTicker(),
+    queueWorkbenchRefresh: () => queueLoredeckCreatorWorkbenchRefresh(),
+    toast,
+});
+const loredeckCreatorGenerationController = createLoredeckCreatorGenerationController({
+    getGenerationSettings: () => getLoredeckCreatorGenerationSettings(),
+    getGenerationJobId: generation => getLoredeckCreatorGenerationJobId(generation),
+    getGenerationController: generationId => getLoredeckCreatorGenerationController(generationId),
+    makeProgressHandler: (generation, options) => makeLoredeckCreatorProgressHandler(generation, options),
+    waitForUiPaint: () => waitForLoredeckCreatorUiPaint(),
+    isGenerationCurrent: generation => isLoredeckCreatorGenerationCurrent(generation),
+    updateGeneration: (generation, event, options) => updateLoredeckCreatorGeneration(generation, event, options),
+    updateGenerationRun: (jobId, run, options) => updateLoredeckCreatorGenerationRun(jobId, run, options),
+    updateGenerationUnit: (jobId, unitId, unit, options) => updateLoredeckCreatorGenerationUnit(jobId, unitId, unit, options),
+    extractResponseText: raw => extractLoredeckAssistantResponseText(raw),
+    buildFailureDiagnostic: (payload, unitConfig, requestOptions) => buildLoredeckCreatorGenerationFailureDiagnostic(payload, unitConfig, requestOptions, { redactDiagnostic: redactDiagnosticValue }),
+    formatFailureMessage: (error, fallback, label) => formatLoredeckCreatorGenerationFailureMessage(error, fallback, label),
+    warnFailure: (error, context) => warnLoredeckCreatorGenerationFailure(error, context),
+});
+const loredeckCreatorGeneratedPackCacheController = createLoredeckCreatorGeneratedPackCacheController({
+    getLoredeckDefinition,
+    hydrateCachedPayload: pack => hydrateCachedExternalLorepackPayloadRecord(pack),
+    hydratePayload: pack => hydrateExternalLorepackPayloadRecord(pack),
+    cloneJson: value => cloneLoredeckJson(value),
+    getTagRegistryCount: registry => getLoredeckTagRegistryCount(registry),
+    getTimelineRegistryCount: registry => getLoredeckTimelineRegistryCount(registry),
+    clearRelatedPackCaches: (packId, options = {}) => loredeckPreviewCacheController.clearPackCaches(packId, options),
+    refreshCreatorWorkbench: options => refreshLoredeckCreatorWorkbenchBody(options),
+    refreshPanelBody: options => refreshPanelBody(options),
+    warn: (message, error) => console.warn(message, error),
+});
+const loredeckAssistantDraftCacheController = createLoredeckAssistantDraftCacheController({
+    getDraftChanges: record => getLoredeckAssistantDraftChanges(record),
+    countQualityWarnings: changes => countLoredeckAssistantQualityWarningsForChanges(changes),
+});
+const loredeckAssistantDraftHandoffController = createLoredeckAssistantDraftHandoffController({
+    getDraftCacheForPack: packId => getLoredeckCreatorDraftCacheForPack(packId),
+    getDraftChanges: cache => getLoredeckAssistantDraftChanges(cache),
+    normalizePendingIds: ids => normalizeLoredeckPendingIdList(ids),
+    getFreshPack: (packId, fallback) => getFreshLoredeckLibraryPack(packId, fallback),
+    hydratePayload: pack => hydrateExternalLorepackPayloadRecord(pack),
+    queuePendingChanges: (pack, selected, message) => queueLoredeckPendingChanges(pack, selected, message),
+    confirmStorage: (label, options) => confirmLoredeckAssistantDraftStorage(label, options),
+    updateDraftAfterRemoval: (packId, removedIds, queuedCountDelta) => updateLoredeckAssistantDraftAfterRemoval(packId, removedIds, queuedCountDelta),
+    refreshDraftSurfaces: () => refreshLoredeckAssistantDraftSurfaces(),
+    toast,
+    warn: (message, error) => console.warn(message, error),
+});
+const loredeckCreatorCoverageFinalizationController = createLoredeckCreatorCoverageFinalizationController({
+    getCurrentJob: () => getLoredeckCreatorBriefCache(),
+    getGeneratedPackDefinition: packId => getLoredeckCreatorGeneratedPackDefinition(packId),
+    getCoverageModel: (cached, generatedPack) => getLoredeckCreatorCoverageModel(cached, generatedPack),
+    setCurrentJob: (job, options) => setLoredeckCreatorBriefCache(job, options),
+    setCurrentJobLocal: job => loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(job),
+    updateCreatorProject: (jobId, patch, options) => updateLoredeckCreatorProject(jobId, patch, options),
+    inferUiStage: job => inferLoredeckCreatorUiStage(job),
+    refreshPanelBody: options => refreshPanelBody(options),
+    refreshWorkbenchBody: options => refreshLoredeckCreatorWorkbenchBody(options),
+    confirmAction,
+    toast,
+});
+const loredeckCreatorCoverageActionsController = createLoredeckCreatorCoverageActionsController({
+    getCurrentJob: () => getLoredeckCreatorBriefCache(),
+    getGeneratedPackDefinition: packId => getLoredeckCreatorGeneratedPackDefinition(packId),
+    getCoverageModel: (cached, generatedPack) => getLoredeckCreatorCoverageModel(cached, generatedPack),
+    setCurrentJob: (job, options) => setLoredeckCreatorBriefCache(job, options),
+    refreshPanelBody: options => refreshPanelBody(options),
+    toast,
+});
+const loredeckCreatorResetController = createLoredeckCreatorResetController({
+    getCurrentJob: () => getLoredeckCreatorBriefCache(),
+    getActiveGeneration: job => getActiveLoredeckCreatorGeneration(job),
+    getLoredeckDefinition,
+    getFreshPack: (packId, fallback) => getFreshLoredeckLibraryPack(packId, fallback),
+    isGeneratedPack: pack => isGeneratedLoredeckPack(pack),
+    isVirtualPack: pack => isVirtualLoredeckPack(pack),
+    removeGeneratedPackFromStack: packId => removeLoredeckCreatorGeneratedPackFromStack(packId),
+    removeLibraryPack: (packId, options) => removeLoredeckLibraryPack(packId, options),
+    clearPackCaches: (packId, options) => clearLoredeckCreatorResetPackCaches(packId, options),
+    clearSelectedPackIfMatches: packId => clearLoredeckCreatorSelectedPackIfMatches(packId),
+    hydratePayload: pack => hydrateExternalLorepackPayloadRecord(pack),
+    buildEmbeddedManifest: (manifest, pack) => buildEmbeddedCustomManifest(manifest, pack),
+    upsertLibraryPack: pack => upsertLoredeckLibraryPack(pack),
+    setCurrentJob: (job, options) => setLoredeckCreatorBriefCache(job, options),
+    clearCanonCache: () => clearCanonLoreDatabaseCache(),
+    clearContextCache: () => clearContextIndexCache(),
+    refreshLoredeckSurfaces: options => refreshLoredeckSurfaces(options),
+    refreshPanelBody: options => refreshPanelBody(options),
+    refreshWorkbenchBody: options => refreshLoredeckCreatorWorkbenchBody(options),
+    scrollWorkbenchToAnchor: anchor => scrollLoredeckCreatorWorkbenchToAnchor(anchor),
+    confirmAction,
+    toast,
+});
 
 function clearLoredeckCreatorDraftInputs() {
     loredeckCreatorFandom = '';
@@ -747,7 +880,7 @@ function clearLoredeckCreatorDraftInputs() {
     loredeckCreatorNotes = '';
 }
 
-configureLoredeckEditorActions({
+configureLoredeckEditorComposition({
     getState,
     getLoredeckLibrary,
     getLoredeckDefinition,
@@ -773,16 +906,9 @@ configureLoredeckEditorActions({
     isLoredeckLibraryOpen,
     renderLoredeckLibraryOverlay,
     addLoredeckToStack,
-    setLoredeckManifestPreviewCacheRecord: (packId, record) => loredeckManifestPreviewCache.set(String(packId || '').trim(), record),
-    deleteLoredeckManifestPreviewCacheRecord: packId => loredeckManifestPreviewCache.delete(String(packId || '').trim()),
-    deleteLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.delete(String(packId || '').trim()),
-    deleteLoredeckTimelineRegistryCacheRecord: packId => loredeckTimelineRegistryCache.delete(String(packId || '').trim()),
-    deleteLoredeckTagRegistryCacheRecord: packId => loredeckTagRegistryCache.delete(String(packId || '').trim()),
-});
-
-configureLoredeckEntryOverridesPanel({
+    loredeckPreviewCacheController,
+    loredeckAssistantDraftCacheController,
     getLoredeckOverrideState,
-    getLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.get(String(packId || '').trim()) || null,
     getLoredeckEditableEntryRows,
     filterLoredeckEditableEntryRows,
     getLoredeckEntryOverrideQuery: () => loredeckEntryOverrideQuery,
@@ -800,53 +926,30 @@ configureLoredeckEntryOverridesPanel({
     createLoredeckTagManagerCard,
     setLoredeckEntryDisabled,
     removeLoredeckEntryOverride,
-});
-
-configureLoredeckTimelineRegistryPanel({
-    getLoredeckTimelineRegistryCacheRecord: packId => loredeckTimelineRegistryCache.get(String(packId || '').trim()) || null,
     getLoredeckEmbeddedTimelineRegistry,
     buildLoredeckTimelineRegistryItems,
     buildMergedLoredeckTimelineRegistryForExport,
     getLoredeckTimelineRegistryCount,
     getLoredeckTimelineRegistryQuery: () => loredeckTimelineRegistryQuery,
     setLoredeckTimelineRegistryQuery: value => { loredeckTimelineRegistryQuery = String(value || '').trim(); },
-    setLoredeckEntryOverrideQuery: value => { loredeckEntryOverrideQuery = String(value || '').trim(); },
-    refreshPanelBody,
-    loadLoredeckTimelineRegistryForEditor,
     openLoredeckTimelineAnchorDialog,
     openLoredeckTimelineWindowDialog,
     setLoredeckTimelineItemDisabled,
     removeLoredeckTimelineDefinition,
     downloadJson,
     sanitizeFileStem,
-    toast,
-});
-
-configureLoredeckTagManagerPanel({
-    getLoredeckTagRegistryCacheRecord: packId => loredeckTagRegistryCache.get(String(packId || '').trim()) || null,
     getLoredeckEmbeddedTagRegistry,
     buildLoredeckTagManagerItems,
     buildMergedLoredeckTagRegistryForExport,
     getLoredeckTagRegistryCount,
-    getLoredeckEntryOverrideQuery: () => loredeckEntryOverrideQuery,
     getLoredeckTagManagerQuery: () => loredeckTagManagerQuery,
     setLoredeckTagManagerQuery: value => { loredeckTagManagerQuery = String(value || '').trim(); },
-    setLoredeckEntryOverrideQuery: value => { loredeckEntryOverrideQuery = String(value || '').trim(); },
     getLoredeckEntryRowsForBulk,
     getLoredeckEntryTags,
     humanizeLoredeckTagId,
-    refreshPanelBody,
-    loadLoredeckTagRegistryForEditor,
     openLoredeckTagRegistryDialog,
     openLoredeckTagRenameDialog,
-    openLoredeckBulkTagsDialog,
     removeLoredeckTagRegistryDefinition,
-    downloadJson,
-    sanitizeFileStem,
-    toast,
-});
-
-configureLoredeckPendingChangeModel({
     normalizeLoredeckTagId,
     normalizeLoredeckTimelineId,
     normalizeLoredeckTimelineDisabledIds,
@@ -862,36 +965,13 @@ configureLoredeckPendingChangeModel({
             ? normalizeCreatorSchemaV3EntryOverride(record, rawEntry, id)
             : rawEntry;
     },
-});
-
-configureLoredeckReviewHelpers({
-    getLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.get(String(packId || '').trim()) || null,
     parseLoredeckEntryTags,
-    normalizeLoredeckPendingIdList,
-    normalizeLoredeckTagId,
-    getLoredeckEmbeddedTagRegistry,
     getLoredeckCachedSourceTagRegistry,
-    normalizeLoredeckTagDefinition,
-    normalizeLoredeckTimelineId,
-    getLoredeckEmbeddedTimelineRegistry,
     getLoredeckCachedSourceTimelineRegistry,
-    normalizeLoredeckTimelineAnchor,
-    normalizeLoredeckTimelineWindow,
-    normalizeLoredeckTimelineDisabledIds,
-});
-
-configureLoredeckPendingChangeActions({
-    toast,
     persistLoredeckLibraryRecordMutation,
-    getFreshLoredeckLibraryPack,
-    canValidateLoredeckInEditor,
-    refreshLoredeckSurfaces,
     isGeneratedLoredeckPack,
     getAcceptedVirtualLoredeckEntries,
-    validateLoredeckForEditor,
     flushLoredeckStorageWrites: flushLoredeckStorageWritesForAction,
-    clearCanonLoreDatabaseCache,
-    clearContextIndexCache,
     normalizeLoredeckCreatorTitleId,
     normalizeLoredeckCreatorTitleIdList,
     refreshGeneratedLoredeckDerivedMetadata,
@@ -900,27 +980,10 @@ configureLoredeckPendingChangeActions({
     isLoredeckCreatorPlanningPendingChange,
     refreshLoredeckCreatorWorkbenchBody,
     refreshHeader,
-});
-
-configureLoredeckEditProposals({
-    toast,
     queueLoredeckPendingChange,
     createLoredeckRecordPatchChange,
-    normalizeLoredeckTimelineId,
-    normalizeLoredeckTimelineAnchor,
-    normalizeLoredeckTimelineWindow,
-    normalizeLoredeckTagId,
-    normalizeLoredeckTagDefinition,
-    parseLoredeckEntryTags,
-    humanizeLoredeckTagId,
-    getExpectedLoredeckEntrySchemaVersion,
     normalizeLoreEntry,
     normalizeLoredeckEntryForSchemaV3,
-    getLoredeckEntryTags,
-});
-
-configureLoredeckPendingReviewPanel({
-    getLoredeckPendingChanges,
     doesLoredeckPendingChangeAffectPackHealth,
     isLoredeckHealthStatusStale,
     createLoredeckPendingHealthStalePill,
@@ -936,14 +999,36 @@ configureLoredeckPendingReviewPanel({
     createLoredeckPendingDiffList,
     createLoredeckPendingRepairCandidateList,
     createLoredeckPendingQualityList,
-    createStateBackup,
-    confirmAction,
     runBusyAction,
     acceptLoredeckPendingChanges,
     rejectLoredeckPendingChanges,
-    validateLoredeckForEditor,
-    canValidateLoredeckInEditor,
     openLoredeckHealthCenter,
+    getLoredeckAssistantInstruction: () => loredeckAssistantInstruction,
+    setLoredeckAssistantInstruction: value => { loredeckAssistantInstruction = String(value || '').trim(); },
+    getLoredeckAssistantMode: () => loredeckAssistantMode,
+    setLoredeckAssistantMode: value => { loredeckAssistantMode = String(value || 'revise_entries').trim() || 'revise_entries'; },
+    getLoredeckAssistantTargetScope: () => loredeckAssistantTargetScope,
+    setLoredeckAssistantTargetScope: value => { loredeckAssistantTargetScope = String(value || 'current_filter').trim() || 'current_filter'; },
+    getLoredeckAssistantRevisionInstruction: () => loredeckAssistantRevisionInstruction,
+    setLoredeckAssistantRevisionInstruction: value => { loredeckAssistantRevisionInstruction = String(value || '').trim(); },
+    getLoredeckAssistantTargetRows,
+    getLoredeckAssistantDraftChanges,
+    getLoredeckAssistantSelectedDraftIds,
+    countLoredeckAssistantQualityWarningsForChanges,
+    humanizeScopeKey,
+    createNewLoreInput,
+    createNewLoreSelect,
+    handleLoredeckAssistantDraft,
+    handleLoredeckAssistantDraftRevision,
+    queueLoredeckAssistantDraftSelection,
+    dropLoredeckAssistantDraftSelection,
+    setLoredeckAssistantDraftSelectionBulk,
+    setLoredeckAssistantDraftSelection,
+    openLoredeckAssistantDraftJsonEditor,
+    markTourTarget,
+    resolveManifestUrlForFetch,
+    getGeneratedLoredeckExportReadiness,
+    getLoredeckCreatorPipelineReadiness,
 });
 
 async function flushLoredeckStorageWritesForAction(options = {}) {
@@ -965,118 +1050,46 @@ async function flushLoredeckStorageWritesForAction(options = {}) {
         : { ok: true, error: '' };
 }
 
-configureLoredeckAssistantReviewPanel({
-    getLoredeckAssistantInstruction: () => loredeckAssistantInstruction,
-    setLoredeckAssistantInstruction: value => { loredeckAssistantInstruction = String(value || '').trim(); },
-    getLoredeckAssistantMode: () => loredeckAssistantMode,
-    setLoredeckAssistantMode: value => { loredeckAssistantMode = String(value || 'revise_entries').trim() || 'revise_entries'; },
-    getLoredeckAssistantTargetScope: () => loredeckAssistantTargetScope,
-    setLoredeckAssistantTargetScope: value => { loredeckAssistantTargetScope = String(value || 'current_filter').trim() || 'current_filter'; },
-    getLoredeckAssistantRevisionInstruction: () => loredeckAssistantRevisionInstruction,
-    setLoredeckAssistantRevisionInstruction: value => { loredeckAssistantRevisionInstruction = String(value || '').trim(); },
-    getLoredeckAssistantTargetRows,
-    getLoredeckAssistantDraftCacheRecord: packId => loredeckAssistantDraftCache.get(String(packId || '').trim()) || {},
-    getLoredeckAssistantDraftChanges,
-    getLoredeckAssistantSelectedDraftIds,
-    countLoredeckAssistantQualityWarningsForChanges,
-    humanizeScopeKey,
-    createNewLoreInput,
-    createNewLoreSelect,
-    handleLoredeckAssistantDraft,
-    handleLoredeckAssistantDraftRevision,
-    loadLoredeckEntriesForEditor,
-    canValidateLoredeckInEditor,
-    queueLoredeckAssistantDraftSelection,
-    dropLoredeckAssistantDraftSelection,
-    setLoredeckAssistantDraftSelectionBulk,
-    setLoredeckAssistantDraftSelection,
-    openLoredeckAssistantDraftJsonEditor,
-    formatLoredeckPendingActionLabel,
-    formatLoredeckPendingTargetKindLabel,
-    getLoredeckPendingConfidence,
-    getLoredeckPendingRisk,
-    createLoredeckPendingRiskPill,
-    appendLoredeckPendingQualityPills,
-    doesLoredeckPendingChangeAffectPackHealth,
-    createLoredeckPendingHealthImpactPill,
-    createLoredeckPendingDiffList,
-    createLoredeckPendingQualityList,
-    markTourTarget,
-});
-
-configureLoredeckHealthPanel({
-    getState,
-    getCanonLoreDatabaseSync,
-    getLoredeckLibrary,
-    getLoredeckStack,
-    getLoredeckLibraryIndexForPacks,
-    resolveLoredeckStackItems,
-    buildLoredeckPackScopedHealth,
-    getLoredeckPackSummaryCounts,
-    getLoredeckTypeLabel,
-    getLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.get(String(packId || '').trim()) || null,
-    getLoredeckManifestPreviewCacheRecord: packId => loredeckManifestPreviewCache.get(String(packId || '').trim()) || null,
-    validateLoredeckForEditor,
-    refreshLoredeckSurfaces,
-    clearCanonLoreDatabaseCache,
-    clearContextIndexCache,
-    loadCanonLoreDatabase,
-    refreshPanelBody,
-    refreshHeader,
-    sanitizeFileStem,
-    downloadJson,
-    openDuplicateLoredeckDialog,
-    canValidateLoredeckInEditor,
-    isBasicExperience: () => isBasicExperience(getSettings()),
-    isLoredeckMalformedTagIssueGroup,
-    queueLoredeckMalformedTagRepairFromHealthGroup,
-    applyLoredeckHealthRepairChoice,
-    reevaluateLoredeckHealthRepairChoice,
-    cancelLoredeckHealthRepairRun,
-    continueLoredeckHealthModelRepairSession,
-    getLoredeckHealthRepairActiveRun,
-    attemptLoredeckHealthFixes,
-    normalizeLoredeckHealthIssueStates,
-    normalizeLoredeckPendingIdList,
-    normalizeLoredeckPendingTimelineIdList,
-    getFreshLoredeckLibraryPack,
-    persistLoredeckLibraryRecordMutation,
-    isRuntimeMobileShell,
-    markTourTarget,
-});
-
-configureLoredeckLibraryPanel({
+configureLoredeckWorkflowComposition({
     getState,
     saveState,
     getSettings,
-    isBasicExperience: () => isBasicExperience(getSettings()),
-    isRuntimeMobileShell,
     saveSettings,
     getDefaultState,
+    isBasicExperience,
+    isRuntimeMobileShell,
     getCanonLoreDatabaseSync,
-    clearCanonLoreDatabaseCache,
-    clearCanonPreviewUiState: resetCanonPreviewUiState,
     loadCanonLoreDatabase,
+    clearCanonLoreDatabaseCache,
+    resetCanonPreviewUiState,
     clearContextIndexCache,
     loadContextIndex,
     refreshPanelBody,
     refreshHeader,
+    refreshLorePanel,
+    sanitizeFileStem,
+    downloadJson,
     clampNumber,
     formatCategoryCounts,
     getLoredeckStack,
     getLoredeckLibrary,
     getLoredeckLibraryRegistry,
+    getLoredeckLibraryIndexForPacks,
     persistLoredeckLibraryLayout,
     normalizeLoredeckLibraryPack,
     getLoredeckDefinition,
+    getFreshLoredeckLibraryPack,
     getLoredeckTypeLabel,
     getLoredeckSourceSummary,
     getLoredeckTagRegistryCount,
     getLoredeckTimelineRegistryCount,
+    resolveLoredeckStackItems,
+    buildLoredeckPackScopedHealth,
+    buildLoredeckHealthPackSummary,
+    getLoredeckPackSummaryCounts,
     isVirtualLoredeckPack,
     isGeneratedLoredeckPack,
     isBundledLoredeckLibraryPack,
-    getFreshLoredeckLibraryPack,
     persistLoredeckLibraryRecordMutation,
     hydrateLoredeckPayloadRecord: hydrateExternalLorepackPayloadRecord,
     flushLoredeckPayloadWrites: flushSagaLorepackPayloadStorageWrites,
@@ -1086,10 +1099,7 @@ configureLoredeckLibraryPanel({
     loadLoredeckManifestPreview,
     createLoredeckManifestPreview,
     createLoredeckEntryOverrideCard,
-    getGeneratedLoredeckExportReadiness: pack => {
-        const cachedHealth = loredeckManifestPreviewCache.get(pack?.packId)?.health || null;
-        return getGeneratedLoredeckExportReadiness(pack, cachedHealth);
-    },
+    getGeneratedLoredeckExportReadiness,
     createGeneratedLoredeckExportReadinessCard,
     createLoredeckEditorField,
     saveLoredeckMetadataFromInputs,
@@ -1104,6 +1114,7 @@ configureLoredeckLibraryPanel({
     deleteLoredeckLibraryPacksWithConfirm,
     openDuplicateLoredeckDialog,
     openLoredeckWorkbench,
+    openLoredeckHealthCenter,
     openLoredeckCreatorWorkbench,
     selectLoredeckForDetails,
     commitLoredeckStackMutation,
@@ -1121,21 +1132,35 @@ configureLoredeckLibraryPanel({
     createLoredeckStackDeckKey,
     createLoredeckStackFolderKey,
     renderContextWorkbench,
-    buildLoredeckHealthPackSummary,
+    isLoredeckMalformedTagIssueGroup,
+    queueLoredeckMalformedTagRepairFromHealthGroup,
+    applyLoredeckHealthRepairChoice,
+    reevaluateLoredeckHealthRepairChoice,
+    cancelLoredeckHealthRepairRun,
+    continueLoredeckHealthModelRepairSession,
+    getLoredeckHealthRepairActiveRun,
+    normalizeLoredeckHealthIssueStates,
+    normalizeLoredeckPendingIdList,
+    normalizeLoredeckPendingTimelineIdList,
+    createCollapsibleSection,
+    getLoredeckCreatorActiveGenerationByJobIdMap,
+    getLoredeckCreatorBriefCache,
+    getActiveLoredeckCreatorGeneration,
+    refreshLoredeckCreatorWorkbenchBody,
+    recoverLoredeckCreatorInterruptedActiveGeneration,
+    attachLoredeckCreatorLiveGeneration,
+    setLoredeckCreatorBriefCacheEntry: (key, value) => loredeckCreatorWorkbenchCacheController.setEntry(key, value),
+    deleteLoredeckCreatorBriefCacheEntry: key => loredeckCreatorWorkbenchCacheController.deleteEntry(key),
+    setLoredeckCreatorDraftInputs: values => {
+        loredeckCreatorFandom = values?.fandom || '';
+        loredeckCreatorScope = values?.scope || '';
+        loredeckCreatorGranularity = values?.granularity || 'focused';
+        loredeckCreatorNotes = values?.notes || '';
+    },
+    clearLoredeckCreatorDraftInputs,
+    removeLoredeckCreatorGeneratedPackFromStack,
+    loredeckPreviewCacheController,
     markTourTarget,
-});
-
-configureLoredeckWorkbenchPanel({
-    getState,
-    getLoredeckLibrary,
-    getLoredeckLibraryRegistry,
-    getLoredeckDefinition,
-    getFreshLoredeckLibraryPack,
-    getLoredeckTypeLabel,
-    openDuplicateLoredeckDialog,
-    openLoredeckHealthCenter,
-    persistLoredeckLibraryRecordMutation,
-    isBasicExperience: () => isBasicExperience(getSettings()),
 });
 
 configureLoredeckCreatorPanel({
@@ -1223,7 +1248,7 @@ configureLoredeckCreatorPanel({
     markTourTarget,
 });
 
-configureContextPanel({
+configureContextComposition({
     getContextWorkbenchStack,
     getLoredeckContext,
     getLoredeckDisplayName,
@@ -1244,30 +1269,22 @@ configureContextPanel({
     handleDetectStoryContext,
     handleResolveContextsFromContext,
     handleModelResolveContexts,
-    appendContextGenerationStatus: (card, state) => appendGenerationStatus(card, state, 'context'),
+    appendGenerationStatus,
     createContextBriefStatusCard,
     createCollapsibleSection,
     createContextEditorCard,
     getState,
     getSettings,
     saveSettings,
-    refreshContextPanelBody: () => refreshPanelBody({ preserveScroll: true }),
-    resetContextDetectionSettings: () => resetSettingKeysToDefaults(CONTEXT_DETECTION_SETTING_KEYS, 'Context detection settings'),
-    shouldShowContextAutomationPanel: () => !isBasicExperience(getSettings()),
-    isBasicExperience: () => isBasicExperience(getSettings()),
-    resetLoredeckContextFromPanel: async packId => {
-        const ok = await confirmAction('Reset Context', `Clear Context for ${getLoredeckDisplayName(packId)}?`);
-        if (!ok) return;
-        resetLoredeckContext(packId);
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-        refreshHeader();
-        toast('Context reset.', 'info');
-    },
-});
-
-configureContextWorkbenchPanel({
+    refreshPanelBody,
+    refreshHeader,
+    resetSettingKeysToDefaults,
+    contextDetectionSettingKeys: CONTEXT_DETECTION_SETTING_KEYS,
+    isBasicExperience,
+    confirmAction,
+    resetLoredeckContext,
+    toast,
     getContextWorkbenchTab: () => contextWorkbenchTab,
-    markTourTarget,
     setContextWorkbenchTab: tabId => {
         contextWorkbenchTab = ['context', 'timeline', 'aliases', 'validation'].includes(tabId) ? tabId : 'context';
     },
@@ -1284,22 +1301,14 @@ configureContextWorkbenchPanel({
     renderContextWorkbench,
     closeContextWorkbench,
     isRuntimeMobileShell,
-    refreshContextHeader: refreshHeader,
     clearContextIndexCache,
     loadContextIndex,
-    getRuntimeState: getState,
-    getContextWorkbenchStack,
     getContextWorkbenchPack,
     getContextWorkbenchTimelineItems,
     filterContextWorkbenchTimelineItems,
     getContextTimelineItemKey,
     getContextTimelineItemContextText,
     getContextTimelineItemCoordinateText,
-    getLoredeckContext,
-    getLoredeckDisplayName,
-    getContextTypeLabel,
-    formatContextSummary,
-    formatContextSource,
     getContextWorkbenchQuery: () => contextWorkbenchQuery,
     setContextWorkbenchQuery: query => {
         contextWorkbenchQuery = String(query || '');
@@ -1321,19 +1330,8 @@ configureContextWorkbenchPanel({
     setContextWorkbenchResolverQuery: query => {
         contextWorkbenchResolverQuery = String(query || '').trim();
     },
-    resolveContextsFromContext: handleResolveContextsFromContext,
-    modelResolveContexts: handleModelResolveContexts,
-    setLoredeckContextManualLock: (packId, manualLock) => {
-        commitLoredeckContextPatch(packId, { manualLock: manualLock === true }, { manual: false });
-    },
-    resetLoredeckContextFromWorkbench: async packId => {
-        const ok = await confirmAction('Reset Context', `Clear Context for ${getLoredeckDisplayName(packId)}?`);
-        if (!ok) return;
-        resetLoredeckContext(packId);
-        refreshLoredeckSurfaces();
-        toast('Context reset.', 'info');
-    },
-    seedLoredeckContextFromRuntimeContext,
+    commitLoredeckContextPatch,
+    refreshLoredeckSurfaces,
     appendContextManualFields,
     normalizeLoredeckTimelineId,
     normalizeLoredeckTimelineNumber,
@@ -1341,11 +1339,10 @@ configureContextWorkbenchPanel({
     applyContextAnchor,
     applyContextEntryCandidate,
     applyContextAnchorBoundary,
-    commitLoredeckContextPatch,
     validateLoredeckForEditor,
     loadLoredeckEntriesForEditor,
     canValidateLoredeckInEditor,
-    getLoredeckEntryPreview: packId => loredeckEntryPreviewCache.get(String(packId || '').trim()) || null,
+    getLoredeckEntryPreview: packId => loredeckPreviewCacheController.getEntryPreview(packId),
     getContextWorkbenchEntryRows,
     buildContextEntryDerivedAnchor,
     getContextResolverMissReasons,
@@ -1368,215 +1365,74 @@ configureContextWorkbenchPanel({
     },
 });
 
-configureSettingsPanel({
-    refreshSettingsPanel: options => {
-        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true, ...(options || {}) });
-    },
-    refreshRuntimeHeader: refreshHeader,
+configureRuntimeComposition({
+    panelId: PANEL_ID,
+    getPanelRoot: () => panelRoot,
+    getState,
+    getSettings,
+    saveState,
+    saveSettings,
+    refreshPanelBody,
+    refreshHeader,
+    showLorePanel,
+    hideLorePanel,
+    toast,
     markTourTarget,
-    openAdvancedSettings: openAdvancedSettingsTab,
     downloadJson,
-});
-
-configureRuntimeSettingsTab({
+    openAdvancedSettingsTab,
     createCollapsibleSection,
     createDangerZoneCard,
     createStateSafetyCard,
-    markTourTarget,
-    refreshPanelBody,
-});
-
-configureLoreTimelinePanel({
-    getState,
-    refreshPanelBody,
-    refreshHeader,
-    getRecoverableTimelineEntries,
-    restoreLoreTimelineEntriesToPending,
-    toast,
-    isBasicExperience,
-    markTourTarget,
-    openNewLoreDialog,
-});
-
-configureContinuityPanel({
+    appendSettingsResetButton,
     createAutomationModeCard,
-    createCollapsibleSection,
     createNumberSettingRow,
     createRangeSettingRow,
     createSelectSettingRow,
     createTextSettingField,
     appendGenerationStatus,
-    appendSettingsResetButton,
     ensureContinuityProviderReadyForAction,
     getCountLabel,
-    markTourTarget,
-    refreshPanelBody,
-    refreshHeader,
     resetFeatureProgress,
     setFeatureProgress,
-});
-
-configureInjectionPreviewPanel({
-    appendSettingsResetButton,
-    createCollapsibleSection,
     getEnabledLoredeckStackPackIds,
-    getPanelRoot: () => panelRoot,
-    markTourTarget,
-    refreshPanelBody,
-    refreshHeader,
     renderSessionTab,
     setPanelState,
-});
-
-configureRuntimeCollapsible({
-    onSectionToggle: (sectionId) => {
-        if (String(sectionId || '').startsWith('lore.')) scheduleAcceptedLoreLayoutUpdate();
-    },
-});
-
-configureRuntimeTabRegistry({
-    resetLorePanelLayout,
     scheduleAcceptedLoreLayoutUpdate,
-});
-
-configureRuntimeSafetyPanel({
-    refreshPanelBody,
-    refreshHeader,
-    refreshRuntimeThemeSurfaces: (settings = getSettings()) => {
-        applyRuntimeTheme(panelRoot, settings);
-        refreshRuntimeRailIcons(settings);
-    },
+    resetLorePanelLayout,
+    applyRuntimeTheme,
+    refreshRuntimeRailIcons,
     resetCanonPreviewUiState,
-});
-
-configureRuntimeFeatureProgress({
-    getPanelRoot: () => panelRoot,
-});
-
-configureRuntimeSettingControls({
-    refreshPanelBody,
-});
-
-configureLoredeckPackageExport({
-    getFreshLoredeckLibraryPack,
-    resolveManifestUrlForFetch,
-});
-
-configureLoredeckPackageInstallPanel({
-    cacheLoredeckManifestPreviewRecord: (packId, record) => loredeckManifestPreviewCache.set(packId, record),
-    cacheLoredeckEntryPreviewRecord: (packId, record) => loredeckEntryPreviewCache.set(packId, record),
-    selectLoredeckForDetails,
-    refreshLoredeckSurfaces,
-});
-
-configureLoredeckEditorLoader({
-    getFreshLoredeckLibraryPack,
-    setLoredeckManifestPreviewCacheRecord: (packId, record) => loredeckManifestPreviewCache.set(packId, record),
-    setLoredeckEntryPreviewCacheRecord: (packId, record) => loredeckEntryPreviewCache.set(packId, record),
-    setLoredeckTimelineRegistryCacheRecord: (packId, record) => loredeckTimelineRegistryCache.set(packId, record),
-    setLoredeckTagRegistryCacheRecord: (packId, record) => loredeckTagRegistryCache.set(packId, record),
-    refreshPanelBody,
-});
-
-configureLoredeckEditorValidation({
-    getFreshLoredeckLibraryPack,
-    getLoredeckManifestPreviewCacheRecord: packId => loredeckManifestPreviewCache.get(String(packId || '').trim()) || null,
-    getLoredeckEntryPreviewCacheRecord: packId => loredeckEntryPreviewCache.get(String(packId || '').trim()) || null,
-    setLoredeckManifestPreviewCacheRecord: (packId, record) => loredeckManifestPreviewCache.set(packId, record),
-    setLoredeckEntryPreviewCacheRecord: (packId, record) => loredeckEntryPreviewCache.set(packId, record),
-    setLoredeckTimelineRegistryCacheRecord: (packId, record) => loredeckTimelineRegistryCache.set(packId, record),
-    setLoredeckTagRegistryCacheRecord: (packId, record) => loredeckTagRegistryCache.set(packId, record),
-    refreshLoredeckSurfaces,
-});
-
-configureLoredeckManifestPreview({
-    getLoredeckManifestPreviewCacheRecord: packId => loredeckManifestPreviewCache.get(String(packId || '').trim()) || null,
-});
-
-configureGeneratedLoredeckExportCard({
-    getLoredeckManifestPreviewCacheRecord: packId => loredeckManifestPreviewCache.get(String(packId || '').trim()) || null,
-    getGeneratedLoredeckExportReadiness,
-});
-
-configureGeneratedLoredeckReadiness({
-    getLoredeckPendingChanges,
-    getLoredeckAssistantDraftChanges,
-    getLoredeckAssistantDraftCacheRecord: packId => loredeckAssistantDraftCache.get(String(packId || '').trim()) || {},
-    getLoredeckCreatorPipelineReadiness,
-    isLoredeckHealthStatusStale,
-});
-
-configureRuntimeShellView({
     createRuntimeRenderErrorCard,
     getRailMetrics,
     getRailMetricTooltips,
     getSelectedLoreInjectionCount,
-    hideRuntimePanel: hideLorePanel,
     renderPanelBody,
     renderRailMetric,
     setExperienceMode,
-    showRuntimePanel: showLorePanel,
     toggleRuntimeDrawerForTab,
     toggleRuntimeRailMode,
-});
-
-configureAdvancedRuntimePanel({
-    createCollapsibleSection,
     getInjectionCharacterStats,
-    getSelectedLoreInjectionCount,
-    markTourTarget,
     navigateRuntimeTab,
-    refreshPanelBody,
-    refreshHeader,
-});
-
-configureSessionBasicPanel({
-    getEnabledLoredeckStackPackIds,
-    getSelectedLoreInjectionCount,
-    createCollapsibleSection,
-    setPanelState,
-    refreshPanelBody,
-    refreshHeader,
     setSectionCollapsed,
     closeLoredeckLibraryWindow,
     closeContextWorkbench,
-});
-
-configureRuntimeGuidePrep({
-    navigateRuntimeTab,
-    setExperienceMode,
-    setSectionCollapsed,
     openLoredeckLibraryWindow,
     openLoredeckLibraryDetails,
     openContextWorkbenchForPack,
     getContextWorkbenchStack,
     openLoredeckCreatorWorkbench,
     openLoredeckHealthCenter,
-    setLoredeckCreatorBriefCacheEntry: (key, value) => loredeckCreatorBriefCache.set(key, value),
-});
-
-configureRuntimeTour({
-    getGuideSteps: mode => getRuntimeGuideSteps(normalizeExperienceMode(mode)),
+    setLoredeckCreatorBriefCacheEntry: (key, value) => loredeckCreatorWorkbenchCacheController.setEntry(key, value),
+    getRuntimeGuideSteps,
     normalizeExperienceMode,
-    setSectionCollapsed,
     normalizePanelLayoutState,
     normalizeTabForExperience,
-    navigateRuntimeTab,
-    showRuntimePanel: showLorePanel,
-    prepareGuideStep: prepareRuntimeGuideStep,
-    getPanelRoot: () => panelRoot,
-    panelId: PANEL_ID,
-});
-
-configureRuntimeShell({
-    getPanelRoot: () => panelRoot,
-    getState,
-    getSettings,
-    saveState,
-    saveSettings,
-    showRuntimePanel: showLorePanel,
-    notify: toast,
+    prepareRuntimeGuideStep,
     updateAcceptedLoreScrollRegionHeight,
+    getRecoverableTimelineEntries,
+    restoreLoreTimelineEntriesToPending,
+    isBasicExperience,
+    openNewLoreDialog,
 });
 
 configureLorecardsPanel({
@@ -1632,41 +1488,6 @@ configureThemeActions({
     downloadJson,
     getThemeShelfIconItems,
 });
-
-configureLoredecksTabPanel({
-    getLoredeckStack,
-    getLoredeckLibrary,
-    refreshLorePanel,
-    refreshPanelBody,
-    refreshHeader,
-    markTourTarget,
-    createCollapsibleSection,
-    installLoredeckBundleFromFile,
-    openLoredeckCreatorWorkbench,
-    isBasicExperience: () => isBasicExperience(getSettings()),
-    getLoredeckDefinition,
-    isGeneratedLoredeckPack,
-    getGeneratedLoredeckExportReadiness,
-    getLoredeckCreatorActiveGenerationByJobIdMap,
-    getLoredeckCreatorBriefCache,
-    getActiveLoredeckCreatorGeneration,
-    refreshLoredeckCreatorWorkbenchBody,
-    recoverLoredeckCreatorInterruptedActiveGeneration,
-    attachLoredeckCreatorLiveGeneration,
-    selectLoredeckForDetails,
-    setLoredeckCreatorBriefCacheEntry: (key, value) => loredeckCreatorBriefCache.set(key, value),
-    deleteLoredeckCreatorBriefCacheEntry: key => loredeckCreatorBriefCache.delete(key),
-    setLoredeckCreatorDraftInputs: values => {
-        loredeckCreatorFandom = values?.fandom || '';
-        loredeckCreatorScope = values?.scope || '';
-        loredeckCreatorGranularity = values?.granularity || 'focused';
-        loredeckCreatorNotes = values?.notes || '';
-    },
-    clearLoredeckCreatorDraftInputs,
-    removeLoredeckCreatorGeneratedPackFromStack,
-});
-
-
 
 const LORE_PRIORITY_VALUES = [10, 25, 50, 75, 90, 100];
 
@@ -1858,208 +1679,17 @@ function refreshRuntimeRailIcons(settings = getSettings()) {
 }
 
 function stopLoredeckCreatorGenerationTicker() {
-    if (!loredeckCreatorGenerationTicker) return;
-    clearInterval(loredeckCreatorGenerationTicker);
-    loredeckCreatorGenerationTicker = null;
-}
-
-function isLoredeckCreatorAbortError(error) {
-    return error?.name === 'AbortError' || /aborted|cancelled|canceled/i.test(String(error?.message || error || ''));
-}
-
-function getLoredeckCreatorJobId(job = {}) {
-    return String(job?.jobId || job?.id || '').trim();
-}
-
-function getLoredeckCreatorGenerationJobId(generation = null) {
-    if (!generation?.id) return '';
-    return String(generation.jobId || loredeckCreatorLiveGenerationJobs.get(generation.id) || '').trim();
-}
-
-function rememberLoredeckCreatorLiveGeneration(jobId = '', generation = null) {
-    const id = String(jobId || '').trim();
-    if (!id || !generation?.id || generation.status !== 'running') return generation;
-    const live = {
-        ...generation,
-        jobId: id,
-    };
-    loredeckCreatorLiveGenerationsByJobId.set(id, live);
-    loredeckCreatorLiveGenerationJobs.set(live.id, id);
-    return live;
-}
-
-function forgetLoredeckCreatorLiveGeneration(generationOrId = '') {
-    const generationId = typeof generationOrId === 'string'
-        ? String(generationOrId || '').trim()
-        : String(generationOrId?.id || '').trim();
-    const jobId = String(
-        (typeof generationOrId === 'object' && generationOrId ? generationOrId.jobId : '')
-        || loredeckCreatorLiveGenerationJobs.get(generationId)
-        || ''
-    ).trim();
-    if (jobId) {
-        const live = loredeckCreatorLiveGenerationsByJobId.get(jobId);
-        if (!generationId || live?.id === generationId) loredeckCreatorLiveGenerationsByJobId.delete(jobId);
-    }
-    if (generationId) loredeckCreatorLiveGenerationJobs.delete(generationId);
-}
-
-function getLoredeckCreatorLiveGenerationForJob(jobOrId = '') {
-    const jobId = typeof jobOrId === 'string' ? String(jobOrId || '').trim() : getLoredeckCreatorJobId(jobOrId);
-    if (!jobId) return null;
-    const live = loredeckCreatorLiveGenerationsByJobId.get(jobId);
-    if (!live || live.status !== 'running') return null;
-    return live;
-}
-
-function getLoredeckCreatorActiveGenerationByJobIdMap() {
-    const active = new Map();
-    for (const [jobId, generation] of loredeckCreatorLiveGenerationsByJobId.entries()) {
-        if (generation?.status === 'running') active.set(jobId, generation);
-    }
-    return active;
-}
-
-function isLoredeckCreatorActiveGenerationStillLive(job = {}) {
-    const active = job?.activeGeneration;
-    if (!active?.id) return false;
-    const live = getLoredeckCreatorLiveGenerationForJob(job);
-    if (!live || live.id !== active.id) return false;
-    return loredeckCreatorGenerationControllers.has(active.id) || live.abortable === false;
-}
-
-function getAnyActiveLoredeckCreatorLiveGeneration() {
-    for (const generation of getLoredeckCreatorActiveGenerationByJobIdMap().values()) {
-        if (generation?.status === 'running') return generation;
-    }
-    return null;
-}
-
-function attachLoredeckCreatorLiveGeneration(job = {}) {
-    if (!job || typeof job !== 'object' || Array.isArray(job)) return job || {};
-    const live = getLoredeckCreatorLiveGenerationForJob(job);
-    if (!live) return job;
-    return {
-        ...job,
-        activeGeneration: live,
-        status: 'running',
-    };
-}
-
-function findLoredeckCreatorActiveUnitForRecovery(job = {}, active = {}) {
-    const units = job?.generationUnits && typeof job.generationUnits === 'object' && !Array.isArray(job.generationUnits)
-        ? job.generationUnits
-        : {};
-    if (active.unitId && units[active.unitId]) return units[active.unitId];
-    const runId = String(active.runId || active.id || '').trim();
-    const activeStatuses = new Set(['queued', 'running', 'retrying']);
-    return Object.values(units)
-        .filter(unit => {
-            if (!unit?.unitId) return false;
-            if (runId && unit.runId && unit.runId !== runId) return false;
-            return activeStatuses.has(String(unit.status || '').toLowerCase());
-        })
-        .sort((a, b) => (Number(b.updatedAt || b.startedAt || 0) || 0) - (Number(a.updatedAt || a.startedAt || 0) || 0))[0] || null;
-}
-
-function buildLoredeckCreatorInterruptedResult(active = {}, now = Date.now()) {
-    const label = active.label || 'Deck Maker generation';
-    const startedAt = Number(active.startedAt || active.updatedAt || now) || now;
-    return {
-        id: active.id || active.runId || active.unitId || `interrupted_${now}`,
-        runId: active.runId || '',
-        unitId: active.unitId || '',
-        actionId: active.actionId || '',
-        stage: active.stage || active.currentStage || '',
-        label,
-        status: 'interrupted',
-        message: `${label} was interrupted before it completed. Review any saved batches, then rerun the current stage.`,
-        completedAt: now,
-        elapsedMs: Math.max(0, now - startedAt),
-        receivedChars: Number(active.receivedChars || 0),
-        snippet: active.snippet || '',
-        streamSupported: active.streamSupported === true ? true : active.streamSupported === false ? false : null,
-        batchId: active.batchId || '',
-        batchLabel: active.batchLabel || '',
-    };
+    return loredeckCreatorGenerationProgressController.stopTicker();
 }
 
 function recoverLoredeckCreatorInterruptedActiveGeneration(job = {}, options = {}) {
-    if (!job?.jobId || !job.activeGeneration?.id) {
-        return { job, recovered: false, live: false };
-    }
-    if (isLoredeckCreatorActiveGenerationStillLive(job)) {
-        startLoredeckCreatorGenerationTicker(job.activeGeneration.id);
-        return { job: attachLoredeckCreatorLiveGeneration(job), recovered: false, live: true };
-    }
-    const active = job.activeGeneration;
-    const now = Date.now();
-    const activeUnit = findLoredeckCreatorActiveUnitForRecovery(job, active);
-    const runId = String(active.runId || active.id || activeUnit?.runId || '').trim();
-    const unitId = String(active.unitId || activeUnit?.unitId || '').trim();
-    const generationRuns = { ...(job.generationRuns || {}) };
-    if (runId) {
-        generationRuns[runId] = {
-            ...(generationRuns[runId] || {}),
-            runId,
-            jobId: job.jobId,
-            kind: generationRuns[runId]?.kind || 'loredeck_creator',
-            stage: generationRuns[runId]?.stage || active.stage || active.currentStage || '',
-            mode: generationRuns[runId]?.mode || 'single_unit',
-            status: 'interrupted',
-            completedAt: now,
-            updatedAt: now,
-            error: generationRuns[runId]?.error || 'Previous Deck Maker generation was interrupted before it completed.',
-        };
-    }
-    const generationUnits = { ...(job.generationUnits || {}) };
-    if (unitId) {
-        generationUnits[unitId] = {
-            ...(generationUnits[unitId] || activeUnit || {}),
-            unitId,
-            jobId: job.jobId,
-            runId: runId || generationUnits[unitId]?.runId || '',
-            stage: generationUnits[unitId]?.stage || active.stage || active.currentStage || '',
-            label: generationUnits[unitId]?.label || active.label || 'Generation unit',
-            status: 'interrupted',
-            failedAt: now,
-            updatedAt: now,
-            error: generationUnits[unitId]?.error || 'Previous Deck Maker generation was interrupted before this unit completed.',
-        };
-    }
-    const interruptedResult = buildLoredeckCreatorInterruptedResult({
-        ...active,
-        runId,
-        unitId,
-    }, now);
-    const nextStatus = String(job.status || '').trim().toLowerCase() === 'running' ? 'draft' : (job.status || 'draft');
-    const update = updateLoredeckCreatorProject(job.jobId, {
-        activeGeneration: null,
-        generationRuns,
-        generationUnits,
-        lastGenerationResult: interruptedResult,
-        status: nextStatus,
-        currentStage: '',
-        updatedAt: now,
-    }, { syncPrompt: false, syncLocal: true });
-    loredeckCreatorGenerationControllers.delete(active.id);
-    forgetLoredeckCreatorLiveGeneration(active);
-    if (loredeckCreatorGenerationTicker) stopLoredeckCreatorGenerationTicker();
-    const recoveredJob = update.ok && update.job ? update.job : {
-        ...job,
-        activeGeneration: null,
-        generationRuns,
-        generationUnits,
-        lastGenerationResult: interruptedResult,
-        status: nextStatus,
-        currentStage: '',
-        updatedAt: now,
-    };
-    loredeckCreatorBriefCache.set('current', recoveredJob);
-    if (options.toast) {
-        toast(`${active.label || 'Deck Maker generation'} was interrupted. Saved batches are preserved; rerun the current stage when ready.`, 'warning');
-    }
-    return { job: recoveredJob, recovered: true, live: false, result: interruptedResult };
+    return recoverLoredeckCreatorInterruptedActiveGenerationWithDeps(job, options, {
+        startGenerationTicker: startLoredeckCreatorGenerationTicker,
+        stopGenerationTicker: stopLoredeckCreatorGenerationTicker,
+        updateCreatorProject: updateLoredeckCreatorProject,
+        setCurrentJobLocal: recoveredJob => loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(recoveredJob),
+        toast,
+    });
 }
 
 function recoverLoredeckCreatorCurrentActiveGenerationOnOpen(options = {}) {
@@ -2068,76 +1698,23 @@ function recoverLoredeckCreatorCurrentActiveGenerationOnOpen(options = {}) {
 }
 
 function getActiveLoredeckCreatorGeneration(job = getLoredeckCreatorBriefCache()) {
-    const active = getLoredeckCreatorLiveGenerationForJob(job) || job?.activeGeneration;
-    return active && active.status === 'running' ? active : null;
+    return loredeckCreatorGenerationProgressController.getActiveGeneration(job);
 }
 
 function isLoredeckCreatorGenerationCurrent(generation = null) {
-    if (!generation?.id) return false;
-    if (loredeckCreatorGenerationControllers.has(generation.id)) return true;
-    const jobId = getLoredeckCreatorGenerationJobId(generation);
-    if (jobId) {
-        const live = getLoredeckCreatorLiveGenerationForJob(jobId);
-        if (live?.id === generation.id) return true;
-    }
-    const active = getActiveLoredeckCreatorGeneration();
-    return !!active && active.id === generation.id;
+    return loredeckCreatorGenerationProgressController.isGenerationCurrent(generation);
 }
 
 function ignoreStaleLoredeckCreatorGeneration(generation = null, context = 'Deck Maker generation') {
-    if (isLoredeckCreatorGenerationCurrent(generation)) return false;
-    if (generation?.id) {
-        console.info(`[Saga] Ignored stale ${context} result: ${generation.id}`);
-        loredeckCreatorGenerationControllers.delete(generation.id);
-        forgetLoredeckCreatorLiveGeneration(generation);
-    }
-    return true;
+    return loredeckCreatorGenerationProgressController.ignoreStaleGeneration(generation, context);
 }
 
 function updateLoredeckCreatorActiveGenerationLocal(generationId = '', patch = {}, options = {}) {
-    const id = String(generationId || patch?.id || '').trim();
-    if (!id) return null;
-    const cached = getLoredeckCreatorBriefCache();
-    const active = cached.activeGeneration;
-    if (!active || active.id !== id || active.status !== 'running') return null;
-    const nextActive = {
-        ...active,
-        ...(patch || {}),
-        id: active.id,
-        status: active.status,
-        currentStage: patch.currentStage || active.currentStage || cached.currentStage || '',
-    };
-    const live = rememberLoredeckCreatorLiveGeneration(cached.jobId || getLoredeckCreatorGenerationJobId(nextActive), nextActive);
-    const localJob = {
-        ...cached,
-        status: 'running',
-        activeGeneration: live || nextActive,
-    };
-    loredeckCreatorBriefCache.set('current', localJob);
-    if (!options.suppressWorkbenchRefresh) {
-        if (options.liveStatusOnly) refreshLoredeckCreatorGenerationStatusUi(id);
-        else if (options.refreshWorkbench !== false) queueLoredeckCreatorWorkbenchRefresh();
-    }
-    return localJob;
+    return loredeckCreatorGenerationProgressController.updateActiveGenerationLocal(generationId, patch, options);
 }
 
 function startLoredeckCreatorGenerationTicker(generationId = '') {
-    stopLoredeckCreatorGenerationTicker();
-    if (!generationId) return;
-    loredeckCreatorGenerationTicker = setInterval(() => {
-        const cached = getLoredeckCreatorBriefCache();
-        const active = cached.activeGeneration;
-        if (!active || active.id !== generationId || active.status !== 'running') {
-            stopLoredeckCreatorGenerationTicker();
-            return;
-        }
-        const now = Date.now();
-        updateLoredeckCreatorActiveGenerationLocal(generationId, {
-            elapsedMs: now - Number(active.startedAt || now),
-            message: getLoredeckCreatorGenerationWaitMessage(active),
-            updatedAt: now,
-        }, { liveStatusOnly: true });
-    }, 1000);
+    return loredeckCreatorGenerationProgressController.startTicker(generationId);
 }
 
 function waitForLoredeckCreatorUiPaint() {
@@ -2151,544 +1728,31 @@ function waitForLoredeckCreatorUiPaint() {
 }
 
 function startLoredeckCreatorGeneration(actionId = '', label = '', jobPatch = {}, details = {}) {
-    const now = Date.now();
-    const current = getLoredeckCreatorBriefCache();
-    const generationSettings = getLoredeckCreatorGenerationSettings(current);
-    const active = getActiveLoredeckCreatorGeneration(current) || getAnyActiveLoredeckCreatorLiveGeneration();
-    if (active) {
-        toast(`${active.label || 'Deck Maker generation'} is still running. Cancel it or wait for it to finish before starting another generation.`, 'warning');
-        queueLoredeckCreatorWorkbenchRefresh();
-        return { generation: null, job: current, blocked: true };
-    }
-    const controller = typeof AbortController === 'function' ? new AbortController() : null;
-    const generation = {
-        id: `${actionId || 'generation'}-${now}`,
-        actionId,
-        runId: details.runId || `${actionId || 'generation'}-${now}`,
-        label: label || 'Generating',
-        status: 'running',
-        phase: 'starting',
-        message: 'Contacting Reasoning Provider...',
-        startedAt: now,
-        updatedAt: now,
-        elapsedMs: 0,
-        receivedChars: 0,
-        snippet: '',
-        streamRequested: generationSettings.showStreamingProgress !== false,
-        streamSupported: null,
-        abortable: !!controller,
-        stage: details.stage || jobPatch.currentStage || '',
-        batchId: details.batchId || '',
-        batchLabel: details.batchLabel || '',
-        batchIndex: Number.isFinite(Number(details.batchIndex)) ? Number(details.batchIndex) : null,
-        batchTotal: Number.isFinite(Number(details.batchTotal)) ? Number(details.batchTotal) : null,
-        targetTitleBatchId: normalizeLoredeckCreatorTitleId(details.targetTitleBatchId || details.batchId || '', ''),
-        targetPlanningBatchId: normalizeLoredeckCreatorTitleId(details.targetPlanningBatchId || '', ''),
-        coverageDimensionIds: normalizeLoredeckCreatorCoverageIdList(details.coverageDimensionIds || [], 24),
-        targetTitleIds: normalizeLoredeckCreatorTitleIdList(details.targetTitleIds || [], 200),
-    };
-    if (controller) loredeckCreatorGenerationControllers.set(generation.id, controller);
-    const job = setLoredeckCreatorBriefCache({
-        ...(current || {}),
-        ...(jobPatch || {}),
-        status: 'running',
-        activeGeneration: generation,
-        lastGenerationResult: null,
-        lastAction: actionId || jobPatch.lastAction || current.lastAction || '',
-        lastStartedAt: now,
-    }, { refreshWorkbench: true });
-    if (job?.jobId) {
-        const live = rememberLoredeckCreatorLiveGeneration(job.jobId, {
-            ...generation,
-            currentStage: job.currentStage || jobPatch.currentStage || current.currentStage || '',
-        });
-        if (live && live !== generation) Object.assign(generation, live);
-        loredeckCreatorBriefCache.set('current', {
-            ...getLoredeckCreatorBriefCache(),
-            activeGeneration: live || generation,
-        });
-    }
-    startLoredeckCreatorGenerationTicker(generation.id);
-    return { generation, job };
+    return loredeckCreatorGenerationSessionController.startGeneration(actionId, label, jobPatch, details);
 }
 
 function updateLoredeckCreatorGeneration(generation = null, event = {}, options = {}) {
-    if (!generation?.id) return;
-    const cached = getLoredeckCreatorBriefCache();
-    const active = cached.activeGeneration;
-    if (!active || active.id !== generation.id || active.status !== 'running') return;
-    const now = Date.now();
-    const accumulated = String(event.accumulated || '').trim();
-    const receivedChars = Number(event.receivedChars || accumulated.length || active.receivedChars || 0);
-    const phase = String(event.phase || active.phase || 'waiting');
-    const message = String(event.message || getLoredeckCreatorGenerationWaitMessage(active)).trim();
-    const hasCoverageDimensionIds = Object.prototype.hasOwnProperty.call(options, 'coverageDimensionIds');
-    const hasTargetTitleIds = Object.prototype.hasOwnProperty.call(options, 'targetTitleIds');
-    const activeGeneration = {
-        ...active,
-        phase,
-        message,
-        elapsedMs: now - Number(active.startedAt || now),
-        updatedAt: now,
-        receivedChars,
-        streamSupported: event.streamSupported === undefined ? active.streamSupported : event.streamSupported,
-        snippet: accumulated ? formatLoredeckCreatorLiveSnippet(accumulated) : active.snippet || '',
-        batchId: options.batchId || active.batchId || '',
-        batchLabel: options.batchLabel || active.batchLabel || '',
-        batchIndex: options.batchIndex ?? active.batchIndex ?? null,
-        batchTotal: options.batchTotal ?? active.batchTotal ?? null,
-        targetTitleBatchId: normalizeLoredeckCreatorTitleId(options.targetTitleBatchId || active.targetTitleBatchId || active.batchId || '', ''),
-        targetPlanningBatchId: normalizeLoredeckCreatorTitleId(options.targetPlanningBatchId || active.targetPlanningBatchId || '', ''),
-        coverageDimensionIds: hasCoverageDimensionIds
-            ? normalizeLoredeckCreatorCoverageIdList(options.coverageDimensionIds || [], 24)
-            : normalizeLoredeckCreatorCoverageIdList(active.coverageDimensionIds || [], 24),
-        targetTitleIds: hasTargetTitleIds
-            ? normalizeLoredeckCreatorTitleIdList(options.targetTitleIds || [], 200)
-            : normalizeLoredeckCreatorTitleIdList(active.targetTitleIds || [], 200),
-    };
-    if (options.persist === false) {
-        updateLoredeckCreatorActiveGenerationLocal(generation.id, activeGeneration, { liveStatusOnly: true });
-        return;
-    }
-    setLoredeckCreatorBriefCache({
-        ...cached,
-        activeGeneration,
-    }, { coalesceStorageWrite: true });
-    refreshLoredeckCreatorGenerationStatusUi(generation.id);
+    return loredeckCreatorGenerationProgressController.updateGeneration(generation, event, options);
 }
 
 function makeLoredeckCreatorProgressHandler(generation = null, options = {}) {
-    let lastUpdateAt = 0;
-    return event => {
-        const now = Date.now();
-        const important = ['start', 'stream_start', 'stream_complete', 'complete', 'reasoning', 'phase'].includes(event?.type)
-            || event?.phase !== 'receiving';
-        if (!important && now - lastUpdateAt < 250) return;
-        lastUpdateAt = now;
-        const receivedChars = Number(event?.receivedChars || 0);
-        const hasVisibleOutput = receivedChars > 0 || !!String(event?.accumulated || '').trim();
-        const progressOptions = event?.type === 'reasoning' && !hasVisibleOutput
-            ? { ...options, persist: false }
-            : options;
-        updateLoredeckCreatorGeneration(generation, event || {}, progressOptions);
-    };
+    return loredeckCreatorGenerationProgressController.makeProgressHandler(generation, options);
 }
 
 function createLoredeckCreatorRequestOptions(generation = null, options = {}) {
-    const controller = generation?.id ? loredeckCreatorGenerationControllers.get(generation.id) : null;
-    const settings = getLoredeckCreatorGenerationSettings();
-    const stream = options.stream !== undefined ? options.stream === true : settings.showStreamingProgress !== false;
-    return {
-        stream,
-        providerKind: options.providerKind || 'lore',
-        forceVisibleOutput: options.forceVisibleOutput !== undefined ? options.forceVisibleOutput === true : true,
-        signal: controller?.signal,
-        onProgress: makeLoredeckCreatorProgressHandler(generation, options),
-    };
-}
-
-function isLoredeckCreatorParsedArtifactUsable(parsed = null, artifactKey = '') {
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return false;
-    if (artifactKey && parsed[artifactKey]) return true;
-    return Array.isArray(parsed.clarifyingQuestions) && parsed.clarifyingQuestions.length > 0;
-}
-
-function hasLoredeckCreatorClarifyingQuestions(parsed = null) {
-    return Array.isArray(parsed?.clarifyingQuestions) && parsed.clarifyingQuestions.length > 0;
-}
-
-function createLoredeckCreatorStageValidationFailure(code = 'creator_stage_contract_failed', message = 'Deck Maker response did not match the expected stage contract.') {
-    return {
-        ok: false,
-        code,
-        message,
-    };
-}
-
-function validateLoredeckCreatorArtifactResult(parsed = null, artifactKey = '', label = 'artifact') {
-    if (isLoredeckCreatorParsedArtifactUsable(parsed, artifactKey)) return true;
-    return createLoredeckCreatorStageValidationFailure(
-        `creator_${artifactKey || 'artifact'}_missing`,
-        `Valid JSON returned no usable Deck Maker ${label}.`
-    );
-}
-
-function inferLoredeckCreatorFailurePhase(payload = {}) {
-    const phase = String(payload.phase || '').trim() || 'unknown';
-    const error = payload.error || {};
-    const code = String(error.code || error.errorCode || payload.normalizedError?.code || '').trim();
-    const name = String(error.name || payload.normalizedError?.name || '').trim();
-    if (phase === 'parse' && (name === 'GenerationNoUsableResultError' || /^creator_/.test(code))) return 'validation';
-    return phase;
-}
-
-function getLoredeckCreatorFailureCode(error = {}) {
-    return String(error?.code || error?.errorCode || error?.diagnostic?.errorCode || '').trim();
-}
-
-function formatLoredeckCreatorStageLabel(value = '', fallback = 'Deck Maker generation') {
-    return String(value || fallback || 'Deck Maker generation').trim() || 'Deck Maker generation';
-}
-
-function formatLoredeckCreatorGenerationFailureMessage(error = {}, fallbackMessage = 'Deck Maker generation failed.', stageLabel = 'Deck Maker generation') {
-    const label = formatLoredeckCreatorStageLabel(stageLabel);
-    const code = getLoredeckCreatorFailureCode(error);
-    if (code === LORE_RESPONSE_ERROR_CODES.TOKEN_LIMIT || code === 'provider_token_limit') {
-        return `${label} hit the provider output limit before Saga received a usable final JSON response. Retry Smaller or lower the output size for this stage.`;
-    }
-    if (code === LORE_RESPONSE_ERROR_CODES.REASONING_ONLY || code === 'provider_reasoning_only') {
-        return `${label} returned hidden reasoning but no visible JSON. Use a profile that emits a final answer, lower reasoning effort, or retry this stage.`;
-    }
-    if (code === LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT || code === 'provider_empty_content') {
-        return `${label} returned no visible content. Check the provider output settings and retry this stage.`;
-    }
-    if (code === GENERATION_ERROR_CODES.JSON_INVALID || code === 'json_invalid') {
-        return `${label} returned malformed JSON that Saga could not repair. Retry Smaller or reduce the stage scope.`;
-    }
-    if (code === GENERATION_ERROR_CODES.COMMIT_FAILED || code === 'commit_failed') {
-        return `${label} produced usable output, but Saga could not save or queue it. Check the latest Failure Diagnostic before retrying.`;
-    }
-    if (code === 'creator_entry_guard_rejected_all') {
-        const rejected = Array.isArray(error?.rejectedTargetIds) && error.rejectedTargetIds.length
-            ? ` Affected: ${error.rejectedTargetIds.slice(0, 5).join(', ')}.`
-            : '';
-        return `${label} returned valid JSON, but every Lorecard draft in the micro-batch was rejected by schema guardrails.${rejected}`;
-    }
-    if (code === GENERATION_ERROR_CODES.STAGE_CONTRACT_FAILED || /^creator_/.test(code)) {
-        return `${label} returned valid JSON, but it did not contain usable content for this Deck Maker stage. Check the latest Failure Diagnostic or retry with a smaller scope.`;
-    }
-    const rawMessage = String(error?.message || fallbackMessage || '').trim();
-    if (/eval|syntaxerror|unexpected token|unexpected end|invalid json|json/i.test(rawMessage)) {
-        return `${label} returned output Saga could not parse. Check the latest Failure Diagnostic or retry with a smaller scope.`;
-    }
-    return rawMessage || `${label} failed.`;
-}
-
-function prepareLoredeckCreatorStageFailure(error = {}, fallbackMessage = 'Deck Maker generation failed.', stageLabel = 'Deck Maker generation') {
-    const message = formatLoredeckCreatorGenerationFailureMessage(error, fallbackMessage, stageLabel);
-    if (error && typeof error === 'object') {
-        if (!error.sagaRawMessage && error.message && error.message !== message) {
-            try { error.sagaRawMessage = String(error.message || ''); } catch (_) {}
-        }
-        try { error.message = message; } catch (_) {}
-        return error;
-    }
-    const wrapped = new Error(message);
-    wrapped.sagaRawMessage = String(error || '');
-    return wrapped;
-}
-
-function warnLoredeckCreatorGenerationFailure(error = {}, context = {}) {
-    const diagnostic = error?.diagnostic || {};
-    const code = getLoredeckCreatorFailureCode(error) || 'unknown';
-    console.warn('[Saga] Deck Maker generation failed:', {
-        stage: context.stage || diagnostic.stage || '',
-        unitId: context.unitId || diagnostic.unitId || '',
-        unitLabel: context.unitLabel || diagnostic.unitLabel || '',
-        errorCode: code,
-        errorName: error?.name || diagnostic.errorName || '',
-        message: error?.message || diagnostic.errorMessage || '',
-        rawMessage: error?.sagaRawMessage || '',
-        parsePhase: diagnostic.parsePhase || '',
-        finishReason: diagnostic.finishReason || '',
-        visibleContentLength: Number(diagnostic.visibleContentLength) || 0,
-        repairAttempted: diagnostic.repairAttempted === true,
-    });
-}
-
-function buildLoredeckCreatorGenerationFailureDiagnostic(payload = {}, config = {}, requestOptions = {}) {
-    const description = describeLoreResponse(payload.rawResult, { sampleLimit: 240 });
-    const normalizedError = payload.normalizedError || {};
-    const error = payload.error || {};
-    const diagnostic = {
-        kind: 'loredeck_creator_generation_failure',
-        stage: config.stage || payload.unit?.stage || '',
-        unitId: payload.unit?.unitId || '',
-        unitLabel: payload.unit?.label || config.unitLabel || config.label || '',
-        providerKind: config.requestOptions?.providerKind || requestOptions.providerKind || 'lore',
-        resultType: description.resultType,
-        finishReason: description.finishReason,
-        parsePhase: inferLoredeckCreatorFailurePhase(payload),
-        errorCode: normalizedError.code || error.code || error.errorCode || '',
-        errorName: normalizedError.name || error.name || '',
-        errorMessage: normalizedError.message || error.message || '',
-        visibleContentLength: description.visibleContentLength,
-        reasoningLength: description.reasoningLength,
-        attempt: payload.attempt || 0,
-        recordedAt: Date.now(),
-        repairAttempted: payload.repairAttempted === true,
-        sample: description.sample,
-    };
-    if (error?.rejectionSummary) diagnostic.rejectionSummary = error.rejectionSummary;
-    if (Array.isArray(error?.rejectionDiagnostics)) diagnostic.rejectionDiagnostics = error.rejectionDiagnostics.slice(0, 20);
-    if (Array.isArray(error?.rejectedTargetIds)) diagnostic.rejectedTargetIds = error.rejectedTargetIds.slice(0, 20);
-    return redactDiagnosticValue(diagnostic);
-}
-
-function buildLoredeckCreatorRunnerUnitId(generation = null, stage = 'unit') {
-    const generationId = String(generation?.id || 'generation').trim();
-    return `${generationId}:${stage || 'unit'}`.replace(/[^a-zA-Z0-9:._-]+/g, '_');
-}
-
-function handleLoredeckCreatorRunnerProgress(generation = null, event = {}, unitLabel = 'Deck Maker generation') {
-    if (!generation?.id || !event?.type) return;
-    if (event.type === 'unit_started') {
-        updateLoredeckCreatorGeneration(generation, {
-            type: 'phase',
-            phase: 'requesting',
-            message: `${unitLabel} request started...`,
-        });
-        return;
-    }
-    if (event.type === 'unit_repairing') {
-        updateLoredeckCreatorGeneration(generation, {
-            type: 'phase',
-            phase: 'repairing',
-            message: `Repairing ${unitLabel} response...`,
-        });
-        return;
-    }
-    if (event.type === 'unit_retry_scheduled' || event.type === 'unit_retrying') {
-        updateLoredeckCreatorGeneration(generation, {
-            type: 'phase',
-            phase: 'retry',
-            message: `Retrying ${unitLabel}...`,
-        });
-    }
+    return loredeckCreatorGenerationController.createRequestOptions(generation, options);
 }
 
 async function runLoredeckCreatorSingleUnitGeneration(config = {}) {
-    const generation = config.generation;
-    if (!generation?.id) throw new Error('Missing Deck Maker generation.');
-    if (typeof config.requestResponse !== 'function') throw new Error('Missing Deck Maker request callback.');
-    if (typeof config.parseResponse !== 'function') throw new Error('Missing Deck Maker parser callback.');
-    const settings = getLoredeckCreatorGenerationSettings();
-    const unitLabel = config.unitLabel || config.label || 'Deck Maker generation';
-    const stage = String(config.stage || 'creator_generation').trim();
-    const jobId = getLoredeckCreatorGenerationJobId(generation) || generation.jobId || generation.id;
-    const requestOptions = createLoredeckCreatorRequestOptions(generation, config.requestOptions || {});
-    const unitId = config.unitId || buildLoredeckCreatorRunnerUnitId(generation, stage);
-    if (config.waitForUiPaint !== false) await waitForLoredeckCreatorUiPaint();
-    const checkpointOptions = {
-        syncPrompt: false,
-        label: generation.label || unitLabel,
-        currentStage: config.currentStage || generation.currentStage || stage,
-    };
-    const runnerResult = await runGenerationUnits({
-        jobId,
-        runId: generation.id,
-        kind: 'loredeck_creator',
-        stage,
-        mode: 'single_unit',
-        units: [{
-            unitId,
-            label: unitLabel,
-            stage,
-            inputHash: String(config.inputHash || '').trim(),
-            meta: config.unitMeta && typeof config.unitMeta === 'object' && !Array.isArray(config.unitMeta)
-                ? config.unitMeta
-                : {},
-            createdAt: Date.now(),
-        }],
-        signal: requestOptions.signal,
-        retryAttempts: Number.isFinite(Number(config.retryAttempts)) ? Number(config.retryAttempts) : settings.retryAttempts,
-        stopOnFailure: true,
-        isRunCurrent: () => isLoredeckCreatorGenerationCurrent(generation),
-        onProgress: event => handleLoredeckCreatorRunnerProgress(generation, event, unitLabel),
-        checkpointRun: async ({ run }) => {
-            if (!jobId) return;
-            updateLoredeckCreatorGenerationRun(jobId, run, checkpointOptions);
-        },
-        checkpointUnit: async ({ unit }) => {
-            if (!jobId || !unit?.unitId) return;
-            updateLoredeckCreatorGenerationUnit(jobId, unit.unitId, unit, checkpointOptions);
-        },
-        callUnit: async ({ emitProgress }) => {
-            if (typeof emitProgress === 'function') {
-                emitProgress({
-                    type: 'phase',
-                    phase: 'requesting',
-                    message: `${unitLabel} request started...`,
-                });
-            }
-            return await config.requestResponse(config.requestContext || {}, requestOptions);
-        },
-        parseResult: rawResult => config.parseResponse(extractLoredeckAssistantResponseText(rawResult)),
-        validateResult: typeof config.validateParsedResult === 'function'
-            ? parsedResult => config.validateParsedResult(parsedResult, config.requestContext || {})
-            : null,
-        diagnoseFailure: payload => buildLoredeckCreatorGenerationFailureDiagnostic(payload, config, requestOptions),
-        repairResult: typeof config.repairResponse === 'function'
-            ? async ({ rawResult, error }) => {
-                const responseText = extractLoredeckAssistantResponseText(rawResult);
-                const repairedText = await config.repairResponse(responseText, config.requestContext || {}, requestOptions);
-                const repairedResponseText = extractLoredeckAssistantResponseText(repairedText);
-                const repaired = config.parseResponse(repairedResponseText);
-                if (typeof config.isRepairUsable === 'function' && !config.isRepairUsable(repaired)) throw error;
-                return {
-                    rawResult: repairedResponseText,
-                    parsedResult: repaired,
-                };
-            }
-            : null,
-        commitResult: async ({ parsedResult }) => {
-            const customCommit = typeof config.commitParsedResult === 'function'
-                ? await config.commitParsedResult({ parsedResult, generation, unitId, stage, requestContext: config.requestContext || {} })
-                : null;
-            return {
-                ...(customCommit || {}),
-                resultRef: {
-                    ...(customCommit?.resultRef || {}),
-                    type: config.resultRefType || stage,
-                    summary: String(parsedResult?.summary || '').trim(),
-                    completedAt: Date.now(),
-                },
-            };
-        },
-    });
-    if (runnerResult.status === 'cancelled' || runnerResult.status === 'superseded') {
-        return {
-            aborted: true,
-            runnerResult,
-            requestOptions,
-            responseText: '',
-            parsed: null,
-        };
-    }
-    const completed = (runnerResult.results || []).find(result => result?.status === 'complete');
-    if (!completed) {
-        const failed = (runnerResult.results || []).find(result => result?.status === 'failed') || runnerResult.results?.[0] || {};
-        const rawMessage = failed.error?.message || failed.unit?.error || runnerResult.error?.message || `${unitLabel} generation failed.`;
-        const diagnostic = failed.unit?.diagnostic || null;
-        const message = formatLoredeckCreatorGenerationFailureMessage(
-            {
-                ...(failed.error || {}),
-                message: rawMessage,
-                diagnostic,
-            },
-            `${unitLabel} generation failed.`,
-            unitLabel
-        );
-        const error = new Error(message);
-        error.name = failed.error?.name || 'LoredeckCreatorGenerationError';
-        error.code = failed.error?.code || failed.unit?.diagnostic?.errorCode || runnerResult.error?.code || '';
-        error.diagnostic = diagnostic;
-        if (diagnostic?.rejectionSummary) error.rejectionSummary = diagnostic.rejectionSummary;
-        if (Array.isArray(diagnostic?.rejectionDiagnostics)) error.rejectionDiagnostics = diagnostic.rejectionDiagnostics;
-        if (Array.isArray(diagnostic?.rejectedTargetIds)) error.rejectedTargetIds = diagnostic.rejectedTargetIds;
-        if (rawMessage && rawMessage !== message) error.sagaRawMessage = rawMessage;
-        warnLoredeckCreatorGenerationFailure(error, { stage, unitId, unitLabel });
-        throw error;
-    }
-    return {
-        aborted: false,
-        runnerResult,
-        requestOptions,
-        responseText: extractLoredeckAssistantResponseText(completed.rawResult),
-        parsed: completed.parsedResult,
-        commitResult: completed.commitResult || null,
-    };
+    return await loredeckCreatorGenerationController.runSingleUnitGeneration(config);
 }
 
 function finishLoredeckCreatorGeneration(generation = null, status = 'success', message = '', details = {}) {
-    if (!generation?.id) return;
-    const cached = getLoredeckCreatorBriefCache();
-    const currentActive = cached.activeGeneration;
-    if (currentActive?.id && currentActive.id !== generation.id) {
-        loredeckCreatorGenerationControllers.delete(generation.id);
-        forgetLoredeckCreatorLiveGeneration(generation);
-        return;
-    }
-    const active = currentActive || generation;
-    stopLoredeckCreatorGenerationTicker();
-    loredeckCreatorGenerationControllers.delete(generation.id);
-    forgetLoredeckCreatorLiveGeneration(generation);
-    const now = Date.now();
-    const restoredStage = inferLoredeckCreatorUiStage({
-        ...cached,
-        activeGeneration: null,
-        status: '',
-        currentStage: '',
-    });
-    const result = {
-        id: generation.id,
-        actionId: active.actionId || generation.actionId || '',
-        label: active.label || generation.label || 'Generation',
-        status,
-        message: message || (status === 'success' ? 'Generation complete.' : status === 'warning' ? 'Generation needs review.' : 'Generation failed.'),
-        completedAt: now,
-        elapsedMs: now - Number(active.startedAt || now),
-        receivedChars: Number(details.receivedChars || active.receivedChars || 0),
-        snippet: details.snippet || active.snippet || '',
-        streamSupported: active.streamSupported,
-        batchId: active.batchId || '',
-        batchLabel: active.batchLabel || '',
-        batchIndex: active.batchIndex ?? null,
-        batchTotal: active.batchTotal ?? null,
-        targetTitleBatchId: active.targetTitleBatchId || '',
-        targetPlanningBatchId: active.targetPlanningBatchId || '',
-        coverageDimensionIds: normalizeLoredeckCreatorCoverageIdList(active.coverageDimensionIds || [], 24),
-        targetTitleIds: normalizeLoredeckCreatorTitleIdList(active.targetTitleIds || [], 200),
-    };
-    setLoredeckCreatorBriefCache({
-        ...cached,
-        activeGeneration: null,
-        lastGenerationResult: result,
-        lastCompletedAt: status === 'error' ? cached.lastCompletedAt : now,
-        status: status === 'error' ? 'blocked' : (cached.brief ? 'draft' : 'idle'),
-        currentStage: restoredStage,
-    }, { refreshWorkbench: true });
+    return loredeckCreatorGenerationSessionController.finishGeneration(generation, status, message, details);
 }
 
 function cancelLoredeckCreatorGeneration(generationId = '') {
-    const cached = getLoredeckCreatorBriefCache();
-    const active = getActiveLoredeckCreatorGeneration(cached);
-    if (!active || (generationId && active.id !== generationId)) return false;
-    const controller = loredeckCreatorGenerationControllers.get(active.id);
-    try {
-        controller?.abort?.();
-    } catch (error) {
-        console.warn('[Saga] Could not abort Deck Maker generation:', error);
-    }
-    stopLoredeckCreatorGenerationTicker();
-    loredeckCreatorGenerationControllers.delete(active.id);
-    forgetLoredeckCreatorLiveGeneration(active);
-    const now = Date.now();
-    const restoredStage = inferLoredeckCreatorUiStage({
-        ...cached,
-        activeGeneration: null,
-        status: '',
-        currentStage: '',
-    });
-    const result = {
-        id: active.id,
-        actionId: active.actionId || '',
-        label: active.label || 'Generation',
-        status: 'cancelled',
-        message: 'Generation cancelled. Any late provider response will be ignored.',
-        completedAt: now,
-        elapsedMs: now - Number(active.startedAt || now),
-        receivedChars: Number(active.receivedChars || 0),
-        snippet: active.snippet || '',
-        streamSupported: active.streamSupported,
-        batchId: active.batchId || '',
-        batchLabel: active.batchLabel || '',
-        batchIndex: active.batchIndex ?? null,
-        batchTotal: active.batchTotal ?? null,
-        targetTitleBatchId: active.targetTitleBatchId || '',
-        targetPlanningBatchId: active.targetPlanningBatchId || '',
-        coverageDimensionIds: normalizeLoredeckCreatorCoverageIdList(active.coverageDimensionIds || [], 24),
-        targetTitleIds: normalizeLoredeckCreatorTitleIdList(active.targetTitleIds || [], 200),
-    };
-    setLoredeckCreatorBriefCache({
-        ...cached,
-        activeGeneration: null,
-        lastGenerationResult: result,
-        status: cached.brief ? 'draft' : 'idle',
-        currentStage: restoredStage,
-    }, { refreshWorkbench: true });
-    toast(`${active.label || 'Deck Maker generation'} cancelled.`, 'info');
-    return true;
+    return loredeckCreatorGenerationSessionController.cancelGeneration(generationId);
 }
 
 function applyLoredeckCreatorGenerationButtonLock(button, cached = getLoredeckCreatorBriefCache(), label = 'generation') {
@@ -2701,62 +1765,15 @@ function applyLoredeckCreatorGenerationButtonLock(button, cached = getLoredeckCr
     return button;
 }
 
-const LOREDECK_CREATOR_RECOVERABLE_UNIT_STATUSES = new Set(['failed', 'interrupted']);
-
-function getLoredeckCreatorUnitMeta(unit = {}) {
-    return unit?.meta && typeof unit.meta === 'object' && !Array.isArray(unit.meta) ? unit.meta : {};
-}
-
 function getLoredeckCreatorLatestRecoverableUnit(cached = getLoredeckCreatorBriefCache()) {
-    const active = getActiveLoredeckCreatorGeneration(cached);
-    if (active) return null;
-    const units = cached?.generationUnits && typeof cached.generationUnits === 'object' && !Array.isArray(cached.generationUnits)
-        ? Object.values(cached.generationUnits)
-        : [];
-    const candidates = units
-        .filter(unit => unit?.unitId && LOREDECK_CREATOR_RECOVERABLE_UNIT_STATUSES.has(String(unit.status || '').toLowerCase()))
-        .sort((a, b) => (Number(b.failedAt || b.updatedAt || b.completedAt || b.startedAt || 0) || 0) - (Number(a.failedAt || a.updatedAt || a.completedAt || a.startedAt || 0) || 0));
-    return candidates[0] || null;
-}
-
-function formatLoredeckCreatorRecoveryStageLabel(unit = {}) {
-    const stage = String(unit?.stage || '').trim();
-    if (stage === 'scope_brief') return 'Scope Brief';
-    if (stage === 'story_outline') return 'Story Outline';
-    if (stage === 'title_revision') return 'Title revision';
-    if (stage === 'title_batch') return 'Title batch';
-    if (stage === 'context_tag_planning') return 'Context and Tag plan';
-    if (stage === 'entry_micro_batch') return 'Lorecard micro-batch';
-    return unit?.label || 'Deck Maker generation unit';
+    return selectLoredeckCreatorLatestRecoverableUnit(cached, getActiveLoredeckCreatorGeneration(cached));
 }
 
 function getLoredeckCreatorRetrySmallerConfig(unit = {}, cached = getLoredeckCreatorBriefCache()) {
     const settings = getLoredeckCreatorGenerationSettings(cached);
-    const meta = getLoredeckCreatorUnitMeta(unit);
-    const stage = String(unit?.stage || '').trim();
-    if (meta.retrySmallerSupported === false) return null;
-    if (stage === 'title_batch') {
-        const current = clampLoredeckCreatorInteger(meta.titlePassLimit, 1, 24, settings.titleBatchLimit);
-        const next = Math.max(LOREDECK_CREATOR_GENERATION_SETTING_LIMITS.titleBatchLimit[0], Math.ceil(current / 2));
-        return next < current ? { key: 'titlePassLimitOverride', value: next, label: `${next} titles` } : null;
-    }
-    if (stage === 'context_tag_planning') {
-        const current = clampLoredeckCreatorInteger(meta.proposalLimit, 1, 24, settings.planningProposalLimit);
-        const next = Math.max(LOREDECK_CREATOR_GENERATION_SETTING_LIMITS.planningProposalLimit[0], Math.ceil(current / 2));
-        return next < current ? { key: 'planningProposalLimitOverride', value: next, label: `${next} proposals` } : null;
-    }
-    if (stage === 'entry_micro_batch') {
-        const current = getLoredeckCreatorEntryBatchLimit(meta.batchSize, cached);
-        const next = Math.max(1, Math.ceil(current / 2));
-        return next < current ? { key: 'batchSize', value: next, label: `${next} Lorecard${next === 1 ? '' : 's'}` } : null;
-    }
-    return null;
-}
-
-function buildLoredeckCreatorRetryUnitId(unit = {}, mode = 'retry', size = '') {
-    const base = String(unit?.unitId || unit?.id || 'creator_unit').replace(/[^a-zA-Z0-9:._-]+/g, '_').slice(0, 180);
-    const suffix = [mode || 'retry', size || '', Date.now()].filter(Boolean).join('_');
-    return `${base}:${suffix}`.replace(/[^a-zA-Z0-9:._-]+/g, '_').slice(0, 220);
+    return buildLoredeckCreatorRetrySmallerConfig(unit, settings, {
+        getEntryBatchLimit: limit => getLoredeckCreatorEntryBatchLimit(limit, cached),
+    });
 }
 
 function markLoredeckCreatorRecoveryUnitSuperseded(unit = {}, replacementUnitId = '') {
@@ -3076,201 +2093,23 @@ function buildLoredeckCreatorCoverageTitleBatch(dimension = {}) {
 }
 
 function setLoredeckCreatorCoverageDimensionStatus(dimension = {}, status = '', options = {}) {
-    const normalizedStatus = normalizeLoredeckCreatorCoverageStatus(status, '');
-    const dimensionId = normalizeLoredeckCreatorCoverageId(dimension.id || dimension.label || '');
-    if (!dimensionId || !normalizedStatus) return false;
-    const cached = getLoredeckCreatorBriefCache();
-    const plan = getLoredeckCreatorCoveragePlan(cached) || {
-        storyShape: cached.brief?.creatorCoverage?.storyShape || '',
-        storyDensity: cached.brief?.creatorCoverage?.storyDensity || '',
-        scopeKind: cached.brief?.creatorCoverage?.scopeKind || '',
-        dimensions: [],
-    };
-    const dimensions = [...(plan.dimensions || [])];
-    const existingIndex = dimensions.findIndex(row => row.id === dimensionId);
-    const reasonOverride = Object.prototype.hasOwnProperty.call(options || {}, 'notApplicableReason')
-        ? String(options.notApplicableReason || '').trim()
-        : null;
-    const notApplicableReason = reasonOverride !== null
-        ? reasonOverride
-        : (normalizedStatus === 'not_applicable'
-            ? 'User marked this coverage surface as not applicable.'
-            : (normalizedStatus === 'intentionally_light'
-                ? 'User accepted this coverage surface as intentionally light.'
-                : ''));
-    const nextDimension = {
-        ...(existingIndex >= 0 ? dimensions[existingIndex] : {}),
-        ...dimension,
-        id: dimensionId,
-        status: normalizedStatus,
-        notApplicableReason,
-    };
-    if (options.acknowledged === false) delete nextDimension.acknowledgedAt;
-    else nextDimension.acknowledgedAt = Date.now();
-    if (existingIndex >= 0) dimensions[existingIndex] = nextDimension;
-    else dimensions.push(nextDimension);
-    setLoredeckCreatorBriefCache({
-        ...cached,
-        creatorCoverage: {
-            ...plan,
-            status: '',
-            dimensions,
-            updatedAt: Date.now(),
-        },
-    });
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    toast(
-        options.toastMessage || (normalizedStatus === 'not_applicable'
-            ? 'Coverage row marked not applicable.'
-            : (normalizedStatus === 'intentionally_light'
-                ? 'Coverage row marked intentionally light.'
-                : 'Coverage row updated.')),
-        'success'
-    );
-    return true;
+    return loredeckCreatorCoverageActionsController.setDimensionStatus(dimension, status, options);
 }
 
 function reopenLoredeckCreatorCoverageDimension(dimension = {}) {
-    const dimensionId = normalizeLoredeckCreatorCoverageId(dimension.id || dimension.label || '');
-    if (!dimensionId) return false;
-    const cached = getLoredeckCreatorBriefCache();
-    const generatedPack = cached.generatedPackId ? getLoredeckCreatorGeneratedPackDefinition(cached.generatedPackId) : null;
-    const coverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
-    const current = (coverage.dimensions || []).find(row => row.id === dimensionId) || dimension;
-    const nextStatus = Number(current.acceptedEntryCount || 0)
-        ? 'adequate'
-        : (Number(current.titleCount || 0)
-            || Number(current.approvedTitleCount || 0)
-            || Number(current.pendingEntryCount || 0)
-            || Number(current.draftEntryCount || 0)
-            ? 'thin'
-            : 'missing');
-    return setLoredeckCreatorCoverageDimensionStatus({
-        ...current,
-        notApplicableReason: '',
-    }, nextStatus, {
-        acknowledged: false,
-        notApplicableReason: '',
-        toastMessage: 'Coverage row reopened for expansion.',
-    });
+    return loredeckCreatorCoverageActionsController.reopenDimension(dimension);
 }
 
 async function acknowledgeLoredeckCreatorCoverageForFinalize() {
-    const cached = getLoredeckCreatorBriefCache();
-    const generatedPack = cached.generatedPackId ? getLoredeckCreatorGeneratedPackDefinition(cached.generatedPackId) : null;
-    const coverage = getLoredeckCreatorCoverageModel(cached, generatedPack);
-    if (!coverage.available) {
-        if (!coverage.finalizeAcknowledgementRequired) {
-            toast('Deck Maker Coverage is not available for this job yet.', 'warning');
-            return false;
-        }
-    }
-    if (!coverage.finalizeAcknowledgementRequired) {
-        toast(coverage.finalizeAcknowledged ? 'Deck Maker Coverage finalization acknowledgement is already current.' : 'Deck Maker Coverage does not need finalization acknowledgement.', 'info');
-        return false;
-    }
-    const unresolved = (coverage.dimensions || [])
-        .filter(dimension => isLoredeckCreatorCoverageDimensionTargetable(dimension))
-        .slice(0, 8)
-        .map(dimension => `- ${dimension.label || dimension.id}: ${dimension.statusLabel || formatLoredeckCreatorCoverageStatus(dimension.derivedStatus || dimension.status)}`);
-    const confirmLines = coverage.available
-        ? [
-            'Deck Maker Coverage still has missing or thin rows:',
-            ...unresolved,
-            (coverage.missingDimensionCount + coverage.thinDimensionCount) > unresolved.length
-                ? `- ...and ${(coverage.missingDimensionCount + coverage.thinDimensionCount) - unresolved.length} more`
-                : '',
-            '',
-            'This does not create filler Lorecards or set a fixed entry quota. It records that you intentionally accept the current coverage for finalization.',
-        ]
-        : [
-            'This Deck Maker job has no adaptive coverage plan.',
-            'Redraft the Scope Brief or Story Outline for the strongest density review, or continue only if this missing coverage plan is intentional for the current alpha workflow.',
-            '',
-            'This records that you intentionally accept finalizing without a Deck Maker Coverage plan.',
-        ];
-    const proceed = await confirmAction(
-        coverage.available ? 'Finalize Anyway with light coverage?' : 'Finalize Anyway without Deck Maker Coverage?',
-        confirmLines.filter(Boolean).join('\n')
-    );
-    if (!proceed) return false;
-    const acknowledgement = {
-        mode: 'finalize_anyway',
-        acknowledgedAt: Date.now(),
-        coverageSignature: coverage.finalizationSignature,
-        status: coverage.status,
-        missingDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.missingDimensionIds || [], 24),
-        thinDimensionIds: normalizeLoredeckCreatorCoverageIdList(coverage.thinDimensionIds || [], 24),
-        note: coverage.available
-            ? 'User chose to finalize despite unresolved adaptive coverage rows.'
-            : 'User chose to finalize without an adaptive coverage plan.',
-    };
-    const acknowledgedJob = setLoredeckCreatorBriefCache({
-        ...cached,
-        activeGeneration: null,
-        status: cached.brief ? 'draft' : 'idle',
-        currentStage: inferLoredeckCreatorUiStage({
-            ...cached,
-            activeGeneration: null,
-            status: '',
-            currentStage: '',
-        }),
-        coverageFinalizeAcknowledgement: acknowledgement,
-    });
-    if (!acknowledgedJob?.coverageFinalizeAcknowledgement && cached.jobId) {
-        const direct = updateLoredeckCreatorProject(cached.jobId, {
-            activeGeneration: null,
-            status: cached.brief ? 'draft' : 'idle',
-            currentStage: inferLoredeckCreatorUiStage({
-                ...cached,
-                activeGeneration: null,
-                status: '',
-                currentStage: '',
-            }),
-            coverageFinalizeAcknowledgement: acknowledgement,
-        }, { syncPrompt: false, syncLocal: true });
-        if (direct?.ok && direct.job) {
-            loredeckCreatorBriefCache.set('current', direct.job);
-        } else {
-            console.warn('[Saga] Deck Maker Coverage acknowledgement persistence fallback failed:', direct?.error || direct);
-        }
-    }
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
-    toast(coverage.available ? 'Deck Maker Coverage acknowledged for finalization.' : 'Missing Deck Maker Coverage plan acknowledged for finalization.', 'success');
-    return true;
-}
-
-const LOREDECK_CREATOR_RESET_ANCHORS = Object.freeze({
-    scope: 'scope-brief',
-    outline: 'story-outline',
-    titles: 'title-sets',
-    context: 'context-plan',
-    lorecards: 'lorecards',
-    review: 'review-queue',
-    health: 'deck-health',
-});
-
-function getLoredeckCreatorResetAnchor(stepId = '', cached = {}) {
-    const id = String(stepId || '').trim();
-    if (id === 'scope') return cached?.brief ? 'scope-brief' : 'intake';
-    return LOREDECK_CREATOR_RESET_ANCHORS[id] || 'current-task';
+    return await loredeckCreatorCoverageFinalizationController.acknowledgeCoverageForFinalize();
 }
 
 function clearLoredeckCreatorResetPackCaches(packId = '', options = {}) {
-    const id = String(packId || '').trim();
-    if (!id) return;
-    loredeckManifestPreviewCache.delete(id);
-    loredeckEntryPreviewCache.delete(id);
-    loredeckTimelineRegistryCache.delete(id);
-    loredeckTagRegistryCache.delete(id);
-    loredeckCreatorGeneratedPackPayloadCache.delete(id);
-    loredeckCreatorGeneratedPackHydrationRequests.delete(id);
-    if (options.clearDraftCache === true) loredeckAssistantDraftCache.delete(id);
+    return loredeckCreatorGeneratedPackCacheController.clearPackCaches(packId, options);
 }
 
 function getLoredeckCreatorJobGeneratedPackId(job = {}) {
-    return String(job?.generatedPackId || job?.brief?.packId || '').trim();
+    return loredeckCreatorGeneratedPackCacheController.getJobGeneratedPackId(job);
 }
 
 function isLoredeckCreatorJobRegistered(jobId = '') {
@@ -3281,32 +2120,11 @@ function isLoredeckCreatorJobRegistered(jobId = '') {
 }
 
 function clearCurrentLoredeckCreatorWorkbenchCache(options = {}) {
-    const cached = loredeckCreatorBriefCache.get('current') || {};
-    const active = getActiveLoredeckCreatorGeneration(cached);
-    if (active?.id) {
-        try {
-            loredeckCreatorGenerationControllers.get(active.id)?.abort?.();
-        } catch (_) {}
-        loredeckCreatorGenerationControllers.delete(active.id);
-        forgetLoredeckCreatorLiveGeneration(active);
-        stopLoredeckCreatorGenerationTicker();
-    }
-    loredeckCreatorBriefCache.delete('current');
-    clearLoredeckCreatorDraftInputs();
-    if (options.refresh !== false) refreshLoredeckCreatorWorkbenchBody({ preserveScroll: false });
-    return true;
+    return loredeckCreatorWorkbenchCacheController.clearCurrentCache(options);
 }
 
 function clearLoredeckCreatorWorkbenchCacheForRemovedJobs(jobIds = [], packId = '', options = {}) {
-    const cached = loredeckCreatorBriefCache.get('current') || {};
-    if (!cached?.jobId && !getLoredeckCreatorJobGeneratedPackId(cached)) return false;
-    const ids = new Set((Array.isArray(jobIds) ? jobIds : [jobIds]).map(value => String(value || '').trim()).filter(Boolean));
-    const targetPackId = String(packId || '').trim();
-    const cachedJobId = String(cached.jobId || '').trim();
-    const matchesJob = cachedJobId && ids.has(cachedJobId);
-    const matchesPack = targetPackId && getLoredeckCreatorJobGeneratedPackId(cached) === targetPackId;
-    if (!matchesJob && !matchesPack) return false;
-    return clearCurrentLoredeckCreatorWorkbenchCache(options);
+    return loredeckCreatorWorkbenchCacheController.clearCurrentCacheForRemovedJobs(jobIds, packId, options);
 }
 
 function removeLoredeckCreatorGeneratedPackFromStack(packId = '') {
@@ -3331,202 +2149,20 @@ function clearLoredeckCreatorSelectedPackIfMatches(packId = '') {
     saveState(state, { syncPrompt: false });
 }
 
-function isMissingExternalLoredeckPayloadError(error = null) {
-    return error?.status === 404 || /missing|not found|404/i.test(String(error?.message || error || ''));
-}
-
 async function handleLoredeckCreatorResetToStep(targetStepId = '') {
-    const stepId = String(targetStepId || '').trim();
-    const cached = getLoredeckCreatorBriefCache();
-    const activeGeneration = getActiveLoredeckCreatorGeneration(cached);
-    if (activeGeneration) {
-        toast('Cancel or finish the current Deck Maker generation before resetting.', 'warning');
-        return false;
-    }
-    const label = getLoredeckCreatorResetStepLabel(stepId);
-    const packId = String(cached.generatedPackId || '').trim();
-    let generatedPack = packId ? getFreshLoredeckLibraryPack(packId, getLoredeckDefinition(packId)) : null;
-    let creatorPack = generatedPack && isGeneratedLoredeckPack(generatedPack) ? generatedPack : null;
-    if (!hasLoredeckCreatorResetForwardData(cached, creatorPack || null, stepId)) {
-        toast(`No later Deck Maker data exists after ${label}.`, 'info');
-        return false;
-    }
-    const proceed = await confirmAction(
-        `Reset to ${label}?`,
-        buildLoredeckCreatorResetWarning(stepId),
-        {
-            confirmLabel: `Reset to ${label}`,
-            confirmTooltip: `Permanently erase later Deck Maker data and return to ${label}.`,
-        }
-    );
-    if (!proceed) return false;
-
-    const removeGeneratedPack = shouldRemoveGeneratedPackForCreatorReset(stepId);
-    let packMutationOk = true;
-    let resetStepId = stepId;
-    let resetLabel = label;
-    if (creatorPack?.packId && removeGeneratedPack) {
-        removeLoredeckCreatorGeneratedPackFromStack(creatorPack.packId);
-        const result = removeLoredeckLibraryPack(creatorPack.packId, { clearCreatorProjects: false });
-        if (!result.ok) {
-            toast(result.error || 'Generated Loredeck shell could not be reset.', 'warning');
-            packMutationOk = false;
-        } else {
-            clearLoredeckCreatorResetPackCaches(creatorPack.packId, { clearDraftCache: true });
-            clearLoredeckCreatorSelectedPackIfMatches(creatorPack.packId);
-        }
-    } else if (creatorPack?.packId) {
-        let payloadMissingFallback = false;
-        try {
-            creatorPack = await hydrateExternalLorepackPayloadRecord(creatorPack);
-        } catch (error) {
-            console.warn('[Saga] Generated Loredeck payload hydration failed before Deck Maker reset:', error);
-            if (!isMissingExternalLoredeckPayloadError(error)) {
-                toast(error?.message || 'Generated Loredeck payload could not be loaded before reset.', 'warning');
-                return false;
-            }
-            const fallbackStepId = 'titles';
-            const fallbackLabel = getLoredeckCreatorResetStepLabel(fallbackStepId);
-            const fallback = await confirmAction(
-                'Generated Loredeck Payload Missing',
-                `Saga cannot preserve ${label} because the Generated Loredeck payload file is missing. Reset to ${fallbackLabel} instead and remove the broken Generated Loredeck shell?`,
-                {
-                    confirmLabel: `Reset to ${fallbackLabel}`,
-                    confirmTooltip: 'Remove the broken Generated Loredeck shell and return to the last step that does not need it.',
-                }
-            );
-            if (!fallback) return false;
-            resetStepId = fallbackStepId;
-            resetLabel = fallbackLabel;
-            payloadMissingFallback = true;
-            removeLoredeckCreatorGeneratedPackFromStack(creatorPack.packId);
-            const result = removeLoredeckLibraryPack(creatorPack.packId, { clearCreatorProjects: false });
-            if (!result.ok && result.notFound !== true) {
-                toast(result.error || 'Generated Loredeck shell could not be reset.', 'warning');
-                packMutationOk = false;
-            } else {
-                clearLoredeckCreatorResetPackCaches(creatorPack.packId, { clearDraftCache: true });
-                clearLoredeckCreatorSelectedPackIfMatches(creatorPack.packId);
-            }
-        }
-        if (!packMutationOk) return false;
-        if (payloadMissingFallback) {
-            creatorPack = null;
-        } else if (!creatorPack || !isGeneratedLoredeckPack(creatorPack)) {
-            toast('Generated Loredeck payload could not be loaded before reset.', 'warning');
-            return false;
-        }
-        if (!payloadMissingFallback) {
-            const resetPack = resetGeneratedLoredeckPackAfterStep(creatorPack, stepId);
-            if (resetPack) {
-                if (isVirtualLoredeckPack(resetPack)) {
-                    resetPack.manifestData = buildEmbeddedCustomManifest(resetPack.manifestData || {}, resetPack);
-                }
-                const result = upsertLoredeckLibraryPack(resetPack);
-                if (!result.ok) {
-                    toast(result.error || 'Generated Loredeck state could not be reset.', 'warning');
-                    packMutationOk = false;
-                } else {
-                    clearLoredeckCreatorResetPackCaches(creatorPack.packId, {
-                        clearDraftCache: stepId === 'scope' || stepId === 'outline' || stepId === 'titles' || stepId === 'context',
-                    });
-                }
-            }
-        }
-    } else if (packId) {
-        if (removeGeneratedPack) {
-            removeLoredeckCreatorGeneratedPackFromStack(packId);
-            clearLoredeckCreatorSelectedPackIfMatches(packId);
-        }
-        clearLoredeckCreatorResetPackCaches(packId, {
-            clearDraftCache: removeGeneratedPack || stepId === 'context',
-        });
-    }
-    if (!packMutationOk) return false;
-
-    const resetJob = resetLoredeckCreatorJobAfterStep(cached, resetStepId);
-    const nextJob = setLoredeckCreatorBriefCache(resetJob, { refreshWorkbench: true });
-    clearCanonLoreDatabaseCache();
-    clearContextIndexCache();
-    refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: false });
-    const anchor = getLoredeckCreatorResetAnchor(resetStepId, nextJob || resetJob);
-    const scroll = () => scrollLoredeckCreatorWorkbenchToAnchor(anchor);
-    scroll();
-    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(scroll);
-    toast(`Reset to ${resetLabel}.`, 'success');
-    return true;
+    return await loredeckCreatorResetController.handleResetToStep(targetStepId);
 }
 
 function getCachedLoredeckCreatorPackHealth(pack = {}) {
-    const packId = String(pack?.packId || '').trim();
-    return packId ? (loredeckManifestPreviewCache.get(packId)?.health || null) : null;
+    return loredeckPreviewCacheController.getManifestHealth(pack?.packId);
 }
 
 function getLoredeckCreatorGeneratedPackDefinition(packId = '') {
-    const id = String(packId || '').trim();
-    if (!id) return null;
-    const base = getLoredeckDefinition(id);
-    if (!base) {
-        loredeckCreatorGeneratedPackPayloadCache.delete(id);
-        return null;
-    }
-    const hydrated = hydrateCachedExternalLorepackPayloadRecord(base || { packId: id });
-    if (hydrated?.payloadFile && (hydrated.manifestData || Object.keys(hydrated.entryOverrides || {}).length || getLoredeckTagRegistryCount(hydrated.tagRegistry) || getLoredeckTimelineRegistryCount(hydrated.timelineRegistry))) {
-        loredeckCreatorGeneratedPackPayloadCache.set(id, cloneLoredeckJson(hydrated));
-        return hydrated;
-    }
-    const cached = loredeckCreatorGeneratedPackPayloadCache.get(id) || null;
-    if (cached) {
-        const baseRevision = Math.floor(Number(base?.revision) || 0);
-        const cachedRevision = Math.floor(Number(cached.revision) || 0);
-        if (!baseRevision || cachedRevision >= baseRevision) {
-            return cloneLoredeckJson({
-                ...(base || {}),
-                ...cached,
-                packId: id,
-                id,
-                payloadFile: base?.payloadFile || cached.payloadFile,
-            });
-        }
-        loredeckCreatorGeneratedPackPayloadCache.delete(id);
-    }
-    return base;
+    return loredeckCreatorGeneratedPackCacheController.getGeneratedPackDefinition(packId);
 }
 
 function maybeHydrateLoredeckCreatorGeneratedPack(cached = {}, options = {}) {
-    const packId = String(cached?.generatedPackId || '').trim();
-    if (!packId || loredeckCreatorGeneratedPackHydrationRequests.has(packId)) return false;
-    if (loredeckCreatorGeneratedPackPayloadCache.has(packId)) return false;
-    const base = getLoredeckDefinition(packId);
-    if (!base?.payloadFile) return false;
-    const current = getLoredeckCreatorGeneratedPackDefinition(packId);
-    const hasProgressPayload = current?.manifestData
-        || Object.keys(current?.entryOverrides || {}).length
-        || getLoredeckTagRegistryCount(current?.tagRegistry)
-        || getLoredeckTimelineRegistryCount(current?.timelineRegistry);
-    if (hasProgressPayload) return false;
-    const request = hydrateExternalLorepackPayloadRecord(base)
-        .then(pack => {
-            if (pack?.packId) {
-                loredeckCreatorGeneratedPackPayloadCache.set(pack.packId, cloneLoredeckJson(pack));
-                if (options.refresh !== false) {
-                    refreshLoredeckCreatorWorkbenchBody({ preserveScroll: true });
-                    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-                }
-            }
-            return pack;
-        })
-        .catch(error => {
-            console.warn('[Saga] Deck Maker generated Loredeck payload hydration failed:', error);
-            return null;
-        })
-        .finally(() => {
-            loredeckCreatorGeneratedPackHydrationRequests.delete(packId);
-        });
-    loredeckCreatorGeneratedPackHydrationRequests.set(packId, request);
-    return true;
+    return loredeckCreatorGeneratedPackCacheController.maybeHydrateGeneratedPack(cached, options);
 }
 
 function getLoredeckCreatorPipelineModel(cached = {}) {
@@ -3853,167 +2489,13 @@ function createLoredeckCreatorCurrentTaskActions(cached = {}, pipeline = {}, con
     return actions;
 }
 
-function createLoredeckCreatorGenerationRangeRow(settings = {}, key = '', labelText = '', tooltip = '', options = {}) {
-    const [min, max] = LOREDECK_CREATOR_GENERATION_SETTING_LIMITS[key] || [0, 10];
-    const suffix = options.suffix || '';
-    const onChange = typeof options.onChange === 'function' ? options.onChange : null;
-    const row = document.createElement('label');
-    row.className = 'saga-loredeck-creator-generation-row';
-    const label = document.createElement('span');
-    label.className = 'saga-loredeck-creator-generation-label';
-    addTooltip(label, tooltip);
-    const value = document.createElement('strong');
-    const renderLabel = nextValue => {
-        value.textContent = `${nextValue}${suffix}`;
-        label.replaceChildren(document.createTextNode(`${labelText}: `), value);
-    };
-    const initial = clampLoredeckCreatorInteger(settings[key], min, max, LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS[key]);
-    renderLabel(initial);
-    row.appendChild(label);
-
-    const input = document.createElement('input');
-    input.type = 'range';
-    input.min = String(min);
-    input.max = String(max);
-    input.step = '1';
-    input.value = String(initial);
-    input.dataset.sagaCreatorGenerationSetting = key;
-    input.addEventListener('input', () => {
-        renderLabel(clampLoredeckCreatorInteger(input.value, min, max, initial));
-    });
-    input.addEventListener('change', () => {
-        const nextValue = clampLoredeckCreatorInteger(input.value, min, max, initial);
-        input.value = String(nextValue);
-        renderLabel(nextValue);
-        const nextSettings = setLoredeckCreatorGenerationSettings({ [key]: nextValue })?.generationSettings;
-        onChange?.(nextSettings || getLoredeckCreatorGenerationSettings());
-    });
-    row.appendChild(input);
-    return {
-        element: row,
-        setValue(nextSettings = {}) {
-            const nextValue = clampLoredeckCreatorInteger(nextSettings[key], min, max, LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS[key]);
-            input.value = String(nextValue);
-            renderLabel(nextValue);
-        },
-    };
-}
-
-function createLoredeckCreatorGenerationToggleRow(settings = {}, key = '', labelText = '', tooltip = '', options = {}) {
-    const onChange = typeof options.onChange === 'function' ? options.onChange : null;
-    const defaultValue = options.defaultValue !== undefined ? options.defaultValue === true : true;
-    const getChecked = nextSettings => Object.prototype.hasOwnProperty.call(nextSettings || {}, key)
-        ? nextSettings[key] === true
-        : defaultValue;
-    const row = document.createElement('label');
-    row.className = 'saga-loredeck-creator-generation-toggle';
-    addTooltip(row, tooltip);
-    const input = document.createElement('input');
-    input.type = 'checkbox';
-    input.checked = getChecked(settings);
-    input.dataset.sagaCreatorGenerationSetting = key;
-    row.appendChild(input);
-    const label = document.createElement('span');
-    label.textContent = labelText;
-    row.appendChild(label);
-    const state = createStatusPill(input.checked ? 'On' : 'Off', `${labelText}: ${input.checked ? 'On' : 'Off'}`, {
-        tone: input.checked ? 'success' : 'muted',
-        kind: 'status',
-        density: 'compact',
-        className: 'saga-loredeck-creator-generation-toggle-value',
-    });
-    const renderState = () => {
-        const text = input.checked ? 'On' : 'Off';
-        state.textContent = text;
-        state.dataset.sagaTooltip = `${labelText}: ${text}`;
-        state.setAttribute('aria-label', `${labelText}: ${text}`);
-        setChipTone(state, input.checked ? 'success' : 'muted');
-    };
-    renderState();
-    row.appendChild(state);
-    input.addEventListener('change', () => {
-        renderState();
-        const nextSettings = setLoredeckCreatorGenerationSettings({ [key]: input.checked })?.generationSettings;
-        onChange?.(nextSettings || getLoredeckCreatorGenerationSettings());
-    });
-    return {
-        element: row,
-        setValue(nextSettings = {}) {
-            input.checked = getChecked(nextSettings);
-            renderState();
-        },
-    };
-}
-
-function renderLoredeckCreatorGenerationSettingsSummary(summary, settings = {}) {
-    if (!summary) return;
-    summary.replaceChildren(
-        createStatusPill(`${settings.titleBatchLimit} titles/call`, 'Maximum title drafts requested in one Title Pass call.', { kind: 'metadata' }),
-        createStatusPill(`${settings.entryBatchSize} Lorecards/call`, 'Maximum Lorecards requested in one Lorecard drafting call.', { kind: 'metadata' }),
-        createStatusPill(`${settings.retryAttempts} retry${settings.retryAttempts === 1 ? '' : 'ies'}`, 'Automatic retry attempts for failed units before surfacing failure.', { kind: 'metadata' }),
-        createStatusPill(settings.useUtilityProviderForSplitRetries ? 'Utility split retries on' : 'Utility split retries off', 'Whether one-title schema-rejection split retries may use the Utility Provider when it is configured.', { tone: settings.useUtilityProviderForSplitRetries ? 'success' : 'muted', kind: 'status' }),
-        createStatusPill(settings.showStreamingProgress ? 'Streaming snippets on' : 'Streaming snippets off', 'Whether active model calls show short transient streaming snippets.', { tone: settings.showStreamingProgress ? 'success' : 'muted', kind: 'status' }),
-    );
-}
-
 function createLoredeckCreatorAdvancedGenerationSettings(cached = {}) {
-    const settings = getLoredeckCreatorGenerationSettings(cached);
-    const body = document.createElement('div');
-    body.className = 'saga-loredeck-creator-generation-settings';
-    const summary = document.createElement('div');
-    summary.className = 'saga-loredeck-entry-summary';
-    renderLoredeckCreatorGenerationSettingsSummary(summary, settings);
-    body.appendChild(summary);
-    const refreshSummary = nextSettings => {
-        renderLoredeckCreatorGenerationSettingsSummary(summary, normalizeLoredeckCreatorGenerationSettings(nextSettings));
-    };
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Advanced controls for provider reliability and batching. Smaller values cost more calls but reduce overlong-response failures.';
-    body.appendChild(help);
-
-    const rows = [];
-    const grid = document.createElement('div');
-    grid.className = 'saga-loredeck-creator-generation-grid';
-    for (const row of [
-        createLoredeckCreatorGenerationRangeRow(settings, 'titleBatchLimit', 'Title batch limit', 'Maximum title drafts Saga asks for in one Title Pass provider call.', { onChange: refreshSummary }),
-        createLoredeckCreatorGenerationRangeRow(settings, 'planningProposalLimit', 'Planning proposals', 'Maximum Context and Tag proposals Saga asks for in one planning call.', { onChange: refreshSummary }),
-        createLoredeckCreatorGenerationRangeRow(settings, 'entryBatchSize', 'Lorecards per call', 'Maximum full Lorecards Saga asks for in one micro-batch call.', { onChange: refreshSummary }),
-        createLoredeckCreatorGenerationRangeRow(settings, 'titleRunRemainingLimit', 'Title run limit', 'Maximum separate title-batch calls made by Generate Remaining.', { onChange: refreshSummary }),
-        createLoredeckCreatorGenerationRangeRow(settings, 'retryAttempts', 'Retry attempts', 'Automatic retry attempts after a malformed, empty, or failed generation unit.', { onChange: refreshSummary }),
-    ]) {
-        rows.push(row);
-        grid.appendChild(row.element);
-    }
-    body.appendChild(grid);
-
-    const toggles = document.createElement('div');
-    toggles.className = 'saga-loredeck-creator-generation-toggles';
-    for (const row of [
-        createLoredeckCreatorGenerationToggleRow(settings, 'retrySmaller', 'Auto split failed batches', 'When a Lorecard micro-batch fails or is rejected by schema guardrails, retry the affected titles in smaller batches.', { onChange: refreshSummary }),
-        createLoredeckCreatorGenerationToggleRow(settings, 'useUtilityProviderForSplitRetries', 'Use Utility for split retries', 'When Auto split failed batches retries one rejected Lorecard target, use the Utility Provider if it is configured; otherwise Saga falls back to the Reasoning Provider.', { onChange: refreshSummary, defaultValue: false }),
-        createLoredeckCreatorGenerationToggleRow(settings, 'showStreamingProgress', 'Show streaming progress snippets', 'Show short transient snippets while a provider call is running. Completed raw output is not rendered.', { onChange: refreshSummary }),
-    ]) {
-        rows.push(row);
-        toggles.appendChild(row.element);
-    }
-    body.appendChild(toggles);
-
-    const actions = createLoredeckActionRow();
-    actions.appendChild(createButton('Reset Advanced Settings', 'Restore conservative Deck Maker generation defaults.', () => {
-        const next = resetLoredeckCreatorGenerationSettings()?.generationSettings || { ...LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS };
-        for (const row of rows) row.setValue(next);
-        refreshSummary(next);
-        toast('Deck Maker generation settings reset.', 'info');
-    }));
-    body.appendChild(actions);
-
-    return createLoredeckCreatorArtifactDisclosure(
-        'Advanced Generation Settings',
-        body,
-        { open: false, state: 'Batching & retries', anchor: 'advanced-generation' }
-    );
+    return createLoredeckCreatorAdvancedGenerationSettingsPanel(cached, {
+        getGenerationSettings: job => getLoredeckCreatorGenerationSettings(job),
+        setGenerationSettings: patch => setLoredeckCreatorGenerationSettings(patch),
+        resetGenerationSettings: () => resetLoredeckCreatorGenerationSettings(),
+        toast,
+    });
 }
 
 function formatLoredeckCreatorCoverageState(coverage = {}) {
@@ -4312,38 +2794,6 @@ function createLoredeckCreatorCard(state = getState(), options = {}) {
     return card;
 }
 
-function getLoredeckCreatorGenerationUnitActionId(unit = {}) {
-    return String(unit?.meta?.actionId || unit?.actionId || '').trim();
-}
-
-function getLoredeckCreatorGenerationUnitBatchId(unit = {}) {
-    return String(unit?.meta?.targetPlanningBatchId || unit?.resultRef?.batchId || unit?.batchId || '').trim();
-}
-
-function isStaleLoredeckCreatorInterruptedResult(job = {}) {
-    const result = job?.lastGenerationResult;
-    if (String(result?.status || '').toLowerCase() !== 'interrupted') return false;
-    if (job?.activeGeneration?.status === 'running') return false;
-    const units = job?.generationUnits && typeof job.generationUnits === 'object' && !Array.isArray(job.generationUnits)
-        ? Object.values(job.generationUnits)
-        : [];
-    if (!units.length) return false;
-    const resultUnitId = String(result.unitId || '').trim();
-    const resultActionId = String(result.actionId || '').trim();
-    const resultBatchId = String(result.batchId || '').trim();
-    const matches = units.filter(unit => {
-        if (!unit?.unitId) return false;
-        if (resultUnitId) return unit.unitId === resultUnitId;
-        if (resultActionId && getLoredeckCreatorGenerationUnitActionId(unit) !== resultActionId) return false;
-        if (resultBatchId && getLoredeckCreatorGenerationUnitBatchId(unit) !== resultBatchId) return false;
-        return !!resultActionId;
-    });
-    if (!matches.length) return false;
-    const recoverable = matches.some(unit => LOREDECK_CREATOR_RECOVERABLE_UNIT_STATUSES.has(String(unit.status || '').toLowerCase()));
-    if (recoverable) return false;
-    return matches.some(unit => ['complete', 'success'].includes(String(unit.status || '').toLowerCase()));
-}
-
 function clearStaleLoredeckCreatorInterruptedResult(job = {}) {
     if (!isStaleLoredeckCreatorInterruptedResult(job)) return job;
     const cleaned = { ...job, updatedAt: Date.now() };
@@ -4359,7 +2809,7 @@ function clearStaleLoredeckCreatorInterruptedResult(job = {}) {
 
 function getLoredeckCreatorBriefCache() {
     const stateJob = clearStaleLoredeckCreatorInterruptedResult(getActiveLoredeckCreatorJob(getState()) || {});
-    const localJob = clearStaleLoredeckCreatorInterruptedResult(loredeckCreatorBriefCache.get('current') || {});
+    const localJob = clearStaleLoredeckCreatorInterruptedResult(loredeckCreatorWorkbenchCacheController.getCurrentJobLocal());
     if (!stateJob?.jobId) {
         if (localJob?.jobId && !isLoredeckCreatorJobRegistered(localJob.jobId)) {
             clearCurrentLoredeckCreatorWorkbenchCache({ refresh: false });
@@ -4411,7 +2861,7 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) {
             ...(active ? { activeGeneration: active } : {}),
             ...(normalized.lastGenerationResult ? { lastGenerationResult: normalized.lastGenerationResult } : {}),
         };
-        loredeckCreatorBriefCache.set('current', localJob);
+        loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(localJob);
         if (!options.suppressWorkbenchRefresh && (result.job.status !== 'running' || options.refreshWorkbench)) queueLoredeckCreatorWorkbenchRefresh();
         return localJob;
     }
@@ -4419,25 +2869,15 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) {
     const active = normalized.activeGeneration?.status === 'running'
         ? rememberLoredeckCreatorLiveGeneration(normalized.jobId || current?.jobId || '', normalized.activeGeneration)
         : null;
-    loredeckCreatorBriefCache.set('current', normalized);
+    loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(normalized);
     if (!options.suppressWorkbenchRefresh && (normalized.status !== 'running' || options.refreshWorkbench)) queueLoredeckCreatorWorkbenchRefresh();
     return active ? { ...normalized, activeGeneration: active } : normalized;
 }
 
 function clearLoredeckCreatorBrief() {
     const cached = getLoredeckCreatorBriefCache();
-    const active = getActiveLoredeckCreatorGeneration(cached);
-    if (active?.id) {
-        try {
-            loredeckCreatorGenerationControllers.get(active.id)?.abort?.();
-        } catch (_) {}
-        loredeckCreatorGenerationControllers.delete(active.id);
-        forgetLoredeckCreatorLiveGeneration(active);
-        stopLoredeckCreatorGenerationTicker();
-    }
     if (cached.jobId) clearLoredeckCreatorJob(cached.jobId, { syncPrompt: false });
-    loredeckCreatorBriefCache.delete('current');
-    clearLoredeckCreatorDraftInputs();
+    loredeckCreatorWorkbenchCacheController.clearCurrentCache({ refresh: false });
     loredeckCreatorRevisionInstruction = '';
     loredeckCreatorOutlineRevisionInstruction = '';
     loredeckCreatorTitleRevisionInstruction = '';
@@ -4479,102 +2919,24 @@ function getLoredeckCreatorGranularityBlurb(value = '') {
     return blurbs[String(value || '').trim()] || blurbs.focused;
 }
 
-function clampLoredeckCreatorInteger(value, min, max, fallback) {
-    const number = Number(value);
-    if (!Number.isFinite(number)) return fallback;
-    return Math.max(min, Math.min(max, Math.round(number)));
-}
-
-function normalizeLoredeckCreatorGenerationSettings(value = {}) {
-    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
-    const output = { ...LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS };
-    for (const [key, limits] of Object.entries(LOREDECK_CREATOR_GENERATION_SETTING_LIMITS)) {
-        const [min, max] = limits;
-        output[key] = clampLoredeckCreatorInteger(input[key], min, max, LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS[key]);
-    }
-    output.retrySmaller = input.retrySmaller !== false;
-    output.useUtilityProviderForSplitRetries = input.useUtilityProviderForSplitRetries === true;
-    output.showStreamingProgress = input.showStreamingProgress !== false;
-    return output;
-}
-
 function getLoredeckCreatorGenerationSettings(cached = getLoredeckCreatorBriefCache()) {
-    return normalizeLoredeckCreatorGenerationSettings(cached?.generationSettings || {});
+    return loredeckCreatorGenerationSettingsController.getGenerationSettings(cached);
 }
 
 function getLoredeckCreatorSplitRetryProvider(settings = getLoredeckCreatorGenerationSettings()) {
-    if (settings.useUtilityProviderForSplitRetries !== true) {
-        return {
-            providerKind: 'lore',
-            label: 'Reasoning Provider',
-            fallbackMessage: '',
-        };
-    }
-    const validation = validateLoreProviderConfiguration('continuity');
-    if (validation.ok) {
-        return {
-            providerKind: 'continuity',
-            label: 'Utility Provider',
-            fallbackMessage: '',
-        };
-    }
-    return {
-        providerKind: 'lore',
-        label: 'Reasoning Provider',
-        fallbackMessage: validation.message || 'Utility Provider is not configured for split retries.',
-    };
-}
-
-function hasPersistableLoredeckCreatorProject(cached = {}) {
-    return !!(
-        cached?.jobId
-        || cached?.brief
-        || cached?.activeGeneration
-        || cached?.status
-        || cached?.createdAt
-        || cached?.fandom
-        || cached?.scope
-        || cached?.generatedPackId
-        || cached?.outline
-        || (Array.isArray(cached?.titleDrafts) && cached.titleDrafts.length)
-        || (Array.isArray(cached?.draftChanges) && cached.draftChanges.length)
-        || (Array.isArray(cached?.pendingChanges) && cached.pendingChanges.length)
-    );
+    return loredeckCreatorGenerationSettingsController.getSplitRetryProvider(settings);
 }
 
 function setLocalLoredeckCreatorGenerationSettings(cached = {}, generationSettings = {}) {
-    const localJob = {
-        ...(cached || {}),
-        generationSettings: normalizeLoredeckCreatorGenerationSettings(generationSettings),
-    };
-    loredeckCreatorBriefCache.set('current', localJob);
-    return localJob;
+    return loredeckCreatorGenerationSettingsController.setLocalGenerationSettings(cached, generationSettings);
 }
 
 function setLoredeckCreatorGenerationSettings(patch = {}) {
-    const cached = getLoredeckCreatorBriefCache();
-    const next = normalizeLoredeckCreatorGenerationSettings({
-        ...getLoredeckCreatorGenerationSettings(cached),
-        ...(patch || {}),
-    });
-    if (!hasPersistableLoredeckCreatorProject(cached)) {
-        return setLocalLoredeckCreatorGenerationSettings(cached, next);
-    }
-    return setLoredeckCreatorBriefCache({
-        ...cached,
-        generationSettings: next,
-    }, { suppressWorkbenchRefresh: true });
+    return loredeckCreatorGenerationSettingsController.setGenerationSettings(patch);
 }
 
 function resetLoredeckCreatorGenerationSettings() {
-    const cached = getLoredeckCreatorBriefCache();
-    if (!hasPersistableLoredeckCreatorProject(cached)) {
-        return setLocalLoredeckCreatorGenerationSettings(cached, LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS);
-    }
-    return setLoredeckCreatorBriefCache({
-        ...cached,
-        generationSettings: { ...LOREDECK_CREATOR_GENERATION_SETTING_DEFAULTS },
-    }, { suppressWorkbenchRefresh: true });
+    return loredeckCreatorGenerationSettingsController.resetGenerationSettings();
 }
 
 function createLoredeckCreatorBriefRevisionForm(brief = {}, cached = {}) {
@@ -4596,11 +2958,6 @@ function createLoredeckCreatorBriefRevisionForm(brief = {}, cached = {}) {
     actions.appendChild(applyLoredeckCreatorGenerationButtonLock(reviseBriefButton, cached, 'brief revision'));
     reviseForm.appendChild(actions);
     return reviseForm;
-}
-
-function isLoredeckCreatorBriefRetryableError(error) {
-    const message = String(error?.message || error || '').toLowerCase();
-    return /response token limit|hit the response token limit|max[_ -]?token|length|truncated|reasoning-only|empty visible content/.test(message);
 }
 
 function markLoredeckCreatorOutlineFailed(error, fallbackMessage = 'Deck Maker outline response could not be parsed.') {
@@ -4631,447 +2988,6 @@ function markLoredeckCreatorActionFailed(error, fallbackMessage = 'Deck Maker ac
         ],
         lastFailedAt: Date.now(),
     });
-}
-
-async function requestLoredeckCreatorBriefResponse(context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = buildLoredeckCreatorBriefSystemPrompt();
-    const userPrompt = buildLoredeckCreatorBriefUserPrompt(context);
-    const requestOptions = { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride };
-    try {
-        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
-    } catch (error) {
-        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
-        if (typeof requestOptions.onProgress === 'function') {
-            requestOptions.onProgress({
-                type: 'phase',
-                phase: 'retry',
-                message: 'Retrying compact scope brief after empty or oversized response...',
-                streamSupported: requestOptions.stream === true,
-            });
-        }
-        const retrySystemPrompt = `${systemPrompt}
-
-RETRY MODE:
-- The previous attempt failed before a usable visible JSON object was returned.
-- Return only the compact scope-brief JSON object from the schema, including creatorCoverage.
-- Do not include generation plans, outline details, timeline anchors, tags, Lorecard titles, entry counts, or prose.`;
-        const retryUserPrompt = `${userPrompt}
-
-Return the compact scope brief now. If the request is too broad, return clarifyingQuestions with "brief": null.`;
-        return await sendLoreRequest(retrySystemPrompt, retryUserPrompt, requestOptions);
-    }
-}
-
-async function repairLoredeckCreatorBriefResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = `You repair Saga Deck Maker intake output.
-
-Return JSON only. Do not include markdown.
-
-Convert the malformed or overlong response into the compact scope-brief contract. Preserve adaptive creatorCoverage when possible. Do not preserve timeline plans, tag plans, title plans, entry counts, or Lorecard facts. If there is not enough usable information, ask 1-3 clarifyingQuestions and set brief null.`;
-    const userPrompt = JSON.stringify({
-        sourceInputs: {
-            fandom: context.fandom || '',
-            scope: context.scope || '',
-            granularity: context.granularity || 'focused',
-            notes: truncateText(context.notes || '', 700),
-            revisionInstruction: truncateText(context.revisionInstruction || '', 700),
-        },
-        expectedShape: {
-            summary: 'one sentence',
-            clarifyingQuestions: [],
-            brief: {
-                title: 'string',
-                packId: 'machine-safe-id',
-                fandom: 'string',
-                scope: 'string',
-                granularity: 'compact|focused|dense|scene_dense',
-                coverageSummary: 'under 60 words',
-                creatorCoverage: {
-                    storyShape: 'single arc|chapter|book|episode|game slice|sparse premise',
-                    storyDensity: 'sparse|moderate|dense',
-                    scopeKind: 'arc|book|chapter|scenario|mechanic',
-                    status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
-                    rationale: 'short adaptive coverage rationale',
-                    expectedCoverage: 'short expectation without a hard count',
-                    likelyNotApplicable: [],
-                    dimensions: [{
-                        id: 'machine-safe-id',
-                        label: 'string',
-                        kind: 'characters|factions|locations|plot|mechanics|relationships|other',
-                        status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
-                        priority: 80,
-                        rationale: 'short reason',
-                        evidenceTargets: [],
-                    }],
-                },
-                assumptions: [],
-            },
-        },
-        malformedResponse: truncateText(responseText, 5000),
-    });
-    if (typeof requestOptionsOverride.onProgress === 'function') {
-        requestOptionsOverride.onProgress({
-            type: 'phase',
-            phase: 'repairing',
-            message: 'Repairing malformed response into compact Deck Maker JSON...',
-            streamSupported: requestOptionsOverride.stream === true,
-        });
-    }
-    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 1536, expectedOutput: 'json', ...requestOptionsOverride });
-}
-
-async function requestLoredeckCreatorOutlineResponse(context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = buildLoredeckCreatorOutlineSystemPrompt();
-    const userPrompt = buildLoredeckCreatorOutlineUserPrompt(context);
-    const requestOptions = { providerKind: 'lore', maxTokens: 4096, expectedOutput: 'json', ...requestOptionsOverride };
-    try {
-        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
-    } catch (error) {
-        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
-        if (typeof requestOptions.onProgress === 'function') {
-            requestOptions.onProgress({
-                type: 'phase',
-                phase: 'retry',
-                message: 'Retrying compact Story Outline after oversized or empty response...',
-                streamSupported: requestOptions.stream === true,
-            });
-        }
-        const retrySystemPrompt = `${systemPrompt}
-
-RETRY MODE:
-- The previous attempt failed before a usable visible JSON object was returned.
-- Return only the compact Story Outline JSON object from the schema.
-- Use at most 8 beats, 8 Context milestones, and 5 titleBatches.
-- Keep each summary/contextRole under 18 words.
-- Do not include prose outside JSON.`;
-        const retryUserPrompt = `${userPrompt}
-
-Return the compact Story Outline now. If the approved Scope Brief is still too broad, return clarifyingQuestions with "outline": null.`;
-        return await sendLoreRequest(retrySystemPrompt, retryUserPrompt, requestOptions);
-    }
-}
-
-async function repairLoredeckCreatorOutlineResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = `You repair Saga Deck Maker Story Outline output.
-
-Return JSON only. Do not include markdown.
-
-Convert the malformed, partial, or overlong response into the compact Story Outline contract. Preserve only reviewable story beats, Context milestones, title-batch slices, creatorCoverage, and assumptions. Do not generate Lorecards, Lorecard titles, tag registries, timeline registry records, facts, or injection text. If there is not enough usable information, ask 1-3 clarifyingQuestions and set outline null.`;
-    const userPrompt = JSON.stringify({
-        sourceInputs: {
-            approvedBrief: context.brief || null,
-            notes: truncateText(context.notes || '', 700),
-            revisionInstruction: truncateText(context.revisionInstruction || '', 700),
-            previousOutline: context.previousOutline || null,
-        },
-        expectedShape: {
-            summary: 'one sentence',
-            clarifyingQuestions: [],
-            outline: {
-                label: 'string',
-                coverageSummary: 'under 70 words',
-                creatorCoverage: {
-                    storyShape: 'string',
-                    storyDensity: 'sparse|moderate|dense',
-                    scopeKind: 'string',
-                    status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
-                    rationale: 'short reason',
-                    expectedCoverage: 'short expectation without a hard count',
-                    likelyNotApplicable: [],
-                    dimensions: [{
-                        id: 'machine-safe-id',
-                        label: 'string',
-                        kind: 'string',
-                        status: 'missing|thin|adequate|rich|not_applicable|intentionally_light',
-                        priority: 80,
-                        rationale: 'short reason',
-                        evidenceTargets: [],
-                        titleBatchIds: [],
-                    }],
-                },
-                beats: [{ id: 'machine-safe-id', label: 'string', type: 'beat', order: 10, summary: 'short sentence', contextRole: 'short sentence', titleTargets: [], coverageDimensionIds: [] }],
-                contextMilestones: [{ id: 'machine-safe-id', label: 'string', type: 'before_after', order: 10, summary: 'short sentence', contextRole: 'short sentence', coverageDimensionIds: [] }],
-                titleBatches: [{ id: 'machine-safe-id', label: 'string', type: 'title_batch', order: 10, summary: 'short sentence', coverageDimensionIds: [] }],
-                assumptions: [],
-            },
-        },
-        limits: {
-            beats: 8,
-            contextMilestones: 8,
-            titleBatches: 5,
-            maxVisibleJsonTokens: 1600,
-        },
-        malformedResponse: truncateText(responseText, 7000),
-    });
-    if (typeof requestOptionsOverride.onProgress === 'function') {
-        requestOptionsOverride.onProgress({
-            type: 'phase',
-            phase: 'repairing',
-            message: 'Repairing malformed Story Outline into compact Deck Maker JSON...',
-            streamSupported: requestOptionsOverride.stream === true,
-        });
-    }
-    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride });
-}
-
-async function requestLoredeckCreatorTitleResponse(context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = buildLoredeckCreatorTitleSystemPrompt();
-    const userPrompt = buildLoredeckCreatorTitleUserPrompt(context);
-    const requestOptions = {
-        providerKind: 'lore',
-        maxTokens: context.revisionInstruction ? 4096 : 4096,
-        expectedOutput: 'json',
-        ...requestOptionsOverride,
-    };
-    try {
-        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
-    } catch (error) {
-        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
-        if (typeof requestOptions.onProgress === 'function') {
-            requestOptions.onProgress({
-                type: 'phase',
-                phase: 'retry',
-                message: 'Retrying compact title set after oversized or empty response...',
-                streamSupported: requestOptions.stream === true,
-            });
-        }
-        const retrySystemPrompt = `${systemPrompt}
-
-RETRY MODE:
-- The previous attempt failed before valid visible JSON was returned.
-- Return only the compact Title Pass JSON object from the schema.
-- Generate at most ${Math.max(1, Math.min(12, Number(context.titlePassLimit || 8)))} titles for the supplied targetTitleBatch.
-- Omit rubric unless a compact quality score adds useful review context; if included, use only wikiSummaryRisk and one useful key.
-- Keep each reason under 18 words and each contextHint under 18 words.
-- Do not include prose outside JSON.`;
-        return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
-    }
-}
-
-async function repairLoredeckCreatorTitleResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = `You repair Saga Deck Maker Title Pass output.
-
-Return JSON only. Do not include markdown.
-
-Convert the malformed, partial, overlong, or structurally wrong response into the compact Title Pass contract. Preserve usable title drafts and coverageDimensionIds from the source. Do not generate Lorecards, facts, injection text, timeline anchors, timeline windows, or tag registries. If there is not enough usable title information, ask 1-3 clarifyingQuestions and return an empty titleDrafts array.`;
-    const userPrompt = JSON.stringify({
-        sourceInputs: {
-            approvedBrief: context.brief || null,
-            targetTitleBatch: context.targetTitleBatch || null,
-            revisionInstruction: truncateText(context.revisionInstruction || '', 700),
-            selectedTitleDrafts: Array.isArray(context.selectedTitleDrafts) ? context.selectedTitleDrafts.slice(0, 20) : [],
-            titlePassLimit: Math.max(1, Math.min(12, Number(context.titlePassLimit || 8))),
-        },
-        expectedShape: {
-            summary: 'one sentence',
-            clarifyingQuestions: [],
-            batch: {
-                label: 'string',
-                coverage: 'under 40 words',
-                nextBatchHint: 'optional string',
-                complete: false,
-            },
-            titleDrafts: [{
-                titleId: 'machine-safe-id',
-                title: 'string',
-                category: 'string',
-                priority: 80,
-                relevance: 'high|medium|low',
-                contextHint: 'short timing or activation hint',
-                tags: ['namespaced:tag'],
-                reason: 'short review rationale',
-                coverageDimensionIds: [],
-                rubric: { wikiSummaryRisk: 'low' },
-            }],
-        },
-        limits: {
-            titleDrafts: Math.max(1, Math.min(12, Number(context.titlePassLimit || 8))),
-            maxReasonWords: 18,
-            maxContextHintWords: 18,
-            compactJson: true,
-        },
-        malformedResponse: truncateText(responseText, 9000),
-    });
-    if (typeof requestOptionsOverride.onProgress === 'function') {
-        requestOptionsOverride.onProgress({
-            type: 'phase',
-            phase: 'repairing',
-            message: 'Repairing malformed Title Pass into compact Deck Maker JSON...',
-            streamSupported: requestOptionsOverride.stream === true,
-        });
-    }
-    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride });
-}
-
-async function requestLoredeckCreatorPlanningResponse(context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = buildLoredeckCreatorPlanningSystemPrompt();
-    const userPrompt = buildLoredeckCreatorPlanningUserPrompt(context);
-    const requestOptions = { providerKind: 'lore', maxTokens: 4096, expectedOutput: 'json', ...requestOptionsOverride };
-    try {
-        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
-    } catch (error) {
-        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
-        if (typeof requestOptions.onProgress === 'function') {
-            requestOptions.onProgress({
-                type: 'phase',
-                phase: 'retry',
-                message: 'Retrying compact Context and Tag plan after oversized or empty response...',
-                streamSupported: requestOptions.stream === true,
-            });
-        }
-        const retrySystemPrompt = `${systemPrompt}
-
-RETRY MODE:
-- The previous attempt failed before valid visible JSON was returned.
-- Return only the compact proposal JSON object from the schema.
-- Return at most ${Math.max(1, Math.min(24, Number(context.proposalLimit || 16)))} planning proposals.
-- Supported actions only: upsert_timeline_anchor, upsert_timeline_window, upsert_tag_definition.
-- Omit rubric unless a compact quality score adds useful review context; if included, use only wikiSummaryRisk and one useful key.
-- Keep each reason under 18 words.
-- Do not include prose outside JSON.`;
-        return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
-    }
-}
-
-async function repairLoredeckCreatorPlanningResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = `You repair Saga Deck Maker Context and Tag planning output.
-
-Return JSON only. Do not include markdown.
-
-Convert the malformed, partial, overlong, or structurally wrong response into the compact proposal contract. Preserve usable planning proposals from the source. Return only upsert_timeline_anchor, upsert_timeline_window, and upsert_tag_definition proposals. Do not generate Lorecards, facts, injection text, or entry overrides. If there is not enough usable planning information, ask 1-3 clarifyingQuestions and return an empty proposals array.`;
-    const userPrompt = JSON.stringify({
-        sourceInputs: {
-            generatedPackId: context.generatedPackId || '',
-            approvedBrief: context.brief || null,
-            targetPlanningBatch: context.targetPlanningBatch || null,
-            approvedTitleDrafts: Array.isArray(context.approvedTitleDrafts) ? context.approvedTitleDrafts.slice(0, 24) : [],
-            existingTimelineIds: Array.isArray(context.existingTimelineIds) ? context.existingTimelineIds.slice(0, 120) : [],
-            existingTagIds: Array.isArray(context.existingTagIds) ? context.existingTagIds.slice(0, 160) : [],
-            proposalLimit: Math.max(1, Math.min(24, Number(context.proposalLimit || 16))),
-        },
-        expectedShape: {
-            summary: 'one sentence',
-            clarifyingQuestions: [],
-            proposals: [{
-                action: 'upsert_timeline_anchor|upsert_timeline_window|upsert_tag_definition',
-                title: 'string',
-                timelineId: 'optional-id',
-                tagId: 'optional-id',
-                timelineAnchor: 'object when action is upsert_timeline_anchor',
-                timelineWindow: 'object when action is upsert_timeline_window',
-                tagDefinition: 'object when action is upsert_tag_definition',
-                reason: 'short review rationale',
-                confidence: 0.8,
-                risk: 'low|medium|high',
-                rubric: { wikiSummaryRisk: 'low' },
-            }],
-        },
-        limits: {
-            proposals: Math.max(1, Math.min(24, Number(context.proposalLimit || 16))),
-            supportedActionsOnly: true,
-            compactJson: true,
-        },
-        malformedResponse: truncateText(responseText, 9000),
-    });
-    if (typeof requestOptionsOverride.onProgress === 'function') {
-        requestOptionsOverride.onProgress({
-            type: 'phase',
-            phase: 'repairing',
-            message: 'Repairing malformed Context and Tag plan into compact Deck Maker JSON...',
-            streamSupported: requestOptionsOverride.stream === true,
-        });
-    }
-    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 2048, expectedOutput: 'json', ...requestOptionsOverride });
-}
-
-async function requestLoredeckCreatorEntryResponse(context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = buildLoredeckCreatorEntrySystemPrompt();
-    const userPrompt = buildLoredeckCreatorEntryUserPrompt(context);
-    const requestOptions = { providerKind: 'lore', maxTokens: 8192, expectedOutput: 'json', ...requestOptionsOverride };
-    try {
-        return await sendLoreRequest(systemPrompt, userPrompt, requestOptions);
-    } catch (error) {
-        if (!isLoredeckCreatorBriefRetryableError(error)) throw error;
-        if (typeof requestOptions.onProgress === 'function') {
-            requestOptions.onProgress({
-                type: 'phase',
-                phase: 'retry',
-                message: 'Retrying compact Lorecard micro-batch after oversized or empty response...',
-                streamSupported: requestOptions.stream === true,
-            });
-        }
-        const retrySystemPrompt = `${systemPrompt}
-
-RETRY MODE:
-- The previous attempt failed before valid visible JSON was returned.
-- Return only the compact proposal JSON object from the schema.
-- Return only upsert_entry proposals for the supplied targetTitleDrafts.
-- Keep fact under 60 words, injection under 75 words, notes under 24 words, and reason under 20 words.
-- Omit rubric unless needed; if included, use only wikiSummaryRisk and one useful key.
-- Do not include prose outside JSON.`;
-        return await sendLoreRequest(retrySystemPrompt, userPrompt, requestOptions);
-    }
-}
-
-async function repairLoredeckCreatorEntryResponse(responseText = '', context = {}, requestOptionsOverride = {}) {
-    const systemPrompt = `You repair Saga Deck Maker Lorecard drafting output.
-
-Return JSON only. Do not include markdown.
-
-Convert the malformed, partial, overlong, or structurally wrong response into the compact proposal contract. Preserve usable upsert_entry proposals from the source. Return only upsert_entry proposals for the supplied targetTitleDrafts. Do not generate timeline, tag, disable, restore, manifest, or settings proposals. If there is not enough usable entry information, ask 1-3 clarifyingQuestions and return an empty proposals array.`;
-    const userPrompt = JSON.stringify({
-        sourceInputs: {
-            generatedPackId: context.generatedPackId || '',
-            approvedBrief: context.brief || null,
-            targetPlanningBatch: context.targetPlanningBatch || null,
-            targetTitleDrafts: Array.isArray(context.targetTitleDrafts) ? context.targetTitleDrafts.slice(0, 6) : [],
-            acceptedTimelineRegistry: context.timelineRegistry || null,
-            acceptedTagRegistry: context.tagRegistry || null,
-            existingEntryIds: Array.isArray(context.existingEntryIds) ? context.existingEntryIds.slice(0, 160) : [],
-        },
-        expectedShape: {
-            summary: 'one sentence',
-            clarifyingQuestions: [],
-            proposals: [{
-                action: 'upsert_entry',
-                title: 'Draft entry: title',
-                entryId: 'target-entry-id',
-                entry: {
-                    id: 'target-entry-id',
-                    schemaVersion: 3,
-                    title: 'string',
-                    category: 'string',
-                    canon: 'canon',
-                    canonStatus: 'canon',
-                    relevance: 'high|medium|low',
-                    priority: 80,
-                    tags: [],
-                    context: {},
-                    retrieval: {},
-                    content: { fact: 'short useful constraint', injection: 'short scene instruction', notes: 'optional' },
-                },
-                reason: 'short review rationale',
-                confidence: 0.8,
-                risk: 'low|medium|high',
-                rubric: { wikiSummaryRisk: 'low' },
-            }],
-        },
-        limits: {
-            proposals: Math.max(1, Math.min(6, Number(context.entryBatchLimit || 3))),
-            upsertEntriesOnly: true,
-            compactJson: true,
-        },
-        malformedResponse: truncateText(responseText, 12000),
-    });
-    if (typeof requestOptionsOverride.onProgress === 'function') {
-        requestOptionsOverride.onProgress({
-            type: 'phase',
-            phase: 'repairing',
-            message: 'Repairing malformed Lorecard batch into compact Deck Maker JSON...',
-            streamSupported: requestOptionsOverride.stream === true,
-        });
-    }
-    return await sendLoreRequest(systemPrompt, userPrompt, { providerKind: 'lore', maxTokens: 4096, expectedOutput: 'json', ...requestOptionsOverride });
 }
 
 async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
@@ -5523,34 +3439,6 @@ function attachLoredeckCreatorTitleBatch(drafts = [], batch = {}) {
         creatorTitleBatchLabel: draft.creatorTitleBatchLabel || batchLabel,
         coverageDimensionIds: draft.coverageDimensionIds?.length ? draft.coverageDimensionIds : batchCoverageDimensionIds,
     }));
-}
-
-function isLoredeckCreatorParsedTitlePassUsable(parsed = null) {
-    return !!parsed
-        && typeof parsed === 'object'
-        && !Array.isArray(parsed)
-        && ((Array.isArray(parsed.titleDrafts) && parsed.titleDrafts.length > 0)
-            || (Array.isArray(parsed.clarifyingQuestions) && parsed.clarifyingQuestions.length > 0));
-}
-
-function validateLoredeckCreatorTitlePassResult(parsed = null) {
-    if (isLoredeckCreatorParsedTitlePassUsable(parsed)) return true;
-    return createLoredeckCreatorStageValidationFailure(
-        'creator_title_pass_no_title_drafts',
-        'Valid JSON returned no usable Deck Maker title drafts.'
-    );
-}
-
-function buildLoredeckCreatorTitleGenerationUnitId(actionId = '', targetTitleBatch = null, selectedTitleDrafts = []) {
-    const action = String(actionId || 'title_batch_draft').trim();
-    const batchId = normalizeLoredeckCreatorTitleId(targetTitleBatch?.id || targetTitleBatch?.label || '', '');
-    const selectedIds = Array.isArray(selectedTitleDrafts)
-        ? selectedTitleDrafts.map(item => normalizeLoredeckCreatorTitleId(item?.titleId || item?.id || '', '')).filter(Boolean).sort()
-        : [];
-    const seed = action === 'title_revision'
-        ? (selectedIds.join('_') || 'selected_titles')
-        : (batchId || 'next_title_batch');
-    return `creator_${action}:${seed}`.replace(/[^a-zA-Z0-9:._-]+/g, '_').slice(0, 220);
 }
 
 function commitLoredeckCreatorTitleDraftResult(parsed = {}, options = {}) {
@@ -6191,90 +4079,6 @@ async function handleLoredeckCreatorRemainingTitleBatches(button = null) {
     return result;
 }
 
-function getLoredeckCreatorGeneratedPackId(cached = {}) {
-    return normalizeLoredeckPackId(cached.generatedPackId || cached.brief?.packId || cached.brief?.title || 'generated-loredeck');
-}
-
-function buildLoredeckCreatorGeneratedTags(brief = {}) {
-    const base = ['origin:generated', 'quality:model-drafted', 'saga:creator'];
-    const fandom = normalizeLoredeckTagId(`fandom:${brief.fandom || ''}`);
-    if (fandom) base.push(fandom);
-    return parseLoredeckTags(base.join(', '));
-}
-
-function buildLoredeckCreatorGeneratedManifestSeed(packId = '', brief = {}) {
-    return {
-        schemaVersion: 3,
-        id: packId,
-        type: 'generated',
-        title: brief.title || packId,
-        description: brief.coverage || `Generated Loredeck draft for ${brief.scope || brief.fandom || packId}.`,
-        fandom: brief.fandom || '',
-        era: brief.scope || '',
-        author: 'Saga Deck Maker',
-        version: '0.1.0',
-        entrySchemaVersion: 3,
-        files: [],
-        registries: {
-            timeline: 'timeline.json',
-            tags: 'tags.json',
-        },
-        tags: buildLoredeckCreatorGeneratedTags(brief),
-        stats: {
-            entryCount: 0,
-            categoryCounts: {},
-        },
-        health: {
-            status: 'draft',
-        },
-    };
-}
-
-function buildLoredeckCreatorGeneratedPackRecord(cached = {}, packId = '', existing = null) {
-    const brief = cached.brief || {};
-    const id = normalizeLoredeckPackId(packId || getLoredeckCreatorGeneratedPackId(cached)) || getUniqueLoredeckPackId('generated-loredeck');
-    const manifestSeed = buildLoredeckCreatorGeneratedManifestSeed(id, brief);
-    const record = {
-        ...(existing || {}),
-        packId: id,
-        type: 'generated',
-        title: brief.title || existing?.title || id,
-        description: brief.coverage || existing?.description || `Generated Loredeck draft for ${brief.scope || brief.fandom || id}.`,
-        fandom: brief.fandom || existing?.fandom || '',
-        era: brief.scope || existing?.era || '',
-        author: existing?.author || 'Saga Deck Maker',
-        version: existing?.version || '0.1.0',
-        entrySchemaVersion: 3,
-        manifest: existing?.manifest || '',
-        source: {
-            ...(existing?.source || {}),
-            kind: 'generated',
-            url: '',
-            updateUrl: '',
-        },
-        tags: Array.isArray(existing?.tags) && existing.tags.length ? existing.tags : manifestSeed.tags,
-        stats: existing?.stats || manifestSeed.stats,
-        healthStatus: existing?.healthStatus || 'draft',
-        derivedFrom: existing?.derivedFrom || {
-            kind: 'saga_creator',
-            title: brief.title || id,
-            fandom: brief.fandom || '',
-            scope: brief.scope || '',
-            granularity: brief.granularity || '',
-            createdAt: Date.now(),
-        },
-        entryOverrides: existing?.entryOverrides || {},
-        disabledEntryIds: Array.isArray(existing?.disabledEntryIds) ? existing.disabledEntryIds : [],
-        tagRegistry: normalizeLoredeckTagRegistry(existing?.tagRegistry),
-        timelineRegistry: normalizeLoredeckTimelineRegistry(existing?.timelineRegistry),
-        pendingChanges: normalizeLoredeckPendingChanges(existing?.pendingChanges),
-        installedAt: existing?.installedAt || Date.now(),
-        updatedAt: Date.now(),
-    };
-    record.manifestData = buildEmbeddedCustomManifest(manifestSeed, record);
-    return record;
-}
-
 function ensureLoredeckCreatorGeneratedPack(cached = getLoredeckCreatorBriefCache()) {
     const brief = cached.brief || {};
     if (!brief) {
@@ -6293,13 +4097,13 @@ function ensureLoredeckCreatorGeneratedPack(cached = getLoredeckCreatorBriefCach
     if (!existing && getLoredeckDefinition(packId)) {
         packId = getUniqueLoredeckPackId(`${packId}-generated`);
     }
-    const record = buildLoredeckCreatorGeneratedPackRecord(cached, packId, existing);
+    const record = buildLoredeckCreatorGeneratedPackRecord(cached, packId, existing, { createUniquePackId: getUniqueLoredeckPackId });
     const result = upsertLoredeckLibraryPack(record);
     if (!result.ok) {
         toast(result.error || 'Generated Loredeck shell could not be saved.', 'error');
         return null;
     }
-    loredeckManifestPreviewCache.set(packId, {
+    loredeckPreviewCacheController.setManifestPreview(packId, {
         manifest: record.manifestData,
         error: '',
         loadedAt: Date.now(),
@@ -6374,63 +4178,6 @@ function getLoredeckCreatorPlanningPlannedBatchIds(cached = {}, pack = null) {
         ...getLoredeckCreatorPlanningQueuedBatchIds(cached, pack),
         ...getLoredeckCreatorPlanningAcceptedBatchIds(cached),
     ]);
-}
-
-const LOREDECK_CREATOR_PLANNING_ACTIONS = new Set([
-    'upsert_tag_definition',
-    'upsert_timeline_anchor',
-    'upsert_timeline_window',
-]);
-
-function isLoredeckCreatorPlanningProposal(proposal = {}) {
-    return LOREDECK_CREATOR_PLANNING_ACTIONS.has(String(proposal?.action || '').trim());
-}
-
-function isLoredeckCreatorParsedPlanningUsable(parsed = null) {
-    return validateLoredeckCreatorPlanningResult(parsed) === true;
-}
-
-function validateLoredeckCreatorPlanningResult(parsed = null) {
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-        return createLoredeckCreatorStageValidationFailure(
-            'creator_planning_invalid_result',
-            'Deck Maker Context and Tag planning returned no usable JSON object.'
-        );
-    }
-    if (hasLoredeckCreatorClarifyingQuestions(parsed)) return true;
-    const proposals = Array.isArray(parsed.proposals) ? parsed.proposals : [];
-    if (proposals.some(isLoredeckCreatorPlanningProposal)) return true;
-    if (proposals.length) {
-        return createLoredeckCreatorStageValidationFailure(
-            'creator_planning_no_supported_actions',
-            'Valid JSON returned no supported Context or Tag planning proposals.'
-        );
-    }
-    return createLoredeckCreatorStageValidationFailure(
-        'creator_planning_no_proposals',
-        'Valid JSON returned no Context or Tag planning proposals.'
-    );
-}
-
-function getLoredeckCreatorPlanningBatchIdentity(batch = {}) {
-    const id = normalizeLoredeckCreatorTitleId(batch?.id || batch?.label || '', '');
-    return {
-        id,
-        label: String(batch?.label || id || 'Context Set').trim(),
-    };
-}
-
-function buildLoredeckCreatorPlanningGenerationUnitId(targetPlanningBatch = null, targetApprovedTitles = []) {
-    const batchIdentity = getLoredeckCreatorPlanningBatchIdentity(targetPlanningBatch || {});
-    const titleSeed = Array.isArray(targetApprovedTitles)
-        ? targetApprovedTitles
-            .map(item => normalizeLoredeckCreatorTitleId(item?.titleId || item?.id || item?.title || '', ''))
-            .filter(Boolean)
-            .sort()
-            .join('_')
-        : '';
-    const seed = `${batchIdentity.id || 'next_context_set'}:${titleSeed || 'approved_titles'}`;
-    return `creator_planning_batch:${seed}`.replace(/[^a-zA-Z0-9:._-]+/g, '_').slice(0, 220);
 }
 
 function getLoredeckCreatorPlanningBatchRows(cached = {}) {
@@ -7349,59 +5096,6 @@ function markLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}, targ
             },
         },
     };
-}
-
-function isLoredeckCreatorParsedEntryDraftUsable(parsed = null) {
-    return validateLoredeckCreatorEntryDraftResult(parsed) === true;
-}
-
-function isLoredeckCreatorEntryDraftProposal(proposal = {}) {
-    return String(proposal?.action || '').trim() === 'upsert_entry';
-}
-
-function validateLoredeckCreatorEntryDraftResult(parsed = null) {
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-        return createLoredeckCreatorStageValidationFailure(
-            'creator_entry_draft_invalid_result',
-            'Deck Maker Lorecard drafting returned no usable JSON object.'
-        );
-    }
-    if (hasLoredeckCreatorClarifyingQuestions(parsed)) return true;
-    const proposals = Array.isArray(parsed.proposals) ? parsed.proposals : [];
-    if (proposals.some(isLoredeckCreatorEntryDraftProposal)) return true;
-    if (proposals.length) {
-        return createLoredeckCreatorStageValidationFailure(
-            'creator_entry_draft_no_supported_actions',
-            'Valid JSON returned no supported Deck Maker Lorecard draft proposals.'
-        );
-    }
-    return createLoredeckCreatorStageValidationFailure(
-        'creator_entry_draft_no_proposals',
-        'Valid JSON returned no Deck Maker Lorecard draft proposals.'
-    );
-}
-
-function getLoredeckCreatorEntryTargetIds(targetTitles = []) {
-    return new Set((Array.isArray(targetTitles) ? targetTitles : [])
-        .map(draft => normalizeLoredeckEntryId(draft?.titleId || draft?.id || draft?.targetEntryId || ''))
-        .filter(Boolean));
-}
-
-function buildLoredeckCreatorEntryGenerationUnitId(targetPlanningBatch = null, targetTitles = []) {
-    const batchId = normalizeLoredeckCreatorTitleId(targetPlanningBatch?.id || targetPlanningBatch?.label || '', '');
-    const titleSeed = [...getLoredeckCreatorEntryTargetIds(targetTitles)].sort().join('_') || 'target_titles';
-    return `creator_entry_micro_batch:${batchId || 'context_set'}:${titleSeed}`
-        .replace(/[^a-zA-Z0-9:._-]+/g, '_')
-        .slice(0, 220);
-}
-
-function createLoredeckCreatorEntryChangeId(change = {}, batch = {}, unitId = '', index = 0) {
-    const batchId = normalizeLoredeckCreatorTitleId(batch?.id || batch?.label || '', '');
-    const entryId = normalizeLoredeckEntryId((change.affectedEntryIds || [])[0] || Object.keys(change.payload?.entryOverrides || {})[0] || '');
-    const seed = [batchId || 'batch', entryId || change.title || index + 1, unitId || 'unit'].filter(Boolean).join('_');
-    return `creator_entry_${seed}`
-        .replace(/[^a-zA-Z0-9:._-]+/g, '_')
-        .slice(0, 220);
 }
 
 function prepareLoredeckCreatorEntryChange(change = {}, pack = {}, batch = {}, unitId = '', targetTitles = [], index = 0) {
@@ -9123,7 +6817,7 @@ function getContextResolverMissReasons(pack, analysis = {}, packIndex = null) {
     if (analysis.directionTerms?.length) {
         lines.push(`Direction word${analysis.directionTerms.length === 1 ? '' : 's'} ignored: ${analysis.directionTerms.join(', ')}.`);
     }
-    const cachedEntries = loredeckEntryPreviewCache.get(pack?.packId);
+    const cachedEntries = loredeckPreviewCacheController.getEntryPreview(pack?.packId);
     if (!cachedEntries?.loadedAt) {
         lines.push('Lorecards are not loaded in this workbench yet, so entry-level Context gates were not searched.');
         return lines;
@@ -9195,7 +6889,7 @@ function contextAliasesFromEntry(entry = {}) {
 }
 
 function getContextEntryResolverMatches(pack, analysis = {}, options = {}) {
-    const cachedEntries = loredeckEntryPreviewCache.get(pack?.packId);
+    const cachedEntries = loredeckPreviewCacheController.getEntryPreview(pack?.packId);
     if (!cachedEntries?.loadedAt || !Array.isArray(cachedEntries.entries)) return [];
     const terms = Array.isArray(analysis.terms) ? analysis.terms : [];
     if (!terms.length) return [];
@@ -9411,7 +7105,7 @@ function queueContextEntryCandidateTimelineAnchor(pack, match = {}) {
 }
 
 function getContextWorkbenchEntryRows(pack = {}) {
-    const cached = loredeckEntryPreviewCache.get(String(pack?.packId || '').trim()) || {};
+    const cached = loredeckPreviewCacheController.getEntryPreview(pack?.packId, {});
     return getLoredeckEditableEntryRows(pack, Array.isArray(cached.entries) ? cached.entries : []);
 }
 
@@ -9771,7 +7465,7 @@ function reconcileLoredeckCreatorDraftCacheWithPack(packId = '', cache = {}, pac
         delete next.selectedDraftChangeIds;
     }
     next.qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(retained);
-    loredeckAssistantDraftCache.set(id, next);
+    loredeckAssistantDraftCacheController.setRecord(id, next);
     if (options.syncJob !== false) syncLoredeckCreatorDraftCacheToJob(id, next);
     return next;
 }
@@ -9779,7 +7473,7 @@ function reconcileLoredeckCreatorDraftCacheWithPack(packId = '', cache = {}, pac
 function getLoredeckCreatorDraftCacheForPack(packId = '') {
     const id = String(packId || '').trim();
     if (!id) return {};
-    const current = loredeckAssistantDraftCache.get(id) || {};
+    const current = loredeckAssistantDraftCacheController.getRecord(id);
     const currentDraftChanges = getLoredeckAssistantDraftChanges(current);
     if (currentDraftChanges.length) {
         return reconcileLoredeckCreatorDraftCacheWithPack(id, current);
@@ -9805,7 +7499,7 @@ function getLoredeckCreatorDraftCacheForPack(packId = '') {
         updatedAt: job.updatedAt || Date.now(),
     };
     hydrated.qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(draftChanges);
-    loredeckAssistantDraftCache.set(id, hydrated);
+    loredeckAssistantDraftCacheController.setRecord(id, hydrated);
     if (draftChanges.length !== rawDraftChanges.length) syncLoredeckCreatorDraftCacheToJob(id, hydrated);
     return hydrated;
 }
@@ -9815,7 +7509,7 @@ function syncLoredeckCreatorDraftCacheToJob(packId = '', draftCache = null) {
     if (!id) return null;
     const job = getLoredeckCreatorJobForPackId(id);
     if (!job) return null;
-    const cache = draftCache || loredeckAssistantDraftCache.get(id) || {};
+    const cache = draftCache || loredeckAssistantDraftCacheController.getRecord(id);
     const draftChanges = getLoredeckAssistantDraftChanges(cache)
         .filter(change => String(change?.source || '').trim() === 'loredeck_creator');
     if (!isLoredeckCreatorDraftCache(cache) && !Array.isArray(job.draftChanges)) return null;
@@ -10238,7 +7932,7 @@ function getLoredeckEmbeddedTimelineRegistry(pack = {}) {
 }
 
 function getLoredeckCachedSourceTimelineRegistry(packId) {
-    const cached = loredeckTimelineRegistryCache.get(String(packId || '').trim());
+    const cached = loredeckPreviewCacheController.getTimelineRegistry(packId);
     return normalizeLoredeckTimelineRegistry(cached?.sourceRegistry);
 }
 
@@ -10247,7 +7941,7 @@ function getLoredeckEmbeddedTagRegistry(pack = {}) {
 }
 
 function getLoredeckCachedSourceTagRegistry(packId) {
-    const cached = loredeckTagRegistryCache.get(String(packId || '').trim());
+    const cached = loredeckPreviewCacheController.getTagRegistry(packId);
     return normalizeLoredeckTagRegistry(cached?.sourceRegistry);
 }
 
@@ -10658,28 +8352,8 @@ function getLoredeckAssistantDraftChanges(cached = {}) {
     return normalizeLoredeckPendingChanges(cached?.draftChanges);
 }
 
-function normalizeLoredeckAssistantDraftChangeIds(value = [], limit = 500) {
-    if (!Array.isArray(value)) return [];
-    const out = [];
-    const seen = new Set();
-    for (const raw of value) {
-        const id = String(raw || '').trim();
-        if (!id || seen.has(id)) continue;
-        seen.add(id);
-        out.push(id);
-        if (out.length >= limit) break;
-    }
-    return out;
-}
-
 function getLoredeckAssistantSelectedDraftIds(cached = {}) {
-    const changes = getLoredeckAssistantDraftChanges(cached);
-    const validIds = new Set(changes.map(change => change.changeId));
-    if (!Object.prototype.hasOwnProperty.call(cached || {}, 'selectedDraftChangeIds')) {
-        return new Set(validIds);
-    }
-    const selected = new Set(normalizeLoredeckAssistantDraftChangeIds(cached.selectedDraftChangeIds).filter(id => validIds.has(id)));
-    return selected;
+    return loredeckAssistantDraftCacheController.getSelectedDraftIds(cached);
 }
 
 function getLoredeckAssistantSelectedDraftChanges(cached = {}) {
@@ -10688,59 +8362,19 @@ function getLoredeckAssistantSelectedDraftChanges(cached = {}) {
 }
 
 function updateLoredeckAssistantDraftCache(packId = '', mutator = null) {
-    const id = String(packId || '').trim();
-    if (!id || typeof mutator !== 'function') return null;
-    const current = loredeckAssistantDraftCache.get(id) || {};
-    const currentForMutation = {
-        ...current,
-        draftChanges: getLoredeckAssistantDraftChanges(current),
-    };
-    if (Object.prototype.hasOwnProperty.call(current, 'selectedDraftChangeIds')) {
-        currentForMutation.selectedDraftChangeIds = normalizeLoredeckAssistantDraftChangeIds(current.selectedDraftChangeIds || []);
-    } else {
-        delete currentForMutation.selectedDraftChangeIds;
-    }
-    const next = mutator(currentForMutation) || currentForMutation;
-    const normalized = {
-        ...next,
-        draftChanges: getLoredeckAssistantDraftChanges(next),
-    };
-    if (Object.prototype.hasOwnProperty.call(next, 'selectedDraftChangeIds')) {
-        normalized.selectedDraftChangeIds = normalizeLoredeckAssistantDraftChangeIds(next.selectedDraftChangeIds || []);
-    } else {
-        delete normalized.selectedDraftChangeIds;
-    }
-    if (!normalized.draftChanges.length) {
-        delete normalized.draftChanges;
-        delete normalized.selectedDraftChangeIds;
-    }
-    normalized.qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(normalized.draftChanges || []);
-    loredeckAssistantDraftCache.set(id, normalized);
-    return normalized;
+    return loredeckAssistantDraftCacheController.updateRecord(packId, mutator);
 }
 
 function setLoredeckAssistantDraftSelection(pack, changeId = '', selected = false, options = {}) {
-    const id = String(changeId || '').trim();
-    if (!id) return;
-    updateLoredeckAssistantDraftCache(pack.packId, cached => {
-        const selectedIds = getLoredeckAssistantSelectedDraftIds(cached);
-        if (selected) selectedIds.add(id);
-        else selectedIds.delete(id);
-        return { ...cached, selectedDraftChangeIds: [...selectedIds] };
-    });
+    if (!String(changeId || '').trim()) return;
+    loredeckAssistantDraftCacheController.setDraftSelection(pack.packId, changeId, selected);
     if (options.refresh && !refreshLoredeckAssistantDraftSelectionUi(pack)) {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     }
 }
 
 function setLoredeckAssistantDraftSelectionBulk(pack, mode = 'all') {
-    updateLoredeckAssistantDraftCache(pack.packId, cached => {
-        const changes = getLoredeckAssistantDraftChanges(cached);
-        return {
-            ...cached,
-            selectedDraftChangeIds: mode === 'all' ? changes.map(change => change.changeId) : [],
-        };
-    });
+    loredeckAssistantDraftCacheController.setDraftSelectionBulk(pack.packId, mode);
     if (!refreshLoredeckAssistantDraftSelectionUi(pack)) {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     }
@@ -10825,69 +8459,11 @@ function updateLoredeckAssistantDraftAfterRemoval(packId, removedIds = new Set()
 }
 
 async function queueLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
-    const cached = getLoredeckCreatorDraftCacheForPack(pack.packId);
-    const draftChanges = getLoredeckAssistantDraftChanges(cached);
-    const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
-        || (draftChanges.length > 0 && draftChanges.every(change => String(change.source || '').trim() === 'loredeck_creator'));
-    const idSet = selectedIds instanceof Set ? selectedIds : new Set(normalizeLoredeckPendingIdList(selectedIds || []));
-    const selected = draftChanges.filter(change => idSet.has(change.changeId));
-    if (!selected.length) {
-        toast(creatorBatch ? 'Select Deck Maker Lorecard drafts to send to review.' : 'Select assistant draft proposals to queue.', 'warning');
-        return false;
-    }
-    let fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-    try {
-        fresh = await hydrateExternalLorepackPayloadRecord(fresh);
-    } catch (error) {
-        console.warn('[Saga] Loredeck draft handoff payload hydration failed:', error);
-        toast(error?.message || 'Loredeck payload could not be loaded before sending drafts to review.', 'warning');
-        return false;
-    }
-    const queued = queueLoredeckPendingChanges(
-        fresh,
-        selected,
-        creatorBatch
-            ? `Sent ${selected.length} Deck Maker Lorecard draft${selected.length === 1 ? '' : 's'} to Pending Review.`
-            : `Queued ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'} for Pending Review.`
-    );
-    if (!queued) return false;
-    const queuedPersisted = await confirmLoredeckAssistantDraftStorage(
-        creatorBatch ? 'Deck Maker draft handoff' : 'Assistant draft handoff',
-        { creator: false }
-    );
-    if (!queuedPersisted) return false;
-    updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), selected.length);
-    const draftPersisted = await confirmLoredeckAssistantDraftStorage(
-        creatorBatch ? 'Deck Maker draft review update' : 'Assistant draft review update',
-        { payload: false, library: false, creator: creatorBatch }
-    );
-    if (!draftPersisted) return false;
-    refreshLoredeckAssistantDraftSurfaces();
-    return true;
+    return await loredeckAssistantDraftHandoffController.queueDraftSelection(pack, selectedIds);
 }
 
 async function dropLoredeckAssistantDraftSelection(pack, selectedIds = new Set()) {
-    const cached = getLoredeckCreatorDraftCacheForPack(pack.packId);
-    const draftChanges = getLoredeckAssistantDraftChanges(cached);
-    const creatorBatch = String(cached?.source || '').trim() === 'loredeck_creator'
-        || (draftChanges.length > 0 && draftChanges.every(change => String(change.source || '').trim() === 'loredeck_creator'));
-    const idSet = selectedIds instanceof Set ? selectedIds : new Set(normalizeLoredeckPendingIdList(selectedIds || []));
-    const selected = draftChanges.filter(change => idSet.has(change.changeId));
-    if (!selected.length) {
-        toast(creatorBatch ? 'Select Deck Maker Lorecard drafts to drop.' : 'Select assistant draft proposals to drop.', 'warning');
-        return false;
-    }
-    updateLoredeckAssistantDraftAfterRemoval(pack.packId, new Set(selected.map(change => change.changeId)), 0);
-    const draftPersisted = await confirmLoredeckAssistantDraftStorage(
-        creatorBatch ? 'Deck Maker draft review update' : 'Assistant draft review update',
-        { payload: false, library: false, creator: creatorBatch }
-    );
-    if (!draftPersisted) return false;
-    refreshLoredeckAssistantDraftSurfaces();
-    toast(creatorBatch
-        ? `Dropped ${selected.length} Deck Maker Lorecard draft${selected.length === 1 ? '' : 's'}.`
-        : `Dropped ${selected.length} assistant draft proposal${selected.length === 1 ? '' : 's'}.`, 'info');
-    return true;
+    return await loredeckAssistantDraftHandoffController.dropDraftSelection(pack, selectedIds);
 }
 
 function compactLoredeckAssistantDraftChangeForRevision(change = {}) {
@@ -11003,7 +8579,7 @@ async function handleLoredeckAssistantDraftRevision(pack, rows = [], filteredRow
             toast('Bundled Loredecks cannot be edited directly. Duplicate as Custom first.', 'warning');
             return;
         }
-        const cached = loredeckAssistantDraftCache.get(fresh.packId) || {};
+        const cached = loredeckAssistantDraftCacheController.getRecord(fresh.packId);
         const selected = getLoredeckAssistantSelectedDraftChanges(cached);
         if (!selected.length) {
             toast('Select assistant draft proposals to revise.', 'warning');
@@ -11158,7 +8734,7 @@ async function handleLoredeckAssistantDraft(pack, rows = [], filteredRows = [], 
         });
         const changes = buildLoredeckAssistantPendingChanges(fresh, parsed.proposals, rows);
         const qualityWarningCount = countLoredeckAssistantQualityWarningsForChanges(changes);
-        loredeckAssistantDraftCache.set(fresh.packId, {
+        loredeckAssistantDraftCacheController.setRecord(fresh.packId, {
             summary: parsed.summary,
             questions: parsed.clarifyingQuestions,
             warnings: parsed.warnings,
@@ -12937,11 +10513,7 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
         state.lorePanel.selectedLoredeckId = nextPack?.packId || '';
         saveState(state, { syncPrompt: false });
     }
-    loredeckManifestPreviewCache.delete(packId);
-    loredeckEntryPreviewCache.delete(packId);
-    loredeckTimelineRegistryCache.delete(packId);
-    loredeckTagRegistryCache.delete(packId);
-    loredeckAssistantDraftCache.delete(packId);
+    loredeckPreviewCacheController.clearPackCaches(packId, { clearDraftCache: true });
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
     return true;
 }
@@ -13023,11 +10595,7 @@ async function deleteLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
         if (result.ok) {
             deletedCount += 1;
             clearLoredeckCreatorWorkbenchCacheForRemovedJobs(result.clearedCreatorJobIds, pack.packId);
-            loredeckManifestPreviewCache.delete(pack.packId);
-            loredeckEntryPreviewCache.delete(pack.packId);
-            loredeckTimelineRegistryCache.delete(pack.packId);
-            loredeckTagRegistryCache.delete(pack.packId);
-            loredeckAssistantDraftCache.delete(pack.packId);
+            loredeckPreviewCacheController.clearPackCaches(pack.packId, { clearDraftCache: true });
         } else {
             failed.push(pack.title || pack.packId);
         }

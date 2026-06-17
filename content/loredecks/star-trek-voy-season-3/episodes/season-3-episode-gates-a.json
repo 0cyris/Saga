@@ -1,0 +1,2788 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_basics-part-ii-episode-gate",
+      "title": "Basics, Part II anchors Basics",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e01.basics-part-ii",
+        "validToAnchor": "voy.s3.e02.flashback",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 33020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Basics, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e01.basics-part-ii",
+          "label": "Basics, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:the-doctor",
+          "st:starfleet",
+          "st:kazon",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "Tom Paris",
+          "The Doctor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Kazon",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Basics",
+          "Kazon conflict gate",
+          "Seska betrayal/Kazon arc gate",
+          "EMH autonomy/identity gate",
+          "Kathryn Janeway",
+          "Kazon",
+          "Neelix",
+          "Hogan"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-basics-part-ii",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:the-doctor",
+        "faction:starfleet",
+        "faction:kazon",
+        "faction:uss-voyager-crew",
+        "topic:basics",
+        "topic:kazon-conflict-gate",
+        "topic:seska-betrayalkazon-arc-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:kathryn-janeway",
+        "topic:kazon",
+        "topic:neelix",
+        "topic:hogan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Starfleet",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Basics",
+            "Kazon conflict gate",
+            "Seska betrayal/Kazon arc gate",
+            "EMH autonomy/identity gate",
+            "Kathryn Janeway",
+            "Kazon",
+            "Neelix",
+            "Hogan"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Starfleet",
+            "Kazon",
+            "USS Voyager crew",
+            "Basics",
+            "Kazon conflict gate",
+            "Seska betrayal/Kazon arc gate",
+            "EMH autonomy/identity gate",
+            "Neelix",
+            "Hogan",
+            "Basics, Part II",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Basics, Part II (50032.7 (2372/2373)) is Memory Alpha story row 1 for this season. Basics, Part II is a VOY season 3 story gate centered on Basics; the evidence marks Kazon conflict gate; Seska betrayal/Kazon arc gate; EMH autonomy/identity gate.",
+        "injection": "Use Basics, Part II as the active episode Context gate when scenes reference Basics, Kazon conflict gate, Seska betrayal/Kazon arc gate.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Basics, Part II",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Basics%2C_Part_II_(episode)",
+        "stardate": "50032.7 (2372/2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_flashback-episode-gate",
+      "title": "Flashback anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e02.flashback",
+        "validToAnchor": "voy.s3.e03.the-chute",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 33020,
+        "sortKeyTo": 33040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Flashback",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e02.flashback",
+          "label": "Flashback",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tuvok",
+          "st:neelix",
+          "st:engineering",
+          "st:kathryn-janeway",
+          "st:starfleet",
+          "st:vulcans",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tuvok",
+          "Neelix",
+          "Engineering",
+          "Kathryn Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Vulcans",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "mess hall",
+          "Neelix",
+          "Tuvok",
+          "kitchen",
+          "Porakan egg",
+          "breakfast",
+          "Flashback"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-flashback",
+        "character:tuvok",
+        "character:neelix",
+        "character:engineering",
+        "character:kathryn-janeway",
+        "faction:starfleet",
+        "faction:vulcans",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:mess-hall",
+        "topic:neelix",
+        "topic:tuvok",
+        "topic:kitchen",
+        "topic:porakan-egg",
+        "topic:breakfast",
+        "topic:flashback"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tuvok",
+            "Neelix",
+            "Engineering",
+            "Kathryn Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tuvok",
+            "Neelix",
+            "Engineering",
+            "Kathryn Janeway",
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "mess hall",
+            "Neelix",
+            "Tuvok",
+            "kitchen",
+            "Porakan egg",
+            "breakfast",
+            "Flashback"
+          ],
+          "keywordsAny": [
+            "Tuvok",
+            "Neelix",
+            "Engineering",
+            "Kathryn Janeway",
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "mess hall",
+            "kitchen",
+            "Porakan egg",
+            "breakfast",
+            "Flashback",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Flashback (50126.4 (2373)) is Memory Alpha story row 2 for this season. Flashback is a VOY season 3 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Flashback as the active episode Context gate when scenes reference episode-local fact/status gate, mess hall, Neelix.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Flashback",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Flashback_(episode)",
+        "stardate": "50126.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_the-chute-episode-gate",
+      "title": "The Chute anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e03.the-chute",
+        "validToAnchor": "voy.s3.e04.the-swarm",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 33040,
+        "sortKeyTo": 33060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: The Chute",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e03.the-chute",
+          "label": "The Chute",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:akritiri",
+          "st:akritirian",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tom Paris",
+          "Harry Kim",
+          "Akritiri",
+          "Akritirian"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Harry Kim",
+          "Lieutenant junior grade",
+          "Tom Paris",
+          "trilithium",
+          "Laktivia recreational facility",
+          "Akritiri",
+          "The Chute"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-chute",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:akritiri",
+        "character:akritirian",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:harry-kim",
+        "topic:lieutenant-junior-grade",
+        "topic:tom-paris",
+        "topic:trilithium",
+        "topic:laktivia-recreational-facility",
+        "topic:akritiri",
+        "topic:the-chute"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "Akritiri",
+            "Akritirian"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "Akritiri",
+            "Akritirian",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Harry Kim",
+            "Lieutenant junior grade",
+            "Tom Paris",
+            "trilithium",
+            "Laktivia recreational facility",
+            "Akritiri",
+            "The Chute"
+          ],
+          "keywordsAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "Akritiri",
+            "Akritirian",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "Lieutenant junior grade",
+            "trilithium",
+            "Laktivia recreational facility",
+            "The Chute",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Chute (50156.2 (2373)) is Memory Alpha story row 3 for this season. The Chute is a VOY season 3 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use The Chute as the active episode Context gate when scenes reference episode-local fact/status gate, Harry Kim, Lieutenant junior grade.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Chute",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Chute_(episode)",
+        "stardate": "50156.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_the-swarm-episode-gate",
+      "title": "The Swarm anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e04.the-swarm",
+        "validToAnchor": "voy.s3.e05.false-profits",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 33060,
+        "sortKeyTo": 33080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: The Swarm",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e04.the-swarm",
+          "label": "The Swarm",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:the-doctor",
+          "st:puccini",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "The Doctor",
+          "Puccini"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "Helmsman's log",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Class 2",
+          "shuttle",
+          "beam",
+          "The Swarm"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-swarm",
+        "character:kathryn-janeway",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:the-doctor",
+        "character:puccini",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:helmsmans-log",
+        "topic:belanna-torres",
+        "topic:tom-paris",
+        "topic:class-2",
+        "topic:shuttle",
+        "topic:beam",
+        "topic:the-swarm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Puccini"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Puccini",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "Helmsman's log",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Class 2",
+            "shuttle",
+            "beam",
+            "The Swarm"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Puccini",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "Helmsman's log",
+            "Class 2",
+            "shuttle",
+            "beam",
+            "The Swarm",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Swarm (50252.3 (2373)) is Memory Alpha story row 4 for this season. The Swarm is a VOY season 3 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use The Swarm as the active episode Context gate when scenes reference EMH autonomy/identity gate, Helmsman's log, B'Elanna Torres.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Swarm",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Swarm_(episode)",
+        "stardate": "50252.3 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_false-profits-episode-gate",
+      "title": "False Profits anchors Arridor and Kol",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e05.false-profits",
+        "validToAnchor": "voy.s3.e06.remember",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 33080,
+        "sortKeyTo": 33100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: False Profits",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e05.false-profits",
+          "label": "False Profits",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:bronze-age",
+          "st:alpha-quadrant",
+          "st:starfleet",
+          "st:ferengi-alliance",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Tuvok",
+          "Tom Paris",
+          "Bronze Age",
+          "Alpha Quadrant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Ferengi Alliance",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Arridor and Kol",
+          "wormhole/anomaly route gate",
+          "Ferengi family/rule-of-acquisition gate",
+          "Delta Quadrant isolation gate",
+          "wormhole",
+          "Tuvok",
+          "Bronze Age",
+          "energy discharge"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-false-profits",
+        "character:chakotay",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:bronze-age",
+        "character:alpha-quadrant",
+        "faction:starfleet",
+        "faction:ferengi-alliance",
+        "faction:uss-voyager-crew",
+        "topic:arridor-and-kol",
+        "topic:wormholeanomaly-route-gate",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:wormhole",
+        "topic:tuvok",
+        "topic:bronze-age",
+        "topic:energy-discharge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Bronze Age",
+            "Alpha Quadrant"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Ferengi Alliance",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Bronze Age",
+            "Alpha Quadrant",
+            "Starfleet",
+            "Ferengi Alliance",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Arridor and Kol",
+            "wormhole/anomaly route gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Delta Quadrant isolation gate",
+            "wormhole",
+            "Tuvok",
+            "Bronze Age",
+            "energy discharge"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Bronze Age",
+            "Alpha Quadrant",
+            "Starfleet",
+            "Ferengi Alliance",
+            "USS Voyager crew",
+            "Arridor and Kol",
+            "wormhole/anomaly route gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Delta Quadrant isolation gate",
+            "wormhole",
+            "energy discharge",
+            "False Profits",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "False Profits (50074.3-50074.5 (2373)) is Memory Alpha story row 5 for this season. False Profits is a VOY season 3 story gate centered on Arridor and Kol; the evidence marks wormhole/anomaly route gate; Ferengi family/rule-of-acquisition gate; Delta Quadrant isolation gate.",
+        "injection": "Use False Profits as the active episode Context gate when scenes reference Arridor and Kol, wormhole/anomaly route gate, Ferengi family/rule-of-acquisition gate.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "False Profits",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/False_Profits_(episode)",
+        "stardate": "50074.3-50074.5 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_remember-episode-gate",
+      "title": "Remember anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e06.remember",
+        "validToAnchor": "voy.s3.e07.sacred-ground",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 33100,
+        "sortKeyTo": 33120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Remember",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e06.remember",
+          "label": "Remember",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:belanna-torres",
+          "st:harry-kim",
+          "st:enara-prime",
+          "st:enaran",
+          "st:jessen",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "B'Elanna Torres",
+          "Harry Kim",
+          "Enara Prime",
+          "Enaran",
+          "Jessen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Enara Prime",
+          "Fima system",
+          "high warp capability",
+          "Enaran",
+          "energy",
+          "technology",
+          "Remember"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-remember",
+        "character:belanna-torres",
+        "character:harry-kim",
+        "character:enara-prime",
+        "character:enaran",
+        "character:jessen",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:enara-prime",
+        "topic:fima-system",
+        "topic:high-warp-capability",
+        "topic:enaran",
+        "topic:energy",
+        "topic:technology",
+        "topic:remember"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Enara Prime",
+            "Enaran",
+            "Jessen"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Enara Prime",
+            "Enaran",
+            "Jessen",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Enara Prime",
+            "Fima system",
+            "high warp capability",
+            "Enaran",
+            "energy",
+            "technology",
+            "Remember"
+          ],
+          "keywordsAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Enara Prime",
+            "Enaran",
+            "Jessen",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "Fima system",
+            "high warp capability",
+            "energy",
+            "technology",
+            "Remember",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Remember (50203.1-50211.4 (2373)) is Memory Alpha story row 6 for this season. Remember is a VOY season 3 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Remember as the active episode Context gate when scenes reference episode-local fact/status gate, Enara Prime, Fima system.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Remember",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Remember_(episode)",
+        "stardate": "50203.1-50211.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_sacred-ground-episode-gate",
+      "title": "Sacred Ground anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e07.sacred-ground",
+        "validToAnchor": "voy.s3.e08.futures-end",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 33120,
+        "sortKeyTo": 33140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Sacred Ground",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e07.sacred-ground",
+          "label": "Sacred Ground",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:belanna-torres",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:kes",
+          "st:nechani",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "B'Elanna Torres",
+          "Harry Kim",
+          "The Doctor",
+          "Kes",
+          "Nechani"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "Nechani",
+          "shore leave",
+          "world",
+          "culture",
+          "Kes",
+          "biogenic field",
+          "Sacred Ground"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-sacred-ground",
+        "character:belanna-torres",
+        "character:harry-kim",
+        "character:the-doctor",
+        "character:kes",
+        "character:nechani",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:nechani",
+        "topic:shore-leave",
+        "topic:world",
+        "topic:culture",
+        "topic:kes",
+        "topic:biogenic-field",
+        "topic:sacred-ground"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Kes",
+            "Nechani"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Kes",
+            "Nechani",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "Nechani",
+            "shore leave",
+            "world",
+            "culture",
+            "Kes",
+            "biogenic field",
+            "Sacred Ground"
+          ],
+          "keywordsAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Kes",
+            "Nechani",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "shore leave",
+            "world",
+            "culture",
+            "biogenic field",
+            "Sacred Ground",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sacred Ground (50063.2 (2373)) is Memory Alpha story row 7 for this season. Sacred Ground is a VOY season 3 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Sacred Ground as the active episode Context gate when scenes reference EMH autonomy/identity gate, Nechani, shore leave.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Sacred Ground",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sacred_Ground_(episode)",
+        "stardate": "50063.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_futures-end-episode-gate",
+      "title": "Future's End anchors Future's End",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e08.futures-end",
+        "validToAnchor": "voy.s3.e09.futures-end-part-ii",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 33140,
+        "sortKeyTo": 33160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Future's End",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e08.futures-end",
+          "label": "Future's End",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:high-sierras",
+          "st:delta-quadrant",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "High Sierras",
+          "Delta Quadrant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Future's End",
+          "Delta Quadrant isolation gate",
+          "High Sierras",
+          "1967",
+          "tattoo",
+          "camping",
+          "mountain",
+          "music"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-futures-end",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:high-sierras",
+        "character:delta-quadrant",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:futures-end",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:high-sierras",
+        "topic:1967",
+        "topic:tattoo",
+        "topic:camping",
+        "topic:mountain",
+        "topic:music"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "High Sierras",
+            "Delta Quadrant"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "High Sierras",
+            "Delta Quadrant",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Future's End",
+            "Delta Quadrant isolation gate",
+            "High Sierras",
+            "1967",
+            "tattoo",
+            "camping",
+            "mountain",
+            "music"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "High Sierras",
+            "Delta Quadrant",
+            "Starfleet",
+            "USS Voyager crew",
+            "Future's End",
+            "Delta Quadrant isolation gate",
+            "1967",
+            "tattoo",
+            "camping",
+            "mountain",
+            "music",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Future's End (50312.5 (2373)) is Memory Alpha story row 8 for this season. Future's End is a VOY season 3 story gate centered on Future's End; the evidence marks Delta Quadrant isolation gate.",
+        "injection": "Use Future's End as the active episode Context gate when scenes reference Future's End, Delta Quadrant isolation gate, High Sierras.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Future's End",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Future's_End_(episode)",
+        "stardate": "50312.5 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_futures-end-part-ii-episode-gate",
+      "title": "Future's End, Part II anchors Future's End",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e09.futures-end-part-ii",
+        "validToAnchor": "voy.s3.e10.warlord",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 33160,
+        "sortKeyTo": 33180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Future's End, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e09.futures-end-part-ii",
+          "label": "Future's End, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tom-paris",
+          "st:los-angeles",
+          "st:rain-robinson",
+          "st:volkswagen",
+          "st:ufo",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tom Paris",
+          "Los Angeles",
+          "Rain Robinson",
+          "Volkswagen",
+          "UFO"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Future's End",
+          "episode-local fact/status gate",
+          "morning",
+          "Los Angeles",
+          "Rain Robinson",
+          "Volkswagen",
+          "van",
+          "Tom Paris"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-futures-end-part-ii",
+        "character:tom-paris",
+        "character:los-angeles",
+        "character:rain-robinson",
+        "character:volkswagen",
+        "character:ufo",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:futures-end",
+        "topic:episode-local-factstatus-gate",
+        "topic:morning",
+        "topic:los-angeles",
+        "topic:rain-robinson",
+        "topic:volkswagen",
+        "topic:van",
+        "topic:tom-paris"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tom Paris",
+            "Los Angeles",
+            "Rain Robinson",
+            "Volkswagen",
+            "UFO"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tom Paris",
+            "Los Angeles",
+            "Rain Robinson",
+            "Volkswagen",
+            "UFO",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Future's End",
+            "episode-local fact/status gate",
+            "morning",
+            "Los Angeles",
+            "Rain Robinson",
+            "Volkswagen",
+            "van",
+            "Tom Paris"
+          ],
+          "keywordsAny": [
+            "Tom Paris",
+            "Los Angeles",
+            "Rain Robinson",
+            "Volkswagen",
+            "UFO",
+            "Starfleet",
+            "USS Voyager crew",
+            "Future's End",
+            "episode-local fact/status gate",
+            "morning",
+            "van",
+            "Future's End, Part II",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Future's End, Part II (50312.5 (2373)) is Memory Alpha story row 9 for this season. Future's End, Part II is a VOY season 3 story gate centered on Future's End; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Future's End, Part II as the active episode Context gate when scenes reference Future's End, episode-local fact/status gate, morning.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Future's End, Part II",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Future's_End%2C_Part_II_(episode)",
+        "stardate": "50312.5 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_warlord-episode-gate",
+      "title": "Warlord anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e10.warlord",
+        "validToAnchor": "voy.s3.e11.the-q-and-the-grey",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 33180,
+        "sortKeyTo": 33200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Warlord",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e10.warlord",
+          "label": "Warlord",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:kes",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tom Paris",
+          "Harry Kim",
+          "The Doctor",
+          "Kes"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "Neelix",
+          "Harry Kim",
+          "Tom Paris",
+          "holoprogram",
+          "Talaxian",
+          "Paxau Resort",
+          "Warlord"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-warlord",
+        "character:kathryn-janeway",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:the-doctor",
+        "character:kes",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:neelix",
+        "topic:harry-kim",
+        "topic:tom-paris",
+        "topic:holoprogram",
+        "topic:talaxian",
+        "topic:paxau-resort",
+        "topic:warlord"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Kes"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Kes",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "Neelix",
+            "Harry Kim",
+            "Tom Paris",
+            "holoprogram",
+            "Talaxian",
+            "Paxau Resort",
+            "Warlord"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Kes",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "Neelix",
+            "holoprogram",
+            "Talaxian",
+            "Paxau Resort",
+            "Warlord",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Warlord (50348.1-50361.7 (2373)) is Memory Alpha story row 10 for this season. Warlord is a VOY season 3 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Warlord as the active episode Context gate when scenes reference EMH autonomy/identity gate, Neelix, Harry Kim.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Warlord",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Warlord_(episode)",
+        "stardate": "50348.1-50361.7 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_the-q-and-the-grey-episode-gate",
+      "title": "The Q and the Grey anchors Q Civil War",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e11.the-q-and-the-grey",
+        "validToAnchor": "voy.s3.e12.macrocosm",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 33200,
+        "sortKeyTo": 33220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: The Q and the Grey",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e11.the-q-and-the-grey",
+          "label": "The Q and the Grey",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:starfleet",
+          "st:q-continuum",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Q Continuum",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Q Civil War",
+          "Q intervention or trial gate",
+          "Q Continuum gate",
+          "death/status-change gate",
+          "supernova",
+          "Kathryn Janeway",
+          "satin",
+          "Q"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-q-and-the-grey",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:starfleet",
+        "faction:q-continuum",
+        "faction:uss-voyager-crew",
+        "topic:q-civil-war",
+        "topic:q-intervention-or-trial-gate",
+        "topic:q-continuum-gate",
+        "topic:deathstatus-change-gate",
+        "topic:supernova",
+        "topic:kathryn-janeway",
+        "topic:satin",
+        "topic:q"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Q Civil War",
+            "Q intervention or trial gate",
+            "Q Continuum gate",
+            "death/status-change gate",
+            "supernova",
+            "Kathryn Janeway",
+            "satin",
+            "Q"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew",
+            "Q Civil War",
+            "Q intervention or trial gate",
+            "Q Continuum gate",
+            "death/status-change gate",
+            "supernova",
+            "satin",
+            "Q",
+            "The Q and the Grey",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Q and the Grey (50384.2-50392.7 (2373)) is Memory Alpha story row 11 for this season. The Q and the Grey is a VOY season 3 story gate centered on Q Civil War; the evidence marks Q intervention or trial gate; Q Continuum gate; death/status-change gate.",
+        "injection": "Use The Q and the Grey as the active episode Context gate when scenes reference Q Civil War, Q intervention or trial gate, Q Continuum gate.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Q and the Grey",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Q_and_the_Grey_(episode)",
+        "stardate": "50384.2-50392.7 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_macrocosm-episode-gate",
+      "title": "Macrocosm anchors Delta Quadrant isolation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e12.macrocosm",
+        "validToAnchor": "voy.s3.e13.fair-trade",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 33220,
+        "sortKeyTo": 33240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Macrocosm",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e12.macrocosm",
+          "label": "Macrocosm",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:neelix",
+          "st:tak-tak",
+          "st:delta-quadrant",
+          "st:voyager",
+          "st:kathryn-janeway",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Neelix",
+          "Tak Tak",
+          "Delta Quadrant",
+          "Voyager",
+          "Kathryn Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Delta Quadrant isolation gate",
+          "EMH autonomy/identity gate",
+          "Tak Tak",
+          "Delta Quadrant",
+          "Voyager",
+          "first contact",
+          "Janeway",
+          "Neelix"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-macrocosm",
+        "character:neelix",
+        "character:tak-tak",
+        "character:delta-quadrant",
+        "character:voyager",
+        "character:kathryn-janeway",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:tak-tak",
+        "topic:delta-quadrant",
+        "topic:voyager",
+        "topic:first-contact",
+        "topic:janeway",
+        "topic:neelix"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Neelix",
+            "Tak Tak",
+            "Delta Quadrant",
+            "Voyager",
+            "Kathryn Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Neelix",
+            "Tak Tak",
+            "Delta Quadrant",
+            "Voyager",
+            "Kathryn Janeway",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Tak Tak",
+            "Delta Quadrant",
+            "Voyager",
+            "first contact",
+            "Janeway",
+            "Neelix"
+          ],
+          "keywordsAny": [
+            "Neelix",
+            "Tak Tak",
+            "Delta Quadrant",
+            "Voyager",
+            "Kathryn Janeway",
+            "Starfleet",
+            "USS Voyager crew",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "first contact",
+            "Janeway",
+            "Macrocosm",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Macrocosm (50425.1 (2373)) is Memory Alpha story row 12 for this season. Macrocosm is a VOY season 3 story gate centered on Delta Quadrant isolation gate; the evidence marks Delta Quadrant isolation gate; EMH autonomy/identity gate.",
+        "injection": "Use Macrocosm as the active episode Context gate when scenes reference Delta Quadrant isolation gate, EMH autonomy/identity gate, Tak Tak.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Macrocosm",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Macrocosm_(episode)",
+        "stardate": "50425.1 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s3_fair-trade-episode-gate",
+      "title": "Fair Trade anchors Nekrit Expanse",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s3.e13.fair-trade",
+        "validToAnchor": "voy.s3.e14.alter-ego",
+        "series": "VOY",
+        "season": "3",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 33240,
+        "sortKeyTo": 33260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 3: Fair Trade",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s3",
+          "label": "VOY season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s3.e13.fair-trade",
+          "label": "Fair Trade",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:neelix",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Neelix"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Nekrit Expanse",
+          "episode-local fact/status gate",
+          "Neelix",
+          "engineer",
+          "security officer",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Kathryn Janeway"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-fair-trade",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:neelix",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:nekrit-expanse",
+        "topic:episode-local-factstatus-gate",
+        "topic:neelix",
+        "topic:engineer",
+        "topic:security-officer",
+        "topic:tuvok",
+        "topic:belanna-torres",
+        "topic:kathryn-janeway"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Neelix"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Nekrit Expanse",
+            "episode-local fact/status gate",
+            "Neelix",
+            "engineer",
+            "security officer",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Kathryn Janeway"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew",
+            "Nekrit Expanse",
+            "episode-local fact/status gate",
+            "engineer",
+            "security officer",
+            "Fair Trade",
+            "VOY season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Fair Trade (Unknown (2373)) is Memory Alpha story row 13 for this season. Fair Trade is a VOY season 3 story gate centered on Nekrit Expanse; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Fair Trade as the active episode Context gate when scenes reference Nekrit Expanse, episode-local fact/status gate, Neelix.",
+        "constraints": [
+          "Keep this card inside VOY season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Fair Trade",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Fair_Trade_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

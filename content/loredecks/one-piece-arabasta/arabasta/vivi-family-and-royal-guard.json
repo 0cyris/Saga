@@ -1,0 +1,883 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_vivi_returns_as_a_princess_trying_to_save_rebels_and_royalists_together_006",
+      "title": "Vivi Returns As A Princess Trying To Save Both Sides",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.vivi-family-and-royal-guard",
+        "validToAnchor": "op.arabasta.crocodile-rainbase-and-cover",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12081,
+        "sortKeyTo": 12162,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Vivi Returns As A Princess Trying To Save Both Sides"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nefertari-vivi",
+          "op:rebel-army",
+          "op:royal-army",
+          "op:arabasta"
+        ],
+        "characters": [
+          "Nefertari Vivi"
+        ],
+        "locations": [
+          "rebel army",
+          "royal army",
+          "Arabasta"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Vivi leadership",
+          "save both sides",
+          "princess burden"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nefertari-vivi",
+        "location:rebel-army",
+        "location:royal-army",
+        "location:arabasta",
+        "topic:kingdom-war",
+        "topic:vivi-leadership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Nefertari Vivi",
+            "rebel army",
+            "royal army",
+            "Arabasta"
+          ],
+          "topicsAny": [
+            "Vivi leadership",
+            "save both sides",
+            "princess burden"
+          ],
+          "keywordsAny": [
+            "Nefertari Vivi",
+            "rebel army",
+            "royal army",
+            "Arabasta",
+            "Vivi leadership",
+            "save both sides",
+            "princess burden",
+            "Vivi",
+            "princess",
+            "both sides",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Vivi returns to Arabasta trying to save rebels and royalists together, even while time and exhaustion narrow her choices.",
+        "injection": "Use Vivi's leadership as rescue under impossible pressure: victory means ending the war without treating either army as disposable.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_cobra_remains_a_restrained_king_under_false_blame_007",
+      "title": "Cobra Is A Restrained King Under False Blame",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.vivi-family-and-royal-guard",
+        "validToAnchor": "op.arabasta.crocodile-rainbase-and-cover",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12081,
+        "sortKeyTo": 12162,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Cobra Is A Restrained King Under False Blame"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nefertari-cobra",
+          "op:royal-army",
+          "op:rebel-army",
+          "op:dance-powder"
+        ],
+        "characters": [
+          "Nefertari Cobra"
+        ],
+        "locations": [
+          "royal army",
+          "rebel army",
+          "Dance Powder"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Cobra restraint",
+          "false blame",
+          "avoid civil war"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nefertari-cobra",
+        "location:royal-army",
+        "location:rebel-army",
+        "location:dance-powder",
+        "topic:kingdom-war",
+        "topic:vivi-leadership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Cobra"
+          ],
+          "entitiesAny": [
+            "Nefertari Cobra",
+            "royal army",
+            "rebel army",
+            "Dance Powder"
+          ],
+          "topicsAny": [
+            "Cobra restraint",
+            "false blame",
+            "avoid civil war"
+          ],
+          "keywordsAny": [
+            "Nefertari Cobra",
+            "royal army",
+            "rebel army",
+            "Dance Powder",
+            "Cobra restraint",
+            "false blame",
+            "avoid civil war",
+            "Cobra",
+            "restraint",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Cobra remains restrained under false blame, trying to protect the country without turning its suffering citizens into enemies.",
+        "injection": "Use Cobra as a king under accusation, not the villain the conspiracy makes him appear to be.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_karoo_is_vivi_s_companion_and_messenger_support_not_just_comic_relief_008",
+      "title": "Karoo Is Messenger Support And Emotional Backup For Vivi",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.vivi-family-and-royal-guard",
+        "validToAnchor": "op.arabasta.crocodile-rainbase-and-cover",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12081,
+        "sortKeyTo": 12162,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Karoo Is Messenger Support And Emotional Backup For Vivi"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:karoo",
+          "op:nefertari-vivi",
+          "op:alubarna"
+        ],
+        "characters": [
+          "Karoo",
+          "Nefertari Vivi"
+        ],
+        "locations": [
+          "Alubarna"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Karoo messenger",
+          "Vivi companion",
+          "palace warning"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:karoo",
+        "character:nefertari-vivi",
+        "location:alubarna",
+        "topic:kingdom-war",
+        "topic:vivi-leadership",
+        "topic:alubarna-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Karoo",
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Karoo",
+            "Nefertari Vivi",
+            "Alubarna"
+          ],
+          "topicsAny": [
+            "Karoo messenger",
+            "Vivi companion",
+            "palace warning"
+          ],
+          "keywordsAny": [
+            "Karoo",
+            "Nefertari Vivi",
+            "Alubarna",
+            "Karoo messenger",
+            "Vivi companion",
+            "palace warning",
+            "messenger",
+            "Vivi",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Karoo supports Vivi as companion, messenger, and mobility aid during the rush to warn Alubarna.",
+        "injection": "Use Karoo for stakes and logistics as well as humor: he carries information and emotion under pressure.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_chaka_and_pell_embody_the_royal_guard_s_loyalty_009",
+      "title": "Chaka And Pell Show The Royal Guard's Loyalty Under Siege",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.vivi-family-and-royal-guard",
+        "validToAnchor": "op.arabasta.crocodile-rainbase-and-cover",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12081,
+        "sortKeyTo": 12162,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Chaka And Pell Show The Royal Guard's Loyalty Under Siege"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:chaka",
+          "op:pell",
+          "op:royal-guard",
+          "op:nefertari-cobra"
+        ],
+        "characters": [
+          "Chaka",
+          "Pell",
+          "royal guard",
+          "Nefertari Cobra"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "royal guard loyalty",
+          "Alubarna defense",
+          "Pell and Chaka"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:chaka",
+        "character:pell",
+        "character:royal-guard",
+        "character:nefertari-cobra",
+        "topic:kingdom-war",
+        "topic:vivi-leadership",
+        "topic:alubarna-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chaka",
+            "Pell",
+            "royal guard",
+            "Nefertari Cobra"
+          ],
+          "entitiesAny": [
+            "Chaka",
+            "Pell",
+            "royal guard",
+            "Nefertari Cobra"
+          ],
+          "topicsAny": [
+            "royal guard loyalty",
+            "Alubarna defense",
+            "Pell and Chaka"
+          ],
+          "keywordsAny": [
+            "Chaka",
+            "Pell",
+            "royal guard",
+            "Nefertari Cobra",
+            "royal guard loyalty",
+            "Alubarna defense",
+            "Pell and Chaka",
+            "Royal Guard",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Chaka and Pell embody the royal guard's loyalty through city defense, scouting, and protection of Vivi and Cobra.",
+        "injection": "Use the royal guard as loyal but overwhelmed: their devotion matters even when Crocodile's plan outmaneuvers them.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_igaram_s_survival_matters_as_emotional_relief_and_royal_continuity_010",
+      "title": "Igaram's Return Restores Royal Continuity And Public Truth",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.vivi-family-and-royal-guard",
+        "validToAnchor": "op.arabasta.crocodile-rainbase-and-cover",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12081,
+        "sortKeyTo": 12162,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Igaram's Return Restores Royal Continuity And Public Truth"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:igaram",
+          "op:nefertari-vivi",
+          "op:nefertari-cobra",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Igaram",
+          "Nefertari Vivi",
+          "Nefertari Cobra"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Igaram return",
+          "public truth",
+          "Whisky Peak continuity"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:igaram",
+        "character:nefertari-vivi",
+        "character:nefertari-cobra",
+        "faction:baroque-works",
+        "topic:kingdom-war",
+        "topic:vivi-leadership",
+        "topic:baroque-works"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Igaram",
+            "Nefertari Vivi",
+            "Nefertari Cobra"
+          ],
+          "entitiesAny": [
+            "Igaram",
+            "Nefertari Vivi",
+            "Nefertari Cobra",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "Igaram return",
+            "public truth",
+            "Whisky Peak continuity"
+          ],
+          "keywordsAny": [
+            "Igaram",
+            "Nefertari Vivi",
+            "Nefertari Cobra",
+            "Baroque Works",
+            "Igaram return",
+            "public truth",
+            "Whisky Peak continuity",
+            "return",
+            "truth",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Igaram's return matters as emotional relief and as a surviving witness who can help expose Baroque Works' ploy.",
+        "injection": "Use Igaram's survival as more than a surprise: it reconnects Whisky Peak danger to Arabasta's public resolution.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Arabasta Arc",
+    "chapterRange": "Manga chapters 155-217",
+    "episodeRange": "Anime episodes 92-130",
+    "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+    "confidence": 0.91,
+    "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+  }
+}

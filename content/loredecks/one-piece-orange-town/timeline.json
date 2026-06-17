@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Orange Town Arc Context anchors and windows for East Blue Saga.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.orange-town.orange-town",
+      "label": "Orange Town Arc: Buggy and crew",
+      "sortKey": 2000,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: Buggy and crew"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.orange-town.nami-and-treasure",
+      "label": "Orange Town Arc: Nami and treasure",
+      "sortKey": 2128,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: Nami and treasure"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.orange-town.orange-town-civilians",
+      "label": "Orange Town Arc: Orange Town civilians",
+      "sortKey": 2256,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: Orange Town civilians"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.orange-town.luffy-zoro-nami-dynamics",
+      "label": "Orange Town Arc: Luffy, Zoro, and Nami dynamics",
+      "sortKey": 2384,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: Luffy, Zoro, and Nami dynamics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.orange-town.devil-fruit-and-combat-rules",
+      "label": "Orange Town Arc: Devil Fruit and combat rules",
+      "sortKey": 2512,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: Devil Fruit and combat rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.orange-town.conflict-set-pieces",
+      "label": "Orange Town Arc: Conflict set pieces",
+      "sortKey": 2640,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: Conflict set pieces"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.orange-town.aftermath-and-course",
+      "label": "Orange Town Arc: Aftermath and course",
+      "sortKey": 2768,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: Aftermath and course"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.orange-town.after",
+      "label": "Orange Town Arc: aftermath boundary",
+      "sortKey": 2999,
+      "arc": "Orange Town Arc",
+      "phase": "East Blue Saga",
+      "chapter": "8-21",
+      "episode": "4-8",
+      "aliases": [
+        "Orange Town Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.orange-town.window.full",
+      "label": "Orange Town Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.orange-town",
+      "anchorTo": "op.orange-town.after",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2999,
+      "aliases": [
+        "Orange Town Arc",
+        "orange-town"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.orange-town.window.orange-town",
+      "label": "Orange Town Arc: Buggy and crew",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.orange-town",
+      "anchorTo": "op.orange-town.nami-and-treasure",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2128,
+      "aliases": [
+        "Buggy and crew"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.orange-town.window.nami-and-treasure",
+      "label": "Orange Town Arc: Nami and treasure",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.nami-and-treasure",
+      "anchorTo": "op.orange-town.orange-town-civilians",
+      "sortKeyFrom": 2128,
+      "sortKeyTo": 2256,
+      "aliases": [
+        "Nami and treasure"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.orange-town.window.orange-town-civilians",
+      "label": "Orange Town Arc: Orange Town civilians",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.orange-town-civilians",
+      "anchorTo": "op.orange-town.luffy-zoro-nami-dynamics",
+      "sortKeyFrom": 2256,
+      "sortKeyTo": 2384,
+      "aliases": [
+        "Orange Town civilians"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.orange-town.window.luffy-zoro-nami-dynamics",
+      "label": "Orange Town Arc: Luffy, Zoro, and Nami dynamics",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.luffy-zoro-nami-dynamics",
+      "anchorTo": "op.orange-town.devil-fruit-and-combat-rules",
+      "sortKeyFrom": 2384,
+      "sortKeyTo": 2512,
+      "aliases": [
+        "Luffy, Zoro, and Nami dynamics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.orange-town.window.devil-fruit-and-combat-rules",
+      "label": "Orange Town Arc: Devil Fruit and combat rules",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.devil-fruit-and-combat-rules",
+      "anchorTo": "op.orange-town.conflict-set-pieces",
+      "sortKeyFrom": 2512,
+      "sortKeyTo": 2640,
+      "aliases": [
+        "Devil Fruit and combat rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.orange-town.window.conflict-set-pieces",
+      "label": "Orange Town Arc: Conflict set pieces",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.conflict-set-pieces",
+      "anchorTo": "op.orange-town.aftermath-and-course",
+      "sortKeyFrom": 2640,
+      "sortKeyTo": 2768,
+      "aliases": [
+        "Conflict set pieces"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.orange-town.window.aftermath-and-course",
+      "label": "Orange Town Arc: Aftermath and course",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.orange-town.aftermath-and-course",
+      "anchorTo": "op.orange-town.after",
+      "sortKeyFrom": 2768,
+      "sortKeyTo": 2999,
+      "aliases": [
+        "Aftermath and course"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "east-blue"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "orange-town"
+      ]
+    }
+  ]
+}

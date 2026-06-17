@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Deep Space Nine season 2 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ds9.s2.e01.the-homecoming",
+      "label": "The Homecoming",
+      "contextType": "story_anchor",
+      "sortKey": 22000,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "The Homecoming",
+        "DS9 season 2 The Homecoming",
+        "DS9 S2 The Homecoming",
+        "DS9 2x01 story",
+        "DS9 S02 story 01",
+        "DS9 2x01",
+        "DS9 S02E01",
+        "DS9 season 2 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-homecoming"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Homecoming",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Homecoming_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e02.the-circle",
+      "label": "The Circle",
+      "contextType": "story_anchor",
+      "sortKey": 22020,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "The Circle",
+        "DS9 season 2 The Circle",
+        "DS9 S2 The Circle",
+        "DS9 2x02 story",
+        "DS9 S02 story 02",
+        "DS9 2x02",
+        "DS9 S02E02",
+        "DS9 season 2 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-circle"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Circle",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Circle_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e03.the-siege",
+      "label": "The Siege",
+      "contextType": "story_anchor",
+      "sortKey": 22040,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "The Siege",
+        "DS9 season 2 The Siege",
+        "DS9 S2 The Siege",
+        "DS9 2x03 story",
+        "DS9 S02 story 03",
+        "DS9 2x03",
+        "DS9 S02E03",
+        "DS9 season 2 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-siege"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Siege",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Siege_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e04.invasive-procedures",
+      "label": "Invasive Procedures",
+      "contextType": "story_anchor",
+      "sortKey": 22060,
+      "stardate": "47182.1 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Invasive Procedures",
+        "DS9 season 2 Invasive Procedures",
+        "DS9 S2 Invasive Procedures",
+        "DS9 2x04 story",
+        "DS9 S02 story 04",
+        "DS9 2x04",
+        "DS9 S02E04",
+        "DS9 season 2 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-invasive-procedures"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Invasive Procedures",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Invasive_Procedures_(episode)",
+        "stardate": "47182.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e05.cardassians",
+      "label": "Cardassians",
+      "contextType": "story_anchor",
+      "sortKey": 22080,
+      "stardate": "47177.2-47178.3 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Cardassians",
+        "DS9 season 2 Cardassians",
+        "DS9 S2 Cardassians",
+        "DS9 2x05 story",
+        "DS9 S02 story 05",
+        "DS9 2x05",
+        "DS9 S02E05",
+        "DS9 season 2 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-cardassians"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Cardassians",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cardassians_(episode)",
+        "stardate": "47177.2-47178.3 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e06.melora",
+      "label": "Melora",
+      "contextType": "story_anchor",
+      "sortKey": 22100,
+      "stardate": "47229.1 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Melora",
+        "DS9 season 2 Melora",
+        "DS9 S2 Melora",
+        "DS9 2x06 story",
+        "DS9 S02 story 06",
+        "DS9 2x06",
+        "DS9 S02E06",
+        "DS9 season 2 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-melora"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Melora",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Melora_(episode)",
+        "stardate": "47229.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e07.rules-of-acquisition",
+      "label": "Rules of Acquisition",
+      "contextType": "story_anchor",
+      "sortKey": 22120,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Rules of Acquisition",
+        "DS9 season 2 Rules of Acquisition",
+        "DS9 S2 Rules of Acquisition",
+        "DS9 2x07 story",
+        "DS9 S02 story 07",
+        "DS9 2x07",
+        "DS9 S02E07",
+        "DS9 season 2 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-rules-of-acquisition"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rules of Acquisition",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rules_of_Acquisition_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e08.necessary-evil",
+      "label": "Necessary Evil",
+      "contextType": "story_anchor",
+      "sortKey": 22140,
+      "stardate": "47282.5-47284.1 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Necessary Evil",
+        "DS9 season 2 Necessary Evil",
+        "DS9 S2 Necessary Evil",
+        "DS9 2x08 story",
+        "DS9 S02 story 08",
+        "DS9 2x08",
+        "DS9 S02E08",
+        "DS9 season 2 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-necessary-evil"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Necessary Evil",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Necessary_Evil_(episode)",
+        "stardate": "47282.5-47284.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e09.second-sight",
+      "label": "Second Sight",
+      "contextType": "story_anchor",
+      "sortKey": 22160,
+      "stardate": "47329.4 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Second Sight",
+        "DS9 season 2 Second Sight",
+        "DS9 S2 Second Sight",
+        "DS9 2x09 story",
+        "DS9 S02 story 09",
+        "DS9 2x09",
+        "DS9 S02E09",
+        "DS9 season 2 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-second-sight"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Second Sight",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Second_Sight_(episode)",
+        "stardate": "47329.4 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e10.sanctuary",
+      "label": "Sanctuary",
+      "contextType": "story_anchor",
+      "sortKey": 22180,
+      "stardate": "47391.2 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Sanctuary",
+        "DS9 season 2 Sanctuary",
+        "DS9 S2 Sanctuary",
+        "DS9 2x10 story",
+        "DS9 S02 story 10",
+        "DS9 2x10",
+        "DS9 S02E10",
+        "DS9 season 2 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-sanctuary"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sanctuary",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sanctuary_(episode)",
+        "stardate": "47391.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e11.rivals",
+      "label": "Rivals",
+      "contextType": "story_anchor",
+      "sortKey": 22200,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Rivals",
+        "DS9 season 2 Rivals",
+        "DS9 S2 Rivals",
+        "DS9 2x11 story",
+        "DS9 S02 story 11",
+        "DS9 2x11",
+        "DS9 S02E11",
+        "DS9 season 2 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-rivals"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rivals",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rivals_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e12.the-alternate",
+      "label": "The Alternate",
+      "contextType": "story_anchor",
+      "sortKey": 22220,
+      "stardate": "47391.7 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "The Alternate",
+        "DS9 season 2 The Alternate",
+        "DS9 S2 The Alternate",
+        "DS9 2x12 story",
+        "DS9 S02 story 12",
+        "DS9 2x12",
+        "DS9 S02E12",
+        "DS9 season 2 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-alternate"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Alternate",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Alternate_(episode)",
+        "stardate": "47391.7 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e13.armageddon-game",
+      "label": "Armageddon Game",
+      "contextType": "story_anchor",
+      "sortKey": 22240,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Armageddon Game",
+        "DS9 season 2 Armageddon Game",
+        "DS9 S2 Armageddon Game",
+        "DS9 2x13 story",
+        "DS9 S02 story 13",
+        "DS9 2x13",
+        "DS9 S02E13",
+        "DS9 season 2 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-armageddon-game"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Armageddon Game",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Armageddon_Game_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e14.whispers",
+      "label": "Whispers",
+      "contextType": "story_anchor",
+      "sortKey": 22260,
+      "stardate": "47581.2 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Whispers",
+        "DS9 season 2 Whispers",
+        "DS9 S2 Whispers",
+        "DS9 2x14 story",
+        "DS9 S02 story 14",
+        "DS9 2x14",
+        "DS9 S02E14",
+        "DS9 season 2 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-whispers"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Whispers",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Whispers_(episode)",
+        "stardate": "47581.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e15.paradise",
+      "label": "Paradise",
+      "contextType": "story_anchor",
+      "sortKey": 22280,
+      "stardate": "47573.1 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Paradise",
+        "DS9 season 2 Paradise",
+        "DS9 S2 Paradise",
+        "DS9 2x15 story",
+        "DS9 S02 story 15",
+        "DS9 2x15",
+        "DS9 S02E15",
+        "DS9 season 2 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-paradise"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Paradise",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Paradise_(episode)",
+        "stardate": "47573.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e16.shadowplay",
+      "label": "Shadowplay",
+      "contextType": "story_anchor",
+      "sortKey": 22300,
+      "stardate": "47603.3 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Shadowplay",
+        "DS9 season 2 Shadowplay",
+        "DS9 S2 Shadowplay",
+        "DS9 2x16 story",
+        "DS9 S02 story 16",
+        "DS9 2x16",
+        "DS9 S02E16",
+        "DS9 season 2 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-shadowplay"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Shadowplay",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shadowplay_(episode)",
+        "stardate": "47603.3 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e17.playing-god",
+      "label": "Playing God",
+      "contextType": "story_anchor",
+      "sortKey": 22320,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Playing God",
+        "DS9 season 2 Playing God",
+        "DS9 S2 Playing God",
+        "DS9 2x17 story",
+        "DS9 S02 story 17",
+        "DS9 2x17",
+        "DS9 S02E17",
+        "DS9 season 2 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-playing-god"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Playing God",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Playing_God_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e18.profit-and-loss",
+      "label": "Profit and Loss",
+      "contextType": "story_anchor",
+      "sortKey": 22340,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Profit and Loss",
+        "DS9 season 2 Profit and Loss",
+        "DS9 S2 Profit and Loss",
+        "DS9 2x18 story",
+        "DS9 S02 story 18",
+        "DS9 2x18",
+        "DS9 S02E18",
+        "DS9 season 2 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-profit-and-loss"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Profit and Loss",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Profit_and_Loss_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e19.blood-oath",
+      "label": "Blood Oath",
+      "contextType": "story_anchor",
+      "sortKey": 22360,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Blood Oath",
+        "DS9 season 2 Blood Oath",
+        "DS9 S2 Blood Oath",
+        "DS9 2x19 story",
+        "DS9 S02 story 19",
+        "DS9 2x19",
+        "DS9 S02E19",
+        "DS9 season 2 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-blood-oath"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Blood Oath",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Blood_Oath_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e20.the-maquis-part-i",
+      "label": "The Maquis, Part I",
+      "contextType": "story_anchor",
+      "sortKey": 22380,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "The Maquis, Part I",
+        "DS9 season 2 The Maquis, Part I",
+        "DS9 S2 The Maquis, Part I",
+        "DS9 2x20 story",
+        "DS9 S02 story 20",
+        "DS9 2x20",
+        "DS9 S02E20",
+        "DS9 season 2 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-maquis-part-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Maquis, Part I",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Maquis%2C_Part_I_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e21.the-maquis-part-ii",
+      "label": "The Maquis, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 22400,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "The Maquis, Part II",
+        "DS9 season 2 The Maquis, Part II",
+        "DS9 S2 The Maquis, Part II",
+        "DS9 2x21 story",
+        "DS9 S02 story 21",
+        "DS9 2x21",
+        "DS9 S02E21",
+        "DS9 season 2 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-maquis-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Maquis, Part II",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Maquis%2C_Part_II_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e22.the-wire",
+      "label": "The Wire",
+      "contextType": "story_anchor",
+      "sortKey": 22420,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "The Wire",
+        "DS9 season 2 The Wire",
+        "DS9 S2 The Wire",
+        "DS9 2x22 story",
+        "DS9 S02 story 22",
+        "DS9 2x22",
+        "DS9 S02E22",
+        "DS9 season 2 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-wire"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Wire",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Wire_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e23.crossover",
+      "label": "Crossover",
+      "contextType": "story_anchor",
+      "sortKey": 22440,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Crossover",
+        "DS9 season 2 Crossover",
+        "DS9 S2 Crossover",
+        "DS9 2x23 story",
+        "DS9 S02 story 23",
+        "DS9 2x23",
+        "DS9 S02E23",
+        "DS9 season 2 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-crossover"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Crossover",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Crossover_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e24.the-collaborator",
+      "label": "The Collaborator",
+      "contextType": "story_anchor",
+      "sortKey": 22460,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "The Collaborator",
+        "DS9 season 2 The Collaborator",
+        "DS9 S2 The Collaborator",
+        "DS9 2x24 story",
+        "DS9 S02 story 24",
+        "DS9 2x24",
+        "DS9 S02E24",
+        "DS9 season 2 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-collaborator"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Collaborator",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Collaborator_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e25.tribunal",
+      "label": "Tribunal",
+      "contextType": "story_anchor",
+      "sortKey": 22480,
+      "stardate": "47944.2 (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Tribunal",
+        "DS9 season 2 Tribunal",
+        "DS9 S2 Tribunal",
+        "DS9 2x25 story",
+        "DS9 S02 story 25",
+        "DS9 2x25",
+        "DS9 S02E25",
+        "DS9 season 2 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-tribunal"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Tribunal",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tribunal_(episode)",
+        "stardate": "47944.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s2.e26.the-jemhadar",
+      "label": "The Jem'Hadar",
+      "contextType": "story_anchor",
+      "sortKey": 22500,
+      "stardate": "Unknown (2370)",
+      "year": "2370",
+      "series": "DS9",
+      "season": 2,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "The Jem'Hadar",
+        "DS9 season 2 The Jem'Hadar",
+        "DS9 S2 The Jem'Hadar",
+        "DS9 2x26 story",
+        "DS9 S02 story 26",
+        "DS9 2x26",
+        "DS9 S02E26",
+        "DS9 season 2 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-jemhadar"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Jem'Hadar",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Jem'Hadar_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "ds9.s2.full-season",
+      "label": "DS9 season 2 full window",
+      "anchorFrom": "ds9.s2.e01.the-homecoming",
+      "anchorTo": "ds9.s2.e26.the-jemhadar",
+      "sortKeyFrom": 22000,
+      "sortKeyTo": 22500,
+      "aliases": [
+        "DS9 season 2",
+        "Star Trek: Deep Space Nine season 2",
+        "DS9 S2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "ds9.s2.e01.the-homecoming.window",
+      "label": "The Homecoming episode window",
+      "anchorFrom": "ds9.s2.e01.the-homecoming",
+      "anchorTo": "ds9.s2.e02.the-circle",
+      "sortKeyFrom": 22000,
+      "sortKeyTo": 22020,
+      "aliases": [
+        "during The Homecoming",
+        "after The Homecoming"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-homecoming"
+      ]
+    },
+    {
+      "id": "ds9.s2.e02.the-circle.window",
+      "label": "The Circle episode window",
+      "anchorFrom": "ds9.s2.e02.the-circle",
+      "anchorTo": "ds9.s2.e03.the-siege",
+      "sortKeyFrom": 22020,
+      "sortKeyTo": 22040,
+      "aliases": [
+        "during The Circle",
+        "after The Circle"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-circle"
+      ]
+    },
+    {
+      "id": "ds9.s2.e03.the-siege.window",
+      "label": "The Siege episode window",
+      "anchorFrom": "ds9.s2.e03.the-siege",
+      "anchorTo": "ds9.s2.e04.invasive-procedures",
+      "sortKeyFrom": 22040,
+      "sortKeyTo": 22060,
+      "aliases": [
+        "during The Siege",
+        "after The Siege"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-siege"
+      ]
+    },
+    {
+      "id": "ds9.s2.e04.invasive-procedures.window",
+      "label": "Invasive Procedures episode window",
+      "anchorFrom": "ds9.s2.e04.invasive-procedures",
+      "anchorTo": "ds9.s2.e05.cardassians",
+      "sortKeyFrom": 22060,
+      "sortKeyTo": 22080,
+      "aliases": [
+        "during Invasive Procedures",
+        "after Invasive Procedures"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-invasive-procedures"
+      ]
+    },
+    {
+      "id": "ds9.s2.e05.cardassians.window",
+      "label": "Cardassians episode window",
+      "anchorFrom": "ds9.s2.e05.cardassians",
+      "anchorTo": "ds9.s2.e06.melora",
+      "sortKeyFrom": 22080,
+      "sortKeyTo": 22100,
+      "aliases": [
+        "during Cardassians",
+        "after Cardassians"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-cardassians"
+      ]
+    },
+    {
+      "id": "ds9.s2.e06.melora.window",
+      "label": "Melora episode window",
+      "anchorFrom": "ds9.s2.e06.melora",
+      "anchorTo": "ds9.s2.e07.rules-of-acquisition",
+      "sortKeyFrom": 22100,
+      "sortKeyTo": 22120,
+      "aliases": [
+        "during Melora",
+        "after Melora"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-melora"
+      ]
+    },
+    {
+      "id": "ds9.s2.e07.rules-of-acquisition.window",
+      "label": "Rules of Acquisition episode window",
+      "anchorFrom": "ds9.s2.e07.rules-of-acquisition",
+      "anchorTo": "ds9.s2.e08.necessary-evil",
+      "sortKeyFrom": 22120,
+      "sortKeyTo": 22140,
+      "aliases": [
+        "during Rules of Acquisition",
+        "after Rules of Acquisition"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-rules-of-acquisition"
+      ]
+    },
+    {
+      "id": "ds9.s2.e08.necessary-evil.window",
+      "label": "Necessary Evil episode window",
+      "anchorFrom": "ds9.s2.e08.necessary-evil",
+      "anchorTo": "ds9.s2.e09.second-sight",
+      "sortKeyFrom": 22140,
+      "sortKeyTo": 22160,
+      "aliases": [
+        "during Necessary Evil",
+        "after Necessary Evil"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-necessary-evil"
+      ]
+    },
+    {
+      "id": "ds9.s2.e09.second-sight.window",
+      "label": "Second Sight episode window",
+      "anchorFrom": "ds9.s2.e09.second-sight",
+      "anchorTo": "ds9.s2.e10.sanctuary",
+      "sortKeyFrom": 22160,
+      "sortKeyTo": 22180,
+      "aliases": [
+        "during Second Sight",
+        "after Second Sight"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-second-sight"
+      ]
+    },
+    {
+      "id": "ds9.s2.e10.sanctuary.window",
+      "label": "Sanctuary episode window",
+      "anchorFrom": "ds9.s2.e10.sanctuary",
+      "anchorTo": "ds9.s2.e11.rivals",
+      "sortKeyFrom": 22180,
+      "sortKeyTo": 22200,
+      "aliases": [
+        "during Sanctuary",
+        "after Sanctuary"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-sanctuary"
+      ]
+    },
+    {
+      "id": "ds9.s2.e11.rivals.window",
+      "label": "Rivals episode window",
+      "anchorFrom": "ds9.s2.e11.rivals",
+      "anchorTo": "ds9.s2.e12.the-alternate",
+      "sortKeyFrom": 22200,
+      "sortKeyTo": 22220,
+      "aliases": [
+        "during Rivals",
+        "after Rivals"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-rivals"
+      ]
+    },
+    {
+      "id": "ds9.s2.e12.the-alternate.window",
+      "label": "The Alternate episode window",
+      "anchorFrom": "ds9.s2.e12.the-alternate",
+      "anchorTo": "ds9.s2.e13.armageddon-game",
+      "sortKeyFrom": 22220,
+      "sortKeyTo": 22240,
+      "aliases": [
+        "during The Alternate",
+        "after The Alternate"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-alternate"
+      ]
+    },
+    {
+      "id": "ds9.s2.e13.armageddon-game.window",
+      "label": "Armageddon Game episode window",
+      "anchorFrom": "ds9.s2.e13.armageddon-game",
+      "anchorTo": "ds9.s2.e14.whispers",
+      "sortKeyFrom": 22240,
+      "sortKeyTo": 22260,
+      "aliases": [
+        "during Armageddon Game",
+        "after Armageddon Game"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-armageddon-game"
+      ]
+    },
+    {
+      "id": "ds9.s2.e14.whispers.window",
+      "label": "Whispers episode window",
+      "anchorFrom": "ds9.s2.e14.whispers",
+      "anchorTo": "ds9.s2.e15.paradise",
+      "sortKeyFrom": 22260,
+      "sortKeyTo": 22280,
+      "aliases": [
+        "during Whispers",
+        "after Whispers"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-whispers"
+      ]
+    },
+    {
+      "id": "ds9.s2.e15.paradise.window",
+      "label": "Paradise episode window",
+      "anchorFrom": "ds9.s2.e15.paradise",
+      "anchorTo": "ds9.s2.e16.shadowplay",
+      "sortKeyFrom": 22280,
+      "sortKeyTo": 22300,
+      "aliases": [
+        "during Paradise",
+        "after Paradise"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-paradise"
+      ]
+    },
+    {
+      "id": "ds9.s2.e16.shadowplay.window",
+      "label": "Shadowplay episode window",
+      "anchorFrom": "ds9.s2.e16.shadowplay",
+      "anchorTo": "ds9.s2.e17.playing-god",
+      "sortKeyFrom": 22300,
+      "sortKeyTo": 22320,
+      "aliases": [
+        "during Shadowplay",
+        "after Shadowplay"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-shadowplay"
+      ]
+    },
+    {
+      "id": "ds9.s2.e17.playing-god.window",
+      "label": "Playing God episode window",
+      "anchorFrom": "ds9.s2.e17.playing-god",
+      "anchorTo": "ds9.s2.e18.profit-and-loss",
+      "sortKeyFrom": 22320,
+      "sortKeyTo": 22340,
+      "aliases": [
+        "during Playing God",
+        "after Playing God"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-playing-god"
+      ]
+    },
+    {
+      "id": "ds9.s2.e18.profit-and-loss.window",
+      "label": "Profit and Loss episode window",
+      "anchorFrom": "ds9.s2.e18.profit-and-loss",
+      "anchorTo": "ds9.s2.e19.blood-oath",
+      "sortKeyFrom": 22340,
+      "sortKeyTo": 22360,
+      "aliases": [
+        "during Profit and Loss",
+        "after Profit and Loss"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-profit-and-loss"
+      ]
+    },
+    {
+      "id": "ds9.s2.e19.blood-oath.window",
+      "label": "Blood Oath episode window",
+      "anchorFrom": "ds9.s2.e19.blood-oath",
+      "anchorTo": "ds9.s2.e20.the-maquis-part-i",
+      "sortKeyFrom": 22360,
+      "sortKeyTo": 22380,
+      "aliases": [
+        "during Blood Oath",
+        "after Blood Oath"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-blood-oath"
+      ]
+    },
+    {
+      "id": "ds9.s2.e20.the-maquis-part-i.window",
+      "label": "The Maquis, Part I episode window",
+      "anchorFrom": "ds9.s2.e20.the-maquis-part-i",
+      "anchorTo": "ds9.s2.e21.the-maquis-part-ii",
+      "sortKeyFrom": 22380,
+      "sortKeyTo": 22400,
+      "aliases": [
+        "during The Maquis, Part I",
+        "after The Maquis, Part I"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-maquis-part-i"
+      ]
+    },
+    {
+      "id": "ds9.s2.e21.the-maquis-part-ii.window",
+      "label": "The Maquis, Part II episode window",
+      "anchorFrom": "ds9.s2.e21.the-maquis-part-ii",
+      "anchorTo": "ds9.s2.e22.the-wire",
+      "sortKeyFrom": 22400,
+      "sortKeyTo": 22420,
+      "aliases": [
+        "during The Maquis, Part II",
+        "after The Maquis, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-maquis-part-ii"
+      ]
+    },
+    {
+      "id": "ds9.s2.e22.the-wire.window",
+      "label": "The Wire episode window",
+      "anchorFrom": "ds9.s2.e22.the-wire",
+      "anchorTo": "ds9.s2.e23.crossover",
+      "sortKeyFrom": 22420,
+      "sortKeyTo": 22440,
+      "aliases": [
+        "during The Wire",
+        "after The Wire"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-wire"
+      ]
+    },
+    {
+      "id": "ds9.s2.e23.crossover.window",
+      "label": "Crossover episode window",
+      "anchorFrom": "ds9.s2.e23.crossover",
+      "anchorTo": "ds9.s2.e24.the-collaborator",
+      "sortKeyFrom": 22440,
+      "sortKeyTo": 22460,
+      "aliases": [
+        "during Crossover",
+        "after Crossover"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-crossover"
+      ]
+    },
+    {
+      "id": "ds9.s2.e24.the-collaborator.window",
+      "label": "The Collaborator episode window",
+      "anchorFrom": "ds9.s2.e24.the-collaborator",
+      "anchorTo": "ds9.s2.e25.tribunal",
+      "sortKeyFrom": 22460,
+      "sortKeyTo": 22480,
+      "aliases": [
+        "during The Collaborator",
+        "after The Collaborator"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-collaborator"
+      ]
+    },
+    {
+      "id": "ds9.s2.e25.tribunal.window",
+      "label": "Tribunal episode window",
+      "anchorFrom": "ds9.s2.e25.tribunal",
+      "anchorTo": "ds9.s2.e26.the-jemhadar",
+      "sortKeyFrom": 22480,
+      "sortKeyTo": 22500,
+      "aliases": [
+        "during Tribunal",
+        "after Tribunal"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-tribunal"
+      ]
+    }
+  ]
+}

@@ -448,6 +448,7 @@
 }
 
 .saga-lorecard-workspace-sort-toggle {
+    --saga-lorecard-sort-shadow: color-mix(in srgb, var(--saga-button-hover, rgba(92, 23, 36, 0.48)) 32%, transparent);
     display: inline-grid;
     place-items: center;
     align-items: center;
@@ -457,13 +458,15 @@
     min-height: 34px;
     aspect-ratio: 1 / 1;
     padding: 0;
-    border: 1px solid var(--saga-input-border, rgba(185, 139, 54, 0.34));
+    border: 1px solid var(--saga-border-strong, var(--saga-input-border, rgba(185, 139, 54, 0.34)));
     border-radius: 3px;
-    background: linear-gradient(180deg, var(--saga-gold, #d7b56d), var(--saga-gold-strong, #b9892f));
-    color: var(--saga-on-accent, #181008);
+    background: linear-gradient(180deg,
+        var(--saga-button-hover, rgba(92, 23, 36, 0.48)),
+        var(--saga-button, rgba(18, 18, 24, 0.72)));
+    color: var(--saga-button-text, var(--saga-text, #f1ead8));
     box-shadow:
-        0 0 0 1px rgba(255, 236, 170, 0.22) inset,
-        0 0 6px var(--saga-gold-surface, rgba(215, 181, 109, 0.16));
+        0 0 0 1px color-mix(in srgb, var(--saga-border-strong, rgba(215, 181, 109, 0.58)) 24%, transparent) inset,
+        0 0 6px var(--saga-lorecard-sort-shadow);
     box-sizing: border-box;
     font-size: 13px;
     font-weight: 800;
@@ -475,10 +478,14 @@
 .saga-lorecard-workspace-sort-toggle:hover,
 .saga-lorecard-workspace-sort-toggle:focus-visible {
     border-color: var(--saga-border-strong, rgba(215, 181, 109, 0.58));
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--saga-button-hover, rgba(92, 23, 36, 0.48)) 88%, var(--saga-focus, #ffeaa7) 12%),
+        var(--saga-button-hover, rgba(92, 23, 36, 0.48)));
+    color: var(--saga-button-text, var(--saga-text, #f1ead8));
     outline: none;
     box-shadow:
-        0 0 0 1px rgba(255, 236, 170, 0.22) inset,
-        0 0 10px var(--saga-gold-surface, rgba(215, 181, 109, 0.22));
+        0 0 0 1px color-mix(in srgb, var(--saga-focus, #ffeaa7) 30%, transparent) inset,
+        0 0 10px color-mix(in srgb, var(--saga-focus, #ffeaa7) 24%, transparent);
 }
 
 .saga-lorecard-workspace-utilities {

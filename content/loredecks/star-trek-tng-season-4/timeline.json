@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: The Next Generation season 4 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+      "label": "The Best of Both Worlds, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 13000,
+      "stardate": "44001.4-44002.3 (2366/2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "The Best of Both Worlds, Part II",
+        "TNG season 4 The Best of Both Worlds, Part II",
+        "TNG S4 The Best of Both Worlds, Part II",
+        "TNG 4x01 story",
+        "TNG S04 story 01",
+        "TNG 4x01",
+        "TNG S04E01",
+        "TNG season 4 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds, Part II",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds%2C_Part_II_(episode)",
+        "stardate": "44001.4-44002.3 (2366/2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e02.family",
+      "label": "Family",
+      "contextType": "story_anchor",
+      "sortKey": 13020,
+      "stardate": "44012.3 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Family",
+        "TNG season 4 Family",
+        "TNG S4 Family",
+        "TNG 4x02 story",
+        "TNG S04 story 02",
+        "TNG 4x02",
+        "TNG S04E02",
+        "TNG season 4 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-family"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Family",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Family_(episode)",
+        "stardate": "44012.3 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e03.brothers",
+      "label": "Brothers",
+      "contextType": "story_anchor",
+      "sortKey": 13040,
+      "stardate": "44085.7-44091.1 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Brothers",
+        "TNG season 4 Brothers",
+        "TNG S4 Brothers",
+        "TNG 4x03 story",
+        "TNG S04 story 03",
+        "TNG 4x03",
+        "TNG S04E03",
+        "TNG season 4 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-brothers"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Brothers",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Brothers_(episode)",
+        "stardate": "44085.7-44091.1 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e04.suddenly-human",
+      "label": "Suddenly Human",
+      "contextType": "story_anchor",
+      "sortKey": 13060,
+      "stardate": "44143.7 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Suddenly Human",
+        "TNG season 4 Suddenly Human",
+        "TNG S4 Suddenly Human",
+        "TNG 4x04 story",
+        "TNG S04 story 04",
+        "TNG 4x04",
+        "TNG S04E04",
+        "TNG season 4 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-suddenly-human"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Suddenly Human",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Suddenly_Human_(episode)",
+        "stardate": "44143.7 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e05.remember-me",
+      "label": "Remember Me",
+      "contextType": "story_anchor",
+      "sortKey": 13080,
+      "stardate": "44161.2-44162.8 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Remember Me",
+        "TNG season 4 Remember Me",
+        "TNG S4 Remember Me",
+        "TNG 4x05 story",
+        "TNG S04 story 05",
+        "TNG 4x05",
+        "TNG S04E05",
+        "TNG season 4 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-remember-me"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Remember Me",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Remember_Me_(episode)",
+        "stardate": "44161.2-44162.8 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e06.legacy",
+      "label": "Legacy",
+      "contextType": "story_anchor",
+      "sortKey": 13100,
+      "stardate": "44215.2-44225.3 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Legacy",
+        "TNG season 4 Legacy",
+        "TNG S4 Legacy",
+        "TNG 4x06 story",
+        "TNG S04 story 06",
+        "TNG 4x06",
+        "TNG S04E06",
+        "TNG season 4 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-legacy"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Legacy",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Legacy_(episode)",
+        "stardate": "44215.2-44225.3 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e07.reunion",
+      "label": "Reunion",
+      "contextType": "story_anchor",
+      "sortKey": 13120,
+      "stardate": "44246.3 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Reunion",
+        "TNG season 4 Reunion",
+        "TNG S4 Reunion",
+        "TNG 4x07 story",
+        "TNG S04 story 07",
+        "TNG 4x07",
+        "TNG S04E07",
+        "TNG season 4 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-reunion"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Reunion",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Reunion_(episode)",
+        "stardate": "44246.3 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e08.future-imperfect",
+      "label": "Future Imperfect",
+      "contextType": "story_anchor",
+      "sortKey": 13140,
+      "stardate": "44286.5, August 19 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Future Imperfect",
+        "TNG season 4 Future Imperfect",
+        "TNG S4 Future Imperfect",
+        "TNG 4x08 story",
+        "TNG S04 story 08",
+        "TNG 4x08",
+        "TNG S04E08",
+        "TNG season 4 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-future-imperfect"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Future Imperfect",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Future_Imperfect_(episode)",
+        "stardate": "44286.5, August 19 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e09.final-mission",
+      "label": "Final Mission",
+      "contextType": "story_anchor",
+      "sortKey": 13160,
+      "stardate": "44307.3-44307.6 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Final Mission",
+        "TNG season 4 Final Mission",
+        "TNG S4 Final Mission",
+        "TNG 4x09 story",
+        "TNG S04 story 09",
+        "TNG 4x09",
+        "TNG S04E09",
+        "TNG season 4 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-final-mission"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Final Mission",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Final_Mission_(episode)",
+        "stardate": "44307.3-44307.6 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e10.the-loss",
+      "label": "The Loss",
+      "contextType": "story_anchor",
+      "sortKey": 13180,
+      "stardate": "44356.9 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "The Loss",
+        "TNG season 4 The Loss",
+        "TNG S4 The Loss",
+        "TNG 4x10 story",
+        "TNG S04 story 10",
+        "TNG 4x10",
+        "TNG S04E10",
+        "TNG season 4 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-loss"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Loss",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Loss_(episode)",
+        "stardate": "44356.9 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e11.datas-day",
+      "label": "Data's Day",
+      "contextType": "story_anchor",
+      "sortKey": 13200,
+      "stardate": "44390.1 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Data's Day",
+        "TNG season 4 Data's Day",
+        "TNG S4 Data's Day",
+        "TNG 4x11 story",
+        "TNG S04 story 11",
+        "TNG 4x11",
+        "TNG S04E11",
+        "TNG season 4 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-datas-day"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Data's Day",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Data's_Day_(episode)",
+        "stardate": "44390.1 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e12.the-wounded",
+      "label": "The Wounded",
+      "contextType": "story_anchor",
+      "sortKey": 13220,
+      "stardate": "44429.6-44431.7 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "The Wounded",
+        "TNG season 4 The Wounded",
+        "TNG S4 The Wounded",
+        "TNG 4x12 story",
+        "TNG S04 story 12",
+        "TNG 4x12",
+        "TNG S04E12",
+        "TNG season 4 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-wounded"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Wounded",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Wounded_(episode)",
+        "stardate": "44429.6-44431.7 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e13.devils-due",
+      "label": "Devil's Due",
+      "contextType": "story_anchor",
+      "sortKey": 13240,
+      "stardate": "44474.5 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Devil's Due",
+        "TNG season 4 Devil's Due",
+        "TNG S4 Devil's Due",
+        "TNG 4x13 story",
+        "TNG S04 story 13",
+        "TNG 4x13",
+        "TNG S04E13",
+        "TNG season 4 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-devils-due"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Devil's Due",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Devil's_Due_(episode)",
+        "stardate": "44474.5 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e14.clues",
+      "label": "Clues",
+      "contextType": "story_anchor",
+      "sortKey": 13260,
+      "stardate": "44502.7 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Clues",
+        "TNG season 4 Clues",
+        "TNG S4 Clues",
+        "TNG 4x14 story",
+        "TNG S04 story 14",
+        "TNG 4x14",
+        "TNG S04E14",
+        "TNG season 4 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-clues"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Clues",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Clues_(episode)",
+        "stardate": "44502.7 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e15.first-contact",
+      "label": "First Contact",
+      "contextType": "story_anchor",
+      "sortKey": 13280,
+      "stardate": "Unknown (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "First Contact",
+        "TNG season 4 First Contact",
+        "TNG S4 First Contact",
+        "TNG 4x15 story",
+        "TNG S04 story 15",
+        "TNG 4x15",
+        "TNG S04E15",
+        "TNG season 4 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-first-contact"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "First Contact",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/First_Contact_(episode)",
+        "stardate": "Unknown (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e16.galaxys-child",
+      "label": "Galaxy's Child",
+      "contextType": "story_anchor",
+      "sortKey": 13300,
+      "stardate": "44614.6 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Galaxy's Child",
+        "TNG season 4 Galaxy's Child",
+        "TNG S4 Galaxy's Child",
+        "TNG 4x16 story",
+        "TNG S04 story 16",
+        "TNG 4x16",
+        "TNG S04E16",
+        "TNG season 4 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-galaxys-child"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Galaxy's Child",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Galaxy's_Child_(episode)",
+        "stardate": "44614.6 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e17.night-terrors",
+      "label": "Night Terrors",
+      "contextType": "story_anchor",
+      "sortKey": 13320,
+      "stardate": "44631.2-44642.1 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Night Terrors",
+        "TNG season 4 Night Terrors",
+        "TNG S4 Night Terrors",
+        "TNG 4x17 story",
+        "TNG S04 story 17",
+        "TNG 4x17",
+        "TNG S04E17",
+        "TNG season 4 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-night-terrors"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Night Terrors",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_Terrors_(episode)",
+        "stardate": "44631.2-44642.1 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e18.identity-crisis",
+      "label": "Identity Crisis",
+      "contextType": "story_anchor",
+      "sortKey": 13340,
+      "stardate": "44664.5-44668.1 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Identity Crisis",
+        "TNG season 4 Identity Crisis",
+        "TNG S4 Identity Crisis",
+        "TNG 4x18 story",
+        "TNG S04 story 18",
+        "TNG 4x18",
+        "TNG S04E18",
+        "TNG season 4 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-identity-crisis"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Identity Crisis",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Identity_Crisis_(episode)",
+        "stardate": "44664.5-44668.1 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e19.the-nth-degree",
+      "label": "The Nth Degree",
+      "contextType": "story_anchor",
+      "sortKey": 13360,
+      "stardate": "44704.2-44721.9 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "The Nth Degree",
+        "TNG season 4 The Nth Degree",
+        "TNG S4 The Nth Degree",
+        "TNG 4x19 story",
+        "TNG S04 story 19",
+        "TNG 4x19",
+        "TNG S04E19",
+        "TNG season 4 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-nth-degree"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Nth Degree",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Nth_Degree_(episode)",
+        "stardate": "44704.2-44721.9 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e20.qpid",
+      "label": "Qpid",
+      "contextType": "story_anchor",
+      "sortKey": 13380,
+      "stardate": "44741.9 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Qpid",
+        "TNG season 4 Qpid",
+        "TNG S4 Qpid",
+        "TNG 4x20 story",
+        "TNG S04 story 20",
+        "TNG 4x20",
+        "TNG S04E20",
+        "TNG season 4 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-qpid"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Qpid",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Qpid_(episode)",
+        "stardate": "44741.9 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e21.the-drumhead",
+      "label": "The Drumhead",
+      "contextType": "story_anchor",
+      "sortKey": 13400,
+      "stardate": "44769.2-44780 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "The Drumhead",
+        "TNG season 4 The Drumhead",
+        "TNG S4 The Drumhead",
+        "TNG 4x21 story",
+        "TNG S04 story 21",
+        "TNG 4x21",
+        "TNG S04E21",
+        "TNG season 4 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-drumhead"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Drumhead",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Drumhead_(episode)",
+        "stardate": "44769.2-44780 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e22.half-a-life",
+      "label": "Half a Life",
+      "contextType": "story_anchor",
+      "sortKey": 13420,
+      "stardate": "44805.3-44812.6 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Half a Life",
+        "TNG season 4 Half a Life",
+        "TNG S4 Half a Life",
+        "TNG 4x22 story",
+        "TNG S04 story 22",
+        "TNG 4x22",
+        "TNG S04E22",
+        "TNG season 4 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-half-a-life"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Half a Life",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Half_a_Life_(episode)",
+        "stardate": "44805.3-44812.6 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e23.the-host",
+      "label": "The Host",
+      "contextType": "story_anchor",
+      "sortKey": 13440,
+      "stardate": "44821.3-44824.4 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "The Host",
+        "TNG season 4 The Host",
+        "TNG S4 The Host",
+        "TNG 4x23 story",
+        "TNG S04 story 23",
+        "TNG 4x23",
+        "TNG S04E23",
+        "TNG season 4 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-host"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Host",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Host_(episode)",
+        "stardate": "44821.3-44824.4 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e24.the-minds-eye",
+      "label": "The Mind's Eye",
+      "contextType": "story_anchor",
+      "sortKey": 13460,
+      "stardate": "44885.5-44896.9 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "The Mind's Eye",
+        "TNG season 4 The Mind's Eye",
+        "TNG S4 The Mind's Eye",
+        "TNG 4x24 story",
+        "TNG S04 story 24",
+        "TNG 4x24",
+        "TNG S04E24",
+        "TNG season 4 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-minds-eye"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Mind's Eye",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Mind's_Eye_(episode)",
+        "stardate": "44885.5-44896.9 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e25.in-theory",
+      "label": "In Theory",
+      "contextType": "story_anchor",
+      "sortKey": 13480,
+      "stardate": "44932.3-44935.6 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "In Theory",
+        "TNG season 4 In Theory",
+        "TNG S4 In Theory",
+        "TNG 4x25 story",
+        "TNG S04 story 25",
+        "TNG 4x25",
+        "TNG S04E25",
+        "TNG season 4 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-in-theory"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "In Theory",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_Theory_(episode)",
+        "stardate": "44932.3-44935.6 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s4.e26.redemption",
+      "label": "Redemption",
+      "contextType": "story_anchor",
+      "sortKey": 13500,
+      "stardate": "44995.3-44998.3 (2367)",
+      "year": "2367",
+      "series": "TNG",
+      "season": 4,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Redemption",
+        "TNG season 4 Redemption",
+        "TNG S4 Redemption",
+        "TNG 4x26 story",
+        "TNG S04 story 26",
+        "TNG 4x26",
+        "TNG S04E26",
+        "TNG season 4 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-redemption"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_(episode)",
+        "stardate": "44995.3-44998.3 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "tng.s4.full-season",
+      "label": "TNG season 4 full window",
+      "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+      "anchorTo": "tng.s4.e26.redemption",
+      "sortKeyFrom": 13000,
+      "sortKeyTo": 13500,
+      "aliases": [
+        "TNG season 4",
+        "Star Trek: The Next Generation season 4",
+        "TNG S4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "tng.s4.e01.the-best-of-both-worlds-part-ii.window",
+      "label": "The Best of Both Worlds, Part II episode window",
+      "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+      "anchorTo": "tng.s4.e02.family",
+      "sortKeyFrom": 13000,
+      "sortKeyTo": 13020,
+      "aliases": [
+        "during The Best of Both Worlds, Part II",
+        "after The Best of Both Worlds, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-best-of-both-worlds-part-ii"
+      ]
+    },
+    {
+      "id": "tng.s4.e02.family.window",
+      "label": "Family episode window",
+      "anchorFrom": "tng.s4.e02.family",
+      "anchorTo": "tng.s4.e03.brothers",
+      "sortKeyFrom": 13020,
+      "sortKeyTo": 13040,
+      "aliases": [
+        "during Family",
+        "after Family"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-family"
+      ]
+    },
+    {
+      "id": "tng.s4.e03.brothers.window",
+      "label": "Brothers episode window",
+      "anchorFrom": "tng.s4.e03.brothers",
+      "anchorTo": "tng.s4.e04.suddenly-human",
+      "sortKeyFrom": 13040,
+      "sortKeyTo": 13060,
+      "aliases": [
+        "during Brothers",
+        "after Brothers"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-brothers"
+      ]
+    },
+    {
+      "id": "tng.s4.e04.suddenly-human.window",
+      "label": "Suddenly Human episode window",
+      "anchorFrom": "tng.s4.e04.suddenly-human",
+      "anchorTo": "tng.s4.e05.remember-me",
+      "sortKeyFrom": 13060,
+      "sortKeyTo": 13080,
+      "aliases": [
+        "during Suddenly Human",
+        "after Suddenly Human"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-suddenly-human"
+      ]
+    },
+    {
+      "id": "tng.s4.e05.remember-me.window",
+      "label": "Remember Me episode window",
+      "anchorFrom": "tng.s4.e05.remember-me",
+      "anchorTo": "tng.s4.e06.legacy",
+      "sortKeyFrom": 13080,
+      "sortKeyTo": 13100,
+      "aliases": [
+        "during Remember Me",
+        "after Remember Me"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-remember-me"
+      ]
+    },
+    {
+      "id": "tng.s4.e06.legacy.window",
+      "label": "Legacy episode window",
+      "anchorFrom": "tng.s4.e06.legacy",
+      "anchorTo": "tng.s4.e07.reunion",
+      "sortKeyFrom": 13100,
+      "sortKeyTo": 13120,
+      "aliases": [
+        "during Legacy",
+        "after Legacy"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-legacy"
+      ]
+    },
+    {
+      "id": "tng.s4.e07.reunion.window",
+      "label": "Reunion episode window",
+      "anchorFrom": "tng.s4.e07.reunion",
+      "anchorTo": "tng.s4.e08.future-imperfect",
+      "sortKeyFrom": 13120,
+      "sortKeyTo": 13140,
+      "aliases": [
+        "during Reunion",
+        "after Reunion"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-reunion"
+      ]
+    },
+    {
+      "id": "tng.s4.e08.future-imperfect.window",
+      "label": "Future Imperfect episode window",
+      "anchorFrom": "tng.s4.e08.future-imperfect",
+      "anchorTo": "tng.s4.e09.final-mission",
+      "sortKeyFrom": 13140,
+      "sortKeyTo": 13160,
+      "aliases": [
+        "during Future Imperfect",
+        "after Future Imperfect"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-future-imperfect"
+      ]
+    },
+    {
+      "id": "tng.s4.e09.final-mission.window",
+      "label": "Final Mission episode window",
+      "anchorFrom": "tng.s4.e09.final-mission",
+      "anchorTo": "tng.s4.e10.the-loss",
+      "sortKeyFrom": 13160,
+      "sortKeyTo": 13180,
+      "aliases": [
+        "during Final Mission",
+        "after Final Mission"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-final-mission"
+      ]
+    },
+    {
+      "id": "tng.s4.e10.the-loss.window",
+      "label": "The Loss episode window",
+      "anchorFrom": "tng.s4.e10.the-loss",
+      "anchorTo": "tng.s4.e11.datas-day",
+      "sortKeyFrom": 13180,
+      "sortKeyTo": 13200,
+      "aliases": [
+        "during The Loss",
+        "after The Loss"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-loss"
+      ]
+    },
+    {
+      "id": "tng.s4.e11.datas-day.window",
+      "label": "Data's Day episode window",
+      "anchorFrom": "tng.s4.e11.datas-day",
+      "anchorTo": "tng.s4.e12.the-wounded",
+      "sortKeyFrom": 13200,
+      "sortKeyTo": 13220,
+      "aliases": [
+        "during Data's Day",
+        "after Data's Day"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-datas-day"
+      ]
+    },
+    {
+      "id": "tng.s4.e12.the-wounded.window",
+      "label": "The Wounded episode window",
+      "anchorFrom": "tng.s4.e12.the-wounded",
+      "anchorTo": "tng.s4.e13.devils-due",
+      "sortKeyFrom": 13220,
+      "sortKeyTo": 13240,
+      "aliases": [
+        "during The Wounded",
+        "after The Wounded"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-wounded"
+      ]
+    },
+    {
+      "id": "tng.s4.e13.devils-due.window",
+      "label": "Devil's Due episode window",
+      "anchorFrom": "tng.s4.e13.devils-due",
+      "anchorTo": "tng.s4.e14.clues",
+      "sortKeyFrom": 13240,
+      "sortKeyTo": 13260,
+      "aliases": [
+        "during Devil's Due",
+        "after Devil's Due"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-devils-due"
+      ]
+    },
+    {
+      "id": "tng.s4.e14.clues.window",
+      "label": "Clues episode window",
+      "anchorFrom": "tng.s4.e14.clues",
+      "anchorTo": "tng.s4.e15.first-contact",
+      "sortKeyFrom": 13260,
+      "sortKeyTo": 13280,
+      "aliases": [
+        "during Clues",
+        "after Clues"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-clues"
+      ]
+    },
+    {
+      "id": "tng.s4.e15.first-contact.window",
+      "label": "First Contact episode window",
+      "anchorFrom": "tng.s4.e15.first-contact",
+      "anchorTo": "tng.s4.e16.galaxys-child",
+      "sortKeyFrom": 13280,
+      "sortKeyTo": 13300,
+      "aliases": [
+        "during First Contact",
+        "after First Contact"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-first-contact"
+      ]
+    },
+    {
+      "id": "tng.s4.e16.galaxys-child.window",
+      "label": "Galaxy's Child episode window",
+      "anchorFrom": "tng.s4.e16.galaxys-child",
+      "anchorTo": "tng.s4.e17.night-terrors",
+      "sortKeyFrom": 13300,
+      "sortKeyTo": 13320,
+      "aliases": [
+        "during Galaxy's Child",
+        "after Galaxy's Child"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-galaxys-child"
+      ]
+    },
+    {
+      "id": "tng.s4.e17.night-terrors.window",
+      "label": "Night Terrors episode window",
+      "anchorFrom": "tng.s4.e17.night-terrors",
+      "anchorTo": "tng.s4.e18.identity-crisis",
+      "sortKeyFrom": 13320,
+      "sortKeyTo": 13340,
+      "aliases": [
+        "during Night Terrors",
+        "after Night Terrors"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-night-terrors"
+      ]
+    },
+    {
+      "id": "tng.s4.e18.identity-crisis.window",
+      "label": "Identity Crisis episode window",
+      "anchorFrom": "tng.s4.e18.identity-crisis",
+      "anchorTo": "tng.s4.e19.the-nth-degree",
+      "sortKeyFrom": 13340,
+      "sortKeyTo": 13360,
+      "aliases": [
+        "during Identity Crisis",
+        "after Identity Crisis"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-identity-crisis"
+      ]
+    },
+    {
+      "id": "tng.s4.e19.the-nth-degree.window",
+      "label": "The Nth Degree episode window",
+      "anchorFrom": "tng.s4.e19.the-nth-degree",
+      "anchorTo": "tng.s4.e20.qpid",
+      "sortKeyFrom": 13360,
+      "sortKeyTo": 13380,
+      "aliases": [
+        "during The Nth Degree",
+        "after The Nth Degree"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-nth-degree"
+      ]
+    },
+    {
+      "id": "tng.s4.e20.qpid.window",
+      "label": "Qpid episode window",
+      "anchorFrom": "tng.s4.e20.qpid",
+      "anchorTo": "tng.s4.e21.the-drumhead",
+      "sortKeyFrom": 13380,
+      "sortKeyTo": 13400,
+      "aliases": [
+        "during Qpid",
+        "after Qpid"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-qpid"
+      ]
+    },
+    {
+      "id": "tng.s4.e21.the-drumhead.window",
+      "label": "The Drumhead episode window",
+      "anchorFrom": "tng.s4.e21.the-drumhead",
+      "anchorTo": "tng.s4.e22.half-a-life",
+      "sortKeyFrom": 13400,
+      "sortKeyTo": 13420,
+      "aliases": [
+        "during The Drumhead",
+        "after The Drumhead"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-drumhead"
+      ]
+    },
+    {
+      "id": "tng.s4.e22.half-a-life.window",
+      "label": "Half a Life episode window",
+      "anchorFrom": "tng.s4.e22.half-a-life",
+      "anchorTo": "tng.s4.e23.the-host",
+      "sortKeyFrom": 13420,
+      "sortKeyTo": 13440,
+      "aliases": [
+        "during Half a Life",
+        "after Half a Life"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-half-a-life"
+      ]
+    },
+    {
+      "id": "tng.s4.e23.the-host.window",
+      "label": "The Host episode window",
+      "anchorFrom": "tng.s4.e23.the-host",
+      "anchorTo": "tng.s4.e24.the-minds-eye",
+      "sortKeyFrom": 13440,
+      "sortKeyTo": 13460,
+      "aliases": [
+        "during The Host",
+        "after The Host"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-host"
+      ]
+    },
+    {
+      "id": "tng.s4.e24.the-minds-eye.window",
+      "label": "The Mind's Eye episode window",
+      "anchorFrom": "tng.s4.e24.the-minds-eye",
+      "anchorTo": "tng.s4.e25.in-theory",
+      "sortKeyFrom": 13460,
+      "sortKeyTo": 13480,
+      "aliases": [
+        "during The Mind's Eye",
+        "after The Mind's Eye"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-minds-eye"
+      ]
+    },
+    {
+      "id": "tng.s4.e25.in-theory.window",
+      "label": "In Theory episode window",
+      "anchorFrom": "tng.s4.e25.in-theory",
+      "anchorTo": "tng.s4.e26.redemption",
+      "sortKeyFrom": 13480,
+      "sortKeyTo": 13500,
+      "aliases": [
+        "during In Theory",
+        "after In Theory"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-in-theory"
+      ]
+    }
+  ]
+}

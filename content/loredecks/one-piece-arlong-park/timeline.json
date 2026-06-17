@@ -1,0 +1,605 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Arlong Park Arc Context anchors and windows for East Blue Saga.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.arlong-park.arlong-park",
+      "label": "Arlong Park Arc: Nami, Bellemere, and Cocoyasi",
+      "sortKey": 5000,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Nami, Bellemere, and Cocoyasi"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.arlong-pirates",
+      "label": "Arlong Park Arc: Arlong Pirates",
+      "sortKey": 5090,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Arlong Pirates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.village-occupation-and-money",
+      "label": "Arlong Park Arc: Village occupation and money",
+      "sortKey": 5180,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Village occupation and money"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.straw-hats-response",
+      "label": "Arlong Park Arc: Straw Hats response",
+      "sortKey": 5270,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Straw Hats response"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.battles-and-matchups",
+      "label": "Arlong Park Arc: Battles and matchups",
+      "sortKey": 5360,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Battles and matchups"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.nami-and-luffy-bond",
+      "label": "Arlong Park Arc: Nami and Luffy bond",
+      "sortKey": 5450,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Nami and Luffy bond"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.fish-men-and-east-blue-context",
+      "label": "Arlong Park Arc: Fish-Men and East Blue context",
+      "sortKey": 5540,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Fish-Men and East Blue context"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.cartography-and-navigation",
+      "label": "Arlong Park Arc: Cartography and navigation",
+      "sortKey": 5630,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Cartography and navigation"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.aftermath-bounties-and-course",
+      "label": "Arlong Park Arc: Aftermath, bounties, and course",
+      "sortKey": 5720,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Aftermath, bounties, and course"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.timeline-and-spoiler-gates",
+      "label": "Arlong Park Arc: Timeline and spoiler gates",
+      "sortKey": 5810,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.arlong-park.after",
+      "label": "Arlong Park Arc: aftermath boundary",
+      "sortKey": 5999,
+      "arc": "Arlong Park Arc",
+      "phase": "East Blue Saga",
+      "chapter": "69-95",
+      "episode": "31-44",
+      "aliases": [
+        "Arlong Park Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arlong Park Arc",
+        "chapterRange": "Manga chapters 69-95",
+        "episodeRange": "Anime episodes 31-44",
+        "reference": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+        "confidence": 0.88
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.arlong-park.window.full",
+      "label": "Arlong Park Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.arlong-park",
+      "anchorTo": "op.arlong-park.after",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5999,
+      "aliases": [
+        "Arlong Park Arc",
+        "arlong-park"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.arlong-park",
+      "label": "Arlong Park Arc: Nami, Bellemere, and Cocoyasi",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.arlong-park",
+      "anchorTo": "op.arlong-park.arlong-pirates",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5090,
+      "aliases": [
+        "Nami, Bellemere, and Cocoyasi"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.arlong-pirates",
+      "label": "Arlong Park Arc: Arlong Pirates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.arlong-pirates",
+      "anchorTo": "op.arlong-park.village-occupation-and-money",
+      "sortKeyFrom": 5090,
+      "sortKeyTo": 5180,
+      "aliases": [
+        "Arlong Pirates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.village-occupation-and-money",
+      "label": "Arlong Park Arc: Village occupation and money",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.village-occupation-and-money",
+      "anchorTo": "op.arlong-park.straw-hats-response",
+      "sortKeyFrom": 5180,
+      "sortKeyTo": 5270,
+      "aliases": [
+        "Village occupation and money"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.straw-hats-response",
+      "label": "Arlong Park Arc: Straw Hats response",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.straw-hats-response",
+      "anchorTo": "op.arlong-park.battles-and-matchups",
+      "sortKeyFrom": 5270,
+      "sortKeyTo": 5360,
+      "aliases": [
+        "Straw Hats response"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.battles-and-matchups",
+      "label": "Arlong Park Arc: Battles and matchups",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.battles-and-matchups",
+      "anchorTo": "op.arlong-park.nami-and-luffy-bond",
+      "sortKeyFrom": 5360,
+      "sortKeyTo": 5450,
+      "aliases": [
+        "Battles and matchups"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.nami-and-luffy-bond",
+      "label": "Arlong Park Arc: Nami and Luffy bond",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.nami-and-luffy-bond",
+      "anchorTo": "op.arlong-park.fish-men-and-east-blue-context",
+      "sortKeyFrom": 5450,
+      "sortKeyTo": 5540,
+      "aliases": [
+        "Nami and Luffy bond"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.fish-men-and-east-blue-context",
+      "label": "Arlong Park Arc: Fish-Men and East Blue context",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.fish-men-and-east-blue-context",
+      "anchorTo": "op.arlong-park.cartography-and-navigation",
+      "sortKeyFrom": 5540,
+      "sortKeyTo": 5630,
+      "aliases": [
+        "Fish-Men and East Blue context"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.cartography-and-navigation",
+      "label": "Arlong Park Arc: Cartography and navigation",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.cartography-and-navigation",
+      "anchorTo": "op.arlong-park.aftermath-bounties-and-course",
+      "sortKeyFrom": 5630,
+      "sortKeyTo": 5720,
+      "aliases": [
+        "Cartography and navigation"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.aftermath-bounties-and-course",
+      "label": "Arlong Park Arc: Aftermath, bounties, and course",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.aftermath-bounties-and-course",
+      "anchorTo": "op.arlong-park.timeline-and-spoiler-gates",
+      "sortKeyFrom": 5720,
+      "sortKeyTo": 5810,
+      "aliases": [
+        "Aftermath, bounties, and course"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.arlong-park.window.timeline-and-spoiler-gates",
+      "label": "Arlong Park Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.arlong-park.timeline-and-spoiler-gates",
+      "anchorTo": "op.arlong-park.after",
+      "sortKeyFrom": 5810,
+      "sortKeyTo": 5999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:arlong-park",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "east-blue"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "arlong-park"
+      ]
+    }
+  ]
+}

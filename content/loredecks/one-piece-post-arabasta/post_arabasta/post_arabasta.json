@@ -1,0 +1,850 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_chopper_adjusts_to_everyday_crew_life_after_joining_as_doctor_001",
+      "title": "Chopper Adjusts From Emergency Doctor To Everyday Crewmate",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.post-arabasta",
+        "validToAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13150,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Chopper Adjusts From Emergency Doctor To Everyday Crewmate"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tony-tony-chopper",
+          "op:going-merry",
+          "op:post-arabasta"
+        ],
+        "characters": [
+          "Tony Tony Chopper",
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "episode 131",
+          "new crewmate fit",
+          "everyday doctor"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tony-tony-chopper",
+        "character:going-merry",
+        "topic:post-arabasta",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:chopper-rumble-ball",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Tony Tony Chopper",
+            "Going Merry",
+            "Post-Arabasta"
+          ],
+          "topicsAny": [
+            "episode 131",
+            "new crewmate fit",
+            "everyday doctor"
+          ],
+          "keywordsAny": [
+            "Tony Tony Chopper",
+            "Going Merry",
+            "Post-Arabasta",
+            "episode 131",
+            "new crewmate fit",
+            "everyday doctor",
+            "Chopper",
+            "everyday crew life",
+            "doctor",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "In Post-Arabasta, Chopper is no longer only an emergency doctor from Drum; he is learning everyday crew life aboard the Going Merry.",
+        "injection": "Use Chopper as a new crewmate settling into routine, with medical identity still visible even when the scene is quiet.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_the_crew_treats_him_as_a_friend_rather_than_a_monster_002",
+      "title": "Episode 131 Frames Chopper Through Rumble Ball Memory",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.post-arabasta",
+        "validToAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13150,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Episode 131 Frames Chopper Through Rumble Ball Memory"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tony-tony-chopper",
+          "op:rumble-ball",
+          "op:doctorine"
+        ],
+        "characters": [
+          "Tony Tony Chopper",
+          "Doctorine"
+        ],
+        "locations": [],
+        "objects": [
+          "Rumble Ball"
+        ],
+        "factions": [],
+        "topics": [
+          "episode 131",
+          "Rumble Ball memory",
+          "first patient"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tony-tony-chopper",
+        "item:rumble-ball",
+        "character:doctorine",
+        "topic:episode-131-135",
+        "topic:chopper-rumble-ball"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper",
+            "Doctorine"
+          ],
+          "entitiesAny": [
+            "Tony Tony Chopper",
+            "Rumble Ball",
+            "Doctorine"
+          ],
+          "topicsAny": [
+            "episode 131",
+            "Rumble Ball memory",
+            "first patient"
+          ],
+          "keywordsAny": [
+            "Tony Tony Chopper",
+            "Rumble Ball",
+            "Doctorine",
+            "episode 131",
+            "Rumble Ball memory",
+            "first patient",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Episode 131 centers Chopper's Rumble Ball anecdote and first-patient memory with Doctorine rather than replaying all of Drum Island.",
+        "injection": "Use the memory to show Chopper's medical insecurity and growth; keep the focus on this anime vignette, not a full Drum recap.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_his_insecurity_still_appears_outside_medical_emergencies_003",
+      "title": "Chopper's Insecurity Still Appears Outside Emergencies",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.post-arabasta",
+        "validToAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13150,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Chopper's Insecurity Still Appears Outside Emergencies"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tony-tony-chopper",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Tony Tony Chopper",
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Chopper insecurity",
+          "non-emergency scenes",
+          "crew acceptance"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tony-tony-chopper",
+        "character:going-merry",
+        "topic:episode-131-135",
+        "topic:chopper-rumble-ball"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Tony Tony Chopper",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "Chopper insecurity",
+            "non-emergency scenes",
+            "crew acceptance"
+          ],
+          "keywordsAny": [
+            "Tony Tony Chopper",
+            "Going Merry",
+            "Chopper insecurity",
+            "non-emergency scenes",
+            "crew acceptance",
+            "Chopper",
+            "insecurity",
+            "belonging",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Chopper's insecurity still appears outside medical emergencies, but the crew's treatment gives him room to belong.",
+        "injection": "Use insecurity as a soft aftereffect, not as a reset to pre-Drum rejection.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_shipboard_comedy_should_not_erase_his_role_as_doctor_004",
+      "title": "Shipboard Comedy Keeps Chopper's Doctor Role Visible",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "rule",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.post-arabasta",
+        "validToAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13150,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Shipboard Comedy Keeps Chopper's Doctor Role Visible"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tony-tony-chopper",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Tony Tony Chopper",
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Chopper comedy boundary",
+          "doctor role",
+          "show-only routine"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tony-tony-chopper",
+        "character:going-merry",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:chopper-rumble-ball"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Tony Tony Chopper",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "Chopper comedy boundary",
+            "doctor role",
+            "show-only routine"
+          ],
+          "keywordsAny": [
+            "Tony Tony Chopper",
+            "Going Merry",
+            "Chopper comedy boundary",
+            "doctor role",
+            "show-only routine",
+            "Chopper",
+            "comedy",
+            "doctor",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Shipboard comedy can make Chopper cute or flustered, but this deck should still preserve his role as the crew's doctor.",
+        "injection": "Use humor without reducing Chopper to mascot framing.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_post_arabasta_scenes_show_chopper_fitting_in_without_redoing_drum_island_005",
+      "title": "Chopper Fit-In Scenes Do Not Redo Drum Island",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "rule",
+      "specificityScore": 81,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.post-arabasta",
+        "validToAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13150,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Chopper Fit-In Scenes Do Not Redo Drum Island"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tony-tony-chopper",
+          "op:post-arabasta"
+        ],
+        "characters": [
+          "Tony Tony Chopper"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "episode 131 boundary",
+          "Drum not repeated",
+          "show-only aftercare"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tony-tony-chopper",
+        "topic:post-arabasta",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:chopper-rumble-ball",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper"
+          ],
+          "entitiesAny": [
+            "Tony Tony Chopper",
+            "Post-Arabasta"
+          ],
+          "topicsAny": [
+            "episode 131 boundary",
+            "Drum not repeated",
+            "show-only aftercare"
+          ],
+          "keywordsAny": [
+            "Tony Tony Chopper",
+            "Post-Arabasta",
+            "episode 131 boundary",
+            "Drum not repeated",
+            "show-only aftercare",
+            "Chopper",
+            "fit-in",
+            "aftercare",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Post-Arabasta Chopper scenes show him fitting in after Drum without reopening Drum's political or recruitment conflict.",
+        "injection": "Use this as a containment gate: Chopper can remember training, but the active scene is anime aftercare.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Post-Arabasta Arc",
+    "chapterRange": "Anime-only filler arc",
+    "episodeRange": "Anime episodes 131-135",
+    "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+  }
+}

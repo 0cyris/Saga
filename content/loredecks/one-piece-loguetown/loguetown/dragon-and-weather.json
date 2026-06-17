@@ -1,0 +1,675 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_dragon_intervenes_mysteriously_without_his_later_role_being_explained_027",
+      "title": "Dragon Intervenes Without Explanation",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.dragon-and-weather",
+        "validToAnchor": "op.loguetown.grand-line-threshold",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6560,
+        "sortKeyTo": 6672,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Dragon Intervenes Without Explanation"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dragon",
+          "op:monkey-d-luffy",
+          "op:smoker",
+          "op:storm"
+        ],
+        "characters": [
+          "Dragon",
+          "Monkey D. Luffy",
+          "Smoker"
+        ],
+        "locations": [],
+        "objects": [
+          "storm"
+        ],
+        "factions": [],
+        "topics": [
+          "Dragon intervention",
+          "unexplained rescue",
+          "anti-spoiler boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dragon",
+        "character:monkey-d-luffy",
+        "character:smoker",
+        "rule:storm",
+        "topic:dragon-intervention"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dragon",
+            "Monkey D. Luffy",
+            "Smoker"
+          ],
+          "entitiesAny": [
+            "Dragon",
+            "Monkey D. Luffy",
+            "Smoker",
+            "storm"
+          ],
+          "topicsAny": [
+            "Dragon intervention",
+            "unexplained rescue",
+            "anti-spoiler boundary"
+          ],
+          "keywordsAny": [
+            "Dragon",
+            "Monkey D. Luffy",
+            "Smoker",
+            "storm",
+            "Dragon intervention",
+            "unexplained rescue",
+            "anti-spoiler boundary",
+            "mysterious figure",
+            "unknown",
+            "Dragon Intervenes Without Explanation",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Dragon intervenes at Loguetown without his identity, role, motives, organization, or relationship to Luffy being explained.",
+        "injection": "Use Dragon as a mystery boundary: he can stop Smoker and alter the escape, but narration should not answer who he is.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_wind_and_storm_conditions_help_the_straw_hats_escape_028",
+      "title": "Wind And Storm Conditions Help The Straw Hats Escape",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.dragon-and-weather",
+        "validToAnchor": "op.loguetown.grand-line-threshold",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6560,
+        "sortKeyTo": 6672,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Wind And Storm Conditions Help The Straw Hats Escape"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:storm",
+          "op:going-merry",
+          "op:straw-hat-pirates",
+          "op:harbor"
+        ],
+        "characters": [],
+        "locations": [
+          "Loguetown harbor"
+        ],
+        "objects": [
+          "storm",
+          "Going Merry"
+        ],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "storm escape",
+          "harbor departure",
+          "weather pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "rule:storm",
+        "item:going-merry",
+        "faction:straw-hat-pirates",
+        "location:harbor",
+        "topic:storm-escape"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "storm",
+            "Going Merry",
+            "Straw Hat Pirates",
+            "Loguetown harbor"
+          ],
+          "topicsAny": [
+            "storm escape",
+            "harbor departure",
+            "weather pressure"
+          ],
+          "keywordsAny": [
+            "storm",
+            "Going Merry",
+            "Straw Hat Pirates",
+            "Loguetown harbor",
+            "storm escape",
+            "harbor departure",
+            "weather pressure",
+            "wind",
+            "harbor",
+            "Wind And Storm Conditions Help The Straw Hats Escape",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Wind and storm conditions help the Straw Hats escape Loguetown and push the Going Merry toward the Grand Line route.",
+        "injection": "Use weather as active scene mechanics: departure timing, harbor movement, and Smoker's failed capture all depend on the storm.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_smoker_recognizes_that_something_unusual_happened_029",
+      "title": "Smoker Knows The Escape Was Unusual Even Without Answers",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.dragon-and-weather",
+        "validToAnchor": "op.loguetown.grand-line-threshold",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6560,
+        "sortKeyTo": 6672,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Smoker Knows The Escape Was Unusual Even Without Answers"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:smoker",
+          "op:dragon",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Smoker",
+          "Dragon",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Smoker suspicion",
+          "unanswered intervention",
+          "pursuit motive"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:smoker",
+        "character:dragon",
+        "character:monkey-d-luffy",
+        "topic:smoker-suspicion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Smoker",
+            "Dragon",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Smoker",
+            "Dragon",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Smoker suspicion",
+            "unanswered intervention",
+            "pursuit motive"
+          ],
+          "keywordsAny": [
+            "Smoker",
+            "Dragon",
+            "Monkey D. Luffy",
+            "Smoker suspicion",
+            "unanswered intervention",
+            "pursuit motive",
+            "suspicion",
+            "unanswered",
+            "pursuit",
+            "Smoker Knows The Escape Was Unusual Even Without Answers",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Smoker recognizes that something unusual happened around Luffy's escape even though Loguetown does not give him complete answers.",
+        "injection": "Use Smoker's suspicion as pursuit fuel: he does not need the truth about Dragon to decide Luffy cannot be ignored.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_dragon_should_remain_an_unidentified_major_figure_in_this_deck_030",
+      "title": "Dragon Remains An Unidentified Major Figure",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.dragon-and-weather",
+        "validToAnchor": "op.loguetown.grand-line-threshold",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6560,
+        "sortKeyTo": 6672,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Dragon Remains An Unidentified Major Figure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dragon"
+        ],
+        "characters": [
+          "Dragon"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Dragon identity gate",
+          "unidentified figure",
+          "Revolutionary Army blocked"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dragon",
+        "topic:dragon-identity-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dragon"
+          ],
+          "entitiesAny": [
+            "Dragon"
+          ],
+          "topicsAny": [
+            "Dragon identity gate",
+            "unidentified figure",
+            "Revolutionary Army blocked"
+          ],
+          "keywordsAny": [
+            "Dragon",
+            "Dragon identity gate",
+            "unidentified figure",
+            "Revolutionary Army blocked",
+            "identity blocked",
+            "mystery",
+            "Dragon Remains An Unidentified Major Figure",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Dragon should remain an unidentified major figure in this deck, with no Revolutionary Army explanation or later family reveal.",
+        "injection": "Use this as a hard anti-spoiler gate: if a scene is still inside Loguetown, Dragon is presence and weathered intervention, not biography.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    }
+  ]
+}

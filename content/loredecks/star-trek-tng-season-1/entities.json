@@ -1,0 +1,681 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:armus": {
+      "type": "character",
+      "label": "Armus",
+      "aliases": [
+        "Armus"
+      ],
+      "canonicalNames": [
+        "Armus"
+      ],
+      "tags": [
+        "character:armus"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:beverly-crusher": {
+      "type": "character",
+      "label": "Beverly Crusher",
+      "aliases": [
+        "Beverly Crusher"
+      ],
+      "canonicalNames": [
+        "Beverly Crusher"
+      ],
+      "tags": [
+        "character:beverly-crusher"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:bok": {
+      "type": "character",
+      "label": "Bok",
+      "aliases": [
+        "Bok"
+      ],
+      "canonicalNames": [
+        "Bok"
+      ],
+      "tags": [
+        "character:bok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:bynars": {
+      "type": "faction",
+      "label": "Bynars",
+      "aliases": [
+        "Bynars"
+      ],
+      "canonicalNames": [
+        "Bynars"
+      ],
+      "tags": [
+        "faction:bynars"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:data": {
+      "type": "character",
+      "label": "Data",
+      "aliases": [
+        "Data"
+      ],
+      "canonicalNames": [
+        "Data"
+      ],
+      "tags": [
+        "character:data"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:deanna-troi": {
+      "type": "character",
+      "label": "Deanna Troi",
+      "aliases": [
+        "Deanna Troi"
+      ],
+      "canonicalNames": [
+        "Deanna Troi"
+      ],
+      "tags": [
+        "character:deanna-troi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:ferengi-alliance": {
+      "type": "faction",
+      "label": "Ferengi Alliance",
+      "aliases": [
+        "Ferengi Alliance"
+      ],
+      "canonicalNames": [
+        "Ferengi Alliance"
+      ],
+      "tags": [
+        "faction:ferengi-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:geordi-la-forge": {
+      "type": "character",
+      "label": "Geordi La Forge",
+      "aliases": [
+        "Geordi La Forge"
+      ],
+      "canonicalNames": [
+        "Geordi La Forge"
+      ],
+      "tags": [
+        "character:geordi-la-forge"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:gregory-quinn": {
+      "type": "character",
+      "label": "Gregory Quinn",
+      "aliases": [
+        "Gregory Quinn"
+      ],
+      "canonicalNames": [
+        "Gregory Quinn"
+      ],
+      "tags": [
+        "character:gregory-quinn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:jean-luc-picard": {
+      "type": "character",
+      "label": "Jean-Luc Picard",
+      "aliases": [
+        "Jean-Luc Picard"
+      ],
+      "canonicalNames": [
+        "Jean-Luc Picard"
+      ],
+      "tags": [
+        "character:jean-luc-picard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:korris": {
+      "type": "character",
+      "label": "Korris",
+      "aliases": [
+        "Korris"
+      ],
+      "canonicalNames": [
+        "Korris"
+      ],
+      "tags": [
+        "character:korris"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:lore": {
+      "type": "character",
+      "label": "Lore",
+      "aliases": [
+        "Lore"
+      ],
+      "canonicalNames": [
+        "Lore"
+      ],
+      "tags": [
+        "character:lore"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:lwaxana-troi": {
+      "type": "character",
+      "label": "Lwaxana Troi",
+      "aliases": [
+        "Lwaxana Troi"
+      ],
+      "canonicalNames": [
+        "Lwaxana Troi"
+      ],
+      "tags": [
+        "character:lwaxana-troi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:mark-jameson": {
+      "type": "character",
+      "label": "Mark Jameson",
+      "aliases": [
+        "Mark Jameson"
+      ],
+      "canonicalNames": [
+        "Mark Jameson"
+      ],
+      "tags": [
+        "character:mark-jameson"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:natasha-yar": {
+      "type": "character",
+      "label": "Natasha Yar",
+      "aliases": [
+        "Natasha Yar"
+      ],
+      "canonicalNames": [
+        "Natasha Yar"
+      ],
+      "tags": [
+        "character:natasha-yar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:q": {
+      "type": "character",
+      "label": "Q",
+      "aliases": [
+        "Q"
+      ],
+      "canonicalNames": [
+        "Q"
+      ],
+      "tags": [
+        "character:q"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:q-continuum": {
+      "type": "faction",
+      "label": "Q Continuum",
+      "aliases": [
+        "Q Continuum"
+      ],
+      "canonicalNames": [
+        "Q Continuum"
+      ],
+      "tags": [
+        "faction:q-continuum"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:remmick": {
+      "type": "character",
+      "label": "Remmick",
+      "aliases": [
+        "Remmick"
+      ],
+      "canonicalNames": [
+        "Remmick"
+      ],
+      "tags": [
+        "character:remmick"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:romulan-star-empire": {
+      "type": "faction",
+      "label": "Romulan Star Empire",
+      "aliases": [
+        "Romulan Star Empire"
+      ],
+      "canonicalNames": [
+        "Romulan Star Empire"
+      ],
+      "tags": [
+        "faction:romulan-star-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:the-traveler": {
+      "type": "character",
+      "label": "The Traveler",
+      "aliases": [
+        "The Traveler"
+      ],
+      "canonicalNames": [
+        "The Traveler"
+      ],
+      "tags": [
+        "character:the-traveler"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:united-federation-of-planets": {
+      "type": "faction",
+      "label": "United Federation of Planets",
+      "aliases": [
+        "United Federation of Planets"
+      ],
+      "canonicalNames": [
+        "United Federation of Planets"
+      ],
+      "tags": [
+        "faction:united-federation-of-planets"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:wesley-crusher": {
+      "type": "character",
+      "label": "Wesley Crusher",
+      "aliases": [
+        "Wesley Crusher"
+      ],
+      "canonicalNames": [
+        "Wesley Crusher"
+      ],
+      "tags": [
+        "character:wesley-crusher"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:william-riker": {
+      "type": "character",
+      "label": "William Riker",
+      "aliases": [
+        "William Riker"
+      ],
+      "canonicalNames": [
+        "William Riker"
+      ],
+      "tags": [
+        "character:william-riker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:worf": {
+      "type": "character",
+      "label": "Worf",
+      "aliases": [
+        "Worf"
+      ],
+      "canonicalNames": [
+        "Worf"
+      ],
+      "tags": [
+        "character:worf"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 1."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    }
+  }
+}

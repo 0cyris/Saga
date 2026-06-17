@@ -1,0 +1,872 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_the_warship_island_chase_pushes_the_anime_route_toward_reverse_mountain_021",
+      "title": "The Warship Chase Pushes The Anime Route Back Toward Reverse Mountain",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.escape-and-grand-line-bridge",
+        "validToAnchor": "op.warship-island.timeline-and-spoiler-gates",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7750,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: The Warship Chase Pushes The Anime Route Back Toward Reverse Mountain"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:warship-island",
+          "op:reverse-mountain",
+          "op:going-merry",
+          "op:branch-8-marines"
+        ],
+        "characters": [],
+        "locations": [
+          "Warship Island",
+          "Reverse Mountain"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Reverse Mountain bridge",
+          "anime route handoff",
+          "Warship chase"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:warship-island",
+        "location:reverse-mountain",
+        "item:going-merry",
+        "faction:branch-8-marines",
+        "topic:apis-and-ryu",
+        "topic:marine-pursuit",
+        "topic:grand-line-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Warship Island",
+            "Reverse Mountain",
+            "Going Merry",
+            "Branch 8 Marines"
+          ],
+          "topicsAny": [
+            "Reverse Mountain bridge",
+            "anime route handoff",
+            "Warship chase"
+          ],
+          "keywordsAny": [
+            "Warship Island",
+            "Reverse Mountain",
+            "Going Merry",
+            "Branch 8 Marines",
+            "Reverse Mountain bridge",
+            "anime route handoff",
+            "Warship chase",
+            "route bridge",
+            "chase",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "The Warship Island chase functions as an anime-route bridge that returns the Going Merry toward Reverse Mountain after the dragon plot resolves.",
+        "injection": "Use the chase as connective tissue: it keeps pressure on the crew while handing the session back to the Grand Line entrance.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_episode_61_overlaps_the_grand_line_entry_transition_022",
+      "title": "Episode 61 Bridges Into Grand Line Entry Without Owning Twin Cape",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.escape-and-grand-line-bridge",
+        "validToAnchor": "op.warship-island.timeline-and-spoiler-gates",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7750,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Episode 61 Bridges Into Grand Line Entry Without Owning Twin Cape"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:reverse-mountain",
+          "op:grand-line",
+          "op:laboon"
+        ],
+        "characters": [
+          "Laboon"
+        ],
+        "locations": [
+          "Reverse Mountain",
+          "Grand Line"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "episode 61 bridge",
+          "Reverse Mountain ownership",
+          "Twin Cape boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:reverse-mountain",
+        "location:grand-line",
+        "character:laboon",
+        "topic:grand-line-bridge",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Laboon"
+          ],
+          "entitiesAny": [
+            "Reverse Mountain",
+            "Grand Line",
+            "Laboon"
+          ],
+          "topicsAny": [
+            "episode 61 bridge",
+            "Reverse Mountain ownership",
+            "Twin Cape boundary"
+          ],
+          "keywordsAny": [
+            "Reverse Mountain",
+            "Grand Line",
+            "Laboon",
+            "episode 61 bridge",
+            "Reverse Mountain ownership",
+            "Twin Cape boundary",
+            "episode 61",
+            "Laboon boundary",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Episode 61 bridges into Grand Line entry, but Twin Cape, Laboon, Crocus, and core Reverse Mountain facts remain outside the Warship Island deck.",
+        "injection": "Use this card only to prevent ownership bleed: Warship Island can hand off to the entrance, while the next deck controls the arrival lore.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_the_going_merry_survives_marine_pressure_before_the_dangerous_mountain_current_023",
+      "title": "Going Merry Survives Local Marine Pressure Before The Mountain Current",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.escape-and-grand-line-bridge",
+        "validToAnchor": "op.warship-island.timeline-and-spoiler-gates",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7750,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Going Merry Survives Local Marine Pressure Before The Mountain Current"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:going-merry",
+          "op:branch-8-marines",
+          "op:reverse-mountain"
+        ],
+        "characters": [],
+        "locations": [
+          "Reverse Mountain"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Going Merry escape",
+          "blockade pressure",
+          "mountain current handoff"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:going-merry",
+        "faction:branch-8-marines",
+        "location:reverse-mountain",
+        "topic:marine-pursuit",
+        "topic:grand-line-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Going Merry",
+            "Branch 8 Marines",
+            "Reverse Mountain"
+          ],
+          "topicsAny": [
+            "Going Merry escape",
+            "blockade pressure",
+            "mountain current handoff"
+          ],
+          "keywordsAny": [
+            "Going Merry",
+            "Branch 8 Marines",
+            "Reverse Mountain",
+            "Going Merry escape",
+            "blockade pressure",
+            "mountain current handoff",
+            "blockade",
+            "mountain current",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "The Going Merry survives local Warship Island Marine pressure before the anime route reaches Reverse Mountain current danger.",
+        "injection": "Use the ship as the continuity handoff object: damaged or pressured by pursuit, but still carrying the crew into the Grand Line entrance.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_sea_hazards_are_presented_through_the_show_s_bridge_pacing_024",
+      "title": "Calm Belt And Sea Kings Are Bridge Hazards, Not Full Rule Exposition",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "event_moment",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.escape-and-grand-line-bridge",
+        "validToAnchor": "op.warship-island.timeline-and-spoiler-gates",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7750,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Calm Belt And Sea Kings Are Bridge Hazards, Not Full Rule Exposition"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:calm-belt",
+          "op:sea-kings",
+          "op:going-merry",
+          "op:apis"
+        ],
+        "characters": [
+          "Apis"
+        ],
+        "locations": [
+          "Calm Belt"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "Calm Belt bridge hazard",
+          "Sea King danger",
+          "anime pacing"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:calm-belt",
+        "topic:sea-kings",
+        "item:going-merry",
+        "character:apis",
+        "topic:grand-line-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Apis"
+          ],
+          "entitiesAny": [
+            "Calm Belt",
+            "Sea Kings",
+            "Going Merry",
+            "Apis"
+          ],
+          "topicsAny": [
+            "Calm Belt bridge hazard",
+            "Sea King danger",
+            "anime pacing"
+          ],
+          "keywordsAny": [
+            "Calm Belt",
+            "Sea Kings",
+            "Going Merry",
+            "Apis",
+            "Calm Belt bridge hazard",
+            "Sea King danger",
+            "anime pacing",
+            "bridge hazard",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "The anime bridge uses Calm Belt and Sea King danger as immediate hazards before the full Grand Line navigation framework settles in.",
+        "injection": "Use the hazards for urgency and spectacle around Apis and the ship; leave detailed Grand Line navigation rules to the manga-backed route decks.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_reverse_mountain_facts_should_still_be_owned_by_the_next_deck_025",
+      "title": "Reverse Mountain Lore Remains Outside Warship Island",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.escape-and-grand-line-bridge",
+        "validToAnchor": "op.warship-island.timeline-and-spoiler-gates",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7750,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Reverse Mountain Lore Remains Outside Warship Island"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:reverse-mountain",
+          "op:grand-line",
+          "op:laboon"
+        ],
+        "characters": [
+          "Laboon"
+        ],
+        "locations": [
+          "Reverse Mountain",
+          "Grand Line"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Reverse Mountain boundary",
+          "deck ownership gate",
+          "Grand Line entry handoff"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:reverse-mountain",
+        "location:grand-line",
+        "character:laboon",
+        "topic:grand-line-bridge",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Laboon"
+          ],
+          "entitiesAny": [
+            "Reverse Mountain",
+            "Grand Line",
+            "Laboon"
+          ],
+          "topicsAny": [
+            "Reverse Mountain boundary",
+            "deck ownership gate",
+            "Grand Line entry handoff"
+          ],
+          "keywordsAny": [
+            "Reverse Mountain",
+            "Grand Line",
+            "Laboon",
+            "Reverse Mountain boundary",
+            "deck ownership gate",
+            "Grand Line entry handoff",
+            "deck ownership",
+            "handoff",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Reverse Mountain mechanics, Laboon, Crocus, Twin Cape, and the core Log Pose handoff should not activate as Warship Island facts.",
+        "injection": "Use this as the boundary: Warship Island ends at the anime bridge, then retrieval should shift to manga-backed Reverse Mountain material.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Warship Island Arc",
+    "chapterRange": "Filler arc",
+    "episodeRange": "Anime episodes 54-61",
+    "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+    "confidence": 0.82,
+    "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+  }
+}

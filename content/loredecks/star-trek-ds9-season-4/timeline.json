@@ -1,0 +1,1758 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Deep Space Nine season 4 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ds9.s4.e01.the-way-of-the-warrior",
+      "label": "The Way of the Warrior",
+      "contextType": "story_anchor",
+      "sortKey": 24000,
+      "stardate": "49011.4 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "The Way of the Warrior",
+        "DS9 season 4 The Way of the Warrior",
+        "DS9 S4 The Way of the Warrior",
+        "DS9 4x01 story",
+        "DS9 S04 story 01",
+        "DS9 4x01",
+        "DS9 S04E01",
+        "DS9 season 4 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-way-of-the-warrior"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Way of the Warrior",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Way_of_the_Warrior_(episode)",
+        "stardate": "49011.4 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e02.the-visitor",
+      "label": "The Visitor",
+      "contextType": "story_anchor",
+      "sortKey": 24020,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "The Visitor",
+        "DS9 season 4 The Visitor",
+        "DS9 S4 The Visitor",
+        "DS9 4x02 story",
+        "DS9 S04 story 02",
+        "DS9 4x02",
+        "DS9 S04E02",
+        "DS9 season 4 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-visitor"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Visitor",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Visitor_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e03.hippocratic-oath",
+      "label": "Hippocratic Oath",
+      "contextType": "story_anchor",
+      "sortKey": 24040,
+      "stardate": "49066.5 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Hippocratic Oath",
+        "DS9 season 4 Hippocratic Oath",
+        "DS9 S4 Hippocratic Oath",
+        "DS9 4x03 story",
+        "DS9 S04 story 03",
+        "DS9 4x03",
+        "DS9 S04E03",
+        "DS9 season 4 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-hippocratic-oath"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Hippocratic Oath",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hippocratic_Oath_(episode)",
+        "stardate": "49066.5 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e04.indiscretion",
+      "label": "Indiscretion",
+      "contextType": "story_anchor",
+      "sortKey": 24060,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Indiscretion",
+        "DS9 season 4 Indiscretion",
+        "DS9 S4 Indiscretion",
+        "DS9 4x04 story",
+        "DS9 S04 story 04",
+        "DS9 4x04",
+        "DS9 S04E04",
+        "DS9 season 4 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-indiscretion"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Indiscretion",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Indiscretion_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e05.rejoined",
+      "label": "Rejoined",
+      "contextType": "story_anchor",
+      "sortKey": 24080,
+      "stardate": "49195.5 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Rejoined",
+        "DS9 season 4 Rejoined",
+        "DS9 S4 Rejoined",
+        "DS9 4x05 story",
+        "DS9 S04 story 05",
+        "DS9 4x05",
+        "DS9 S04E05",
+        "DS9 season 4 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-rejoined"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rejoined",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rejoined_(episode)",
+        "stardate": "49195.5 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e06.starship-down",
+      "label": "Starship Down",
+      "contextType": "story_anchor",
+      "sortKey": 24100,
+      "stardate": "49263.5 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Starship Down",
+        "DS9 season 4 Starship Down",
+        "DS9 S4 Starship Down",
+        "DS9 4x06 story",
+        "DS9 S04 story 06",
+        "DS9 4x06",
+        "DS9 S04E06",
+        "DS9 season 4 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-starship-down"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Starship Down",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Starship_Down_(episode)",
+        "stardate": "49263.5 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e07.little-green-men",
+      "label": "Little Green Men",
+      "contextType": "story_anchor",
+      "sortKey": 24120,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Little Green Men",
+        "DS9 season 4 Little Green Men",
+        "DS9 S4 Little Green Men",
+        "DS9 4x07 story",
+        "DS9 S04 story 07",
+        "DS9 4x07",
+        "DS9 S04E07",
+        "DS9 season 4 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-little-green-men"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Little Green Men",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Little_Green_Men_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e08.the-sword-of-kahless",
+      "label": "The Sword of Kahless",
+      "contextType": "story_anchor",
+      "sortKey": 24140,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "The Sword of Kahless",
+        "DS9 season 4 The Sword of Kahless",
+        "DS9 S4 The Sword of Kahless",
+        "DS9 4x08 story",
+        "DS9 S04 story 08",
+        "DS9 4x08",
+        "DS9 S04E08",
+        "DS9 season 4 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-sword-of-kahless"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Sword of Kahless",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Sword_of_Kahless_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e09.our-man-bashir",
+      "label": "Our Man Bashir",
+      "contextType": "story_anchor",
+      "sortKey": 24160,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Our Man Bashir",
+        "DS9 season 4 Our Man Bashir",
+        "DS9 S4 Our Man Bashir",
+        "DS9 4x09 story",
+        "DS9 S04 story 09",
+        "DS9 4x09",
+        "DS9 S04E09",
+        "DS9 season 4 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-our-man-bashir"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Our Man Bashir",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Our_Man_Bashir_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e10.homefront",
+      "label": "Homefront",
+      "contextType": "story_anchor",
+      "sortKey": 24180,
+      "stardate": "49170.65 - 49334.63 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Homefront",
+        "DS9 season 4 Homefront",
+        "DS9 S4 Homefront",
+        "DS9 4x10 story",
+        "DS9 S04 story 10",
+        "DS9 4x10",
+        "DS9 S04E10",
+        "DS9 season 4 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-homefront"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Homefront",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Homefront_(episode)",
+        "stardate": "49170.65 - 49334.63 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e11.paradise-lost",
+      "label": "Paradise Lost",
+      "contextType": "story_anchor",
+      "sortKey": 24200,
+      "stardate": "49364 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Paradise Lost",
+        "DS9 season 4 Paradise Lost",
+        "DS9 S4 Paradise Lost",
+        "DS9 4x11 story",
+        "DS9 S04 story 11",
+        "DS9 4x11",
+        "DS9 S04E11",
+        "DS9 season 4 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-paradise-lost"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Paradise Lost",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Paradise_Lost_(episode)",
+        "stardate": "49364 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e12.crossfire",
+      "label": "Crossfire",
+      "contextType": "story_anchor",
+      "sortKey": 24220,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Crossfire",
+        "DS9 season 4 Crossfire",
+        "DS9 S4 Crossfire",
+        "DS9 4x12 story",
+        "DS9 S04 story 12",
+        "DS9 4x12",
+        "DS9 S04E12",
+        "DS9 season 4 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-crossfire"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Crossfire",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Crossfire_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e13.return-to-grace",
+      "label": "Return to Grace",
+      "contextType": "story_anchor",
+      "sortKey": 24240,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Return to Grace",
+        "DS9 season 4 Return to Grace",
+        "DS9 S4 Return to Grace",
+        "DS9 4x13 story",
+        "DS9 S04 story 13",
+        "DS9 4x13",
+        "DS9 S04E13",
+        "DS9 season 4 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-return-to-grace"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Return to Grace",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Return_to_Grace_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e14.sons-of-mogh",
+      "label": "Sons of Mogh",
+      "contextType": "story_anchor",
+      "sortKey": 24260,
+      "stardate": "49556.2 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Sons of Mogh",
+        "DS9 season 4 Sons of Mogh",
+        "DS9 S4 Sons of Mogh",
+        "DS9 4x14 story",
+        "DS9 S04 story 14",
+        "DS9 4x14",
+        "DS9 S04E14",
+        "DS9 season 4 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-sons-of-mogh"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sons of Mogh",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sons_of_Mogh_(episode)",
+        "stardate": "49556.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e15.bar-association",
+      "label": "Bar Association",
+      "contextType": "story_anchor",
+      "sortKey": 24280,
+      "stardate": "49565 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Bar Association",
+        "DS9 season 4 Bar Association",
+        "DS9 S4 Bar Association",
+        "DS9 4x15 story",
+        "DS9 S04 story 15",
+        "DS9 4x15",
+        "DS9 S04E15",
+        "DS9 season 4 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-bar-association"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Bar Association",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Bar_Association_(episode)",
+        "stardate": "49565 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e16.accession",
+      "label": "Accession",
+      "contextType": "story_anchor",
+      "sortKey": 24300,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Accession",
+        "DS9 season 4 Accession",
+        "DS9 S4 Accession",
+        "DS9 4x16 story",
+        "DS9 S04 story 16",
+        "DS9 4x16",
+        "DS9 S04E16",
+        "DS9 season 4 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-accession"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Accession",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Accession_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e17.rules-of-engagement",
+      "label": "Rules of Engagement",
+      "contextType": "story_anchor",
+      "sortKey": 24320,
+      "stardate": "49665.3 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Rules of Engagement",
+        "DS9 season 4 Rules of Engagement",
+        "DS9 S4 Rules of Engagement",
+        "DS9 4x17 story",
+        "DS9 S04 story 17",
+        "DS9 4x17",
+        "DS9 S04E17",
+        "DS9 season 4 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-rules-of-engagement"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rules of Engagement",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rules_of_Engagement_(episode)",
+        "stardate": "49665.3 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e18.hard-time",
+      "label": "Hard Time",
+      "contextType": "story_anchor",
+      "sortKey": 24340,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Hard Time",
+        "DS9 season 4 Hard Time",
+        "DS9 S4 Hard Time",
+        "DS9 4x18 story",
+        "DS9 S04 story 18",
+        "DS9 4x18",
+        "DS9 S04E18",
+        "DS9 season 4 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-hard-time"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Hard Time",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hard_Time_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e19.shattered-mirror",
+      "label": "Shattered Mirror",
+      "contextType": "story_anchor",
+      "sortKey": 24360,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Shattered Mirror",
+        "DS9 season 4 Shattered Mirror",
+        "DS9 S4 Shattered Mirror",
+        "DS9 4x19 story",
+        "DS9 S04 story 19",
+        "DS9 4x19",
+        "DS9 S04E19",
+        "DS9 season 4 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-shattered-mirror"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Shattered Mirror",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shattered_Mirror_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e20.the-muse",
+      "label": "The Muse",
+      "contextType": "story_anchor",
+      "sortKey": 24380,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "The Muse",
+        "DS9 season 4 The Muse",
+        "DS9 S4 The Muse",
+        "DS9 4x20 story",
+        "DS9 S04 story 20",
+        "DS9 4x20",
+        "DS9 S04E20",
+        "DS9 season 4 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-muse"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Muse",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Muse_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e21.for-the-cause",
+      "label": "For the Cause",
+      "contextType": "story_anchor",
+      "sortKey": 24400,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "For the Cause",
+        "DS9 season 4 For the Cause",
+        "DS9 S4 For the Cause",
+        "DS9 4x21 story",
+        "DS9 S04 story 21",
+        "DS9 4x21",
+        "DS9 S04E21",
+        "DS9 season 4 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-for-the-cause"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "For the Cause",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/For_the_Cause_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e22.to-the-death",
+      "label": "To the Death",
+      "contextType": "story_anchor",
+      "sortKey": 24420,
+      "stardate": "49904.2 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "To the Death",
+        "DS9 season 4 To the Death",
+        "DS9 S4 To the Death",
+        "DS9 4x22 story",
+        "DS9 S04 story 22",
+        "DS9 4x22",
+        "DS9 S04E22",
+        "DS9 season 4 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-to-the-death"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "To the Death",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/To_the_Death_(episode)",
+        "stardate": "49904.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e23.the-quickening",
+      "label": "The Quickening",
+      "contextType": "story_anchor",
+      "sortKey": 24440,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "The Quickening",
+        "DS9 season 4 The Quickening",
+        "DS9 S4 The Quickening",
+        "DS9 4x23 story",
+        "DS9 S04 story 23",
+        "DS9 4x23",
+        "DS9 S04E23",
+        "DS9 season 4 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-quickening"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Quickening",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Quickening_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e24.body-parts",
+      "label": "Body Parts",
+      "contextType": "story_anchor",
+      "sortKey": 24460,
+      "stardate": "Unknown (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Body Parts",
+        "DS9 season 4 Body Parts",
+        "DS9 S4 Body Parts",
+        "DS9 4x24 story",
+        "DS9 S04 story 24",
+        "DS9 4x24",
+        "DS9 S04E24",
+        "DS9 season 4 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-body-parts"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Body Parts",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Body_Parts_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s4.e25.broken-link",
+      "label": "Broken Link",
+      "contextType": "story_anchor",
+      "sortKey": 24480,
+      "stardate": "49962.4 (2372)",
+      "year": "2372",
+      "series": "DS9",
+      "season": 4,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Broken Link",
+        "DS9 season 4 Broken Link",
+        "DS9 S4 Broken Link",
+        "DS9 4x25 story",
+        "DS9 S04 story 25",
+        "DS9 4x25",
+        "DS9 S04E25",
+        "DS9 season 4 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-broken-link"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Broken Link",
+        "series": "DS9",
+        "season": 4,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Broken_Link_(episode)",
+        "stardate": "49962.4 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "ds9.s4.full-season",
+      "label": "DS9 season 4 full window",
+      "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+      "anchorTo": "ds9.s4.e25.broken-link",
+      "sortKeyFrom": 24000,
+      "sortKeyTo": 24480,
+      "aliases": [
+        "DS9 season 4",
+        "Star Trek: Deep Space Nine season 4",
+        "DS9 S4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "ds9.s4.e01.the-way-of-the-warrior.window",
+      "label": "The Way of the Warrior episode window",
+      "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+      "anchorTo": "ds9.s4.e02.the-visitor",
+      "sortKeyFrom": 24000,
+      "sortKeyTo": 24020,
+      "aliases": [
+        "during The Way of the Warrior",
+        "after The Way of the Warrior"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-way-of-the-warrior"
+      ]
+    },
+    {
+      "id": "ds9.s4.e02.the-visitor.window",
+      "label": "The Visitor episode window",
+      "anchorFrom": "ds9.s4.e02.the-visitor",
+      "anchorTo": "ds9.s4.e03.hippocratic-oath",
+      "sortKeyFrom": 24020,
+      "sortKeyTo": 24040,
+      "aliases": [
+        "during The Visitor",
+        "after The Visitor"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-visitor"
+      ]
+    },
+    {
+      "id": "ds9.s4.e03.hippocratic-oath.window",
+      "label": "Hippocratic Oath episode window",
+      "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+      "anchorTo": "ds9.s4.e04.indiscretion",
+      "sortKeyFrom": 24040,
+      "sortKeyTo": 24060,
+      "aliases": [
+        "during Hippocratic Oath",
+        "after Hippocratic Oath"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-hippocratic-oath"
+      ]
+    },
+    {
+      "id": "ds9.s4.e04.indiscretion.window",
+      "label": "Indiscretion episode window",
+      "anchorFrom": "ds9.s4.e04.indiscretion",
+      "anchorTo": "ds9.s4.e05.rejoined",
+      "sortKeyFrom": 24060,
+      "sortKeyTo": 24080,
+      "aliases": [
+        "during Indiscretion",
+        "after Indiscretion"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-indiscretion"
+      ]
+    },
+    {
+      "id": "ds9.s4.e05.rejoined.window",
+      "label": "Rejoined episode window",
+      "anchorFrom": "ds9.s4.e05.rejoined",
+      "anchorTo": "ds9.s4.e06.starship-down",
+      "sortKeyFrom": 24080,
+      "sortKeyTo": 24100,
+      "aliases": [
+        "during Rejoined",
+        "after Rejoined"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-rejoined"
+      ]
+    },
+    {
+      "id": "ds9.s4.e06.starship-down.window",
+      "label": "Starship Down episode window",
+      "anchorFrom": "ds9.s4.e06.starship-down",
+      "anchorTo": "ds9.s4.e07.little-green-men",
+      "sortKeyFrom": 24100,
+      "sortKeyTo": 24120,
+      "aliases": [
+        "during Starship Down",
+        "after Starship Down"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-starship-down"
+      ]
+    },
+    {
+      "id": "ds9.s4.e07.little-green-men.window",
+      "label": "Little Green Men episode window",
+      "anchorFrom": "ds9.s4.e07.little-green-men",
+      "anchorTo": "ds9.s4.e08.the-sword-of-kahless",
+      "sortKeyFrom": 24120,
+      "sortKeyTo": 24140,
+      "aliases": [
+        "during Little Green Men",
+        "after Little Green Men"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-little-green-men"
+      ]
+    },
+    {
+      "id": "ds9.s4.e08.the-sword-of-kahless.window",
+      "label": "The Sword of Kahless episode window",
+      "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+      "anchorTo": "ds9.s4.e09.our-man-bashir",
+      "sortKeyFrom": 24140,
+      "sortKeyTo": 24160,
+      "aliases": [
+        "during The Sword of Kahless",
+        "after The Sword of Kahless"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-sword-of-kahless"
+      ]
+    },
+    {
+      "id": "ds9.s4.e09.our-man-bashir.window",
+      "label": "Our Man Bashir episode window",
+      "anchorFrom": "ds9.s4.e09.our-man-bashir",
+      "anchorTo": "ds9.s4.e10.homefront",
+      "sortKeyFrom": 24160,
+      "sortKeyTo": 24180,
+      "aliases": [
+        "during Our Man Bashir",
+        "after Our Man Bashir"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-our-man-bashir"
+      ]
+    },
+    {
+      "id": "ds9.s4.e10.homefront.window",
+      "label": "Homefront episode window",
+      "anchorFrom": "ds9.s4.e10.homefront",
+      "anchorTo": "ds9.s4.e11.paradise-lost",
+      "sortKeyFrom": 24180,
+      "sortKeyTo": 24200,
+      "aliases": [
+        "during Homefront",
+        "after Homefront"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-homefront"
+      ]
+    },
+    {
+      "id": "ds9.s4.e11.paradise-lost.window",
+      "label": "Paradise Lost episode window",
+      "anchorFrom": "ds9.s4.e11.paradise-lost",
+      "anchorTo": "ds9.s4.e12.crossfire",
+      "sortKeyFrom": 24200,
+      "sortKeyTo": 24220,
+      "aliases": [
+        "during Paradise Lost",
+        "after Paradise Lost"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-paradise-lost"
+      ]
+    },
+    {
+      "id": "ds9.s4.e12.crossfire.window",
+      "label": "Crossfire episode window",
+      "anchorFrom": "ds9.s4.e12.crossfire",
+      "anchorTo": "ds9.s4.e13.return-to-grace",
+      "sortKeyFrom": 24220,
+      "sortKeyTo": 24240,
+      "aliases": [
+        "during Crossfire",
+        "after Crossfire"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-crossfire"
+      ]
+    },
+    {
+      "id": "ds9.s4.e13.return-to-grace.window",
+      "label": "Return to Grace episode window",
+      "anchorFrom": "ds9.s4.e13.return-to-grace",
+      "anchorTo": "ds9.s4.e14.sons-of-mogh",
+      "sortKeyFrom": 24240,
+      "sortKeyTo": 24260,
+      "aliases": [
+        "during Return to Grace",
+        "after Return to Grace"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-return-to-grace"
+      ]
+    },
+    {
+      "id": "ds9.s4.e14.sons-of-mogh.window",
+      "label": "Sons of Mogh episode window",
+      "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+      "anchorTo": "ds9.s4.e15.bar-association",
+      "sortKeyFrom": 24260,
+      "sortKeyTo": 24280,
+      "aliases": [
+        "during Sons of Mogh",
+        "after Sons of Mogh"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-sons-of-mogh"
+      ]
+    },
+    {
+      "id": "ds9.s4.e15.bar-association.window",
+      "label": "Bar Association episode window",
+      "anchorFrom": "ds9.s4.e15.bar-association",
+      "anchorTo": "ds9.s4.e16.accession",
+      "sortKeyFrom": 24280,
+      "sortKeyTo": 24300,
+      "aliases": [
+        "during Bar Association",
+        "after Bar Association"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-bar-association"
+      ]
+    },
+    {
+      "id": "ds9.s4.e16.accession.window",
+      "label": "Accession episode window",
+      "anchorFrom": "ds9.s4.e16.accession",
+      "anchorTo": "ds9.s4.e17.rules-of-engagement",
+      "sortKeyFrom": 24300,
+      "sortKeyTo": 24320,
+      "aliases": [
+        "during Accession",
+        "after Accession"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-accession"
+      ]
+    },
+    {
+      "id": "ds9.s4.e17.rules-of-engagement.window",
+      "label": "Rules of Engagement episode window",
+      "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+      "anchorTo": "ds9.s4.e18.hard-time",
+      "sortKeyFrom": 24320,
+      "sortKeyTo": 24340,
+      "aliases": [
+        "during Rules of Engagement",
+        "after Rules of Engagement"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-rules-of-engagement"
+      ]
+    },
+    {
+      "id": "ds9.s4.e18.hard-time.window",
+      "label": "Hard Time episode window",
+      "anchorFrom": "ds9.s4.e18.hard-time",
+      "anchorTo": "ds9.s4.e19.shattered-mirror",
+      "sortKeyFrom": 24340,
+      "sortKeyTo": 24360,
+      "aliases": [
+        "during Hard Time",
+        "after Hard Time"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-hard-time"
+      ]
+    },
+    {
+      "id": "ds9.s4.e19.shattered-mirror.window",
+      "label": "Shattered Mirror episode window",
+      "anchorFrom": "ds9.s4.e19.shattered-mirror",
+      "anchorTo": "ds9.s4.e20.the-muse",
+      "sortKeyFrom": 24360,
+      "sortKeyTo": 24380,
+      "aliases": [
+        "during Shattered Mirror",
+        "after Shattered Mirror"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-shattered-mirror"
+      ]
+    },
+    {
+      "id": "ds9.s4.e20.the-muse.window",
+      "label": "The Muse episode window",
+      "anchorFrom": "ds9.s4.e20.the-muse",
+      "anchorTo": "ds9.s4.e21.for-the-cause",
+      "sortKeyFrom": 24380,
+      "sortKeyTo": 24400,
+      "aliases": [
+        "during The Muse",
+        "after The Muse"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-muse"
+      ]
+    },
+    {
+      "id": "ds9.s4.e21.for-the-cause.window",
+      "label": "For the Cause episode window",
+      "anchorFrom": "ds9.s4.e21.for-the-cause",
+      "anchorTo": "ds9.s4.e22.to-the-death",
+      "sortKeyFrom": 24400,
+      "sortKeyTo": 24420,
+      "aliases": [
+        "during For the Cause",
+        "after For the Cause"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-for-the-cause"
+      ]
+    },
+    {
+      "id": "ds9.s4.e22.to-the-death.window",
+      "label": "To the Death episode window",
+      "anchorFrom": "ds9.s4.e22.to-the-death",
+      "anchorTo": "ds9.s4.e23.the-quickening",
+      "sortKeyFrom": 24420,
+      "sortKeyTo": 24440,
+      "aliases": [
+        "during To the Death",
+        "after To the Death"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-to-the-death"
+      ]
+    },
+    {
+      "id": "ds9.s4.e23.the-quickening.window",
+      "label": "The Quickening episode window",
+      "anchorFrom": "ds9.s4.e23.the-quickening",
+      "anchorTo": "ds9.s4.e24.body-parts",
+      "sortKeyFrom": 24440,
+      "sortKeyTo": 24460,
+      "aliases": [
+        "during The Quickening",
+        "after The Quickening"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-the-quickening"
+      ]
+    },
+    {
+      "id": "ds9.s4.e24.body-parts.window",
+      "label": "Body Parts episode window",
+      "anchorFrom": "ds9.s4.e24.body-parts",
+      "anchorTo": "ds9.s4.e25.broken-link",
+      "sortKeyFrom": 24460,
+      "sortKeyTo": 24480,
+      "aliases": [
+        "during Body Parts",
+        "after Body Parts"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s4-body-parts"
+      ]
+    }
+  ]
+}

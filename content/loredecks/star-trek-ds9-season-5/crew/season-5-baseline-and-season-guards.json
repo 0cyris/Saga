@@ -1,0 +1,948 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_ds9-season-5-baseline",
+      "title": "DS9 season 5 has its own active cast and story baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e01.apocalypse-rising",
+        "validToAnchor": "ds9.s5.e26.call-to-arms",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e01.apocalypse-rising",
+          "label": "Apocalypse Rising",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:gowron",
+          "st:benjamin-sisko",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:odo",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Gowron",
+          "Benjamin Sisko",
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Odo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "season baseline",
+          "Changeling infiltration",
+          "Quark and Grilka",
+          "Klingon War",
+          "Tribble troubles",
+          "Eddington vs. Sisko"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising",
+        "character:gowron",
+        "character:benjamin-sisko",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:odo",
+        "faction:starfleet",
+        "topic:season-baseline",
+        "topic:changeling-infiltration",
+        "topic:quark-and-grilka",
+        "topic:klingon-war",
+        "topic:tribble-troubles",
+        "topic:eddington-vs-sisko"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "season baseline",
+            "Changeling infiltration",
+            "Quark and Grilka",
+            "Klingon War",
+            "Tribble troubles",
+            "Eddington vs. Sisko"
+          ],
+          "keywordsAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo",
+            "Starfleet",
+            "season baseline",
+            "Changeling infiltration",
+            "Quark and Grilka",
+            "Klingon War",
+            "Tribble troubles",
+            "Eddington vs. Sisko",
+            "Apocalypse Rising",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Star Trek: Deep Space Nine season 5 covers Memory Alpha story rows 1-26, anchored by Changeling infiltration, Quark and Grilka, Klingon War, Tribble troubles, Eddington vs. Sisko.",
+        "injection": "Use DS9 season 5 as the active Star Trek context when those episode windows are selected. Do not substitute prior or later season status unless another active deck supplies it.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Apocalypse Rising",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Apocalypse_Rising_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_ds9-season-5-major-arcs",
+      "title": "DS9 season 5 major arcs stay season-local",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e01.apocalypse-rising",
+        "validToAnchor": "ds9.s5.e26.call-to-arms",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e01.apocalypse-rising",
+          "label": "Apocalypse Rising",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:gowron",
+          "st:benjamin-sisko",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:odo",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Gowron",
+          "Benjamin Sisko",
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Odo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "major arcs",
+          "Klingon duty/faction-status gate",
+          "Changeling identity/Founder gate",
+          "Jem'Hadar reveal or war gate",
+          "Bajoran occupation/religion gate",
+          "Pah-wraith secrecy/endgame gate",
+          "death/status-change gate",
+          "Cardassian occupation or border-pressure gate",
+          "Defiant/station militarization gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising",
+        "character:gowron",
+        "character:benjamin-sisko",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:odo",
+        "faction:starfleet",
+        "topic:major-arcs",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:deathstatus-change-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:defiantstation-militarization-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "major arcs",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Jem'Hadar reveal or war gate",
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate"
+          ],
+          "keywordsAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo",
+            "Starfleet",
+            "major arcs",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Jem'Hadar reveal or war gate",
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate",
+            "Apocalypse Rising",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season evidence highlights Klingon duty/faction-status gate, Changeling identity/Founder gate, Jem'Hadar reveal or war gate, Bajoran occupation/religion gate, Pah-wraith secrecy/endgame gate, death/status-change gate, Cardassian occupation or border-pressure gate, Defiant/station militarization gate, with arcs and one-off episodes bounded by their Memory Alpha story rows.",
+        "injection": "Treat season 5 arcs as Context-gated story state, not a license to import the final outcomes of later Star Trek episodes or series.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Apocalypse Rising",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Apocalypse_Rising_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_ds9-season-5-faction-boundary",
+      "title": "DS9 season 5 faction state should follow the loaded episode window",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e01.apocalypse-rising",
+        "validToAnchor": "ds9.s5.e26.call-to-arms",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e01.apocalypse-rising",
+          "label": "Apocalypse Rising",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "faction boundary",
+          "Klingon duty/faction-status gate",
+          "Changeling identity/Founder gate",
+          "Jem'Hadar reveal or war gate",
+          "Bajoran occupation/religion gate",
+          "Pah-wraith secrecy/endgame gate",
+          "death/status-change gate",
+          "Cardassian occupation or border-pressure gate",
+          "Defiant/station militarization gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising",
+        "faction:starfleet",
+        "topic:faction-boundary",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:deathstatus-change-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:defiantstation-militarization-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "faction boundary",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Jem'Hadar reveal or war gate",
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "faction boundary",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Jem'Hadar reveal or war gate",
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate",
+            "Apocalypse Rising",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Faction status in this deck comes from season 5 evidence rows and should not be flattened into all-era Star Trek politics.",
+        "injection": "Use the currently active episode anchor before injecting faction status, especially for Klingon, Romulan, Cardassian, Bajoran, Borg, Dominion, Maquis, or Delta Quadrant material.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Apocalypse Rising",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Apocalypse_Rising_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_ds9-season-5-technology-and-anomaly-boundary",
+      "title": "DS9 season 5 technology and anomaly facts are episode-bounded",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e01.apocalypse-rising",
+        "validToAnchor": "ds9.s5.e26.call-to-arms",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e01.apocalypse-rising",
+          "label": "Apocalypse Rising",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "technology boundary",
+          "anomaly boundary",
+          "Klingon duty/faction-status gate",
+          "Changeling identity/Founder gate",
+          "Jem'Hadar reveal or war gate",
+          "Bajoran occupation/religion gate",
+          "Pah-wraith secrecy/endgame gate",
+          "death/status-change gate",
+          "Cardassian occupation or border-pressure gate",
+          "Defiant/station militarization gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising",
+        "faction:starfleet",
+        "topic:technology-boundary",
+        "topic:anomaly-boundary",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:deathstatus-change-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:defiantstation-militarization-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "technology boundary",
+            "anomaly boundary",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Jem'Hadar reveal or war gate",
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "technology boundary",
+            "anomaly boundary",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Jem'Hadar reveal or war gate",
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate",
+            "Apocalypse Rising",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 5 includes technology, anomaly, medical, legal, and cultural constraints that are often local to one episode.",
+        "injection": "Do not generalize an episode anomaly or technology into routine Starfleet capability unless a later active Loredeck explicitly broadens it.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Apocalypse Rising",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Apocalypse_Rising_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_ds9-season-5-future-guard",
+      "title": "DS9 season 5 should not import later Star Trek outcomes",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e01.apocalypse-rising",
+        "validToAnchor": "ds9.s5.e26.call-to-arms",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e01.apocalypse-rising",
+          "label": "Apocalypse Rising",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising",
+        "faction:starfleet",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "future guard",
+            "spoiler guard",
+            "Apocalypse Rising",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "This deck is a season-local draft reference for Star Trek: Deep Space Nine season 5, not an all-era Star Trek encyclopedia.",
+        "injection": "Block later season, film, Picard-era, beta-canon, novel, comic, game, and fanon outcomes unless another active deck supplies that later Context.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Apocalypse Rising",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Apocalypse_Rising_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

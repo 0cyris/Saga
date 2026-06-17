@@ -1,0 +1,1305 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:alpha-quadrant": {
+      "type": "character",
+      "label": "Alpha Quadrant",
+      "aliases": [
+        "Alpha Quadrant"
+      ],
+      "canonicalNames": [
+        "Alpha Quadrant"
+      ],
+      "tags": [
+        "character:alpha-quadrant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:andrei-novakovich": {
+      "type": "character",
+      "label": "Andrei Novakovich",
+      "aliases": [
+        "Andrei Novakovich"
+      ],
+      "canonicalNames": [
+        "Andrei Novakovich"
+      ],
+      "tags": [
+        "character:andrei-novakovich"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bajorans": {
+      "type": "faction",
+      "label": "Bajorans",
+      "aliases": [
+        "Bajorans"
+      ],
+      "canonicalNames": [
+        "Bajorans"
+      ],
+      "tags": [
+        "faction:bajorans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:belanna-torres": {
+      "type": "character",
+      "label": "B'Elanna Torres",
+      "aliases": [
+        "B'Elanna Torres"
+      ],
+      "canonicalNames": [
+        "B'Elanna Torres"
+      ],
+      "tags": [
+        "character:belanna-torres"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:borg-collective": {
+      "type": "faction",
+      "label": "Borg Collective",
+      "aliases": [
+        "Borg Collective"
+      ],
+      "canonicalNames": [
+        "Borg Collective"
+      ],
+      "tags": [
+        "faction:borg-collective"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:borg-queen": {
+      "type": "character",
+      "label": "Borg Queen",
+      "aliases": [
+        "Borg Queen"
+      ],
+      "canonicalNames": [
+        "Borg Queen"
+      ],
+      "tags": [
+        "character:borg-queen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cardassian-union": {
+      "type": "faction",
+      "label": "Cardassian Union",
+      "aliases": [
+        "Cardassian Union"
+      ],
+      "canonicalNames": [
+        "Cardassian Union"
+      ],
+      "tags": [
+        "faction:cardassian-union"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chakotay": {
+      "type": "character",
+      "label": "Chakotay",
+      "aliases": [
+        "Chakotay"
+      ],
+      "canonicalNames": [
+        "Chakotay"
+      ],
+      "tags": [
+        "character:chakotay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:deanna-troi": {
+      "type": "character",
+      "label": "Deanna Troi",
+      "aliases": [
+        "Deanna Troi"
+      ],
+      "canonicalNames": [
+        "Deanna Troi"
+      ],
+      "tags": [
+        "character:deanna-troi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:dr": {
+      "type": "character",
+      "label": "Dr.",
+      "aliases": [
+        "Dr."
+      ],
+      "canonicalNames": [
+        "Dr."
+      ],
+      "tags": [
+        "character:dr"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:emergency-medical-hologram": {
+      "type": "character",
+      "label": "Emergency Medical Hologram",
+      "aliases": [
+        "Emergency Medical Hologram"
+      ],
+      "canonicalNames": [
+        "Emergency Medical Hologram"
+      ],
+      "tags": [
+        "character:emergency-medical-hologram"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:english": {
+      "type": "character",
+      "label": "English",
+      "aliases": [
+        "English"
+      ],
+      "canonicalNames": [
+        "English"
+      ],
+      "tags": [
+        "character:english"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:fair-haven": {
+      "type": "character",
+      "label": "Fair Haven",
+      "aliases": [
+        "Fair Haven"
+      ],
+      "canonicalNames": [
+        "Fair Haven"
+      ],
+      "tags": [
+        "character:fair-haven"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:greek": {
+      "type": "character",
+      "label": "Greek",
+      "aliases": [
+        "Greek"
+      ],
+      "canonicalNames": [
+        "Greek"
+      ],
+      "tags": [
+        "character:greek"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ground-shaker": {
+      "type": "character",
+      "label": "Ground Shaker",
+      "aliases": [
+        "Ground Shaker"
+      ],
+      "canonicalNames": [
+        "Ground Shaker"
+      ],
+      "tags": [
+        "character:ground-shaker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:harry-kim": {
+      "type": "character",
+      "label": "Harry Kim",
+      "aliases": [
+        "Harry Kim"
+      ],
+      "canonicalNames": [
+        "Harry Kim"
+      ],
+      "tags": [
+        "character:harry-kim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:hirogen": {
+      "type": "faction",
+      "label": "Hirogen",
+      "aliases": [
+        "Hirogen"
+      ],
+      "canonicalNames": [
+        "Hirogen"
+      ],
+      "tags": [
+        "faction:hirogen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:indiana": {
+      "type": "character",
+      "label": "Indiana",
+      "aliases": [
+        "Indiana"
+      ],
+      "canonicalNames": [
+        "Indiana"
+      ],
+      "tags": [
+        "character:indiana"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ireland": {
+      "type": "character",
+      "label": "Ireland",
+      "aliases": [
+        "Ireland"
+      ],
+      "canonicalNames": [
+        "Ireland"
+      ],
+      "tags": [
+        "character:ireland"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:italian": {
+      "type": "character",
+      "label": "Italian",
+      "aliases": [
+        "Italian"
+      ],
+      "canonicalNames": [
+        "Italian"
+      ],
+      "tags": [
+        "character:italian"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:john-kelly": {
+      "type": "character",
+      "label": "John Kelly",
+      "aliases": [
+        "John Kelly"
+      ],
+      "canonicalNames": [
+        "John Kelly"
+      ],
+      "tags": [
+        "character:john-kelly"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kathryn-janeway": {
+      "type": "character",
+      "label": "Kathryn Janeway",
+      "aliases": [
+        "Kathryn Janeway"
+      ],
+      "canonicalNames": [
+        "Kathryn Janeway"
+      ],
+      "tags": [
+        "character:kathryn-janeway"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kelis": {
+      "type": "character",
+      "label": "Kelis",
+      "aliases": [
+        "Kelis"
+      ],
+      "canonicalNames": [
+        "Kelis"
+      ],
+      "tags": [
+        "character:kelis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kes": {
+      "type": "character",
+      "label": "Kes",
+      "aliases": [
+        "Kes"
+      ],
+      "canonicalNames": [
+        "Kes"
+      ],
+      "tags": [
+        "character:kes"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:koru": {
+      "type": "character",
+      "label": "Koru",
+      "aliases": [
+        "Koru"
+      ],
+      "canonicalNames": [
+        "Koru"
+      ],
+      "tags": [
+        "character:koru"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:lewis-zimmerman": {
+      "type": "character",
+      "label": "Lewis Zimmerman",
+      "aliases": [
+        "Lewis Zimmerman"
+      ],
+      "canonicalNames": [
+        "Lewis Zimmerman"
+      ],
+      "tags": [
+        "character:lewis-zimmerman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:mars": {
+      "type": "character",
+      "label": "Mars",
+      "aliases": [
+        "Mars"
+      ],
+      "canonicalNames": [
+        "Mars"
+      ],
+      "tags": [
+        "character:mars"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:mezoti": {
+      "type": "character",
+      "label": "Mezoti",
+      "aliases": [
+        "Mezoti"
+      ],
+      "canonicalNames": [
+        "Mezoti"
+      ],
+      "tags": [
+        "character:mezoti"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:naomi-wildman": {
+      "type": "character",
+      "label": "Naomi Wildman",
+      "aliases": [
+        "Naomi Wildman"
+      ],
+      "canonicalNames": [
+        "Naomi Wildman"
+      ],
+      "tags": [
+        "character:naomi-wildman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:neelix": {
+      "type": "character",
+      "label": "Neelix",
+      "aliases": [
+        "Neelix"
+      ],
+      "canonicalNames": [
+        "Neelix"
+      ],
+      "tags": [
+        "character:neelix"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ocampa": {
+      "type": "character",
+      "label": "Ocampa",
+      "aliases": [
+        "Ocampa"
+      ],
+      "canonicalNames": [
+        "Ocampa"
+      ],
+      "tags": [
+        "character:ocampa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:pathfinder-project": {
+      "type": "character",
+      "label": "Pathfinder Project",
+      "aliases": [
+        "Pathfinder Project"
+      ],
+      "canonicalNames": [
+        "Pathfinder Project"
+      ],
+      "tags": [
+        "character:pathfinder-project"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:prelate": {
+      "type": "character",
+      "label": "Prelate",
+      "aliases": [
+        "Prelate"
+      ],
+      "canonicalNames": [
+        "Prelate"
+      ],
+      "tags": [
+        "character:prelate"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:qomar": {
+      "type": "character",
+      "label": "Qomar",
+      "aliases": [
+        "Qomar"
+      ],
+      "canonicalNames": [
+        "Qomar"
+      ],
+      "tags": [
+        "character:qomar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:reginald-barclay": {
+      "type": "character",
+      "label": "Reginald Barclay",
+      "aliases": [
+        "Reginald Barclay"
+      ],
+      "canonicalNames": [
+        "Reginald Barclay"
+      ],
+      "tags": [
+        "character:reginald-barclay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:rose-kumagawa": {
+      "type": "character",
+      "label": "Rose Kumagawa",
+      "aliases": [
+        "Rose Kumagawa"
+      ],
+      "canonicalNames": [
+        "Rose Kumagawa"
+      ],
+      "tags": [
+        "character:rose-kumagawa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:seamus": {
+      "type": "character",
+      "label": "Seamus",
+      "aliases": [
+        "Seamus"
+      ],
+      "canonicalNames": [
+        "Seamus"
+      ],
+      "tags": [
+        "character:seamus"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:selnia-prime": {
+      "type": "character",
+      "label": "Selnia Prime",
+      "aliases": [
+        "Selnia Prime"
+      ],
+      "canonicalNames": [
+        "Selnia Prime"
+      ],
+      "tags": [
+        "character:selnia-prime"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:seven-of-nine": {
+      "type": "character",
+      "label": "Seven of Nine",
+      "aliases": [
+        "Seven of Nine"
+      ],
+      "canonicalNames": [
+        "Seven of Nine"
+      ],
+      "tags": [
+        "character:seven-of-nine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tahal": {
+      "type": "character",
+      "label": "Tahal",
+      "aliases": [
+        "Tahal"
+      ],
+      "canonicalNames": [
+        "Tahal"
+      ],
+      "tags": [
+        "character:tahal"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:telsius-prime": {
+      "type": "character",
+      "label": "Telsius Prime",
+      "aliases": [
+        "Telsius Prime"
+      ],
+      "canonicalNames": [
+        "Telsius Prime"
+      ],
+      "tags": [
+        "character:telsius-prime"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:the-doctor": {
+      "type": "character",
+      "label": "The Doctor",
+      "aliases": [
+        "The Doctor"
+      ],
+      "canonicalNames": [
+        "The Doctor"
+      ],
+      "tags": [
+        "character:the-doctor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tom-paris": {
+      "type": "character",
+      "label": "Tom Paris",
+      "aliases": [
+        "Tom Paris"
+      ],
+      "canonicalNames": [
+        "Tom Paris"
+      ],
+      "tags": [
+        "character:tom-paris"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:turei": {
+      "type": "character",
+      "label": "Turei",
+      "aliases": [
+        "Turei"
+      ],
+      "canonicalNames": [
+        "Turei"
+      ],
+      "tags": [
+        "character:turei"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tuvok": {
+      "type": "character",
+      "label": "Tuvok",
+      "aliases": [
+        "Tuvok"
+      ],
+      "canonicalNames": [
+        "Tuvok"
+      ],
+      "tags": [
+        "character:tuvok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:uss-voyager-crew": {
+      "type": "faction",
+      "label": "USS Voyager crew",
+      "aliases": [
+        "USS Voyager crew"
+      ],
+      "canonicalNames": [
+        "USS Voyager crew"
+      ],
+      "tags": [
+        "faction:uss-voyager-crew"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vulcans": {
+      "type": "faction",
+      "label": "Vulcans",
+      "aliases": [
+        "Vulcans"
+      ],
+      "canonicalNames": [
+        "Vulcans"
+      ],
+      "tags": [
+        "faction:vulcans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:world-series": {
+      "type": "character",
+      "label": "World Series",
+      "aliases": [
+        "World Series"
+      ],
+      "canonicalNames": [
+        "World Series"
+      ],
+      "tags": [
+        "character:world-series"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 6."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    }
+  }
+}

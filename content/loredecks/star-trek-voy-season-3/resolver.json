@@ -1,0 +1,1483 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: Voyager season 3 Context from episode titles, story rows, runtime aliases, and common VOY S3 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer VOY season 3 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "basics, part ii",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 3 basics, part ii",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "voy s3 basics, part ii",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "voy 3x01 story",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "voy s03 story 01",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "voy 3x01",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "voy s03e01",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 1",
+      "result": {
+        "anchorFrom": "voy.s3.e01.basics-part-ii",
+        "label": "Basics, Part II"
+      }
+    },
+    {
+      "pattern": "flashback",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "voy season 3 flashback",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "voy s3 flashback",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "voy 3x02 story",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "voy s03 story 02",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "voy 3x02",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "voy s03e02",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 2",
+      "result": {
+        "anchorFrom": "voy.s3.e02.flashback",
+        "label": "Flashback"
+      }
+    },
+    {
+      "pattern": "the chute",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "voy season 3 the chute",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "voy s3 the chute",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "voy 3x03 story",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "voy s03 story 03",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "voy 3x03",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "voy s03e03",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 3",
+      "result": {
+        "anchorFrom": "voy.s3.e03.the-chute",
+        "label": "The Chute"
+      }
+    },
+    {
+      "pattern": "the swarm",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "voy season 3 the swarm",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "voy s3 the swarm",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "voy 3x04 story",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "voy s03 story 04",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "voy 3x04",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "voy s03e04",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 4",
+      "result": {
+        "anchorFrom": "voy.s3.e04.the-swarm",
+        "label": "The Swarm"
+      }
+    },
+    {
+      "pattern": "false profits",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "voy season 3 false profits",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "voy s3 false profits",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "voy 3x05 story",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "voy s03 story 05",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "voy 3x05",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "voy s03e05",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 5",
+      "result": {
+        "anchorFrom": "voy.s3.e05.false-profits",
+        "label": "False Profits"
+      }
+    },
+    {
+      "pattern": "remember",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "voy season 3 remember",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "voy s3 remember",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "voy 3x06 story",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "voy s03 story 06",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "voy 3x06",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "voy s03e06",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 6",
+      "result": {
+        "anchorFrom": "voy.s3.e06.remember",
+        "label": "Remember"
+      }
+    },
+    {
+      "pattern": "sacred ground",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "voy season 3 sacred ground",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "voy s3 sacred ground",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "voy 3x07 story",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "voy s03 story 07",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "voy 3x07",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "voy s03e07",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 7",
+      "result": {
+        "anchorFrom": "voy.s3.e07.sacred-ground",
+        "label": "Sacred Ground"
+      }
+    },
+    {
+      "pattern": "future's end",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "voy season 3 future's end",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "voy s3 future's end",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "voy 3x08 story",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "voy s03 story 08",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "voy 3x08",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "voy s03e08",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 8",
+      "result": {
+        "anchorFrom": "voy.s3.e08.futures-end",
+        "label": "Future's End"
+      }
+    },
+    {
+      "pattern": "future's end, part ii",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 3 future's end, part ii",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "voy s3 future's end, part ii",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "voy 3x09 story",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "voy s03 story 09",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "voy 3x09",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "voy s03e09",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 9",
+      "result": {
+        "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+        "label": "Future's End, Part II"
+      }
+    },
+    {
+      "pattern": "warlord",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "voy season 3 warlord",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "voy s3 warlord",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "voy 3x10 story",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "voy s03 story 10",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "voy 3x10",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "voy s03e10",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 10",
+      "result": {
+        "anchorFrom": "voy.s3.e10.warlord",
+        "label": "Warlord"
+      }
+    },
+    {
+      "pattern": "the q and the grey",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "voy season 3 the q and the grey",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "voy s3 the q and the grey",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "voy 3x11 story",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "voy s03 story 11",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "voy 3x11",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "voy s03e11",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 11",
+      "result": {
+        "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+        "label": "The Q and the Grey"
+      }
+    },
+    {
+      "pattern": "macrocosm",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "voy season 3 macrocosm",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "voy s3 macrocosm",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "voy 3x12 story",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "voy s03 story 12",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "voy 3x12",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "voy s03e12",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 12",
+      "result": {
+        "anchorFrom": "voy.s3.e12.macrocosm",
+        "label": "Macrocosm"
+      }
+    },
+    {
+      "pattern": "fair trade",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "voy season 3 fair trade",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "voy s3 fair trade",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "voy 3x13 story",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "voy s03 story 13",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "voy 3x13",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "voy s03e13",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 13",
+      "result": {
+        "anchorFrom": "voy.s3.e13.fair-trade",
+        "label": "Fair Trade"
+      }
+    },
+    {
+      "pattern": "alter ego",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "voy season 3 alter ego",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "voy s3 alter ego",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "voy 3x14 story",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "voy s03 story 14",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "voy 3x14",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "voy s03e14",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 14",
+      "result": {
+        "anchorFrom": "voy.s3.e14.alter-ego",
+        "label": "Alter Ego"
+      }
+    },
+    {
+      "pattern": "coda",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "voy season 3 coda",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "voy s3 coda",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "voy 3x15 story",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "voy s03 story 15",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "voy 3x15",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "voy s03e15",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 15",
+      "result": {
+        "anchorFrom": "voy.s3.e15.coda",
+        "label": "Coda"
+      }
+    },
+    {
+      "pattern": "blood fever",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "voy season 3 blood fever",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "voy s3 blood fever",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "voy 3x16 story",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "voy s03 story 16",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "voy 3x16",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "voy s03e16",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 16",
+      "result": {
+        "anchorFrom": "voy.s3.e16.blood-fever",
+        "label": "Blood Fever"
+      }
+    },
+    {
+      "pattern": "unity",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "voy season 3 unity",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "voy s3 unity",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "voy 3x17 story",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "voy s03 story 17",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "voy 3x17",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "voy s03e17",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 17",
+      "result": {
+        "anchorFrom": "voy.s3.e17.unity",
+        "label": "Unity"
+      }
+    },
+    {
+      "pattern": "darkling",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "voy season 3 darkling",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "voy s3 darkling",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "voy 3x18 story",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "voy s03 story 18",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "voy 3x18",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "voy s03e18",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 18",
+      "result": {
+        "anchorFrom": "voy.s3.e18.darkling",
+        "label": "Darkling"
+      }
+    },
+    {
+      "pattern": "rise",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "voy season 3 rise",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "voy s3 rise",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "voy 3x19 story",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "voy s03 story 19",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "voy 3x19",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "voy s03e19",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 19",
+      "result": {
+        "anchorFrom": "voy.s3.e19.rise",
+        "label": "Rise"
+      }
+    },
+    {
+      "pattern": "favorite son",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "voy season 3 favorite son",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "voy s3 favorite son",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "voy 3x20 story",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "voy s03 story 20",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "voy 3x20",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "voy s03e20",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 20",
+      "result": {
+        "anchorFrom": "voy.s3.e20.favorite-son",
+        "label": "Favorite Son"
+      }
+    },
+    {
+      "pattern": "before and after",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "voy season 3 before and after",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "voy s3 before and after",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "voy 3x21 story",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "voy s03 story 21",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "voy 3x21",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "voy s03e21",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 21",
+      "result": {
+        "anchorFrom": "voy.s3.e21.before-and-after",
+        "label": "Before and After"
+      }
+    },
+    {
+      "pattern": "real life",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "voy season 3 real life",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "voy s3 real life",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "voy 3x22 story",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "voy s03 story 22",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "voy 3x22",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "voy s03e22",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 22",
+      "result": {
+        "anchorFrom": "voy.s3.e22.real-life",
+        "label": "Real Life"
+      }
+    },
+    {
+      "pattern": "distant origin",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "voy season 3 distant origin",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "voy s3 distant origin",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "voy 3x23 story",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "voy s03 story 23",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "voy 3x23",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "voy s03e23",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 23",
+      "result": {
+        "anchorFrom": "voy.s3.e23.distant-origin",
+        "label": "Distant Origin"
+      }
+    },
+    {
+      "pattern": "displaced",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "voy season 3 displaced",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "voy s3 displaced",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "voy 3x24 story",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "voy s03 story 24",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "voy 3x24",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "voy s03e24",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 24",
+      "result": {
+        "anchorFrom": "voy.s3.e24.displaced",
+        "label": "Displaced"
+      }
+    },
+    {
+      "pattern": "worst case scenario",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "voy season 3 worst case scenario",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "voy s3 worst case scenario",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "voy 3x25 story",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "voy s03 story 25",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "voy 3x25",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "voy s03e25",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 25",
+      "result": {
+        "anchorFrom": "voy.s3.e25.worst-case-scenario",
+        "label": "Worst Case Scenario"
+      }
+    },
+    {
+      "pattern": "scorpion",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    },
+    {
+      "pattern": "voy season 3 scorpion",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    },
+    {
+      "pattern": "voy s3 scorpion",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    },
+    {
+      "pattern": "voy 3x26 story",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    },
+    {
+      "pattern": "voy s03 story 26",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    },
+    {
+      "pattern": "voy 3x26",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    },
+    {
+      "pattern": "voy s03e26",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    },
+    {
+      "pattern": "voy season 3 episode 26",
+      "result": {
+        "anchorFrom": "voy.s3.e26.scorpion",
+        "label": "Scorpion"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

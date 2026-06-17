@@ -188,7 +188,7 @@ function normalizeProjectIndexRecord(value = {}, fallbackId = '', options = {}) 
     const job = normalizeLoredeckCreatorJob({
         ...raw,
         jobId,
-        projectTitle: raw.projectTitle || raw.title || '',
+        projectTitle: raw.projectTitle || '',
         generatedPackId: raw.generatedPackId || raw.linkedGeneratedPackId || '',
         currentStage: raw.currentStage || raw.stage || '',
         projectFile: raw.projectFile || raw.payloadFile || '',
@@ -212,7 +212,7 @@ function normalizeProjectIndexRecord(value = {}, fallbackId = '', options = {}) 
         projectId: job.jobId,
         jobId: job.jobId,
         title: getProjectTitle(job),
-        projectTitle: job.projectTitle || getProjectTitle(job),
+        projectTitle: job.projectTitle || '',
         fandom: job.fandom || '',
         scope: job.scope || '',
         granularity: job.granularity || '',
@@ -233,7 +233,7 @@ function normalizeProjectIndexRecord(value = {}, fallbackId = '', options = {}) 
     const currentTask = normalizeCurrentTask(raw.currentTask || activeGeneration);
     if (currentTask) record.currentTask = currentTask;
     if (activeGeneration?.id) record.activeGeneration = activeGeneration;
-    for (const key of ['fandom', 'scope', 'granularity', 'folderId', 'linkedGeneratedPackId', 'generatedPackId', 'generatedPackTitle']) {
+    for (const key of ['projectTitle', 'fandom', 'scope', 'granularity', 'folderId', 'linkedGeneratedPackId', 'generatedPackId', 'generatedPackTitle']) {
         if (!record[key]) delete record[key];
     }
     if (!Object.keys(record.progress || {}).length) delete record.progress;

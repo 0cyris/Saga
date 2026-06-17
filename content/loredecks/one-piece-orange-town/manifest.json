@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-orange-town",
+  "type": "bundled",
+  "title": "One Piece: Orange Town Arc",
+  "description": "Reviewed manga-main Loredeck for Orange Town occupation stakes, Nami reveal gates, Buggy combat rules, Chouchou and Boodle civilian pressure, and the provisional Luffy-Zoro-Nami alliance.",
+  "fandom": "One Piece",
+  "era": "Orange Town Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-orange-town-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-orange-town",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-orange-town"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "East Blue Saga"
+    ],
+    "familyOrder": 20
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:east-blue",
+    "arc:orange-town",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Orange_Town_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga/anime",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "orange_town/orange_town.json",
+    "orange_town/nami-and-treasure.json",
+    "orange_town/orange-town-civilians.json",
+    "orange_town/luffy-zoro-nami-dynamics.json",
+    "orange_town/devil-fruit-and-combat-rules.json",
+    "orange_town/conflict-set-pieces.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 31,
+    "categoryCounts": {
+      "character": 7,
+      "event": 5,
+      "faction": 1,
+      "knowledge": 3,
+      "location": 2,
+      "relationship": 5,
+      "rule": 8
+    },
+    "timelineAnchorCount": 8,
+    "timelineWindowCount": 8,
+    "tagCount": 51,
+    "entityCount": 21
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Orange Town runtime-lore pass completed: cards now emphasize arc-local lore gates, character snapshots, reveal boundaries, relationship states, rules, and event moments."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

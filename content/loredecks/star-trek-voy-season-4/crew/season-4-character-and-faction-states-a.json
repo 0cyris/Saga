@@ -1,0 +1,2848 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_scorpion-part-ii-state-gate",
+      "title": "Scorpion, Part II state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e01.scorpion-part-ii",
+        "validToAnchor": "voy.s4.e02.the-gift",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 34000,
+        "sortKeyTo": 34020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Scorpion, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e01.scorpion-part-ii",
+          "label": "Scorpion, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:species-8472",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Tom Paris"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "Species 8472",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Scorpion",
+          "Borg encounter/assimilation gate",
+          "Species 8472/Borg conflict gate",
+          "Borg cube",
+          "assimilate",
+          "Species 8472",
+          "tractor beam",
+          "Kathryn Janeway"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:species-8472",
+        "faction:uss-voyager-crew",
+        "topic:scorpion",
+        "topic:borg-encounterassimilation-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:borg-cube",
+        "topic:assimilate",
+        "topic:species-8472",
+        "topic:tractor-beam",
+        "topic:kathryn-janeway"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "Species 8472",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Starfleet",
+            "Borg Collective",
+            "Species 8472",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Scorpion",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "Borg cube",
+            "assimilate",
+            "Species 8472",
+            "tractor beam",
+            "Kathryn Janeway"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Starfleet",
+            "Borg Collective",
+            "Species 8472",
+            "USS Voyager crew",
+            "Scorpion",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "Borg cube",
+            "assimilate",
+            "tractor beam",
+            "Scorpion, Part II",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Scorpion, Part II constrains Kathryn Janeway, Chakotay, Tuvok around Scorpion and the episode-local faction state.",
+        "injection": "Inside Scorpion, Part II, write Kathryn Janeway, Chakotay, Tuvok with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion%2C_Part_II_(episode)",
+        "stardate": "51003.7 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_the-gift-state-gate",
+      "title": "The Gift state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e02.the-gift",
+        "validToAnchor": "voy.s4.e03.day-of-honor",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 34020,
+        "sortKeyTo": 34040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: The Gift",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e02.the-gift",
+          "label": "The Gift",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:the-doctor",
+          "st:seven-of-nine",
+          "st:regenerating",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:species-8472",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "The Doctor",
+          "Seven of Nine",
+          "Regenerating"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "Species 8472",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "Species 8472/Borg conflict gate",
+          "assimilation status gate",
+          "after having faced",
+          "Borg",
+          "Species 8472"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-gift",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:the-doctor",
+        "character:seven-of-nine",
+        "character:regenerating",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:species-8472",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:assimilation-status-gate",
+        "topic:after-having-faced",
+        "topic:borg",
+        "topic:species-8472"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "The Doctor",
+            "Seven of Nine",
+            "Regenerating"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "Species 8472",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "The Doctor",
+            "Seven of Nine",
+            "Regenerating",
+            "Starfleet",
+            "Borg Collective",
+            "Species 8472",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Species 8472/Borg conflict gate",
+            "assimilation status gate",
+            "after having faced",
+            "Borg",
+            "Species 8472"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "The Doctor",
+            "Seven of Nine",
+            "Regenerating",
+            "Starfleet",
+            "Borg Collective",
+            "Species 8472",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Species 8472/Borg conflict gate",
+            "assimilation status gate",
+            "after having faced",
+            "Borg",
+            "The Gift",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Gift constrains Kathryn Janeway, Tuvok, The Doctor around Borg encounter/assimilation gate and the episode-local faction state.",
+        "injection": "Inside The Gift, write Kathryn Janeway, Tuvok, The Doctor with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Gift",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Gift_(episode)",
+        "stardate": "51008 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_day-of-honor-state-gate",
+      "title": "Day of Honor state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e03.day-of-honor",
+        "validToAnchor": "voy.s4.e04.nemesis",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 34040,
+        "sortKeyTo": 34060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Day of Honor",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e03.day-of-honor",
+          "label": "Day of Honor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:seven-of-nine",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Seven of Nine"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "death/status-change gate",
+          "Seven of Nine",
+          "alcove",
+          "Chakotay",
+          "duty assignment",
+          "Kathryn Janeway"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-day-of-honor",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:seven-of-nine",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:deathstatus-change-gate",
+        "topic:seven-of-nine",
+        "topic:alcove",
+        "topic:chakotay",
+        "topic:duty-assignment",
+        "topic:kathryn-janeway"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Seven of Nine"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Seven of Nine",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "death/status-change gate",
+            "Seven of Nine",
+            "alcove",
+            "Chakotay",
+            "duty assignment",
+            "Kathryn Janeway"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Seven of Nine",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "death/status-change gate",
+            "alcove",
+            "duty assignment",
+            "Day of Honor",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Day of Honor constrains Kathryn Janeway, Chakotay, B'Elanna Torres around Borg encounter/assimilation gate and the episode-local faction state.",
+        "injection": "Inside Day of Honor, write Kathryn Janeway, Chakotay, B'Elanna Torres with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Day of Honor",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Day_of_Honor_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_nemesis-state-gate",
+      "title": "Nemesis state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e04.nemesis",
+        "validToAnchor": "voy.s4.e05.revulsion",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 34060,
+        "sortKeyTo": 34080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Nemesis",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e04.nemesis",
+          "label": "Nemesis",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:delta-quadrant",
+          "st:vori",
+          "st:kradin",
+          "st:brone",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Delta Quadrant",
+          "Vori",
+          "Kradin",
+          "Brone"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Delta Quadrant isolation gate",
+          "Chakotay",
+          "jungle",
+          "Delta Quadrant",
+          "Vori",
+          "his shuttle",
+          "survey mission"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-nemesis",
+        "character:chakotay",
+        "character:delta-quadrant",
+        "character:vori",
+        "character:kradin",
+        "character:brone",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:uss-voyager-crew",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:chakotay",
+        "topic:jungle",
+        "topic:delta-quadrant",
+        "topic:vori",
+        "topic:his-shuttle",
+        "topic:survey-mission"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Delta Quadrant",
+            "Vori",
+            "Kradin",
+            "Brone"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Delta Quadrant",
+            "Vori",
+            "Kradin",
+            "Brone",
+            "Starfleet",
+            "Cardassian Union",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate",
+            "Chakotay",
+            "jungle",
+            "Delta Quadrant",
+            "Vori",
+            "his shuttle",
+            "survey mission"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Delta Quadrant",
+            "Vori",
+            "Kradin",
+            "Brone",
+            "Starfleet",
+            "Cardassian Union",
+            "USS Voyager crew",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate",
+            "jungle",
+            "his shuttle",
+            "survey mission",
+            "Nemesis",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Nemesis constrains Chakotay, Delta Quadrant, Vori around Cardassian occupation or border-pressure gate and the episode-local faction state.",
+        "injection": "Inside Nemesis, write Chakotay, Delta Quadrant, Vori with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Nemesis",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Nemesis_(episode)",
+        "stardate": "51082.4-51096.5 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_revulsion-state-gate",
+      "title": "Revulsion state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e05.revulsion",
+        "validToAnchor": "voy.s4.e06.the-raven",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 34080,
+        "sortKeyTo": 34100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Revulsion",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e05.revulsion",
+          "label": "Revulsion",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "blood",
+          "HD25 isomorphic projection",
+          "Kathryn Janeway",
+          "senior staff",
+          "mess hall",
+          "promotion",
+          "Revulsion"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-revulsion",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:blood",
+        "topic:hd25-isomorphic-projection",
+        "topic:kathryn-janeway",
+        "topic:senior-staff",
+        "topic:mess-hall",
+        "topic:promotion",
+        "topic:revulsion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "blood",
+            "HD25 isomorphic projection",
+            "Kathryn Janeway",
+            "senior staff",
+            "mess hall",
+            "promotion",
+            "Revulsion"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "blood",
+            "HD25 isomorphic projection",
+            "senior staff",
+            "mess hall",
+            "promotion",
+            "Revulsion",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Revulsion constrains Kathryn Janeway, Tuvok, Tom Paris around EMH autonomy/identity gate and the episode-local faction state.",
+        "injection": "Inside Revulsion, write Kathryn Janeway, Tuvok, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Revulsion",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Revulsion_(episode)",
+        "stardate": "51186.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_the-raven-state-gate",
+      "title": "The Raven state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e06.the-raven",
+        "validToAnchor": "voy.s4.e07.scientific-method",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 34100,
+        "sortKeyTo": 34120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: The Raven",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e06.the-raven",
+          "label": "The Raven",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:neelix",
+          "st:seven-of-nine",
+          "st:kathryn-janeway",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Neelix",
+          "Seven of Nine",
+          "Kathryn Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "Janeway",
+          "Seven of Nine",
+          "scientist",
+          "parents' vessel",
+          "Borg Collective"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-the-raven",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:neelix",
+        "character:seven-of-nine",
+        "character:kathryn-janeway",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:janeway",
+        "topic:seven-of-nine",
+        "topic:scientist",
+        "topic:parents-vessel",
+        "topic:borg-collective"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Neelix",
+            "Seven of Nine",
+            "Kathryn Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Neelix",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Janeway",
+            "Seven of Nine",
+            "scientist",
+            "parents' vessel",
+            "Borg Collective"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Neelix",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Janeway",
+            "scientist",
+            "parents' vessel",
+            "The Raven",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Raven constrains Chakotay, The Doctor, Neelix around Borg encounter/assimilation gate and the episode-local faction state.",
+        "injection": "Inside The Raven, write Chakotay, The Doctor, Neelix with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Raven",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Raven_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_scientific-method-state-gate",
+      "title": "Scientific Method state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 71,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e07.scientific-method",
+        "validToAnchor": "voy.s4.e08.year-of-hell",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 34120,
+        "sortKeyTo": 34140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Scientific Method",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e07.scientific-method",
+          "label": "Scientific Method",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:seven-of-nine",
+          "st:belanna-torres",
+          "st:starfleet-academy",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Seven of Nine",
+          "B'Elanna Torres",
+          "Starfleet Academy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "genetic secret gate",
+          "Seven/Borg recovery gate",
+          "Torres",
+          "Jefferies tube",
+          "warp core",
+          "diagnostic",
+          "engineering"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scientific-method",
+        "character:kathryn-janeway",
+        "character:seven-of-nine",
+        "character:belanna-torres",
+        "character:starfleet-academy",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:genetic-secret-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:torres",
+        "topic:jefferies-tube",
+        "topic:warp-core",
+        "topic:diagnostic",
+        "topic:engineering"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Seven of Nine",
+            "B'Elanna Torres",
+            "Starfleet Academy"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Seven of Nine",
+            "B'Elanna Torres",
+            "Starfleet Academy",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "genetic secret gate",
+            "Seven/Borg recovery gate",
+            "Torres",
+            "Jefferies tube",
+            "warp core",
+            "diagnostic",
+            "engineering"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Seven of Nine",
+            "B'Elanna Torres",
+            "Starfleet Academy",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "genetic secret gate",
+            "Seven/Borg recovery gate",
+            "Torres",
+            "Jefferies tube",
+            "warp core",
+            "diagnostic",
+            "engineering",
+            "Scientific Method",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Scientific Method constrains Kathryn Janeway, Seven of Nine, B'Elanna Torres around Borg encounter/assimilation gate and the episode-local faction state.",
+        "injection": "Inside Scientific Method, write Kathryn Janeway, Seven of Nine, B'Elanna Torres with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scientific Method",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scientific_Method_(episode)",
+        "stardate": "51244.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_year-of-hell-state-gate",
+      "title": "Year of Hell state gate for B'Elanna Torres",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e08.year-of-hell",
+        "validToAnchor": "voy.s4.e09.year-of-hell-part-ii",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 34140,
+        "sortKeyTo": 34160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Year of Hell",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e08.year-of-hell",
+          "label": "Year of Hell",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:belanna-torres",
+          "st:harry-kim",
+          "st:seven-of-nine",
+          "st:zahl",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "B'Elanna Torres",
+          "Harry Kim",
+          "Seven of Nine",
+          "Zahl"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Year of Hell",
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "Krenim temporal-war gate",
+          "temporal anomaly/status gate",
+          "energy",
+          "officer",
+          "temporal incursion"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-year-of-hell",
+        "character:belanna-torres",
+        "character:harry-kim",
+        "character:seven-of-nine",
+        "character:zahl",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:year-of-hell",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:krenim-temporal-war-gate",
+        "topic:temporal-anomalystatus-gate",
+        "topic:energy",
+        "topic:officer",
+        "topic:temporal-incursion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Seven of Nine",
+            "Zahl"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Seven of Nine",
+            "Zahl",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Year of Hell",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Krenim temporal-war gate",
+            "temporal anomaly/status gate",
+            "energy",
+            "officer",
+            "temporal incursion"
+          ],
+          "keywordsAny": [
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Seven of Nine",
+            "Zahl",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Year of Hell",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Krenim temporal-war gate",
+            "temporal anomaly/status gate",
+            "energy",
+            "officer",
+            "temporal incursion",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Year of Hell constrains B'Elanna Torres, Harry Kim, Seven of Nine around Year of Hell and the episode-local faction state.",
+        "injection": "Inside Year of Hell, write B'Elanna Torres, Harry Kim, Seven of Nine with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Year of Hell",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Year_of_Hell_(episode)",
+        "stardate": "51268.4 (March|month 16 - May 28, 2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_year-of-hell-part-ii-state-gate",
+      "title": "Year of Hell, Part II state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 65,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e09.year-of-hell-part-ii",
+        "validToAnchor": "voy.s4.e10.random-thoughts",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 34160,
+        "sortKeyTo": 34180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Year of Hell, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e09.year-of-hell-part-ii",
+          "label": "Year of Hell, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:belanna-torres",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:delta-quadrant",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "B'Elanna Torres",
+          "Harry Kim",
+          "The Doctor",
+          "Delta Quadrant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Year of Hell",
+          "Delta Quadrant isolation gate",
+          "EMH autonomy/identity gate",
+          "Krenim temporal-war gate",
+          "class 9 nebula",
+          "Delta Quadrant",
+          "Krenim",
+          "ventilation system"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-year-of-hell-part-ii",
+        "character:kathryn-janeway",
+        "character:belanna-torres",
+        "character:harry-kim",
+        "character:the-doctor",
+        "character:delta-quadrant",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:year-of-hell",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:krenim-temporal-war-gate",
+        "topic:class-9-nebula",
+        "topic:delta-quadrant",
+        "topic:krenim",
+        "topic:ventilation-system"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Delta Quadrant"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Delta Quadrant",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Year of Hell",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Krenim temporal-war gate",
+            "class 9 nebula",
+            "Delta Quadrant",
+            "Krenim",
+            "ventilation system"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Delta Quadrant",
+            "Starfleet",
+            "USS Voyager crew",
+            "Year of Hell",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Krenim temporal-war gate",
+            "class 9 nebula",
+            "Krenim",
+            "ventilation system",
+            "Year of Hell, Part II",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Year of Hell, Part II constrains Kathryn Janeway, B'Elanna Torres, Harry Kim around Year of Hell and the episode-local faction state.",
+        "injection": "Inside Year of Hell, Part II, write Kathryn Janeway, B'Elanna Torres, Harry Kim with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Year of Hell, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Year_of_Hell%2C_Part_II_(episode)",
+        "stardate": "51425.4 (July 27 - November 29 / March|month 16, 2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_random-thoughts-state-gate",
+      "title": "Random Thoughts state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e10.random-thoughts",
+        "validToAnchor": "voy.s4.e11.concerning-flight",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 34180,
+        "sortKeyTo": 34200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Random Thoughts",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e10.random-thoughts",
+          "label": "Random Thoughts",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:neelix",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Neelix"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "telepath",
+          "lifeform",
+          "Mari",
+          "Neelix",
+          "Tom Paris",
+          "Talli",
+          "Random Thoughts"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-random-thoughts",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:neelix",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:telepath",
+        "topic:lifeform",
+        "topic:mari",
+        "topic:neelix",
+        "topic:tom-paris",
+        "topic:talli",
+        "topic:random-thoughts"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Neelix"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "telepath",
+            "lifeform",
+            "Mari",
+            "Neelix",
+            "Tom Paris",
+            "Talli",
+            "Random Thoughts"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "telepath",
+            "lifeform",
+            "Mari",
+            "Talli",
+            "Random Thoughts",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Random Thoughts constrains Kathryn Janeway, Tuvok, B'Elanna Torres around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Random Thoughts, write Kathryn Janeway, Tuvok, B'Elanna Torres with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Random Thoughts",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Random_Thoughts_(episode)",
+        "stardate": "51367.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_concerning-flight-state-gate",
+      "title": "Concerning Flight state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 59,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e11.concerning-flight",
+        "validToAnchor": "voy.s4.e12.mortal-coil",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 34200,
+        "sortKeyTo": 34220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Concerning Flight",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e11.concerning-flight",
+          "label": "Concerning Flight",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:kathryn-janeway",
+          "st:belanna-torres",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Data",
+          "Kathryn Janeway",
+          "B'Elanna Torres",
+          "Harry Kim",
+          "The Doctor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Data/Lore android-family gate",
+          "EMH autonomy/identity gate",
+          "Kathryn Janeway",
+          "Great Bird",
+          "Florence",
+          "France",
+          "Harry Kim",
+          "shield"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-concerning-flight",
+        "character:data",
+        "character:kathryn-janeway",
+        "character:belanna-torres",
+        "character:harry-kim",
+        "character:the-doctor",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:datalore-android-family-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:kathryn-janeway",
+        "topic:great-bird",
+        "topic:florence",
+        "topic:france",
+        "topic:harry-kim",
+        "topic:shield"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Data/Lore android-family gate",
+            "EMH autonomy/identity gate",
+            "Kathryn Janeway",
+            "Great Bird",
+            "Florence",
+            "France",
+            "Harry Kim",
+            "shield"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew",
+            "Data/Lore android-family gate",
+            "EMH autonomy/identity gate",
+            "Great Bird",
+            "Florence",
+            "France",
+            "shield",
+            "Concerning Flight",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Concerning Flight constrains Data, Kathryn Janeway, B'Elanna Torres around Data/Lore android-family gate and the episode-local faction state.",
+        "injection": "Inside Concerning Flight, write Data, Kathryn Janeway, B'Elanna Torres with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Concerning Flight",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Concerning_Flight_(episode)",
+        "stardate": "51386.4-51408.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_mortal-coil-state-gate",
+      "title": "Mortal Coil state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e12.mortal-coil",
+        "validToAnchor": "voy.s4.e13.waking-moments",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 34220,
+        "sortKeyTo": 34240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Mortal Coil",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e12.mortal-coil",
+          "label": "Mortal Coil",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:harry-kim",
+          "st:neelix",
+          "st:seven-of-nine",
+          "st:wildman",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Harry Kim",
+          "Neelix",
+          "Seven of Nine",
+          "Wildman"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "death/status-change gate",
+          "Neelix",
+          "mess hall",
+          "Harry Kim",
+          "coffee",
+          "ops report"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-mortal-coil",
+        "character:chakotay",
+        "character:harry-kim",
+        "character:neelix",
+        "character:seven-of-nine",
+        "character:wildman",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:deathstatus-change-gate",
+        "topic:neelix",
+        "topic:mess-hall",
+        "topic:harry-kim",
+        "topic:coffee",
+        "topic:ops-report"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Harry Kim",
+            "Neelix",
+            "Seven of Nine",
+            "Wildman"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Harry Kim",
+            "Neelix",
+            "Seven of Nine",
+            "Wildman",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "death/status-change gate",
+            "Neelix",
+            "mess hall",
+            "Harry Kim",
+            "coffee",
+            "ops report"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Harry Kim",
+            "Neelix",
+            "Seven of Nine",
+            "Wildman",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "death/status-change gate",
+            "mess hall",
+            "coffee",
+            "ops report",
+            "Mortal Coil",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Mortal Coil constrains Chakotay, Harry Kim, Neelix around Borg encounter/assimilation gate and the episode-local faction state.",
+        "injection": "Inside Mortal Coil, write Chakotay, Harry Kim, Neelix with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Mortal Coil",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Mortal_Coil_(episode)",
+        "stardate": "51449.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_waking-moments-state-gate",
+      "title": "Waking Moments state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 53,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e13.waking-moments",
+        "validToAnchor": "voy.s4.e14.message-in-a-bottle",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 34240,
+        "sortKeyTo": 34260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 4: Waking Moments",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e13.waking-moments",
+          "label": "Waking Moments",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Seven/Borg recovery gate",
+          "Tom Paris",
+          "shuttle",
+          "Tuvok",
+          "uniform",
+          "Kathryn Janeway",
+          "mess hall",
+          "Waking Moments"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-waking-moments",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:sevenborg-recovery-gate",
+        "topic:tom-paris",
+        "topic:shuttle",
+        "topic:tuvok",
+        "topic:uniform",
+        "topic:kathryn-janeway",
+        "topic:mess-hall",
+        "topic:waking-moments"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Seven/Borg recovery gate",
+            "Tom Paris",
+            "shuttle",
+            "Tuvok",
+            "uniform",
+            "Kathryn Janeway",
+            "mess hall",
+            "Waking Moments"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Seven/Borg recovery gate",
+            "shuttle",
+            "uniform",
+            "mess hall",
+            "Waking Moments",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Waking Moments constrains Kathryn Janeway, Tuvok, B'Elanna Torres around Seven/Borg recovery gate and the episode-local faction state.",
+        "injection": "Inside Waking Moments, write Kathryn Janeway, Tuvok, B'Elanna Torres with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Waking Moments",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Waking_Moments_(episode)",
+        "stardate": "51471.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

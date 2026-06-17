@@ -1,0 +1,857 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_mr_3_s_wax_can_immobilize_victims_and_shape_battlefield_objects_027",
+      "title": "Mr. 3's Wax Immobilizes Victims And Shapes The Battlefield",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "validToAnchor": "op.little-garden.nami-illness-bridge",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10600,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Mr. 3's Wax Immobilizes Victims And Shapes The Battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:mr-3",
+          "op:wax",
+          "op:candle-champion"
+        ],
+        "characters": [
+          "Mr. 3"
+        ],
+        "locations": [],
+        "objects": [
+          "Mr. 3 wax",
+          "Candle Champion"
+        ],
+        "factions": [],
+        "topics": [
+          "wax immobilization",
+          "battlefield shaping",
+          "ability gate"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:mr-3",
+        "item:mr-3-wax",
+        "item:candle-champion",
+        "topic:baroque-sabotage",
+        "topic:wax-color-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mr. 3"
+          ],
+          "entitiesAny": [
+            "Mr. 3",
+            "Mr. 3 wax",
+            "Candle Champion"
+          ],
+          "topicsAny": [
+            "wax immobilization",
+            "battlefield shaping",
+            "ability gate"
+          ],
+          "keywordsAny": [
+            "Mr. 3",
+            "Mr. 3 wax",
+            "Candle Champion",
+            "wax immobilization",
+            "battlefield shaping",
+            "ability gate",
+            "wax",
+            "immobilize",
+            "battlefield",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Mr. 3's wax can immobilize victims and shape battlefield objects, making time and positioning critical.",
+        "injection": "Use wax as a tactical constraint: it can trap, preserve, block, and build rather than just hit.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_candle_champion_turns_wax_into_armor_and_offense_028",
+      "title": "Candle Champion Turns Wax Into Armor And Offense",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "validToAnchor": "op.little-garden.nami-illness-bridge",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10600,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Candle Champion Turns Wax Into Armor And Offense"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:mr-3",
+          "op:candle-champion",
+          "op:wax"
+        ],
+        "characters": [
+          "Mr. 3"
+        ],
+        "locations": [],
+        "objects": [
+          "Candle Champion",
+          "Mr. 3 wax"
+        ],
+        "factions": [],
+        "topics": [
+          "Candle Champion",
+          "wax armor",
+          "offense defense"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:mr-3",
+        "item:candle-champion",
+        "item:mr-3-wax",
+        "topic:baroque-sabotage",
+        "topic:wax-color-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mr. 3"
+          ],
+          "entitiesAny": [
+            "Mr. 3",
+            "Candle Champion",
+            "Mr. 3 wax"
+          ],
+          "topicsAny": [
+            "Candle Champion",
+            "wax armor",
+            "offense defense"
+          ],
+          "keywordsAny": [
+            "Mr. 3",
+            "Candle Champion",
+            "Mr. 3 wax",
+            "wax armor",
+            "offense defense",
+            "combat",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Candle Champion turns wax into armor and offense, letting Mr. 3 shift from trap-setter to direct combat threat.",
+        "injection": "Use Candle Champion as escalation after the trap is challenged, not as Mr. 3's default posture.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_heat_and_fire_become_practical_counters_to_wax_control_029",
+      "title": "Heat And Fire Are Practical Counters To Wax Control",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "validToAnchor": "op.little-garden.nami-illness-bridge",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10600,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Heat And Fire Are Practical Counters To Wax Control"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:wax",
+          "op:usopp",
+          "op:monkey-d-luffy",
+          "op:mr-3"
+        ],
+        "characters": [
+          "Usopp",
+          "Monkey D. Luffy",
+          "Mr. 3"
+        ],
+        "locations": [],
+        "objects": [
+          "Mr. 3 wax"
+        ],
+        "factions": [],
+        "topics": [
+          "fire counter",
+          "wax weakness",
+          "rescue tactic"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:mr-3-wax",
+        "character:usopp",
+        "character:monkey-d-luffy",
+        "character:mr-3",
+        "topic:wax-color-tactics",
+        "topic:crew-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Usopp",
+            "Monkey D. Luffy",
+            "Mr. 3"
+          ],
+          "entitiesAny": [
+            "Mr. 3 wax",
+            "Usopp",
+            "Monkey D. Luffy",
+            "Mr. 3"
+          ],
+          "topicsAny": [
+            "fire counter",
+            "wax weakness",
+            "rescue tactic"
+          ],
+          "keywordsAny": [
+            "Mr. 3 wax",
+            "Usopp",
+            "Monkey D. Luffy",
+            "Mr. 3",
+            "fire counter",
+            "wax weakness",
+            "rescue tactic",
+            "fire",
+            "heat",
+            "wax counter",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Heat and fire become practical counters to wax control, making Usopp's tactics and improvised rescue plan matter.",
+        "injection": "Use fire as a concrete solution to wax restraint, not as a general power-scaling lesson.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_miss_goldenweek_s_color_traps_change_behavior_rather_than_physical_restraints_030",
+      "title": "Miss Goldenweek's Color Traps Change Behavior",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "validToAnchor": "op.little-garden.nami-illness-bridge",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10600,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Miss Goldenweek's Color Traps Change Behavior"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-goldenweek",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Miss Goldenweek",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "color trap behavior",
+          "hypnotic control",
+          "nonphysical restraint"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-goldenweek",
+        "character:monkey-d-luffy",
+        "topic:wax-color-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Goldenweek",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Miss Goldenweek",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "color trap behavior",
+            "hypnotic control",
+            "nonphysical restraint"
+          ],
+          "keywordsAny": [
+            "Miss Goldenweek",
+            "Monkey D. Luffy",
+            "color trap behavior",
+            "hypnotic control",
+            "nonphysical restraint",
+            "color traps",
+            "behavior",
+            "control",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Miss Goldenweek's color traps change behavior rather than physically restraining targets, which makes awareness and interruption important.",
+        "injection": "Use color traps as behavioral constraints: the victim may look free while acting against their own intent.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_set_pieces_should_retrieve_for_tactical_constraints_031",
+      "title": "Wax And Color Set Pieces Activate For Tactical Constraints",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "validToAnchor": "op.little-garden.nami-illness-bridge",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10600,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Wax And Color Set Pieces Activate For Tactical Constraints"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:wax",
+          "op:miss-goldenweek",
+          "op:mr-3",
+          "op:candle-champion"
+        ],
+        "characters": [
+          "Miss Goldenweek",
+          "Mr. 3"
+        ],
+        "locations": [],
+        "objects": [
+          "Mr. 3 wax",
+          "Candle Champion"
+        ],
+        "factions": [],
+        "topics": [
+          "set piece retrieval",
+          "tactical constraints",
+          "trap boundaries"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:mr-3-wax",
+        "character:miss-goldenweek",
+        "character:mr-3",
+        "item:candle-champion",
+        "topic:wax-color-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Goldenweek",
+            "Mr. 3"
+          ],
+          "entitiesAny": [
+            "Mr. 3 wax",
+            "Miss Goldenweek",
+            "Mr. 3",
+            "Candle Champion"
+          ],
+          "topicsAny": [
+            "set piece retrieval",
+            "tactical constraints",
+            "trap boundaries"
+          ],
+          "keywordsAny": [
+            "Mr. 3 wax",
+            "Miss Goldenweek",
+            "Mr. 3",
+            "Candle Champion",
+            "set piece retrieval",
+            "tactical constraints",
+            "trap boundaries",
+            "set pieces",
+            "retrieval",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Wax and color set pieces should activate when immobilization, behavior control, fire counters, or rescue timing change the scene.",
+        "injection": "Use this as a tactical retrieval gate, not as a generic ability summary.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Little Garden Arc",
+    "chapterRange": "Manga chapters 115-129",
+    "episodeRange": "Anime episodes 70-77",
+    "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+  }
+}

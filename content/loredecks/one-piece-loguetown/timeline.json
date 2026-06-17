@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Loguetown Arc Context anchors and windows for East Blue Saga.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.loguetown.loguetown",
+      "label": "Loguetown Arc: Roger legacy and town",
+      "sortKey": 6000,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Roger legacy and town"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.smoker-and-tashigi",
+      "label": "Loguetown Arc: Smoker and Tashigi",
+      "sortKey": 6112,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Smoker and Tashigi"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.crew-provisioning",
+      "label": "Loguetown Arc: Crew provisioning",
+      "sortKey": 6224,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Crew provisioning"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.buggy-and-alvida-return",
+      "label": "Loguetown Arc: Buggy and Alvida return",
+      "sortKey": 6336,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Buggy and Alvida return"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.execution-platform-event",
+      "label": "Loguetown Arc: Execution platform event",
+      "sortKey": 6448,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Execution platform event"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.dragon-and-weather",
+      "label": "Loguetown Arc: Dragon and weather",
+      "sortKey": 6560,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Dragon and weather"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.grand-line-threshold",
+      "label": "Loguetown Arc: Grand Line threshold",
+      "sortKey": 6672,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Grand Line threshold"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.timeline-and-spoiler-gates",
+      "label": "Loguetown Arc: Timeline and spoiler gates",
+      "sortKey": 6784,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.loguetown.after",
+      "label": "Loguetown Arc: aftermath boundary",
+      "sortKey": 6999,
+      "arc": "Loguetown Arc",
+      "phase": "East Blue Saga",
+      "chapter": "96-100",
+      "episode": "45, 48-53",
+      "aliases": [
+        "Loguetown Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.loguetown.window.full",
+      "label": "Loguetown Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.loguetown",
+      "anchorTo": "op.loguetown.after",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6999,
+      "aliases": [
+        "Loguetown Arc",
+        "loguetown"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.loguetown",
+      "label": "Loguetown Arc: Roger legacy and town",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.loguetown",
+      "anchorTo": "op.loguetown.smoker-and-tashigi",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6112,
+      "aliases": [
+        "Roger legacy and town"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.smoker-and-tashigi",
+      "label": "Loguetown Arc: Smoker and Tashigi",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.smoker-and-tashigi",
+      "anchorTo": "op.loguetown.crew-provisioning",
+      "sortKeyFrom": 6112,
+      "sortKeyTo": 6224,
+      "aliases": [
+        "Smoker and Tashigi"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.crew-provisioning",
+      "label": "Loguetown Arc: Crew provisioning",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.crew-provisioning",
+      "anchorTo": "op.loguetown.buggy-and-alvida-return",
+      "sortKeyFrom": 6224,
+      "sortKeyTo": 6336,
+      "aliases": [
+        "Crew provisioning"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.buggy-and-alvida-return",
+      "label": "Loguetown Arc: Buggy and Alvida return",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.buggy-and-alvida-return",
+      "anchorTo": "op.loguetown.execution-platform-event",
+      "sortKeyFrom": 6336,
+      "sortKeyTo": 6448,
+      "aliases": [
+        "Buggy and Alvida return"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.execution-platform-event",
+      "label": "Loguetown Arc: Execution platform event",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.execution-platform-event",
+      "anchorTo": "op.loguetown.dragon-and-weather",
+      "sortKeyFrom": 6448,
+      "sortKeyTo": 6560,
+      "aliases": [
+        "Execution platform event"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.dragon-and-weather",
+      "label": "Loguetown Arc: Dragon and weather",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.dragon-and-weather",
+      "anchorTo": "op.loguetown.grand-line-threshold",
+      "sortKeyFrom": 6560,
+      "sortKeyTo": 6672,
+      "aliases": [
+        "Dragon and weather"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.grand-line-threshold",
+      "label": "Loguetown Arc: Grand Line threshold",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.grand-line-threshold",
+      "anchorTo": "op.loguetown.timeline-and-spoiler-gates",
+      "sortKeyFrom": 6672,
+      "sortKeyTo": 6784,
+      "aliases": [
+        "Grand Line threshold"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.loguetown.window.timeline-and-spoiler-gates",
+      "label": "Loguetown Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.loguetown.timeline-and-spoiler-gates",
+      "anchorTo": "op.loguetown.after",
+      "sortKeyFrom": 6784,
+      "sortKeyTo": 6999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "east-blue"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "loguetown"
+      ]
+    }
+  ]
+}

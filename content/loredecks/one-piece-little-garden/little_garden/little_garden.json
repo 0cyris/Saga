@@ -1,0 +1,849 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_little_garden_appears_prehistoric_compared_with_the_crew_s_expectations_001",
+      "title": "Little Garden Is A Prehistoric Grand Line Shock",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.little-garden",
+        "validToAnchor": "op.little-garden.dorry-brogy-and-giant-honor",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10100,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Little Garden Is A Prehistoric Grand Line Shock"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:little-garden",
+          "op:dinosaurs",
+          "op:jungle"
+        ],
+        "characters": [],
+        "locations": [
+          "Little Garden",
+          "Little Garden jungle"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "prehistoric island",
+          "Grand Line shock",
+          "ancient ecosystem"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:little-garden",
+        "topic:dinosaurs",
+        "location:little-garden-jungle",
+        "topic:island-hazards",
+        "topic:baroque-sabotage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Little Garden",
+            "dinosaurs",
+            "Little Garden jungle"
+          ],
+          "topicsAny": [
+            "prehistoric island",
+            "Grand Line shock",
+            "ancient ecosystem"
+          ],
+          "keywordsAny": [
+            "Little Garden",
+            "dinosaurs",
+            "Little Garden jungle",
+            "prehistoric island",
+            "Grand Line shock",
+            "ancient ecosystem",
+            "prehistoric",
+            "ancient island",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Little Garden appears prehistoric compared with the crew's expectations, making the island itself a survival problem before the Baroque Works ambush begins.",
+        "injection": "Use Little Garden as an immediate tone change: the crew has not just reached another town, they have entered a dangerous ancient ecosystem.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_dinosaurs_and_giant_creatures_make_ordinary_movement_dangerous_002",
+      "title": "Dinosaurs And Giant Creatures Make Movement Dangerous",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.little-garden",
+        "validToAnchor": "op.little-garden.dorry-brogy-and-giant-honor",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10100,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Dinosaurs And Giant Creatures Make Movement Dangerous"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:little-garden",
+          "op:dinosaurs",
+          "op:jungle",
+          "op:going-merry"
+        ],
+        "characters": [],
+        "locations": [
+          "Little Garden",
+          "Little Garden jungle"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "dinosaur hazards",
+          "giant creature movement",
+          "ship separation risk"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:little-garden",
+        "topic:dinosaurs",
+        "location:little-garden-jungle",
+        "item:going-merry",
+        "topic:island-hazards",
+        "topic:giant-honor",
+        "topic:crew-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Little Garden",
+            "dinosaurs",
+            "Little Garden jungle",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "dinosaur hazards",
+            "giant creature movement",
+            "ship separation risk"
+          ],
+          "keywordsAny": [
+            "Little Garden",
+            "dinosaurs",
+            "Little Garden jungle",
+            "Going Merry",
+            "dinosaur hazards",
+            "giant creature movement",
+            "ship separation risk",
+            "jungle movement",
+            "creatures",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Dinosaurs and giant creatures make ordinary movement across Little Garden dangerous, especially when the crew splits away from the Going Merry.",
+        "injection": "Use the terrain as active pressure: crossing the jungle, hunting, hiding, and returning to the ship can all become dangerous scenes.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_log_pose_wait_time_traps_the_crew_on_the_island_003",
+      "title": "The Log Pose Wait Traps The Crew On The Island",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.little-garden",
+        "validToAnchor": "op.little-garden.dorry-brogy-and-giant-honor",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10100,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: The Log Pose Wait Traps The Crew On The Island"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:log-pose",
+          "op:little-garden",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [],
+        "locations": [
+          "Little Garden"
+        ],
+        "objects": [
+          "Log Pose"
+        ],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "Log Pose wait",
+          "forced stay",
+          "route constraint"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:log-pose",
+        "location:little-garden",
+        "faction:straw-hat-pirates",
+        "topic:island-hazards",
+        "topic:baroque-sabotage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Log Pose",
+            "Little Garden",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "Log Pose wait",
+            "forced stay",
+            "route constraint"
+          ],
+          "keywordsAny": [
+            "Log Pose",
+            "Little Garden",
+            "Straw Hat Pirates",
+            "Log Pose wait",
+            "forced stay",
+            "route constraint",
+            "route",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "The Log Pose wait time traps the crew on Little Garden long enough for island hazards and Baroque Works to matter.",
+        "injection": "Use the wait time as a route constraint: the crew cannot simply leave because the island is dangerous or inconvenient.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_volcano_signal_structures_the_giants_duel_004",
+      "title": "The Volcano Signal Structures The Giant Duel",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.little-garden",
+        "validToAnchor": "op.little-garden.dorry-brogy-and-giant-honor",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10100,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: The Volcano Signal Structures The Giant Duel"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:volcano",
+          "op:dorry",
+          "op:brogy",
+          "op:giants"
+        ],
+        "characters": [
+          "Dorry",
+          "Brogy"
+        ],
+        "locations": [
+          "Little Garden volcano"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "volcano signal",
+          "duel rhythm",
+          "giant honor timing"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:little-garden-volcano",
+        "character:dorry",
+        "character:brogy",
+        "topic:giants",
+        "topic:giant-honor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dorry",
+            "Brogy"
+          ],
+          "entitiesAny": [
+            "Little Garden volcano",
+            "Dorry",
+            "Brogy",
+            "giants"
+          ],
+          "topicsAny": [
+            "volcano signal",
+            "duel rhythm",
+            "giant honor timing"
+          ],
+          "keywordsAny": [
+            "Little Garden volcano",
+            "Dorry",
+            "Brogy",
+            "giants",
+            "volcano signal",
+            "duel rhythm",
+            "giant honor timing",
+            "volcano",
+            "duel signal",
+            "ritual",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "The Little Garden volcano signal structures Dorry and Brogy's duel rhythm, turning the island into a ritual battlefield.",
+        "injection": "Use the volcano as scene clock and cultural signal: when it erupts, the duel takes priority over ordinary conversation.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_jungle_hazards_should_retrieve_for_survival_and_separation_scenes_005",
+      "title": "Jungle Hazard Lore Activates For Survival And Separation Scenes",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.little-garden",
+        "validToAnchor": "op.little-garden.dorry-brogy-and-giant-honor",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10100,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Jungle Hazard Lore Activates For Survival And Separation Scenes"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:jungle",
+          "op:little-garden",
+          "op:dinosaurs"
+        ],
+        "characters": [],
+        "locations": [
+          "Little Garden jungle",
+          "Little Garden"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hazard retrieval",
+          "survival scenes",
+          "crew separation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:little-garden-jungle",
+        "location:little-garden",
+        "topic:dinosaurs",
+        "topic:island-hazards",
+        "topic:crew-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Little Garden jungle",
+            "Little Garden",
+            "dinosaurs"
+          ],
+          "topicsAny": [
+            "hazard retrieval",
+            "survival scenes",
+            "crew separation"
+          ],
+          "keywordsAny": [
+            "Little Garden jungle",
+            "Little Garden",
+            "dinosaurs",
+            "hazard retrieval",
+            "survival scenes",
+            "crew separation",
+            "survival",
+            "separation",
+            "hazard boundary",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Little Garden hazard lore should activate when survival, separation, dinosaur danger, or route delay changes what the crew can do.",
+        "injection": "Use this as a retrieval boundary: activate the island when it constrains action, not for generic prehistoric trivia.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Little Garden Arc",
+    "chapterRange": "Manga chapters 115-129",
+    "episodeRange": "Anime episodes 70-77",
+    "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+  }
+}

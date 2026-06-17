@@ -1,0 +1,888 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_luffy_s_rubber_body_and_buggy_s_splitting_body_create_the_first_devil_fruit_contrast_022",
+      "title": "Rubber And Chop-Chop Powers Create A Tactical Contrast",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "validToAnchor": "op.orange-town.conflict-set-pieces",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2512,
+        "sortKeyTo": 2640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Rubber And Chop-Chop Powers Create A Tactical Contrast"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:buggy",
+          "op:gum-gum-fruit",
+          "op:chop-chop-fruit"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Buggy"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rubber body",
+          "Chop-Chop power",
+          "Devil Fruit contrast"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:buggy",
+        "ability:gum-gum-fruit",
+        "ability:chop-chop-fruit",
+        "topic:devil-fruit-and-combat-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Buggy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Buggy",
+            "Gum-Gum Fruit",
+            "Chop-Chop Fruit"
+          ],
+          "topicsAny": [
+            "rubber body",
+            "Chop-Chop power",
+            "Devil Fruit contrast"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Buggy",
+            "Gum-Gum Fruit",
+            "Chop-Chop Fruit",
+            "Orange Town",
+            "rubber body",
+            "Chop-Chop power",
+            "Devil Fruit contrast",
+            "rubber",
+            "splitting",
+            "Devil Fruit",
+            "body mechanics",
+            "Rubber And Chop-Chop Powers Create A Tactical Contrast",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Orange Town contrasts Luffy's rubber body with Buggy's splitting body: both are strange physical powers, but each creates different limits and tactics.",
+        "injection": "Use Devil Fruit powers here as concrete body mechanics, not a broad power-system lecture: rubber resists blunt impact differently than Chop-Chop resists blades.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_buggy_resists_cutting_attacks_but_can_still_be_outplayed_023",
+      "title": "Buggy Resists Blades But Can Be Outplayed",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "validToAnchor": "op.orange-town.conflict-set-pieces",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2512,
+        "sortKeyTo": 2640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Buggy Resists Blades But Can Be Outplayed"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:buggy",
+          "op:chop-chop-fruit",
+          "op:nami",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Buggy",
+          "Nami",
+          "Monkey D. Luffy"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "blade resistance",
+          "tactical weakness",
+          "body parts"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:buggy",
+        "character:nami",
+        "character:monkey-d-luffy",
+        "ability:chop-chop-fruit",
+        "topic:body-part-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Buggy",
+            "Nami",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Buggy",
+            "Chop-Chop Fruit",
+            "Nami",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "blade resistance",
+            "tactical weakness",
+            "body parts"
+          ],
+          "keywordsAny": [
+            "Buggy",
+            "Chop-Chop Fruit",
+            "Nami",
+            "Monkey D. Luffy",
+            "Orange Town",
+            "blade resistance",
+            "tactical weakness",
+            "body parts",
+            "tied up",
+            "stolen",
+            "weakness",
+            "Buggy Resists Blades But Can Be Outplayed",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Buggy's resistance to blades does not make him strategically safe; his separated body parts can be stolen, tied up, or stranded away from the rest of him.",
+        "injection": "Use Buggy's power as a puzzle with a weakness: Nami and Luffy can win by exploiting where his body parts are, not by pretending sword cuts suddenly work.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_luffy_is_not_immune_to_every_danger_just_because_he_stretches_024",
+      "title": "Luffy's Rubber Body Does Not Remove Practical Danger",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "validToAnchor": "op.orange-town.conflict-set-pieces",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2512,
+        "sortKeyTo": 2640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Luffy's Rubber Body Does Not Remove Practical Danger"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:gum-gum-fruit",
+          "op:cannon"
+        ],
+        "characters": [
+          "Monkey D. Luffy"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "cage",
+          "cannon fire",
+          "blades"
+        ],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "rubber body limits",
+          "cage trap",
+          "practical danger"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "ability:gum-gum-fruit",
+        "topic:cage-trap",
+        "topic:devil-fruit-and-combat-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Gum-Gum Fruit",
+            "cannon fire"
+          ],
+          "topicsAny": [
+            "rubber body limits",
+            "cage trap",
+            "practical danger"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Gum-Gum Fruit",
+            "cannon fire",
+            "Orange Town",
+            "cage",
+            "blades",
+            "Buggy Pirates",
+            "rubber body limits",
+            "cage trap",
+            "practical danger",
+            "trap",
+            "sea",
+            "starving",
+            "Luffy's Rubber Body Does Not Remove Practical Danger",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy's rubber body helps him survive impact, but a cage, blades, cannon positioning, starvation, and the sea can still create practical danger.",
+        "injection": "Use Luffy as powerful but not frictionless: Orange Town scenes should still allow traps, logistics, restraints, and enemy positioning to matter.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_devil_fruit_fights_remain_physical_and_tactical_at_east_blue_scale_025",
+      "title": "Orange Town Devil Fruit Fights Stay Physical",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "validToAnchor": "op.orange-town.conflict-set-pieces",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2512,
+        "sortKeyTo": 2640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Orange Town Devil Fruit Fights Stay Physical"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:buggy",
+          "op:gum-gum-fruit",
+          "op:chop-chop-fruit"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Buggy"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "East Blue combat scale",
+          "physical tactics",
+          "Devil Fruit boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:buggy",
+        "ability:gum-gum-fruit",
+        "ability:chop-chop-fruit",
+        "topic:devil-fruit-and-combat-rules",
+        "topic:east-blue-scale"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Buggy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Buggy",
+            "Gum-Gum Fruit",
+            "Chop-Chop Fruit"
+          ],
+          "topicsAny": [
+            "East Blue combat scale",
+            "physical tactics",
+            "Devil Fruit boundary"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Buggy",
+            "Gum-Gum Fruit",
+            "Chop-Chop Fruit",
+            "Orange Town",
+            "East Blue combat scale",
+            "physical tactics",
+            "Devil Fruit boundary",
+            "physical",
+            "tactical",
+            "East Blue",
+            "no Haki",
+            "Orange Town Devil Fruit Fights Stay Physical",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Orange Town Devil Fruit fights stay physical and tactical: body mechanics, range, surprise, cages, cannons, and terrain matter more than abstract power tiers.",
+        "injection": "Use East Blue scale for combat: keep the fight readable through visible movement and practical counters, with no Haki, advanced taxonomy, or later escalation language.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_cannon_and_blade_threats_still_matter_around_power_users_026",
+      "title": "Cannon And Blade Threats Still Matter Around Fruit Users",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "validToAnchor": "op.orange-town.conflict-set-pieces",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2512,
+        "sortKeyTo": 2640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Cannon And Blade Threats Still Matter Around Fruit Users"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:cannon",
+          "op:monkey-d-luffy",
+          "op:buggy",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Buggy",
+          "Roronoa Zoro"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "cannon fire",
+          "blades"
+        ],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "weapon stakes",
+          "cannon danger",
+          "blade limits"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:buggy",
+        "character:roronoa-zoro",
+        "item:cannon",
+        "topic:weapon-stakes",
+        "topic:devil-fruit-and-combat-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Buggy",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "cannon fire",
+            "Monkey D. Luffy",
+            "Buggy",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "weapon stakes",
+            "cannon danger",
+            "blade limits"
+          ],
+          "keywordsAny": [
+            "cannon fire",
+            "Monkey D. Luffy",
+            "Buggy",
+            "Roronoa Zoro",
+            "Orange Town",
+            "blades",
+            "Buggy Pirates",
+            "weapon stakes",
+            "cannon danger",
+            "blade limits",
+            "cannon",
+            "weapons",
+            "bystanders",
+            "Cannon And Blade Threats Still Matter Around Fruit Users",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Cannons and blades still shape Orange Town fights even around Devil Fruit users; powers change the answer to a threat, not whether the threat exists.",
+        "injection": "Use weapons as active scene pressure: Buggy resists blades, Luffy can survive some impacts, and bystanders or wounded allies may still be at risk.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    }
+  ]
+}

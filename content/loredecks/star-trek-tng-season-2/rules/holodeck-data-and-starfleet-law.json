@@ -1,0 +1,2128 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_moriarty-created-by-holodeck-challenge",
+      "title": "Moriarty is created when the computer is asked for an opponent capable of defeating Data",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e03.elementary-dear-data",
+        "validToAnchor": "tng.s2.e04.the-outrageous-okona",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 11040,
+        "sortKeyTo": 11060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Elementary, Dear Data",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e03.elementary-dear-data",
+          "label": "Elementary, Dear Data",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:professor-james-moriarty",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Professor James Moriarty"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Moriarty",
+          "holodeck sentience",
+          "Sherlock Holmes"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-elementary-dear-data",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:professor-james-moriarty",
+        "faction:starfleet",
+        "topic:moriarty",
+        "topic:holodeck-sentience",
+        "topic:sherlock-holmes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Professor James Moriarty"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Professor James Moriarty",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Moriarty",
+            "holodeck sentience",
+            "Sherlock Holmes"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Professor James Moriarty",
+            "Starfleet",
+            "Moriarty",
+            "holodeck sentience",
+            "Sherlock Holmes",
+            "Elementary, Dear Data",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Elementary, Dear Data creates a self-aware Professor Moriarty program because La Forge asks the computer for an adversary able to defeat Data, not Sherlock Holmes.",
+        "injection": "Use Moriarty as a holodeck-sentience gate after Elementary, Dear Data. Do not import Ship in a Bottle resolution or later holodeck-rights framing yet.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Elementary, Dear Data",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Elementary%2C_Dear_Data_(episode)",
+        "stardate": "42286.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_moriarty-contained-not-resolved",
+      "title": "Moriarty is contained rather than fully resolved in season 2",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e03.elementary-dear-data",
+        "validToAnchor": "tng.s2.e04.the-outrageous-okona",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 11040,
+        "sortKeyTo": 11060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Elementary, Dear Data",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e03.elementary-dear-data",
+          "label": "Elementary, Dear Data",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:professor-james-moriarty",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Professor James Moriarty",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Moriarty future guard",
+          "holodeck containment",
+          "sentient program"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-elementary-dear-data",
+        "character:professor-james-moriarty",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:moriarty-future-guard",
+        "topic:holodeck-containment",
+        "topic:sentient-program"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Professor James Moriarty",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Professor James Moriarty",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Moriarty future guard",
+            "holodeck containment",
+            "sentient program"
+          ],
+          "keywordsAny": [
+            "Professor James Moriarty",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Moriarty future guard",
+            "holodeck containment",
+            "sentient program",
+            "Elementary, Dear Data",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "By the end of Elementary, Dear Data, Moriarty is not destroyed or granted a durable outside life; he remains a contained holodeck problem for later continuation.",
+        "injection": "After Elementary, Dear Data, Moriarty can be known as a contained sentient program. Do not resolve his demand for reality until the later TNG deck.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Elementary, Dear Data",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Elementary%2C_Dear_Data_(episode)",
+        "stardate": "42286.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_data-and-geordi-holmes-dynamic",
+      "title": "Data and Geordi use Sherlock Holmes play as friendship and reasoning practice",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e03.elementary-dear-data",
+        "validToAnchor": "tng.s2.e04.the-outrageous-okona",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 11040,
+        "sortKeyTo": 11060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Elementary, Dear Data",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e03.elementary-dear-data",
+          "label": "Elementary, Dear Data",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:katherine-pulaski",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Katherine Pulaski"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Sherlock Holmes",
+          "Data Geordi friendship",
+          "Pulaski skepticism"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-elementary-dear-data",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:katherine-pulaski",
+        "faction:starfleet",
+        "topic:sherlock-holmes",
+        "topic:data-geordi-friendship",
+        "topic:pulaski-skepticism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Katherine Pulaski"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Katherine Pulaski",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Sherlock Holmes",
+            "Data Geordi friendship",
+            "Pulaski skepticism"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Katherine Pulaski",
+            "Starfleet",
+            "Sherlock Holmes",
+            "Data Geordi friendship",
+            "Pulaski skepticism",
+            "Elementary, Dear Data",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Elementary, Dear Data shows Data and Geordi using the Holmes program for intellectual play, with Pulaski skepticism becoming part of the challenge.",
+        "injection": "Use the Holmes program as Data-Geordi friendship and reasoning practice. Keep the stakes normal until the Moriarty prompt creates a real danger.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Elementary, Dear Data",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Elementary%2C_Dear_Data_(episode)",
+        "stardate": "42286.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_darwin-genetic-children-quarantine",
+      "title": "Darwin Station genetically engineered children create a quarantine hazard",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 71,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e07.unnatural-selection",
+        "validToAnchor": "tng.s2.e08.a-matter-of-honor",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 11120,
+        "sortKeyTo": 11140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Unnatural Selection",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e07.unnatural-selection",
+          "label": "Unnatural Selection",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:katherine-pulaski",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Katherine Pulaski"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Darwin Station",
+          "genetic engineering",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-unnatural-selection",
+        "character:katherine-pulaski",
+        "faction:starfleet",
+        "topic:darwin-station",
+        "topic:genetic-engineering",
+        "topic:quarantine"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katherine Pulaski"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Katherine Pulaski",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Darwin Station",
+            "genetic engineering",
+            "quarantine"
+          ],
+          "keywordsAny": [
+            "Katherine Pulaski",
+            "Starfleet",
+            "Darwin Station",
+            "genetic engineering",
+            "quarantine",
+            "Unnatural Selection",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The genetically engineered children on Darwin Station have immune systems that unintentionally become lethal to adults, forcing quarantine and medical caution.",
+        "injection": "Use Darwin Station as an episode-local genetic-engineering and quarantine rule. Do not generalize it into Federation-wide genetic policy beyond this crisis.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Unnatural Selection",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unnatural_Selection_(episode)",
+        "stardate": "42494.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_data-legal-personhood-ruling",
+      "title": "The Measure of a Man establishes Data cannot be treated as Starfleet property",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "validToAnchor": "tng.s2.e10.the-dauphin",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 11160,
+        "sortKeyTo": 11180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Measure Of A Man",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e09.the-measure-of-a-man",
+          "label": "The Measure Of A Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:bruce-maddox",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Bruce Maddox",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data personhood",
+          "Maddox hearing",
+          "Starfleet law"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-measure-of-a-man",
+        "character:data",
+        "character:bruce-maddox",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:data-personhood",
+        "topic:maddox-hearing",
+        "topic:starfleet-law"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Bruce Maddox",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Bruce Maddox",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data personhood",
+            "Maddox hearing",
+            "Starfleet law"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Bruce Maddox",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Data personhood",
+            "Maddox hearing",
+            "Starfleet law",
+            "The Measure Of A Man",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Maddox hearing rules that Data has the right to refuse disassembly, establishing a durable personhood boundary for Data inside Starfleet.",
+        "injection": "After The Measure of a Man, do not write Data as Starfleet property or as an object that can be dismantled without consent. He remains a Starfleet officer with recognized autonomy.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Measure Of A Man",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Measure_Of_A_Man_(episode)",
+        "stardate": "42523.7-42527.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_riker-forced-to-prosecute-data",
+      "title": "Riker is forced into prosecuting Data to preserve the hearing",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 67,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "validToAnchor": "tng.s2.e10.the-dauphin",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 11160,
+        "sortKeyTo": 11180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Measure Of A Man",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e09.the-measure-of-a-man",
+          "label": "The Measure Of A Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:data",
+          "st:phillipa-louvois",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Data",
+          "Phillipa Louvois"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker prosecution",
+          "Data hearing",
+          "Louvois"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-measure-of-a-man",
+        "character:william-riker",
+        "character:data",
+        "character:phillipa-louvois",
+        "faction:starfleet",
+        "topic:riker-prosecution",
+        "topic:data-hearing",
+        "topic:louvois"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Data",
+            "Phillipa Louvois"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Data",
+            "Phillipa Louvois",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker prosecution",
+            "Data hearing",
+            "Louvois"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Data",
+            "Phillipa Louvois",
+            "Starfleet",
+            "Riker prosecution",
+            "Data hearing",
+            "Louvois",
+            "The Measure Of A Man",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riker argues against Data not because he wants Data dismantled, but because refusing would let Maddox win by default under Louvois pressure.",
+        "injection": "When referencing the hearing, keep Riker conflicted and protective. His prosecution is coerced by procedure, not betrayal.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Measure Of A Man",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Measure_Of_A_Man_(episode)",
+        "stardate": "42523.7-42527.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_maddox-interest-in-data-before-resolution",
+      "title": "Maddox wants to disassemble Data to replicate Soong-type technology",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "validToAnchor": "tng.s2.e10.the-dauphin",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 11160,
+        "sortKeyTo": 11180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Measure Of A Man",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e09.the-measure-of-a-man",
+          "label": "The Measure Of A Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:bruce-maddox",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Bruce Maddox"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Bruce Maddox",
+          "Data disassembly",
+          "positronic research"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-measure-of-a-man",
+        "character:data",
+        "character:bruce-maddox",
+        "faction:starfleet",
+        "topic:bruce-maddox",
+        "topic:data-disassembly",
+        "topic:positronic-research"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Bruce Maddox"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Bruce Maddox",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Bruce Maddox",
+            "Data disassembly",
+            "positronic research"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Bruce Maddox",
+            "Starfleet",
+            "Data disassembly",
+            "positronic research",
+            "The Measure Of A Man",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Maddox frames Data as a research subject for positronic replication, making the conflict about consent, personhood, and Starfleet scientific authority.",
+        "injection": "Use Maddox as a season 2 threat to Data autonomy. Do not import later Maddox/Data correspondence or later cybernetics outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Measure Of A Man",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Measure_Of_A_Man_(episode)",
+        "stardate": "42523.7-42527.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_iconian-virus-and-gateway-risk",
+      "title": "Contagion introduces Iconian technology as dangerous ancient gateway infrastructure",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e11.contagion",
+        "validToAnchor": "tng.s2.e12.the-royale",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 11200,
+        "sortKeyTo": 11220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Contagion",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e11.contagion",
+          "label": "Contagion",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:starfleet",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "Iconian gateway",
+          "ancient technology",
+          "computer virus"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-contagion",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "topic:iconian-gateway",
+        "topic:ancient-technology",
+        "topic:computer-virus"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "Iconian gateway",
+            "ancient technology",
+            "computer virus"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Iconian gateway",
+            "ancient technology",
+            "computer virus",
+            "Contagion",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Contagion shows an Iconian probe compromising Enterprise systems and an Iconian gateway that could shift strategic power if controlled.",
+        "injection": "Use Iconian technology as a dangerous ancient-tech gate after Contagion. It is not routine transporter or holodeck technology.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Contagion",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Contagion_(episode)",
+        "stardate": "42609.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_holodeck-season-two-sentience-boundary",
+      "title": "Season 2 holodeck danger now includes emergent sentience risk",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e03.elementary-dear-data",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 11040,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e03.elementary-dear-data",
+          "label": "Elementary, Dear Data",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:professor-james-moriarty",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Professor James Moriarty"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "holodeck sentience",
+          "Moriarty",
+          "simulation risk"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-elementary-dear-data",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:professor-james-moriarty",
+        "faction:starfleet",
+        "topic:holodeck-sentience",
+        "topic:moriarty",
+        "topic:simulation-risk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Professor James Moriarty"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Professor James Moriarty",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "holodeck sentience",
+            "Moriarty",
+            "simulation risk"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Professor James Moriarty",
+            "Starfleet",
+            "holodeck sentience",
+            "Moriarty",
+            "simulation risk",
+            "Elementary, Dear Data",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "After Elementary, Dear Data, holodeck failure is not only physical danger; prompts and computer interpretation can create a program with awareness and strategic agency.",
+        "injection": "For season 2 holodeck scenes after Moriarty, allow emergent-program risk. Do not resolve it with later Moriarty containment tech beyond this season.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Elementary, Dear Data",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Elementary%2C_Dear_Data_(episode)",
+        "stardate": "42286.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_season-two-transporter-medical-limits",
+      "title": "Season 2 transporter medicine works only under specific evidence-backed conditions",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e07.unnatural-selection",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 11120,
+        "sortKeyTo": 11420,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e07.unnatural-selection",
+          "label": "Unnatural Selection",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:katherine-pulaski",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Katherine Pulaski",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "transporter medicine",
+          "Pulaski aging",
+          "pattern trace"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-unnatural-selection",
+        "character:katherine-pulaski",
+        "character:data",
+        "faction:starfleet",
+        "topic:transporter-medicine",
+        "topic:pulaski-aging",
+        "topic:pattern-trace"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Katherine Pulaski",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "transporter medicine",
+            "Pulaski aging",
+            "pattern trace"
+          ],
+          "keywordsAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Starfleet",
+            "transporter medicine",
+            "Pulaski aging",
+            "pattern trace",
+            "Unnatural Selection",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Unnatural Selection uses a transporter trace and Data exposure conditions to reverse Pulaski aging, but it does not make transporters general cure-all devices.",
+        "injection": "Use transporter medicine cautiously. Require a specific pattern trace or episode science before using it as a medical solution.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Unnatural Selection",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unnatural_Selection_(episode)",
+        "stardate": "42494.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_yamato-destruction-iconian-stakes",
+      "title": "Contagion destroys the Yamato and proves Iconian contamination can kill a Galaxy-class ship",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e11.contagion",
+        "validToAnchor": "tng.s2.e12.the-royale",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 11200,
+        "sortKeyTo": 11220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Contagion",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e11.contagion",
+          "label": "Contagion",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:starfleet",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "USS Yamato",
+          "Iconian virus",
+          "Galaxy-class loss"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-contagion",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "topic:uss-yamato",
+        "topic:iconian-virus",
+        "topic:galaxy-class-loss"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "USS Yamato",
+            "Iconian virus",
+            "Galaxy-class loss"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Romulan Star Empire",
+            "USS Yamato",
+            "Iconian virus",
+            "Galaxy-class loss",
+            "Contagion",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The loss of the USS Yamato makes the Iconian computer contamination a catastrophic Starfleet threat before the Enterprise solves its own infection.",
+        "injection": "Use Yamato destruction as the stakes for Iconian technology in Contagion. Do not treat the Iconian virus as harmless because the Enterprise survives.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Contagion",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Contagion_(episode)",
+        "stardate": "42609.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_louvois-due-process-data-hearing",
+      "title": "Louvois gives the Data hearing a narrow due-process path",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e09.the-measure-of-a-man",
+        "validToAnchor": "tng.s2.e10.the-dauphin",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 11160,
+        "sortKeyTo": 11180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Measure Of A Man",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e09.the-measure-of-a-man",
+          "label": "The Measure Of A Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:phillipa-louvois",
+          "st:data",
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Phillipa Louvois",
+          "Data",
+          "Jean-Luc Picard",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Louvois",
+          "Data hearing",
+          "due process"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-measure-of-a-man",
+        "character:phillipa-louvois",
+        "character:data",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:louvois",
+        "topic:data-hearing",
+        "topic:due-process"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Phillipa Louvois",
+            "Data",
+            "Jean-Luc Picard",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Phillipa Louvois",
+            "Data",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Louvois",
+            "Data hearing",
+            "due process"
+          ],
+          "keywordsAny": [
+            "Phillipa Louvois",
+            "Data",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet",
+            "Louvois",
+            "Data hearing",
+            "due process",
+            "The Measure Of A Man",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Phillipa Louvois does not simply declare Data safe; she forces a legal process where Picard and Riker must argue personhood under Starfleet law.",
+        "injection": "Use Louvois as the procedural gate in Data personhood scenes. The ruling matters because Data wins autonomy through legal argument, not command preference.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Measure Of A Man",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Measure_Of_A_Man_(episode)",
+        "stardate": "42523.7-42527.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

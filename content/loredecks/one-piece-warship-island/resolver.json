@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Warship Island Arc Context inside East Blue Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Warship Island Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during warship island arc: apis and ryu",
+      "result": {
+        "anchorFrom": "op.warship-island.warship-island",
+        "label": "Warship Island Arc: Apis and Ryu"
+      }
+    },
+    {
+      "pattern": "during warship island arc: lost island and dragons",
+      "result": {
+        "anchorFrom": "op.warship-island.lost-island-and-dragons",
+        "label": "Warship Island Arc: Lost Island and dragons"
+      }
+    },
+    {
+      "pattern": "during warship island arc: eric, nelson, and marines",
+      "result": {
+        "anchorFrom": "op.warship-island.eric-nelson-and-marines",
+        "label": "Warship Island Arc: Eric, Nelson, and Marines"
+      }
+    },
+    {
+      "pattern": "during warship island arc: straw hat show dynamics",
+      "result": {
+        "anchorFrom": "op.warship-island.straw-hat-show-dynamics",
+        "label": "Warship Island Arc: Straw Hat show dynamics"
+      }
+    },
+    {
+      "pattern": "during warship island arc: escape and grand line bridge",
+      "result": {
+        "anchorFrom": "op.warship-island.escape-and-grand-line-bridge",
+        "label": "Warship Island Arc: Escape and Grand Line bridge"
+      }
+    },
+    {
+      "pattern": "during warship island arc: timeline and spoiler gates",
+      "result": {
+        "anchorFrom": "op.warship-island.timeline-and-spoiler-gates",
+        "label": "Warship Island Arc: Timeline and spoiler gates"
+      }
+    },
+    {
+      "pattern": "during warship island arc: aftermath boundary",
+      "result": {
+        "anchorFrom": "op.warship-island.after",
+        "label": "Warship Island Arc: aftermath boundary"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

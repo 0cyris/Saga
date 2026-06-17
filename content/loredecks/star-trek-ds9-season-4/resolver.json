@@ -1,0 +1,1427 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: Deep Space Nine season 4 Context from episode titles, story rows, runtime aliases, and common DS9 S4 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer DS9 season 4 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "the way of the warrior",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 the way of the warrior",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "ds9 s4 the way of the warrior",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "ds9 4x01 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 01",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "ds9 4x01",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "ds9 s04e01",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 1",
+      "result": {
+        "anchorFrom": "ds9.s4.e01.the-way-of-the-warrior",
+        "label": "The Way of the Warrior"
+      }
+    },
+    {
+      "pattern": "the visitor",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 the visitor",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "ds9 s4 the visitor",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "ds9 4x02 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 02",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "ds9 4x02",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "ds9 s04e02",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 2",
+      "result": {
+        "anchorFrom": "ds9.s4.e02.the-visitor",
+        "label": "The Visitor"
+      }
+    },
+    {
+      "pattern": "hippocratic oath",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 hippocratic oath",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "ds9 s4 hippocratic oath",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "ds9 4x03 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 03",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "ds9 4x03",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "ds9 s04e03",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 3",
+      "result": {
+        "anchorFrom": "ds9.s4.e03.hippocratic-oath",
+        "label": "Hippocratic Oath"
+      }
+    },
+    {
+      "pattern": "indiscretion",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 indiscretion",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "ds9 s4 indiscretion",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "ds9 4x04 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 04",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "ds9 4x04",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "ds9 s04e04",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 4",
+      "result": {
+        "anchorFrom": "ds9.s4.e04.indiscretion",
+        "label": "Indiscretion"
+      }
+    },
+    {
+      "pattern": "rejoined",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 rejoined",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "ds9 s4 rejoined",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "ds9 4x05 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 05",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "ds9 4x05",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "ds9 s04e05",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 5",
+      "result": {
+        "anchorFrom": "ds9.s4.e05.rejoined",
+        "label": "Rejoined"
+      }
+    },
+    {
+      "pattern": "starship down",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 starship down",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "ds9 s4 starship down",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "ds9 4x06 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 06",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "ds9 4x06",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "ds9 s04e06",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 6",
+      "result": {
+        "anchorFrom": "ds9.s4.e06.starship-down",
+        "label": "Starship Down"
+      }
+    },
+    {
+      "pattern": "little green men",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 little green men",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "ds9 s4 little green men",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "ds9 4x07 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 07",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "ds9 4x07",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "ds9 s04e07",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 7",
+      "result": {
+        "anchorFrom": "ds9.s4.e07.little-green-men",
+        "label": "Little Green Men"
+      }
+    },
+    {
+      "pattern": "the sword of kahless",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 the sword of kahless",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "ds9 s4 the sword of kahless",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "ds9 4x08 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 08",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "ds9 4x08",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "ds9 s04e08",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 8",
+      "result": {
+        "anchorFrom": "ds9.s4.e08.the-sword-of-kahless",
+        "label": "The Sword of Kahless"
+      }
+    },
+    {
+      "pattern": "our man bashir",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 our man bashir",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "ds9 s4 our man bashir",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "ds9 4x09 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 09",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "ds9 4x09",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "ds9 s04e09",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 9",
+      "result": {
+        "anchorFrom": "ds9.s4.e09.our-man-bashir",
+        "label": "Our Man Bashir"
+      }
+    },
+    {
+      "pattern": "homefront",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 homefront",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "ds9 s4 homefront",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "ds9 4x10 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 10",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "ds9 4x10",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "ds9 s04e10",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 10",
+      "result": {
+        "anchorFrom": "ds9.s4.e10.homefront",
+        "label": "Homefront"
+      }
+    },
+    {
+      "pattern": "paradise lost",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 paradise lost",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "ds9 s4 paradise lost",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "ds9 4x11 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 11",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "ds9 4x11",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "ds9 s04e11",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 11",
+      "result": {
+        "anchorFrom": "ds9.s4.e11.paradise-lost",
+        "label": "Paradise Lost"
+      }
+    },
+    {
+      "pattern": "crossfire",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 crossfire",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "ds9 s4 crossfire",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "ds9 4x12 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 12",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "ds9 4x12",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "ds9 s04e12",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 12",
+      "result": {
+        "anchorFrom": "ds9.s4.e12.crossfire",
+        "label": "Crossfire"
+      }
+    },
+    {
+      "pattern": "return to grace",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 return to grace",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "ds9 s4 return to grace",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "ds9 4x13 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 13",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "ds9 4x13",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "ds9 s04e13",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 13",
+      "result": {
+        "anchorFrom": "ds9.s4.e13.return-to-grace",
+        "label": "Return to Grace"
+      }
+    },
+    {
+      "pattern": "sons of mogh",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 sons of mogh",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "ds9 s4 sons of mogh",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "ds9 4x14 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 14",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "ds9 4x14",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "ds9 s04e14",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 14",
+      "result": {
+        "anchorFrom": "ds9.s4.e14.sons-of-mogh",
+        "label": "Sons of Mogh"
+      }
+    },
+    {
+      "pattern": "bar association",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 bar association",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "ds9 s4 bar association",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "ds9 4x15 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 15",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "ds9 4x15",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "ds9 s04e15",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 15",
+      "result": {
+        "anchorFrom": "ds9.s4.e15.bar-association",
+        "label": "Bar Association"
+      }
+    },
+    {
+      "pattern": "accession",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 accession",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "ds9 s4 accession",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "ds9 4x16 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 16",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "ds9 4x16",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "ds9 s04e16",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 16",
+      "result": {
+        "anchorFrom": "ds9.s4.e16.accession",
+        "label": "Accession"
+      }
+    },
+    {
+      "pattern": "rules of engagement",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 rules of engagement",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "ds9 s4 rules of engagement",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "ds9 4x17 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 17",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "ds9 4x17",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "ds9 s04e17",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 17",
+      "result": {
+        "anchorFrom": "ds9.s4.e17.rules-of-engagement",
+        "label": "Rules of Engagement"
+      }
+    },
+    {
+      "pattern": "hard time",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 hard time",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "ds9 s4 hard time",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "ds9 4x18 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 18",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "ds9 4x18",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "ds9 s04e18",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 18",
+      "result": {
+        "anchorFrom": "ds9.s4.e18.hard-time",
+        "label": "Hard Time"
+      }
+    },
+    {
+      "pattern": "shattered mirror",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 shattered mirror",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "ds9 s4 shattered mirror",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "ds9 4x19 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 19",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "ds9 4x19",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "ds9 s04e19",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 19",
+      "result": {
+        "anchorFrom": "ds9.s4.e19.shattered-mirror",
+        "label": "Shattered Mirror"
+      }
+    },
+    {
+      "pattern": "the muse",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 the muse",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "ds9 s4 the muse",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "ds9 4x20 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 20",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "ds9 4x20",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "ds9 s04e20",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 20",
+      "result": {
+        "anchorFrom": "ds9.s4.e20.the-muse",
+        "label": "The Muse"
+      }
+    },
+    {
+      "pattern": "for the cause",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 for the cause",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "ds9 s4 for the cause",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "ds9 4x21 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 21",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "ds9 4x21",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "ds9 s04e21",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 21",
+      "result": {
+        "anchorFrom": "ds9.s4.e21.for-the-cause",
+        "label": "For the Cause"
+      }
+    },
+    {
+      "pattern": "to the death",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 to the death",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "ds9 s4 to the death",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "ds9 4x22 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 22",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "ds9 4x22",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "ds9 s04e22",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 22",
+      "result": {
+        "anchorFrom": "ds9.s4.e22.to-the-death",
+        "label": "To the Death"
+      }
+    },
+    {
+      "pattern": "the quickening",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 the quickening",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "ds9 s4 the quickening",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "ds9 4x23 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 23",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "ds9 4x23",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "ds9 s04e23",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 23",
+      "result": {
+        "anchorFrom": "ds9.s4.e23.the-quickening",
+        "label": "The Quickening"
+      }
+    },
+    {
+      "pattern": "body parts",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 body parts",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "ds9 s4 body parts",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "ds9 4x24 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 24",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "ds9 4x24",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "ds9 s04e24",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 24",
+      "result": {
+        "anchorFrom": "ds9.s4.e24.body-parts",
+        "label": "Body Parts"
+      }
+    },
+    {
+      "pattern": "broken link",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 broken link",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    },
+    {
+      "pattern": "ds9 s4 broken link",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    },
+    {
+      "pattern": "ds9 4x25 story",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    },
+    {
+      "pattern": "ds9 s04 story 25",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    },
+    {
+      "pattern": "ds9 4x25",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    },
+    {
+      "pattern": "ds9 s04e25",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    },
+    {
+      "pattern": "ds9 season 4 episode 25",
+      "result": {
+        "anchorFrom": "ds9.s4.e25.broken-link",
+        "label": "Broken Link"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

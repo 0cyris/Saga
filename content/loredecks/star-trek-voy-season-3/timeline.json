@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Voyager season 3 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "voy.s3.e01.basics-part-ii",
+      "label": "Basics, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 33000,
+      "stardate": "50032.7 (2372/2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Basics, Part II",
+        "VOY season 3 Basics, Part II",
+        "VOY S3 Basics, Part II",
+        "VOY 3x01 story",
+        "VOY S03 story 01",
+        "VOY 3x01",
+        "VOY S03E01",
+        "VOY season 3 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-basics-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Basics, Part II",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Basics%2C_Part_II_(episode)",
+        "stardate": "50032.7 (2372/2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e02.flashback",
+      "label": "Flashback",
+      "contextType": "story_anchor",
+      "sortKey": 33020,
+      "stardate": "50126.4 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Flashback",
+        "VOY season 3 Flashback",
+        "VOY S3 Flashback",
+        "VOY 3x02 story",
+        "VOY S03 story 02",
+        "VOY 3x02",
+        "VOY S03E02",
+        "VOY season 3 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-flashback"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Flashback",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Flashback_(episode)",
+        "stardate": "50126.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e03.the-chute",
+      "label": "The Chute",
+      "contextType": "story_anchor",
+      "sortKey": 33040,
+      "stardate": "50156.2 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "The Chute",
+        "VOY season 3 The Chute",
+        "VOY S3 The Chute",
+        "VOY 3x03 story",
+        "VOY S03 story 03",
+        "VOY 3x03",
+        "VOY S03E03",
+        "VOY season 3 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-chute"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Chute",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Chute_(episode)",
+        "stardate": "50156.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e04.the-swarm",
+      "label": "The Swarm",
+      "contextType": "story_anchor",
+      "sortKey": 33060,
+      "stardate": "50252.3 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "The Swarm",
+        "VOY season 3 The Swarm",
+        "VOY S3 The Swarm",
+        "VOY 3x04 story",
+        "VOY S03 story 04",
+        "VOY 3x04",
+        "VOY S03E04",
+        "VOY season 3 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-swarm"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Swarm",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Swarm_(episode)",
+        "stardate": "50252.3 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e05.false-profits",
+      "label": "False Profits",
+      "contextType": "story_anchor",
+      "sortKey": 33080,
+      "stardate": "50074.3-50074.5 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "False Profits",
+        "VOY season 3 False Profits",
+        "VOY S3 False Profits",
+        "VOY 3x05 story",
+        "VOY S03 story 05",
+        "VOY 3x05",
+        "VOY S03E05",
+        "VOY season 3 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-false-profits"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "False Profits",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/False_Profits_(episode)",
+        "stardate": "50074.3-50074.5 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e06.remember",
+      "label": "Remember",
+      "contextType": "story_anchor",
+      "sortKey": 33100,
+      "stardate": "50203.1-50211.4 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Remember",
+        "VOY season 3 Remember",
+        "VOY S3 Remember",
+        "VOY 3x06 story",
+        "VOY S03 story 06",
+        "VOY 3x06",
+        "VOY S03E06",
+        "VOY season 3 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-remember"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Remember",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Remember_(episode)",
+        "stardate": "50203.1-50211.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e07.sacred-ground",
+      "label": "Sacred Ground",
+      "contextType": "story_anchor",
+      "sortKey": 33120,
+      "stardate": "50063.2 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Sacred Ground",
+        "VOY season 3 Sacred Ground",
+        "VOY S3 Sacred Ground",
+        "VOY 3x07 story",
+        "VOY S03 story 07",
+        "VOY 3x07",
+        "VOY S03E07",
+        "VOY season 3 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-sacred-ground"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Sacred Ground",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sacred_Ground_(episode)",
+        "stardate": "50063.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e08.futures-end",
+      "label": "Future's End",
+      "contextType": "story_anchor",
+      "sortKey": 33140,
+      "stardate": "50312.5 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Future's End",
+        "VOY season 3 Future's End",
+        "VOY S3 Future's End",
+        "VOY 3x08 story",
+        "VOY S03 story 08",
+        "VOY 3x08",
+        "VOY S03E08",
+        "VOY season 3 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-futures-end"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Future's End",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Future's_End_(episode)",
+        "stardate": "50312.5 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e09.futures-end-part-ii",
+      "label": "Future's End, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 33160,
+      "stardate": "50312.5 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Future's End, Part II",
+        "VOY season 3 Future's End, Part II",
+        "VOY S3 Future's End, Part II",
+        "VOY 3x09 story",
+        "VOY S03 story 09",
+        "VOY 3x09",
+        "VOY S03E09",
+        "VOY season 3 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-futures-end-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Future's End, Part II",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Future's_End%2C_Part_II_(episode)",
+        "stardate": "50312.5 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e10.warlord",
+      "label": "Warlord",
+      "contextType": "story_anchor",
+      "sortKey": 33180,
+      "stardate": "50348.1-50361.7 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Warlord",
+        "VOY season 3 Warlord",
+        "VOY S3 Warlord",
+        "VOY 3x10 story",
+        "VOY S03 story 10",
+        "VOY 3x10",
+        "VOY S03E10",
+        "VOY season 3 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-warlord"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Warlord",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Warlord_(episode)",
+        "stardate": "50348.1-50361.7 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e11.the-q-and-the-grey",
+      "label": "The Q and the Grey",
+      "contextType": "story_anchor",
+      "sortKey": 33200,
+      "stardate": "50384.2-50392.7 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "The Q and the Grey",
+        "VOY season 3 The Q and the Grey",
+        "VOY S3 The Q and the Grey",
+        "VOY 3x11 story",
+        "VOY S03 story 11",
+        "VOY 3x11",
+        "VOY S03E11",
+        "VOY season 3 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-q-and-the-grey"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Q and the Grey",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Q_and_the_Grey_(episode)",
+        "stardate": "50384.2-50392.7 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e12.macrocosm",
+      "label": "Macrocosm",
+      "contextType": "story_anchor",
+      "sortKey": 33220,
+      "stardate": "50425.1 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Macrocosm",
+        "VOY season 3 Macrocosm",
+        "VOY S3 Macrocosm",
+        "VOY 3x12 story",
+        "VOY S03 story 12",
+        "VOY 3x12",
+        "VOY S03E12",
+        "VOY season 3 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-macrocosm"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Macrocosm",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Macrocosm_(episode)",
+        "stardate": "50425.1 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e13.fair-trade",
+      "label": "Fair Trade",
+      "contextType": "story_anchor",
+      "sortKey": 33240,
+      "stardate": "Unknown (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Fair Trade",
+        "VOY season 3 Fair Trade",
+        "VOY S3 Fair Trade",
+        "VOY 3x13 story",
+        "VOY S03 story 13",
+        "VOY 3x13",
+        "VOY S03E13",
+        "VOY season 3 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-fair-trade"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Fair Trade",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Fair_Trade_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e14.alter-ego",
+      "label": "Alter Ego",
+      "contextType": "story_anchor",
+      "sortKey": 33260,
+      "stardate": "50460.3-50471.3 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Alter Ego",
+        "VOY season 3 Alter Ego",
+        "VOY S3 Alter Ego",
+        "VOY 3x14 story",
+        "VOY S03 story 14",
+        "VOY 3x14",
+        "VOY S03E14",
+        "VOY season 3 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-alter-ego"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Alter Ego",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Alter_Ego_(episode)",
+        "stardate": "50460.3-50471.3 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e15.coda",
+      "label": "Coda",
+      "contextType": "story_anchor",
+      "sortKey": 33280,
+      "stardate": "50518.6 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Coda",
+        "VOY season 3 Coda",
+        "VOY S3 Coda",
+        "VOY 3x15 story",
+        "VOY S03 story 15",
+        "VOY 3x15",
+        "VOY S03E15",
+        "VOY season 3 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-coda"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Coda",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Coda_(episode)",
+        "stardate": "50518.6 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e16.blood-fever",
+      "label": "Blood Fever",
+      "contextType": "story_anchor",
+      "sortKey": 33300,
+      "stardate": "50537.2-50541.6 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Blood Fever",
+        "VOY season 3 Blood Fever",
+        "VOY S3 Blood Fever",
+        "VOY 3x16 story",
+        "VOY S03 story 16",
+        "VOY 3x16",
+        "VOY S03E16",
+        "VOY season 3 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-blood-fever"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Blood Fever",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Blood_Fever_(episode)",
+        "stardate": "50537.2-50541.6 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e17.unity",
+      "label": "Unity",
+      "contextType": "story_anchor",
+      "sortKey": 33320,
+      "stardate": "50614.2-50622.4 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Unity",
+        "VOY season 3 Unity",
+        "VOY S3 Unity",
+        "VOY 3x17 story",
+        "VOY S03 story 17",
+        "VOY 3x17",
+        "VOY S03E17",
+        "VOY season 3 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-unity"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Unity",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unity_(episode)",
+        "stardate": "50614.2-50622.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e18.darkling",
+      "label": "Darkling",
+      "contextType": "story_anchor",
+      "sortKey": 33340,
+      "stardate": "50693.2 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Darkling",
+        "VOY season 3 Darkling",
+        "VOY S3 Darkling",
+        "VOY 3x18 story",
+        "VOY S03 story 18",
+        "VOY 3x18",
+        "VOY S03E18",
+        "VOY season 3 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-darkling"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Darkling",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Darkling_(episode)",
+        "stardate": "50693.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e19.rise",
+      "label": "Rise",
+      "contextType": "story_anchor",
+      "sortKey": 33360,
+      "stardate": "Unknown (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Rise",
+        "VOY season 3 Rise",
+        "VOY S3 Rise",
+        "VOY 3x19 story",
+        "VOY S03 story 19",
+        "VOY 3x19",
+        "VOY S03E19",
+        "VOY season 3 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-rise"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Rise",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rise_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e20.favorite-son",
+      "label": "Favorite Son",
+      "contextType": "story_anchor",
+      "sortKey": 33380,
+      "stardate": "50732.4 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Favorite Son",
+        "VOY season 3 Favorite Son",
+        "VOY S3 Favorite Son",
+        "VOY 3x20 story",
+        "VOY S03 story 20",
+        "VOY 3x20",
+        "VOY S03E20",
+        "VOY season 3 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-favorite-son"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Favorite Son",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Favorite_Son_(episode)",
+        "stardate": "50732.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e21.before-and-after",
+      "label": "Before and After",
+      "contextType": "story_anchor",
+      "sortKey": 33400,
+      "stardate": "Unknown (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Before and After",
+        "VOY season 3 Before and After",
+        "VOY S3 Before and After",
+        "VOY 3x21 story",
+        "VOY S03 story 21",
+        "VOY 3x21",
+        "VOY S03E21",
+        "VOY season 3 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-before-and-after"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Before and After",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Before_and_After_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e22.real-life",
+      "label": "Real Life",
+      "contextType": "story_anchor",
+      "sortKey": 33420,
+      "stardate": "50836.2 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Real Life",
+        "VOY season 3 Real Life",
+        "VOY S3 Real Life",
+        "VOY 3x22 story",
+        "VOY S03 story 22",
+        "VOY 3x22",
+        "VOY S03E22",
+        "VOY season 3 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-real-life"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Real Life",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Real_Life_(episode)",
+        "stardate": "50836.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e23.distant-origin",
+      "label": "Distant Origin",
+      "contextType": "story_anchor",
+      "sortKey": 33440,
+      "stardate": "Unknown (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Distant Origin",
+        "VOY season 3 Distant Origin",
+        "VOY S3 Distant Origin",
+        "VOY 3x23 story",
+        "VOY S03 story 23",
+        "VOY 3x23",
+        "VOY S03E23",
+        "VOY season 3 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-distant-origin"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Distant Origin",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Distant_Origin_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e24.displaced",
+      "label": "Displaced",
+      "contextType": "story_anchor",
+      "sortKey": 33460,
+      "stardate": "50912.4-50929.6 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Displaced",
+        "VOY season 3 Displaced",
+        "VOY S3 Displaced",
+        "VOY 3x24 story",
+        "VOY S03 story 24",
+        "VOY 3x24",
+        "VOY S03E24",
+        "VOY season 3 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-displaced"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Displaced",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Displaced_(episode)",
+        "stardate": "50912.4-50929.6 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e25.worst-case-scenario",
+      "label": "Worst Case Scenario",
+      "contextType": "story_anchor",
+      "sortKey": 33480,
+      "stardate": "50953.4 (2373)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Worst Case Scenario",
+        "VOY season 3 Worst Case Scenario",
+        "VOY S3 Worst Case Scenario",
+        "VOY 3x25 story",
+        "VOY S03 story 25",
+        "VOY 3x25",
+        "VOY S03E25",
+        "VOY season 3 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-worst-case-scenario"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Worst Case Scenario",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Worst_Case_Scenario_(episode)",
+        "stardate": "50953.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s3.e26.scorpion",
+      "label": "Scorpion",
+      "contextType": "story_anchor",
+      "sortKey": 33500,
+      "stardate": "50984.3 (2373/2374)",
+      "year": "2372",
+      "series": "VOY",
+      "season": 3,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Scorpion",
+        "VOY season 3 Scorpion",
+        "VOY S3 Scorpion",
+        "VOY 3x26 story",
+        "VOY S03 story 26",
+        "VOY 3x26",
+        "VOY S03E26",
+        "VOY season 3 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-scorpion"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion",
+        "series": "VOY",
+        "season": 3,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion_(episode)",
+        "stardate": "50984.3 (2373/2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "voy.s3.full-season",
+      "label": "VOY season 3 full window",
+      "anchorFrom": "voy.s3.e01.basics-part-ii",
+      "anchorTo": "voy.s3.e26.scorpion",
+      "sortKeyFrom": 33000,
+      "sortKeyTo": 33500,
+      "aliases": [
+        "VOY season 3",
+        "Star Trek: Voyager season 3",
+        "VOY S3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "voy.s3.e01.basics-part-ii.window",
+      "label": "Basics, Part II episode window",
+      "anchorFrom": "voy.s3.e01.basics-part-ii",
+      "anchorTo": "voy.s3.e02.flashback",
+      "sortKeyFrom": 33000,
+      "sortKeyTo": 33020,
+      "aliases": [
+        "during Basics, Part II",
+        "after Basics, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-basics-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s3.e02.flashback.window",
+      "label": "Flashback episode window",
+      "anchorFrom": "voy.s3.e02.flashback",
+      "anchorTo": "voy.s3.e03.the-chute",
+      "sortKeyFrom": 33020,
+      "sortKeyTo": 33040,
+      "aliases": [
+        "during Flashback",
+        "after Flashback"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-flashback"
+      ]
+    },
+    {
+      "id": "voy.s3.e03.the-chute.window",
+      "label": "The Chute episode window",
+      "anchorFrom": "voy.s3.e03.the-chute",
+      "anchorTo": "voy.s3.e04.the-swarm",
+      "sortKeyFrom": 33040,
+      "sortKeyTo": 33060,
+      "aliases": [
+        "during The Chute",
+        "after The Chute"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-chute"
+      ]
+    },
+    {
+      "id": "voy.s3.e04.the-swarm.window",
+      "label": "The Swarm episode window",
+      "anchorFrom": "voy.s3.e04.the-swarm",
+      "anchorTo": "voy.s3.e05.false-profits",
+      "sortKeyFrom": 33060,
+      "sortKeyTo": 33080,
+      "aliases": [
+        "during The Swarm",
+        "after The Swarm"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-swarm"
+      ]
+    },
+    {
+      "id": "voy.s3.e05.false-profits.window",
+      "label": "False Profits episode window",
+      "anchorFrom": "voy.s3.e05.false-profits",
+      "anchorTo": "voy.s3.e06.remember",
+      "sortKeyFrom": 33080,
+      "sortKeyTo": 33100,
+      "aliases": [
+        "during False Profits",
+        "after False Profits"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-false-profits"
+      ]
+    },
+    {
+      "id": "voy.s3.e06.remember.window",
+      "label": "Remember episode window",
+      "anchorFrom": "voy.s3.e06.remember",
+      "anchorTo": "voy.s3.e07.sacred-ground",
+      "sortKeyFrom": 33100,
+      "sortKeyTo": 33120,
+      "aliases": [
+        "during Remember",
+        "after Remember"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-remember"
+      ]
+    },
+    {
+      "id": "voy.s3.e07.sacred-ground.window",
+      "label": "Sacred Ground episode window",
+      "anchorFrom": "voy.s3.e07.sacred-ground",
+      "anchorTo": "voy.s3.e08.futures-end",
+      "sortKeyFrom": 33120,
+      "sortKeyTo": 33140,
+      "aliases": [
+        "during Sacred Ground",
+        "after Sacred Ground"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-sacred-ground"
+      ]
+    },
+    {
+      "id": "voy.s3.e08.futures-end.window",
+      "label": "Future's End episode window",
+      "anchorFrom": "voy.s3.e08.futures-end",
+      "anchorTo": "voy.s3.e09.futures-end-part-ii",
+      "sortKeyFrom": 33140,
+      "sortKeyTo": 33160,
+      "aliases": [
+        "during Future's End",
+        "after Future's End"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-futures-end"
+      ]
+    },
+    {
+      "id": "voy.s3.e09.futures-end-part-ii.window",
+      "label": "Future's End, Part II episode window",
+      "anchorFrom": "voy.s3.e09.futures-end-part-ii",
+      "anchorTo": "voy.s3.e10.warlord",
+      "sortKeyFrom": 33160,
+      "sortKeyTo": 33180,
+      "aliases": [
+        "during Future's End, Part II",
+        "after Future's End, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-futures-end-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s3.e10.warlord.window",
+      "label": "Warlord episode window",
+      "anchorFrom": "voy.s3.e10.warlord",
+      "anchorTo": "voy.s3.e11.the-q-and-the-grey",
+      "sortKeyFrom": 33180,
+      "sortKeyTo": 33200,
+      "aliases": [
+        "during Warlord",
+        "after Warlord"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-warlord"
+      ]
+    },
+    {
+      "id": "voy.s3.e11.the-q-and-the-grey.window",
+      "label": "The Q and the Grey episode window",
+      "anchorFrom": "voy.s3.e11.the-q-and-the-grey",
+      "anchorTo": "voy.s3.e12.macrocosm",
+      "sortKeyFrom": 33200,
+      "sortKeyTo": 33220,
+      "aliases": [
+        "during The Q and the Grey",
+        "after The Q and the Grey"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-the-q-and-the-grey"
+      ]
+    },
+    {
+      "id": "voy.s3.e12.macrocosm.window",
+      "label": "Macrocosm episode window",
+      "anchorFrom": "voy.s3.e12.macrocosm",
+      "anchorTo": "voy.s3.e13.fair-trade",
+      "sortKeyFrom": 33220,
+      "sortKeyTo": 33240,
+      "aliases": [
+        "during Macrocosm",
+        "after Macrocosm"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-macrocosm"
+      ]
+    },
+    {
+      "id": "voy.s3.e13.fair-trade.window",
+      "label": "Fair Trade episode window",
+      "anchorFrom": "voy.s3.e13.fair-trade",
+      "anchorTo": "voy.s3.e14.alter-ego",
+      "sortKeyFrom": 33240,
+      "sortKeyTo": 33260,
+      "aliases": [
+        "during Fair Trade",
+        "after Fair Trade"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-fair-trade"
+      ]
+    },
+    {
+      "id": "voy.s3.e14.alter-ego.window",
+      "label": "Alter Ego episode window",
+      "anchorFrom": "voy.s3.e14.alter-ego",
+      "anchorTo": "voy.s3.e15.coda",
+      "sortKeyFrom": 33260,
+      "sortKeyTo": 33280,
+      "aliases": [
+        "during Alter Ego",
+        "after Alter Ego"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-alter-ego"
+      ]
+    },
+    {
+      "id": "voy.s3.e15.coda.window",
+      "label": "Coda episode window",
+      "anchorFrom": "voy.s3.e15.coda",
+      "anchorTo": "voy.s3.e16.blood-fever",
+      "sortKeyFrom": 33280,
+      "sortKeyTo": 33300,
+      "aliases": [
+        "during Coda",
+        "after Coda"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-coda"
+      ]
+    },
+    {
+      "id": "voy.s3.e16.blood-fever.window",
+      "label": "Blood Fever episode window",
+      "anchorFrom": "voy.s3.e16.blood-fever",
+      "anchorTo": "voy.s3.e17.unity",
+      "sortKeyFrom": 33300,
+      "sortKeyTo": 33320,
+      "aliases": [
+        "during Blood Fever",
+        "after Blood Fever"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-blood-fever"
+      ]
+    },
+    {
+      "id": "voy.s3.e17.unity.window",
+      "label": "Unity episode window",
+      "anchorFrom": "voy.s3.e17.unity",
+      "anchorTo": "voy.s3.e18.darkling",
+      "sortKeyFrom": 33320,
+      "sortKeyTo": 33340,
+      "aliases": [
+        "during Unity",
+        "after Unity"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-unity"
+      ]
+    },
+    {
+      "id": "voy.s3.e18.darkling.window",
+      "label": "Darkling episode window",
+      "anchorFrom": "voy.s3.e18.darkling",
+      "anchorTo": "voy.s3.e19.rise",
+      "sortKeyFrom": 33340,
+      "sortKeyTo": 33360,
+      "aliases": [
+        "during Darkling",
+        "after Darkling"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-darkling"
+      ]
+    },
+    {
+      "id": "voy.s3.e19.rise.window",
+      "label": "Rise episode window",
+      "anchorFrom": "voy.s3.e19.rise",
+      "anchorTo": "voy.s3.e20.favorite-son",
+      "sortKeyFrom": 33360,
+      "sortKeyTo": 33380,
+      "aliases": [
+        "during Rise",
+        "after Rise"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-rise"
+      ]
+    },
+    {
+      "id": "voy.s3.e20.favorite-son.window",
+      "label": "Favorite Son episode window",
+      "anchorFrom": "voy.s3.e20.favorite-son",
+      "anchorTo": "voy.s3.e21.before-and-after",
+      "sortKeyFrom": 33380,
+      "sortKeyTo": 33400,
+      "aliases": [
+        "during Favorite Son",
+        "after Favorite Son"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-favorite-son"
+      ]
+    },
+    {
+      "id": "voy.s3.e21.before-and-after.window",
+      "label": "Before and After episode window",
+      "anchorFrom": "voy.s3.e21.before-and-after",
+      "anchorTo": "voy.s3.e22.real-life",
+      "sortKeyFrom": 33400,
+      "sortKeyTo": 33420,
+      "aliases": [
+        "during Before and After",
+        "after Before and After"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-before-and-after"
+      ]
+    },
+    {
+      "id": "voy.s3.e22.real-life.window",
+      "label": "Real Life episode window",
+      "anchorFrom": "voy.s3.e22.real-life",
+      "anchorTo": "voy.s3.e23.distant-origin",
+      "sortKeyFrom": 33420,
+      "sortKeyTo": 33440,
+      "aliases": [
+        "during Real Life",
+        "after Real Life"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-real-life"
+      ]
+    },
+    {
+      "id": "voy.s3.e23.distant-origin.window",
+      "label": "Distant Origin episode window",
+      "anchorFrom": "voy.s3.e23.distant-origin",
+      "anchorTo": "voy.s3.e24.displaced",
+      "sortKeyFrom": 33440,
+      "sortKeyTo": 33460,
+      "aliases": [
+        "during Distant Origin",
+        "after Distant Origin"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-distant-origin"
+      ]
+    },
+    {
+      "id": "voy.s3.e24.displaced.window",
+      "label": "Displaced episode window",
+      "anchorFrom": "voy.s3.e24.displaced",
+      "anchorTo": "voy.s3.e25.worst-case-scenario",
+      "sortKeyFrom": 33460,
+      "sortKeyTo": 33480,
+      "aliases": [
+        "during Displaced",
+        "after Displaced"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-displaced"
+      ]
+    },
+    {
+      "id": "voy.s3.e25.worst-case-scenario.window",
+      "label": "Worst Case Scenario episode window",
+      "anchorFrom": "voy.s3.e25.worst-case-scenario",
+      "anchorTo": "voy.s3.e26.scorpion",
+      "sortKeyFrom": 33480,
+      "sortKeyTo": 33500,
+      "aliases": [
+        "during Worst Case Scenario",
+        "after Worst Case Scenario"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s3-worst-case-scenario"
+      ]
+    }
+  ]
+}

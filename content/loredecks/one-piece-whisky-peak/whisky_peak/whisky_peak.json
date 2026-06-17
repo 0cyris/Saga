@@ -1,0 +1,855 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_whisky_peak_welcomes_pirates_with_a_party_designed_as_a_trap_001",
+      "title": "Whisky Peak Hospitality Is A Bounty-Hunter Trap",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.whisky-peak",
+        "validToAnchor": "op.whisky-peak.baroque-works-structure",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9112,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Whisky Peak Hospitality Is A Bounty-Hunter Trap"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:whisky-peak",
+          "op:townspeople",
+          "op:bounty-hunters",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [],
+        "locations": [
+          "Whisky Peak"
+        ],
+        "objects": [],
+        "factions": [
+          "Whisky Peak townspeople",
+          "bounty hunters",
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "trap town hospitality",
+          "pirate welcome facade",
+          "bounty hunter ambush"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:whisky-peak",
+        "faction:whisky-peak-townspeople",
+        "faction:bounty-hunters",
+        "faction:straw-hat-pirates",
+        "topic:trap-town"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Whisky Peak",
+            "Whisky Peak townspeople",
+            "bounty hunters",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "trap town hospitality",
+            "pirate welcome facade",
+            "bounty hunter ambush"
+          ],
+          "keywordsAny": [
+            "Whisky Peak",
+            "Whisky Peak townspeople",
+            "bounty hunters",
+            "Straw Hat Pirates",
+            "trap town hospitality",
+            "pirate welcome facade",
+            "bounty hunter ambush",
+            "party trap",
+            "welcome pirates",
+            "hospitality facade",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Whisky Peak welcomes pirates with celebration, food, drink, and praise because the welcome is designed to lower their guard.",
+        "injection": "Use Whisky Peak hospitality as a trap surface: the party should feel generous and theatrical before it becomes predatory.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_the_townspeople_are_bounty_hunters_under_the_celebration_facade_002",
+      "title": "The Townspeople Are Bounty Hunters Under The Facade",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.whisky-peak",
+        "validToAnchor": "op.whisky-peak.baroque-works-structure",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9112,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: The Townspeople Are Bounty Hunters Under The Facade"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:townspeople",
+          "op:bounty-hunters",
+          "op:millions",
+          "op:billions",
+          "op:baroque-works"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Whisky Peak townspeople",
+          "bounty hunters",
+          "Millions",
+          "Billions",
+          "Baroque Works"
+        ],
+        "topics": [
+          "bounty hunter town",
+          "Millions and Billions",
+          "facade reveal"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:whisky-peak-townspeople",
+        "faction:bounty-hunters",
+        "faction:millions",
+        "faction:billions",
+        "faction:baroque-works",
+        "topic:trap-town",
+        "topic:baroque-works",
+        "topic:identity-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Whisky Peak townspeople",
+            "bounty hunters",
+            "Millions",
+            "Billions",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "bounty hunter town",
+            "Millions and Billions",
+            "facade reveal"
+          ],
+          "keywordsAny": [
+            "Whisky Peak townspeople",
+            "bounty hunters",
+            "Millions",
+            "Billions",
+            "Baroque Works",
+            "bounty hunter town",
+            "Millions and Billions",
+            "facade reveal",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Whisky Peak townspeople are bounty hunters embedded under the celebration facade, with Millions and Billions acting as Baroque Works manpower.",
+        "injection": "Use the town as organized opposition, not a random mob: friendly hosts can turn into coordinated bounty hunters once the trap drops.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_sleeping_guests_let_the_hunters_divide_danger_from_opportunity_003",
+      "title": "The Party Is Built To Incapacitate Pirates Before The Attack",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.whisky-peak",
+        "validToAnchor": "op.whisky-peak.baroque-works-structure",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9112,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: The Party Is Built To Incapacitate Pirates Before The Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:whisky-peak",
+          "op:townspeople",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [],
+        "locations": [
+          "Whisky Peak"
+        ],
+        "objects": [],
+        "factions": [
+          "Whisky Peak townspeople",
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "incapacitation trap",
+          "sleeping guests",
+          "party tactics"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:whisky-peak",
+        "faction:whisky-peak-townspeople",
+        "faction:straw-hat-pirates",
+        "topic:trap-town"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Whisky Peak",
+            "Whisky Peak townspeople",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "incapacitation trap",
+            "sleeping guests",
+            "party tactics"
+          ],
+          "keywordsAny": [
+            "Whisky Peak",
+            "Whisky Peak townspeople",
+            "Straw Hat Pirates",
+            "incapacitation trap",
+            "sleeping guests",
+            "party tactics",
+            "incapacitate",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "The Whisky Peak party is meant to exhaust or incapacitate pirates so hunters can separate real danger from easy opportunity.",
+        "injection": "Use sleep, overconfidence, and false safety as tactical pressure; the trap works because most guests accept the performance.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_zoro_staying_awake_exposes_the_town_s_real_purpose_004",
+      "title": "Zoro Stays Awake And Reads The Celebration Correctly",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.whisky-peak",
+        "validToAnchor": "op.whisky-peak.baroque-works-structure",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9112,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Zoro Stays Awake And Reads The Celebration Correctly"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:whisky-peak",
+          "op:bounty-hunters"
+        ],
+        "characters": [
+          "Roronoa Zoro"
+        ],
+        "locations": [
+          "Whisky Peak"
+        ],
+        "objects": [],
+        "factions": [
+          "bounty hunters"
+        ],
+        "topics": [
+          "Zoro trap read",
+          "stays awake",
+          "bounty hunter ambush"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "location:whisky-peak",
+        "faction:bounty-hunters",
+        "topic:trap-town",
+        "topic:crew-conflict"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Whisky Peak",
+            "bounty hunters"
+          ],
+          "topicsAny": [
+            "Zoro trap read",
+            "stays awake",
+            "bounty hunter ambush"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Whisky Peak",
+            "bounty hunters",
+            "Zoro trap read",
+            "stays awake",
+            "bounty hunter ambush",
+            "reads trap",
+            "Zoro",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Zoro stays awake, reads the celebration as a trap, and becomes the first Straw Hat to answer the town's real purpose.",
+        "injection": "Use Zoro as alert and amused by the ambush: he can let the party play out while preparing to cut through the hunters.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_the_town_should_feel_performative_before_the_reveal_005",
+      "title": "The Town Should Feel Performative Before The Reveal",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.whisky-peak",
+        "validToAnchor": "op.whisky-peak.baroque-works-structure",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9112,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: The Town Should Feel Performative Before The Reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:whisky-peak",
+          "op:townspeople",
+          "op:bounty-hunters"
+        ],
+        "characters": [],
+        "locations": [
+          "Whisky Peak"
+        ],
+        "objects": [],
+        "factions": [
+          "Whisky Peak townspeople",
+          "bounty hunters"
+        ],
+        "topics": [
+          "performative town",
+          "celebration tone",
+          "trap reveal timing"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:whisky-peak",
+        "faction:whisky-peak-townspeople",
+        "faction:bounty-hunters",
+        "topic:trap-town",
+        "topic:identity-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Whisky Peak",
+            "Whisky Peak townspeople",
+            "bounty hunters"
+          ],
+          "topicsAny": [
+            "performative town",
+            "celebration tone",
+            "trap reveal timing"
+          ],
+          "keywordsAny": [
+            "Whisky Peak",
+            "Whisky Peak townspeople",
+            "bounty hunters",
+            "performative town",
+            "celebration tone",
+            "trap reveal timing",
+            "performative",
+            "forced cheer",
+            "mask",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Before the reveal, Whisky Peak should feel over-performative rather than openly hostile.",
+        "injection": "Use exaggerated praise, forced cheer, and too-perfect hospitality as clues without dropping the mask too early.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Whisky Peak Arc",
+    "chapterRange": "Manga chapters 106-114",
+    "episodeRange": "Anime episodes 64-67",
+    "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+  }
+}

@@ -9,6 +9,9 @@ import {
     toast,
 } from '../ui/runtime-ui-kit.js';
 import {
+    preserveInputFocusAfterRender,
+} from '../ui/input-focus-preservation.js';
+import {
     formatContextIndexSummary,
     getContextPackSummary,
 } from './context-panel.js';
@@ -177,8 +180,10 @@ function createContextWorkbenchTimelineControls(state, contextIndex, pack, allIt
     search.value = getContextWorkbenchQuery();
     addTooltip(search, 'Search the selected Loredeck timeline registry.');
     search.addEventListener('input', () => {
-        setContextWorkbenchQuery(search.value);
-        renderContextWorkbench();
+        preserveInputFocusAfterRender(search, '.saga-context-workbench-overlay .saga-lore-workbench-search', () => {
+            setContextWorkbenchQuery(search.value);
+            renderContextWorkbench();
+        });
     });
     controls.appendChild(search);
 
@@ -1522,8 +1527,10 @@ export function createContextWorkbenchAliasesView(state = {}, contextIndex = nul
     search.value = getContextWorkbenchQuery();
     addTooltip(search, 'Search resolver aliases, target labels, IDs, tags, and coordinates.');
     search.addEventListener('input', () => {
-        setContextWorkbenchQuery(search.value);
-        renderContextWorkbench();
+        preserveInputFocusAfterRender(search, '.saga-context-workbench-overlay .saga-lore-workbench-search', () => {
+            setContextWorkbenchQuery(search.value);
+            renderContextWorkbench();
+        });
     });
     controls.appendChild(search);
     controls.appendChild(createStatusPill(`${aliasRows.length} aliases`, 'Resolver alias rows matching the current filters.', {

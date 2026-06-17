@@ -1,0 +1,886 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_nami_resumes_authority_over_navigation_after_the_arabasta_route_006",
+      "title": "Nami Starts Her World Map Work With Durable Paper",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "validToAnchor": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13150,
+        "sortKeyTo": 13300,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Nami Starts Her World Map Work With Durable Paper"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:map-paper",
+          "op:world-map",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Nami",
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [
+          "durable map paper",
+          "Nami's world map"
+        ],
+        "factions": [],
+        "topics": [
+          "episode 132",
+          "world map dream",
+          "durable paper"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "item:durable-map-paper",
+        "item:nami-s-world-map",
+        "character:going-merry",
+        "topic:episode-131-135",
+        "topic:nami-world-map"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "durable map paper",
+            "Nami's world map",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "episode 132",
+            "world map dream",
+            "durable paper"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "durable map paper",
+            "Nami's world map",
+            "Going Merry",
+            "episode 132",
+            "world map dream",
+            "durable paper",
+            "map paper",
+            "world map",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Episode 132 gives Nami durable paper and a quiet chance to begin transferring maps toward her world-map dream.",
+        "injection": "Use the paper as a dream-in-practice gate: Nami is doing navigator work, not merely shopping or scolding.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_money_and_supply_habits_remain_part_of_her_crew_role_007",
+      "title": "Nami's Practical Authority Shapes Calm Crew Routine",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "validToAnchor": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13150,
+        "sortKeyTo": 13300,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Nami's Practical Authority Shapes Calm Crew Routine"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:supplies",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Nami",
+          "supplies",
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "episode 132",
+          "practical authority",
+          "crew interruptions"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:supplies",
+        "character:going-merry",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:nami-world-map"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "supplies",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "supplies",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "episode 132",
+            "practical authority",
+            "crew interruptions"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "supplies",
+            "Going Merry",
+            "episode 132",
+            "practical authority",
+            "crew interruptions",
+            "routine",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Nami's practical authority remains part of calmer crew routine, especially when interruptions threaten careful navigation or map work.",
+        "injection": "Use Nami's discipline as competence under domestic pressure, not as a reset to mistrust.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_weather_and_route_checks_matter_even_during_downtime_008",
+      "title": "Weather And Route Checks Still Matter During Downtime",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "rule",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "validToAnchor": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13150,
+        "sortKeyTo": 13300,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Weather And Route Checks Still Matter During Downtime"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:weather",
+          "op:sea-route",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Nami",
+          "weather",
+          "Going Merry"
+        ],
+        "locations": [
+          "sea route"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "navigation routine",
+          "weather checks",
+          "downtime constraint"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:weather",
+        "location:sea-route",
+        "character:going-merry",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:nami-world-map",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "weather",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "weather",
+            "sea route",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "navigation routine",
+            "weather checks",
+            "downtime constraint"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "weather",
+            "sea route",
+            "Going Merry",
+            "navigation routine",
+            "weather checks",
+            "downtime constraint",
+            "route",
+            "navigation",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Weather and route checks still matter during Post-Arabasta downtime because the crew is still at sea between arcs.",
+        "injection": "Use navigation details when routine scenes need stakes without inventing a new island crisis.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_she_disciplines_the_crew_because_survival_requires_order_009",
+      "title": "Crew Interruptions Are Domestic Pressure, Not Hostile Conflict",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "validToAnchor": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13150,
+        "sortKeyTo": 13300,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Crew Interruptions Are Domestic Pressure, Not Hostile Conflict"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:going-merry",
+          "op:monkey-d-luffy",
+          "op:usopp"
+        ],
+        "characters": [
+          "Nami",
+          "Going Merry",
+          "Monkey D. Luffy",
+          "Usopp"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "episode 132",
+          "crew interruptions",
+          "domestic ship rhythm"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:going-merry",
+        "character:monkey-d-luffy",
+        "character:usopp",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:nami-world-map"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Usopp"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Usopp"
+          ],
+          "topicsAny": [
+            "episode 132",
+            "crew interruptions",
+            "domestic ship rhythm"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Usopp",
+            "episode 132",
+            "crew interruptions",
+            "domestic ship rhythm",
+            "interruptions",
+            "crew",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Crew interruptions in Nami's episode are domestic shipboard pressure, not a sign of broken trust or hostile conflict.",
+        "injection": "Use interruptions to show family-like rhythm: annoying, loud, and still bonded.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_post_arabasta_nami_should_not_be_reset_to_pre_arlong_mistrust_010",
+      "title": "Post-Arabasta Nami Is Not Reset To Pre-Arlong Mistrust",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "rule",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.nami-navigation-and-crew-life",
+        "validToAnchor": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13150,
+        "sortKeyTo": 13300,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Post-Arabasta Nami Is Not Reset To Pre-Arlong Mistrust"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:world-map",
+          "op:vivi"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Vivi"
+        ],
+        "objects": [
+          "Nami's world map"
+        ],
+        "factions": [],
+        "topics": [
+          "Nami continuity boundary",
+          "post-Arlong trust",
+          "post-Vivi state"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "item:nami-s-world-map",
+        "location:vivi",
+        "topic:episode-131-135",
+        "topic:nami-world-map",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Nami's world map",
+            "Vivi"
+          ],
+          "topicsAny": [
+            "Nami continuity boundary",
+            "post-Arlong trust",
+            "post-Vivi state"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Nami's world map",
+            "Vivi",
+            "Nami continuity boundary",
+            "post-Arlong trust",
+            "post-Vivi state",
+            "trust",
+            "world map",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Post-Arabasta Nami should not be reset to pre-Arlong mistrust; her dream and authority now sit inside an established crew bond.",
+        "injection": "Use her map work and discipline from a trusted-crew baseline.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Post-Arabasta Arc",
+    "chapterRange": "Anime-only filler arc",
+    "episodeRange": "Anime episodes 131-135",
+    "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+  }
+}

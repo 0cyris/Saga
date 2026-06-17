@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Anime-only Warship Island bridge between Loguetown and Reverse Mountain, covering Apis, Ryu, Lost Island, Branch 8 pursuit, and show-continuity handoff boundaries.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.warship-island.warship-island",
+      "label": "Warship Island Arc: Apis and Ryu",
+      "sortKey": 7000,
+      "arc": "Warship Island Arc",
+      "phase": "East Blue Saga",
+      "chapter": "Filler arc",
+      "episode": "54-61",
+      "aliases": [
+        "Warship Island Arc: Apis and Ryu"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      }
+    },
+    {
+      "id": "op.warship-island.lost-island-and-dragons",
+      "label": "Warship Island Arc: Lost Island and dragons",
+      "sortKey": 7150,
+      "arc": "Warship Island Arc",
+      "phase": "East Blue Saga",
+      "chapter": "Filler arc",
+      "episode": "54-61",
+      "aliases": [
+        "Warship Island Arc: Lost Island and dragons"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      }
+    },
+    {
+      "id": "op.warship-island.eric-nelson-and-marines",
+      "label": "Warship Island Arc: Eric, Nelson, and Marines",
+      "sortKey": 7300,
+      "arc": "Warship Island Arc",
+      "phase": "East Blue Saga",
+      "chapter": "Filler arc",
+      "episode": "54-61",
+      "aliases": [
+        "Warship Island Arc: Eric, Nelson, and Marines"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      }
+    },
+    {
+      "id": "op.warship-island.straw-hat-show-dynamics",
+      "label": "Warship Island Arc: Straw Hat show dynamics",
+      "sortKey": 7450,
+      "arc": "Warship Island Arc",
+      "phase": "East Blue Saga",
+      "chapter": "Filler arc",
+      "episode": "54-61",
+      "aliases": [
+        "Warship Island Arc: Straw Hat show dynamics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      }
+    },
+    {
+      "id": "op.warship-island.escape-and-grand-line-bridge",
+      "label": "Warship Island Arc: Escape and Grand Line bridge",
+      "sortKey": 7600,
+      "arc": "Warship Island Arc",
+      "phase": "East Blue Saga",
+      "chapter": "Filler arc",
+      "episode": "54-61",
+      "aliases": [
+        "Warship Island Arc: Escape and Grand Line bridge"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      }
+    },
+    {
+      "id": "op.warship-island.timeline-and-spoiler-gates",
+      "label": "Warship Island Arc: Timeline and spoiler gates",
+      "sortKey": 7750,
+      "arc": "Warship Island Arc",
+      "phase": "East Blue Saga",
+      "chapter": "Filler arc",
+      "episode": "54-61",
+      "aliases": [
+        "Warship Island Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      }
+    },
+    {
+      "id": "op.warship-island.after",
+      "label": "Warship Island Arc: aftermath boundary",
+      "sortKey": 7999,
+      "arc": "Warship Island Arc",
+      "phase": "East Blue Saga",
+      "chapter": "Filler arc",
+      "episode": "54-61",
+      "aliases": [
+        "Warship Island Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.warship-island.window.full",
+      "label": "Warship Island Arc",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.warship-island.warship-island",
+      "anchorTo": "op.warship-island.after",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 7999,
+      "aliases": [
+        "Warship Island Arc",
+        "warship-island"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.warship-island.window.warship-island",
+      "label": "Warship Island Arc: Apis and Ryu",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.warship-island.warship-island",
+      "anchorTo": "op.warship-island.lost-island-and-dragons",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 7150,
+      "aliases": [
+        "Apis and Ryu"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.warship-island.window.lost-island-and-dragons",
+      "label": "Warship Island Arc: Lost Island and dragons",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.warship-island.lost-island-and-dragons",
+      "anchorTo": "op.warship-island.eric-nelson-and-marines",
+      "sortKeyFrom": 7150,
+      "sortKeyTo": 7300,
+      "aliases": [
+        "Lost Island and dragons"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.warship-island.window.eric-nelson-and-marines",
+      "label": "Warship Island Arc: Eric, Nelson, and Marines",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.warship-island.eric-nelson-and-marines",
+      "anchorTo": "op.warship-island.straw-hat-show-dynamics",
+      "sortKeyFrom": 7300,
+      "sortKeyTo": 7450,
+      "aliases": [
+        "Eric, Nelson, and Marines"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.warship-island.window.straw-hat-show-dynamics",
+      "label": "Warship Island Arc: Straw Hat show dynamics",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.warship-island.straw-hat-show-dynamics",
+      "anchorTo": "op.warship-island.escape-and-grand-line-bridge",
+      "sortKeyFrom": 7450,
+      "sortKeyTo": 7600,
+      "aliases": [
+        "Straw Hat show dynamics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.warship-island.window.escape-and-grand-line-bridge",
+      "label": "Warship Island Arc: Escape and Grand Line bridge",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.warship-island.escape-and-grand-line-bridge",
+      "anchorTo": "op.warship-island.timeline-and-spoiler-gates",
+      "sortKeyFrom": 7600,
+      "sortKeyTo": 7750,
+      "aliases": [
+        "Escape and Grand Line bridge"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.warship-island.window.timeline-and-spoiler-gates",
+      "label": "Warship Island Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.warship-island.timeline-and-spoiler-gates",
+      "anchorTo": "op.warship-island.after",
+      "sortKeyFrom": 7750,
+      "sortKeyTo": 7999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "east-blue"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "warship-island"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1070 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_apis_is_a_runaway_child_whose_bond_with_ryu_drives_the_show_only_arc_001",
+      "title": "Apis Carries The Show-Only Protection Stakes",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.warship-island",
+        "validToAnchor": "op.warship-island.lost-island-and-dragons",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Apis Carries The Show-Only Protection Stakes"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:apis",
+          "op:ryu",
+          "op:branch-8-marines"
+        ],
+        "characters": [
+          "Apis",
+          "Ryu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Apis runaway child",
+          "Ryu protection bond",
+          "show-only stakes"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:apis",
+        "character:ryu",
+        "faction:branch-8-marines",
+        "topic:apis-and-ryu",
+        "topic:dragon-protection",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Apis",
+            "Ryu"
+          ],
+          "entitiesAny": [
+            "Apis",
+            "Ryu",
+            "Branch 8 Marines"
+          ],
+          "topicsAny": [
+            "Apis runaway child",
+            "Ryu protection bond",
+            "show-only stakes"
+          ],
+          "keywordsAny": [
+            "Apis",
+            "Ryu",
+            "Branch 8 Marines",
+            "Apis runaway child",
+            "Ryu protection bond",
+            "show-only stakes",
+            "runaway child",
+            "protect Ryu",
+            "Marine escape",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Apis is a runaway child from the anime-only Warship Island story whose bond with Ryu drives the crew into a protection detour.",
+        "injection": "Use Apis as a frightened but determined child with immediate stakes: she needs the crew to protect Ryu and return him home, not as a permanent manga-world fixture.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_ryu_is_an_elderly_dragon_the_crew_chooses_to_protect_002",
+      "title": "Ryu Is An Elderly Sennenryu, Not A Manga Dragon Rule",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.warship-island",
+        "validToAnchor": "op.warship-island.lost-island-and-dragons",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Ryu Is An Elderly Sennenryu, Not A Manga Dragon Rule"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:ryu",
+          "op:sennenryu",
+          "op:thousand-year-dragon",
+          "op:lost-island"
+        ],
+        "characters": [
+          "Ryu"
+        ],
+        "locations": [
+          "Lost Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ryu protection",
+          "elderly dragon",
+          "anime-only dragon lore"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:ryu",
+        "topic:sennenryu",
+        "topic:thousand-year-dragon",
+        "location:lost-island",
+        "topic:apis-and-ryu",
+        "topic:dragon-protection",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ryu"
+          ],
+          "entitiesAny": [
+            "Ryu",
+            "Sennenryu",
+            "Thousand Year Dragon",
+            "Lost Island"
+          ],
+          "topicsAny": [
+            "Ryu protection",
+            "elderly dragon",
+            "anime-only dragon lore"
+          ],
+          "keywordsAny": [
+            "Ryu",
+            "Sennenryu",
+            "Thousand Year Dragon",
+            "Lost Island",
+            "Ryu protection",
+            "elderly dragon",
+            "anime-only dragon lore",
+            "homeland",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Ryu is an elderly Sennenryu the crew chooses to protect in anime continuity, with his homeland search forming the arc objective.",
+        "injection": "Use Ryu as a vulnerable protection focus: the drama comes from getting an old dragon home before Marines or Eric exploit him.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_apis_can_understand_ryu_s_feelings_in_the_anime_continuity_003",
+      "title": "Apis Understands Animals Through Anime-Only Devil Fruit Logic",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.warship-island",
+        "validToAnchor": "op.warship-island.lost-island-and-dragons",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Apis Understands Animals Through Anime-Only Devil Fruit Logic"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:apis",
+          "op:ryu",
+          "op:sennenryu"
+        ],
+        "characters": [
+          "Apis",
+          "Ryu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "animal communication",
+          "Apis Devil Fruit",
+          "Ryu feelings"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:apis",
+        "character:ryu",
+        "topic:sennenryu",
+        "topic:apis-and-ryu",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Apis",
+            "Ryu"
+          ],
+          "entitiesAny": [
+            "Apis",
+            "Ryu",
+            "Sennenryu"
+          ],
+          "topicsAny": [
+            "animal communication",
+            "Apis Devil Fruit",
+            "Ryu feelings"
+          ],
+          "keywordsAny": [
+            "Apis",
+            "Ryu",
+            "Sennenryu",
+            "animal communication",
+            "Apis Devil Fruit",
+            "Ryu feelings",
+            "understand animals",
+            "animal cues",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Apis can understand animal feelings in this anime-only arc, which lets her bond with Ryu and interpret his need to return home.",
+        "injection": "Use Apis's communication as a scene tool for Ryu, birds, and animal cues inside Warship Island material; avoid turning it into a general Straw Hat ability.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_luffy_accepts_the_rescue_without_treating_it_as_a_distraction_from_the_grand_line_004",
+      "title": "Rescuing Apis Turns The Route Into An Escort Mission",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.warship-island",
+        "validToAnchor": "op.warship-island.lost-island-and-dragons",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Rescuing Apis Turns The Route Into An Escort Mission"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:apis",
+          "op:going-merry",
+          "op:branch-8-marines"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Apis"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [
+          "Branch 8 Marines"
+        ],
+        "topics": [
+          "Apis rescue",
+          "escort mission",
+          "Branch 8 pursuit"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:apis",
+        "item:going-merry",
+        "faction:branch-8-marines",
+        "topic:apis-and-ryu",
+        "topic:marine-pursuit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Apis"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Apis",
+            "Going Merry",
+            "Branch 8 Marines"
+          ],
+          "topicsAny": [
+            "Apis rescue",
+            "escort mission",
+            "Branch 8 pursuit"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Apis",
+            "Going Merry",
+            "Branch 8 Marines",
+            "Apis rescue",
+            "escort mission",
+            "Branch 8 pursuit",
+            "Marine chase",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "After the crew finds Apis adrift, the anime route turns into an escort mission once they learn Branch 8 is chasing her.",
+        "injection": "Use this as the transition from ordinary Grand Line approach into Warship Island: the crew gains a vulnerable passenger and a local Marine chase.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_nami_keeps_the_crew_focused_on_route_risk_while_still_helping_apis_005",
+      "title": "Nami Keeps Route Risk Visible During The Detour",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.warship-island",
+        "validToAnchor": "op.warship-island.lost-island-and-dragons",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Nami Keeps Route Risk Visible During The Detour"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:apis",
+          "op:going-merry",
+          "op:grand-line"
+        ],
+        "characters": [
+          "Nami",
+          "Apis"
+        ],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "Nami navigation caution",
+          "route risk",
+          "helping Apis"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:apis",
+        "item:going-merry",
+        "location:grand-line",
+        "topic:apis-and-ryu",
+        "topic:show-only-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Apis"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Apis",
+            "Going Merry",
+            "Grand Line"
+          ],
+          "topicsAny": [
+            "Nami navigation caution",
+            "route risk",
+            "helping Apis"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Apis",
+            "Going Merry",
+            "Grand Line",
+            "Nami navigation caution",
+            "route risk",
+            "helping Apis",
+            "navigation caution",
+            "course",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Nami keeps the crew aware of route risk while still allowing the anime-only Apis detour to continue.",
+        "injection": "Use Nami to maintain practical pressure: supplies, weather, course, and danger matter even when the crew chooses compassion.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_warship_island_usopp_and_sanji_react_to_dragon_danger_through_comedy_and_concern_006",
+      "title": "Warship Scenes Preserve The Five-Person East Blue Crew Snapshot",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "anime-only",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.warship-island.warship-island",
+        "validToAnchor": "op.warship-island.lost-island-and-dragons",
+        "arc": "Warship Island Arc",
+        "arcId": "warship-island",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "Filler arc",
+        "episode": "54-61",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "show_continuity",
+        "label": "Warship Island Arc: Warship Scenes Preserve The Five-Person East Blue Crew Snapshot"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "warship-island",
+          "label": "Warship Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime-main",
+          "label": "Anime main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:straw-hat-pirates",
+          "op:monkey-d-luffy",
+          "op:roronoa-zoro",
+          "op:nami",
+          "op:usopp",
+          "op:sanji"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Roronoa Zoro",
+          "Nami",
+          "Usopp",
+          "Sanji"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "five-person crew",
+          "pre-Grand-Line crew",
+          "show-continuity snapshot"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:east-blue",
+        "arc:warship-island",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:straw-hat-pirates",
+        "character:monkey-d-luffy",
+        "character:roronoa-zoro",
+        "character:nami",
+        "character:usopp",
+        "character:sanji"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "Usopp",
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Straw Hat Pirates",
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "Usopp",
+            "Sanji"
+          ],
+          "topicsAny": [
+            "five-person crew",
+            "pre-Grand-Line crew",
+            "show-continuity snapshot"
+          ],
+          "keywordsAny": [
+            "Straw Hat Pirates",
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "Usopp",
+            "Sanji",
+            "five-person crew",
+            "pre-Grand-Line crew",
+            "show-continuity snapshot",
+            "before Chopper",
+            "before Vivi",
+            "Warship Island Arc",
+            "anime-only",
+            "show continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Warship Island uses the five-person East Blue Straw Hat crew before Vivi or Chopper join the active cast.",
+        "injection": "Use the crew snapshot for anime-continuity scenes only: Luffy, Zoro, Nami, Usopp, and Sanji solve the detour with early-crew dynamics.",
+        "constraints": [
+          "Keep this card inside Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler material.",
+          "Treat this as show-continuity support, not manga-primary fact."
+        ],
+        "antiLore": [
+          "Do not add Apis, Ryu, Sennenryu, Warship Island, Lost Island, Nelson, or Eric to manga-primary world assumptions.",
+          "Do not use this anime-only dragon lore to explain later manga dragon canon or later power-system reveals.",
+          "Do not duplicate Laboon, Crocus, Twin Cape, or core Log Pose facts from the Reverse Mountain deck.",
+          "Do not rewrite Smoker, Marine ranks, or manga-backed Marine behavior based on Nelson Royale or Branch 8."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Warship Island Arc",
+        "chapterRange": "Filler arc",
+        "episodeRange": "Anime episodes 54-61",
+        "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+        "confidence": 0.82,
+        "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-warship-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "warship-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Warship Island Arc",
+    "chapterRange": "Filler arc",
+    "episodeRange": "Anime episodes 54-61",
+    "reference": "https://onepiece.fandom.com/wiki/Warship_Island_Arc",
+    "confidence": 0.82,
+    "notes": "Checked against the Warship Island Arc source page and Saga authoring guidance; written as anime-continuity retrieval gates rather than a filler synopsis."
+  }
+}

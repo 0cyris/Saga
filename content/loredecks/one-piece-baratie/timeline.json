@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Baratie Arc Context anchors and windows for East Blue Saga.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.baratie.baratie",
+      "label": "Baratie Arc: Baratie and cooks",
+      "sortKey": 4000,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Baratie and cooks"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.sanji-and-zeff",
+      "label": "Baratie Arc: Sanji and Zeff",
+      "sortKey": 4100,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Sanji and Zeff"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.krieg-pirates",
+      "label": "Baratie Arc: Krieg Pirates",
+      "sortKey": 4200,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Krieg Pirates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.mihawk-and-zoro",
+      "label": "Baratie Arc: Mihawk and Zoro",
+      "sortKey": 4300,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Mihawk and Zoro"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.luffy-and-sanji",
+      "label": "Baratie Arc: Luffy and Sanji",
+      "sortKey": 4400,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Luffy and Sanji"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.nami-departure-bridge",
+      "label": "Baratie Arc: Nami departure bridge",
+      "sortKey": 4500,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Nami departure bridge"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.battle-and-set-pieces",
+      "label": "Baratie Arc: Battle and set pieces",
+      "sortKey": 4600,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Battle and set pieces"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.world-scale-and-dreams",
+      "label": "Baratie Arc: World scale and dreams",
+      "sortKey": 4700,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: World scale and dreams"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.timeline-and-spoiler-gates",
+      "label": "Baratie Arc: Timeline and spoiler gates",
+      "sortKey": 4800,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.baratie.after",
+      "label": "Baratie Arc: aftermath boundary",
+      "sortKey": 4999,
+      "arc": "Baratie Arc",
+      "phase": "East Blue Saga",
+      "chapter": "42-68",
+      "episode": "19-30",
+      "aliases": [
+        "Baratie Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.baratie.window.full",
+      "label": "Baratie Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.baratie",
+      "anchorTo": "op.baratie.after",
+      "sortKeyFrom": 4000,
+      "sortKeyTo": 4999,
+      "aliases": [
+        "Baratie Arc",
+        "baratie"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.baratie",
+      "label": "Baratie Arc: Baratie and cooks",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.baratie",
+      "anchorTo": "op.baratie.sanji-and-zeff",
+      "sortKeyFrom": 4000,
+      "sortKeyTo": 4100,
+      "aliases": [
+        "Baratie and cooks"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.sanji-and-zeff",
+      "label": "Baratie Arc: Sanji and Zeff",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.sanji-and-zeff",
+      "anchorTo": "op.baratie.krieg-pirates",
+      "sortKeyFrom": 4100,
+      "sortKeyTo": 4200,
+      "aliases": [
+        "Sanji and Zeff"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.krieg-pirates",
+      "label": "Baratie Arc: Krieg Pirates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.krieg-pirates",
+      "anchorTo": "op.baratie.mihawk-and-zoro",
+      "sortKeyFrom": 4200,
+      "sortKeyTo": 4300,
+      "aliases": [
+        "Krieg Pirates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.mihawk-and-zoro",
+      "label": "Baratie Arc: Mihawk and Zoro",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.mihawk-and-zoro",
+      "anchorTo": "op.baratie.luffy-and-sanji",
+      "sortKeyFrom": 4300,
+      "sortKeyTo": 4400,
+      "aliases": [
+        "Mihawk and Zoro"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.luffy-and-sanji",
+      "label": "Baratie Arc: Luffy and Sanji",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.luffy-and-sanji",
+      "anchorTo": "op.baratie.nami-departure-bridge",
+      "sortKeyFrom": 4400,
+      "sortKeyTo": 4500,
+      "aliases": [
+        "Luffy and Sanji"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.nami-departure-bridge",
+      "label": "Baratie Arc: Nami departure bridge",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.nami-departure-bridge",
+      "anchorTo": "op.baratie.battle-and-set-pieces",
+      "sortKeyFrom": 4500,
+      "sortKeyTo": 4600,
+      "aliases": [
+        "Nami departure bridge"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.battle-and-set-pieces",
+      "label": "Baratie Arc: Battle and set pieces",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.battle-and-set-pieces",
+      "anchorTo": "op.baratie.world-scale-and-dreams",
+      "sortKeyFrom": 4600,
+      "sortKeyTo": 4700,
+      "aliases": [
+        "Battle and set pieces"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.world-scale-and-dreams",
+      "label": "Baratie Arc: World scale and dreams",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.world-scale-and-dreams",
+      "anchorTo": "op.baratie.timeline-and-spoiler-gates",
+      "sortKeyFrom": 4700,
+      "sortKeyTo": 4800,
+      "aliases": [
+        "World scale and dreams"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.baratie.window.timeline-and-spoiler-gates",
+      "label": "Baratie Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.baratie.timeline-and-spoiler-gates",
+      "anchorTo": "op.baratie.after",
+      "sortKeyFrom": 4800,
+      "sortKeyTo": 4999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "east-blue"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "baratie"
+      ]
+    }
+  ]
+}

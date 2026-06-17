@@ -1,0 +1,1513 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:acamarians": {
+      "type": "faction",
+      "label": "Acamarians",
+      "aliases": [
+        "Acamarians"
+      ],
+      "canonicalNames": [
+        "Acamarians"
+      ],
+      "tags": [
+        "faction:acamarians"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:alidar-jarok": {
+      "type": "character",
+      "label": "Alidar Jarok",
+      "aliases": [
+        "Alidar Jarok"
+      ],
+      "canonicalNames": [
+        "Alidar Jarok"
+      ],
+      "tags": [
+        "character:alidar-jarok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:angosia-iii": {
+      "type": "faction",
+      "label": "Angosia III",
+      "aliases": [
+        "Angosia III"
+      ],
+      "canonicalNames": [
+        "Angosia III"
+      ],
+      "tags": [
+        "faction:angosia-iii"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:anthony-haftel": {
+      "type": "character",
+      "label": "Anthony Haftel",
+      "aliases": [
+        "Anthony Haftel"
+      ],
+      "canonicalNames": [
+        "Anthony Haftel"
+      ],
+      "tags": [
+        "character:anthony-haftel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:arridor": {
+      "type": "character",
+      "label": "Arridor",
+      "aliases": [
+        "Arridor"
+      ],
+      "canonicalNames": [
+        "Arridor"
+      ],
+      "tags": [
+        "character:arridor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:beverly-crusher": {
+      "type": "character",
+      "label": "Beverly Crusher",
+      "aliases": [
+        "Beverly Crusher"
+      ],
+      "canonicalNames": [
+        "Beverly Crusher"
+      ],
+      "tags": [
+        "character:beverly-crusher"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:bochra": {
+      "type": "character",
+      "label": "Bochra",
+      "aliases": [
+        "Bochra"
+      ],
+      "canonicalNames": [
+        "Bochra"
+      ],
+      "tags": [
+        "character:bochra"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:borg-collective": {
+      "type": "faction",
+      "label": "Borg Collective",
+      "aliases": [
+        "Borg Collective"
+      ],
+      "canonicalNames": [
+        "Borg Collective"
+      ],
+      "tags": [
+        "faction:borg-collective"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:data": {
+      "type": "character",
+      "label": "Data",
+      "aliases": [
+        "Data"
+      ],
+      "canonicalNames": [
+        "Data"
+      ],
+      "tags": [
+        "character:data"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:deanna-troi": {
+      "type": "character",
+      "label": "Deanna Troi",
+      "aliases": [
+        "Deanna Troi"
+      ],
+      "canonicalNames": [
+        "Deanna Troi"
+      ],
+      "tags": [
+        "character:deanna-troi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:devinoni-ral": {
+      "type": "character",
+      "label": "Devinoni Ral",
+      "aliases": [
+        "Devinoni Ral"
+      ],
+      "canonicalNames": [
+        "Devinoni Ral"
+      ],
+      "tags": [
+        "character:devinoni-ral"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:duras": {
+      "type": "character",
+      "label": "Duras",
+      "aliases": [
+        "Duras"
+      ],
+      "canonicalNames": [
+        "Duras"
+      ],
+      "tags": [
+        "character:duras"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:elizabeth-shelby": {
+      "type": "character",
+      "label": "Elizabeth Shelby",
+      "aliases": [
+        "Elizabeth Shelby"
+      ],
+      "canonicalNames": [
+        "Elizabeth Shelby"
+      ],
+      "tags": [
+        "character:elizabeth-shelby"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:ferengi-alliance": {
+      "type": "faction",
+      "label": "Ferengi Alliance",
+      "aliases": [
+        "Ferengi Alliance"
+      ],
+      "canonicalNames": [
+        "Ferengi Alliance"
+      ],
+      "tags": [
+        "faction:ferengi-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:geordi-la-forge": {
+      "type": "character",
+      "label": "Geordi La Forge",
+      "aliases": [
+        "Geordi La Forge"
+      ],
+      "canonicalNames": [
+        "Geordi La Forge"
+      ],
+      "tags": [
+        "character:geordi-la-forge"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:guinan": {
+      "type": "character",
+      "label": "Guinan",
+      "aliases": [
+        "Guinan"
+      ],
+      "canonicalNames": [
+        "Guinan"
+      ],
+      "tags": [
+        "character:guinan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:jean-luc-picard": {
+      "type": "character",
+      "label": "Jean-Luc Picard",
+      "aliases": [
+        "Jean-Luc Picard"
+      ],
+      "canonicalNames": [
+        "Jean-Luc Picard"
+      ],
+      "tags": [
+        "character:jean-luc-picard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:jeremy-aster": {
+      "type": "character",
+      "label": "Jeremy Aster",
+      "aliases": [
+        "Jeremy Aster"
+      ],
+      "canonicalNames": [
+        "Jeremy Aster"
+      ],
+      "tags": [
+        "character:jeremy-aster"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:john-doe": {
+      "type": "character",
+      "label": "John Doe",
+      "aliases": [
+        "John Doe"
+      ],
+      "canonicalNames": [
+        "John Doe"
+      ],
+      "tags": [
+        "character:john-doe"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:kevin-uxbridge": {
+      "type": "character",
+      "label": "Kevin Uxbridge",
+      "aliases": [
+        "Kevin Uxbridge"
+      ],
+      "canonicalNames": [
+        "Kevin Uxbridge"
+      ],
+      "tags": [
+        "character:kevin-uxbridge"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:kivas-fajo": {
+      "type": "character",
+      "label": "Kivas Fajo",
+      "aliases": [
+        "Kivas Fajo"
+      ],
+      "canonicalNames": [
+        "Kivas Fajo"
+      ],
+      "tags": [
+        "character:kivas-fajo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:kol": {
+      "type": "character",
+      "label": "Kol",
+      "aliases": [
+        "Kol"
+      ],
+      "canonicalNames": [
+        "Kol"
+      ],
+      "tags": [
+        "character:kol"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:kurn": {
+      "type": "character",
+      "label": "Kurn",
+      "aliases": [
+        "Kurn"
+      ],
+      "canonicalNames": [
+        "Kurn"
+      ],
+      "tags": [
+        "character:kurn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:lal": {
+      "type": "character",
+      "label": "Lal",
+      "aliases": [
+        "Lal"
+      ],
+      "canonicalNames": [
+        "Lal"
+      ],
+      "tags": [
+        "character:lal"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:leah-brahms": {
+      "type": "character",
+      "label": "Leah Brahms",
+      "aliases": [
+        "Leah Brahms"
+      ],
+      "canonicalNames": [
+        "Leah Brahms"
+      ],
+      "tags": [
+        "character:leah-brahms"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:liko": {
+      "type": "character",
+      "label": "Liko",
+      "aliases": [
+        "Liko"
+      ],
+      "canonicalNames": [
+        "Liko"
+      ],
+      "tags": [
+        "character:liko"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:locutus": {
+      "type": "character",
+      "label": "Locutus",
+      "aliases": [
+        "Locutus"
+      ],
+      "canonicalNames": [
+        "Locutus"
+      ],
+      "tags": [
+        "character:locutus"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:lore": {
+      "type": "character",
+      "label": "Lore",
+      "aliases": [
+        "Lore"
+      ],
+      "canonicalNames": [
+        "Lore"
+      ],
+      "tags": [
+        "character:lore"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:lwaxana-troi": {
+      "type": "character",
+      "label": "Lwaxana Troi",
+      "aliases": [
+        "Lwaxana Troi"
+      ],
+      "canonicalNames": [
+        "Lwaxana Troi"
+      ],
+      "tags": [
+        "character:lwaxana-troi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:marla-aster": {
+      "type": "character",
+      "label": "Marla Aster",
+      "aliases": [
+        "Marla Aster"
+      ],
+      "canonicalNames": [
+        "Marla Aster"
+      ],
+      "tags": [
+        "character:marla-aster"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:natasha-yar": {
+      "type": "character",
+      "label": "Natasha Yar",
+      "aliases": [
+        "Natasha Yar"
+      ],
+      "canonicalNames": [
+        "Natasha Yar"
+      ],
+      "tags": [
+        "character:natasha-yar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:nel-apgar": {
+      "type": "character",
+      "label": "Nel Apgar",
+      "aliases": [
+        "Nel Apgar"
+      ],
+      "canonicalNames": [
+        "Nel Apgar"
+      ],
+      "tags": [
+        "character:nel-apgar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:nuria": {
+      "type": "character",
+      "label": "Nuria",
+      "aliases": [
+        "Nuria"
+      ],
+      "canonicalNames": [
+        "Nuria"
+      ],
+      "tags": [
+        "character:nuria"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:patahk": {
+      "type": "character",
+      "label": "Patahk",
+      "aliases": [
+        "Patahk"
+      ],
+      "canonicalNames": [
+        "Patahk"
+      ],
+      "tags": [
+        "character:patahk"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:paul-stubbs": {
+      "type": "character",
+      "label": "Paul Stubbs",
+      "aliases": [
+        "Paul Stubbs"
+      ],
+      "canonicalNames": [
+        "Paul Stubbs"
+      ],
+      "tags": [
+        "character:paul-stubbs"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:q": {
+      "type": "character",
+      "label": "Q",
+      "aliases": [
+        "Q"
+      ],
+      "canonicalNames": [
+        "Q"
+      ],
+      "tags": [
+        "character:q"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:q-continuum": {
+      "type": "faction",
+      "label": "Q Continuum",
+      "aliases": [
+        "Q Continuum"
+      ],
+      "canonicalNames": [
+        "Q Continuum"
+      ],
+      "tags": [
+        "faction:q-continuum"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:rachel-garrett": {
+      "type": "character",
+      "label": "Rachel Garrett",
+      "aliases": [
+        "Rachel Garrett"
+      ],
+      "canonicalNames": [
+        "Rachel Garrett"
+      ],
+      "tags": [
+        "character:rachel-garrett"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:reginald-barclay": {
+      "type": "character",
+      "label": "Reginald Barclay",
+      "aliases": [
+        "Reginald Barclay"
+      ],
+      "canonicalNames": [
+        "Reginald Barclay"
+      ],
+      "tags": [
+        "character:reginald-barclay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:rishon-uxbridge": {
+      "type": "character",
+      "label": "Rishon Uxbridge",
+      "aliases": [
+        "Rishon Uxbridge"
+      ],
+      "canonicalNames": [
+        "Rishon Uxbridge"
+      ],
+      "tags": [
+        "character:rishon-uxbridge"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:roga-danar": {
+      "type": "character",
+      "label": "Roga Danar",
+      "aliases": [
+        "Roga Danar"
+      ],
+      "canonicalNames": [
+        "Roga Danar"
+      ],
+      "tags": [
+        "character:roga-danar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:romulan-star-empire": {
+      "type": "faction",
+      "label": "Romulan Star Empire",
+      "aliases": [
+        "Romulan Star Empire"
+      ],
+      "canonicalNames": [
+        "Romulan Star Empire"
+      ],
+      "tags": [
+        "faction:romulan-star-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:sarek": {
+      "type": "character",
+      "label": "Sarek",
+      "aliases": [
+        "Sarek"
+      ],
+      "canonicalNames": [
+        "Sarek"
+      ],
+      "tags": [
+        "character:sarek"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:sheliak-corporate": {
+      "type": "faction",
+      "label": "Sheliak Corporate",
+      "aliases": [
+        "Sheliak Corporate"
+      ],
+      "canonicalNames": [
+        "Sheliak Corporate"
+      ],
+      "tags": [
+        "faction:sheliak-corporate"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:spock": {
+      "type": "character",
+      "label": "Spock",
+      "aliases": [
+        "Spock"
+      ],
+      "canonicalNames": [
+        "Spock"
+      ],
+      "tags": [
+        "character:spock"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:tam-elbrun": {
+      "type": "character",
+      "label": "Tam Elbrun",
+      "aliases": [
+        "Tam Elbrun"
+      ],
+      "canonicalNames": [
+        "Tam Elbrun"
+      ],
+      "tags": [
+        "character:tam-elbrun"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:tasha-yar": {
+      "type": "character",
+      "label": "Tasha Yar",
+      "aliases": [
+        "Tasha Yar"
+      ],
+      "canonicalNames": [
+        "Tasha Yar"
+      ],
+      "tags": [
+        "character:tasha-yar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:tomalak": {
+      "type": "character",
+      "label": "Tomalak",
+      "aliases": [
+        "Tomalak"
+      ],
+      "canonicalNames": [
+        "Tomalak"
+      ],
+      "tags": [
+        "character:tomalak"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:united-federation-of-planets": {
+      "type": "faction",
+      "label": "United Federation of Planets",
+      "aliases": [
+        "United Federation of Planets"
+      ],
+      "canonicalNames": [
+        "United Federation of Planets"
+      ],
+      "tags": [
+        "faction:united-federation-of-planets"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:vash": {
+      "type": "character",
+      "label": "Vash",
+      "aliases": [
+        "Vash"
+      ],
+      "canonicalNames": [
+        "Vash"
+      ],
+      "tags": [
+        "character:vash"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:vulcans": {
+      "type": "faction",
+      "label": "Vulcans",
+      "aliases": [
+        "Vulcans"
+      ],
+      "canonicalNames": [
+        "Vulcans"
+      ],
+      "tags": [
+        "faction:vulcans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:wesley-crusher": {
+      "type": "character",
+      "label": "Wesley Crusher",
+      "aliases": [
+        "Wesley Crusher"
+      ],
+      "canonicalNames": [
+        "Wesley Crusher"
+      ],
+      "tags": [
+        "character:wesley-crusher"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:william-riker": {
+      "type": "character",
+      "label": "William Riker",
+      "aliases": [
+        "William Riker"
+      ],
+      "canonicalNames": [
+        "William Riker"
+      ],
+      "tags": [
+        "character:william-riker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:worf": {
+      "type": "character",
+      "label": "Worf",
+      "aliases": [
+        "Worf"
+      ],
+      "canonicalNames": [
+        "Worf"
+      ],
+      "tags": [
+        "character:worf"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:yuta": {
+      "type": "character",
+      "label": "Yuta",
+      "aliases": [
+        "Yuta"
+      ],
+      "canonicalNames": [
+        "Yuta"
+      ],
+      "tags": [
+        "character:yuta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    },
+    "st:zalkonians": {
+      "type": "faction",
+      "label": "Zalkonians",
+      "aliases": [
+        "Zalkonians"
+      ],
+      "canonicalNames": [
+        "Zalkonians"
+      ],
+      "tags": [
+        "faction:zalkonians"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 3."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.78
+      },
+      "extensions": {}
+    }
+  }
+}

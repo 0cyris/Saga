@@ -1,0 +1,1315 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s1_progress-episode-gate",
+      "title": "Progress anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 51,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s1.e14.progress",
+        "validToAnchor": "ds9.s1.e15.if-wishes-were-horses",
+        "series": "DS9",
+        "season": "1",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 21260,
+        "sortKeyTo": 21280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 1: Progress",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s1",
+          "label": "DS9 season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s1.e14.progress",
+          "label": "Progress",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:quark",
+          "st:nog",
+          "st:broik",
+          "st:jake",
+          "st:bajor",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Quark",
+          "Nog",
+          "Broik",
+          "Jake",
+          "Bajor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Quark",
+          "Broik",
+          "wrappage",
+          "Cardassian",
+          "yamok sauce",
+          "Jake"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-progress",
+        "character:quark",
+        "character:nog",
+        "character:broik",
+        "character:jake",
+        "character:bajor",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:quark",
+        "topic:broik",
+        "topic:wrappage",
+        "topic:cardassian",
+        "topic:yamok-sauce",
+        "topic:jake"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Quark",
+            "Nog",
+            "Broik",
+            "Jake",
+            "Bajor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Quark",
+            "Nog",
+            "Broik",
+            "Jake",
+            "Bajor",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Quark",
+            "Broik",
+            "wrappage",
+            "Cardassian",
+            "yamok sauce",
+            "Jake"
+          ],
+          "keywordsAny": [
+            "Quark",
+            "Nog",
+            "Broik",
+            "Jake",
+            "Bajor",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "wrappage",
+            "Cardassian",
+            "yamok sauce",
+            "Progress",
+            "DS9 season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 1, Memory Alpha story rows 1-19, runtime episode aliases 1-19, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Progress (46844.3 (2369)) is Memory Alpha story row 14 for this season. Progress is a DS9 season 1 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use Progress as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Quark.",
+        "constraints": [
+          "Keep this card inside DS9 season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Progress",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Progress_(episode)",
+        "stardate": "46844.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s1_if-wishes-were-horses-episode-gate",
+      "title": "If Wishes Were Horses anchors Bajoran occupation/religion gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s1.e15.if-wishes-were-horses",
+        "validToAnchor": "ds9.s1.e16.the-forsaken",
+        "series": "DS9",
+        "season": "1",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 21280,
+        "sortKeyTo": 21300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 1: If Wishes Were Horses",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s1",
+          "label": "DS9 season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s1.e15.if-wishes-were-horses",
+          "label": "If Wishes Were Horses",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:jake-sisko",
+          "st:shapeshifter",
+          "st:tris-speaker",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Jake Sisko",
+          "Shapeshifter",
+          "Tris Speaker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "Quark",
+          "Odo",
+          "holosuite",
+          "Shapeshifter",
+          "Jake Sisko",
+          "baseball player",
+          "If Wishes Were Horses"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-if-wishes-were-horses",
+        "character:odo",
+        "character:quark",
+        "character:jake-sisko",
+        "character:shapeshifter",
+        "character:tris-speaker",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:quark",
+        "topic:odo",
+        "topic:holosuite",
+        "topic:shapeshifter",
+        "topic:jake-sisko",
+        "topic:baseball-player",
+        "topic:if-wishes-were-horses"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Shapeshifter",
+            "Tris Speaker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Shapeshifter",
+            "Tris Speaker",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "Quark",
+            "Odo",
+            "holosuite",
+            "Shapeshifter",
+            "Jake Sisko",
+            "baseball player",
+            "If Wishes Were Horses"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Shapeshifter",
+            "Tris Speaker",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "holosuite",
+            "baseball player",
+            "If Wishes Were Horses",
+            "DS9 season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 1, Memory Alpha story rows 1-19, runtime episode aliases 1-19, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "If Wishes Were Horses (46853.2 (2369)) is Memory Alpha story row 15 for this season. If Wishes Were Horses is a DS9 season 1 story gate centered on Bajoran occupation/religion gate; the evidence marks Bajoran occupation/religion gate.",
+        "injection": "Use If Wishes Were Horses as the active episode Context gate when scenes reference Bajoran occupation/religion gate, Quark, Odo.",
+        "constraints": [
+          "Keep this card inside DS9 season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "If Wishes Were Horses",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/If_Wishes_Were_Horses_(episode)",
+        "stardate": "46853.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s1_the-forsaken-episode-gate",
+      "title": "The Forsaken anchors wormhole/anomaly route gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s1.e16.the-forsaken",
+        "validToAnchor": "ds9.s1.e17.dramatis-personae",
+        "series": "DS9",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 21300,
+        "sortKeyTo": 21320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 1: The Forsaken",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s1",
+          "label": "DS9 season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s1.e16.the-forsaken",
+          "label": "The Forsaken",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:quark",
+          "st:dr",
+          "st:julian-bashir",
+          "st:quarks",
+          "st:lojal",
+          "st:starfleet",
+          "st:vulcans",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Quark",
+          "Dr.",
+          "Julian Bashir",
+          "Quark's",
+          "Lojal"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Vulcans",
+          "Bajorans"
+        ],
+        "topics": [
+          "wormhole/anomaly route gate",
+          "the wormhole",
+          "Dr.",
+          "Bashir",
+          "Quark's",
+          "Lojal",
+          "Vulcan",
+          "The Forsaken"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-the-forsaken",
+        "character:quark",
+        "character:dr",
+        "character:julian-bashir",
+        "character:quarks",
+        "character:lojal",
+        "faction:starfleet",
+        "faction:vulcans",
+        "faction:bajorans",
+        "topic:wormholeanomaly-route-gate",
+        "topic:the-wormhole",
+        "topic:dr",
+        "topic:bashir",
+        "topic:quarks",
+        "topic:lojal",
+        "topic:vulcan",
+        "topic:the-forsaken"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Quark",
+            "Dr.",
+            "Julian Bashir",
+            "Quark's",
+            "Lojal"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Vulcans",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Quark",
+            "Dr.",
+            "Julian Bashir",
+            "Quark's",
+            "Lojal",
+            "Starfleet",
+            "Vulcans",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "wormhole/anomaly route gate",
+            "the wormhole",
+            "Dr.",
+            "Bashir",
+            "Quark's",
+            "Lojal",
+            "Vulcan",
+            "The Forsaken"
+          ],
+          "keywordsAny": [
+            "Quark",
+            "Dr.",
+            "Julian Bashir",
+            "Quark's",
+            "Lojal",
+            "Starfleet",
+            "Vulcans",
+            "Bajorans",
+            "wormhole/anomaly route gate",
+            "the wormhole",
+            "Bashir",
+            "Vulcan",
+            "The Forsaken",
+            "DS9 season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 1, Memory Alpha story rows 1-19, runtime episode aliases 1-19, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Forsaken (46925.1 (2369)) is Memory Alpha story row 16 for this season. The Forsaken is a DS9 season 1 story gate centered on wormhole/anomaly route gate; the evidence marks wormhole/anomaly route gate.",
+        "injection": "Use The Forsaken as the active episode Context gate when scenes reference wormhole/anomaly route gate, the wormhole, Dr..",
+        "constraints": [
+          "Keep this card inside DS9 season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Forsaken",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Forsaken_(episode)",
+        "stardate": "46925.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s1_dramatis-personae-episode-gate",
+      "title": "Dramatis Personae anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s1.e17.dramatis-personae",
+        "validToAnchor": "ds9.s1.e18.duet",
+        "series": "DS9",
+        "season": "1",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 21320,
+        "sortKeyTo": 21340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 1: Dramatis Personae",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s1",
+          "label": "DS9 season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s1.e17.dramatis-personae",
+          "label": "Dramatis Personae",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:benjamin-sisko",
+          "st:valerian",
+          "st:miles-obrien",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Benjamin Sisko",
+          "Valerian",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Sisko",
+          "Major",
+          "Kira Nerys",
+          "Valerian freighter",
+          "station",
+          "Valerian"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-dramatis-personae",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:benjamin-sisko",
+        "character:valerian",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:sisko",
+        "topic:major",
+        "topic:kira-nerys",
+        "topic:valerian-freighter",
+        "topic:station",
+        "topic:valerian"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Valerian",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Valerian",
+            "Miles O'Brien",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Sisko",
+            "Major",
+            "Kira Nerys",
+            "Valerian freighter",
+            "station",
+            "Valerian"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Valerian",
+            "Miles O'Brien",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Sisko",
+            "Major",
+            "Valerian freighter",
+            "station",
+            "Dramatis Personae",
+            "DS9 season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 1, Memory Alpha story rows 1-19, runtime episode aliases 1-19, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Dramatis Personae (46922.3 (2369)) is Memory Alpha story row 17 for this season. Dramatis Personae is a DS9 season 1 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use Dramatis Personae as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Sisko.",
+        "constraints": [
+          "Keep this card inside DS9 season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Dramatis Personae",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dramatis_Personae_(episode)",
+        "stardate": "46922.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s1_duet-episode-gate",
+      "title": "Duet anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s1.e18.duet",
+        "validToAnchor": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "series": "DS9",
+        "season": "1",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 21340,
+        "sortKeyTo": 21360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 1: Duet",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s1",
+          "label": "DS9 season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s1.e18.duet",
+          "label": "Duet",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:kobheerian",
+          "st:rak-miunis",
+          "st:kalla-nohra-syndrome",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Kobheerian",
+          "Rak-Miunis",
+          "Kalla-Nohra Syndrome"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Ops",
+          "Major",
+          "Kira",
+          "Dax",
+          "Kobheerian",
+          "freighter"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-duet",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:kobheerian",
+        "character:rak-miunis",
+        "character:kalla-nohra-syndrome",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:ops",
+        "topic:major",
+        "topic:kira",
+        "topic:dax",
+        "topic:kobheerian",
+        "topic:freighter"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Kobheerian",
+            "Rak-Miunis",
+            "Kalla-Nohra Syndrome"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Kobheerian",
+            "Rak-Miunis",
+            "Kalla-Nohra Syndrome",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Ops",
+            "Major",
+            "Kira",
+            "Dax",
+            "Kobheerian",
+            "freighter"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Kobheerian",
+            "Rak-Miunis",
+            "Kalla-Nohra Syndrome",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Ops",
+            "Major",
+            "Kira",
+            "Dax",
+            "freighter",
+            "Duet",
+            "DS9 season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 1, Memory Alpha story rows 1-19, runtime episode aliases 1-19, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Duet (Unknown (2369)) is Memory Alpha story row 18 for this season. Duet is a DS9 season 1 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use Duet as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Ops.",
+        "constraints": [
+          "Keep this card inside DS9 season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Duet",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Duet_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s1_in-the-hands-of-the-prophets-episode-gate",
+      "title": "In the Hands of the Prophets anchors Bajoran occupation/religion gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "validToAnchor": "ds9.s1.e19.in-the-hands-of-the-prophets",
+        "series": "DS9",
+        "season": "1",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 21360,
+        "sortKeyTo": 21360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 1: In the Hands of the Prophets",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s1",
+          "label": "DS9 season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s1.e19.in-the-hands-of-the-prophets",
+          "label": "In the Hands of the Prophets",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:keiko-obrien",
+          "st:miles-obrien",
+          "st:promenade",
+          "st:neela",
+          "st:vedek",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Keiko O'Brien",
+          "Miles O'Brien",
+          "Promenade",
+          "Neela",
+          "Vedek"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "Prophets/Emissary gate",
+          "Bajoran wormhole route gate",
+          "wormhole/anomaly route gate",
+          "Deep Space 9",
+          "Keiko O'Brien",
+          "school",
+          "Chief"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s1-in-the-hands-of-the-prophets",
+        "character:keiko-obrien",
+        "character:miles-obrien",
+        "character:promenade",
+        "character:neela",
+        "character:vedek",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:prophetsemissary-gate",
+        "topic:bajoran-wormhole-route-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:deep-space-9",
+        "topic:keiko-obrien",
+        "topic:school",
+        "topic:chief"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Keiko O'Brien",
+            "Miles O'Brien",
+            "Promenade",
+            "Neela",
+            "Vedek"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Keiko O'Brien",
+            "Miles O'Brien",
+            "Promenade",
+            "Neela",
+            "Vedek",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Bajoran wormhole route gate",
+            "wormhole/anomaly route gate",
+            "Deep Space 9",
+            "Keiko O'Brien",
+            "school",
+            "Chief"
+          ],
+          "keywordsAny": [
+            "Keiko O'Brien",
+            "Miles O'Brien",
+            "Promenade",
+            "Neela",
+            "Vedek",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Bajoran wormhole route gate",
+            "wormhole/anomaly route gate",
+            "Deep Space 9",
+            "school",
+            "Chief",
+            "In the Hands of the Prophets",
+            "DS9 season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 1, Memory Alpha story rows 1-19, runtime episode aliases 1-19, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "In the Hands of the Prophets (Unknown (2369)) is Memory Alpha story row 19 for this season. In the Hands of the Prophets is a DS9 season 1 story gate centered on Bajoran occupation/religion gate; the evidence marks Bajoran occupation/religion gate; Prophets/Emissary gate; Bajoran wormhole route gate; wormhole/anomaly route gate.",
+        "injection": "Use In the Hands of the Prophets as the active episode Context gate when scenes reference Bajoran occupation/religion gate, Prophets/Emissary gate, Bajoran wormhole route gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "In the Hands of the Prophets",
+        "series": "DS9",
+        "season": 1,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_the_Hands_of_the_Prophets_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

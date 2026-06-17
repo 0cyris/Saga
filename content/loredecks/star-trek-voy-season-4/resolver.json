@@ -1,0 +1,1483 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: Voyager season 4 Context from episode titles, story rows, runtime aliases, and common VOY S4 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer VOY season 4 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "scorpion, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 4 scorpion, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "voy s4 scorpion, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "voy 4x01 story",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "voy s04 story 01",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "voy 4x01",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "voy s04e01",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 1",
+      "result": {
+        "anchorFrom": "voy.s4.e01.scorpion-part-ii",
+        "label": "Scorpion, Part II"
+      }
+    },
+    {
+      "pattern": "the gift",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "voy season 4 the gift",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "voy s4 the gift",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "voy 4x02 story",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "voy s04 story 02",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "voy 4x02",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "voy s04e02",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 2",
+      "result": {
+        "anchorFrom": "voy.s4.e02.the-gift",
+        "label": "The Gift"
+      }
+    },
+    {
+      "pattern": "day of honor",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "voy season 4 day of honor",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "voy s4 day of honor",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "voy 4x03 story",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "voy s04 story 03",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "voy 4x03",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "voy s04e03",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 3",
+      "result": {
+        "anchorFrom": "voy.s4.e03.day-of-honor",
+        "label": "Day of Honor"
+      }
+    },
+    {
+      "pattern": "nemesis",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "voy season 4 nemesis",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "voy s4 nemesis",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "voy 4x04 story",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "voy s04 story 04",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "voy 4x04",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "voy s04e04",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 4",
+      "result": {
+        "anchorFrom": "voy.s4.e04.nemesis",
+        "label": "Nemesis"
+      }
+    },
+    {
+      "pattern": "revulsion",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "voy season 4 revulsion",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "voy s4 revulsion",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "voy 4x05 story",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "voy s04 story 05",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "voy 4x05",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "voy s04e05",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 5",
+      "result": {
+        "anchorFrom": "voy.s4.e05.revulsion",
+        "label": "Revulsion"
+      }
+    },
+    {
+      "pattern": "the raven",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "voy season 4 the raven",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "voy s4 the raven",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "voy 4x06 story",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "voy s04 story 06",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "voy 4x06",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "voy s04e06",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 6",
+      "result": {
+        "anchorFrom": "voy.s4.e06.the-raven",
+        "label": "The Raven"
+      }
+    },
+    {
+      "pattern": "scientific method",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "voy season 4 scientific method",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "voy s4 scientific method",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "voy 4x07 story",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "voy s04 story 07",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "voy 4x07",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "voy s04e07",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 7",
+      "result": {
+        "anchorFrom": "voy.s4.e07.scientific-method",
+        "label": "Scientific Method"
+      }
+    },
+    {
+      "pattern": "year of hell",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "voy season 4 year of hell",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "voy s4 year of hell",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "voy 4x08 story",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "voy s04 story 08",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "voy 4x08",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "voy s04e08",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 8",
+      "result": {
+        "anchorFrom": "voy.s4.e08.year-of-hell",
+        "label": "Year of Hell"
+      }
+    },
+    {
+      "pattern": "year of hell, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 4 year of hell, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "voy s4 year of hell, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "voy 4x09 story",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "voy s04 story 09",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "voy 4x09",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "voy s04e09",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 9",
+      "result": {
+        "anchorFrom": "voy.s4.e09.year-of-hell-part-ii",
+        "label": "Year of Hell, Part II"
+      }
+    },
+    {
+      "pattern": "random thoughts",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "voy season 4 random thoughts",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "voy s4 random thoughts",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "voy 4x10 story",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "voy s04 story 10",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "voy 4x10",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "voy s04e10",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 10",
+      "result": {
+        "anchorFrom": "voy.s4.e10.random-thoughts",
+        "label": "Random Thoughts"
+      }
+    },
+    {
+      "pattern": "concerning flight",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "voy season 4 concerning flight",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "voy s4 concerning flight",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "voy 4x11 story",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "voy s04 story 11",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "voy 4x11",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "voy s04e11",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 11",
+      "result": {
+        "anchorFrom": "voy.s4.e11.concerning-flight",
+        "label": "Concerning Flight"
+      }
+    },
+    {
+      "pattern": "mortal coil",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "voy season 4 mortal coil",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "voy s4 mortal coil",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "voy 4x12 story",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "voy s04 story 12",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "voy 4x12",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "voy s04e12",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 12",
+      "result": {
+        "anchorFrom": "voy.s4.e12.mortal-coil",
+        "label": "Mortal Coil"
+      }
+    },
+    {
+      "pattern": "waking moments",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "voy season 4 waking moments",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "voy s4 waking moments",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "voy 4x13 story",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "voy s04 story 13",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "voy 4x13",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "voy s04e13",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 13",
+      "result": {
+        "anchorFrom": "voy.s4.e13.waking-moments",
+        "label": "Waking Moments"
+      }
+    },
+    {
+      "pattern": "message in a bottle",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "voy season 4 message in a bottle",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "voy s4 message in a bottle",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "voy 4x14 story",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "voy s04 story 14",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "voy 4x14",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "voy s04e14",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 14",
+      "result": {
+        "anchorFrom": "voy.s4.e14.message-in-a-bottle",
+        "label": "Message in a Bottle"
+      }
+    },
+    {
+      "pattern": "hunters",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "voy season 4 hunters",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "voy s4 hunters",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "voy 4x15 story",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "voy s04 story 15",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "voy 4x15",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "voy s04e15",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 15",
+      "result": {
+        "anchorFrom": "voy.s4.e15.hunters",
+        "label": "Hunters"
+      }
+    },
+    {
+      "pattern": "prey",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "voy season 4 prey",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "voy s4 prey",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "voy 4x16 story",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "voy s04 story 16",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "voy 4x16",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "voy s04e16",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 16",
+      "result": {
+        "anchorFrom": "voy.s4.e16.prey",
+        "label": "Prey"
+      }
+    },
+    {
+      "pattern": "retrospect",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "voy season 4 retrospect",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "voy s4 retrospect",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "voy 4x17 story",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "voy s04 story 17",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "voy 4x17",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "voy s04e17",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 17",
+      "result": {
+        "anchorFrom": "voy.s4.e17.retrospect",
+        "label": "Retrospect"
+      }
+    },
+    {
+      "pattern": "the killing game",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "voy season 4 the killing game",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "voy s4 the killing game",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "voy 4x18 story",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "voy s04 story 18",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "voy 4x18",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "voy s04e18",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 18",
+      "result": {
+        "anchorFrom": "voy.s4.e18.the-killing-game",
+        "label": "The Killing Game"
+      }
+    },
+    {
+      "pattern": "the killing game, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 4 the killing game, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "voy s4 the killing game, part ii",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "voy 4x19 story",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "voy s04 story 19",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "voy 4x19",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "voy s04e19",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 19",
+      "result": {
+        "anchorFrom": "voy.s4.e19.the-killing-game-part-ii",
+        "label": "The Killing Game, Part II"
+      }
+    },
+    {
+      "pattern": "vis à vis",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "voy season 4 vis à vis",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "voy s4 vis à vis",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "voy 4x20 story",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "voy s04 story 20",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "voy 4x20",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "voy s04e20",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 20",
+      "result": {
+        "anchorFrom": "voy.s4.e20.vis-a-vis",
+        "label": "Vis à Vis"
+      }
+    },
+    {
+      "pattern": "the omega directive",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "voy season 4 the omega directive",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "voy s4 the omega directive",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "voy 4x21 story",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "voy s04 story 21",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "voy 4x21",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "voy s04e21",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 21",
+      "result": {
+        "anchorFrom": "voy.s4.e21.the-omega-directive",
+        "label": "The Omega Directive"
+      }
+    },
+    {
+      "pattern": "unforgettable",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "voy season 4 unforgettable",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "voy s4 unforgettable",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "voy 4x22 story",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "voy s04 story 22",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "voy 4x22",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "voy s04e22",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 22",
+      "result": {
+        "anchorFrom": "voy.s4.e22.unforgettable",
+        "label": "Unforgettable"
+      }
+    },
+    {
+      "pattern": "living witness",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "voy season 4 living witness",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "voy s4 living witness",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "voy 4x23 story",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "voy s04 story 23",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "voy 4x23",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "voy s04e23",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 23",
+      "result": {
+        "anchorFrom": "voy.s4.e23.living-witness",
+        "label": "Living Witness"
+      }
+    },
+    {
+      "pattern": "demon",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "voy season 4 demon",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "voy s4 demon",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "voy 4x24 story",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "voy s04 story 24",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "voy 4x24",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "voy s04e24",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 24",
+      "result": {
+        "anchorFrom": "voy.s4.e24.demon",
+        "label": "Demon"
+      }
+    },
+    {
+      "pattern": "one",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "voy season 4 one",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "voy s4 one",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "voy 4x25 story",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "voy s04 story 25",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "voy 4x25",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "voy s04e25",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 25",
+      "result": {
+        "anchorFrom": "voy.s4.e25.one",
+        "label": "One"
+      }
+    },
+    {
+      "pattern": "hope and fear",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    },
+    {
+      "pattern": "voy season 4 hope and fear",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    },
+    {
+      "pattern": "voy s4 hope and fear",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    },
+    {
+      "pattern": "voy 4x26 story",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    },
+    {
+      "pattern": "voy s04 story 26",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    },
+    {
+      "pattern": "voy 4x26",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    },
+    {
+      "pattern": "voy s04e26",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    },
+    {
+      "pattern": "voy season 4 episode 26",
+      "result": {
+        "anchorFrom": "voy.s4.e26.hope-and-fear",
+        "label": "Hope and Fear"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

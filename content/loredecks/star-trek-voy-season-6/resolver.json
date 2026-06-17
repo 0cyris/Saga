@@ -1,0 +1,1483 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: Voyager season 6 Context from episode titles, story rows, runtime aliases, and common VOY S6 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer VOY season 6 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "equinox, part ii",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 6 equinox, part ii",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "voy s6 equinox, part ii",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "voy 6x01 story",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "voy s06 story 01",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "voy 6x01",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "voy s06e01",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 1",
+      "result": {
+        "anchorFrom": "voy.s6.e01.equinox-part-ii",
+        "label": "Equinox, Part II"
+      }
+    },
+    {
+      "pattern": "survival instinct",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "voy season 6 survival instinct",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "voy s6 survival instinct",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "voy 6x02 story",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "voy s06 story 02",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "voy 6x02",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "voy s06e02",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 2",
+      "result": {
+        "anchorFrom": "voy.s6.e02.survival-instinct",
+        "label": "Survival Instinct"
+      }
+    },
+    {
+      "pattern": "barge of the dead",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "voy season 6 barge of the dead",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "voy s6 barge of the dead",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "voy 6x03 story",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "voy s06 story 03",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "voy 6x03",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "voy s06e03",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 3",
+      "result": {
+        "anchorFrom": "voy.s6.e03.barge-of-the-dead",
+        "label": "Barge of the Dead"
+      }
+    },
+    {
+      "pattern": "tinker tenor doctor spy",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "voy season 6 tinker tenor doctor spy",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "voy s6 tinker tenor doctor spy",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "voy 6x04 story",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "voy s06 story 04",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "voy 6x04",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "voy s06e04",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 4",
+      "result": {
+        "anchorFrom": "voy.s6.e04.tinker-tenor-doctor-spy",
+        "label": "Tinker Tenor Doctor Spy"
+      }
+    },
+    {
+      "pattern": "alice",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "voy season 6 alice",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "voy s6 alice",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "voy 6x05 story",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "voy s06 story 05",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "voy 6x05",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "voy s06e05",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 5",
+      "result": {
+        "anchorFrom": "voy.s6.e05.alice",
+        "label": "Alice"
+      }
+    },
+    {
+      "pattern": "riddles",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "voy season 6 riddles",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "voy s6 riddles",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "voy 6x06 story",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "voy s06 story 06",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "voy 6x06",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "voy s06e06",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 6",
+      "result": {
+        "anchorFrom": "voy.s6.e06.riddles",
+        "label": "Riddles"
+      }
+    },
+    {
+      "pattern": "dragon's teeth",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "voy season 6 dragon's teeth",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "voy s6 dragon's teeth",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "voy 6x07 story",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "voy s06 story 07",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "voy 6x07",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "voy s06e07",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 7",
+      "result": {
+        "anchorFrom": "voy.s6.e07.dragons-teeth",
+        "label": "Dragon's Teeth"
+      }
+    },
+    {
+      "pattern": "one small step",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "voy season 6 one small step",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "voy s6 one small step",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "voy 6x08 story",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "voy s06 story 08",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "voy 6x08",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "voy s06e08",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 8",
+      "result": {
+        "anchorFrom": "voy.s6.e08.one-small-step",
+        "label": "One Small Step"
+      }
+    },
+    {
+      "pattern": "the voyager conspiracy",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "voy season 6 the voyager conspiracy",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "voy s6 the voyager conspiracy",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "voy 6x09 story",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "voy s06 story 09",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "voy 6x09",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "voy s06e09",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 9",
+      "result": {
+        "anchorFrom": "voy.s6.e09.the-voyager-conspiracy",
+        "label": "The Voyager Conspiracy"
+      }
+    },
+    {
+      "pattern": "pathfinder",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "voy season 6 pathfinder",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "voy s6 pathfinder",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "voy 6x10 story",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "voy s06 story 10",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "voy 6x10",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "voy s06e10",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 10",
+      "result": {
+        "anchorFrom": "voy.s6.e10.pathfinder",
+        "label": "Pathfinder"
+      }
+    },
+    {
+      "pattern": "fair haven",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "voy season 6 fair haven",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "voy s6 fair haven",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "voy 6x11 story",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "voy s06 story 11",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "voy 6x11",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "voy s06e11",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 11",
+      "result": {
+        "anchorFrom": "voy.s6.e11.fair-haven",
+        "label": "Fair Haven"
+      }
+    },
+    {
+      "pattern": "blink of an eye",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "voy season 6 blink of an eye",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "voy s6 blink of an eye",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "voy 6x12 story",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "voy s06 story 12",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "voy 6x12",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "voy s06e12",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 12",
+      "result": {
+        "anchorFrom": "voy.s6.e12.blink-of-an-eye",
+        "label": "Blink of an Eye"
+      }
+    },
+    {
+      "pattern": "virtuoso",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "voy season 6 virtuoso",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "voy s6 virtuoso",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "voy 6x13 story",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "voy s06 story 13",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "voy 6x13",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "voy s06e13",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 13",
+      "result": {
+        "anchorFrom": "voy.s6.e13.virtuoso",
+        "label": "Virtuoso"
+      }
+    },
+    {
+      "pattern": "memorial",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "voy season 6 memorial",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "voy s6 memorial",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "voy 6x14 story",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "voy s06 story 14",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "voy 6x14",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "voy s06e14",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 14",
+      "result": {
+        "anchorFrom": "voy.s6.e14.memorial",
+        "label": "Memorial"
+      }
+    },
+    {
+      "pattern": "tsunkatse",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "voy season 6 tsunkatse",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "voy s6 tsunkatse",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "voy 6x15 story",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "voy s06 story 15",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "voy 6x15",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "voy s06e15",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 15",
+      "result": {
+        "anchorFrom": "voy.s6.e15.tsunkatse",
+        "label": "Tsunkatse"
+      }
+    },
+    {
+      "pattern": "collective",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "voy season 6 collective",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "voy s6 collective",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "voy 6x16 story",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "voy s06 story 16",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "voy 6x16",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "voy s06e16",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 16",
+      "result": {
+        "anchorFrom": "voy.s6.e16.collective",
+        "label": "Collective"
+      }
+    },
+    {
+      "pattern": "spirit folk",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "voy season 6 spirit folk",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "voy s6 spirit folk",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "voy 6x17 story",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "voy s06 story 17",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "voy 6x17",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "voy s06e17",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 17",
+      "result": {
+        "anchorFrom": "voy.s6.e17.spirit-folk",
+        "label": "Spirit Folk"
+      }
+    },
+    {
+      "pattern": "ashes to ashes",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "voy season 6 ashes to ashes",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "voy s6 ashes to ashes",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "voy 6x18 story",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "voy s06 story 18",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "voy 6x18",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "voy s06e18",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 18",
+      "result": {
+        "anchorFrom": "voy.s6.e18.ashes-to-ashes",
+        "label": "Ashes to Ashes"
+      }
+    },
+    {
+      "pattern": "child's play",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "voy season 6 child's play",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "voy s6 child's play",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "voy 6x19 story",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "voy s06 story 19",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "voy 6x19",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "voy s06e19",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 19",
+      "result": {
+        "anchorFrom": "voy.s6.e19.childs-play",
+        "label": "Child's Play"
+      }
+    },
+    {
+      "pattern": "good shepherd",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "voy season 6 good shepherd",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "voy s6 good shepherd",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "voy 6x20 story",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "voy s06 story 20",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "voy 6x20",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "voy s06e20",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 20",
+      "result": {
+        "anchorFrom": "voy.s6.e20.good-shepherd",
+        "label": "Good Shepherd"
+      }
+    },
+    {
+      "pattern": "live fast and prosper",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "voy season 6 live fast and prosper",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "voy s6 live fast and prosper",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "voy 6x21 story",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "voy s06 story 21",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "voy 6x21",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "voy s06e21",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 21",
+      "result": {
+        "anchorFrom": "voy.s6.e21.live-fast-and-prosper",
+        "label": "Live Fast and Prosper"
+      }
+    },
+    {
+      "pattern": "muse",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "voy season 6 muse",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "voy s6 muse",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "voy 6x22 story",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "voy s06 story 22",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "voy 6x22",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "voy s06e22",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 22",
+      "result": {
+        "anchorFrom": "voy.s6.e22.muse",
+        "label": "Muse"
+      }
+    },
+    {
+      "pattern": "fury",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "voy season 6 fury",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "voy s6 fury",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "voy 6x23 story",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "voy s06 story 23",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "voy 6x23",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "voy s06e23",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 23",
+      "result": {
+        "anchorFrom": "voy.s6.e23.fury",
+        "label": "Fury"
+      }
+    },
+    {
+      "pattern": "life line",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "voy season 6 life line",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "voy s6 life line",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "voy 6x24 story",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "voy s06 story 24",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "voy 6x24",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "voy s06e24",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 24",
+      "result": {
+        "anchorFrom": "voy.s6.e24.life-line",
+        "label": "Life Line"
+      }
+    },
+    {
+      "pattern": "the haunting of deck twelve",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "voy season 6 the haunting of deck twelve",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "voy s6 the haunting of deck twelve",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "voy 6x25 story",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "voy s06 story 25",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "voy 6x25",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "voy s06e25",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 25",
+      "result": {
+        "anchorFrom": "voy.s6.e25.the-haunting-of-deck-twelve",
+        "label": "The Haunting of Deck Twelve"
+      }
+    },
+    {
+      "pattern": "unimatrix zero",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    },
+    {
+      "pattern": "voy season 6 unimatrix zero",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    },
+    {
+      "pattern": "voy s6 unimatrix zero",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    },
+    {
+      "pattern": "voy 6x26 story",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    },
+    {
+      "pattern": "voy s06 story 26",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    },
+    {
+      "pattern": "voy 6x26",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    },
+    {
+      "pattern": "voy s06e26",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    },
+    {
+      "pattern": "voy season 6 episode 26",
+      "result": {
+        "anchorFrom": "voy.s6.e26.unimatrix-zero",
+        "label": "Unimatrix Zero"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

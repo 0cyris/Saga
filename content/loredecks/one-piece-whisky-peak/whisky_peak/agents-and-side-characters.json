@@ -1,0 +1,871 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_mr_5_weaponizes_explosive_bodily_products_as_an_officer_agent_022",
+      "title": "Mr. 5 Brings Explosive Officer-Agent Pressure",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.agents-and-side-characters",
+        "validToAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9448,
+        "sortKeyTo": 9560,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Mr. 5 Brings Explosive Officer-Agent Pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:mr-5",
+          "op:baroque-works",
+          "op:miss-valentine"
+        ],
+        "characters": [
+          "Mr. 5",
+          "Miss Valentine"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Mr. 5 explosive attacks",
+          "officer-agent threat",
+          "execution pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:mr-5",
+        "faction:baroque-works",
+        "character:miss-valentine",
+        "topic:trap-town",
+        "topic:officer-agents"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mr. 5",
+            "Miss Valentine"
+          ],
+          "entitiesAny": [
+            "Mr. 5",
+            "Baroque Works",
+            "Miss Valentine"
+          ],
+          "topicsAny": [
+            "Mr. 5 explosive attacks",
+            "officer-agent threat",
+            "execution pressure"
+          ],
+          "keywordsAny": [
+            "Mr. 5",
+            "Baroque Works",
+            "Miss Valentine",
+            "Mr. 5 explosive attacks",
+            "officer-agent threat",
+            "execution pressure",
+            "explosive attacks",
+            "officer agent",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Mr. 5 brings explosive attacks and officer-agent authority into Whisky Peak, raising the danger beyond the town hunters.",
+        "injection": "Use Mr. 5 as sudden escalation: his attacks are strange, destructive, and tied to Baroque Works enforcement.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_miss_valentine_uses_weight_changes_to_pressure_targets_023",
+      "title": "Miss Valentine Uses Weight Changes For Sudden Pressure",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.agents-and-side-characters",
+        "validToAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9448,
+        "sortKeyTo": 9560,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Miss Valentine Uses Weight Changes For Sudden Pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-valentine",
+          "op:baroque-works",
+          "op:mr-5"
+        ],
+        "characters": [
+          "Miss Valentine",
+          "Mr. 5"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Miss Valentine weight power",
+          "officer-agent pressure",
+          "mobility threat"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-valentine",
+        "faction:baroque-works",
+        "character:mr-5",
+        "topic:officer-agents"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Valentine",
+            "Mr. 5"
+          ],
+          "entitiesAny": [
+            "Miss Valentine",
+            "Baroque Works",
+            "Mr. 5"
+          ],
+          "topicsAny": [
+            "Miss Valentine weight power",
+            "officer-agent pressure",
+            "mobility threat"
+          ],
+          "keywordsAny": [
+            "Miss Valentine",
+            "Baroque Works",
+            "Mr. 5",
+            "Miss Valentine weight power",
+            "officer-agent pressure",
+            "mobility threat",
+            "weight changes",
+            "impact threat",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Miss Valentine uses weight changes to apply sudden pressure, mobility, and impact threat during the officer-agent attack.",
+        "injection": "Use Miss Valentine as a mobile pressure tool who can shift from evasive lightness to crushing impact.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_mr_9_shifts_from_suspicious_rogue_to_vivi_adjacent_ally_024",
+      "title": "Mr. 9 Chooses To Shield Vivi Despite Limited Context",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.agents-and-side-characters",
+        "validToAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9448,
+        "sortKeyTo": 9560,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Mr. 9 Chooses To Shield Vivi Despite Limited Context"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:mr-9",
+          "op:miss-wednesday",
+          "op:nefertari-vivi",
+          "op:mr-5"
+        ],
+        "characters": [
+          "Mr. 9",
+          "Miss Wednesday",
+          "Nefertari Vivi",
+          "Mr. 5"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Mr. 9 loyalty pivot",
+          "protect Vivi",
+          "lower agent sympathy"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:mr-9",
+        "character:miss-wednesday",
+        "character:nefertari-vivi",
+        "character:mr-5",
+        "topic:vivi-igaram"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mr. 9",
+            "Miss Wednesday",
+            "Nefertari Vivi",
+            "Mr. 5"
+          ],
+          "entitiesAny": [
+            "Mr. 9",
+            "Miss Wednesday",
+            "Nefertari Vivi",
+            "Mr. 5"
+          ],
+          "topicsAny": [
+            "Mr. 9 loyalty pivot",
+            "protect Vivi",
+            "lower agent sympathy"
+          ],
+          "keywordsAny": [
+            "Mr. 9",
+            "Miss Wednesday",
+            "Nefertari Vivi",
+            "Mr. 5",
+            "Mr. 9 loyalty pivot",
+            "protect Vivi",
+            "lower agent sympathy",
+            "loyalty pivot",
+            "shield Vivi",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Mr. 9 shifts from suspicious rogue to someone willing to shield Vivi even though he does not fully understand the larger mission.",
+        "injection": "Use Mr. 9 as a small loyalty pivot: he is not suddenly a core ally, but he chooses a side when the execution order lands.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_miss_monday_complicates_the_trap_town_opposition_025",
+      "title": "Miss Monday Complicates The Trap-Town Opposition",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.agents-and-side-characters",
+        "validToAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9448,
+        "sortKeyTo": 9560,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Miss Monday Complicates The Trap-Town Opposition"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-monday",
+          "op:baroque-works",
+          "op:miss-wednesday",
+          "op:mr-5"
+        ],
+        "characters": [
+          "Miss Monday",
+          "Miss Wednesday",
+          "Mr. 5"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Miss Monday pivot",
+          "trap town opposition",
+          "lower agent sympathy"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-monday",
+        "faction:baroque-works",
+        "character:miss-wednesday",
+        "character:mr-5",
+        "topic:trap-town",
+        "topic:vivi-igaram",
+        "topic:officer-agents"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss Monday",
+            "Miss Wednesday",
+            "Mr. 5"
+          ],
+          "entitiesAny": [
+            "Miss Monday",
+            "Baroque Works",
+            "Miss Wednesday",
+            "Mr. 5"
+          ],
+          "topicsAny": [
+            "Miss Monday pivot",
+            "trap town opposition",
+            "lower agent sympathy"
+          ],
+          "keywordsAny": [
+            "Miss Monday",
+            "Baroque Works",
+            "Miss Wednesday",
+            "Mr. 5",
+            "Miss Monday pivot",
+            "trap town opposition",
+            "lower agent sympathy",
+            "lower agent",
+            "complicates opposition",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Miss Monday begins as trap-town opposition but complicates the conflict once Vivi and Igaram become execution targets.",
+        "injection": "Use Miss Monday to show that lower agents are not all equally informed or equally committed once Baroque Works turns inward.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_whisky_peak_miss_all_sunday_appears_with_more_composure_than_the_lower_agents_026",
+      "title": "Miss All Sunday Appears Calm, Informed, And Ambiguous",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.whisky-peak.agents-and-side-characters",
+        "validToAnchor": "op.whisky-peak.crew-decision-and-pursuit",
+        "arc": "Whisky Peak Arc",
+        "arcId": "whisky-peak",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "106-114",
+        "episode": "64-67",
+        "sortKeyFrom": 9448,
+        "sortKeyTo": 9560,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Whisky Peak Arc: Miss All Sunday Appears Calm, Informed, And Ambiguous"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "whisky-peak",
+          "label": "Whisky Peak Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-all-sunday",
+          "op:baroque-works",
+          "op:nefertari-vivi",
+          "op:eternal-pose"
+        ],
+        "characters": [
+          "Miss All Sunday",
+          "Nefertari Vivi"
+        ],
+        "locations": [],
+        "objects": [
+          "Eternal Pose"
+        ],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Miss All Sunday pressure",
+          "ambiguous allegiance",
+          "Eternal Pose offer"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:whisky-peak",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:miss-all-sunday",
+        "faction:baroque-works",
+        "character:nefertari-vivi",
+        "item:eternal-pose",
+        "topic:officer-agents",
+        "topic:navigation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miss All Sunday",
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Miss All Sunday",
+            "Baroque Works",
+            "Nefertari Vivi",
+            "Eternal Pose"
+          ],
+          "topicsAny": [
+            "Miss All Sunday pressure",
+            "ambiguous allegiance",
+            "Eternal Pose offer"
+          ],
+          "keywordsAny": [
+            "Miss All Sunday",
+            "Baroque Works",
+            "Nefertari Vivi",
+            "Eternal Pose",
+            "Miss All Sunday pressure",
+            "ambiguous allegiance",
+            "Eternal Pose offer",
+            "ambiguous",
+            "Whisky Peak Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 68-69 are Koby-Meppo cover-serial material and remain outside this deck."
+      },
+      "content": {
+        "fact": "Miss All Sunday appears with more composure and information than the lower agents, pressuring the crew without openly fighting them.",
+        "injection": "Use Miss All Sunday as controlled ambiguity: she can expose knowledge, offer a route shortcut, and unsettle the crew while her real agenda stays hidden.",
+        "constraints": [
+          "Keep this card inside Whisky Peak Arc, manga chapters 106-114, anime episodes 64-67.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not import episodes 68-69 Koby-Meppo cover-serial material into this deck.",
+          "Do not reveal Baroque Works endgame plans beyond what Whisky Peak exposes.",
+          "Do not explain Miss All Sunday beyond her Whisky Peak alias, composure, pressure, and ambiguous allegiance.",
+          "Do not resolve Arabasta civil war, rebel politics, or later kingdom events inside Whisky Peak scenes.",
+          "Do not summarize Little Garden, Drum Island, or later Arabasta travel beyond the immediate route handoff."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Whisky Peak Arc",
+        "chapterRange": "Manga chapters 106-114",
+        "episodeRange": "Anime episodes 64-67",
+        "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-whisky-peak",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "whisky-peak-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Whisky Peak Arc",
+    "chapterRange": "Manga chapters 106-114",
+    "episodeRange": "Anime episodes 64-67",
+    "reference": "https://onepiece.fandom.com/wiki/Whisky_Peak_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Whisky Peak Arc source page and Saga authoring guidance; written as trap-town, identity-window, and mission-gate lore rather than an arc recap."
+  }
+}

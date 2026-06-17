@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-loguetown",
+  "type": "bundled",
+  "title": "One Piece: Loguetown Arc",
+  "description": "Reviewed manga-main Loredeck for Loguetown as East Blue threshold, Roger legacy, Smoker and Tashigi pressure, Buggy and Alvida revenge, Dragon mystery, and Grand Line departure.",
+  "fandom": "One Piece",
+  "era": "Loguetown Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-loguetown-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-loguetown",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-loguetown"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "East Blue Saga"
+    ],
+    "familyOrder": 60
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:east-blue",
+    "arc:loguetown",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga/anime",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "loguetown/loguetown.json",
+    "loguetown/smoker-and-tashigi.json",
+    "loguetown/crew-provisioning.json",
+    "loguetown/buggy-and-alvida-return.json",
+    "loguetown/execution-platform-event.json",
+    "loguetown/dragon-and-weather.json",
+    "loguetown/grand-line-threshold.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 35,
+    "categoryCounts": {
+      "character": 6,
+      "event": 8,
+      "faction": 2,
+      "item": 1,
+      "knowledge": 5,
+      "location": 7,
+      "relationship": 2,
+      "rule": 4
+    },
+    "timelineAnchorCount": 9,
+    "timelineWindowCount": 9,
+    "tagCount": 68,
+    "entityCount": 27
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Loguetown runtime-lore pass completed: cards now emphasize Roger threshold symbolism, Smoker/Tashigi pressure, returning enemy climax, Dragon mystery, provisioning, and Grand Line departure boundaries."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

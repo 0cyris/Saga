@@ -1,0 +1,885 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_koza_leads_rebels_from_a_place_of_real_grievance_and_childhood_connection_to_vivi_028",
+      "title": "Koza Leads From Real Grievance And Childhood Trust With Vivi",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "validToAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12405,
+        "sortKeyTo": 12486,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Koza Leads From Real Grievance And Childhood Trust With Vivi"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:koza",
+          "op:nefertari-vivi",
+          "op:rebel-army",
+          "op:yuba"
+        ],
+        "characters": [
+          "Koza",
+          "Nefertari Vivi"
+        ],
+        "locations": [
+          "rebel army",
+          "Yuba"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Koza rebel leader",
+          "childhood connection",
+          "real grievance"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:koza",
+        "character:nefertari-vivi",
+        "location:rebel-army",
+        "location:yuba",
+        "topic:kingdom-war",
+        "topic:vivi-leadership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Koza",
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Koza",
+            "Nefertari Vivi",
+            "rebel army",
+            "Yuba"
+          ],
+          "topicsAny": [
+            "Koza rebel leader",
+            "childhood connection",
+            "real grievance"
+          ],
+          "keywordsAny": [
+            "Koza",
+            "Nefertari Vivi",
+            "rebel army",
+            "Yuba",
+            "Koza rebel leader",
+            "childhood connection",
+            "real grievance",
+            "Vivi",
+            "rebel",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Koza leads the rebels from real grievance while carrying a childhood bond with Vivi that makes the war personally tragic.",
+        "injection": "Use Koza as a hurt citizen-leader, not a disposable rebel boss.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_toto_keeps_digging_for_water_in_yuba_despite_the_town_s_collapse_029",
+      "title": "Toto Digging In Yuba Makes The Drought Personal",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "validToAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12405,
+        "sortKeyTo": 12486,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Toto Digging In Yuba Makes The Drought Personal"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:toto",
+          "op:yuba",
+          "op:sandora-desert",
+          "op:nefertari-vivi"
+        ],
+        "characters": [
+          "Toto",
+          "Nefertari Vivi"
+        ],
+        "locations": [
+          "Yuba",
+          "Sandora Desert"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toto digging",
+          "Yuba collapse",
+          "personal drought"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:toto",
+        "location:yuba",
+        "location:sandora-desert",
+        "character:nefertari-vivi",
+        "topic:vivi-leadership",
+        "topic:desert-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toto",
+            "Nefertari Vivi"
+          ],
+          "entitiesAny": [
+            "Toto",
+            "Yuba",
+            "Sandora Desert",
+            "Nefertari Vivi"
+          ],
+          "topicsAny": [
+            "Toto digging",
+            "Yuba collapse",
+            "personal drought"
+          ],
+          "keywordsAny": [
+            "Toto",
+            "Yuba",
+            "Sandora Desert",
+            "Nefertari Vivi",
+            "Toto digging",
+            "Yuba collapse",
+            "personal drought",
+            "water",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Toto keeps digging for water in Yuba despite the town's collapse, making Arabasta's drought personal instead of abstract.",
+        "injection": "Use Toto as the face of endurance: he shows why Vivi cannot treat the rebellion as a simple misunderstanding.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_vivi_wants_to_stop_the_rebels_without_treating_them_as_enemies_030",
+      "title": "Vivi Tries To Stop Rebels Without Treating Them As Enemies",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "validToAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12405,
+        "sortKeyTo": 12486,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Vivi Tries To Stop Rebels Without Treating Them As Enemies"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nefertari-vivi",
+          "op:rebel-army",
+          "op:koza",
+          "op:royal-army"
+        ],
+        "characters": [
+          "Nefertari Vivi",
+          "Koza"
+        ],
+        "locations": [
+          "rebel army",
+          "royal army"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Vivi pacification",
+          "rebels not enemies",
+          "civil war restraint"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nefertari-vivi",
+        "location:rebel-army",
+        "character:koza",
+        "location:royal-army",
+        "topic:kingdom-war",
+        "topic:vivi-leadership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Vivi",
+            "Koza"
+          ],
+          "entitiesAny": [
+            "Nefertari Vivi",
+            "rebel army",
+            "Koza",
+            "royal army"
+          ],
+          "topicsAny": [
+            "Vivi pacification",
+            "rebels not enemies",
+            "civil war restraint"
+          ],
+          "keywordsAny": [
+            "Nefertari Vivi",
+            "rebel army",
+            "Koza",
+            "royal army",
+            "Vivi pacification",
+            "rebels not enemies",
+            "civil war restraint",
+            "Vivi",
+            "rebels",
+            "not enemies",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Vivi tries to stop the rebels without treating them as enemies because she knows they are her people.",
+        "injection": "Use this as Vivi's core scene constraint: she can oppose rebel movement while still protecting rebel lives.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_desert_travel_makes_urgency_physically_exhausting_031",
+      "title": "Luffy Forces The Yuba Pivot From Rebel-Chasing To Crocodile",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "validToAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12405,
+        "sortKeyTo": 12486,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Luffy Forces The Yuba Pivot From Rebel-Chasing To Crocodile"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:nefertari-vivi",
+          "op:crocodile",
+          "op:yuba"
+        ],
+        "characters": [
+          "Nefertari Vivi",
+          "Crocodile"
+        ],
+        "locations": [
+          "Yuba"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Yuba argument",
+          "risking lives",
+          "target Crocodile"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:monkey-d-luffy",
+        "character:nefertari-vivi",
+        "character:crocodile",
+        "location:yuba",
+        "topic:kingdom-war",
+        "topic:vivi-leadership",
+        "topic:crocodile",
+        "topic:desert-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Vivi",
+            "Crocodile"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Nefertari Vivi",
+            "Crocodile",
+            "Yuba"
+          ],
+          "topicsAny": [
+            "Yuba argument",
+            "risking lives",
+            "target Crocodile"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Nefertari Vivi",
+            "Crocodile",
+            "Yuba",
+            "Yuba argument",
+            "risking lives",
+            "target Crocodile",
+            "Luffy",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "At Yuba, Luffy forces Vivi to admit that chasing the rebels will not end Crocodile's plan; they must risk their lives against the real source.",
+        "injection": "Use the Yuba argument as a relationship turn: Luffy is harsh because he is committing the crew, not dismissing Vivi's grief.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_nanohana_introduces_the_kingdom_s_tension_before_the_capital_battle_032",
+      "title": "Ace Gives Luffy A Source-Bound Contact Token In Nanohana",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.rebels-koza-yuba-and-nanohana",
+        "validToAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12405,
+        "sortKeyTo": 12486,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Ace Gives Luffy A Source-Bound Contact Token In Nanohana"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:portgas-d-ace",
+          "op:monkey-d-luffy",
+          "op:vivre-card",
+          "op:nanohana"
+        ],
+        "characters": [
+          "Portgas D. Ace"
+        ],
+        "locations": [
+          "Nanohana"
+        ],
+        "objects": [
+          "Vivre Card"
+        ],
+        "factions": [],
+        "topics": [
+          "Ace meeting",
+          "brother reveal",
+          "paper contact token"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:portgas-d-ace",
+        "topic:monkey-d-luffy",
+        "item:vivre-card",
+        "location:nanohana",
+        "topic:desert-survival",
+        "topic:farewell"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Portgas D. Ace"
+          ],
+          "entitiesAny": [
+            "Portgas D. Ace",
+            "Monkey D. Luffy",
+            "Vivre Card",
+            "Nanohana"
+          ],
+          "topicsAny": [
+            "Ace meeting",
+            "brother reveal",
+            "paper contact token"
+          ],
+          "keywordsAny": [
+            "Portgas D. Ace",
+            "Monkey D. Luffy",
+            "Vivre Card",
+            "Nanohana",
+            "Ace meeting",
+            "brother reveal",
+            "paper contact token",
+            "Ace",
+            "Luffy",
+            "piece of paper",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Ace meets Luffy in Nanohana, is identified as Luffy's brother, and leaves him a piece of paper that should stay a source-bound contact token here.",
+        "injection": "Use Ace for immediate brotherly warmth and route texture; keep the paper as a contact token without explaining its later mechanics.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Arabasta Arc",
+    "chapterRange": "Manga chapters 155-217",
+    "episodeRange": "Anime episodes 92-130",
+    "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+    "confidence": 0.91,
+    "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+  }
+}

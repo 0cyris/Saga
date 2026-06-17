@@ -1,0 +1,948 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_ds9-season-3-baseline",
+      "title": "DS9 season 3 has its own active cast and story baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e01.the-search-part-i",
+        "validToAnchor": "ds9.s3.e26.the-adversary",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e01.the-search-part-i",
+          "label": "The Search, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:miles-obrien",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "season baseline",
+          "Dominion introduction",
+          "Quark and Grilka",
+          "Thomas Riker",
+          "Past Tense",
+          "Mirror universe"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "topic:season-baseline",
+        "topic:dominion-introduction",
+        "topic:quark-and-grilka",
+        "topic:thomas-riker",
+        "topic:past-tense",
+        "topic:mirror-universe"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "season baseline",
+            "Dominion introduction",
+            "Quark and Grilka",
+            "Thomas Riker",
+            "Past Tense",
+            "Mirror universe"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "season baseline",
+            "Dominion introduction",
+            "Quark and Grilka",
+            "Thomas Riker",
+            "Past Tense",
+            "Mirror universe",
+            "The Search, Part I",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Star Trek: Deep Space Nine season 3 covers Memory Alpha story rows 1-26, anchored by Dominion introduction, Quark and Grilka, Thomas Riker, Past Tense, Mirror universe.",
+        "injection": "Use DS9 season 3 as the active Star Trek context when those episode windows are selected. Do not substitute prior or later season status unless another active deck supplies it.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_I_(episode)",
+        "stardate": "48212.4-48214.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_ds9-season-3-major-arcs",
+      "title": "DS9 season 3 major arcs stay season-local",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e01.the-search-part-i",
+        "validToAnchor": "ds9.s3.e26.the-adversary",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e01.the-search-part-i",
+          "label": "The Search, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:miles-obrien",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "major arcs",
+          "Bajoran occupation/religion gate",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "Founder identity/Changeling gate",
+          "wormhole/anomaly route gate",
+          "Changeling identity/Founder gate",
+          "Defiant/station militarization gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "topic:major-arcs",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:founder-identitychangeling-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "major arcs",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "major arcs",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Klingon duty/faction-status gate",
+            "The Search, Part I",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season evidence highlights Bajoran occupation/religion gate, Dominion strategic-threat gate, Jem'Hadar reveal or war gate, Founder identity/Changeling gate, wormhole/anomaly route gate, Changeling identity/Founder gate, Defiant/station militarization gate, Klingon duty/faction-status gate, with arcs and one-off episodes bounded by their Memory Alpha story rows.",
+        "injection": "Treat season 3 arcs as Context-gated story state, not a license to import the final outcomes of later Star Trek episodes or series.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_I_(episode)",
+        "stardate": "48212.4-48214.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_ds9-season-3-faction-boundary",
+      "title": "DS9 season 3 faction state should follow the loaded episode window",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e01.the-search-part-i",
+        "validToAnchor": "ds9.s3.e26.the-adversary",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e01.the-search-part-i",
+          "label": "The Search, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "faction boundary",
+          "Bajoran occupation/religion gate",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "Founder identity/Changeling gate",
+          "wormhole/anomaly route gate",
+          "Changeling identity/Founder gate",
+          "Defiant/station militarization gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i",
+        "faction:starfleet",
+        "topic:faction-boundary",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:founder-identitychangeling-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "faction boundary",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "faction boundary",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Klingon duty/faction-status gate",
+            "The Search, Part I",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Faction status in this deck comes from season 3 evidence rows and should not be flattened into all-era Star Trek politics.",
+        "injection": "Use the currently active episode anchor before injecting faction status, especially for Klingon, Romulan, Cardassian, Bajoran, Borg, Dominion, Maquis, or Delta Quadrant material.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_I_(episode)",
+        "stardate": "48212.4-48214.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_ds9-season-3-technology-and-anomaly-boundary",
+      "title": "DS9 season 3 technology and anomaly facts are episode-bounded",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e01.the-search-part-i",
+        "validToAnchor": "ds9.s3.e26.the-adversary",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e01.the-search-part-i",
+          "label": "The Search, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "technology boundary",
+          "anomaly boundary",
+          "Bajoran occupation/religion gate",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "Founder identity/Changeling gate",
+          "wormhole/anomaly route gate",
+          "Changeling identity/Founder gate",
+          "Defiant/station militarization gate",
+          "Klingon duty/faction-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i",
+        "faction:starfleet",
+        "topic:technology-boundary",
+        "topic:anomaly-boundary",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:founder-identitychangeling-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:klingon-dutyfaction-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "technology boundary",
+            "anomaly boundary",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Klingon duty/faction-status gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "technology boundary",
+            "anomaly boundary",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Changeling identity/Founder gate",
+            "Defiant/station militarization gate",
+            "Klingon duty/faction-status gate",
+            "The Search, Part I",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 3 includes technology, anomaly, medical, legal, and cultural constraints that are often local to one episode.",
+        "injection": "Do not generalize an episode anomaly or technology into routine Starfleet capability unless a later active Loredeck explicitly broadens it.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_I_(episode)",
+        "stardate": "48212.4-48214.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_ds9-season-3-future-guard",
+      "title": "DS9 season 3 should not import later Star Trek outcomes",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e01.the-search-part-i",
+        "validToAnchor": "ds9.s3.e26.the-adversary",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "DS9 season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e01.the-search-part-i",
+          "label": "The Search, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i",
+        "faction:starfleet",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "future guard",
+            "spoiler guard",
+            "The Search, Part I",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "This deck is a season-local draft reference for Star Trek: Deep Space Nine season 3, not an all-era Star Trek encyclopedia.",
+        "injection": "Block later season, film, Picard-era, beta-canon, novel, comic, game, and fanon outcomes unless another active deck supplies that later Context.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_I_(episode)",
+        "stardate": "48212.4-48214.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

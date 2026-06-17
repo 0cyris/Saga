@@ -1,0 +1,948 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_tng-season-5-baseline",
+      "title": "TNG season 5 has its own active cast and story baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e01.redemption-ii",
+        "validToAnchor": "tng.s5.e26.times-arrow",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e01.redemption-ii",
+          "label": "Redemption II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kurn",
+          "st:heghta",
+          "st:shanthi",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Kurn",
+          "Hegh'ta",
+          "Shanthi",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "season baseline",
+          "Redemption",
+          "Crystalline Entity",
+          "Vulcan/Romulan reunification",
+          "Hugh",
+          "Time's Arrow"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-redemption-ii",
+        "character:worf",
+        "character:kurn",
+        "character:heghta",
+        "character:shanthi",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:season-baseline",
+        "topic:redemption",
+        "topic:crystalline-entity",
+        "topic:vulcanromulan-reunification",
+        "topic:hugh",
+        "topic:times-arrow"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Kurn",
+            "Hegh'ta",
+            "Shanthi",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Kurn",
+            "Hegh'ta",
+            "Shanthi",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "season baseline",
+            "Redemption",
+            "Crystalline Entity",
+            "Vulcan/Romulan reunification",
+            "Hugh",
+            "Time's Arrow"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Kurn",
+            "Hegh'ta",
+            "Shanthi",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "season baseline",
+            "Redemption",
+            "Crystalline Entity",
+            "Vulcan/Romulan reunification",
+            "Hugh",
+            "Time's Arrow",
+            "Redemption II",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Star Trek: The Next Generation season 5 covers Memory Alpha story rows 1-26, anchored by Redemption, Crystalline Entity, Vulcan/Romulan reunification, Hugh, Time's Arrow.",
+        "injection": "Use TNG season 5 as the active Star Trek context when those episode windows are selected. Do not substitute prior or later season status unless another active deck supplies it.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption II",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_II_(episode)",
+        "stardate": "45020.4-45025.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_tng-season-5-major-arcs",
+      "title": "TNG season 5 major arcs stay season-local",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e01.redemption-ii",
+        "validToAnchor": "tng.s5.e26.times-arrow",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e01.redemption-ii",
+          "label": "Redemption II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:kurn",
+          "st:heghta",
+          "st:shanthi",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Kurn",
+          "Hegh'ta",
+          "Shanthi",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "major arcs",
+          "Klingon duty/faction-status gate",
+          "Romulan secrecy/political pressure gate",
+          "episode-local fact/status gate",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Data/Lore android-family gate",
+          "genetic secret gate",
+          "death/status-change gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-redemption-ii",
+        "character:worf",
+        "character:kurn",
+        "character:heghta",
+        "character:shanthi",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:major-arcs",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:datalore-android-family-gate",
+        "topic:genetic-secret-gate",
+        "topic:deathstatus-change-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Kurn",
+            "Hegh'ta",
+            "Shanthi",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Kurn",
+            "Hegh'ta",
+            "Shanthi",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "major arcs",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Data/Lore android-family gate",
+            "genetic secret gate",
+            "death/status-change gate"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Kurn",
+            "Hegh'ta",
+            "Shanthi",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "major arcs",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Data/Lore android-family gate",
+            "genetic secret gate",
+            "death/status-change gate",
+            "Redemption II",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season evidence highlights Klingon duty/faction-status gate, Romulan secrecy/political pressure gate, episode-local fact/status gate, Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Data/Lore android-family gate, genetic secret gate, death/status-change gate, with arcs and one-off episodes bounded by their Memory Alpha story rows.",
+        "injection": "Treat season 5 arcs as Context-gated story state, not a license to import the final outcomes of later Star Trek episodes or series.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption II",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_II_(episode)",
+        "stardate": "45020.4-45025.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_tng-season-5-faction-boundary",
+      "title": "TNG season 5 faction state should follow the loaded episode window",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e01.redemption-ii",
+        "validToAnchor": "tng.s5.e26.times-arrow",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e01.redemption-ii",
+          "label": "Redemption II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "faction boundary",
+          "Klingon duty/faction-status gate",
+          "Romulan secrecy/political pressure gate",
+          "episode-local fact/status gate",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Data/Lore android-family gate",
+          "genetic secret gate",
+          "death/status-change gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-redemption-ii",
+        "faction:starfleet",
+        "topic:faction-boundary",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:datalore-android-family-gate",
+        "topic:genetic-secret-gate",
+        "topic:deathstatus-change-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "faction boundary",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Data/Lore android-family gate",
+            "genetic secret gate",
+            "death/status-change gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "faction boundary",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Data/Lore android-family gate",
+            "genetic secret gate",
+            "death/status-change gate",
+            "Redemption II",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Faction status in this deck comes from season 5 evidence rows and should not be flattened into all-era Star Trek politics.",
+        "injection": "Use the currently active episode anchor before injecting faction status, especially for Klingon, Romulan, Cardassian, Bajoran, Borg, Dominion, Maquis, or Delta Quadrant material.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption II",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_II_(episode)",
+        "stardate": "45020.4-45025.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_tng-season-5-technology-and-anomaly-boundary",
+      "title": "TNG season 5 technology and anomaly facts are episode-bounded",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e01.redemption-ii",
+        "validToAnchor": "tng.s5.e26.times-arrow",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e01.redemption-ii",
+          "label": "Redemption II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "technology boundary",
+          "anomaly boundary",
+          "Klingon duty/faction-status gate",
+          "Romulan secrecy/political pressure gate",
+          "episode-local fact/status gate",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Data/Lore android-family gate",
+          "genetic secret gate",
+          "death/status-change gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-redemption-ii",
+        "faction:starfleet",
+        "topic:technology-boundary",
+        "topic:anomaly-boundary",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:datalore-android-family-gate",
+        "topic:genetic-secret-gate",
+        "topic:deathstatus-change-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "technology boundary",
+            "anomaly boundary",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Data/Lore android-family gate",
+            "genetic secret gate",
+            "death/status-change gate"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "technology boundary",
+            "anomaly boundary",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Data/Lore android-family gate",
+            "genetic secret gate",
+            "death/status-change gate",
+            "Redemption II",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 5 includes technology, anomaly, medical, legal, and cultural constraints that are often local to one episode.",
+        "injection": "Do not generalize an episode anomaly or technology into routine Starfleet capability unless a later active Loredeck explicitly broadens it.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption II",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_II_(episode)",
+        "stardate": "45020.4-45025.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s5_tng-season-5-future-guard",
+      "title": "TNG season 5 should not import later Star Trek outcomes",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s5.e01.redemption-ii",
+        "validToAnchor": "tng.s5.e26.times-arrow",
+        "series": "TNG",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 5",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s5",
+          "label": "TNG season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s5.e01.redemption-ii",
+          "label": "Redemption II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:starfleet"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s5-redemption-ii",
+        "faction:starfleet",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "Starfleet",
+            "future guard",
+            "spoiler guard",
+            "Redemption II",
+            "TNG season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "This deck is a season-local draft reference for Star Trek: The Next Generation season 5, not an all-era Star Trek encyclopedia.",
+        "injection": "Block later season, film, Picard-era, beta-canon, novel, comic, game, and fanon outcomes unless another active deck supplies that later Context.",
+        "constraints": [
+          "Keep this card inside TNG season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption II",
+        "series": "TNG",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_II_(episode)",
+        "stardate": "45020.4-45025.4 (2368)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

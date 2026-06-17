@@ -1,0 +1,860 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_buggy_returns_seeking_revenge_after_orange_town_017",
+      "title": "Buggy Returns Seeking Revenge Before The Grand Line",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.buggy-and-alvida-return",
+        "validToAnchor": "op.loguetown.execution-platform-event",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6336,
+        "sortKeyTo": 6448,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Buggy Returns Seeking Revenge Before The Grand Line"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:buggy",
+          "op:monkey-d-luffy",
+          "op:execution-platform"
+        ],
+        "characters": [
+          "Buggy",
+          "Monkey D. Luffy"
+        ],
+        "locations": [
+          "execution platform"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Buggy revenge",
+          "Orange Town follow-up",
+          "returning enemy"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:buggy",
+        "character:monkey-d-luffy",
+        "location:execution-platform",
+        "topic:buggy-revenge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Buggy",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Buggy",
+            "Monkey D. Luffy",
+            "execution platform"
+          ],
+          "topicsAny": [
+            "Buggy revenge",
+            "Orange Town follow-up",
+            "returning enemy"
+          ],
+          "keywordsAny": [
+            "Buggy",
+            "Monkey D. Luffy",
+            "execution platform",
+            "Buggy revenge",
+            "Orange Town follow-up",
+            "returning enemy",
+            "revenge",
+            "Orange Town",
+            "execution trap",
+            "Buggy Returns Seeking Revenge Before The Grand Line",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Buggy returns at Loguetown seeking revenge for Orange Town and turns Roger's execution platform into a personal execution trap for Luffy.",
+        "injection": "Use Buggy as returning enemy pressure: he is dangerous through timing, spectacle, and grudges, not later status.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_alvida_returns_changed_and_more_confident_in_the_anime_manga_transition_material_018",
+      "title": "Alvida Returns Changed, Confident, And Slippery",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.buggy-and-alvida-return",
+        "validToAnchor": "op.loguetown.execution-platform-event",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6336,
+        "sortKeyTo": 6448,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Alvida Returns Changed, Confident, And Slippery"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:alvida",
+          "op:sube-sube-fruit",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Alvida",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [
+          "Sube Sube no Mi"
+        ],
+        "factions": [],
+        "topics": [
+          "Alvida changed body",
+          "Sube Sube power",
+          "returning enemy"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:alvida",
+        "ability:sube-sube-fruit",
+        "character:monkey-d-luffy",
+        "topic:alvida-changed-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Alvida",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Alvida",
+            "Sube Sube no Mi",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Alvida changed body",
+            "Sube Sube power",
+            "returning enemy"
+          ],
+          "keywordsAny": [
+            "Alvida",
+            "Sube Sube no Mi",
+            "Monkey D. Luffy",
+            "Alvida changed body",
+            "Sube Sube power",
+            "returning enemy",
+            "slippery",
+            "changed body",
+            "Alvida Returns Changed, Confident, And Slippery",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Alvida returns changed and more confident after gaining a slippery body power, but later alliance or status material stays outside Loguetown.",
+        "injection": "Use Alvida as visible surprise for Luffy and returning enemy pressure; do not expand beyond her present confidence and power.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_their_alliance_is_practical_rather_than_stable_friendship_019",
+      "title": "Buggy And Alvida Are A Practical Revenge Alliance",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.buggy-and-alvida-return",
+        "validToAnchor": "op.loguetown.execution-platform-event",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6336,
+        "sortKeyTo": 6448,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Buggy And Alvida Are A Practical Revenge Alliance"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:buggy",
+          "op:alvida",
+          "op:buggy-alvida-alliance"
+        ],
+        "characters": [
+          "Buggy",
+          "Alvida"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Buggy and Alvida alliance"
+        ],
+        "topics": [
+          "returning enemy alliance",
+          "practical revenge",
+          "unstable partnership"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:buggy",
+        "character:alvida",
+        "faction:buggy-alvida-alliance",
+        "topic:returning-enemy-alliance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Buggy",
+            "Alvida"
+          ],
+          "entitiesAny": [
+            "Buggy",
+            "Alvida",
+            "Buggy and Alvida alliance"
+          ],
+          "topicsAny": [
+            "returning enemy alliance",
+            "practical revenge",
+            "unstable partnership"
+          ],
+          "keywordsAny": [
+            "Buggy",
+            "Alvida",
+            "Buggy and Alvida alliance",
+            "returning enemy alliance",
+            "practical revenge",
+            "unstable partnership",
+            "alliance",
+            "revenge",
+            "opportunistic",
+            "Buggy And Alvida Are A Practical Revenge Alliance",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Buggy and Alvida's alliance is practical revenge pressure, not stable friendship or a later-arc power bloc.",
+        "injection": "Use their partnership as opportunistic: both want Luffy vulnerable, and Loguetown gives them public chaos to exploit.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_the_execution_platform_trap_mirrors_roger_imagery_for_luffy_020",
+      "title": "Buggy's Platform Trap Mirrors Roger Imagery For Luffy",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.buggy-and-alvida-return",
+        "validToAnchor": "op.loguetown.execution-platform-event",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6336,
+        "sortKeyTo": 6448,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Buggy's Platform Trap Mirrors Roger Imagery For Luffy"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:buggy",
+          "op:monkey-d-luffy",
+          "op:execution-platform",
+          "op:gold-roger"
+        ],
+        "characters": [
+          "Buggy",
+          "Monkey D. Luffy",
+          "Gold Roger"
+        ],
+        "locations": [
+          "execution platform"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "execution platform trap",
+          "Roger mirror",
+          "Luffy risk"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:buggy",
+        "character:monkey-d-luffy",
+        "location:execution-platform",
+        "character:gold-roger",
+        "topic:execution-platform-trap"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Buggy",
+            "Monkey D. Luffy",
+            "Gold Roger"
+          ],
+          "entitiesAny": [
+            "Buggy",
+            "Monkey D. Luffy",
+            "execution platform",
+            "Gold Roger"
+          ],
+          "topicsAny": [
+            "execution platform trap",
+            "Roger mirror",
+            "Luffy risk"
+          ],
+          "keywordsAny": [
+            "Buggy",
+            "Monkey D. Luffy",
+            "execution platform",
+            "Gold Roger",
+            "execution platform trap",
+            "Roger mirror",
+            "Luffy risk",
+            "platform trap",
+            "public death",
+            "Buggy's Platform Trap Mirrors Roger Imagery For Luffy",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Buggy's execution-platform trap mirrors Roger imagery by placing Luffy at the same public death symbol just before the Grand Line.",
+        "injection": "Use the trap as both danger and omen: the scene should feel bigger than a normal Buggy attack because of where it happens.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_loguetown_these_cards_support_returning_enemy_pressure_before_the_grand_line_021",
+      "title": "Old East Blue Enemies Return At The Threshold",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.loguetown.buggy-and-alvida-return",
+        "validToAnchor": "op.loguetown.execution-platform-event",
+        "arc": "Loguetown Arc",
+        "arcId": "loguetown",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "96-100",
+        "episode": "45, 48-53",
+        "sortKeyFrom": 6336,
+        "sortKeyTo": 6448,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loguetown Arc: Old East Blue Enemies Return At The Threshold"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "loguetown",
+          "label": "Loguetown Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:buggy",
+          "op:alvida",
+          "op:buggy-alvida-alliance",
+          "op:grand-line"
+        ],
+        "characters": [
+          "Buggy",
+          "Alvida"
+        ],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [],
+        "factions": [
+          "Buggy and Alvida alliance"
+        ],
+        "topics": [
+          "returning enemy pressure",
+          "East Blue closure",
+          "threshold chaos"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:loguetown",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:buggy",
+        "character:alvida",
+        "faction:buggy-alvida-alliance",
+        "location:grand-line",
+        "topic:returning-enemy-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Buggy",
+            "Alvida"
+          ],
+          "entitiesAny": [
+            "Buggy",
+            "Alvida",
+            "Buggy and Alvida alliance",
+            "Grand Line"
+          ],
+          "topicsAny": [
+            "returning enemy pressure",
+            "East Blue closure",
+            "threshold chaos"
+          ],
+          "keywordsAny": [
+            "Buggy",
+            "Alvida",
+            "Buggy and Alvida alliance",
+            "Grand Line",
+            "returning enemy pressure",
+            "East Blue closure",
+            "threshold chaos",
+            "old enemies",
+            "threshold",
+            "closure",
+            "Old East Blue Enemies Return At The Threshold",
+            "Loguetown Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Old East Blue enemies return at Loguetown to make the Grand Line threshold feel contested rather than ceremonial.",
+        "injection": "Use Buggy and Alvida as closure pressure: the crew must pass old grudges before entering the larger sea.",
+        "constraints": [
+          "Keep this card inside Loguetown Arc, manga chapters 96-100, anime episodes 45, 48-53.",
+          "Use manga facts as the canon spine; anime-only episode 50-51 material should not retrieve unless specifically needed for anime-continuity sessions."
+        ],
+        "antiLore": [
+          "Do not explain the Revolutionary Army, Dragon's identity, Dragon's motives, or later family reveals.",
+          "Do not import later Smoker or Tashigi Grand Line arcs.",
+          "Do not import later Buggy or Alvida status.",
+          "Do not import Haki, Gear techniques, later Roger history, or broad Devil Fruit taxonomy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Loguetown Arc",
+        "chapterRange": "Manga chapters 96-100",
+        "episodeRange": "Anime episodes 45, 48-53",
+        "reference": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Loguetown Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-loguetown",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "loguetown-runtime-lore"
+        }
+      }
+    }
+  ]
+}

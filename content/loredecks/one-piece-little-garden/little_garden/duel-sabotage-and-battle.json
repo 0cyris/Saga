@@ -1,0 +1,878 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_sabotaged_drink_turns_dorry_and_brogy_s_duel_unfair_022",
+      "title": "The Sabotaged Drink Makes The Duel Unfair",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "validToAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: The Sabotaged Drink Makes The Duel Unfair"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dorry",
+          "op:brogy",
+          "op:mr-5",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Dorry",
+          "Brogy",
+          "Mr. 5"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "exploding drink",
+          "unfair duel",
+          "Baroque sabotage"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dorry",
+        "character:brogy",
+        "character:mr-5",
+        "faction:baroque-works",
+        "topic:giant-honor",
+        "topic:baroque-sabotage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dorry",
+            "Brogy",
+            "Mr. 5"
+          ],
+          "entitiesAny": [
+            "Dorry",
+            "Brogy",
+            "Mr. 5",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "exploding drink",
+            "unfair duel",
+            "Baroque sabotage"
+          ],
+          "keywordsAny": [
+            "Dorry",
+            "Brogy",
+            "Mr. 5",
+            "Baroque Works",
+            "exploding drink",
+            "unfair duel",
+            "Baroque sabotage",
+            "sabotaged drink",
+            "injury",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "The sabotaged drink injures Dorry before the duel and makes the next clash unfair before either giant understands the interference.",
+        "injection": "Use the sabotage as hidden harm: the tragedy begins before the visible wax trap.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_brogy_s_grief_matters_because_he_thinks_he_has_killed_a_friend_dishonorably_023",
+      "title": "Brogy's Grief Comes From Thinking The Duel Was Dishonored",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "validToAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Brogy's Grief Comes From Thinking The Duel Was Dishonored"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:brogy",
+          "op:dorry",
+          "op:mr-3"
+        ],
+        "characters": [
+          "Brogy",
+          "Dorry",
+          "Mr. 3"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Brogy grief",
+          "dishonored victory",
+          "giant friendship"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:brogy",
+        "character:dorry",
+        "character:mr-3",
+        "topic:giant-honor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Brogy",
+            "Dorry",
+            "Mr. 3"
+          ],
+          "entitiesAny": [
+            "Brogy",
+            "Dorry",
+            "Mr. 3"
+          ],
+          "topicsAny": [
+            "Brogy grief",
+            "dishonored victory",
+            "giant friendship"
+          ],
+          "keywordsAny": [
+            "Brogy",
+            "Dorry",
+            "Mr. 3",
+            "Brogy grief",
+            "dishonored victory",
+            "giant friendship",
+            "dishonor",
+            "friend",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Brogy's grief matters because he thinks he has killed a friend in a duel that was secretly dishonored.",
+        "injection": "Use Brogy's reaction as grief and shame, not simply victory or anger.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_mr_3_exploits_the_duel_s_rules_to_weaken_both_giants_024",
+      "title": "Mr. 3 Exploits The Duel's Rules To Weaken Both Giants",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "validToAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Mr. 3 Exploits The Duel's Rules To Weaken Both Giants"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:mr-3",
+          "op:dorry",
+          "op:brogy",
+          "op:wax"
+        ],
+        "characters": [
+          "Mr. 3",
+          "Dorry",
+          "Brogy"
+        ],
+        "locations": [],
+        "objects": [
+          "Mr. 3 wax"
+        ],
+        "factions": [],
+        "topics": [
+          "Mr. 3 sabotage",
+          "duel rules exploited",
+          "giants weakened"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:mr-3",
+        "character:dorry",
+        "character:brogy",
+        "item:mr-3-wax",
+        "topic:giant-honor",
+        "topic:baroque-sabotage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mr. 3",
+            "Dorry",
+            "Brogy"
+          ],
+          "entitiesAny": [
+            "Mr. 3",
+            "Dorry",
+            "Brogy",
+            "Mr. 3 wax"
+          ],
+          "topicsAny": [
+            "Mr. 3 sabotage",
+            "duel rules exploited",
+            "giants weakened"
+          ],
+          "keywordsAny": [
+            "Mr. 3",
+            "Dorry",
+            "Brogy",
+            "Mr. 3 wax",
+            "Mr. 3 sabotage",
+            "duel rules exploited",
+            "giants weakened",
+            "exploit rules",
+            "weaken giants",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Mr. 3 exploits the duel's rules and timing to weaken both giants before trying to preserve them as prizes.",
+        "injection": "Use this as the villainy gate: he understands enough about honor to use it against them.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_luffy_is_furious_because_the_enemy_cheapens_a_sincere_fight_025",
+      "title": "Luffy Is Furious Because The Enemy Cheapens A Sincere Fight",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "validToAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Luffy Is Furious Because The Enemy Cheapens A Sincere Fight"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:mr-3",
+          "op:dorry",
+          "op:brogy"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Mr. 3",
+          "Dorry",
+          "Brogy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy anger",
+          "sincere fight cheapened",
+          "honor response"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:mr-3",
+        "character:dorry",
+        "character:brogy",
+        "topic:giant-honor",
+        "topic:baroque-sabotage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Mr. 3",
+            "Dorry",
+            "Brogy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Mr. 3",
+            "Dorry",
+            "Brogy"
+          ],
+          "topicsAny": [
+            "Luffy anger",
+            "sincere fight cheapened",
+            "honor response"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Mr. 3",
+            "Dorry",
+            "Brogy",
+            "Luffy anger",
+            "sincere fight cheapened",
+            "honor response",
+            "sincere fight",
+            "values",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Luffy is furious because Baroque Works cheapens a sincere fight, not merely because friends are in danger.",
+        "injection": "Use Luffy's anger as values-driven: he reacts to the insult against the duel as much as to the practical threat.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_battle_is_about_restoring_honor_as_much_as_escaping_026",
+      "title": "The Battle Is About Restoring Honor As Much As Escaping",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "validToAnchor": "op.little-garden.wax-set-pieces-and-tactics",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10500,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: The Battle Is About Restoring Honor As Much As Escaping"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:straw-hat-pirates",
+          "op:dorry",
+          "op:brogy",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Dorry",
+          "Brogy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates",
+          "Baroque Works"
+        ],
+        "topics": [
+          "restoring honor",
+          "escape pressure",
+          "battle meaning"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:straw-hat-pirates",
+        "character:dorry",
+        "character:brogy",
+        "faction:baroque-works",
+        "topic:giant-honor",
+        "topic:baroque-sabotage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dorry",
+            "Brogy"
+          ],
+          "entitiesAny": [
+            "Straw Hat Pirates",
+            "Dorry",
+            "Brogy",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "restoring honor",
+            "escape pressure",
+            "battle meaning"
+          ],
+          "keywordsAny": [
+            "Straw Hat Pirates",
+            "Dorry",
+            "Brogy",
+            "Baroque Works",
+            "restoring honor",
+            "escape pressure",
+            "battle meaning",
+            "restore honor",
+            "escape",
+            "final fight",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "The Little Garden battle is about restoring honor as much as escaping captivity and defeating agents.",
+        "injection": "Use the final fight as moral repair: freeing friends and clearing the duel's insult are linked.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Little Garden Arc",
+    "chapterRange": "Manga chapters 115-129",
+    "episodeRange": "Anime episodes 70-77",
+    "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+  }
+}

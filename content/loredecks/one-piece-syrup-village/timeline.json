@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Syrup Village Arc Context anchors and windows for East Blue Saga.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.syrup-village.syrup-village",
+      "label": "Syrup Village Arc: Usopp, Kaya, and village",
+      "sortKey": 3000,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Usopp, Kaya, and village"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.kuro-and-black-cat-pirates",
+      "label": "Syrup Village Arc: Kuro and Black Cat Pirates",
+      "sortKey": 3112,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Kuro and Black Cat Pirates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.straw-hats-and-usopp",
+      "label": "Syrup Village Arc: Straw Hats and Usopp",
+      "sortKey": 3224,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Straw Hats and Usopp"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.village-geography-and-defense",
+      "label": "Syrup Village Arc: Village geography and defense",
+      "sortKey": 3336,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Village geography and defense"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.going-merry-and-merry",
+      "label": "Syrup Village Arc: Going Merry and Merry",
+      "sortKey": 3448,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Going Merry and Merry"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.deception-and-reveal",
+      "label": "Syrup Village Arc: Deception and reveal",
+      "sortKey": 3560,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Deception and reveal"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.battle-and-aftermath",
+      "label": "Syrup Village Arc: Battle and aftermath",
+      "sortKey": 3672,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Battle and aftermath"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.timeline-and-spoiler-gates",
+      "label": "Syrup Village Arc: Timeline and spoiler gates",
+      "sortKey": 3784,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    },
+    {
+      "id": "op.syrup-village.after",
+      "label": "Syrup Village Arc: aftermath boundary",
+      "sortKey": 3999,
+      "arc": "Syrup Village Arc",
+      "phase": "East Blue Saga",
+      "chapter": "22-41",
+      "episode": "9-18",
+      "aliases": [
+        "Syrup Village Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.syrup-village.window.full",
+      "label": "Syrup Village Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.syrup-village",
+      "anchorTo": "op.syrup-village.after",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 3999,
+      "aliases": [
+        "Syrup Village Arc",
+        "syrup-village"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.syrup-village",
+      "label": "Syrup Village Arc: Usopp, Kaya, and village",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.syrup-village",
+      "anchorTo": "op.syrup-village.kuro-and-black-cat-pirates",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 3112,
+      "aliases": [
+        "Usopp, Kaya, and village"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.kuro-and-black-cat-pirates",
+      "label": "Syrup Village Arc: Kuro and Black Cat Pirates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.kuro-and-black-cat-pirates",
+      "anchorTo": "op.syrup-village.straw-hats-and-usopp",
+      "sortKeyFrom": 3112,
+      "sortKeyTo": 3224,
+      "aliases": [
+        "Kuro and Black Cat Pirates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.straw-hats-and-usopp",
+      "label": "Syrup Village Arc: Straw Hats and Usopp",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.straw-hats-and-usopp",
+      "anchorTo": "op.syrup-village.village-geography-and-defense",
+      "sortKeyFrom": 3224,
+      "sortKeyTo": 3336,
+      "aliases": [
+        "Straw Hats and Usopp"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.village-geography-and-defense",
+      "label": "Syrup Village Arc: Village geography and defense",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.village-geography-and-defense",
+      "anchorTo": "op.syrup-village.going-merry-and-merry",
+      "sortKeyFrom": 3336,
+      "sortKeyTo": 3448,
+      "aliases": [
+        "Village geography and defense"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.going-merry-and-merry",
+      "label": "Syrup Village Arc: Going Merry and Merry",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.going-merry-and-merry",
+      "anchorTo": "op.syrup-village.deception-and-reveal",
+      "sortKeyFrom": 3448,
+      "sortKeyTo": 3560,
+      "aliases": [
+        "Going Merry and Merry"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.deception-and-reveal",
+      "label": "Syrup Village Arc: Deception and reveal",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.deception-and-reveal",
+      "anchorTo": "op.syrup-village.battle-and-aftermath",
+      "sortKeyFrom": 3560,
+      "sortKeyTo": 3672,
+      "aliases": [
+        "Deception and reveal"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.battle-and-aftermath",
+      "label": "Syrup Village Arc: Battle and aftermath",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.battle-and-aftermath",
+      "anchorTo": "op.syrup-village.timeline-and-spoiler-gates",
+      "sortKeyFrom": 3672,
+      "sortKeyTo": 3784,
+      "aliases": [
+        "Battle and aftermath"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.syrup-village.window.timeline-and-spoiler-gates",
+      "label": "Syrup Village Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.syrup-village.timeline-and-spoiler-gates",
+      "anchorTo": "op.syrup-village.after",
+      "sortKeyFrom": 3784,
+      "sortKeyTo": 3999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "east-blue"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "syrup-village"
+      ]
+    }
+  ]
+}

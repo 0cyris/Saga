@@ -1,0 +1,1565 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:admirals-banquet": {
+      "type": "character",
+      "label": "Admirals' Banquet",
+      "aliases": [
+        "Admirals' Banquet"
+      ],
+      "canonicalNames": [
+        "Admirals' Banquet"
+      ],
+      "tags": [
+        "character:admirals-banquet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:alexander": {
+      "type": "character",
+      "label": "Alexander",
+      "aliases": [
+        "Alexander"
+      ],
+      "canonicalNames": [
+        "Alexander"
+      ],
+      "tags": [
+        "character:alexander"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:alyssa-ogawa": {
+      "type": "character",
+      "label": "Alyssa Ogawa",
+      "aliases": [
+        "Alyssa Ogawa"
+      ],
+      "canonicalNames": [
+        "Alyssa Ogawa"
+      ],
+      "tags": [
+        "character:alyssa-ogawa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:argus-array": {
+      "type": "character",
+      "label": "Argus Array",
+      "aliases": [
+        "Argus Array"
+      ],
+      "canonicalNames": [
+        "Argus Array"
+      ],
+      "tags": [
+        "character:argus-array"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:atrean": {
+      "type": "character",
+      "label": "Atrean",
+      "aliases": [
+        "Atrean"
+      ],
+      "canonicalNames": [
+        "Atrean"
+      ],
+      "tags": [
+        "character:atrean"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bajorans": {
+      "type": "faction",
+      "label": "Bajorans",
+      "aliases": [
+        "Bajorans"
+      ],
+      "canonicalNames": [
+        "Bajorans"
+      ],
+      "tags": [
+        "faction:bajorans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:beverly-crusher": {
+      "type": "character",
+      "label": "Beverly Crusher",
+      "aliases": [
+        "Beverly Crusher"
+      ],
+      "canonicalNames": [
+        "Beverly Crusher"
+      ],
+      "tags": [
+        "character:beverly-crusher"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:black-sea": {
+      "type": "character",
+      "label": "Black Sea",
+      "aliases": [
+        "Black Sea"
+      ],
+      "canonicalNames": [
+        "Black Sea"
+      ],
+      "tags": [
+        "character:black-sea"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:bok": {
+      "type": "character",
+      "label": "Bok",
+      "aliases": [
+        "Bok"
+      ],
+      "canonicalNames": [
+        "Bok"
+      ],
+      "tags": [
+        "character:bok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:borg-collective": {
+      "type": "faction",
+      "label": "Borg Collective",
+      "aliases": [
+        "Borg Collective"
+      ],
+      "canonicalNames": [
+        "Borg Collective"
+      ],
+      "tags": [
+        "faction:borg-collective"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cairn": {
+      "type": "character",
+      "label": "Cairn",
+      "aliases": [
+        "Cairn"
+      ],
+      "canonicalNames": [
+        "Cairn"
+      ],
+      "tags": [
+        "character:cairn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:captain-picard-day": {
+      "type": "character",
+      "label": "Captain Picard Day",
+      "aliases": [
+        "Captain Picard Day"
+      ],
+      "canonicalNames": [
+        "Captain Picard Day"
+      ],
+      "tags": [
+        "character:captain-picard-day"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cardassian-union": {
+      "type": "faction",
+      "label": "Cardassian Union",
+      "aliases": [
+        "Cardassian Union"
+      ],
+      "canonicalNames": [
+        "Cardassian Union"
+      ],
+      "tags": [
+        "faction:cardassian-union"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:champion-standing": {
+      "type": "character",
+      "label": "Champion Standing",
+      "aliases": [
+        "Champion Standing"
+      ],
+      "canonicalNames": [
+        "Champion Standing"
+      ],
+      "tags": [
+        "character:champion-standing"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:classroom": {
+      "type": "character",
+      "label": "Classroom",
+      "aliases": [
+        "Classroom"
+      ],
+      "canonicalNames": [
+        "Classroom"
+      ],
+      "tags": [
+        "character:classroom"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:daimon": {
+      "type": "character",
+      "label": "DaiMon",
+      "aliases": [
+        "DaiMon"
+      ],
+      "canonicalNames": [
+        "DaiMon"
+      ],
+      "tags": [
+        "character:daimon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:data": {
+      "type": "character",
+      "label": "Data",
+      "aliases": [
+        "Data"
+      ],
+      "canonicalNames": [
+        "Data"
+      ],
+      "tags": [
+        "character:data"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:deanna-troi": {
+      "type": "character",
+      "label": "Deanna Troi",
+      "aliases": [
+        "Deanna Troi"
+      ],
+      "canonicalNames": [
+        "Deanna Troi"
+      ],
+      "tags": [
+        "character:deanna-troi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:demilitarized-zone": {
+      "type": "character",
+      "label": "Demilitarized Zone",
+      "aliases": [
+        "Demilitarized Zone"
+      ],
+      "canonicalNames": [
+        "Demilitarized Zone"
+      ],
+      "tags": [
+        "character:demilitarized-zone"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:dr": {
+      "type": "character",
+      "label": "Dr.",
+      "aliases": [
+        "Dr."
+      ],
+      "canonicalNames": [
+        "Dr."
+      ],
+      "tags": [
+        "character:dr"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:eric": {
+      "type": "character",
+      "label": "Eric",
+      "aliases": [
+        "Eric"
+      ],
+      "canonicalNames": [
+        "Eric"
+      ],
+      "tags": [
+        "character:eric"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:felisa-howard": {
+      "type": "character",
+      "label": "Felisa Howard",
+      "aliases": [
+        "Felisa Howard"
+      ],
+      "canonicalNames": [
+        "Felisa Howard"
+      ],
+      "tags": [
+        "character:felisa-howard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ferengi-alliance": {
+      "type": "faction",
+      "label": "Ferengi Alliance",
+      "aliases": [
+        "Ferengi Alliance"
+      ],
+      "canonicalNames": [
+        "Ferengi Alliance"
+      ],
+      "tags": [
+        "faction:ferengi-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:geordi-la-forge": {
+      "type": "character",
+      "label": "Geordi La Forge",
+      "aliases": [
+        "Geordi La Forge"
+      ],
+      "canonicalNames": [
+        "Geordi La Forge"
+      ],
+      "tags": [
+        "character:geordi-la-forge"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:governor": {
+      "type": "character",
+      "label": "Governor",
+      "aliases": [
+        "Governor"
+      ],
+      "canonicalNames": [
+        "Governor"
+      ],
+      "tags": [
+        "character:governor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:hedril": {
+      "type": "character",
+      "label": "Hedril",
+      "aliases": [
+        "Hedril"
+      ],
+      "canonicalNames": [
+        "Hedril"
+      ],
+      "tags": [
+        "character:hedril"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:iyaaran": {
+      "type": "character",
+      "label": "Iyaaran",
+      "aliases": [
+        "Iyaaran"
+      ],
+      "canonicalNames": [
+        "Iyaaran"
+      ],
+      "tags": [
+        "character:iyaaran"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:jean-luc-picard": {
+      "type": "character",
+      "label": "Jean-Luc Picard",
+      "aliases": [
+        "Jean-Luc Picard"
+      ],
+      "canonicalNames": [
+        "Jean-Luc Picard"
+      ],
+      "tags": [
+        "character:jean-luc-picard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kahless": {
+      "type": "character",
+      "label": "Kahless",
+      "aliases": [
+        "Kahless"
+      ],
+      "canonicalNames": [
+        "Kahless"
+      ],
+      "tags": [
+        "character:kahless"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kehleyr": {
+      "type": "character",
+      "label": "K'Ehleyr",
+      "aliases": [
+        "K'Ehleyr"
+      ],
+      "canonicalNames": [
+        "K'Ehleyr"
+      ],
+      "tags": [
+        "character:kehleyr"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:klingon-empire": {
+      "type": "faction",
+      "label": "Klingon Empire",
+      "aliases": [
+        "Klingon Empire"
+      ],
+      "canonicalNames": [
+        "Klingon Empire"
+      ],
+      "tags": [
+        "faction:klingon-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:loquel": {
+      "type": "character",
+      "label": "Loquel",
+      "aliases": [
+        "Loquel"
+      ],
+      "canonicalNames": [
+        "Loquel"
+      ],
+      "tags": [
+        "character:loquel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:lwaxana-troi": {
+      "type": "character",
+      "label": "Lwaxana Troi",
+      "aliases": [
+        "Lwaxana Troi"
+      ],
+      "canonicalNames": [
+        "Lwaxana Troi"
+      ],
+      "tags": [
+        "character:lwaxana-troi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:maques": {
+      "type": "character",
+      "label": "Maques",
+      "aliases": [
+        "Maques"
+      ],
+      "canonicalNames": [
+        "Maques"
+      ],
+      "tags": [
+        "character:maques"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:maquis": {
+      "type": "faction",
+      "label": "Maquis",
+      "aliases": [
+        "Maquis"
+      ],
+      "canonicalNames": [
+        "Maquis"
+      ],
+      "tags": [
+        "faction:maquis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nakamura": {
+      "type": "character",
+      "label": "Nakamura",
+      "aliases": [
+        "Nakamura"
+      ],
+      "canonicalNames": [
+        "Nakamura"
+      ],
+      "tags": [
+        "character:nakamura"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:narsu": {
+      "type": "character",
+      "label": "Narsu",
+      "aliases": [
+        "Narsu"
+      ],
+      "canonicalNames": [
+        "Narsu"
+      ],
+      "tags": [
+        "character:narsu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nechayev": {
+      "type": "character",
+      "label": "Nechayev",
+      "aliases": [
+        "Nechayev"
+      ],
+      "canonicalNames": [
+        "Nechayev"
+      ],
+      "tags": [
+        "character:nechayev"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nikolai-rozhenko": {
+      "type": "character",
+      "label": "Nikolai Rozhenko",
+      "aliases": [
+        "Nikolai Rozhenko"
+      ],
+      "canonicalNames": [
+        "Nikolai Rozhenko"
+      ],
+      "tags": [
+        "character:nikolai-rozhenko"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:nurse": {
+      "type": "character",
+      "label": "Nurse",
+      "aliases": [
+        "Nurse"
+      ],
+      "canonicalNames": [
+        "Nurse"
+      ],
+      "tags": [
+        "character:nurse"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:pran-tainer": {
+      "type": "character",
+      "label": "Pran Tainer",
+      "aliases": [
+        "Pran Tainer"
+      ],
+      "canonicalNames": [
+        "Pran Tainer"
+      ],
+      "tags": [
+        "character:pran-tainer"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:prime-directive": {
+      "type": "character",
+      "label": "Prime Directive",
+      "aliases": [
+        "Prime Directive"
+      ],
+      "canonicalNames": [
+        "Prime Directive"
+      ],
+      "tags": [
+        "character:prime-directive"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:prospero": {
+      "type": "character",
+      "label": "Prospero",
+      "aliases": [
+        "Prospero"
+      ],
+      "canonicalNames": [
+        "Prospero"
+      ],
+      "tags": [
+        "character:prospero"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:q-continuum": {
+      "type": "faction",
+      "label": "Q Continuum",
+      "aliases": [
+        "Q Continuum"
+      ],
+      "canonicalNames": [
+        "Q Continuum"
+      ],
+      "tags": [
+        "faction:q-continuum"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:rainer": {
+      "type": "character",
+      "label": "Rainer",
+      "aliases": [
+        "Rainer"
+      ],
+      "canonicalNames": [
+        "Rainer"
+      ],
+      "tags": [
+        "character:rainer"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:rebecca-smith": {
+      "type": "character",
+      "label": "Rebecca Smith",
+      "aliases": [
+        "Rebecca Smith"
+      ],
+      "canonicalNames": [
+        "Rebecca Smith"
+      ],
+      "tags": [
+        "character:rebecca-smith"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ro-laren": {
+      "type": "character",
+      "label": "Ro Laren",
+      "aliases": [
+        "Ro Laren"
+      ],
+      "canonicalNames": [
+        "Ro Laren"
+      ],
+      "tags": [
+        "character:ro-laren"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:romulan-star-empire": {
+      "type": "faction",
+      "label": "Romulan Star Empire",
+      "aliases": [
+        "Romulan Star Empire"
+      ],
+      "canonicalNames": [
+        "Romulan Star Empire"
+      ],
+      "tags": [
+        "faction:romulan-star-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:sam-lavelle": {
+      "type": "character",
+      "label": "Sam Lavelle",
+      "aliases": [
+        "Sam Lavelle"
+      ],
+      "canonicalNames": [
+        "Sam Lavelle"
+      ],
+      "tags": [
+        "character:sam-lavelle"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:sito-jaxa": {
+      "type": "character",
+      "label": "Sito Jaxa",
+      "aliases": [
+        "Sito Jaxa"
+      ],
+      "canonicalNames": [
+        "Sito Jaxa"
+      ],
+      "tags": [
+        "character:sito-jaxa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:spot": {
+      "type": "character",
+      "label": "Spot",
+      "aliases": [
+        "Spot"
+      ],
+      "canonicalNames": [
+        "Spot"
+      ],
+      "tags": [
+        "character:spot"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ten-forward": {
+      "type": "character",
+      "label": "Ten Forward",
+      "aliases": [
+        "Ten Forward"
+      ],
+      "canonicalNames": [
+        "Ten Forward"
+      ],
+      "tags": [
+        "character:ten-forward"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vice-admiral": {
+      "type": "character",
+      "label": "Vice Admiral",
+      "aliases": [
+        "Vice Admiral"
+      ],
+      "canonicalNames": [
+        "Vice Admiral"
+      ],
+      "tags": [
+        "character:vice-admiral"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:visor": {
+      "type": "character",
+      "label": "VISOR",
+      "aliases": [
+        "VISOR"
+      ],
+      "canonicalNames": [
+        "VISOR"
+      ],
+      "tags": [
+        "character:visor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vulcans": {
+      "type": "faction",
+      "label": "Vulcans",
+      "aliases": [
+        "Vulcans"
+      ],
+      "canonicalNames": [
+        "Vulcans"
+      ],
+      "tags": [
+        "faction:vulcans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:wesley-crusher": {
+      "type": "character",
+      "label": "Wesley Crusher",
+      "aliases": [
+        "Wesley Crusher"
+      ],
+      "canonicalNames": [
+        "Wesley Crusher"
+      ],
+      "tags": [
+        "character:wesley-crusher"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:william-riker": {
+      "type": "character",
+      "label": "William Riker",
+      "aliases": [
+        "William Riker"
+      ],
+      "canonicalNames": [
+        "William Riker"
+      ],
+      "tags": [
+        "character:william-riker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:william-shakespeare": {
+      "type": "character",
+      "label": "William Shakespeare",
+      "aliases": [
+        "William Shakespeare"
+      ],
+      "canonicalNames": [
+        "William Shakespeare"
+      ],
+      "tags": [
+        "character:william-shakespeare"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:worf": {
+      "type": "character",
+      "label": "Worf",
+      "aliases": [
+        "Worf"
+      ],
+      "canonicalNames": [
+        "Worf"
+      ],
+      "tags": [
+        "character:worf"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: The Next Generation season 7."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    }
+  }
+}

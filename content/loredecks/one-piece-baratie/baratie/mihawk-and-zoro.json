@@ -1,0 +1,843 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_mihawk_s_arrival_shows_a_power_scale_far_beyond_east_blue_pirates_017",
+      "title": "Mihawk's Arrival Is A Scale Shock, Not A Warlord Lecture",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.mihawk-and-zoro",
+        "validToAnchor": "op.baratie.luffy-and-sanji",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Mihawk's Arrival Is A Scale Shock, Not A Warlord Lecture"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dracule-mihawk",
+          "op:roronoa-zoro",
+          "op:grand-line",
+          "op:krieg-pirates"
+        ],
+        "characters": [
+          "Dracule Mihawk",
+          "Roronoa Zoro"
+        ],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [],
+        "factions": [
+          "Krieg Pirates"
+        ],
+        "topics": [
+          "Mihawk scale shock",
+          "world greatest swordsman",
+          "Warlord boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dracule-mihawk",
+        "character:roronoa-zoro",
+        "location:grand-line",
+        "faction:krieg-pirates",
+        "topic:mihawk-scale-shock"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro",
+            "Grand Line",
+            "Krieg Pirates"
+          ],
+          "topicsAny": [
+            "Mihawk scale shock",
+            "world greatest swordsman",
+            "Warlord boundary"
+          ],
+          "keywordsAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro",
+            "Grand Line",
+            "Krieg Pirates",
+            "Mihawk scale shock",
+            "world greatest swordsman",
+            "Warlord boundary",
+            "Hawk-Eyes",
+            "Mihawk",
+            "ship sliced",
+            "Mihawk's Arrival Is A Scale Shock, Not A Warlord Lecture",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Mihawk's arrival shows a power scale far beyond East Blue pirates by slicing Krieg's ship and dwarfing Zoro's current level.",
+        "injection": "Use Mihawk as a scale-setter and the world's greatest swordsman; do not pause for a broad Seven Warlords system explanation.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_zoro_challenges_the_world_s_greatest_swordsman_despite_the_gap_018",
+      "title": "Zoro Challenges The World's Greatest Swordsman Anyway",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.mihawk-and-zoro",
+        "validToAnchor": "op.baratie.luffy-and-sanji",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Zoro Challenges The World's Greatest Swordsman Anyway"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:dracule-mihawk",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Roronoa Zoro",
+          "Dracule Mihawk",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Zoro challenge",
+          "dream pressure",
+          "impossible gap"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "character:dracule-mihawk",
+        "character:monkey-d-luffy",
+        "topic:zoro-challenge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro",
+            "Dracule Mihawk",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Dracule Mihawk",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Zoro challenge",
+            "dream pressure",
+            "impossible gap"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Dracule Mihawk",
+            "Monkey D. Luffy",
+            "Zoro challenge",
+            "dream pressure",
+            "impossible gap",
+            "challenge",
+            "world greatest",
+            "dream",
+            "Zoro Challenges The World's Greatest Swordsman Anyway",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Zoro challenges Mihawk despite the obvious gap because his dream requires facing the world's greatest swordsman when the chance appears.",
+        "injection": "Use Zoro's choice as dream logic, not tactical wisdom: backing down would wound his identity more than losing.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_mihawk_humiliates_zoro_with_a_small_blade_before_respecting_his_resolve_019",
+      "title": "Mihawk Humiliates Zoro Before Respecting His Resolve",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.mihawk-and-zoro",
+        "validToAnchor": "op.baratie.luffy-and-sanji",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Mihawk Humiliates Zoro Before Respecting His Resolve"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dracule-mihawk",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Dracule Mihawk",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "small blade humiliation",
+          "respect after courage",
+          "duel scale"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dracule-mihawk",
+        "character:roronoa-zoro",
+        "topic:small-blade-humiliation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "small blade humiliation",
+            "respect after courage",
+            "duel scale"
+          ],
+          "keywordsAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro",
+            "small blade humiliation",
+            "respect after courage",
+            "duel scale",
+            "small knife",
+            "duel",
+            "respect",
+            "Mihawk Humiliates Zoro Before Respecting His Resolve",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Mihawk humiliates Zoro with a tiny blade before recognizing Zoro's resolve and giving the duel serious respect.",
+        "injection": "Use the duel to show both humiliation and honor: Mihawk is overwhelmingly superior, but Zoro earns recognition by refusing cheap survival.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_zoro_refuses_to_step_back_and_receives_a_chest_wound_020",
+      "title": "Zoro Accepts The Chest Wound Rather Than Step Back",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.mihawk-and-zoro",
+        "validToAnchor": "op.baratie.luffy-and-sanji",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Zoro Accepts The Chest Wound Rather Than Step Back"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:dracule-mihawk"
+        ],
+        "characters": [
+          "Roronoa Zoro",
+          "Dracule Mihawk"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "chest wound",
+          "no retreat",
+          "honor beat"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "character:dracule-mihawk",
+        "topic:chest-wound"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro",
+            "Dracule Mihawk"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Dracule Mihawk"
+          ],
+          "topicsAny": [
+            "chest wound",
+            "no retreat",
+            "honor beat"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Dracule Mihawk",
+            "chest wound",
+            "no retreat",
+            "honor beat",
+            "chest scar",
+            "defeat",
+            "Zoro Accepts The Chest Wound Rather Than Step Back",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Zoro refuses to step back from Mihawk and takes the chest wound openly, making the defeat a statement of resolve rather than simple loss.",
+        "injection": "Use the wound as a lasting state change for this era: Zoro survives because Mihawk respects the resolve, not because the fight was close.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_zoro_s_vow_to_luffy_follows_defeat_rather_than_victory_021",
+      "title": "Zoro's Vow To Luffy Follows Defeat",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.mihawk-and-zoro",
+        "validToAnchor": "op.baratie.luffy-and-sanji",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Zoro's Vow To Luffy Follows Defeat"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:monkey-d-luffy",
+          "op:dracule-mihawk"
+        ],
+        "characters": [
+          "Roronoa Zoro",
+          "Monkey D. Luffy",
+          "Dracule Mihawk"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "never lose again vow",
+          "post-defeat loyalty",
+          "dream reset"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "character:monkey-d-luffy",
+        "character:dracule-mihawk",
+        "topic:never-lose-again-vow"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro",
+            "Monkey D. Luffy",
+            "Dracule Mihawk"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Monkey D. Luffy",
+            "Dracule Mihawk"
+          ],
+          "topicsAny": [
+            "never lose again vow",
+            "post-defeat loyalty",
+            "dream reset"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Monkey D. Luffy",
+            "Dracule Mihawk",
+            "never lose again vow",
+            "post-defeat loyalty",
+            "dream reset",
+            "never lose again",
+            "captain",
+            "vow",
+            "Zoro's Vow To Luffy Follows Defeat",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Zoro vows to Luffy that he will never lose again after Mihawk defeats him, resetting his dream around failure, loyalty, and recovery.",
+        "injection": "Use this as the high-value Zoro/Luffy gate: the vow matters because it comes from defeat in front of his captain, not from victory.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,881 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_island_splits_the_crew_into_smaller_scene_pairs_017",
+      "title": "Little Garden Splits The Crew Into Smaller Scene Groups",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.straw-hat-pairings",
+        "validToAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10400,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Little Garden Splits The Crew Into Smaller Scene Groups"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:straw-hat-pirates",
+          "op:little-garden",
+          "op:going-merry"
+        ],
+        "characters": [],
+        "locations": [
+          "Little Garden"
+        ],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "crew split",
+          "scene pairings",
+          "island separation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:straw-hat-pirates",
+        "location:little-garden",
+        "item:going-merry",
+        "topic:crew-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Straw Hat Pirates",
+            "Little Garden",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "crew split",
+            "scene pairings",
+            "island separation"
+          ],
+          "keywordsAny": [
+            "Straw Hat Pirates",
+            "Little Garden",
+            "Going Merry",
+            "crew split",
+            "scene pairings",
+            "island separation",
+            "separation",
+            "scene groups",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Little Garden splits the crew into smaller scene groups, making isolation and delayed information part of the arc pressure.",
+        "injection": "Use separated groups to control knowledge: not everyone sees the same giant, trap, call, or capture at the same time.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_luffy_and_vivi_experience_the_giants_conflict_together_018",
+      "title": "Luffy And Vivi See The Giant Conflict From Inside The Stakes",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.straw-hat-pairings",
+        "validToAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10400,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Luffy And Vivi See The Giant Conflict From Inside The Stakes"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:vivi",
+          "op:dorry",
+          "op:brogy"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Vivi",
+          "Dorry",
+          "Brogy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy Vivi stakes",
+          "giant conflict witness",
+          "mission empathy"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:vivi",
+        "character:dorry",
+        "character:brogy",
+        "topic:giant-honor",
+        "topic:baroque-sabotage",
+        "topic:crew-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Vivi",
+            "Dorry",
+            "Brogy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Vivi",
+            "Dorry",
+            "Brogy"
+          ],
+          "topicsAny": [
+            "Luffy Vivi stakes",
+            "giant conflict witness",
+            "mission empathy"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Vivi",
+            "Dorry",
+            "Brogy",
+            "Luffy Vivi stakes",
+            "giant conflict witness",
+            "mission empathy",
+            "Luffy and Vivi",
+            "giant stakes",
+            "honor",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Luffy and Vivi experience the giant conflict close enough to understand that Baroque Works is violating something meaningful.",
+        "injection": "Use their shared scenes to build Vivi's view of the crew: Luffy reacts to honor instinctively, not politically.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_zoro_and_nami_are_caught_in_the_wax_crisis_019",
+      "title": "Zoro And Nami Become Captives In The Wax Crisis",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.straw-hat-pairings",
+        "validToAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10400,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Zoro And Nami Become Captives In The Wax Crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:nami",
+          "op:mr-3",
+          "op:wax",
+          "op:vivi"
+        ],
+        "characters": [
+          "Roronoa Zoro",
+          "Nami",
+          "Mr. 3",
+          "Vivi"
+        ],
+        "locations": [],
+        "objects": [
+          "Mr. 3 wax"
+        ],
+        "factions": [],
+        "topics": [
+          "wax capture",
+          "captive crew",
+          "time pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "character:nami",
+        "character:mr-3",
+        "item:mr-3-wax",
+        "character:vivi",
+        "topic:giant-honor",
+        "topic:wax-color-tactics",
+        "topic:crew-split",
+        "topic:medical-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro",
+            "Nami",
+            "Mr. 3",
+            "Vivi"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Nami",
+            "Mr. 3",
+            "Mr. 3 wax",
+            "Vivi"
+          ],
+          "topicsAny": [
+            "wax capture",
+            "captive crew",
+            "time pressure"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Nami",
+            "Mr. 3",
+            "Mr. 3 wax",
+            "Vivi",
+            "wax capture",
+            "captive crew",
+            "time pressure",
+            "captives",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Zoro and Nami are caught in the wax crisis with Vivi and Brogy, turning rescue into a time-sensitive tactical problem.",
+        "injection": "Use their capture to force urgency: strength and cleverness matter, but they are trapped inside Mr. 3's set piece.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_sanji_moves_independently_and_misses_some_central_island_beats_020",
+      "title": "Sanji Moves Independently And Recovers The Route Hook",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.straw-hat-pairings",
+        "validToAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10400,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Sanji Moves Independently And Recovers The Route Hook"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:mr-0",
+          "op:eternal-pose",
+          "op:baroque-works"
+        ],
+        "characters": [
+          "Sanji"
+        ],
+        "locations": [],
+        "objects": [
+          "Eternal Pose"
+        ],
+        "factions": [
+          "Baroque Works"
+        ],
+        "topics": [
+          "Sanji independent movement",
+          "Mr. 0 call",
+          "Eternal Pose recovery"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "topic:mr-0",
+        "item:eternal-pose",
+        "faction:baroque-works",
+        "topic:crew-split"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "Mr. 0",
+            "Eternal Pose",
+            "Baroque Works"
+          ],
+          "topicsAny": [
+            "Sanji independent movement",
+            "Mr. 0 call",
+            "Eternal Pose recovery"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "Mr. 0",
+            "Eternal Pose",
+            "Baroque Works",
+            "Sanji independent movement",
+            "Mr. 0 call",
+            "Eternal Pose recovery",
+            "independent",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Sanji moves independently, misses some central island beats, and recovers the Eternal Pose route hook through the Mr. 0 call sequence.",
+        "injection": "Use Sanji as off-screen competence: his separate path matters because it creates the next route option without making him part of every central battle.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_usopp_s_admiration_for_the_giants_becomes_part_of_his_bravery_model_021",
+      "title": "Usopp's Giant Admiration Becomes Part Of His Bravery Model",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.straw-hat-pairings",
+        "validToAnchor": "op.little-garden.duel-sabotage-and-battle",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10400,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Usopp's Giant Admiration Becomes Part Of His Bravery Model"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:usopp",
+          "op:dorry",
+          "op:brogy",
+          "op:elbaf"
+        ],
+        "characters": [
+          "Usopp",
+          "Dorry",
+          "Brogy"
+        ],
+        "locations": [
+          "Elbaf"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Usopp bravery model",
+          "giant admiration",
+          "Elbaf dream"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:usopp",
+        "character:dorry",
+        "character:brogy",
+        "location:elbaf",
+        "topic:giant-honor",
+        "topic:crew-split",
+        "topic:elbaf-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Usopp",
+            "Dorry",
+            "Brogy"
+          ],
+          "entitiesAny": [
+            "Usopp",
+            "Dorry",
+            "Brogy",
+            "Elbaf"
+          ],
+          "topicsAny": [
+            "Usopp bravery model",
+            "giant admiration",
+            "Elbaf dream"
+          ],
+          "keywordsAny": [
+            "Usopp",
+            "Dorry",
+            "Brogy",
+            "Elbaf",
+            "Usopp bravery model",
+            "giant admiration",
+            "Elbaf dream",
+            "bravery model",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Usopp's admiration for the giants becomes part of his bravery model and gives Elbaf emotional weight long before later exposition.",
+        "injection": "Use this as a character-development gate: Usopp is not only scared of the island, he is inspired by what he sees there.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Little Garden Arc",
+    "chapterRange": "Manga chapters 115-129",
+    "episodeRange": "Anime episodes 70-77",
+    "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+  }
+}

@@ -1,0 +1,2871 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_alliances-episode-gate",
+      "title": "Alliances anchors Seska",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 51,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e14.alliances",
+        "validToAnchor": "voy.s2.e15.threshold",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 32260,
+        "sortKeyTo": 32280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Alliances",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e14.alliances",
+          "label": "Alliances",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:crewman",
+          "st:kurt-bendera",
+          "st:belanna-torres",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:kazon",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Crewman",
+          "Kurt Bendera",
+          "B'Elanna Torres"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Kazon",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Seska",
+          "Cardassian occupation or border-pressure gate",
+          "Delta Quadrant isolation gate",
+          "Kazon conflict gate",
+          "Seska betrayal/Kazon arc gate",
+          "EMH autonomy/identity gate",
+          "Kazon raider",
+          "phaser"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-alliances",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:crewman",
+        "character:kurt-bendera",
+        "character:belanna-torres",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:kazon",
+        "faction:uss-voyager-crew",
+        "topic:seska",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:kazon-conflict-gate",
+        "topic:seska-betrayalkazon-arc-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:kazon-raider",
+        "topic:phaser"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Crewman",
+            "Kurt Bendera",
+            "B'Elanna Torres"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Crewman",
+            "Kurt Bendera",
+            "B'Elanna Torres",
+            "Starfleet",
+            "Cardassian Union",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Seska",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate",
+            "Kazon conflict gate",
+            "Seska betrayal/Kazon arc gate",
+            "EMH autonomy/identity gate",
+            "Kazon raider",
+            "phaser"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Crewman",
+            "Kurt Bendera",
+            "B'Elanna Torres",
+            "Starfleet",
+            "Cardassian Union",
+            "Kazon",
+            "USS Voyager crew",
+            "Seska",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate",
+            "Kazon conflict gate",
+            "Seska betrayal/Kazon arc gate",
+            "EMH autonomy/identity gate",
+            "Kazon raider",
+            "phaser",
+            "Alliances",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Alliances (49337.4-49342.5 (2372)) is Memory Alpha story row 14 for this season. Alliances is a VOY season 2 story gate centered on Seska; the evidence marks Cardassian occupation or border-pressure gate; Delta Quadrant isolation gate; Kazon conflict gate; Seska betrayal/Kazon arc gate; EMH autonomy/identity gate.",
+        "injection": "Use Alliances as the active episode Context gate when scenes reference Seska, Cardassian occupation or border-pressure gate, Delta Quadrant isolation gate.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Alliances",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Alliances_(episode)",
+        "stardate": "49337.4-49342.5 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_threshold-episode-gate",
+      "title": "Threshold anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e15.threshold",
+        "validToAnchor": "voy.s2.e16.meld",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 32280,
+        "sortKeyTo": 32300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Threshold",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e15.threshold",
+          "label": "Threshold",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:neelix",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Harry Kim",
+          "Neelix"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Tom Paris",
+          "experimental shuttlecraft",
+          "warp 10",
+          "Class 2 shuttle",
+          "nacelle",
+          "Harry Kim",
+          "Threshold"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-threshold",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:neelix",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:tom-paris",
+        "topic:experimental-shuttlecraft",
+        "topic:warp-10",
+        "topic:class-2-shuttle",
+        "topic:nacelle",
+        "topic:harry-kim",
+        "topic:threshold"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Neelix"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Tom Paris",
+            "experimental shuttlecraft",
+            "warp 10",
+            "Class 2 shuttle",
+            "nacelle",
+            "Harry Kim",
+            "Threshold"
+          ],
+          "keywordsAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "experimental shuttlecraft",
+            "warp 10",
+            "Class 2 shuttle",
+            "nacelle",
+            "Threshold",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Threshold (49373.4 (2372)) is Memory Alpha story row 15 for this season. Threshold is a VOY season 2 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Threshold as the active episode Context gate when scenes reference episode-local fact/status gate, Tom Paris, experimental shuttlecraft.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Threshold",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Threshold_(episode)",
+        "stardate": "49373.4 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_meld-episode-gate",
+      "title": "Meld anchors Suder's Penance",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e16.meld",
+        "validToAnchor": "voy.s2.e17.dreadnought",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 32300,
+        "sortKeyTo": 32320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Meld",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e16.meld",
+          "label": "Meld",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:ricky",
+          "st:hogan",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Harry Kim",
+          "Ricky",
+          "Hogan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Suder's Penance",
+          "episode-local fact/status gate",
+          "Chez Sandríne",
+          "Tom Paris",
+          "pool",
+          "Harry Kim",
+          "replicator ration",
+          "Ricky"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-meld",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:ricky",
+        "character:hogan",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:suders-penance",
+        "topic:episode-local-factstatus-gate",
+        "topic:chez-sandrine",
+        "topic:tom-paris",
+        "topic:pool",
+        "topic:harry-kim",
+        "topic:replicator-ration",
+        "topic:ricky"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Ricky",
+            "Hogan"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Ricky",
+            "Hogan",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Suder's Penance",
+            "episode-local fact/status gate",
+            "Chez Sandríne",
+            "Tom Paris",
+            "pool",
+            "Harry Kim",
+            "replicator ration",
+            "Ricky"
+          ],
+          "keywordsAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Ricky",
+            "Hogan",
+            "Starfleet",
+            "USS Voyager crew",
+            "Suder's Penance",
+            "episode-local fact/status gate",
+            "Chez Sandríne",
+            "pool",
+            "replicator ration",
+            "Meld",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Meld (Unknown (2372)) is Memory Alpha story row 16 for this season. Meld is a VOY season 2 story gate centered on Suder's Penance; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Meld as the active episode Context gate when scenes reference Suder's Penance, episode-local fact/status gate, Chez Sandríne.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Meld",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Meld_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_dreadnought-episode-gate",
+      "title": "Dreadnought anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e17.dreadnought",
+        "validToAnchor": "voy.s2.e18.death-wish",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 32320,
+        "sortKeyTo": 32340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Dreadnought",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e17.dreadnought",
+          "label": "Dreadnought",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:kes",
+          "st:samantha-wildman",
+          "st:greskrendtregk",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:maquis",
+          "st:vulcans",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Kes",
+          "Samantha Wildman",
+          "Greskrendtregk"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Maquis",
+          "Vulcans",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Maquis political/crew-loyalty gate",
+          "Delta Quadrant isolation gate",
+          "EMH autonomy/identity gate",
+          "The Doctor",
+          "Kes",
+          "Samantha Wildman",
+          "Greskrendtregk"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-dreadnought",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:kes",
+        "character:samantha-wildman",
+        "character:greskrendtregk",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:maquis",
+        "faction:vulcans",
+        "faction:uss-voyager-crew",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:maquis-politicalcrew-loyalty-gate",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:the-doctor",
+        "topic:kes",
+        "topic:samantha-wildman",
+        "topic:greskrendtregk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kes",
+            "Samantha Wildman",
+            "Greskrendtregk"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Maquis",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kes",
+            "Samantha Wildman",
+            "Greskrendtregk",
+            "Starfleet",
+            "Cardassian Union",
+            "Maquis",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Maquis political/crew-loyalty gate",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "The Doctor",
+            "Kes",
+            "Samantha Wildman",
+            "Greskrendtregk"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kes",
+            "Samantha Wildman",
+            "Greskrendtregk",
+            "Starfleet",
+            "Cardassian Union",
+            "Maquis",
+            "Vulcans",
+            "USS Voyager crew",
+            "Cardassian occupation or border-pressure gate",
+            "Maquis political/crew-loyalty gate",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Dreadnought",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Dreadnought (49447.0 (2372)) is Memory Alpha story row 17 for this season. Dreadnought is a VOY season 2 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Maquis political/crew-loyalty gate; Delta Quadrant isolation gate; EMH autonomy/identity gate.",
+        "injection": "Use Dreadnought as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Maquis political/crew-loyalty gate, Delta Quadrant isolation gate.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Dreadnought",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dreadnought_(episode)",
+        "stardate": "49447.0 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_death-wish-episode-gate",
+      "title": "Death Wish anchors Q Civil War",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e18.death-wish",
+        "validToAnchor": "voy.s2.e19.lifesigns",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 32340,
+        "sortKeyTo": 32360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Death Wish",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e18.death-wish",
+          "label": "Death Wish",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:neelix",
+          "st:kathryn-janeway",
+          "st:belanna-torres",
+          "st:starfleet",
+          "st:q-continuum",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Neelix",
+          "Kathryn Janeway",
+          "B'Elanna Torres"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Q Continuum",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Q Civil War",
+          "Q intervention or trial gate",
+          "Q Continuum gate",
+          "death/status-change gate",
+          "Chakotay",
+          "Janeway",
+          "anomaly",
+          "Torres"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-death-wish",
+        "character:chakotay",
+        "character:neelix",
+        "character:kathryn-janeway",
+        "character:belanna-torres",
+        "faction:starfleet",
+        "faction:q-continuum",
+        "faction:uss-voyager-crew",
+        "topic:q-civil-war",
+        "topic:q-intervention-or-trial-gate",
+        "topic:q-continuum-gate",
+        "topic:deathstatus-change-gate",
+        "topic:chakotay",
+        "topic:janeway",
+        "topic:anomaly",
+        "topic:torres"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Neelix",
+            "Kathryn Janeway",
+            "B'Elanna Torres"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Neelix",
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Q Civil War",
+            "Q intervention or trial gate",
+            "Q Continuum gate",
+            "death/status-change gate",
+            "Chakotay",
+            "Janeway",
+            "anomaly",
+            "Torres"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Neelix",
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew",
+            "Q Civil War",
+            "Q intervention or trial gate",
+            "Q Continuum gate",
+            "death/status-change gate",
+            "Janeway",
+            "anomaly",
+            "Torres",
+            "Death Wish",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Death Wish (49301.2 (2372)) is Memory Alpha story row 18 for this season. Death Wish is a VOY season 2 story gate centered on Q Civil War; the evidence marks Q intervention or trial gate; Q Continuum gate; death/status-change gate.",
+        "injection": "Use Death Wish as the active episode Context gate when scenes reference Q Civil War, Q intervention or trial gate, Q Continuum gate.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Death Wish",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Death_Wish_(episode)",
+        "stardate": "49301.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_lifesigns-episode-gate",
+      "title": "Lifesigns anchors Seska",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e19.lifesigns",
+        "validToAnchor": "voy.s2.e20.investigations",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 32360,
+        "sortKeyTo": 32380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Lifesigns",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e19.lifesigns",
+          "label": "Lifesigns",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:starfleet",
+          "st:kazon",
+          "st:vidiians",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Kazon",
+          "Vidiians",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Seska",
+          "Seska betrayal/Kazon arc gate",
+          "Vidiian Phage/body-horror gate",
+          "EMH autonomy/identity gate",
+          "Tom Paris",
+          "Chakotay",
+          "Tuvok",
+          "distress call"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-lifesigns",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:starfleet",
+        "faction:kazon",
+        "faction:vidiians",
+        "faction:uss-voyager-crew",
+        "topic:seska",
+        "topic:seska-betrayalkazon-arc-gate",
+        "topic:vidiian-phagebody-horror-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:tom-paris",
+        "topic:chakotay",
+        "topic:tuvok",
+        "topic:distress-call"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Kazon",
+            "Vidiians",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "Kazon",
+            "Vidiians",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Seska",
+            "Seska betrayal/Kazon arc gate",
+            "Vidiian Phage/body-horror gate",
+            "EMH autonomy/identity gate",
+            "Tom Paris",
+            "Chakotay",
+            "Tuvok",
+            "distress call"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "Kazon",
+            "Vidiians",
+            "USS Voyager crew",
+            "Seska",
+            "Seska betrayal/Kazon arc gate",
+            "Vidiian Phage/body-horror gate",
+            "EMH autonomy/identity gate",
+            "distress call",
+            "Lifesigns",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Lifesigns (49504.3-49507.2 (2372)) is Memory Alpha story row 19 for this season. Lifesigns is a VOY season 2 story gate centered on Seska; the evidence marks Seska betrayal/Kazon arc gate; Vidiian Phage/body-horror gate; EMH autonomy/identity gate.",
+        "injection": "Use Lifesigns as the active episode Context gate when scenes reference Seska, Seska betrayal/Kazon arc gate, Vidiian Phage/body-horror gate.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Lifesigns",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lifesigns_(episode)",
+        "stardate": "49504.3-49507.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_investigations-episode-gate",
+      "title": "Investigations anchors Seska",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e20.investigations",
+        "validToAnchor": "voy.s2.e21.deadlock",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 32380,
+        "sortKeyTo": 32400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Investigations",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e20.investigations",
+          "label": "Investigations",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:starfleet",
+          "st:maquis",
+          "st:kazon",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "Tom Paris",
+          "Harry Kim",
+          "The Doctor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Maquis",
+          "Kazon",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Seska",
+          "Maquis political/crew-loyalty gate",
+          "Seska betrayal/Kazon arc gate",
+          "EMH autonomy/identity gate",
+          "betrayal/hidden-loyalty gate",
+          "A Briefing with Neelix",
+          "Kathryn Janeway",
+          "Neelix"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-investigations",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:the-doctor",
+        "faction:starfleet",
+        "faction:maquis",
+        "faction:kazon",
+        "faction:uss-voyager-crew",
+        "topic:seska",
+        "topic:maquis-politicalcrew-loyalty-gate",
+        "topic:seska-betrayalkazon-arc-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:betrayalhidden-loyalty-gate",
+        "topic:a-briefing-with-neelix",
+        "topic:kathryn-janeway",
+        "topic:neelix"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Maquis",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "Maquis",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Seska",
+            "Maquis political/crew-loyalty gate",
+            "Seska betrayal/Kazon arc gate",
+            "EMH autonomy/identity gate",
+            "betrayal/hidden-loyalty gate",
+            "A Briefing with Neelix",
+            "Kathryn Janeway",
+            "Neelix"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "Maquis",
+            "Kazon",
+            "USS Voyager crew",
+            "Seska",
+            "Maquis political/crew-loyalty gate",
+            "Seska betrayal/Kazon arc gate",
+            "EMH autonomy/identity gate",
+            "betrayal/hidden-loyalty gate",
+            "A Briefing with Neelix",
+            "Neelix",
+            "Investigations",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Investigations (49485.2 (2372)) is Memory Alpha story row 20 for this season. Investigations is a VOY season 2 story gate centered on Seska; the evidence marks Maquis political/crew-loyalty gate; Seska betrayal/Kazon arc gate; EMH autonomy/identity gate; betrayal/hidden-loyalty gate.",
+        "injection": "Use Investigations as the active episode Context gate when scenes reference Seska, Maquis political/crew-loyalty gate, Seska betrayal/Kazon arc gate.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Investigations",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Investigations_(episode)",
+        "stardate": "49485.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_deadlock-episode-gate",
+      "title": "Deadlock anchors Vidiian Phage/body-horror gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e21.deadlock",
+        "validToAnchor": "voy.s2.e22.innocence",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 32400,
+        "sortKeyTo": 32420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Deadlock",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e21.deadlock",
+          "label": "Deadlock",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:the-doctor",
+          "st:neelix",
+          "st:starfleet",
+          "st:vidiians",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "Tom Paris",
+          "The Doctor",
+          "Neelix"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Vidiians",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Vidiian Phage/body-horror gate",
+          "EMH autonomy/identity gate",
+          "Neelix",
+          "Samantha Wildman",
+          "mess hall",
+          "The Doctor",
+          "baby",
+          "Tom Paris"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-deadlock",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:the-doctor",
+        "character:neelix",
+        "faction:starfleet",
+        "faction:vidiians",
+        "faction:uss-voyager-crew",
+        "topic:vidiian-phagebody-horror-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:neelix",
+        "topic:samantha-wildman",
+        "topic:mess-hall",
+        "topic:the-doctor",
+        "topic:baby",
+        "topic:tom-paris"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Neelix"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Vidiians",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Neelix",
+            "Starfleet",
+            "Vidiians",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Vidiian Phage/body-horror gate",
+            "EMH autonomy/identity gate",
+            "Neelix",
+            "Samantha Wildman",
+            "mess hall",
+            "The Doctor",
+            "baby",
+            "Tom Paris"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "The Doctor",
+            "Neelix",
+            "Starfleet",
+            "Vidiians",
+            "USS Voyager crew",
+            "Vidiian Phage/body-horror gate",
+            "EMH autonomy/identity gate",
+            "Samantha Wildman",
+            "mess hall",
+            "baby",
+            "Deadlock",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Deadlock (49548.7 (2372)) is Memory Alpha story row 21 for this season. Deadlock is a VOY season 2 story gate centered on Vidiian Phage/body-horror gate; the evidence marks Vidiian Phage/body-horror gate; EMH autonomy/identity gate.",
+        "injection": "Use Deadlock as the active episode Context gate when scenes reference Vidiian Phage/body-horror gate, EMH autonomy/identity gate, Neelix.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Deadlock",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Deadlock_(episode)",
+        "stardate": "49548.7 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_innocence-episode-gate",
+      "title": "Innocence anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e22.innocence",
+        "validToAnchor": "voy.s2.e23.the-thaw",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 32420,
+        "sortKeyTo": 32440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Innocence",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e22.innocence",
+          "label": "Innocence",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:neelix",
+          "st:macormak",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "Neelix",
+          "Macormak"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Tuvok",
+          "crash",
+          "Type 6",
+          "Macormak",
+          "stasis field",
+          "phaser",
+          "Innocence"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-innocence",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:neelix",
+        "character:macormak",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:tuvok",
+        "topic:crash",
+        "topic:type-6",
+        "topic:macormak",
+        "topic:stasis-field",
+        "topic:phaser",
+        "topic:innocence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Neelix",
+            "Macormak"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Neelix",
+            "Macormak",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Tuvok",
+            "crash",
+            "Type 6",
+            "Macormak",
+            "stasis field",
+            "phaser",
+            "Innocence"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Neelix",
+            "Macormak",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "crash",
+            "Type 6",
+            "stasis field",
+            "phaser",
+            "Innocence",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Innocence (49578.2 (2372)) is Memory Alpha story row 22 for this season. Innocence is a VOY season 2 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Innocence as the active episode Context gate when scenes reference episode-local fact/status gate, Tuvok, crash.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Innocence",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Innocence_(episode)",
+        "stardate": "49578.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_the-thaw-episode-gate",
+      "title": "The Thaw anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e23.the-thaw",
+        "validToAnchor": "voy.s2.e24.tuvix",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 32440,
+        "sortKeyTo": 32460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: The Thaw",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e23.the-thaw",
+          "label": "The Thaw",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Harry Kim",
+          "clarinet",
+          "Lieutenant jg",
+          "Tom Paris",
+          "Pablo Baytart",
+          "fluid conduit",
+          "The Thaw"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-the-thaw",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:harry-kim",
+        "topic:clarinet",
+        "topic:lieutenant-jg",
+        "topic:tom-paris",
+        "topic:pablo-baytart",
+        "topic:fluid-conduit",
+        "topic:the-thaw"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Harry Kim",
+            "clarinet",
+            "Lieutenant jg",
+            "Tom Paris",
+            "Pablo Baytart",
+            "fluid conduit",
+            "The Thaw"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "clarinet",
+            "Lieutenant jg",
+            "Pablo Baytart",
+            "fluid conduit",
+            "The Thaw",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Thaw (Unknown (2372)) is Memory Alpha story row 23 for this season. The Thaw is a VOY season 2 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use The Thaw as the active episode Context gate when scenes reference episode-local fact/status gate, Harry Kim, clarinet.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Thaw",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Thaw_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_tuvix-episode-gate",
+      "title": "Tuvix anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e24.tuvix",
+        "validToAnchor": "voy.s2.e25.resolutions",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 32460,
+        "sortKeyTo": 32480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Tuvix",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e24.tuvix",
+          "label": "Tuvix",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:the-doctor",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "B'Elanna Torres",
+          "The Doctor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "Tuvok",
+          "Neelix",
+          "a single being",
+          "plant",
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvix"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-tuvix",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:the-doctor",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:tuvok",
+        "topic:neelix",
+        "topic:a-single-being",
+        "topic:plant",
+        "topic:kathryn-janeway",
+        "topic:chakotay",
+        "topic:tuvix"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "The Doctor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "Tuvok",
+            "Neelix",
+            "a single being",
+            "plant",
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvix"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "Neelix",
+            "a single being",
+            "plant",
+            "Tuvix",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Tuvix (49655.2 - 49678.4 (2372)) is Memory Alpha story row 24 for this season. Tuvix is a VOY season 2 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Tuvix as the active episode Context gate when scenes reference EMH autonomy/identity gate, Tuvok, Neelix.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Tuvix",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tuvix_(episode)",
+        "stardate": "49655.2 - 49678.4 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_resolutions-episode-gate",
+      "title": "Resolutions anchors Delta Quadrant isolation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e25.resolutions",
+        "validToAnchor": "voy.s2.e26.basics-part-i",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 32480,
+        "sortKeyTo": 32500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Resolutions",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e25.resolutions",
+          "label": "Resolutions",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:starfleet",
+          "st:vidiians",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Tom Paris"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Vidiians",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Delta Quadrant isolation gate",
+          "Vidiian Phage/body-horror gate",
+          "EMH autonomy/identity gate",
+          "Delta Quadrant",
+          "Chakotay",
+          "Kathryn Janeway",
+          "stasis unit",
+          "The Doctor"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-resolutions",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "faction:starfleet",
+        "faction:vidiians",
+        "faction:uss-voyager-crew",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:vidiian-phagebody-horror-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:delta-quadrant",
+        "topic:chakotay",
+        "topic:kathryn-janeway",
+        "topic:stasis-unit",
+        "topic:the-doctor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Vidiians",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Starfleet",
+            "Vidiians",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Delta Quadrant isolation gate",
+            "Vidiian Phage/body-horror gate",
+            "EMH autonomy/identity gate",
+            "Delta Quadrant",
+            "Chakotay",
+            "Kathryn Janeway",
+            "stasis unit",
+            "The Doctor"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Starfleet",
+            "Vidiians",
+            "USS Voyager crew",
+            "Delta Quadrant isolation gate",
+            "Vidiian Phage/body-horror gate",
+            "EMH autonomy/identity gate",
+            "Delta Quadrant",
+            "stasis unit",
+            "The Doctor",
+            "Resolutions",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Resolutions (49690.1-49694.2 (2372)) is Memory Alpha story row 25 for this season. Resolutions is a VOY season 2 story gate centered on Delta Quadrant isolation gate; the evidence marks Delta Quadrant isolation gate; Vidiian Phage/body-horror gate; EMH autonomy/identity gate.",
+        "injection": "Use Resolutions as the active episode Context gate when scenes reference Delta Quadrant isolation gate, Vidiian Phage/body-horror gate, EMH autonomy/identity gate.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Resolutions",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Resolutions_(episode)",
+        "stardate": "49690.1-49694.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s2_basics-part-i-episode-gate",
+      "title": "Basics, Part I anchors Basics",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s2.e26.basics-part-i",
+        "validToAnchor": "voy.s2.e26.basics-part-i",
+        "series": "VOY",
+        "season": "2",
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 32500,
+        "sortKeyTo": 32500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 2: Basics, Part I",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s2",
+          "label": "VOY season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s2.e26.basics-part-i",
+          "label": "Basics, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:lon-suder",
+          "st:kazon",
+          "st:starfleet",
+          "st:maquis",
+          "st:vulcans",
+          "st:kazon",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "Lon Suder",
+          "Kazon"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Maquis",
+          "Vulcans",
+          "Kazon",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Basics",
+          "Maquis political/crew-loyalty gate",
+          "Kazon conflict gate",
+          "Seska betrayal/Kazon arc gate",
+          "Tuvok",
+          "Lon Suder",
+          "hybrid",
+          "orchid"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-basics-part-i",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:lon-suder",
+        "character:kazon",
+        "faction:starfleet",
+        "faction:maquis",
+        "faction:vulcans",
+        "faction:kazon",
+        "faction:uss-voyager-crew",
+        "topic:basics",
+        "topic:maquis-politicalcrew-loyalty-gate",
+        "topic:kazon-conflict-gate",
+        "topic:seska-betrayalkazon-arc-gate",
+        "topic:tuvok",
+        "topic:lon-suder",
+        "topic:hybrid",
+        "topic:orchid"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Lon Suder",
+            "Kazon"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Maquis",
+            "Vulcans",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Lon Suder",
+            "Kazon",
+            "Starfleet",
+            "Maquis",
+            "Vulcans",
+            "Kazon",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Basics",
+            "Maquis political/crew-loyalty gate",
+            "Kazon conflict gate",
+            "Seska betrayal/Kazon arc gate",
+            "Tuvok",
+            "Lon Suder",
+            "hybrid",
+            "orchid"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Lon Suder",
+            "Kazon",
+            "Starfleet",
+            "Maquis",
+            "Vulcans",
+            "USS Voyager crew",
+            "Basics",
+            "Maquis political/crew-loyalty gate",
+            "Kazon conflict gate",
+            "Seska betrayal/Kazon arc gate",
+            "hybrid",
+            "orchid",
+            "Basics, Part I",
+            "VOY season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Basics, Part I (Unknown (2372)) is Memory Alpha story row 26 for this season. Basics, Part I is a VOY season 2 story gate centered on Basics; the evidence marks Maquis political/crew-loyalty gate; Kazon conflict gate; Seska betrayal/Kazon arc gate.",
+        "injection": "Use Basics, Part I as the active episode Context gate when scenes reference Basics, Maquis political/crew-loyalty gate, Kazon conflict gate.",
+        "constraints": [
+          "Keep this card inside VOY season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Basics, Part I",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Basics%2C_Part_I_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

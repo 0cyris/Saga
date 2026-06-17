@@ -1,0 +1,849 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_nami_s_illness_begins_as_a_consequence_of_little_garden_exposure_032",
+      "title": "Nami's Illness Begins As Little Garden Exposure Consequence",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.nami-illness-bridge",
+        "validToAnchor": "op.little-garden.elbaf-and-world-hooks",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10600,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Nami's Illness Begins As Little Garden Exposure Consequence"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:little-garden",
+          "op:drum-island"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Little Garden",
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nami fever",
+          "island exposure",
+          "medical bridge"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "location:little-garden",
+        "location:drum-island",
+        "topic:medical-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Little Garden",
+            "Drum Island"
+          ],
+          "topicsAny": [
+            "Nami fever",
+            "island exposure",
+            "medical bridge"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Little Garden",
+            "Drum Island",
+            "Nami fever",
+            "island exposure",
+            "medical bridge",
+            "Nami illness",
+            "fever",
+            "exposure",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Nami's illness begins as a consequence of Little Garden exposure and becomes visible as the crew leaves the island.",
+        "injection": "Use the illness as delayed consequence: the island keeps mattering after the battle ends.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_crew_lacks_a_doctor_who_can_confidently_handle_the_crisis_033",
+      "title": "The Crew Lacks A Doctor For The Crisis",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.nami-illness-bridge",
+        "validToAnchor": "op.little-garden.elbaf-and-world-hooks",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10600,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: The Crew Lacks A Doctor For The Crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:straw-hat-pirates",
+          "op:nami",
+          "op:drum-island"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "no doctor",
+          "medical gap",
+          "crew limitation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:straw-hat-pirates",
+        "character:nami",
+        "location:drum-island",
+        "topic:medical-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Straw Hat Pirates",
+            "Nami",
+            "Drum Island"
+          ],
+          "topicsAny": [
+            "no doctor",
+            "medical gap",
+            "crew limitation"
+          ],
+          "keywordsAny": [
+            "Straw Hat Pirates",
+            "Nami",
+            "Drum Island",
+            "no doctor",
+            "medical gap",
+            "crew limitation",
+            "doctor gap",
+            "medical crisis",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "The crew lacks a doctor who can confidently handle Nami's crisis, exposing a practical gap in the ship's survival capacity.",
+        "injection": "Use the missing doctor as a crew limitation, not as a full Drum Island setup dump.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_the_route_must_prioritize_medical_help_over_the_arabasta_mission_pace_034",
+      "title": "Medical Help Overrides Arabasta Mission Pace",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.nami-illness-bridge",
+        "validToAnchor": "op.little-garden.elbaf-and-world-hooks",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10600,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Medical Help Overrides Arabasta Mission Pace"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:vivi",
+          "op:drum-island",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [
+          "Nami",
+          "Vivi"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "medical priority",
+          "Arabasta delay",
+          "route pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:vivi",
+        "location:drum-island",
+        "faction:straw-hat-pirates",
+        "topic:medical-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Vivi"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Vivi",
+            "Drum Island",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "medical priority",
+            "Arabasta delay",
+            "route pressure"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Vivi",
+            "Drum Island",
+            "Straw Hat Pirates",
+            "medical priority",
+            "Arabasta delay",
+            "route pressure",
+            "route",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Nami's fever forces the route to prioritize medical help over the original Arabasta mission pace.",
+        "injection": "Use this as a hard route-pressure gate: Vivi's urgency matters, but Nami's survival has to come first.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_drum_island_becomes_necessary_because_of_the_fever_035",
+      "title": "Drum Island Becomes Necessary Because Of The Fever",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.nami-illness-bridge",
+        "validToAnchor": "op.little-garden.elbaf-and-world-hooks",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10600,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: Drum Island Becomes Necessary Because Of The Fever"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-island",
+          "op:nami",
+          "op:log-pose"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [
+          "Log Pose"
+        ],
+        "factions": [],
+        "topics": [
+          "Drum Island need",
+          "fever route bridge",
+          "medical destination"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-island",
+        "character:nami",
+        "item:log-pose",
+        "topic:medical-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Drum Island",
+            "Nami",
+            "Log Pose"
+          ],
+          "topicsAny": [
+            "Drum Island need",
+            "fever route bridge",
+            "medical destination"
+          ],
+          "keywordsAny": [
+            "Drum Island",
+            "Nami",
+            "Log Pose",
+            "Drum Island need",
+            "fever route bridge",
+            "medical destination",
+            "fever",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "Drum Island becomes necessary because of Nami's fever, not because the crew is casually touring the next island.",
+        "injection": "Use Drum Island only as a medical destination hook here; keep its people, politics, and doctor story for the next deck.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_little_garden_this_bridge_should_not_summarize_chopper_before_drum_island_036",
+      "title": "The Medical Bridge Does Not Reveal The Next Doctor Story",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.little-garden.nami-illness-bridge",
+        "validToAnchor": "op.little-garden.elbaf-and-world-hooks",
+        "arc": "Little Garden Arc",
+        "arcId": "little-garden",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "115-129",
+        "episode": "70-77",
+        "sortKeyFrom": 10600,
+        "sortKeyTo": 10700,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Little Garden Arc: The Medical Bridge Does Not Reveal The Next Doctor Story"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "little-garden",
+          "label": "Little Garden Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-island",
+          "op:nami"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "doctor story locked",
+          "medical bridge boundary",
+          "Drum Island anti-spoiler"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-island",
+        "character:nami",
+        "topic:medical-bridge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Drum Island",
+            "Nami"
+          ],
+          "topicsAny": [
+            "doctor story locked",
+            "medical bridge boundary",
+            "Drum Island anti-spoiler"
+          ],
+          "keywordsAny": [
+            "Drum Island",
+            "Nami",
+            "doctor story locked",
+            "medical bridge boundary",
+            "Drum Island anti-spoiler",
+            "doctor locked",
+            "anti-spoiler",
+            "bridge",
+            "Little Garden Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+      },
+      "content": {
+        "fact": "The Little Garden medical bridge should create doctor urgency without revealing who solves it or how Drum Island unfolds.",
+        "injection": "Use this as the anti-spoiler gate: the crew needs help, but the next deck owns the answer.",
+        "constraints": [
+          "Keep this card inside Little Garden Arc, manga chapters 115-129, anime episodes 70-77.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not expand Elbaf, giant history, or Dorry and Brogy beyond the Little Garden source window.",
+          "Do not import later Baroque Works outcomes, Mr. 3 later roles, or Arabasta resolution material.",
+          "Do not summarize Drum Island or future doctor material beyond the immediate medical-urgency bridge.",
+          "Do not diagnose or resolve Nami's illness inside Little Garden beyond fever/medical urgency.",
+          "Do not turn Little Garden into a full Grand Line ecology encyclopedia."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-little-garden",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "little-garden-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Little Garden Arc",
+    "chapterRange": "Manga chapters 115-129",
+    "episodeRange": "Anime episodes 70-77",
+    "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+  }
+}

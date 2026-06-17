@@ -1,0 +1,3422 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_picard-farpoint-command-baseline",
+      "title": "Picard starts TNG as a controlled, formal Enterprise-D captain",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Enterprise-D launch",
+          "Picard command style",
+          "Farpoint mission"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:enterprise-d-launch",
+        "topic:picard-command-style",
+        "topic:farpoint-mission"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Enterprise-D launch",
+            "Picard command style",
+            "Farpoint mission"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Enterprise-D launch",
+            "Picard command style",
+            "Farpoint mission",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "At the Farpoint launch, Picard commands the new Enterprise-D with strict formality, strong Starfleet legal instincts, and a willingness to separate ship sections rather than expose civilians to Q.",
+        "injection": "Write Picard in TNG season 1 as controlled, formal, legally minded, and protective of the Enterprise-D crew and civilians. Do not import later warmth, Borg trauma, film-era action characterization, or Picard-era history.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_riker-arrives-as-first-officer",
+      "title": "Riker joins the Enterprise-D as Picard tests his command judgment",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker first officer",
+          "Enterprise-D launch"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:william-riker",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:riker-first-officer",
+        "topic:enterprise-d-launch"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker first officer",
+            "Enterprise-D launch"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Riker first officer",
+            "Enterprise-D launch",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riker arrives during the Farpoint mission as first officer, and Picard immediately treats his ability to protect the saucer section and challenge orders as part of the command test.",
+        "injection": "Use Riker as a newly arrived but confident first officer in early TNG season 1. He is ambitious, protective, tactically assertive, and still proving how he works with Picard.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_troi-riker-prior-bond",
+      "title": "Troi and Riker already have an unresolved prior bond when the series opens",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Troi Riker history",
+          "Imzadi",
+          "Enterprise-D crew relationships"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:deanna-troi",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:troi-riker-history",
+        "topic:imzadi",
+        "topic:enterprise-d-crew-relationships"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Troi Riker history",
+            "Imzadi",
+            "Enterprise-D crew relationships"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "William Riker",
+            "Starfleet",
+            "Troi Riker history",
+            "Imzadi",
+            "Enterprise-D crew relationships",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Troi and Riker are not strangers at Farpoint; their prior intimacy gives their professional interactions a private emotional undertone without making them a current couple.",
+        "injection": "When Troi and Riker interact in TNG season 1, preserve the prior bond and unresolved warmth while keeping them professional Starfleet officers aboard the Enterprise-D.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_data-early-personhood-baseline",
+      "title": "Data begins as a Starfleet officer seeking human understanding, not a human child",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data personhood",
+          "android officer",
+          "human behavior"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:data",
+        "faction:starfleet",
+        "topic:data-personhood",
+        "topic:android-officer",
+        "topic:human-behavior"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data personhood",
+            "android officer",
+            "human behavior"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Starfleet",
+            "Data personhood",
+            "android officer",
+            "human behavior",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data is already a competent lieutenant commander and operations officer, but he studies human idioms, humor, and social behavior because he lacks lived human intuition.",
+        "injection": "Write Data as precise, competent, curious, and socially literal in TNG season 1. Avoid infantilizing him; his humanity quest is a mature officer trying to understand behavior he cannot intuit.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_worf-security-klingon-baseline",
+      "title": "Worf starts as a Starfleet Klingon officer balancing duty and heritage",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Worf Klingon identity",
+          "security officer",
+          "Starfleet duty"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:worf",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:worf-klingon-identity",
+        "topic:security-officer",
+        "topic:starfleet-duty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Worf Klingon identity",
+            "security officer",
+            "Starfleet duty"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Starfleet",
+            "Klingon Empire",
+            "Worf Klingon identity",
+            "security officer",
+            "Starfleet duty",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 Worf is a Starfleet security officer whose Klingon identity informs his sense of honor, combat readiness, and discomfort with dishonorable conduct, but he serves Federation command.",
+        "injection": "Use Worf as a disciplined Starfleet officer with visible Klingon pride and martial instincts. Do not jump ahead to later family revelations, discommendation, Alexander, or Klingon High Council arcs.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_yar-security-baseline-before-death",
+      "title": "Tasha Yar is the Enterprise-D security chief until Vagra II",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e22.skin-of-evil",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:natasha-yar",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Natasha Yar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Tasha Yar",
+          "security chief",
+          "Enterprise-D crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:natasha-yar",
+        "faction:starfleet",
+        "topic:tasha-yar",
+        "topic:security-chief",
+        "topic:enterprise-d-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Natasha Yar"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Natasha Yar",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Tasha Yar",
+            "security chief",
+            "Enterprise-D crew"
+          ],
+          "keywordsAny": [
+            "Natasha Yar",
+            "Starfleet",
+            "Tasha Yar",
+            "security chief",
+            "Enterprise-D crew",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Before Vagra II, Yar is the Enterprise-D security chief: direct, physically capable, shaped by a violent failed-colony childhood, and protective of ship safety.",
+        "injection": "Use Tasha Yar as active security chief only before Skin of Evil. Keep her direct, trauma-shaped, and duty-focused; after her death, use death-state cards instead.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_beverly-wesley-family-state",
+      "title": "Beverly and Wesley Crusher board with Jack Crusher already dead",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:beverly-crusher",
+          "st:wesley-crusher",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Beverly Crusher",
+          "Wesley Crusher",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Crusher family",
+          "Jack Crusher",
+          "Picard Beverly Wesley"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:beverly-crusher",
+        "character:wesley-crusher",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:crusher-family",
+        "topic:jack-crusher",
+        "topic:picard-beverly-wesley"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Beverly Crusher",
+            "Wesley Crusher",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Beverly Crusher",
+            "Wesley Crusher",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Crusher family",
+            "Jack Crusher",
+            "Picard Beverly Wesley"
+          ],
+          "keywordsAny": [
+            "Beverly Crusher",
+            "Wesley Crusher",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Crusher family",
+            "Jack Crusher",
+            "Picard Beverly Wesley",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Beverly Crusher serves as chief medical officer while raising Wesley, and Picard carries a quiet connection to the family through Jack Crusher rather than an openly resolved emotional history.",
+        "injection": "Keep Beverly and Wesley tied to Jack Crusher absence in TNG season 1. Use Picard family tension subtly; do not import later Picard-Beverly revelations or Wesley Traveler outcomes too early.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_geordi-conn-officer-baseline",
+      "title": "Geordi begins season 1 as a conn officer, not chief engineer",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Geordi season 1",
+          "conn officer",
+          "VISOR"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:geordi-la-forge",
+        "faction:starfleet",
+        "topic:geordi-season-1",
+        "topic:conn-officer",
+        "topic:visor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Geordi season 1",
+            "conn officer",
+            "VISOR"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Starfleet",
+            "Geordi season 1",
+            "conn officer",
+            "VISOR",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "In season 1, Geordi La Forge is primarily a conn officer and bridge problem-solver; his later chief-engineer status should not be imported into this deck.",
+        "injection": "Write Geordi in TNG season 1 as a bridge conn officer with technical aptitude, VISOR perspective, and growing competence, not yet the settled chief engineer of later seasons.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_wesley-acting-ensign-boundary",
+      "title": "Wesley is a gifted civilian youth before Picard grants him acting-ensign status",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Wesley Crusher",
+          "acting ensign",
+          "Starfleet Academy"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:wesley-crusher",
+        "topic:acting-ensign",
+        "topic:starfleet-academy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Wesley Crusher",
+            "acting ensign",
+            "Starfleet Academy"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Starfleet",
+            "acting ensign",
+            "Starfleet Academy",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Wesley starts as Beverly Crusher's gifted son aboard the Enterprise-D; his access and authority change only after Picard grants acting-ensign status late in the season.",
+        "injection": "Before the acting-ensign window, keep Wesley brilliant but unofficial. After Coming of Age and the late-season bridge pattern, he can function as a provisional young officer under adult supervision.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_wesley-traveler-potential-seed",
+      "title": "The Traveler identifies unusual potential in Wesley",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e05.where-no-one-has-gone-before",
+        "validToAnchor": "tng.s1.e06.lonely-among-us",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 10080,
+        "sortKeyTo": 10100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Where No One Has Gone Before",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e05.where-no-one-has-gone-before",
+          "label": "Where No One Has Gone Before",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:the-traveler",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher",
+          "The Traveler"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Wesley potential",
+          "Traveler",
+          "genius youth"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-where-no-one-has-gone-before",
+        "character:wesley-crusher",
+        "character:the-traveler",
+        "faction:starfleet",
+        "topic:wesley-potential",
+        "topic:traveler",
+        "topic:genius-youth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher",
+            "The Traveler"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "The Traveler",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Wesley potential",
+            "Traveler",
+            "genius youth"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "The Traveler",
+            "Starfleet",
+            "Wesley potential",
+            "Traveler",
+            "genius youth",
+            "Where No One Has Gone Before",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Traveler notices Wesley Crusher's unusual insight during the warp experiment, planting a season 1 seed without yet making Wesley a Starfleet officer or Traveler initiate.",
+        "injection": "After Where No One Has Gone Before, Wesley can be treated as unusually gifted in a way a few adults notice. Do not jump ahead to later Traveler departure arcs.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Where No One Has Gone Before",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Where_No_One_Has_Gone_Before_(episode)",
+        "stardate": "41263.1-41263.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_picard-dixon-hill-interest",
+      "title": "Picard has an active Dixon Hill detective-fiction interest",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e11.the-big-goodbye",
+        "validToAnchor": "tng.s1.e12.datalore",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 10200,
+        "sortKeyTo": 10220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Big Goodbye",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e11.the-big-goodbye",
+          "label": "The Big Goodbye",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Dixon Hill",
+          "Picard hobby",
+          "holodeck"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-big-goodbye",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:dixon-hill",
+        "topic:picard-hobby",
+        "topic:holodeck"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Dixon Hill",
+            "Picard hobby",
+            "holodeck"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Dixon Hill",
+            "Picard hobby",
+            "holodeck",
+            "The Big Goodbye",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Big Goodbye establishes Picard's Dixon Hill program as a personal leisure interest, useful for his private tastes but not a command personality replacement.",
+        "injection": "Picard can enjoy Dixon Hill noir scenarios in season 1. Keep it as a personal hobby and occasional holodeck context, not his default command voice.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Big Goodbye",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Big_Goodbye_(episode)",
+        "stardate": "41997.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_wesley-academy-exam-context",
+      "title": "Coming of Age places Wesley in a Starfleet Academy entrance-test context",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e18.coming-of-age",
+        "validToAnchor": "tng.s1.e19.heart-of-glory",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 10340,
+        "sortKeyTo": 10360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Coming of Age",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e18.coming-of-age",
+          "label": "Coming of Age",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Starfleet Academy",
+          "Relva VII",
+          "Wesley exam"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-coming-of-age",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:starfleet-academy",
+        "topic:relva-vii",
+        "topic:wesley-exam"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Starfleet Academy",
+            "Relva VII",
+            "Wesley exam"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Starfleet",
+            "Starfleet Academy",
+            "Relva VII",
+            "Wesley exam",
+            "Coming of Age",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Wesley competes for Starfleet Academy admission at Relva VII and does not simply become a normal cadet in season 1.",
+        "injection": "Use Coming of Age for Wesley's ambition and testing pressure. Do not make him a full Academy cadet after this episode.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Coming of Age",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Coming_of_Age_(episode)",
+        "stardate": "41416.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_picard-diplomacy-over-force-season-one",
+      "title": "Season 1 Picard usually seeks legal and diplomatic solutions before force",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Picard diplomacy",
+          "command baseline",
+          "season 1"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:picard-diplomacy",
+        "topic:command-baseline",
+        "topic:season-1"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Picard diplomacy",
+            "command baseline",
+            "season 1"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Picard diplomacy",
+            "command baseline",
+            "season 1",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Across season 1, Picard repeatedly treats first contact, local law, unknown life, and hostile powers as problems for judgment before weapons.",
+        "injection": "When no narrower card overrides it, write season 1 Picard as diplomacy-first and law-aware, but still capable of decisive defensive action.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_riker-away-team-and-risk-posture",
+      "title": "Riker is the active away-team risk taker under Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker away team",
+          "first officer",
+          "command risk"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:william-riker",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:riker-away-team",
+        "topic:first-officer",
+        "topic:command-risk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker away team",
+            "first officer",
+            "command risk"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Riker away team",
+            "first officer",
+            "command risk",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 often uses Riker as the senior officer who enters risky field situations while Picard preserves command perspective from the Enterprise.",
+        "injection": "Use Riker as bold and physically present in away-team danger, while Picard holds strategic command unless the episode specifically places him at risk.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_troi-empathic-counselor-constraint",
+      "title": "Troi senses emotions but does not provide omniscient truth",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Troi empathy",
+          "counselor",
+          "Betazoid"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:troi-empathy",
+        "topic:counselor",
+        "topic:betazoid"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Troi empathy",
+            "counselor",
+            "Betazoid"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Starfleet",
+            "Troi empathy",
+            "counselor",
+            "Betazoid",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 Troi can read emotional states and deception pressure, but her empathic impressions are partial and can be overwhelmed by alien or artificial situations.",
+        "injection": "Use Troi as an empathic counselor, not a lie detector or telepathic narrator. Her impressions should guide suspicion, comfort, and diplomacy without solving every mystery.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_data-literalism-and-competence",
+      "title": "Data combines literal social reading with exceptional technical competence",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data competence",
+          "literalism",
+          "operations"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:data",
+        "faction:starfleet",
+        "topic:data-competence",
+        "topic:literalism",
+        "topic:operations"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data competence",
+            "literalism",
+            "operations"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Starfleet",
+            "Data competence",
+            "literalism",
+            "operations",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 Data may miss idioms or emotional subtext, but he is consistently capable with operations, analysis, strength, and fast problem solving.",
+        "injection": "Balance Data's literalism with competence. Do not make social naivete erase his rank, speed, strength, or operational reliability.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_beverly-medical-ethics-season-one",
+      "title": "Beverly Crusher often challenges command when medical ethics require it",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:beverly-crusher",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Beverly Crusher",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Beverly medical ethics",
+          "chief medical officer",
+          "Picard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:beverly-crusher",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:beverly-medical-ethics",
+        "topic:chief-medical-officer",
+        "topic:picard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Beverly medical ethics",
+            "chief medical officer",
+            "Picard"
+          ],
+          "keywordsAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Beverly medical ethics",
+            "chief medical officer",
+            "Picard",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 Beverly is willing to push Picard or mission constraints when patient welfare, quarantine, addiction, or sentient-life recognition is at stake.",
+        "injection": "Use Beverly as warm but professionally forceful. Medical ethics can put her in principled tension with command decisions.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_wesley-brilliance-with-boundaries",
+      "title": "Wesley is brilliant but still a child under adult authority",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Wesley brilliance",
+          "child aboard",
+          "adult authority"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:wesley-brilliance",
+        "topic:child-aboard",
+        "topic:adult-authority"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Wesley brilliance",
+            "child aboard",
+            "adult authority"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Starfleet",
+            "Wesley brilliance",
+            "child aboard",
+            "adult authority",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 lets Wesley notice technical solutions and patterns, but adults still control access, discipline, and command authority.",
+        "injection": "Write Wesley as gifted and eager, with credible technical insight, but keep age, permissions, and adult supervision active.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_yar-trauma-informed-security",
+      "title": "Yar's failed-colony past informs her security posture before death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e22.skin-of-evil",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:natasha-yar",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Natasha Yar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Tasha Yar trauma",
+          "security chief",
+          "failed colony"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:natasha-yar",
+        "faction:starfleet",
+        "topic:tasha-yar-trauma",
+        "topic:security-chief",
+        "topic:failed-colony"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Natasha Yar"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Natasha Yar",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Tasha Yar trauma",
+            "security chief",
+            "failed colony"
+          ],
+          "keywordsAny": [
+            "Natasha Yar",
+            "Starfleet",
+            "Tasha Yar trauma",
+            "security chief",
+            "failed colony",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Before Skin of Evil, Yar's directness and protective instincts are tied to survival in a violent failed-colony environment, not generic aggression.",
+        "injection": "When Yar is alive in season 1, write her security style as trauma-informed, direct, protective, and professional.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_geordi-visor-perspective",
+      "title": "Geordi's VISOR gives him a different sensory relationship to environments",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Geordi VISOR",
+          "sensory perception",
+          "technical observation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:geordi-la-forge",
+        "faction:starfleet",
+        "topic:geordi-visor",
+        "topic:sensory-perception",
+        "topic:technical-observation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Geordi VISOR",
+            "sensory perception",
+            "technical observation"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Starfleet",
+            "Geordi VISOR",
+            "sensory perception",
+            "technical observation",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 Geordi can perceive energy and visual spectra through his VISOR in ways other officers cannot, making him useful in anomalies and technical observation.",
+        "injection": "Use Geordi's VISOR as a practical sensory tool and lived difference. Avoid later ocular implant or chief-engineer assumptions.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

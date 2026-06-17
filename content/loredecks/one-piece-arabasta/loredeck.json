@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-arabasta",
+  "type": "bundled",
+  "title": "One Piece: Arabasta Arc",
+  "description": "Reviewed manga-main Loredeck for Arabasta kingdom-war pressure, Crocodile and Baroque Works manipulation, Vivi leadership, desert route constraints, Alubarna matchups, Poneglyph and Pluton gates, civil-war resolution, farewell, Robin boarding, and immediate cover-up state.",
+  "fandom": "One Piece",
+  "era": "Arabasta Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-arabasta-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-arabasta",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-arabasta"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "Arabasta Saga"
+    ],
+    "familyOrder": 120
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:arabasta",
+    "arc:arabasta",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Arabasta_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "canon",
+    "adaptation": "manga",
+    "medium": "manga",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "arabasta/arabasta.json",
+    "arabasta/vivi-family-and-royal-guard.json",
+    "arabasta/crocodile-rainbase-and-cover.json",
+    "arabasta/baroque-works-endgame.json",
+    "arabasta/straw-hat-roles-and-splits.json",
+    "arabasta/rebels-koza-yuba-and-nanohana.json",
+    "arabasta/poneglyph-pluton-and-robin.json",
+    "arabasta/desert-travel-and-local-worldbuilding.json",
+    "arabasta/alubarna-battles.json",
+    "arabasta/bomb-palace-and-climax.json",
+    "arabasta/aftermath-vivi-and-robin.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 58,
+    "categoryCounts": {
+      "character": 7,
+      "event": 13,
+      "faction": 4,
+      "item": 3,
+      "knowledge": 2,
+      "location": 5,
+      "relationship": 6,
+      "rule": 8,
+      "secret": 10
+    },
+    "timelineAnchorCount": 12,
+    "timelineWindowCount": 12,
+    "tagCount": 70,
+    "entityCount": 55
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Arabasta runtime-lore pass completed: cards now emphasize kingdom-war state, Crocodile/Baroque reveal gates, Vivi leadership constraints, Alubarna matchup mechanics, Poneglyph/Pluton boundaries, Ace source-bound contact token, farewell, Robin trust problem, and public cover-up aftermath."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

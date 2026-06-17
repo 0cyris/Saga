@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Syrup Village Arc Context inside East Blue Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Syrup Village Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during syrup village arc: usopp, kaya, and village",
+      "result": {
+        "anchorFrom": "op.syrup-village.syrup-village",
+        "label": "Syrup Village Arc: Usopp, Kaya, and village"
+      }
+    },
+    {
+      "pattern": "during syrup village arc: kuro and black cat pirates",
+      "result": {
+        "anchorFrom": "op.syrup-village.kuro-and-black-cat-pirates",
+        "label": "Syrup Village Arc: Kuro and Black Cat Pirates"
+      }
+    },
+    {
+      "pattern": "during syrup village arc: straw hats and usopp",
+      "result": {
+        "anchorFrom": "op.syrup-village.straw-hats-and-usopp",
+        "label": "Syrup Village Arc: Straw Hats and Usopp"
+      }
+    },
+    {
+      "pattern": "during syrup village arc: village geography and defense",
+      "result": {
+        "anchorFrom": "op.syrup-village.village-geography-and-defense",
+        "label": "Syrup Village Arc: Village geography and defense"
+      }
+    },
+    {
+      "pattern": "during syrup village arc: going merry and merry",
+      "result": {
+        "anchorFrom": "op.syrup-village.going-merry-and-merry",
+        "label": "Syrup Village Arc: Going Merry and Merry"
+      }
+    },
+    {
+      "pattern": "during syrup village arc: deception and reveal",
+      "result": {
+        "anchorFrom": "op.syrup-village.deception-and-reveal",
+        "label": "Syrup Village Arc: Deception and reveal"
+      }
+    },
+    {
+      "pattern": "during syrup village arc: battle and aftermath",
+      "result": {
+        "anchorFrom": "op.syrup-village.battle-and-aftermath",
+        "label": "Syrup Village Arc: Battle and aftermath"
+      }
+    },
+    {
+      "pattern": "during syrup village arc: timeline and spoiler gates",
+      "result": {
+        "anchorFrom": "op.syrup-village.timeline-and-spoiler-gates",
+        "label": "Syrup Village Arc: Timeline and spoiler gates"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

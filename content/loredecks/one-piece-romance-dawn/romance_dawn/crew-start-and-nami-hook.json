@@ -1,0 +1,770 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_luffy_and_zoro_leave_together_before_there_is_a_formal_full_crew_020",
+      "title": "Luffy and Zoro depart as a two-person crew",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.crew-start-and-nami-hook",
+        "validToAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1384,
+        "sortKeyTo": 1512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Luffy and Zoro depart as a two-person crew"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "two-person crew",
+          "Coby separates",
+          "early Straw Hat state"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:roronoa-zoro",
+        "relationship:monkey-d-luffy",
+        "topic:first-crew-bond",
+        "topic:crew-start-and-nami-hook"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "two-person crew",
+            "Coby separates",
+            "early Straw Hat state"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "two-person crew",
+            "Coby separates",
+            "early Straw Hat state",
+            "Luffy and Zoro depart as a two-person crew",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "By departure, Luffy and Zoro are a two-person crew while Coby remains on the Marine path; the full Straw Hat crew does not exist yet.",
+        "injection": "For post-Shells Town scenes, keep the party small and provisional: Luffy and Zoro leave together, Coby separates, and no later crew structure should leak in.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_the_first_crew_dynamic_is_captain_confidence_paired_with_zoro_s_blunt_loyalty_021",
+      "title": "The first crew dynamic is Luffy's confidence against Zoro's blunt edge",
+      "kind": "snapshot",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.crew-start-and-nami-hook",
+        "validToAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1384,
+        "sortKeyTo": 1512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: The first crew dynamic is Luffy's confidence against Zoro's blunt edge"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy and Zoro dynamic",
+          "early crew bond",
+          "blunt loyalty"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "relationship:roronoa-zoro",
+        "topic:first-crew-bond",
+        "topic:crew-start-and-nami-hook"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "Luffy and Zoro dynamic",
+            "early crew bond",
+            "blunt loyalty"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Luffy and Zoro dynamic",
+            "early crew bond",
+            "blunt loyalty",
+            "The first crew dynamic is Luffy's confidence against Zoro's blunt edge",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The first crew dynamic pairs Luffy's captain confidence with Zoro's blunt discipline and newly chosen loyalty.",
+        "injection": "Write early Luffy and Zoro as a compact, rough partnership: Luffy leads with certainty, Zoro follows but cuts through nonsense.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_their_lack_of_navigation_skill_makes_nami_s_future_role_important_022",
+      "title": "Poor navigation is an active early-crew constraint",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.crew-start-and-nami-hook",
+        "validToAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1384,
+        "sortKeyTo": 1512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Poor navigation is an active early-crew constraint"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "poor navigation",
+          "small-boat travel",
+          "Nami role foreshadow"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "relationship:nami",
+        "topic:first-crew-bond",
+        "topic:crew-start-and-nami-hook"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Nami"
+          ],
+          "topicsAny": [
+            "poor navigation",
+            "small-boat travel",
+            "Nami role foreshadow"
+          ],
+          "keywordsAny": [
+            "poor navigation",
+            "small-boat travel",
+            "Nami role foreshadow",
+            "Poor navigation is an active early-crew constraint",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy and Zoro's lack of navigation skill is an active constraint, making route risk and Nami's later value matter without revealing her backstory.",
+        "injection": "When the early crew travels, keep small-boat drift, bad planning, and navigation gaps in play. Foreshadow Nami's practical value without exposing Arlong Park facts.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_nami_is_near_the_early_east_blue_route_as_a_thief_before_she_is_trusted_023",
+      "title": "Nami can enter as a thief, not trusted crew",
+      "kind": "reference_note",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.crew-start-and-nami-hook",
+        "validToAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1384,
+        "sortKeyTo": 1512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Nami can enter as a thief, not trusted crew"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:east-blue",
+          "op:nami"
+        ],
+        "characters": [
+          "East Blue"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nami thief state",
+          "early East Blue route",
+          "hidden motive"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:east-blue",
+        "relationship:nami",
+        "relationship:straw-hat-pirates",
+        "topic:first-crew-bond"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "East Blue"
+          ],
+          "entitiesAny": [
+            "East Blue",
+            "Nami"
+          ],
+          "topicsAny": [
+            "Nami thief state",
+            "early East Blue route",
+            "hidden motive"
+          ],
+          "keywordsAny": [
+            "East Blue",
+            "Nami thief state",
+            "early East Blue route",
+            "hidden motive",
+            "Nami can enter as a thief, not trusted crew",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "In this window, Nami can be near the early East Blue route as a thief targeting pirate loot, but she is not yet trusted crew and her motive stays hidden.",
+        "injection": "If Nami appears around Romance Dawn/Orange Town transition material, write her as useful, wary, and self-interested. Do not reveal Arlong, Cocoyasi, or her full loyalty conflict.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_the_straw_hat_pirates_begin_as_a_practical_alliance_rather_than_an_institution_024",
+      "title": "The Straw Hats are only a practical alliance at formation",
+      "kind": "snapshot",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.crew-start-and-nami-hook",
+        "validToAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1384,
+        "sortKeyTo": 1512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: The Straw Hats are only a practical alliance at formation"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:straw-hat",
+          "op:straw-hat-pirates"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Straw Hat"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "practical alliance",
+          "early crew formation",
+          "not established Straw Hats"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:straw-hat",
+        "relationship:straw-hat-pirates",
+        "relationship:east-blue",
+        "topic:first-crew-bond"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Straw Hat"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Straw Hat",
+            "Straw Hat Pirates"
+          ],
+          "topicsAny": [
+            "practical alliance",
+            "early crew formation",
+            "not established Straw Hats"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Straw Hat",
+            "practical alliance",
+            "early crew formation",
+            "not established Straw Hats",
+            "The Straw Hats are only a practical alliance at formation",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Straw Hats begin as a practical alliance around Luffy and Zoro, not a formal shipboard institution with a full crew identity.",
+        "injection": "For earliest crew scenes, avoid writing the Straw Hats as an established organization. There is no proper ship, full roster, flag culture, or settled routine yet.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    }
+  ]
+}

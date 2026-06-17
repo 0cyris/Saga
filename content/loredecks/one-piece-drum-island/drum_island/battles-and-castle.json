@@ -1,0 +1,874 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_wapol_s_powers_turn_consumption_and_selfishness_into_battle_behavior_032",
+      "title": "Wapol's Power Turns Consumption Into Battle Behavior",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.battles-and-castle",
+        "validToAnchor": "op.drum-island.world-hooks-and-blackbeard-report",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11540,
+        "sortKeyTo": 11630,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Wapol's Power Turns Consumption Into Battle Behavior"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:wapol"
+        ],
+        "characters": [
+          "Wapol"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Wapol power",
+          "consumption",
+          "battle behavior"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:wapol",
+        "topic:drum-politics",
+        "topic:castle-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wapol"
+          ],
+          "entitiesAny": [
+            "Wapol"
+          ],
+          "topicsAny": [
+            "Wapol power",
+            "consumption",
+            "battle behavior"
+          ],
+          "keywordsAny": [
+            "Wapol",
+            "Wapol power",
+            "consumption",
+            "battle behavior",
+            "eat",
+            "weaponize",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Wapol's power turns consumption and selfishness into battle behavior, letting him weaponize what he eats.",
+        "injection": "Use Wapol's ability as a personality extension: he consumes, hoards, and turns the world into material for himself.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_chopper_fights_to_protect_the_castle_and_hiriluk_s_memory_033",
+      "title": "Chopper Fights To Protect The Castle And Hiriluk's Memory",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.battles-and-castle",
+        "validToAnchor": "op.drum-island.world-hooks-and-blackbeard-report",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11540,
+        "sortKeyTo": 11630,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Chopper Fights To Protect The Castle And Hiriluk's Memory"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:tony-tony-chopper",
+          "op:dr-hiriluk",
+          "op:drum-castle",
+          "op:wapol"
+        ],
+        "characters": [
+          "Tony Tony Chopper",
+          "Dr. Hiriluk",
+          "Wapol"
+        ],
+        "locations": [
+          "Drum Castle"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Chopper fights",
+          "protect Hiriluk memory",
+          "castle defense"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:tony-tony-chopper",
+        "character:dr-hiriluk",
+        "location:drum-castle",
+        "character:wapol",
+        "topic:drum-politics",
+        "topic:chopper-identity",
+        "topic:castle-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tony Tony Chopper",
+            "Dr. Hiriluk",
+            "Wapol"
+          ],
+          "entitiesAny": [
+            "Tony Tony Chopper",
+            "Dr. Hiriluk",
+            "Drum Castle",
+            "Wapol"
+          ],
+          "topicsAny": [
+            "Chopper fights",
+            "protect Hiriluk memory",
+            "castle defense"
+          ],
+          "keywordsAny": [
+            "Tony Tony Chopper",
+            "Dr. Hiriluk",
+            "Drum Castle",
+            "Wapol",
+            "Chopper fights",
+            "protect Hiriluk memory",
+            "castle defense",
+            "Chopper fight",
+            "Hiriluk",
+            "castle",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Chopper fights to protect the castle and Hiriluk's memory, not merely because Wapol is an enemy.",
+        "injection": "Use Chopper's combat as identity defense: he is protecting the place and symbol that hold his dream.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_chess_and_kuromarimo_pressure_the_castle_defense_034",
+      "title": "Chess And Kuromarimo Pressure The Castle Defense",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.battles-and-castle",
+        "validToAnchor": "op.drum-island.world-hooks-and-blackbeard-report",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11540,
+        "sortKeyTo": 11630,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Chess And Kuromarimo Pressure The Castle Defense"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:chess",
+          "op:kuromarimo",
+          "op:tony-tony-chopper",
+          "op:drum-castle"
+        ],
+        "characters": [
+          "Chess",
+          "Kuromarimo",
+          "Tony Tony Chopper"
+        ],
+        "locations": [
+          "Drum Castle"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "castle defense",
+          "Wapol henchmen",
+          "Chopper battle"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:chess",
+        "character:kuromarimo",
+        "character:tony-tony-chopper",
+        "location:drum-castle",
+        "topic:medical-urgency",
+        "topic:drum-politics",
+        "topic:chopper-identity",
+        "topic:castle-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chess",
+            "Kuromarimo",
+            "Tony Tony Chopper"
+          ],
+          "entitiesAny": [
+            "Chess",
+            "Kuromarimo",
+            "Tony Tony Chopper",
+            "Drum Castle"
+          ],
+          "topicsAny": [
+            "castle defense",
+            "Wapol henchmen",
+            "Chopper battle"
+          ],
+          "keywordsAny": [
+            "Chess",
+            "Kuromarimo",
+            "Tony Tony Chopper",
+            "Drum Castle",
+            "castle defense",
+            "Wapol henchmen",
+            "Chopper battle",
+            "castle",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Chess and Kuromarimo pressure the castle defense and force Chopper to act as a fighter as well as a doctor.",
+        "injection": "Use their pressure to push Chopper into protecting what he inherited.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_luffy_defends_the_flag_because_chopper_s_dream_is_attached_to_it_035",
+      "title": "Luffy Defends The Flag Because Chopper's Dream Is Attached To It",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.battles-and-castle",
+        "validToAnchor": "op.drum-island.world-hooks-and-blackbeard-report",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11540,
+        "sortKeyTo": 11630,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Luffy Defends The Flag Because Chopper's Dream Is Attached To It"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:tony-tony-chopper",
+          "op:dr-hiriluk",
+          "op:drum-castle"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Tony Tony Chopper",
+          "Dr. Hiriluk"
+        ],
+        "locations": [
+          "Drum Castle"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "flag defense",
+          "Chopper dream",
+          "Luffy values"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:tony-tony-chopper",
+        "character:dr-hiriluk",
+        "location:drum-castle",
+        "topic:chopper-identity",
+        "topic:castle-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Tony Tony Chopper",
+            "Dr. Hiriluk"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Tony Tony Chopper",
+            "Dr. Hiriluk",
+            "Drum Castle"
+          ],
+          "topicsAny": [
+            "flag defense",
+            "Chopper dream",
+            "Luffy values"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Tony Tony Chopper",
+            "Dr. Hiriluk",
+            "Drum Castle",
+            "flag defense",
+            "Chopper dream",
+            "Luffy values",
+            "flag",
+            "Luffy",
+            "dream",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Luffy defends Hiriluk's flag because Chopper's dream is attached to it.",
+        "injection": "Use the flag defense as Luffy's values in action: once he understands what the symbol means, he protects it with his body.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_wapol_s_defeat_clears_the_way_for_chopper_to_leave_036",
+      "title": "Wapol's Defeat Clears Space For Chopper To Leave",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.battles-and-castle",
+        "validToAnchor": "op.drum-island.world-hooks-and-blackbeard-report",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11540,
+        "sortKeyTo": 11630,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Wapol's Defeat Clears Space For Chopper To Leave"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:wapol",
+          "op:tony-tony-chopper",
+          "op:monkey-d-luffy",
+          "op:drum-island"
+        ],
+        "characters": [
+          "Wapol",
+          "Tony Tony Chopper",
+          "Monkey D. Luffy"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Wapol defeat",
+          "Chopper departure",
+          "Drum liberation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:wapol",
+        "character:tony-tony-chopper",
+        "character:monkey-d-luffy",
+        "location:drum-island",
+        "topic:drum-politics",
+        "topic:chopper-identity",
+        "topic:castle-battle",
+        "topic:recruitment",
+        "topic:world-hooks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wapol",
+            "Tony Tony Chopper",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Wapol",
+            "Tony Tony Chopper",
+            "Monkey D. Luffy",
+            "Drum Island"
+          ],
+          "topicsAny": [
+            "Wapol defeat",
+            "Chopper departure",
+            "Drum liberation"
+          ],
+          "keywordsAny": [
+            "Wapol",
+            "Tony Tony Chopper",
+            "Monkey D. Luffy",
+            "Drum Island",
+            "Wapol defeat",
+            "Chopper departure",
+            "Drum liberation",
+            "Chopper leave",
+            "liberation",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Wapol's defeat clears political and emotional space for Chopper to leave Drum Island with the Straw Hats.",
+        "injection": "Use the defeat as more than a boss fight: it removes the returning tyrant from Chopper's departure moment.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Drum Island Arc",
+    "chapterRange": "Manga chapters 130-154",
+    "episodeRange": "Anime episodes 78-91",
+    "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+  }
+}

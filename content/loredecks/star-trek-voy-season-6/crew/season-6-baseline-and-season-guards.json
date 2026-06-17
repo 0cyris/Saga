@@ -1,0 +1,944 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_voy-season-6-baseline",
+      "title": "VOY season 6 has its own active cast and story baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e01.equinox-part-ii",
+        "validToAnchor": "voy.s6.e26.unimatrix-zero",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 6",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e01.equinox-part-ii",
+          "label": "Equinox, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:kathryn-janeway",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Kathryn Janeway",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "season baseline",
+          "Equinox",
+          "The Pathfinder Project",
+          "Fair Haven",
+          "Unimatrix Zero"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:kathryn-janeway",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:uss-voyager-crew",
+        "topic:season-baseline",
+        "topic:equinox",
+        "topic:the-pathfinder-project",
+        "topic:fair-haven",
+        "topic:unimatrix-zero"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "season baseline",
+            "Equinox",
+            "The Pathfinder Project",
+            "Fair Haven",
+            "Unimatrix Zero"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "USS Voyager crew",
+            "season baseline",
+            "Equinox",
+            "The Pathfinder Project",
+            "Fair Haven",
+            "Unimatrix Zero",
+            "Equinox, Part II",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Star Trek: Voyager season 6 covers Memory Alpha story rows 1-26, anchored by Equinox, The Pathfinder Project, Fair Haven, Unimatrix Zero.",
+        "injection": "Use VOY season 6 as the active Star Trek context when those episode windows are selected. Do not substitute prior or later season status unless another active deck supplies it.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox, Part II",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox%2C_Part_II_(episode)",
+        "stardate": "Unknown (2375/2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_voy-season-6-major-arcs",
+      "title": "VOY season 6 major arcs stay season-local",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e01.equinox-part-ii",
+        "validToAnchor": "voy.s6.e26.unimatrix-zero",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 6",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e01.equinox-part-ii",
+          "label": "Equinox, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:the-doctor",
+          "st:kathryn-janeway",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "The Doctor",
+          "Kathryn Janeway",
+          "Tom Paris",
+          "Harry Kim"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "major arcs",
+          "EMH autonomy/identity gate",
+          "Equinox ethics gate",
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "Klingon duty/faction-status gate",
+          "death/status-change gate",
+          "episode-local fact/status gate",
+          "Cardassian occupation or border-pressure gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii",
+        "character:chakotay",
+        "character:the-doctor",
+        "character:kathryn-janeway",
+        "character:tom-paris",
+        "character:harry-kim",
+        "faction:uss-voyager-crew",
+        "topic:major-arcs",
+        "topic:emh-autonomyidentity-gate",
+        "topic:equinox-ethics-gate",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim"
+          ],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "major arcs",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Harry Kim",
+            "USS Voyager crew",
+            "major arcs",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Equinox, Part II",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season evidence highlights EMH autonomy/identity gate, Equinox ethics gate, Borg encounter/assimilation gate, Seven/Borg recovery gate, Klingon duty/faction-status gate, death/status-change gate, episode-local fact/status gate, Cardassian occupation or border-pressure gate, with arcs and one-off episodes bounded by their Memory Alpha story rows.",
+        "injection": "Treat season 6 arcs as Context-gated story state, not a license to import the final outcomes of later Star Trek episodes or series.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox, Part II",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox%2C_Part_II_(episode)",
+        "stardate": "Unknown (2375/2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_voy-season-6-faction-boundary",
+      "title": "VOY season 6 faction state should follow the loaded episode window",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e01.equinox-part-ii",
+        "validToAnchor": "voy.s6.e26.unimatrix-zero",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 6",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e01.equinox-part-ii",
+          "label": "Equinox, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "faction boundary",
+          "EMH autonomy/identity gate",
+          "Equinox ethics gate",
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "Klingon duty/faction-status gate",
+          "death/status-change gate",
+          "episode-local fact/status gate",
+          "Cardassian occupation or border-pressure gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii",
+        "faction:uss-voyager-crew",
+        "topic:faction-boundary",
+        "topic:emh-autonomyidentity-gate",
+        "topic:equinox-ethics-gate",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "faction boundary",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "faction boundary",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Equinox, Part II",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Faction status in this deck comes from season 6 evidence rows and should not be flattened into all-era Star Trek politics.",
+        "injection": "Use the currently active episode anchor before injecting faction status, especially for Klingon, Romulan, Cardassian, Bajoran, Borg, Dominion, Maquis, or Delta Quadrant material.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox, Part II",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox%2C_Part_II_(episode)",
+        "stardate": "Unknown (2375/2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_voy-season-6-technology-and-anomaly-boundary",
+      "title": "VOY season 6 technology and anomaly facts are episode-bounded",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e01.equinox-part-ii",
+        "validToAnchor": "voy.s6.e26.unimatrix-zero",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 6",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e01.equinox-part-ii",
+          "label": "Equinox, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "technology boundary",
+          "anomaly boundary",
+          "EMH autonomy/identity gate",
+          "Equinox ethics gate",
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "Klingon duty/faction-status gate",
+          "death/status-change gate",
+          "episode-local fact/status gate",
+          "Cardassian occupation or border-pressure gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii",
+        "faction:uss-voyager-crew",
+        "topic:technology-boundary",
+        "topic:anomaly-boundary",
+        "topic:emh-autonomyidentity-gate",
+        "topic:equinox-ethics-gate",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:episode-local-factstatus-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "technology boundary",
+            "anomaly boundary",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "technology boundary",
+            "anomaly boundary",
+            "EMH autonomy/identity gate",
+            "Equinox ethics gate",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "Klingon duty/faction-status gate",
+            "death/status-change gate",
+            "episode-local fact/status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Equinox, Part II",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 6 includes technology, anomaly, medical, legal, and cultural constraints that are often local to one episode.",
+        "injection": "Do not generalize an episode anomaly or technology into routine Starfleet capability unless a later active Loredeck explicitly broadens it.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox, Part II",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox%2C_Part_II_(episode)",
+        "stardate": "Unknown (2375/2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s6_voy-season-6-future-guard",
+      "title": "VOY season 6 should not import later Star Trek outcomes",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s6.e01.equinox-part-ii",
+        "validToAnchor": "voy.s6.e26.unimatrix-zero",
+        "series": "VOY",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 6",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s6",
+          "label": "VOY season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s6.e01.equinox-part-ii",
+          "label": "Equinox, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s6-equinox-part-ii",
+        "faction:uss-voyager-crew",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "future guard",
+            "spoiler guard",
+            "Equinox, Part II",
+            "VOY season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "This deck is a season-local draft reference for Star Trek: Voyager season 6, not an all-era Star Trek encyclopedia.",
+        "injection": "Block later season, film, Picard-era, beta-canon, novel, comic, game, and fanon outcomes unless another active deck supplies that later Context.",
+        "constraints": [
+          "Keep this card inside VOY season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox, Part II",
+        "series": "VOY",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox%2C_Part_II_(episode)",
+        "stardate": "Unknown (2375/2376)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

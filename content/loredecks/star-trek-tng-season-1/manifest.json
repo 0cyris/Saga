@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "star-trek-tng-season-1",
+  "type": "bundled",
+  "title": "Star Trek TNG Season 1",
+  "description": "Draft season Loredeck for the Enterprise-D launch year, Q at Farpoint, early crew baselines, Ferengi and Romulan contact, Data/Lore, Yar death, and season 1 spoiler guards.",
+  "fandom": "Star Trek",
+  "era": "The Next Generation Season 1",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.star-trek-tng-season-1",
+  "deckFamilyId": "star-trek-tng-ds9-voy-seasons",
+  "family": {
+    "id": "star-trek-tng-ds9-voy-seasons",
+    "title": "Star Trek: TNG, DS9, and Voyager",
+    "role": "season"
+  },
+  "recommendedStack": [
+    "star-trek-tng-season-1"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Trek",
+      "The Next Generation"
+    ],
+    "familyOrder": 10
+  },
+  "tags": [
+    "fandom:star-trek",
+    "continuity:star-trek-prime",
+    "series:tng",
+    "season:tng-s1",
+    "structure:season-split-loredeck",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://memory-alpha.fandom.com/wiki/Portal:Main"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-trek-prime",
+    "canonTier": "primary",
+    "adaptation": "television",
+    "medium": "television",
+    "variantOf": "star-trek-prime",
+    "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, novels, comics, games, deleted scenes, production trivia, and fanon."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "crew/enterprise-d-crew-state.json",
+    "factions/q-ferengi-klingons-romulans-starfleet.json",
+    "secrets/reveal-and-future-guards.json",
+    "episodes/season-1-episode-gates.json",
+    "rules/technology-holodeck-and-anomalies.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 75,
+    "categoryCounts": {
+      "character": 23,
+      "event": 11,
+      "faction": 6,
+      "knowledge": 2,
+      "relationship": 4,
+      "rule": 14,
+      "secret": 15
+    },
+    "timelineAnchorCount": 25,
+    "timelineWindowCount": 25,
+    "tagCount": 255,
+    "entityCount": 26
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "needs_review",
+    "notes": "First-pass Star Trek TNG season 1 Loredeck generated from Saga authoring plan and Memory Alpha evidence artifacts."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781740800000
+}

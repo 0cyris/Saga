@@ -1,0 +1,1483 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: The Next Generation season 6 Context from episode titles, story rows, runtime aliases, and common TNG S6 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer TNG season 6 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "time's arrow, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 6 time's arrow, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "tng s6 time's arrow, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "tng 6x01 story",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "tng s06 story 01",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "tng 6x01",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "tng s06e01",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 1",
+      "result": {
+        "anchorFrom": "tng.s6.e01.times-arrow-part-ii",
+        "label": "Time's Arrow, Part II"
+      }
+    },
+    {
+      "pattern": "realm of fear",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "tng season 6 realm of fear",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "tng s6 realm of fear",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "tng 6x02 story",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "tng s06 story 02",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "tng 6x02",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "tng s06e02",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 2",
+      "result": {
+        "anchorFrom": "tng.s6.e02.realm-of-fear",
+        "label": "Realm Of Fear"
+      }
+    },
+    {
+      "pattern": "man of the people",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "tng season 6 man of the people",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "tng s6 man of the people",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "tng 6x03 story",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "tng s06 story 03",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "tng 6x03",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "tng s06e03",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 3",
+      "result": {
+        "anchorFrom": "tng.s6.e03.man-of-the-people",
+        "label": "Man Of The People"
+      }
+    },
+    {
+      "pattern": "relics",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "tng season 6 relics",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "tng s6 relics",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "tng 6x04 story",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "tng s06 story 04",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "tng 6x04",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "tng s06e04",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 4",
+      "result": {
+        "anchorFrom": "tng.s6.e04.relics",
+        "label": "Relics"
+      }
+    },
+    {
+      "pattern": "schisms",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "tng season 6 schisms",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "tng s6 schisms",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "tng 6x05 story",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "tng s06 story 05",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "tng 6x05",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "tng s06e05",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 5",
+      "result": {
+        "anchorFrom": "tng.s6.e05.schisms",
+        "label": "Schisms"
+      }
+    },
+    {
+      "pattern": "true q",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "tng season 6 true q",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "tng s6 true q",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "tng 6x06 story",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "tng s06 story 06",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "tng 6x06",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "tng s06e06",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 6",
+      "result": {
+        "anchorFrom": "tng.s6.e06.true-q",
+        "label": "True Q"
+      }
+    },
+    {
+      "pattern": "rascals",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "tng season 6 rascals",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "tng s6 rascals",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "tng 6x07 story",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "tng s06 story 07",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "tng 6x07",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "tng s06e07",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 7",
+      "result": {
+        "anchorFrom": "tng.s6.e07.rascals",
+        "label": "Rascals"
+      }
+    },
+    {
+      "pattern": "a fistful of datas",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "tng season 6 a fistful of datas",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "tng s6 a fistful of datas",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "tng 6x08 story",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "tng s06 story 08",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "tng 6x08",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "tng s06e08",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 8",
+      "result": {
+        "anchorFrom": "tng.s6.e08.a-fistful-of-datas",
+        "label": "A Fistful of Datas"
+      }
+    },
+    {
+      "pattern": "the quality of life",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "tng season 6 the quality of life",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "tng s6 the quality of life",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "tng 6x09 story",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "tng s06 story 09",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "tng 6x09",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "tng s06e09",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 9",
+      "result": {
+        "anchorFrom": "tng.s6.e09.the-quality-of-life",
+        "label": "The Quality of Life"
+      }
+    },
+    {
+      "pattern": "chain of command, part i",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "tng season 6 chain of command, part i",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "tng s6 chain of command, part i",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "tng 6x10 story",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "tng s06 story 10",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "tng 6x10",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "tng s06e10",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 10",
+      "result": {
+        "anchorFrom": "tng.s6.e10.chain-of-command-part-i",
+        "label": "Chain Of Command, Part I"
+      }
+    },
+    {
+      "pattern": "chain of command, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 6 chain of command, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "tng s6 chain of command, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "tng 6x11 story",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "tng s06 story 11",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "tng 6x11",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "tng s06e11",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 11",
+      "result": {
+        "anchorFrom": "tng.s6.e11.chain-of-command-part-ii",
+        "label": "Chain Of Command, Part II"
+      }
+    },
+    {
+      "pattern": "ship in a bottle",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "tng season 6 ship in a bottle",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "tng s6 ship in a bottle",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "tng 6x12 story",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "tng s06 story 12",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "tng 6x12",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "tng s06e12",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 12",
+      "result": {
+        "anchorFrom": "tng.s6.e12.ship-in-a-bottle",
+        "label": "Ship In A Bottle"
+      }
+    },
+    {
+      "pattern": "aquiel",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "tng season 6 aquiel",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "tng s6 aquiel",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "tng 6x13 story",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "tng s06 story 13",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "tng 6x13",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "tng s06e13",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 13",
+      "result": {
+        "anchorFrom": "tng.s6.e13.aquiel",
+        "label": "Aquiel"
+      }
+    },
+    {
+      "pattern": "face of the enemy",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tng season 6 face of the enemy",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tng s6 face of the enemy",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tng 6x14 story",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tng s06 story 14",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tng 6x14",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tng s06e14",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 14",
+      "result": {
+        "anchorFrom": "tng.s6.e14.face-of-the-enemy",
+        "label": "Face Of The Enemy"
+      }
+    },
+    {
+      "pattern": "tapestry",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "tng season 6 tapestry",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "tng s6 tapestry",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "tng 6x15 story",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "tng s06 story 15",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "tng 6x15",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "tng s06e15",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 15",
+      "result": {
+        "anchorFrom": "tng.s6.e15.tapestry",
+        "label": "Tapestry"
+      }
+    },
+    {
+      "pattern": "birthright, part i",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "tng season 6 birthright, part i",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "tng s6 birthright, part i",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "tng 6x16 story",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "tng s06 story 16",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "tng 6x16",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "tng s06e16",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 16",
+      "result": {
+        "anchorFrom": "tng.s6.e16.birthright-part-i",
+        "label": "Birthright, Part I"
+      }
+    },
+    {
+      "pattern": "birthright, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 6 birthright, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "tng s6 birthright, part ii",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "tng 6x17 story",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "tng s06 story 17",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "tng 6x17",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "tng s06e17",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 17",
+      "result": {
+        "anchorFrom": "tng.s6.e17.birthright-part-ii",
+        "label": "Birthright, Part II"
+      }
+    },
+    {
+      "pattern": "starship mine",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "tng season 6 starship mine",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "tng s6 starship mine",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "tng 6x18 story",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "tng s06 story 18",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "tng 6x18",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "tng s06e18",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 18",
+      "result": {
+        "anchorFrom": "tng.s6.e18.starship-mine",
+        "label": "Starship Mine"
+      }
+    },
+    {
+      "pattern": "lessons",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "tng season 6 lessons",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "tng s6 lessons",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "tng 6x19 story",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "tng s06 story 19",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "tng 6x19",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "tng s06e19",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 19",
+      "result": {
+        "anchorFrom": "tng.s6.e19.lessons",
+        "label": "Lessons"
+      }
+    },
+    {
+      "pattern": "the chase",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "tng season 6 the chase",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "tng s6 the chase",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "tng 6x20 story",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "tng s06 story 20",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "tng 6x20",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "tng s06e20",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 20",
+      "result": {
+        "anchorFrom": "tng.s6.e20.the-chase",
+        "label": "The Chase"
+      }
+    },
+    {
+      "pattern": "frame of mind",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "tng season 6 frame of mind",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "tng s6 frame of mind",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "tng 6x21 story",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "tng s06 story 21",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "tng 6x21",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "tng s06e21",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 21",
+      "result": {
+        "anchorFrom": "tng.s6.e21.frame-of-mind",
+        "label": "Frame of Mind"
+      }
+    },
+    {
+      "pattern": "suspicions",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "tng season 6 suspicions",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "tng s6 suspicions",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "tng 6x22 story",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "tng s06 story 22",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "tng 6x22",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "tng s06e22",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 22",
+      "result": {
+        "anchorFrom": "tng.s6.e22.suspicions",
+        "label": "Suspicions"
+      }
+    },
+    {
+      "pattern": "rightful heir",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "tng season 6 rightful heir",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "tng s6 rightful heir",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "tng 6x23 story",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "tng s06 story 23",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "tng 6x23",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "tng s06e23",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 23",
+      "result": {
+        "anchorFrom": "tng.s6.e23.rightful-heir",
+        "label": "Rightful Heir"
+      }
+    },
+    {
+      "pattern": "second chances",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "tng season 6 second chances",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "tng s6 second chances",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "tng 6x24 story",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "tng s06 story 24",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "tng 6x24",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "tng s06e24",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 24",
+      "result": {
+        "anchorFrom": "tng.s6.e24.second-chances",
+        "label": "Second Chances"
+      }
+    },
+    {
+      "pattern": "timescape",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "tng season 6 timescape",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "tng s6 timescape",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "tng 6x25 story",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "tng s06 story 25",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "tng 6x25",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "tng s06e25",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 25",
+      "result": {
+        "anchorFrom": "tng.s6.e25.timescape",
+        "label": "Timescape"
+      }
+    },
+    {
+      "pattern": "descent",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    },
+    {
+      "pattern": "tng season 6 descent",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    },
+    {
+      "pattern": "tng s6 descent",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    },
+    {
+      "pattern": "tng 6x26 story",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    },
+    {
+      "pattern": "tng s06 story 26",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    },
+    {
+      "pattern": "tng 6x26",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    },
+    {
+      "pattern": "tng s06e26",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    },
+    {
+      "pattern": "tng season 6 episode 26",
+      "result": {
+        "anchorFrom": "tng.s6.e26.descent",
+        "label": "Descent"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

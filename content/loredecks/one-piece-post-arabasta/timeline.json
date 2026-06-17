@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Anime-only Post-Arabasta deck covering episodes 131-135 as shipboard decompression, Chopper Rumble Ball memory, Nami world-map paper, Sanji Tajio curry mentorship, Usopp Kodama fireworks, Zoro Johnny/Yosaku flashback, Robin early suspicion, Vivi absence, and next-island containment.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.post-arabasta.post-arabasta",
+      "label": "Post-Arabasta Arc: Chopper and crew fit",
+      "sortKey": 13000,
+      "arc": "Post-Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "Filler arc",
+      "episode": "131-135",
+      "aliases": [
+        "Post-Arabasta Arc: Chopper and crew fit"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      }
+    },
+    {
+      "id": "op.post-arabasta.nami-navigation-and-crew-life",
+      "label": "Post-Arabasta Arc: Nami navigation and crew life",
+      "sortKey": 13150,
+      "arc": "Post-Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "Filler arc",
+      "episode": "131-135",
+      "aliases": [
+        "Post-Arabasta Arc: Nami navigation and crew life"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      }
+    },
+    {
+      "id": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+      "label": "Post-Arabasta Arc: Sanji, Usopp, and Zoro vignettes",
+      "sortKey": 13300,
+      "arc": "Post-Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "Filler arc",
+      "episode": "131-135",
+      "aliases": [
+        "Post-Arabasta Arc: Sanji, Usopp, and Zoro vignettes"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      }
+    },
+    {
+      "id": "op.post-arabasta.robin-onboard-tension",
+      "label": "Post-Arabasta Arc: Robin onboard tension",
+      "sortKey": 13450,
+      "arc": "Post-Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "Filler arc",
+      "episode": "131-135",
+      "aliases": [
+        "Post-Arabasta Arc: Robin onboard tension"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      }
+    },
+    {
+      "id": "op.post-arabasta.shipboard-routines-and-aftercare",
+      "label": "Post-Arabasta Arc: Shipboard routines and aftercare",
+      "sortKey": 13600,
+      "arc": "Post-Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "Filler arc",
+      "episode": "131-135",
+      "aliases": [
+        "Post-Arabasta Arc: Shipboard routines and aftercare"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      }
+    },
+    {
+      "id": "op.post-arabasta.transition-and-timeline-gates",
+      "label": "Post-Arabasta Arc: Transition and timeline gates",
+      "sortKey": 13750,
+      "arc": "Post-Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "Filler arc",
+      "episode": "131-135",
+      "aliases": [
+        "Post-Arabasta Arc: Transition and timeline gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      }
+    },
+    {
+      "id": "op.post-arabasta.after",
+      "label": "Post-Arabasta Arc: aftermath boundary",
+      "sortKey": 13999,
+      "arc": "Post-Arabasta Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "Filler arc",
+      "episode": "131-135",
+      "aliases": [
+        "Post-Arabasta Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.post-arabasta.window.full",
+      "label": "Post-Arabasta Arc",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.post-arabasta.post-arabasta",
+      "anchorTo": "op.post-arabasta.after",
+      "sortKeyFrom": 13000,
+      "sortKeyTo": 13999,
+      "aliases": [
+        "Post-Arabasta Arc",
+        "post-arabasta"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.post-arabasta.window.post-arabasta",
+      "label": "Post-Arabasta Arc: Chopper and crew fit",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.post-arabasta.post-arabasta",
+      "anchorTo": "op.post-arabasta.nami-navigation-and-crew-life",
+      "sortKeyFrom": 13000,
+      "sortKeyTo": 13150,
+      "aliases": [
+        "Chopper and crew fit"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.post-arabasta.window.nami-navigation-and-crew-life",
+      "label": "Post-Arabasta Arc: Nami navigation and crew life",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.post-arabasta.nami-navigation-and-crew-life",
+      "anchorTo": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+      "sortKeyFrom": 13150,
+      "sortKeyTo": 13300,
+      "aliases": [
+        "Nami navigation and crew life"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.post-arabasta.window.sanji-usopp-zoro-vignettes",
+      "label": "Post-Arabasta Arc: Sanji, Usopp, and Zoro vignettes",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.post-arabasta.sanji-usopp-zoro-vignettes",
+      "anchorTo": "op.post-arabasta.robin-onboard-tension",
+      "sortKeyFrom": 13300,
+      "sortKeyTo": 13450,
+      "aliases": [
+        "Sanji, Usopp, and Zoro vignettes"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.post-arabasta.window.robin-onboard-tension",
+      "label": "Post-Arabasta Arc: Robin onboard tension",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.post-arabasta.robin-onboard-tension",
+      "anchorTo": "op.post-arabasta.shipboard-routines-and-aftercare",
+      "sortKeyFrom": 13450,
+      "sortKeyTo": 13600,
+      "aliases": [
+        "Robin onboard tension"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.post-arabasta.window.shipboard-routines-and-aftercare",
+      "label": "Post-Arabasta Arc: Shipboard routines and aftercare",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.post-arabasta.shipboard-routines-and-aftercare",
+      "anchorTo": "op.post-arabasta.transition-and-timeline-gates",
+      "sortKeyFrom": 13600,
+      "sortKeyTo": 13750,
+      "aliases": [
+        "Shipboard routines and aftercare"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.post-arabasta.window.transition-and-timeline-gates",
+      "label": "Post-Arabasta Arc: Transition and timeline gates",
+      "contextType": "window",
+      "windowKind": "show_continuity",
+      "anchorFrom": "op.post-arabasta.transition-and-timeline-gates",
+      "anchorTo": "op.post-arabasta.after",
+      "sortKeyFrom": 13750,
+      "sortKeyTo": 13999,
+      "aliases": [
+        "Transition and timeline gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "arabasta"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "post-arabasta"
+      ]
+    }
+  ]
+}

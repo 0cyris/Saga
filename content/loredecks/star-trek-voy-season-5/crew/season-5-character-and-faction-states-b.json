@@ -1,0 +1,2633 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_bliss-state-gate",
+      "title": "Bliss state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e14.bliss",
+        "validToAnchor": "voy.s5.e15.dark-frontier",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 35260,
+        "sortKeyTo": 35280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Bliss",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e14.bliss",
+          "label": "Bliss",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:seven-of-nine",
+          "st:captain-janeway",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Tuvok",
+          "Tom Paris",
+          "Seven of Nine",
+          "Captain Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "wormhole/anomaly route gate",
+          "Seven/Borg recovery gate",
+          "Captain Janeway",
+          "chief tactical officer",
+          "Tuvok",
+          "executive officer",
+          "Chakotay",
+          "wormhole"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-bliss",
+        "character:chakotay",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:seven-of-nine",
+        "character:captain-janeway",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:wormholeanomaly-route-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:captain-janeway",
+        "topic:chief-tactical-officer",
+        "topic:tuvok",
+        "topic:executive-officer",
+        "topic:chakotay",
+        "topic:wormhole"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Seven of Nine",
+            "Captain Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Seven of Nine",
+            "Captain Janeway",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "wormhole/anomaly route gate",
+            "Seven/Borg recovery gate",
+            "Captain Janeway",
+            "chief tactical officer",
+            "Tuvok",
+            "executive officer",
+            "Chakotay",
+            "wormhole"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Tuvok",
+            "Tom Paris",
+            "Seven of Nine",
+            "Captain Janeway",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "wormhole/anomaly route gate",
+            "Seven/Borg recovery gate",
+            "chief tactical officer",
+            "executive officer",
+            "wormhole",
+            "Bliss",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Bliss constrains Chakotay, Tuvok, Tom Paris around wormhole/anomaly route gate and the episode-local faction state.",
+        "injection": "Inside Bliss, write Chakotay, Tuvok, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Bliss",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Bliss_(episode)",
+        "stardate": "52542.3 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_dark-frontier-state-gate",
+      "title": "Dark Frontier state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 47,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e15.dark-frontier",
+        "validToAnchor": "voy.s5.e16.the-disease",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 35280,
+        "sortKeyTo": 35300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Dark Frontier",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e15.dark-frontier",
+          "label": "Dark Frontier",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:seven-of-nine",
+          "st:borg-collective",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "Seven of Nine",
+          "Borg Collective"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "assimilation status gate",
+          "2375",
+          "Borg Collective",
+          "drones",
+          "Borg",
+          "alcove"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-dark-frontier",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:seven-of-nine",
+        "character:borg-collective",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:assimilation-status-gate",
+        "topic:2375",
+        "topic:borg-collective",
+        "topic:drones",
+        "topic:borg",
+        "topic:alcove"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Seven of Nine",
+            "Borg Collective"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Seven of Nine",
+            "Borg Collective",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "2375",
+            "Borg Collective",
+            "drones",
+            "Borg",
+            "alcove"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "Seven of Nine",
+            "Borg Collective",
+            "Starfleet",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "2375",
+            "drones",
+            "Borg",
+            "alcove",
+            "Dark Frontier",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Dark Frontier constrains Kathryn Janeway, Chakotay, Tuvok around Borg encounter/assimilation gate and the episode-local faction state.",
+        "injection": "Inside Dark Frontier, write Kathryn Janeway, Chakotay, Tuvok with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Dark Frontier",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dark_Frontier_(episode)",
+        "stardate": "52619.2 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_the-disease-state-gate",
+      "title": "The Disease state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e16.the-disease",
+        "validToAnchor": "voy.s5.e17.course-oblivion",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 35300,
+        "sortKeyTo": 35320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: The Disease",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e16.the-disease",
+          "label": "The Disease",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:varro",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Harry Kim",
+          "Varro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Delta Quadrant isolation gate",
+          "in love",
+          "Harry Kim",
+          "Varro",
+          "xenophobic",
+          "Kathryn Janeway",
+          "warp assembly",
+          "The Disease"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-the-disease",
+        "character:kathryn-janeway",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:varro",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:in-love",
+        "topic:harry-kim",
+        "topic:varro",
+        "topic:xenophobic",
+        "topic:kathryn-janeway",
+        "topic:warp-assembly",
+        "topic:the-disease"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Varro"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Varro",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Delta Quadrant isolation gate",
+            "in love",
+            "Harry Kim",
+            "Varro",
+            "xenophobic",
+            "Kathryn Janeway",
+            "warp assembly",
+            "The Disease"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "Varro",
+            "Starfleet",
+            "USS Voyager crew",
+            "Delta Quadrant isolation gate",
+            "in love",
+            "xenophobic",
+            "warp assembly",
+            "The Disease",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Disease constrains Kathryn Janeway, B'Elanna Torres, Tom Paris around Delta Quadrant isolation gate and the episode-local faction state.",
+        "injection": "Inside The Disease, write Kathryn Janeway, B'Elanna Torres, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Disease",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Disease_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_course-oblivion-state-gate",
+      "title": "Course: Oblivion state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e17.course-oblivion",
+        "validToAnchor": "voy.s5.e18.the-fight",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 35320,
+        "sortKeyTo": 35340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Course: Oblivion",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e17.course-oblivion",
+          "label": "Course: Oblivion",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Harry Kim",
+          "The Doctor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "The Silver Blood",
+          "EMH autonomy/identity gate",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "wedding",
+          "Janeway",
+          "Chakotay",
+          "The Doctor"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-course-oblivion",
+        "character:chakotay",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:the-doctor",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:the-silver-blood",
+        "topic:emh-autonomyidentity-gate",
+        "topic:belanna-torres",
+        "topic:tom-paris",
+        "topic:wedding",
+        "topic:janeway",
+        "topic:chakotay",
+        "topic:the-doctor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "The Silver Blood",
+            "EMH autonomy/identity gate",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "wedding",
+            "Janeway",
+            "Chakotay",
+            "The Doctor"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew",
+            "The Silver Blood",
+            "EMH autonomy/identity gate",
+            "wedding",
+            "Janeway",
+            "Course: Oblivion",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Course: Oblivion constrains Chakotay, B'Elanna Torres, Tom Paris around The Silver Blood and the episode-local faction state.",
+        "injection": "Inside Course: Oblivion, write Chakotay, B'Elanna Torres, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Course: Oblivion",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Course%3A_Oblivion_(episode)",
+        "stardate": "52586.3-52597.4 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_the-fight-state-gate",
+      "title": "The Fight state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e18.the-fight",
+        "validToAnchor": "voy.s5.e19.think-tank",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 35340,
+        "sortKeyTo": 35360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: The Fight",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e18.the-fight",
+          "label": "The Fight",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:the-doctor",
+          "st:seven-of-nine",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:maquis",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "The Doctor",
+          "Seven of Nine"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "Maquis",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Maquis political/crew-loyalty gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "Chakotay",
+          "The Doctor",
+          "Seven of Nine",
+          "Tom Paris",
+          "Janeway"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-the-fight",
+        "character:chakotay",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:the-doctor",
+        "character:seven-of-nine",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:maquis",
+        "faction:uss-voyager-crew",
+        "topic:maquis-politicalcrew-loyalty-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:chakotay",
+        "topic:the-doctor",
+        "topic:seven-of-nine",
+        "topic:tom-paris",
+        "topic:janeway"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Seven of Nine"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "Maquis",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Seven of Nine",
+            "Starfleet",
+            "Borg Collective",
+            "Maquis",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Maquis political/crew-loyalty gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Chakotay",
+            "The Doctor",
+            "Seven of Nine",
+            "Tom Paris",
+            "Janeway"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Seven of Nine",
+            "Starfleet",
+            "Borg Collective",
+            "Maquis",
+            "USS Voyager crew",
+            "Maquis political/crew-loyalty gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Janeway",
+            "The Fight",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Fight constrains Chakotay, B'Elanna Torres, Tom Paris around Maquis political/crew-loyalty gate and the episode-local faction state.",
+        "injection": "Inside The Fight, write Chakotay, B'Elanna Torres, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Fight",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Fight_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_think-tank-state-gate",
+      "title": "Think Tank state gate for Seven of Nine",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e19.think-tank",
+        "validToAnchor": "voy.s5.e20.juggernaut",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 35360,
+        "sortKeyTo": 35380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Think Tank",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e19.think-tank",
+          "label": "Think Tank",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:seven-of-nine",
+          "st:saowin",
+          "st:kurros",
+          "st:kathryn-janeway",
+          "st:hazari",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Seven of Nine",
+          "Saowin",
+          "Kurros",
+          "Kathryn Janeway",
+          "Hazari"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Seven/Borg recovery gate",
+          "Saowin",
+          "Kurros",
+          "group of aliens",
+          "bernicium",
+          "ore",
+          "rubidium",
+          "Think Tank"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-think-tank",
+        "character:seven-of-nine",
+        "character:saowin",
+        "character:kurros",
+        "character:kathryn-janeway",
+        "character:hazari",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:sevenborg-recovery-gate",
+        "topic:saowin",
+        "topic:kurros",
+        "topic:group-of-aliens",
+        "topic:bernicium",
+        "topic:ore",
+        "topic:rubidium",
+        "topic:think-tank"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Seven of Nine",
+            "Saowin",
+            "Kurros",
+            "Kathryn Janeway",
+            "Hazari"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Seven of Nine",
+            "Saowin",
+            "Kurros",
+            "Kathryn Janeway",
+            "Hazari",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Seven/Borg recovery gate",
+            "Saowin",
+            "Kurros",
+            "group of aliens",
+            "bernicium",
+            "ore",
+            "rubidium",
+            "Think Tank"
+          ],
+          "keywordsAny": [
+            "Seven of Nine",
+            "Saowin",
+            "Kurros",
+            "Kathryn Janeway",
+            "Hazari",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Seven/Borg recovery gate",
+            "group of aliens",
+            "bernicium",
+            "ore",
+            "rubidium",
+            "Think Tank",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Think Tank constrains Seven of Nine, Saowin, Kurros around Seven/Borg recovery gate and the episode-local faction state.",
+        "injection": "Inside Think Tank, write Seven of Nine, Saowin, Kurros with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Think Tank",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Think_Tank_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_juggernaut-state-gate",
+      "title": "Juggernaut state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e20.juggernaut",
+        "validToAnchor": "voy.s5.e21.someone-to-watch-over-me",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 35380,
+        "sortKeyTo": 35400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Juggernaut",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e20.juggernaut",
+          "label": "Juggernaut",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:the-doctor",
+          "st:malon",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:vulcans",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Tuvok",
+          "B'Elanna Torres",
+          "The Doctor",
+          "Malon"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Vulcans",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "EMH autonomy/identity gate",
+          "Malon export vessel",
+          "Malon",
+          "Fesek",
+          "Pelk",
+          "his engineers",
+          "Tuvok"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-juggernaut",
+        "character:chakotay",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:the-doctor",
+        "character:malon",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:vulcans",
+        "faction:uss-voyager-crew",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:malon-export-vessel",
+        "topic:malon",
+        "topic:fesek",
+        "topic:pelk",
+        "topic:his-engineers",
+        "topic:tuvok"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "The Doctor",
+            "Malon"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "The Doctor",
+            "Malon",
+            "Starfleet",
+            "Klingon Empire",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "EMH autonomy/identity gate",
+            "Malon export vessel",
+            "Malon",
+            "Fesek",
+            "Pelk",
+            "his engineers",
+            "Tuvok"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "The Doctor",
+            "Malon",
+            "Starfleet",
+            "Klingon Empire",
+            "Vulcans",
+            "USS Voyager crew",
+            "Klingon duty/faction-status gate",
+            "EMH autonomy/identity gate",
+            "Malon export vessel",
+            "Fesek",
+            "Pelk",
+            "his engineers",
+            "Juggernaut",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Juggernaut constrains Chakotay, Tuvok, B'Elanna Torres around Klingon duty/faction-status gate and the episode-local faction state.",
+        "injection": "Inside Juggernaut, write Chakotay, Tuvok, B'Elanna Torres with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Juggernaut",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Juggernaut_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_someone-to-watch-over-me-state-gate",
+      "title": "Someone to Watch Over Me state gate for B'Elanna Torres",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e21.someone-to-watch-over-me",
+        "validToAnchor": "voy.s5.e22.1159",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 35400,
+        "sortKeyTo": 35420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Someone to Watch Over Me",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e21.someone-to-watch-over-me",
+          "label": "Someone to Watch Over Me",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:neelix",
+          "st:seven-of-nine",
+          "st:mustang",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Neelix",
+          "Seven of Nine",
+          "Mustang"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "mess hall",
+          "Tom Paris",
+          "B'Elanna Torres",
+          "Seven of Nine",
+          "1969",
+          "Mustang"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-someone-to-watch-over-me",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:neelix",
+        "character:seven-of-nine",
+        "character:mustang",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:mess-hall",
+        "topic:tom-paris",
+        "topic:belanna-torres",
+        "topic:seven-of-nine",
+        "topic:1969",
+        "topic:mustang"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Neelix",
+            "Seven of Nine",
+            "Mustang"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Neelix",
+            "Seven of Nine",
+            "Mustang",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "mess hall",
+            "Tom Paris",
+            "B'Elanna Torres",
+            "Seven of Nine",
+            "1969",
+            "Mustang"
+          ],
+          "keywordsAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Neelix",
+            "Seven of Nine",
+            "Mustang",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "mess hall",
+            "1969",
+            "Someone to Watch Over Me",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Someone to Watch Over Me constrains B'Elanna Torres, Tom Paris, Neelix around EMH autonomy/identity gate and the episode-local faction state.",
+        "injection": "Inside Someone to Watch Over Me, write B'Elanna Torres, Tom Paris, Neelix with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Someone to Watch Over Me",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Someone_to_Watch_Over_Me_(episode)",
+        "stardate": "52648.0 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_1159-state-gate",
+      "title": "11:59 state gate for Kathryn Janeway",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e22.1159",
+        "validToAnchor": "voy.s5.e23.relativity",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 35420,
+        "sortKeyTo": 35440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: 11:59",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e22.1159",
+          "label": "11:59",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tom-paris",
+          "st:neelix",
+          "st:chinese",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tom Paris",
+          "Neelix",
+          "Chinese"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Kathryn Janeway",
+          "Neelix",
+          "chef",
+          "morale officer",
+          "requisition report",
+          "Great Wall of China",
+          "11:59"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-1159",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tom-paris",
+        "character:neelix",
+        "character:chinese",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:episode-local-factstatus-gate",
+        "topic:kathryn-janeway",
+        "topic:neelix",
+        "topic:chef",
+        "topic:morale-officer",
+        "topic:requisition-report",
+        "topic:great-wall-of-china",
+        "topic:1159"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Neelix",
+            "Chinese"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Neelix",
+            "Chinese",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Kathryn Janeway",
+            "Neelix",
+            "chef",
+            "morale officer",
+            "requisition report",
+            "Great Wall of China",
+            "11:59"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Neelix",
+            "Chinese",
+            "Starfleet",
+            "USS Voyager crew",
+            "episode-local fact/status gate",
+            "chef",
+            "morale officer",
+            "requisition report",
+            "Great Wall of China",
+            "11:59",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "11:59 constrains Kathryn Janeway, Chakotay, Tom Paris around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside 11:59, write Kathryn Janeway, Chakotay, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "11:59",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/11%3A59_(episode)",
+        "stardate": "52840 (April 22, 2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_relativity-state-gate",
+      "title": "Relativity state gate for Tuvok",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e23.relativity",
+        "validToAnchor": "voy.s5.e24.warhead",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 35440,
+        "sortKeyTo": 35460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Relativity",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e23.relativity",
+          "label": "Relativity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tuvok",
+          "st:seven-of-nine",
+          "st:kathryn-janeway",
+          "st:utopia-planitia",
+          "st:patterson",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tuvok",
+          "Seven of Nine",
+          "Kathryn Janeway",
+          "Utopia Planitia",
+          "Patterson"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Future's End",
+          "Seven/Borg recovery gate",
+          "2371",
+          "Janeway",
+          "beam",
+          "Utopia Planitia",
+          "Patterson",
+          "calculus"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-relativity",
+        "character:tuvok",
+        "character:seven-of-nine",
+        "character:kathryn-janeway",
+        "character:utopia-planitia",
+        "character:patterson",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:futures-end",
+        "topic:sevenborg-recovery-gate",
+        "topic:2371",
+        "topic:janeway",
+        "topic:beam",
+        "topic:utopia-planitia",
+        "topic:patterson",
+        "topic:calculus"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tuvok",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Utopia Planitia",
+            "Patterson"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tuvok",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Utopia Planitia",
+            "Patterson",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Future's End",
+            "Seven/Borg recovery gate",
+            "2371",
+            "Janeway",
+            "beam",
+            "Utopia Planitia",
+            "Patterson",
+            "calculus"
+          ],
+          "keywordsAny": [
+            "Tuvok",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Utopia Planitia",
+            "Patterson",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Future's End",
+            "Seven/Borg recovery gate",
+            "2371",
+            "Janeway",
+            "beam",
+            "calculus",
+            "Relativity",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Relativity constrains Tuvok, Seven of Nine, Kathryn Janeway around Future's End and the episode-local faction state.",
+        "injection": "Inside Relativity, write Tuvok, Seven of Nine, Kathryn Janeway with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Relativity",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Relativity_(episode)",
+        "stardate": "52861.274 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_warhead-state-gate",
+      "title": "Warhead state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e24.warhead",
+        "validToAnchor": "voy.s5.e25.equinox",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 35460,
+        "sortKeyTo": 35480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Warhead",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e24.warhead",
+          "label": "Warhead",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:the-doctor",
+          "st:neelix",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "B'Elanna Torres",
+          "Tom Paris",
+          "The Doctor",
+          "Neelix"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "mess hall",
+          "Neelix",
+          "Tom Paris",
+          "B'Elanna Torres",
+          "wine",
+          "coffee",
+          "Warhead"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-warhead",
+        "character:chakotay",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:the-doctor",
+        "character:neelix",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:mess-hall",
+        "topic:neelix",
+        "topic:tom-paris",
+        "topic:belanna-torres",
+        "topic:wine",
+        "topic:coffee",
+        "topic:warhead"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Neelix"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "mess hall",
+            "Neelix",
+            "Tom Paris",
+            "B'Elanna Torres",
+            "wine",
+            "coffee",
+            "Warhead"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "The Doctor",
+            "Neelix",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "mess hall",
+            "wine",
+            "coffee",
+            "Warhead",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Warhead constrains Chakotay, B'Elanna Torres, Tom Paris around EMH autonomy/identity gate and the episode-local faction state.",
+        "injection": "Inside Warhead, write Chakotay, B'Elanna Torres, Tom Paris with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Warhead",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Warhead_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s5_equinox-state-gate",
+      "title": "Equinox state gate for Chakotay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s5.e25.equinox",
+        "validToAnchor": "voy.s5.e25.equinox",
+        "series": "VOY",
+        "season": "5",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 35480,
+        "sortKeyTo": 35480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 5: Equinox",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s5",
+          "label": "VOY season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s5.e25.equinox",
+          "label": "Equinox",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:seven-of-nine",
+          "st:kathryn-janeway",
+          "st:ransom",
+          "st:rudolph-ransom",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Seven of Nine",
+          "Kathryn Janeway",
+          "Ransom",
+          "Rudolph Ransom"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Equinox",
+          "Delta Quadrant isolation gate",
+          "Seven/Borg recovery gate",
+          "Equinox ethics gate",
+          "secret-knowledge gate",
+          "officer",
+          "deflector shield",
+          "phaser rifle"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s5-equinox",
+        "character:chakotay",
+        "character:seven-of-nine",
+        "character:kathryn-janeway",
+        "character:ransom",
+        "character:rudolph-ransom",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:equinox",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:equinox-ethics-gate",
+        "topic:secret-knowledge-gate",
+        "topic:officer",
+        "topic:deflector-shield",
+        "topic:phaser-rifle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Ransom",
+            "Rudolph Ransom"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Ransom",
+            "Rudolph Ransom",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Equinox",
+            "Delta Quadrant isolation gate",
+            "Seven/Borg recovery gate",
+            "Equinox ethics gate",
+            "secret-knowledge gate",
+            "officer",
+            "deflector shield",
+            "phaser rifle"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Seven of Nine",
+            "Kathryn Janeway",
+            "Ransom",
+            "Rudolph Ransom",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Equinox",
+            "Delta Quadrant isolation gate",
+            "Seven/Borg recovery gate",
+            "Equinox ethics gate",
+            "secret-knowledge gate",
+            "officer",
+            "deflector shield",
+            "phaser rifle",
+            "VOY season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 5, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Equinox constrains Chakotay, Seven of Nine, Kathryn Janeway around Equinox and the episode-local faction state.",
+        "injection": "Inside Equinox, write Chakotay, Seven of Nine, Kathryn Janeway with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside VOY season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Equinox",
+        "series": "VOY",
+        "season": 5,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equinox_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

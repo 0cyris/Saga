@@ -1,0 +1,849 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_nami_leaves_with_the_going_merry_before_the_crew_knows_her_full_motive_027",
+      "title": "Nami Leaves With Going Merry And An Unexplained Agenda",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.nami-departure-bridge",
+        "validToAnchor": "op.baratie.battle-and-set-pieces",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Nami Leaves With Going Merry And An Unexplained Agenda"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:going-merry",
+          "op:monkey-d-luffy",
+          "op:usopp",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Nami",
+          "Monkey D. Luffy",
+          "Usopp",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "Nami departure",
+          "unexplained agenda",
+          "crew split"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "item:going-merry",
+        "character:monkey-d-luffy",
+        "character:usopp",
+        "character:roronoa-zoro",
+        "topic:nami-departure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Usopp",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Usopp",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "Nami departure",
+            "unexplained agenda",
+            "crew split"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Usopp",
+            "Roronoa Zoro",
+            "Nami departure",
+            "unexplained agenda",
+            "crew split",
+            "stolen ship",
+            "treasure",
+            "unexplained motive",
+            "Nami Leaves With Going Merry And An Unexplained Agenda",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nami leaves Baratie with the Going Merry and treasure before the crew understands her full motive, creating urgency without revealing her backstory.",
+        "injection": "Use this as the high-value Nami bridge: the action should feel like betrayal, emergency, and unresolved agenda at once, not a solved character explanation.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_her_departure_redirects_the_story_toward_arlong_park_028",
+      "title": "Nami's Departure Points Toward A Dangerous Island Without Explaining It",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.nami-departure-bridge",
+        "validToAnchor": "op.baratie.battle-and-set-pieces",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Nami's Departure Points Toward A Dangerous Island Without Explaining It"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:going-merry",
+          "op:yosaku"
+        ],
+        "characters": [
+          "Nami",
+          "Yosaku"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "dangerous island lead",
+          "pursuit context",
+          "Arlong Park boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "item:going-merry",
+        "character:yosaku",
+        "topic:dangerous-island-lead"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Yosaku"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Going Merry",
+            "Yosaku"
+          ],
+          "topicsAny": [
+            "dangerous island lead",
+            "pursuit context",
+            "Arlong Park boundary"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Going Merry",
+            "Yosaku",
+            "dangerous island lead",
+            "pursuit context",
+            "Arlong Park boundary",
+            "dangerous island",
+            "follow Nami",
+            "pursuit",
+            "Nami's Departure Points Toward A Dangerous Island Without Explaining It",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nami's departure redirects the story toward a dangerous island, but Baratie should frame it as pursuit and suspicion rather than revealing the full Arlong Park truth.",
+        "injection": "Use the bridge as urgency: the crew needs to follow Nami, while her history and reasons remain gated to the next arc.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_luffy_treats_the_loss_as_something_to_follow_not_a_final_betrayal_029",
+      "title": "Luffy Treats Nami's Loss As A Reason To Follow",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.nami-departure-bridge",
+        "validToAnchor": "op.baratie.battle-and-set-pieces",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Luffy Treats Nami's Loss As A Reason To Follow"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:nami",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Nami"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "Luffy follows Nami",
+          "trust fracture",
+          "not final betrayal"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:nami",
+        "item:going-merry",
+        "topic:luffy-follows-nami"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "Luffy follows Nami",
+            "trust fracture",
+            "not final betrayal"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "Going Merry",
+            "Luffy follows Nami",
+            "trust fracture",
+            "not final betrayal",
+            "trust",
+            "follow",
+            "not final",
+            "Luffy Treats Nami's Loss As A Reason To Follow",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy treats Nami leaving as something to follow and resolve, not as proof that the bond is permanently broken.",
+        "injection": "Use Luffy's reaction as stubborn trust under confusion: he can be angry or urgent, but the story energy points toward reaching Nami.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_sanji_meets_nami_just_before_her_absence_matters_030",
+      "title": "Sanji Meets Nami Just Before Her Absence Defines The Split",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.nami-departure-bridge",
+        "validToAnchor": "op.baratie.battle-and-set-pieces",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Sanji Meets Nami Just Before Her Absence Defines The Split"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:nami",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Sanji",
+          "Nami",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sanji meets Nami",
+          "crew split setup",
+          "absence matters"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "character:nami",
+        "character:monkey-d-luffy",
+        "topic:sanji-meets-nami"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji",
+            "Nami",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "Nami",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Sanji meets Nami",
+            "crew split setup",
+            "absence matters"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "Nami",
+            "Monkey D. Luffy",
+            "Sanji meets Nami",
+            "crew split setup",
+            "absence matters",
+            "first meeting",
+            "absence",
+            "split",
+            "Sanji Meets Nami Just Before Her Absence Defines The Split",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji meets Nami at Baratie just before her departure makes her absence a defining pressure on his first steps toward joining the crew.",
+        "injection": "Use Sanji and Nami sparingly here: his first impression can be vivid, but the real Baratie function is that she is gone when the crew splits.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_the_deck_should_not_reveal_bellemere_or_cocoyasi_before_arlong_park_031",
+      "title": "Do Not Reveal Nami's Home Or Family Truth In Baratie",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.nami-departure-bridge",
+        "validToAnchor": "op.baratie.battle-and-set-pieces",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Do Not Reveal Nami's Home Or Family Truth In Baratie"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nami anti-spoiler gate",
+          "hidden motive",
+          "Arlong Park boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "topic:nami-anti-spoiler-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Nami"
+          ],
+          "topicsAny": [
+            "Nami anti-spoiler gate",
+            "hidden motive",
+            "Arlong Park boundary"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Nami anti-spoiler gate",
+            "hidden motive",
+            "Arlong Park boundary",
+            "Bellemere blocked",
+            "Cocoyasi blocked",
+            "Do Not Reveal Nami's Home Or Family Truth In Baratie",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Baratie can hint that Nami has a hidden agenda, but it must not reveal her home, family history, coercion, or the truth behind her money goal.",
+        "injection": "Use this as a hard anti-spoiler gate for Nami: keep her departure suspicious and painful until the next deck has the right reveal context.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    }
+  ]
+}

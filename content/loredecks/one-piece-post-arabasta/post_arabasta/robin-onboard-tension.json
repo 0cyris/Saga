@@ -1,0 +1,864 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_robin_is_newly_aboard_and_not_fully_trusted_by_everyone_016",
+      "title": "Robin's Calm Onboard Presence Creates Early Crew Suspicion",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.robin-onboard-tension",
+        "validToAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13450,
+        "sortKeyTo": 13600,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Robin's Calm Onboard Presence Creates Early Crew Suspicion"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nico-robin",
+          "op:going-merry",
+          "op:post-arabasta"
+        ],
+        "characters": [
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Robin newly aboard",
+          "early suspicion",
+          "calm presence"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:nico-robin",
+        "character:going-merry",
+        "topic:post-arabasta",
+        "topic:episode-131-135",
+        "topic:robin-onboard",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Nico Robin",
+            "Going Merry",
+            "Post-Arabasta"
+          ],
+          "topicsAny": [
+            "Robin newly aboard",
+            "early suspicion",
+            "calm presence"
+          ],
+          "keywordsAny": [
+            "Nico Robin",
+            "Going Merry",
+            "Post-Arabasta",
+            "Robin newly aboard",
+            "early suspicion",
+            "calm presence",
+            "Robin",
+            "newly aboard",
+            "suspicion",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Robin is newly aboard after Arabasta, and her calm presence creates early crew suspicion instead of immediate full trust.",
+        "injection": "Use Robin as polite, observant, and unsettling: she belongs on the ship physically before everyone is emotionally sure.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_her_calm_observation_contrasts_with_the_crew_s_emotional_openness_017",
+      "title": "Robin's Observation Contrasts With The Crew's Emotional Openness",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.robin-onboard-tension",
+        "validToAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13450,
+        "sortKeyTo": 13600,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Robin's Observation Contrasts With The Crew's Emotional Openness"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nico-robin",
+          "op:going-merry",
+          "op:usopp",
+          "op:nami"
+        ],
+        "characters": [
+          "Going Merry",
+          "Usopp",
+          "Nami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Robin calm observation",
+          "crew openness",
+          "early contrast"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:nico-robin",
+        "character:going-merry",
+        "character:usopp",
+        "character:nami",
+        "topic:episode-131-135",
+        "topic:robin-onboard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Going Merry",
+            "Usopp",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Nico Robin",
+            "Going Merry",
+            "Usopp",
+            "Nami"
+          ],
+          "topicsAny": [
+            "Robin calm observation",
+            "crew openness",
+            "early contrast"
+          ],
+          "keywordsAny": [
+            "Nico Robin",
+            "Going Merry",
+            "Usopp",
+            "Nami",
+            "Robin calm observation",
+            "crew openness",
+            "early contrast",
+            "Robin",
+            "observation",
+            "contrast",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Robin's calm observation contrasts with the crew's emotional openness in early onboard scenes.",
+        "injection": "Use the contrast softly: Robin watches and participates selectively while the crew stays openly chaotic.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_luffy_accepts_her_presence_faster_than_more_cautious_crewmates_018",
+      "title": "Luffy Accepts Robin Faster Than Cautious Crewmates",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.robin-onboard-tension",
+        "validToAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13450,
+        "sortKeyTo": 13600,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Luffy Accepts Robin Faster Than Cautious Crewmates"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:nico-robin",
+          "op:going-merry"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy accepts Robin",
+          "crew caution",
+          "post-Arabasta trust"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "topic:nico-robin",
+        "character:going-merry",
+        "topic:episode-131-135",
+        "topic:robin-onboard",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Nico Robin",
+            "Going Merry"
+          ],
+          "topicsAny": [
+            "Luffy accepts Robin",
+            "crew caution",
+            "post-Arabasta trust"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Nico Robin",
+            "Going Merry",
+            "Luffy accepts Robin",
+            "crew caution",
+            "post-Arabasta trust",
+            "Luffy",
+            "Robin",
+            "acceptance",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Luffy accepts Robin's presence faster than more cautious crewmates because his Arabasta choice to save her already settled his part of the question.",
+        "injection": "Use Luffy's acceptance as simple captain logic while leaving other crewmates room for caution.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_she_should_remain_mysterious_without_later_ohara_or_cp9_backstory_019",
+      "title": "Robin's Mystery Stays Early-Onboard And Source-Bound",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "gated",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.robin-onboard-tension",
+        "validToAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13450,
+        "sortKeyTo": 13600,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Robin's Mystery Stays Early-Onboard And Source-Bound"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nico-robin",
+          "op:going-merry",
+          "op:next-island-boundary"
+        ],
+        "characters": [
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Robin mystery",
+          "early onboard boundary",
+          "source-bound"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:nico-robin",
+        "character:going-merry",
+        "topic:next-island-boundary",
+        "topic:episode-131-135",
+        "topic:robin-onboard",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Nico Robin",
+            "Going Merry",
+            "next island boundary"
+          ],
+          "topicsAny": [
+            "Robin mystery",
+            "early onboard boundary",
+            "source-bound"
+          ],
+          "keywordsAny": [
+            "Nico Robin",
+            "Going Merry",
+            "next island boundary",
+            "Robin mystery",
+            "early onboard boundary",
+            "source-bound",
+            "Robin",
+            "mystery",
+            "boundary",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Robin should remain mysterious in Post-Arabasta, with her past, motives, and danger level unresolved beyond what these episodes support.",
+        "injection": "Use mystery as present-tense tension, not as permission for later biography.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_early_onboard_robin_cards_support_tension_rather_than_full_integration_020",
+      "title": "Early Robin Cards Support Tension Rather Than Full Integration",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "gated",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.robin-onboard-tension",
+        "validToAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13450,
+        "sortKeyTo": 13600,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Early Robin Cards Support Tension Rather Than Full Integration"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nico-robin",
+          "op:going-merry",
+          "op:post-arabasta"
+        ],
+        "characters": [
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Robin integration boundary",
+          "crew suspicion",
+          "anime aftercare"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:nico-robin",
+        "character:going-merry",
+        "topic:post-arabasta",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:robin-onboard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Nico Robin",
+            "Going Merry",
+            "Post-Arabasta"
+          ],
+          "topicsAny": [
+            "Robin integration boundary",
+            "crew suspicion",
+            "anime aftercare"
+          ],
+          "keywordsAny": [
+            "Nico Robin",
+            "Going Merry",
+            "Post-Arabasta",
+            "Robin integration boundary",
+            "crew suspicion",
+            "anime aftercare",
+            "Robin",
+            "integration",
+            "tension",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Early onboard Robin cards support tension and curiosity rather than full integration into crew trust.",
+        "injection": "Use her as accepted aboard but not yet emotionally settled.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Post-Arabasta Arc",
+    "chapterRange": "Anime-only filler arc",
+    "episodeRange": "Anime episodes 131-135",
+    "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+  }
+}

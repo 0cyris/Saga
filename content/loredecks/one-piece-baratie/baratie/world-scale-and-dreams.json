@@ -1,0 +1,860 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_the_grand_line_is_framed_as_a_place_that_breaks_unprepared_crews_037",
+      "title": "The Grand Line Is Framed As A Place That Breaks Unready Crews",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.world-scale-and-dreams",
+        "validToAnchor": "op.baratie.timeline-and-spoiler-gates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4700,
+        "sortKeyTo": 4800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: The Grand Line Is Framed As A Place That Breaks Unready Crews"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:grand-line",
+          "op:krieg-pirates",
+          "op:don-krieg",
+          "op:dracule-mihawk"
+        ],
+        "characters": [
+          "Don Krieg",
+          "Dracule Mihawk"
+        ],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [],
+        "factions": [
+          "Krieg Pirates"
+        ],
+        "topics": [
+          "Grand Line scale warning",
+          "unready crews",
+          "Krieg failure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:grand-line",
+        "faction:krieg-pirates",
+        "character:don-krieg",
+        "character:dracule-mihawk",
+        "topic:grand-line-scale-warning"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Don Krieg",
+            "Dracule Mihawk"
+          ],
+          "entitiesAny": [
+            "Grand Line",
+            "Krieg Pirates",
+            "Don Krieg",
+            "Dracule Mihawk"
+          ],
+          "topicsAny": [
+            "Grand Line scale warning",
+            "unready crews",
+            "Krieg failure"
+          ],
+          "keywordsAny": [
+            "Grand Line",
+            "Krieg Pirates",
+            "Don Krieg",
+            "Dracule Mihawk",
+            "Grand Line scale warning",
+            "unready crews",
+            "Krieg failure",
+            "Grand Line warning",
+            "fleet destroyed",
+            "scale",
+            "The Grand Line Is Framed As A Place That Breaks Unready Crews",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Baratie frames the Grand Line as a place that can break even a huge East Blue fleet when that crew is unprepared for the scale ahead.",
+        "injection": "Use Krieg's loss as warning evidence, not a full geography lesson: numbers and bravado did not make his armada ready.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_mihawk_gives_zoro_s_dream_a_visible_ceiling_038",
+      "title": "Mihawk Gives Zoro's Dream A Visible Ceiling",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.world-scale-and-dreams",
+        "validToAnchor": "op.baratie.timeline-and-spoiler-gates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4700,
+        "sortKeyTo": 4800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Mihawk Gives Zoro's Dream A Visible Ceiling"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dracule-mihawk",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Dracule Mihawk",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "dream ceiling",
+          "swordsman scale",
+          "future challenge"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dracule-mihawk",
+        "character:roronoa-zoro",
+        "topic:dream-ceiling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "dream ceiling",
+            "swordsman scale",
+            "future challenge"
+          ],
+          "keywordsAny": [
+            "Dracule Mihawk",
+            "Roronoa Zoro",
+            "dream ceiling",
+            "swordsman scale",
+            "future challenge",
+            "ceiling",
+            "greatest swordsman",
+            "measure",
+            "Mihawk Gives Zoro's Dream A Visible Ceiling",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Mihawk gives Zoro's dream a visible ceiling by showing exactly how far the world's greatest swordsman is above him right now.",
+        "injection": "Use Mihawk as the measuring line for Zoro, not a full future arc import: the immediate result is humility, injury, and a vow.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_sanji_s_all_blue_dream_broadens_the_crew_s_purpose_039",
+      "title": "Sanji's All Blue Dream Adds A Cook's Destination",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.world-scale-and-dreams",
+        "validToAnchor": "op.baratie.timeline-and-spoiler-gates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4700,
+        "sortKeyTo": 4800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Sanji's All Blue Dream Adds A Cook's Destination"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:sanji",
+          "op:all-blue",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Sanji",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "All Blue crew purpose",
+          "dream recruitment",
+          "cook destination"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:sanji",
+        "knowledge:all-blue",
+        "character:monkey-d-luffy",
+        "topic:all-blue-crew-purpose"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sanji",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Sanji",
+            "All Blue",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "All Blue crew purpose",
+            "dream recruitment",
+            "cook destination"
+          ],
+          "keywordsAny": [
+            "Sanji",
+            "All Blue",
+            "Monkey D. Luffy",
+            "All Blue crew purpose",
+            "dream recruitment",
+            "cook destination",
+            "mythical sea",
+            "crew dream",
+            "food",
+            "Sanji's All Blue Dream Adds A Cook's Destination",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Sanji's All Blue dream broadens the crew's purpose by adding a cook whose destination is mythical, personal, and tied to food itself.",
+        "injection": "Use All Blue to make Sanji more than a useful cook: he joins with a dream that belongs beside Luffy and Zoro's ambitions.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_krieg_s_failure_proves_numbers_do_not_equal_readiness_040",
+      "title": "Krieg Proves Numbers Do Not Equal Readiness",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.world-scale-and-dreams",
+        "validToAnchor": "op.baratie.timeline-and-spoiler-gates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4700,
+        "sortKeyTo": 4800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Krieg Proves Numbers Do Not Equal Readiness"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:don-krieg",
+          "op:krieg-pirates",
+          "op:grand-line"
+        ],
+        "characters": [
+          "Don Krieg"
+        ],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [],
+        "factions": [
+          "Krieg Pirates"
+        ],
+        "topics": [
+          "numbers versus readiness",
+          "fleet failure",
+          "East Blue arrogance"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:don-krieg",
+        "faction:krieg-pirates",
+        "location:grand-line",
+        "topic:numbers-versus-readiness"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Don Krieg"
+          ],
+          "entitiesAny": [
+            "Don Krieg",
+            "Krieg Pirates",
+            "Grand Line"
+          ],
+          "topicsAny": [
+            "numbers versus readiness",
+            "fleet failure",
+            "East Blue arrogance"
+          ],
+          "keywordsAny": [
+            "Don Krieg",
+            "Krieg Pirates",
+            "Grand Line",
+            "numbers versus readiness",
+            "fleet failure",
+            "East Blue arrogance",
+            "armada",
+            "numbers",
+            "readiness",
+            "Krieg Proves Numbers Do Not Equal Readiness",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Krieg's failed armada proves that crew size, weapons, and reputation do not equal readiness for the Grand Line.",
+        "injection": "Use Krieg as a cautionary contrast: he has numbers and equipment, but not judgment, loyalty, or world-scale understanding.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_baratie_baratie_turns_personal_dreams_into_a_crew_recruitment_pattern_041",
+      "title": "Baratie Makes Dream And Debt A Recruitment Pattern",
+      "kind": "reference_note",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.baratie.world-scale-and-dreams",
+        "validToAnchor": "op.baratie.timeline-and-spoiler-gates",
+        "arc": "Baratie Arc",
+        "arcId": "baratie",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "42-68",
+        "episode": "19-30",
+        "sortKeyFrom": 4700,
+        "sortKeyTo": 4800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Baratie Arc: Baratie Makes Dream And Debt A Recruitment Pattern"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "baratie",
+          "label": "Baratie Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:sanji",
+          "op:zeff",
+          "op:roronoa-zoro",
+          "op:nami"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Sanji",
+          "Zeff",
+          "Roronoa Zoro",
+          "Nami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "crew recruitment pattern",
+          "dream and debt",
+          "split crew"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:baratie",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:sanji",
+        "character:zeff",
+        "character:roronoa-zoro",
+        "character:nami",
+        "topic:crew-recruitment-pattern"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Sanji",
+            "Zeff",
+            "Roronoa Zoro",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Sanji",
+            "Zeff",
+            "Roronoa Zoro",
+            "Nami"
+          ],
+          "topicsAny": [
+            "crew recruitment pattern",
+            "dream and debt",
+            "split crew"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Sanji",
+            "Zeff",
+            "Roronoa Zoro",
+            "Nami",
+            "crew recruitment pattern",
+            "dream and debt",
+            "split crew",
+            "transition arc",
+            "recruitment",
+            "dream pressure",
+            "Baratie Makes Dream And Debt A Recruitment Pattern",
+            "Baratie Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Baratie turns recruitment into a pattern of dreams under pressure: Sanji must leave debt behind, Zoro must renew his vow, and Nami's absence pulls the crew onward.",
+        "injection": "Use Baratie as a transition arc: one crewmate joins, one crewmate is pursued, and the crew learns that dreams create obligations as well as freedom.",
+        "constraints": [
+          "Keep this card inside Baratie Arc, manga chapters 42-68, anime episodes 19-30.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sanji family, Germa, later techniques, later bounties, or post-Baratie titles.",
+          "Do not import later Mihawk and Shanks relationship details or a broad Seven Warlords explainer.",
+          "Do not reveal Nami, Bellemere, Cocoyasi, Arlong Park backstory, or Nami's full motive before the next deck's reveal context.",
+          "Do not turn Krieg's Grand Line failure into a complete Grand Line guide."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Baratie Arc",
+        "chapterRange": "Manga chapters 42-68",
+        "episodeRange": "Anime episodes 19-30",
+        "reference": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Baratie Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-baratie",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "baratie-runtime-lore"
+        }
+      }
+    }
+  ]
+}

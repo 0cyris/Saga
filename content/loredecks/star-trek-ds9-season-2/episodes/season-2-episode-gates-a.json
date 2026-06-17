@@ -1,0 +1,2840 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_the-homecoming-episode-gate",
+      "title": "The Homecoming anchors Bajoran coup d'état",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e01.the-homecoming",
+        "validToAnchor": "ds9.s2.e02.the-circle",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 22000,
+        "sortKeyTo": 22020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: The Homecoming",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e01.the-homecoming",
+          "label": "The Homecoming",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:rom",
+          "st:rionoj",
+          "st:boslic",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Rom",
+          "Rionoj",
+          "Boslic"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Bajoran coup d'état",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Ferengi family/rule-of-acquisition gate",
+          "Deep Space 9",
+          "Odo",
+          "Quark",
+          "his bar"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-homecoming",
+        "character:odo",
+        "character:quark",
+        "character:rom",
+        "character:rionoj",
+        "character:boslic",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "faction:ferengi-alliance",
+        "topic:bajoran-coup-detat",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:deep-space-9",
+        "topic:odo",
+        "topic:quark",
+        "topic:his-bar"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Rionoj",
+            "Boslic"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Rionoj",
+            "Boslic",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Bajoran coup d'état",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Deep Space 9",
+            "Odo",
+            "Quark",
+            "his bar"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Rionoj",
+            "Boslic",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Ferengi Alliance",
+            "Bajoran coup d'état",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Deep Space 9",
+            "his bar",
+            "The Homecoming",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Homecoming (Unknown (2370)) is Memory Alpha story row 1 for this season. The Homecoming is a DS9 season 2 story gate centered on Bajoran coup d'état; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate; Ferengi family/rule-of-acquisition gate.",
+        "injection": "Use The Homecoming as the active episode Context gate when scenes reference Bajoran coup d'état, Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Homecoming",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Homecoming_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_the-circle-episode-gate",
+      "title": "The Circle anchors Bajoran coup d'état",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e02.the-circle",
+        "validToAnchor": "ds9.s2.e03.the-siege",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 22020,
+        "sortKeyTo": 22040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: The Circle",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e02.the-circle",
+          "label": "The Circle",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:kira-nerys",
+          "st:odo",
+          "st:quark",
+          "st:jake-sisko",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Kira Nerys",
+          "Odo",
+          "Quark",
+          "Jake Sisko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran coup d'état",
+          "Bajoran occupation/religion gate",
+          "reveal timing gate",
+          "Benjamin Sisko",
+          "Kira Nerys",
+          "Minister",
+          "Jaro Essa",
+          "Li Nalas"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-circle",
+        "character:benjamin-sisko",
+        "character:kira-nerys",
+        "character:odo",
+        "character:quark",
+        "character:jake-sisko",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-coup-detat",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:reveal-timing-gate",
+        "topic:benjamin-sisko",
+        "topic:kira-nerys",
+        "topic:minister",
+        "topic:jaro-essa",
+        "topic:li-nalas"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Odo",
+            "Quark",
+            "Jake Sisko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran coup d'état",
+            "Bajoran occupation/religion gate",
+            "reveal timing gate",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Minister",
+            "Jaro Essa",
+            "Li Nalas"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Odo",
+            "Quark",
+            "Jake Sisko",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran coup d'état",
+            "Bajoran occupation/religion gate",
+            "reveal timing gate",
+            "Minister",
+            "Jaro Essa",
+            "Li Nalas",
+            "The Circle",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Circle (Unknown (2370)) is Memory Alpha story row 2 for this season. The Circle is a DS9 season 2 story gate centered on Bajoran coup d'état; the evidence marks Bajoran occupation/religion gate; reveal timing gate.",
+        "injection": "Use The Circle as the active episode Context gate when scenes reference Bajoran coup d'état, Bajoran occupation/religion gate, reveal timing gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Circle",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Circle_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_the-siege-episode-gate",
+      "title": "The Siege anchors Bajoran coup d'état",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e03.the-siege",
+        "validToAnchor": "ds9.s2.e04.invasive-procedures",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 22040,
+        "sortKeyTo": 22060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: The Siege",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e03.the-siege",
+          "label": "The Siege",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:quark",
+          "st:jake-sisko",
+          "st:nog",
+          "st:rom",
+          "st:benjamin-sisko",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Quark",
+          "Jake Sisko",
+          "Nog",
+          "Rom",
+          "Benjamin Sisko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran coup d'état",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Bajoran assault vessels",
+          "Deep Space 9",
+          "Sisko",
+          "Ops",
+          "Bajoran"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-siege",
+        "character:quark",
+        "character:jake-sisko",
+        "character:nog",
+        "character:rom",
+        "character:benjamin-sisko",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:bajoran-coup-detat",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:bajoran-assault-vessels",
+        "topic:deep-space-9",
+        "topic:sisko",
+        "topic:ops",
+        "topic:bajoran"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Quark",
+            "Jake Sisko",
+            "Nog",
+            "Rom",
+            "Benjamin Sisko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Quark",
+            "Jake Sisko",
+            "Nog",
+            "Rom",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran coup d'état",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Bajoran assault vessels",
+            "Deep Space 9",
+            "Sisko",
+            "Ops",
+            "Bajoran"
+          ],
+          "keywordsAny": [
+            "Quark",
+            "Jake Sisko",
+            "Nog",
+            "Rom",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Bajoran coup d'état",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Bajoran assault vessels",
+            "Deep Space 9",
+            "Sisko",
+            "Ops",
+            "Bajoran",
+            "The Siege",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Siege (Unknown (2370)) is Memory Alpha story row 3 for this season. The Siege is a DS9 season 2 story gate centered on Bajoran coup d'état; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use The Siege as the active episode Context gate when scenes reference Bajoran coup d'état, Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Siege",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Siege_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_invasive-procedures-episode-gate",
+      "title": "Invasive Procedures anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e04.invasive-procedures",
+        "validToAnchor": "ds9.s2.e05.cardassians",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 22060,
+        "sortKeyTo": 22080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Invasive Procedures",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e04.invasive-procedures",
+          "label": "Invasive Procedures",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:jadzia-dax",
+          "st:odo",
+          "st:quark",
+          "st:landing-pad",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Jadzia Dax",
+          "Odo",
+          "Quark",
+          "Landing Pad"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Station log",
+          "DS9",
+          "plasma",
+          "skeleton crew",
+          "plasma storm",
+          "Jadzia Dax",
+          "Invasive Procedures"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-invasive-procedures",
+        "character:miles-obrien",
+        "character:jadzia-dax",
+        "character:odo",
+        "character:quark",
+        "character:landing-pad",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:episode-local-factstatus-gate",
+        "topic:station-log",
+        "topic:ds9",
+        "topic:plasma",
+        "topic:skeleton-crew",
+        "topic:plasma-storm",
+        "topic:jadzia-dax",
+        "topic:invasive-procedures"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Jadzia Dax",
+            "Odo",
+            "Quark",
+            "Landing Pad"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Jadzia Dax",
+            "Odo",
+            "Quark",
+            "Landing Pad",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Station log",
+            "DS9",
+            "plasma",
+            "skeleton crew",
+            "plasma storm",
+            "Jadzia Dax",
+            "Invasive Procedures"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Jadzia Dax",
+            "Odo",
+            "Quark",
+            "Landing Pad",
+            "Starfleet",
+            "Bajorans",
+            "episode-local fact/status gate",
+            "Station log",
+            "DS9",
+            "plasma",
+            "skeleton crew",
+            "plasma storm",
+            "Invasive Procedures",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Invasive Procedures (47182.1 (2370)) is Memory Alpha story row 4 for this season. Invasive Procedures is a DS9 season 2 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Invasive Procedures as the active episode Context gate when scenes reference episode-local fact/status gate, Station log, DS9.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Invasive Procedures",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Invasive_Procedures_(episode)",
+        "stardate": "47182.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_cardassians-episode-gate",
+      "title": "Cardassians anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e05.cardassians",
+        "validToAnchor": "ds9.s2.e06.melora",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 22080,
+        "sortKeyTo": 22100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Cardassians",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e05.cardassians",
+          "label": "Cardassians",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:dukat",
+          "st:julian-bashir",
+          "st:gul",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Dukat",
+          "Julian Bashir",
+          "Gul"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Bashir",
+          "Replimat",
+          "spy",
+          "station",
+          "Cardassian",
+          "Bajoran earring"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-cardassians",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:dukat",
+        "character:julian-bashir",
+        "character:gul",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:bashir",
+        "topic:replimat",
+        "topic:spy",
+        "topic:station",
+        "topic:cardassian",
+        "topic:bajoran-earring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Dukat",
+            "Julian Bashir",
+            "Gul"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Dukat",
+            "Julian Bashir",
+            "Gul",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Bashir",
+            "Replimat",
+            "spy",
+            "station",
+            "Cardassian",
+            "Bajoran earring"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Dukat",
+            "Julian Bashir",
+            "Gul",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Bashir",
+            "Replimat",
+            "spy",
+            "station",
+            "Cardassian",
+            "Bajoran earring",
+            "Cardassians",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Cardassians (47177.2-47178.3 (2370)) is Memory Alpha story row 5 for this season. Cardassians is a DS9 season 2 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use Cardassians as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Bashir.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Cardassians",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cardassians_(episode)",
+        "stardate": "47177.2-47178.3 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_melora-episode-gate",
+      "title": "Melora anchors death/status-change gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e06.melora",
+        "validToAnchor": "ds9.s2.e07.rules-of-acquisition",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 22100,
+        "sortKeyTo": 22120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Melora",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e06.melora",
+          "label": "Melora",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:melora-pazlar",
+          "st:elaysian",
+          "st:julian-bashir",
+          "st:jadzia-dax",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Melora Pazlar",
+          "Elaysian",
+          "Julian Bashir",
+          "Jadzia Dax"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "death/status-change gate",
+          "Chief",
+          "O'Brien",
+          "cartographer",
+          "Melora Pazlar",
+          "Elaysian",
+          "Bashir",
+          "Melora"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-melora",
+        "character:miles-obrien",
+        "character:melora-pazlar",
+        "character:elaysian",
+        "character:julian-bashir",
+        "character:jadzia-dax",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:deathstatus-change-gate",
+        "topic:chief",
+        "topic:obrien",
+        "topic:cartographer",
+        "topic:melora-pazlar",
+        "topic:elaysian",
+        "topic:bashir",
+        "topic:melora"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Melora Pazlar",
+            "Elaysian",
+            "Julian Bashir",
+            "Jadzia Dax"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Melora Pazlar",
+            "Elaysian",
+            "Julian Bashir",
+            "Jadzia Dax",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "death/status-change gate",
+            "Chief",
+            "O'Brien",
+            "cartographer",
+            "Melora Pazlar",
+            "Elaysian",
+            "Bashir",
+            "Melora"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Melora Pazlar",
+            "Elaysian",
+            "Julian Bashir",
+            "Jadzia Dax",
+            "Starfleet",
+            "Bajorans",
+            "death/status-change gate",
+            "Chief",
+            "O'Brien",
+            "cartographer",
+            "Bashir",
+            "Melora",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Melora (47229.1 (2370)) is Memory Alpha story row 6 for this season. Melora is a DS9 season 2 story gate centered on death/status-change gate; the evidence marks death/status-change gate.",
+        "injection": "Use Melora as the active episode Context gate when scenes reference death/status-change gate, Chief, O'Brien.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Melora",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Melora_(episode)",
+        "stardate": "47229.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_rules-of-acquisition-episode-gate",
+      "title": "Rules of Acquisition anchors Ferengi family/rule-of-acquisition gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e07.rules-of-acquisition",
+        "validToAnchor": "ds9.s2.e08.necessary-evil",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 22120,
+        "sortKeyTo": 22140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Rules of Acquisition",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e07.rules-of-acquisition",
+          "label": "Rules of Acquisition",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jadzia-dax",
+          "st:quark",
+          "st:rom",
+          "st:quarks",
+          "st:curzon",
+          "st:starfleet",
+          "st:ferengi-alliance",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Jadzia Dax",
+          "Quark",
+          "Rom",
+          "Quark's",
+          "Curzon"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Ferengi Alliance",
+          "Bajorans"
+        ],
+        "topics": [
+          "Ferengi family/rule-of-acquisition gate",
+          "Quark's",
+          "Ferengi",
+          "tongo",
+          "Jadzia Dax",
+          "Quark",
+          "Curzon",
+          "Rules of Acquisition"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-rules-of-acquisition",
+        "character:jadzia-dax",
+        "character:quark",
+        "character:rom",
+        "character:quarks",
+        "character:curzon",
+        "faction:starfleet",
+        "faction:ferengi-alliance",
+        "faction:bajorans",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:quarks",
+        "topic:ferengi",
+        "topic:tongo",
+        "topic:jadzia-dax",
+        "topic:quark",
+        "topic:curzon",
+        "topic:rules-of-acquisition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jadzia Dax",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Curzon"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Ferengi Alliance",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Jadzia Dax",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Curzon",
+            "Starfleet",
+            "Ferengi Alliance",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Ferengi family/rule-of-acquisition gate",
+            "Quark's",
+            "Ferengi",
+            "tongo",
+            "Jadzia Dax",
+            "Quark",
+            "Curzon",
+            "Rules of Acquisition"
+          ],
+          "keywordsAny": [
+            "Jadzia Dax",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Curzon",
+            "Starfleet",
+            "Ferengi Alliance",
+            "Bajorans",
+            "Ferengi family/rule-of-acquisition gate",
+            "Ferengi",
+            "tongo",
+            "Rules of Acquisition",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Rules of Acquisition (Unknown (2370)) is Memory Alpha story row 7 for this season. Rules of Acquisition is a DS9 season 2 story gate centered on Ferengi family/rule-of-acquisition gate; the evidence marks Ferengi family/rule-of-acquisition gate.",
+        "injection": "Use Rules of Acquisition as the active episode Context gate when scenes reference Ferengi family/rule-of-acquisition gate, Quark's, Ferengi.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rules of Acquisition",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rules_of_Acquisition_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_necessary-evil-episode-gate",
+      "title": "Necessary Evil anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e08.necessary-evil",
+        "validToAnchor": "ds9.s2.e09.second-sight",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 22140,
+        "sortKeyTo": 22160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Necessary Evil",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e08.necessary-evil",
+          "label": "Necessary Evil",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:rom",
+          "st:bajor",
+          "st:vaatrik-pallra",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Rom",
+          "Bajor",
+          "Vaatrik Pallra"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Ferengi family/rule-of-acquisition gate",
+          "Bajor",
+          "Bajoran",
+          "Vaatrik Pallra",
+          "Quark",
+          "Cardassian Occupation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-necessary-evil",
+        "character:odo",
+        "character:quark",
+        "character:rom",
+        "character:bajor",
+        "character:vaatrik-pallra",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "faction:ferengi-alliance",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:bajor",
+        "topic:bajoran",
+        "topic:vaatrik-pallra",
+        "topic:quark",
+        "topic:cardassian-occupation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Bajor",
+            "Vaatrik Pallra"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Bajor",
+            "Vaatrik Pallra",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Bajor",
+            "Bajoran",
+            "Vaatrik Pallra",
+            "Quark",
+            "Cardassian Occupation"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Bajor",
+            "Vaatrik Pallra",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Ferengi Alliance",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Bajoran",
+            "Cardassian Occupation",
+            "Necessary Evil",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Necessary Evil (47282.5-47284.1 (2370)) is Memory Alpha story row 8 for this season. Necessary Evil is a DS9 season 2 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate; Ferengi family/rule-of-acquisition gate.",
+        "injection": "Use Necessary Evil as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Ferengi family/rule-of-acquisition gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Necessary Evil",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Necessary_Evil_(episode)",
+        "stardate": "47282.5-47284.1 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_second-sight-episode-gate",
+      "title": "Second Sight anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e09.second-sight",
+        "validToAnchor": "ds9.s2.e10.sanctuary",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 22160,
+        "sortKeyTo": 22180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Second Sight",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e09.second-sight",
+          "label": "Second Sight",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jake-sisko",
+          "st:jennifer",
+          "st:benjamin-sisko",
+          "st:promenade",
+          "st:fenna",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Jake Sisko",
+          "Jennifer",
+          "Benjamin Sisko",
+          "Promenade",
+          "Fenna"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Personal log",
+          "Wolf 359",
+          "Jennifer",
+          "Jake Sisko",
+          "nightmare",
+          "station",
+          "Second Sight"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-second-sight",
+        "character:jake-sisko",
+        "character:jennifer",
+        "character:benjamin-sisko",
+        "character:promenade",
+        "character:fenna",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:episode-local-factstatus-gate",
+        "topic:personal-log",
+        "topic:wolf-359",
+        "topic:jennifer",
+        "topic:jake-sisko",
+        "topic:nightmare",
+        "topic:station",
+        "topic:second-sight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jake Sisko",
+            "Jennifer",
+            "Benjamin Sisko",
+            "Promenade",
+            "Fenna"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Jake Sisko",
+            "Jennifer",
+            "Benjamin Sisko",
+            "Promenade",
+            "Fenna",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Personal log",
+            "Wolf 359",
+            "Jennifer",
+            "Jake Sisko",
+            "nightmare",
+            "station",
+            "Second Sight"
+          ],
+          "keywordsAny": [
+            "Jake Sisko",
+            "Jennifer",
+            "Benjamin Sisko",
+            "Promenade",
+            "Fenna",
+            "Starfleet",
+            "Bajorans",
+            "episode-local fact/status gate",
+            "Personal log",
+            "Wolf 359",
+            "nightmare",
+            "station",
+            "Second Sight",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Second Sight (47329.4 (2370)) is Memory Alpha story row 9 for this season. Second Sight is a DS9 season 2 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Second Sight as the active episode Context gate when scenes reference episode-local fact/status gate, Personal log, Wolf 359.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Second Sight",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Second_Sight_(episode)",
+        "stardate": "47329.4 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_sanctuary-episode-gate",
+      "title": "Sanctuary anchors Bajoran occupation/religion gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e10.sanctuary",
+        "validToAnchor": "ds9.s2.e11.rivals",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 22180,
+        "sortKeyTo": 22200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Sanctuary",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e10.sanctuary",
+          "label": "Sanctuary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:quark",
+          "st:minister",
+          "st:rozahn",
+          "st:trilar-peninsula",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Quark",
+          "Minister",
+          "Rozahn",
+          "Trilar Peninsula"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "wormhole/anomaly route gate",
+          "Kira Nerys",
+          "Minister",
+          "Rozahn",
+          "bureaucrat",
+          "Trilar Peninsula",
+          "Bajor"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-sanctuary",
+        "character:kira-nerys",
+        "character:quark",
+        "character:minister",
+        "character:rozahn",
+        "character:trilar-peninsula",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:kira-nerys",
+        "topic:minister",
+        "topic:rozahn",
+        "topic:bureaucrat",
+        "topic:trilar-peninsula",
+        "topic:bajor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Quark",
+            "Minister",
+            "Rozahn",
+            "Trilar Peninsula"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Quark",
+            "Minister",
+            "Rozahn",
+            "Trilar Peninsula",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "wormhole/anomaly route gate",
+            "Kira Nerys",
+            "Minister",
+            "Rozahn",
+            "bureaucrat",
+            "Trilar Peninsula",
+            "Bajor"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Quark",
+            "Minister",
+            "Rozahn",
+            "Trilar Peninsula",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "wormhole/anomaly route gate",
+            "bureaucrat",
+            "Bajor",
+            "Sanctuary",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sanctuary (47391.2 (2370)) is Memory Alpha story row 10 for this season. Sanctuary is a DS9 season 2 story gate centered on Bajoran occupation/religion gate; the evidence marks Bajoran occupation/religion gate; wormhole/anomaly route gate.",
+        "injection": "Use Sanctuary as the active episode Context gate when scenes reference Bajoran occupation/religion gate, wormhole/anomaly route gate, Kira Nerys.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sanctuary",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sanctuary_(episode)",
+        "stardate": "47391.2 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_rivals-episode-gate",
+      "title": "Rivals anchors Changeling identity/Founder gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e11.rivals",
+        "validToAnchor": "ds9.s2.e12.the-alternate",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 22200,
+        "sortKeyTo": 22220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Rivals",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e11.rivals",
+          "label": "Rivals",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:quarks",
+          "st:alsia",
+          "st:constable",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Quark's",
+          "Alsia",
+          "Constable"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Changeling identity/Founder gate",
+          "Quark's",
+          "Alsia",
+          "latinum",
+          "mining",
+          "Vlugta asteroid belt",
+          "spectrographic analysis",
+          "Rivals"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-rivals",
+        "character:odo",
+        "character:quark",
+        "character:quarks",
+        "character:alsia",
+        "character:constable",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:changeling-identityfounder-gate",
+        "topic:quarks",
+        "topic:alsia",
+        "topic:latinum",
+        "topic:mining",
+        "topic:vlugta-asteroid-belt",
+        "topic:spectrographic-analysis",
+        "topic:rivals"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Alsia",
+            "Constable"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Alsia",
+            "Constable",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Changeling identity/Founder gate",
+            "Quark's",
+            "Alsia",
+            "latinum",
+            "mining",
+            "Vlugta asteroid belt",
+            "spectrographic analysis",
+            "Rivals"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Alsia",
+            "Constable",
+            "Starfleet",
+            "Bajorans",
+            "Changeling identity/Founder gate",
+            "latinum",
+            "mining",
+            "Vlugta asteroid belt",
+            "spectrographic analysis",
+            "Rivals",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Rivals (Unknown (2370)) is Memory Alpha story row 11 for this season. Rivals is a DS9 season 2 story gate centered on Changeling identity/Founder gate; the evidence marks Changeling identity/Founder gate.",
+        "injection": "Use Rivals as the active episode Context gate when scenes reference Changeling identity/Founder gate, Quark's, Alsia.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rivals",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rivals_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_the-alternate-episode-gate",
+      "title": "The Alternate anchors Bajoran occupation/religion gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e12.the-alternate",
+        "validToAnchor": "ds9.s2.e13.armageddon-game",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 22220,
+        "sortKeyTo": 22240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: The Alternate",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e12.the-alternate",
+          "label": "The Alternate",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:quark",
+          "st:plegg",
+          "st:dr",
+          "st:starfleet",
+          "st:bajorans",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Quark",
+          "Plegg",
+          "Dr."
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "Ferengi family/rule-of-acquisition gate",
+          "his bar",
+          "Quark",
+          "pieces",
+          "Plegg",
+          "Ferengi customer",
+          "Odo"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-the-alternate",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:quark",
+        "character:plegg",
+        "character:dr",
+        "faction:starfleet",
+        "faction:bajorans",
+        "faction:ferengi-alliance",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:his-bar",
+        "topic:quark",
+        "topic:pieces",
+        "topic:plegg",
+        "topic:ferengi-customer",
+        "topic:odo"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Quark",
+            "Plegg",
+            "Dr."
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Quark",
+            "Plegg",
+            "Dr.",
+            "Starfleet",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "his bar",
+            "Quark",
+            "pieces",
+            "Plegg",
+            "Ferengi customer",
+            "Odo"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Quark",
+            "Plegg",
+            "Dr.",
+            "Starfleet",
+            "Bajorans",
+            "Ferengi Alliance",
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "his bar",
+            "pieces",
+            "Ferengi customer",
+            "The Alternate",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Alternate (47391.7 (2370)) is Memory Alpha story row 12 for this season. The Alternate is a DS9 season 2 story gate centered on Bajoran occupation/religion gate; the evidence marks Bajoran occupation/religion gate; Ferengi family/rule-of-acquisition gate.",
+        "injection": "Use The Alternate as the active episode Context gate when scenes reference Bajoran occupation/religion gate, Ferengi family/rule-of-acquisition gate, his bar.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Alternate",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Alternate_(episode)",
+        "stardate": "47391.7 (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s2_armageddon-game-episode-gate",
+      "title": "Armageddon Game anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s2.e13.armageddon-game",
+        "validToAnchor": "ds9.s2.e14.whispers",
+        "series": "DS9",
+        "season": "2",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 22240,
+        "sortKeyTo": 22260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 2: Armageddon Game",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s2",
+          "label": "DS9 season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s2.e13.armageddon-game",
+          "label": "Armageddon Game",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:miles-obrien",
+          "st:tlani",
+          "st:kellerun",
+          "st:harvester",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Miles O'Brien",
+          "T'Lani",
+          "Kellerun",
+          "Harvester"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Chief medical officer's log",
+          "O'Brien",
+          "T'Lani",
+          "Kellerun",
+          "Harvester",
+          "radiation",
+          "Armageddon Game"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s2-armageddon-game",
+        "character:benjamin-sisko",
+        "character:miles-obrien",
+        "character:tlani",
+        "character:kellerun",
+        "character:harvester",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:episode-local-factstatus-gate",
+        "topic:chief-medical-officers-log",
+        "topic:obrien",
+        "topic:tlani",
+        "topic:kellerun",
+        "topic:harvester",
+        "topic:radiation",
+        "topic:armageddon-game"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Miles O'Brien",
+            "T'Lani",
+            "Kellerun",
+            "Harvester"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Miles O'Brien",
+            "T'Lani",
+            "Kellerun",
+            "Harvester",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Chief medical officer's log",
+            "O'Brien",
+            "T'Lani",
+            "Kellerun",
+            "Harvester",
+            "radiation",
+            "Armageddon Game"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Miles O'Brien",
+            "T'Lani",
+            "Kellerun",
+            "Harvester",
+            "Starfleet",
+            "Bajorans",
+            "episode-local fact/status gate",
+            "Chief medical officer's log",
+            "O'Brien",
+            "radiation",
+            "Armageddon Game",
+            "DS9 season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Armageddon Game (Unknown (2370)) is Memory Alpha story row 13 for this season. Armageddon Game is a DS9 season 2 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Armageddon Game as the active episode Context gate when scenes reference episode-local fact/status gate, Chief medical officer's log, O'Brien.",
+        "constraints": [
+          "Keep this card inside DS9 season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Armageddon Game",
+        "series": "DS9",
+        "season": 2,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Armageddon_Game_(episode)",
+        "stardate": "Unknown (2370)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

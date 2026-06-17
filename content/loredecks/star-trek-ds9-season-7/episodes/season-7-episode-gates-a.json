@@ -1,0 +1,2865 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_image-in-the-sand-episode-gate",
+      "title": "Image in the Sand anchors The death of Jadzia and the Sisko's purpose",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e01.image-in-the-sand",
+        "validToAnchor": "ds9.s7.e02.shadows-and-symbols",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 27000,
+        "sortKeyTo": 27020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Image in the Sand",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e01.image-in-the-sand",
+          "label": "Image in the Sand",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:nog",
+          "st:jadzia",
+          "st:promenade",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Nog",
+          "Jadzia",
+          "Promenade"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "The death of Jadzia and the Sisko's purpose",
+          "Bajoran occupation/religion gate",
+          "Prophets/Emissary gate",
+          "Pah-wraith secrecy/endgame gate",
+          "wormhole/anomaly route gate",
+          "death/status-change gate",
+          "since",
+          "Jadzia"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-image-in-the-sand",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:nog",
+        "character:jadzia",
+        "character:promenade",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:the-death-of-jadzia-and-the-siskos-purpose",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:prophetsemissary-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:deathstatus-change-gate",
+        "topic:since",
+        "topic:jadzia"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "The death of Jadzia and the Sisko's purpose",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "since",
+            "Jadzia"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Nog",
+            "Jadzia",
+            "Promenade",
+            "Starfleet",
+            "Bajorans",
+            "The death of Jadzia and the Sisko's purpose",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "wormhole/anomaly route gate",
+            "death/status-change gate",
+            "since",
+            "Image in the Sand",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Image in the Sand (Unknown (2375)) is Memory Alpha story row 1 for this season. Image in the Sand is a DS9 season 7 story gate centered on The death of Jadzia and the Sisko's purpose; the evidence marks Bajoran occupation/religion gate; Prophets/Emissary gate; Pah-wraith secrecy/endgame gate; wormhole/anomaly route gate; death/status-change gate.",
+        "injection": "Use Image in the Sand as the active episode Context gate when scenes reference The death of Jadzia and the Sisko's purpose, Bajoran occupation/religion gate, Prophets/Emissary gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Image in the Sand",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Image_in_the_Sand_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_shadows-and-symbols-episode-gate",
+      "title": "Shadows and Symbols anchors The death of Jadzia and the Sisko's purpose",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e02.shadows-and-symbols",
+        "validToAnchor": "ds9.s7.e03.afterimage",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 27020,
+        "sortKeyTo": 27040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Shadows and Symbols",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e02.shadows-and-symbols",
+          "label": "Shadows and Symbols",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:miles-obrien",
+          "st:benjamin-sisko",
+          "st:julian-bashir",
+          "st:joseph-sisko",
+          "st:starfleet",
+          "st:romulan-star-empire",
+          "st:dominion",
+          "st:trill",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Miles O'Brien",
+          "Benjamin Sisko",
+          "Julian Bashir",
+          "Joseph Sisko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire",
+          "Dominion",
+          "Trill",
+          "Bajorans"
+        ],
+        "topics": [
+          "The death of Jadzia and the Sisko's purpose",
+          "Romulan secrecy/political pressure gate",
+          "Dominion strategic-threat gate",
+          "death/status-change gate",
+          "Joseph Sisko",
+          "restaurant",
+          "Ezri",
+          "Benjamin Sisko"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-shadows-and-symbols",
+        "character:worf",
+        "character:miles-obrien",
+        "character:benjamin-sisko",
+        "character:julian-bashir",
+        "character:joseph-sisko",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "faction:dominion",
+        "faction:trill",
+        "faction:bajorans",
+        "topic:the-death-of-jadzia-and-the-siskos-purpose",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:deathstatus-change-gate",
+        "topic:joseph-sisko",
+        "topic:restaurant",
+        "topic:ezri",
+        "topic:benjamin-sisko"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Julian Bashir",
+            "Joseph Sisko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire",
+            "Dominion",
+            "Trill",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Julian Bashir",
+            "Joseph Sisko",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Dominion",
+            "Trill",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "The death of Jadzia and the Sisko's purpose",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "death/status-change gate",
+            "Joseph Sisko",
+            "restaurant",
+            "Ezri",
+            "Benjamin Sisko"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Julian Bashir",
+            "Joseph Sisko",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Dominion",
+            "Trill",
+            "Bajorans",
+            "The death of Jadzia and the Sisko's purpose",
+            "Romulan secrecy/political pressure gate",
+            "Dominion strategic-threat gate",
+            "death/status-change gate",
+            "restaurant",
+            "Ezri",
+            "Shadows and Symbols",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Shadows and Symbols (52152.6 (2375)) is Memory Alpha story row 2 for this season. Shadows and Symbols is a DS9 season 7 story gate centered on The death of Jadzia and the Sisko's purpose; the evidence marks Romulan secrecy/political pressure gate; Dominion strategic-threat gate; death/status-change gate.",
+        "injection": "Use Shadows and Symbols as the active episode Context gate when scenes reference The death of Jadzia and the Sisko's purpose, Romulan secrecy/political pressure gate, Dominion strategic-threat gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Shadows and Symbols",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shadows_and_Symbols_(episode)",
+        "stardate": "52152.6 (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_afterimage-episode-gate",
+      "title": "Afterimage anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e03.afterimage",
+        "validToAnchor": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 27040,
+        "sortKeyTo": 27060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Afterimage",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e03.afterimage",
+          "label": "Afterimage",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:quark",
+          "st:promenade",
+          "st:ezri-dax",
+          "st:morn",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Quark",
+          "Promenade",
+          "Ezri Dax",
+          "Morn"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Bajoran occupation/religion gate",
+          "death/status-change gate",
+          "Deep Space 9",
+          "Promenade",
+          "Ezri Dax",
+          "space station",
+          "Morn"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-afterimage",
+        "character:kira-nerys",
+        "character:quark",
+        "character:promenade",
+        "character:ezri-dax",
+        "character:morn",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:deathstatus-change-gate",
+        "topic:deep-space-9",
+        "topic:promenade",
+        "topic:ezri-dax",
+        "topic:space-station",
+        "topic:morn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Quark",
+            "Promenade",
+            "Ezri Dax",
+            "Morn"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Quark",
+            "Promenade",
+            "Ezri Dax",
+            "Morn",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "death/status-change gate",
+            "Deep Space 9",
+            "Promenade",
+            "Ezri Dax",
+            "space station",
+            "Morn"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Quark",
+            "Promenade",
+            "Ezri Dax",
+            "Morn",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "death/status-change gate",
+            "Deep Space 9",
+            "space station",
+            "Afterimage",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Afterimage (Unknown (2375)) is Memory Alpha story row 3 for this season. Afterimage is a DS9 season 7 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate; Bajoran occupation/religion gate; death/status-change gate.",
+        "injection": "Use Afterimage as the active episode Context gate when scenes reference Klingon duty/faction-status gate, Bajoran occupation/religion gate, death/status-change gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Afterimage",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Afterimage_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_take-me-out-to-the-holosuite-episode-gate",
+      "title": "Take Me Out to the Holosuite anchors Dominion strategic-threat gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e04.take-me-out-to-the-holosuite",
+        "validToAnchor": "ds9.s7.e05.chrysalis",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 27060,
+        "sortKeyTo": 27080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Take Me Out to the Holosuite",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e04.take-me-out-to-the-holosuite",
+          "label": "Take Me Out to the Holosuite",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:benjamin-sisko",
+          "st:dominion-war",
+          "st:julian-bashir",
+          "st:starfleet",
+          "st:dominion",
+          "st:vulcans",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Benjamin Sisko",
+          "Dominion War",
+          "Julian Bashir"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Vulcans",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion strategic-threat gate",
+          "Deep Space 9",
+          "Vulcan",
+          "Sisko",
+          "Christopher Pike Medal of Valor",
+          "Dominion War",
+          "Chief",
+          "Take Me Out to the Holosuite"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-take-me-out-to-the-holosuite",
+        "character:miles-obrien",
+        "character:benjamin-sisko",
+        "character:dominion-war",
+        "character:julian-bashir",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:vulcans",
+        "faction:bajorans",
+        "topic:dominion-strategic-threat-gate",
+        "topic:deep-space-9",
+        "topic:vulcan",
+        "topic:sisko",
+        "topic:christopher-pike-medal-of-valor",
+        "topic:dominion-war",
+        "topic:chief",
+        "topic:take-me-out-to-the-holosuite"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Dominion War",
+            "Julian Bashir"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Vulcans",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Dominion War",
+            "Julian Bashir",
+            "Starfleet",
+            "Dominion",
+            "Vulcans",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion strategic-threat gate",
+            "Deep Space 9",
+            "Vulcan",
+            "Sisko",
+            "Christopher Pike Medal of Valor",
+            "Dominion War",
+            "Chief",
+            "Take Me Out to the Holosuite"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Benjamin Sisko",
+            "Dominion War",
+            "Julian Bashir",
+            "Starfleet",
+            "Dominion",
+            "Vulcans",
+            "Bajorans",
+            "Dominion strategic-threat gate",
+            "Deep Space 9",
+            "Vulcan",
+            "Sisko",
+            "Christopher Pike Medal of Valor",
+            "Chief",
+            "Take Me Out to the Holosuite",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Take Me Out to the Holosuite (Unknown (2375)) is Memory Alpha story row 4 for this season. Take Me Out to the Holosuite is a DS9 season 7 story gate centered on Dominion strategic-threat gate; the evidence marks Dominion strategic-threat gate.",
+        "injection": "Use Take Me Out to the Holosuite as the active episode Context gate when scenes reference Dominion strategic-threat gate, Deep Space 9, Vulcan.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Take Me Out to the Holosuite",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Take_Me_Out_to_the_Holosuite_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_chrysalis-episode-gate",
+      "title": "Chrysalis anchors genetic secret gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e05.chrysalis",
+        "validToAnchor": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 27080,
+        "sortKeyTo": 27100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Chrysalis",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e05.chrysalis",
+          "label": "Chrysalis",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:kira-nerys",
+          "st:julian-bashir",
+          "st:odo",
+          "st:nog",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Kira Nerys",
+          "Julian Bashir",
+          "Odo",
+          "Nog"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "genetic secret gate",
+          "Promenade",
+          "Julian Bashir",
+          "Miles O'Brien",
+          "Keiko O'Brien",
+          "holosuite",
+          "Thursday",
+          "Chrysalis"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-chrysalis",
+        "character:miles-obrien",
+        "character:kira-nerys",
+        "character:julian-bashir",
+        "character:odo",
+        "character:nog",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:genetic-secret-gate",
+        "topic:promenade",
+        "topic:julian-bashir",
+        "topic:miles-obrien",
+        "topic:keiko-obrien",
+        "topic:holosuite",
+        "topic:thursday",
+        "topic:chrysalis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Kira Nerys",
+            "Julian Bashir",
+            "Odo",
+            "Nog"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Kira Nerys",
+            "Julian Bashir",
+            "Odo",
+            "Nog",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "genetic secret gate",
+            "Promenade",
+            "Julian Bashir",
+            "Miles O'Brien",
+            "Keiko O'Brien",
+            "holosuite",
+            "Thursday",
+            "Chrysalis"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Kira Nerys",
+            "Julian Bashir",
+            "Odo",
+            "Nog",
+            "Starfleet",
+            "Bajorans",
+            "genetic secret gate",
+            "Promenade",
+            "Keiko O'Brien",
+            "holosuite",
+            "Thursday",
+            "Chrysalis",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Chrysalis (Unknown (2375)) is Memory Alpha story row 5 for this season. Chrysalis is a DS9 season 7 story gate centered on genetic secret gate; the evidence marks genetic secret gate.",
+        "injection": "Use Chrysalis as the active episode Context gate when scenes reference genetic secret gate, Promenade, Julian Bashir.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Chrysalis",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Chrysalis_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_treachery-faith-and-the-great-river-episode-gate",
+      "title": "Treachery, Faith and the Great River anchors Dominion strategic-threat gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e06.treachery-faith-and-the-great-river",
+        "validToAnchor": "ds9.s7.e07.once-more-unto-the-breach",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 27100,
+        "sortKeyTo": 27120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Treachery, Faith and the Great River",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e06.treachery-faith-and-the-great-river",
+          "label": "Treachery, Faith and the Great River",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:kira-nerys",
+          "st:gul",
+          "st:russol",
+          "st:cardassia",
+          "st:starfleet",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Kira Nerys",
+          "Gul",
+          "Russol",
+          "Cardassia"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion strategic-threat gate",
+          "reveal timing gate",
+          "Kira",
+          "Odo",
+          "massaging",
+          "springball",
+          "Gul",
+          "Russol"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-treachery-faith-and-the-great-river",
+        "character:odo",
+        "character:kira-nerys",
+        "character:gul",
+        "character:russol",
+        "character:cardassia",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:dominion-strategic-threat-gate",
+        "topic:reveal-timing-gate",
+        "topic:kira",
+        "topic:odo",
+        "topic:massaging",
+        "topic:springball",
+        "topic:gul",
+        "topic:russol"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Kira Nerys",
+            "Gul",
+            "Russol",
+            "Cardassia"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Kira Nerys",
+            "Gul",
+            "Russol",
+            "Cardassia",
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion strategic-threat gate",
+            "reveal timing gate",
+            "Kira",
+            "Odo",
+            "massaging",
+            "springball",
+            "Gul",
+            "Russol"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Kira Nerys",
+            "Gul",
+            "Russol",
+            "Cardassia",
+            "Starfleet",
+            "Dominion",
+            "Bajorans",
+            "Dominion strategic-threat gate",
+            "reveal timing gate",
+            "Kira",
+            "massaging",
+            "springball",
+            "Treachery, Faith and the Great River",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Treachery, Faith and the Great River (Unknown (2375)) is Memory Alpha story row 6 for this season. Treachery, Faith and the Great River is a DS9 season 7 story gate centered on Dominion strategic-threat gate; the evidence marks Dominion strategic-threat gate; reveal timing gate.",
+        "injection": "Use Treachery, Faith and the Great River as the active episode Context gate when scenes reference Dominion strategic-threat gate, reveal timing gate, Kira.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Treachery, Faith and the Great River",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Treachery%2C_Faith_and_the_Great_River_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_once-more-unto-the-breach-episode-gate",
+      "title": "Once More Unto the Breach anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e07.once-more-unto-the-breach",
+        "validToAnchor": "ds9.s7.e08.the-siege-of-ar-558",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 27120,
+        "sortKeyTo": 27140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Once More Unto the Breach",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e07.once-more-unto-the-breach",
+          "label": "Once More Unto the Breach",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:quark",
+          "st:quarks",
+          "st:dr",
+          "st:julian-bashir",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Quark",
+          "Quark's",
+          "Dr.",
+          "Julian Bashir"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Dominion strategic-threat gate",
+          "Battle of the Alamo",
+          "Quark's",
+          "Dr.",
+          "Bashir",
+          "Chief",
+          "O'Brien"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-once-more-unto-the-breach",
+        "character:worf",
+        "character:quark",
+        "character:quarks",
+        "character:dr",
+        "character:julian-bashir",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:battle-of-the-alamo",
+        "topic:quarks",
+        "topic:dr",
+        "topic:bashir",
+        "topic:chief",
+        "topic:obrien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Quark",
+            "Quark's",
+            "Dr.",
+            "Julian Bashir"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Quark",
+            "Quark's",
+            "Dr.",
+            "Julian Bashir",
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "Battle of the Alamo",
+            "Quark's",
+            "Dr.",
+            "Bashir",
+            "Chief",
+            "O'Brien"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Quark",
+            "Quark's",
+            "Dr.",
+            "Julian Bashir",
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Bajorans",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "Battle of the Alamo",
+            "Bashir",
+            "Chief",
+            "O'Brien",
+            "Once More Unto the Breach",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Once More Unto the Breach (Unknown (2375)) is Memory Alpha story row 7 for this season. Once More Unto the Breach is a DS9 season 7 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate; Dominion strategic-threat gate.",
+        "injection": "Use Once More Unto the Breach as the active episode Context gate when scenes reference Klingon duty/faction-status gate, Dominion strategic-threat gate, Battle of the Alamo.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Once More Unto the Breach",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Once_More_Unto_the_Breach_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_the-siege-of-ar-558-episode-gate",
+      "title": "The Siege of AR-558 anchors Nog and AR-558",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e08.the-siege-of-ar-558",
+        "validToAnchor": "ds9.s7.e09.covenant",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 27140,
+        "sortKeyTo": 27160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: The Siege of AR-558",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e08.the-siege-of-ar-558",
+          "label": "The Siege of AR-558",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:rom",
+          "st:vic",
+          "st:dr",
+          "st:julian-bashir",
+          "st:starfleet",
+          "st:dominion",
+          "st:jemhadar",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Rom",
+          "Vic",
+          "Dr.",
+          "Julian Bashir"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Jem'Hadar",
+          "Bajorans"
+        ],
+        "topics": [
+          "Nog and AR-558",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "Defiant/station militarization gate",
+          "Vic's lounge",
+          "Rom",
+          "The Lady is a Tramp",
+          "Vic"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-siege-of-ar-558",
+        "character:odo",
+        "character:rom",
+        "character:vic",
+        "character:dr",
+        "character:julian-bashir",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:jemhadar",
+        "faction:bajorans",
+        "topic:nog-and-ar-558",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:vics-lounge",
+        "topic:rom",
+        "topic:the-lady-is-a-tramp",
+        "topic:vic"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Rom",
+            "Vic",
+            "Dr.",
+            "Julian Bashir"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Rom",
+            "Vic",
+            "Dr.",
+            "Julian Bashir",
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Nog and AR-558",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Defiant/station militarization gate",
+            "Vic's lounge",
+            "Rom",
+            "The Lady is a Tramp",
+            "Vic"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Rom",
+            "Vic",
+            "Dr.",
+            "Julian Bashir",
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans",
+            "Nog and AR-558",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Defiant/station militarization gate",
+            "Vic's lounge",
+            "The Lady is a Tramp",
+            "The Siege of AR-558",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Siege of AR-558 (Unknown (2375)) is Memory Alpha story row 8 for this season. The Siege of AR-558 is a DS9 season 7 story gate centered on Nog and AR-558; the evidence marks Dominion strategic-threat gate; Jem'Hadar reveal or war gate; Defiant/station militarization gate.",
+        "injection": "Use The Siege of AR-558 as the active episode Context gate when scenes reference Nog and AR-558, Dominion strategic-threat gate, Jem'Hadar reveal or war gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Siege of AR-558",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Siege_of_AR-558_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_covenant-episode-gate",
+      "title": "Covenant anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e09.covenant",
+        "validToAnchor": "ds9.s7.e10.its-only-a-paper-moon",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 27160,
+        "sortKeyTo": 27180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Covenant",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e09.covenant",
+          "label": "Covenant",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:julian-bashir",
+          "st:odo",
+          "st:quark",
+          "st:ezri-dax",
+          "st:quarks",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Julian Bashir",
+          "Odo",
+          "Quark",
+          "Ezri Dax",
+          "Quark's"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Prophets/Emissary gate",
+          "Pah-wraith secrecy/endgame gate",
+          "Ezri Dax",
+          "Julian Bashir",
+          "Odo",
+          "Quark's"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-covenant",
+        "character:julian-bashir",
+        "character:odo",
+        "character:quark",
+        "character:ezri-dax",
+        "character:quarks",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:prophetsemissary-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:ezri-dax",
+        "topic:julian-bashir",
+        "topic:odo",
+        "topic:quarks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Julian Bashir",
+            "Odo",
+            "Quark",
+            "Ezri Dax",
+            "Quark's"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Julian Bashir",
+            "Odo",
+            "Quark",
+            "Ezri Dax",
+            "Quark's",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "Ezri Dax",
+            "Julian Bashir",
+            "Odo",
+            "Quark's"
+          ],
+          "keywordsAny": [
+            "Julian Bashir",
+            "Odo",
+            "Quark",
+            "Ezri Dax",
+            "Quark's",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Prophets/Emissary gate",
+            "Pah-wraith secrecy/endgame gate",
+            "Covenant",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Covenant (Unknown (2375)) is Memory Alpha story row 9 for this season. Covenant is a DS9 season 7 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate; Prophets/Emissary gate; Pah-wraith secrecy/endgame gate.",
+        "injection": "Use Covenant as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Prophets/Emissary gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Covenant",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Covenant_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_its-only-a-paper-moon-episode-gate",
+      "title": "It's Only a Paper Moon anchors Nog and AR-558",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e10.its-only-a-paper-moon",
+        "validToAnchor": "ds9.s7.e11.prodigal-daughter",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 27180,
+        "sortKeyTo": 27200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: It's Only a Paper Moon",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e10.its-only-a-paper-moon",
+          "label": "It's Only a Paper Moon",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:nog",
+          "st:rom",
+          "st:jadzia-dax",
+          "st:leeta",
+          "st:benjamin-sisko",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Nog",
+          "Rom",
+          "Jadzia Dax",
+          "Leeta",
+          "Benjamin Sisko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Nog and AR-558",
+          "episode-local fact/status gate",
+          "Dax",
+          "Rom",
+          "Leeta",
+          "Nog",
+          "Starbase 235",
+          "losing his leg"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-its-only-a-paper-moon",
+        "character:nog",
+        "character:rom",
+        "character:jadzia-dax",
+        "character:leeta",
+        "character:benjamin-sisko",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:nog-and-ar-558",
+        "topic:episode-local-factstatus-gate",
+        "topic:dax",
+        "topic:rom",
+        "topic:leeta",
+        "topic:nog",
+        "topic:starbase-235",
+        "topic:losing-his-leg"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nog",
+            "Rom",
+            "Jadzia Dax",
+            "Leeta",
+            "Benjamin Sisko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Nog",
+            "Rom",
+            "Jadzia Dax",
+            "Leeta",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Nog and AR-558",
+            "episode-local fact/status gate",
+            "Dax",
+            "Rom",
+            "Leeta",
+            "Nog",
+            "Starbase 235",
+            "losing his leg"
+          ],
+          "keywordsAny": [
+            "Nog",
+            "Rom",
+            "Jadzia Dax",
+            "Leeta",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Bajorans",
+            "Nog and AR-558",
+            "episode-local fact/status gate",
+            "Dax",
+            "Starbase 235",
+            "losing his leg",
+            "It's Only a Paper Moon",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "It's Only a Paper Moon (2375) is Memory Alpha story row 10 for this season. It's Only a Paper Moon is a DS9 season 7 story gate centered on Nog and AR-558; the evidence marks episode-local fact/status gate.",
+        "injection": "Use It's Only a Paper Moon as the active episode Context gate when scenes reference Nog and AR-558, episode-local fact/status gate, Dax.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "It's Only a Paper Moon",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/It's_Only_a_Paper_Moon_(episode)",
+        "stardate": "2375",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_prodigal-daughter-episode-gate",
+      "title": "Prodigal Daughter anchors death/status-change gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e11.prodigal-daughter",
+        "validToAnchor": "ds9.s7.e12.the-emperors-new-cloak",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 27200,
+        "sortKeyTo": 27220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Prodigal Daughter",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e11.prodigal-daughter",
+          "label": "Prodigal Daughter",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:kira-nerys",
+          "st:ezri",
+          "st:julian",
+          "st:jadzia",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Kira Nerys",
+          "Ezri",
+          "Julian",
+          "Jadzia"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "death/status-change gate",
+          "Kira",
+          "Odo",
+          "Ezri",
+          "Julian",
+          "gagh",
+          "Jadzia",
+          "Prodigal Daughter"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-prodigal-daughter",
+        "character:odo",
+        "character:kira-nerys",
+        "character:ezri",
+        "character:julian",
+        "character:jadzia",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:deathstatus-change-gate",
+        "topic:kira",
+        "topic:odo",
+        "topic:ezri",
+        "topic:julian",
+        "topic:gagh",
+        "topic:jadzia",
+        "topic:prodigal-daughter"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Kira Nerys",
+            "Ezri",
+            "Julian",
+            "Jadzia"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Kira Nerys",
+            "Ezri",
+            "Julian",
+            "Jadzia",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "death/status-change gate",
+            "Kira",
+            "Odo",
+            "Ezri",
+            "Julian",
+            "gagh",
+            "Jadzia",
+            "Prodigal Daughter"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Kira Nerys",
+            "Ezri",
+            "Julian",
+            "Jadzia",
+            "Starfleet",
+            "Bajorans",
+            "death/status-change gate",
+            "Kira",
+            "gagh",
+            "Prodigal Daughter",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Prodigal Daughter (Unknown (2375)) is Memory Alpha story row 11 for this season. Prodigal Daughter is a DS9 season 7 story gate centered on death/status-change gate; the evidence marks death/status-change gate.",
+        "injection": "Use Prodigal Daughter as the active episode Context gate when scenes reference death/status-change gate, Kira, Odo.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Prodigal Daughter",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Prodigal_Daughter_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_the-emperors-new-cloak-episode-gate",
+      "title": "The Emperor's New Cloak anchors Mirror universe",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e12.the-emperors-new-cloak",
+        "validToAnchor": "ds9.s7.e13.field-of-fire",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 27220,
+        "sortKeyTo": 27240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: The Emperor's New Cloak",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e12.the-emperors-new-cloak",
+          "label": "The Emperor's New Cloak",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:rom",
+          "st:quarks",
+          "st:dr",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Rom",
+          "Quark's",
+          "Dr."
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Mirror universe",
+          "Klingon duty/faction-status gate",
+          "Cardassian occupation or border-pressure gate",
+          "Mirror universe branch gate",
+          "Odo",
+          "Quark",
+          "Quark's",
+          "Dr."
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-the-emperors-new-cloak",
+        "character:odo",
+        "character:quark",
+        "character:rom",
+        "character:quarks",
+        "character:dr",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:mirror-universe",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:mirror-universe-branch-gate",
+        "topic:odo",
+        "topic:quark",
+        "topic:quarks",
+        "topic:dr"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Dr."
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Dr.",
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Mirror universe",
+            "Klingon duty/faction-status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Mirror universe branch gate",
+            "Odo",
+            "Quark",
+            "Quark's",
+            "Dr."
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Dr.",
+            "Starfleet",
+            "Klingon Empire",
+            "Cardassian Union",
+            "Bajorans",
+            "Mirror universe",
+            "Klingon duty/faction-status gate",
+            "Cardassian occupation or border-pressure gate",
+            "Mirror universe branch gate",
+            "The Emperor's New Cloak",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Emperor's New Cloak (Unknown (2375)) is Memory Alpha story row 12 for this season. The Emperor's New Cloak is a DS9 season 7 story gate centered on Mirror universe; the evidence marks Klingon duty/faction-status gate; Cardassian occupation or border-pressure gate; Mirror universe branch gate.",
+        "injection": "Use The Emperor's New Cloak as the active episode Context gate when scenes reference Mirror universe, Klingon duty/faction-status gate, Cardassian occupation or border-pressure gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Emperor's New Cloak",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Emperor's_New_Cloak_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s7_field-of-fire-episode-gate",
+      "title": "Field of Fire anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s7.e13.field-of-fire",
+        "validToAnchor": "ds9.s7.e14.chimera",
+        "series": "DS9",
+        "season": "7",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 27240,
+        "sortKeyTo": 27260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 7: Field of Fire",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s7",
+          "label": "DS9 season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s7.e13.field-of-fire",
+          "label": "Field of Fire",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:quark",
+          "st:quarks",
+          "st:hector-ilario",
+          "st:ezri-dax",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Quark",
+          "Quark's",
+          "Hector Ilario",
+          "Ezri Dax"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Quark's",
+          "toast",
+          "Hector Ilario",
+          "helm",
+          "Kira Nerys",
+          "Ezri Dax",
+          "Field of Fire"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s7-field-of-fire",
+        "character:kira-nerys",
+        "character:quark",
+        "character:quarks",
+        "character:hector-ilario",
+        "character:ezri-dax",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:episode-local-factstatus-gate",
+        "topic:quarks",
+        "topic:toast",
+        "topic:hector-ilario",
+        "topic:helm",
+        "topic:kira-nerys",
+        "topic:ezri-dax",
+        "topic:field-of-fire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Quark",
+            "Quark's",
+            "Hector Ilario",
+            "Ezri Dax"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Quark",
+            "Quark's",
+            "Hector Ilario",
+            "Ezri Dax",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Quark's",
+            "toast",
+            "Hector Ilario",
+            "helm",
+            "Kira Nerys",
+            "Ezri Dax",
+            "Field of Fire"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Quark",
+            "Quark's",
+            "Hector Ilario",
+            "Ezri Dax",
+            "Starfleet",
+            "Bajorans",
+            "episode-local fact/status gate",
+            "toast",
+            "helm",
+            "Field of Fire",
+            "DS9 season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 7, Memory Alpha story rows 1-25, runtime episode aliases 1-25, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Field of Fire (Unknown (2375)) is Memory Alpha story row 13 for this season. Field of Fire is a DS9 season 7 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Field of Fire as the active episode Context gate when scenes reference episode-local fact/status gate, Quark's, toast.",
+        "constraints": [
+          "Keep this card inside DS9 season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Field of Fire",
+        "series": "DS9",
+        "season": 7,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Field_of_Fire_(episode)",
+        "stardate": "Unknown (2375)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

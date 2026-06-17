@@ -1,0 +1,887 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_luffy_trusts_nami_quickly_even_before_she_trusts_pirates_017",
+      "title": "Luffy Trusts Nami Before She Trusts Pirates",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "validToAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2384,
+        "sortKeyTo": 2512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Luffy Trusts Nami Before She Trusts Pirates"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:nami"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Nami"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "early trust gap",
+          "navigator recruitment",
+          "provisional alliance"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:nami",
+        "topic:provisional-alliance",
+        "topic:early-trust-gap"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Nami"
+          ],
+          "topicsAny": [
+            "early trust gap",
+            "navigator recruitment",
+            "provisional alliance"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Nami",
+            "Orange Town",
+            "early trust gap",
+            "navigator recruitment",
+            "provisional alliance",
+            "navigator",
+            "trust",
+            "recruit",
+            "pirates",
+            "Luffy Trusts Nami Before She Trusts Pirates",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy decides quickly that Nami is worth trusting and recruiting, while Nami still treats pirates as people to exploit or avoid.",
+        "injection": "Use the relationship asymmetry: Luffy can call Nami his navigator in spirit before Nami has emotionally accepted any pirate crew identity.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_zoro_stays_useful_while_injured_from_earlier_fighting_018",
+      "title": "Zoro Remains Combat-Reliable While Stabbed",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "validToAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2384,
+        "sortKeyTo": 2512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Zoro Remains Combat-Reliable While Stabbed"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:roronoa-zoro",
+          "op:buggy",
+          "op:cabaji"
+        ],
+        "characters": [
+          "Roronoa Zoro",
+          "Buggy",
+          "Cabaji"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "swords"
+        ],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "injured Zoro",
+          "combat endurance",
+          "Cabaji duel"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:roronoa-zoro",
+        "character:buggy",
+        "character:cabaji",
+        "topic:injured-zoro",
+        "topic:cabaji-duel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roronoa Zoro",
+            "Buggy",
+            "Cabaji"
+          ],
+          "entitiesAny": [
+            "Roronoa Zoro",
+            "Buggy",
+            "Cabaji"
+          ],
+          "topicsAny": [
+            "injured Zoro",
+            "combat endurance",
+            "Cabaji duel"
+          ],
+          "keywordsAny": [
+            "Roronoa Zoro",
+            "Buggy",
+            "Cabaji",
+            "Orange Town",
+            "swords",
+            "Buggy Pirates",
+            "injured Zoro",
+            "combat endurance",
+            "Cabaji duel",
+            "stabbed",
+            "wound",
+            "endurance",
+            "swordsman",
+            "Zoro Remains Combat-Reliable While Stabbed",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Zoro spends much of Orange Town wounded by Buggy's detached hand, yet he remains useful enough to escape danger and defeat Cabaji.",
+        "injection": "Use Zoro as visibly injured but still reliable: his wound should cost him, invite enemy exploitation, and make his victory over Cabaji an endurance beat.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_nami_treats_the_pair_as_dangerous_but_useful_allies_019",
+      "title": "Nami Treats Luffy And Zoro As Useful But Unsafe",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "validToAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2384,
+        "sortKeyTo": 2512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Nami Treats Luffy And Zoro As Useful But Unsafe"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:monkey-d-luffy",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Nami",
+          "Monkey D. Luffy",
+          "Roronoa Zoro"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "wary alliance",
+          "useful allies",
+          "provisional trio"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:monkey-d-luffy",
+        "character:roronoa-zoro",
+        "topic:provisional-alliance",
+        "topic:early-trust-gap"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "wary alliance",
+            "useful allies",
+            "provisional trio"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Orange Town",
+            "wary alliance",
+            "useful allies",
+            "provisional trio",
+            "wary",
+            "dangerous allies",
+            "useful",
+            "not friends yet",
+            "Nami Treats Luffy And Zoro As Useful But Unsafe",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nami sees Luffy and Zoro as dangerous but useful allies in Orange Town, not as safe friends or an accepted crew.",
+        "injection": "Use Nami's caution in dialogue and choices: she can rely on their strength while still preparing exits, bargains, and thefts in case pirate trust fails her.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_the_trio_is_not_yet_a_settled_crew_020",
+      "title": "The Trio Is A Temporary Partnership, Not A Settled Crew",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "validToAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2384,
+        "sortKeyTo": 2512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: The Trio Is A Temporary Partnership, Not A Settled Crew"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:roronoa-zoro",
+          "op:nami",
+          "op:small-boats"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Roronoa Zoro",
+          "Nami"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "small boats"
+        ],
+        "factions": [],
+        "topics": [
+          "temporary partnership",
+          "small boats",
+          "crew boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:roronoa-zoro",
+        "character:nami",
+        "item:small-boats",
+        "topic:provisional-alliance",
+        "topic:crew-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "small boats"
+          ],
+          "topicsAny": [
+            "temporary partnership",
+            "small boats",
+            "crew boundary"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "small boats",
+            "Orange Town",
+            "temporary partnership",
+            "crew boundary",
+            "two small boats",
+            "temporary",
+            "not settled",
+            "departure",
+            "The Trio Is A Temporary Partnership, Not A Settled Crew",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "At Orange Town's end, Luffy, Zoro, and Nami leave as a temporary partnership on small boats, not as a settled crew with stable shipboard routines.",
+        "injection": "Use the departure boundary carefully: the trio can travel together after Orange Town, but Nami has not given full emotional trust and the crew has not yet settled into a proper shipboard life.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_luffy_values_chouchou_s_loyalty_enough_to_fight_over_it_021",
+      "title": "Luffy Answers Chouchou's Loyalty With Action",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.luffy-zoro-nami-dynamics",
+        "validToAnchor": "op.orange-town.devil-fruit-and-combat-rules",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2384,
+        "sortKeyTo": 2512,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Luffy Answers Chouchou's Loyalty With Action"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:chouchou",
+          "op:pet-shop",
+          "op:mohji",
+          "op:richie"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Chouchou",
+          "Mohji",
+          "Richie"
+        ],
+        "locations": [
+          "pet shop",
+          "Orange Town"
+        ],
+        "objects": [
+          "dog food"
+        ],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "loyalty response",
+          "Chouchou stand",
+          "Luffy anger"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:chouchou",
+        "location:pet-shop",
+        "topic:loyalty",
+        "topic:civilian-stakes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Chouchou",
+            "Mohji",
+            "Richie"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Chouchou",
+            "pet shop",
+            "Mohji",
+            "Richie"
+          ],
+          "topicsAny": [
+            "loyalty response",
+            "Chouchou stand",
+            "Luffy anger"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Chouchou",
+            "pet shop",
+            "Mohji",
+            "Richie",
+            "Orange Town",
+            "dog food",
+            "Buggy Pirates",
+            "loyalty response",
+            "Chouchou stand",
+            "Luffy anger",
+            "loyalty",
+            "Luffy Answers Chouchou's Loyalty With Action",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy values Chouchou's loyalty enough to fight Mohji and Richie over the burned pet shop, then returns the last box of dog food to Chouchou.",
+        "injection": "Use this as an early Luffy values gate: he responds to stubborn loyalty and concrete harm, even when the victim is a dog and the loss is a single shop.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    }
+  ]
+}

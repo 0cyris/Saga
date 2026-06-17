@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Little Garden Arc Context inside Arabasta Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Little Garden Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during little garden arc: island ecology and geography",
+      "result": {
+        "anchorFrom": "op.little-garden.little-garden",
+        "label": "Little Garden Arc: Island ecology and geography"
+      }
+    },
+    {
+      "pattern": "during little garden arc: dorry, brogy, and giant honor",
+      "result": {
+        "anchorFrom": "op.little-garden.dorry-brogy-and-giant-honor",
+        "label": "Little Garden Arc: Dorry, Brogy, and giant honor"
+      }
+    },
+    {
+      "pattern": "during little garden arc: baroque works agents",
+      "result": {
+        "anchorFrom": "op.little-garden.baroque-works-agents",
+        "label": "Little Garden Arc: Baroque Works agents"
+      }
+    },
+    {
+      "pattern": "during little garden arc: straw hat pairings",
+      "result": {
+        "anchorFrom": "op.little-garden.straw-hat-pairings",
+        "label": "Little Garden Arc: Straw Hat pairings"
+      }
+    },
+    {
+      "pattern": "during little garden arc: duel sabotage and battle",
+      "result": {
+        "anchorFrom": "op.little-garden.duel-sabotage-and-battle",
+        "label": "Little Garden Arc: Duel sabotage and battle"
+      }
+    },
+    {
+      "pattern": "during little garden arc: wax set pieces and tactics",
+      "result": {
+        "anchorFrom": "op.little-garden.wax-set-pieces-and-tactics",
+        "label": "Little Garden Arc: Wax set pieces and tactics"
+      }
+    },
+    {
+      "pattern": "during little garden arc: nami illness bridge",
+      "result": {
+        "anchorFrom": "op.little-garden.nami-illness-bridge",
+        "label": "Little Garden Arc: Nami illness bridge"
+      }
+    },
+    {
+      "pattern": "during little garden arc: elbaf and world hooks",
+      "result": {
+        "anchorFrom": "op.little-garden.elbaf-and-world-hooks",
+        "label": "Little Garden Arc: Elbaf and world hooks"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

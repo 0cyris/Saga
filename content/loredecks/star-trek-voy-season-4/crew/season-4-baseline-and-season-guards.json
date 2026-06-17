@@ -1,0 +1,944 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_voy-season-4-baseline",
+      "title": "VOY season 4 has its own active cast and story baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e01.scorpion-part-ii",
+        "validToAnchor": "voy.s4.e26.hope-and-fear",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 34000,
+        "sortKeyTo": 34500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e01.scorpion-part-ii",
+          "label": "Scorpion, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Tom Paris"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "season baseline",
+          "Scorpion",
+          "Year of Hell",
+          "The Killing Game",
+          "The Silver Blood"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "faction:uss-voyager-crew",
+        "topic:season-baseline",
+        "topic:scorpion",
+        "topic:year-of-hell",
+        "topic:the-killing-game",
+        "topic:the-silver-blood"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris"
+          ],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "season baseline",
+            "Scorpion",
+            "Year of Hell",
+            "The Killing Game",
+            "The Silver Blood"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "USS Voyager crew",
+            "season baseline",
+            "Scorpion",
+            "Year of Hell",
+            "The Killing Game",
+            "The Silver Blood",
+            "Scorpion, Part II",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Star Trek: Voyager season 4 covers Memory Alpha story rows 1-26, anchored by Scorpion, Year of Hell, The Killing Game, The Silver Blood.",
+        "injection": "Use VOY season 4 as the active Star Trek context when those episode windows are selected. Do not substitute prior or later season status unless another active deck supplies it.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion%2C_Part_II_(episode)",
+        "stardate": "51003.7 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_voy-season-4-major-arcs",
+      "title": "VOY season 4 major arcs stay season-local",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e01.scorpion-part-ii",
+        "validToAnchor": "voy.s4.e26.hope-and-fear",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 34000,
+        "sortKeyTo": 34500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e01.scorpion-part-ii",
+          "label": "Scorpion, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tuvok",
+          "B'Elanna Torres",
+          "Tom Paris"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "major arcs",
+          "Borg encounter/assimilation gate",
+          "Species 8472/Borg conflict gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "assimilation status gate",
+          "death/status-change gate",
+          "Cardassian occupation or border-pressure gate",
+          "Delta Quadrant isolation gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "faction:uss-voyager-crew",
+        "topic:major-arcs",
+        "topic:borg-encounterassimilation-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:assimilation-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:delta-quadrant-isolation-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris"
+          ],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "major arcs",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tuvok",
+            "B'Elanna Torres",
+            "Tom Paris",
+            "USS Voyager crew",
+            "major arcs",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate",
+            "Scorpion, Part II",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The season evidence highlights Borg encounter/assimilation gate, Species 8472/Borg conflict gate, EMH autonomy/identity gate, Seven/Borg recovery gate, assimilation status gate, death/status-change gate, Cardassian occupation or border-pressure gate, Delta Quadrant isolation gate, with arcs and one-off episodes bounded by their Memory Alpha story rows.",
+        "injection": "Treat season 4 arcs as Context-gated story state, not a license to import the final outcomes of later Star Trek episodes or series.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion%2C_Part_II_(episode)",
+        "stardate": "51003.7 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_voy-season-4-faction-boundary",
+      "title": "VOY season 4 faction state should follow the loaded episode window",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 93,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e01.scorpion-part-ii",
+        "validToAnchor": "voy.s4.e26.hope-and-fear",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 34000,
+        "sortKeyTo": 34500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e01.scorpion-part-ii",
+          "label": "Scorpion, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "faction boundary",
+          "Borg encounter/assimilation gate",
+          "Species 8472/Borg conflict gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "assimilation status gate",
+          "death/status-change gate",
+          "Cardassian occupation or border-pressure gate",
+          "Delta Quadrant isolation gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii",
+        "faction:uss-voyager-crew",
+        "topic:faction-boundary",
+        "topic:borg-encounterassimilation-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:assimilation-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:delta-quadrant-isolation-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "faction boundary",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "faction boundary",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate",
+            "Scorpion, Part II",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Faction status in this deck comes from season 4 evidence rows and should not be flattened into all-era Star Trek politics.",
+        "injection": "Use the currently active episode anchor before injecting faction status, especially for Klingon, Romulan, Cardassian, Bajoran, Borg, Dominion, Maquis, or Delta Quadrant material.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion%2C_Part_II_(episode)",
+        "stardate": "51003.7 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_voy-season-4-technology-and-anomaly-boundary",
+      "title": "VOY season 4 technology and anomaly facts are episode-bounded",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e01.scorpion-part-ii",
+        "validToAnchor": "voy.s4.e26.hope-and-fear",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 34000,
+        "sortKeyTo": 34500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e01.scorpion-part-ii",
+          "label": "Scorpion, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "technology boundary",
+          "anomaly boundary",
+          "Borg encounter/assimilation gate",
+          "Species 8472/Borg conflict gate",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "assimilation status gate",
+          "death/status-change gate",
+          "Cardassian occupation or border-pressure gate",
+          "Delta Quadrant isolation gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii",
+        "faction:uss-voyager-crew",
+        "topic:technology-boundary",
+        "topic:anomaly-boundary",
+        "topic:borg-encounterassimilation-gate",
+        "topic:species-8472borg-conflict-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:assimilation-status-gate",
+        "topic:deathstatus-change-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:delta-quadrant-isolation-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "technology boundary",
+            "anomaly boundary",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "technology boundary",
+            "anomaly boundary",
+            "Borg encounter/assimilation gate",
+            "Species 8472/Borg conflict gate",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "assimilation status gate",
+            "death/status-change gate",
+            "Cardassian occupation or border-pressure gate",
+            "Delta Quadrant isolation gate",
+            "Scorpion, Part II",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 4 includes technology, anomaly, medical, legal, and cultural constraints that are often local to one episode.",
+        "injection": "Do not generalize an episode anomaly or technology into routine Starfleet capability unless a later active Loredeck explicitly broadens it.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion%2C_Part_II_(episode)",
+        "stardate": "51003.7 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s4_voy-season-4-future-guard",
+      "title": "VOY season 4 should not import later Star Trek outcomes",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 91,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s4.e01.scorpion-part-ii",
+        "validToAnchor": "voy.s4.e26.hope-and-fear",
+        "series": "VOY",
+        "season": "4",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 34000,
+        "sortKeyTo": 34500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "VOY season 4",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s4",
+          "label": "VOY season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s4.e01.scorpion-part-ii",
+          "label": "Scorpion, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:uss-voyager-crew"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s4-scorpion-part-ii",
+        "faction:uss-voyager-crew",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "factionsAny": [
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "USS Voyager crew",
+            "future guard",
+            "spoiler guard",
+            "Scorpion, Part II",
+            "VOY season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "This deck is a season-local draft reference for Star Trek: Voyager season 4, not an all-era Star Trek encyclopedia.",
+        "injection": "Block later season, film, Picard-era, beta-canon, novel, comic, game, and fanon outcomes unless another active deck supplies that later Context.",
+        "constraints": [
+          "Keep this card inside VOY season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Scorpion, Part II",
+        "series": "VOY",
+        "season": 4,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Scorpion%2C_Part_II_(episode)",
+        "stardate": "51003.7 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

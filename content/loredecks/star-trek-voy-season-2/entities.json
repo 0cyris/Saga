@@ -1,0 +1,967 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "st:belanna-torres": {
+      "type": "character",
+      "label": "B'Elanna Torres",
+      "aliases": [
+        "B'Elanna Torres"
+      ],
+      "canonicalNames": [
+        "B'Elanna Torres"
+      ],
+      "tags": [
+        "character:belanna-torres"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:borg-collective": {
+      "type": "faction",
+      "label": "Borg Collective",
+      "aliases": [
+        "Borg Collective"
+      ],
+      "canonicalNames": [
+        "Borg Collective"
+      ],
+      "tags": [
+        "faction:borg-collective"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:cardassian-union": {
+      "type": "faction",
+      "label": "Cardassian Union",
+      "aliases": [
+        "Cardassian Union"
+      ],
+      "canonicalNames": [
+        "Cardassian Union"
+      ],
+      "tags": [
+        "faction:cardassian-union"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:central-america": {
+      "type": "character",
+      "label": "Central America",
+      "aliases": [
+        "Central America"
+      ],
+      "canonicalNames": [
+        "Central America"
+      ],
+      "tags": [
+        "character:central-america"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:chakotay": {
+      "type": "character",
+      "label": "Chakotay",
+      "aliases": [
+        "Chakotay"
+      ],
+      "canonicalNames": [
+        "Chakotay"
+      ],
+      "tags": [
+        "character:chakotay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:crewman": {
+      "type": "character",
+      "label": "Crewman",
+      "aliases": [
+        "Crewman"
+      ],
+      "canonicalNames": [
+        "Crewman"
+      ],
+      "tags": [
+        "character:crewman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:data": {
+      "type": "character",
+      "label": "Data",
+      "aliases": [
+        "Data"
+      ],
+      "canonicalNames": [
+        "Data"
+      ],
+      "tags": [
+        "character:data"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:delta-quadrant": {
+      "type": "character",
+      "label": "Delta Quadrant",
+      "aliases": [
+        "Delta Quadrant"
+      ],
+      "canonicalNames": [
+        "Delta Quadrant"
+      ],
+      "tags": [
+        "character:delta-quadrant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:eps": {
+      "type": "character",
+      "label": "EPS",
+      "aliases": [
+        "EPS"
+      ],
+      "canonicalNames": [
+        "EPS"
+      ],
+      "tags": [
+        "character:eps"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:greskrendtregk": {
+      "type": "character",
+      "label": "Greskrendtregk",
+      "aliases": [
+        "Greskrendtregk"
+      ],
+      "canonicalNames": [
+        "Greskrendtregk"
+      ],
+      "tags": [
+        "character:greskrendtregk"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:harry-kim": {
+      "type": "character",
+      "label": "Harry Kim",
+      "aliases": [
+        "Harry Kim"
+      ],
+      "canonicalNames": [
+        "Harry Kim"
+      ],
+      "tags": [
+        "character:harry-kim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:hogan": {
+      "type": "character",
+      "label": "Hogan",
+      "aliases": [
+        "Hogan"
+      ],
+      "canonicalNames": [
+        "Hogan"
+      ],
+      "tags": [
+        "character:hogan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kar": {
+      "type": "character",
+      "label": "Kar",
+      "aliases": [
+        "Kar"
+      ],
+      "canonicalNames": [
+        "Kar"
+      ],
+      "tags": [
+        "character:kar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kathryn-janeway": {
+      "type": "character",
+      "label": "Kathryn Janeway",
+      "aliases": [
+        "Kathryn Janeway"
+      ],
+      "canonicalNames": [
+        "Kathryn Janeway"
+      ],
+      "tags": [
+        "character:kathryn-janeway"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kazon": {
+      "type": "faction",
+      "label": "Kazon",
+      "aliases": [
+        "Kazon"
+      ],
+      "canonicalNames": [
+        "Kazon"
+      ],
+      "tags": [
+        "faction:kazon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kazon-ogla": {
+      "type": "character",
+      "label": "Kazon-Ogla",
+      "aliases": [
+        "Kazon-Ogla"
+      ],
+      "canonicalNames": [
+        "Kazon-Ogla"
+      ],
+      "tags": [
+        "character:kazon-ogla"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kes": {
+      "type": "character",
+      "label": "Kes",
+      "aliases": [
+        "Kes"
+      ],
+      "canonicalNames": [
+        "Kes"
+      ],
+      "tags": [
+        "character:kes"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kolopak": {
+      "type": "character",
+      "label": "Kolopak",
+      "aliases": [
+        "Kolopak"
+      ],
+      "canonicalNames": [
+        "Kolopak"
+      ],
+      "tags": [
+        "character:kolopak"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:kurt-bendera": {
+      "type": "character",
+      "label": "Kurt Bendera",
+      "aliases": [
+        "Kurt Bendera"
+      ],
+      "canonicalNames": [
+        "Kurt Bendera"
+      ],
+      "tags": [
+        "character:kurt-bendera"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:libby": {
+      "type": "character",
+      "label": "Libby",
+      "aliases": [
+        "Libby"
+      ],
+      "canonicalNames": [
+        "Libby"
+      ],
+      "tags": [
+        "character:libby"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:lon-suder": {
+      "type": "character",
+      "label": "Lon Suder",
+      "aliases": [
+        "Lon Suder"
+      ],
+      "canonicalNames": [
+        "Lon Suder"
+      ],
+      "tags": [
+        "character:lon-suder"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:macormak": {
+      "type": "character",
+      "label": "Macormak",
+      "aliases": [
+        "Macormak"
+      ],
+      "canonicalNames": [
+        "Macormak"
+      ],
+      "tags": [
+        "character:macormak"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:maquis": {
+      "type": "faction",
+      "label": "Maquis",
+      "aliases": [
+        "Maquis"
+      ],
+      "canonicalNames": [
+        "Maquis"
+      ],
+      "tags": [
+        "faction:maquis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:neelix": {
+      "type": "character",
+      "label": "Neelix",
+      "aliases": [
+        "Neelix"
+      ],
+      "canonicalNames": [
+        "Neelix"
+      ],
+      "tags": [
+        "character:neelix"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:q-continuum": {
+      "type": "faction",
+      "label": "Q Continuum",
+      "aliases": [
+        "Q Continuum"
+      ],
+      "canonicalNames": [
+        "Q Continuum"
+      ],
+      "tags": [
+        "faction:q-continuum"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:ricky": {
+      "type": "character",
+      "label": "Ricky",
+      "aliases": [
+        "Ricky"
+      ],
+      "canonicalNames": [
+        "Ricky"
+      ],
+      "tags": [
+        "character:ricky"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:samantha-wildman": {
+      "type": "character",
+      "label": "Samantha Wildman",
+      "aliases": [
+        "Samantha Wildman"
+      ],
+      "canonicalNames": [
+        "Samantha Wildman"
+      ],
+      "tags": [
+        "character:samantha-wildman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:san-francisco": {
+      "type": "character",
+      "label": "San Francisco",
+      "aliases": [
+        "San Francisco"
+      ],
+      "canonicalNames": [
+        "San Francisco"
+      ],
+      "tags": [
+        "character:san-francisco"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:sos": {
+      "type": "character",
+      "label": "SOS",
+      "aliases": [
+        "SOS"
+      ],
+      "canonicalNames": [
+        "SOS"
+      ],
+      "tags": [
+        "character:sos"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:starfleet": {
+      "type": "faction",
+      "label": "Starfleet",
+      "aliases": [
+        "Starfleet"
+      ],
+      "canonicalNames": [
+        "Starfleet"
+      ],
+      "tags": [
+        "faction:starfleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:the-doctor": {
+      "type": "character",
+      "label": "The Doctor",
+      "aliases": [
+        "The Doctor"
+      ],
+      "canonicalNames": [
+        "The Doctor"
+      ],
+      "tags": [
+        "character:the-doctor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tom-paris": {
+      "type": "character",
+      "label": "Tom Paris",
+      "aliases": [
+        "Tom Paris"
+      ],
+      "canonicalNames": [
+        "Tom Paris"
+      ],
+      "tags": [
+        "character:tom-paris"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:transamerica-pyramid": {
+      "type": "character",
+      "label": "Transamerica Pyramid",
+      "aliases": [
+        "Transamerica Pyramid"
+      ],
+      "canonicalNames": [
+        "Transamerica Pyramid"
+      ],
+      "tags": [
+        "character:transamerica-pyramid"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:tuvok": {
+      "type": "character",
+      "label": "Tuvok",
+      "aliases": [
+        "Tuvok"
+      ],
+      "canonicalNames": [
+        "Tuvok"
+      ],
+      "tags": [
+        "character:tuvok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:uss-voyager-crew": {
+      "type": "faction",
+      "label": "USS Voyager crew",
+      "aliases": [
+        "USS Voyager crew"
+      ],
+      "canonicalNames": [
+        "USS Voyager crew"
+      ],
+      "tags": [
+        "faction:uss-voyager-crew"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vidiians": {
+      "type": "faction",
+      "label": "Vidiians",
+      "aliases": [
+        "Vidiians"
+      ],
+      "canonicalNames": [
+        "Vidiians"
+      ],
+      "tags": [
+        "faction:vidiians"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    },
+    "st:vulcans": {
+      "type": "faction",
+      "label": "Vulcans",
+      "aliases": [
+        "Vulcans"
+      ],
+      "canonicalNames": [
+        "Vulcans"
+      ],
+      "tags": [
+        "faction:vulcans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "sourceBoundary": "Star Trek: Voyager season 2."
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "confidence": 0.74
+      },
+      "extensions": {}
+    }
+  }
+}

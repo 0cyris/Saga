@@ -1,0 +1,873 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:ace": {
+      "type": "character",
+      "label": "Ace",
+      "aliases": [
+        "Ace"
+      ],
+      "canonicalNames": [
+        "Ace"
+      ],
+      "tags": [
+        "character:ace"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:blackbeard": {
+      "type": "character",
+      "label": "Blackbeard",
+      "aliases": [
+        "Blackbeard"
+      ],
+      "canonicalNames": [
+        "Blackbeard"
+      ],
+      "tags": [
+        "character:blackbeard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:blue-nose": {
+      "type": "knowledge",
+      "label": "blue nose",
+      "aliases": [
+        "blue nose"
+      ],
+      "canonicalNames": [
+        "blue nose"
+      ],
+      "tags": [
+        "topic:blue-nose"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:chess": {
+      "type": "character",
+      "label": "Chess",
+      "aliases": [
+        "Chess"
+      ],
+      "canonicalNames": [
+        "Chess"
+      ],
+      "tags": [
+        "character:chess"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:chopper": {
+      "type": "character",
+      "label": "Chopper",
+      "aliases": [
+        "Chopper"
+      ],
+      "canonicalNames": [
+        "Chopper"
+      ],
+      "tags": [
+        "character:chopper"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:dalton": {
+      "type": "character",
+      "label": "Dalton",
+      "aliases": [
+        "Dalton"
+      ],
+      "canonicalNames": [
+        "Dalton"
+      ],
+      "tags": [
+        "character:dalton"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:doctors": {
+      "type": "faction",
+      "label": "doctors",
+      "aliases": [
+        "doctors"
+      ],
+      "canonicalNames": [
+        "doctors"
+      ],
+      "tags": [
+        "faction:doctors"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:dr-hiriluk": {
+      "type": "character",
+      "label": "Dr. Hiriluk",
+      "aliases": [
+        "Dr. Hiriluk"
+      ],
+      "canonicalNames": [
+        "Dr. Hiriluk"
+      ],
+      "tags": [
+        "character:dr-hiriluk"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:dr-kureha": {
+      "type": "character",
+      "label": "Dr. Kureha",
+      "aliases": [
+        "Dr. Kureha"
+      ],
+      "canonicalNames": [
+        "Dr. Kureha"
+      ],
+      "tags": [
+        "character:dr-kureha"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:drum-castle": {
+      "type": "location",
+      "label": "Drum Castle",
+      "aliases": [
+        "Drum Castle"
+      ],
+      "canonicalNames": [
+        "Drum Castle"
+      ],
+      "tags": [
+        "location:drum-castle"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:drum-citizens": {
+      "type": "faction",
+      "label": "Drum citizens",
+      "aliases": [
+        "Drum citizens"
+      ],
+      "canonicalNames": [
+        "Drum citizens"
+      ],
+      "tags": [
+        "faction:drum-citizens"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:drum-island": {
+      "type": "location",
+      "label": "Drum Island",
+      "aliases": [
+        "Drum Island"
+      ],
+      "canonicalNames": [
+        "Drum Island"
+      ],
+      "tags": [
+        "location:drum-island"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:drum-rockies": {
+      "type": "location",
+      "label": "Drum Rockies",
+      "aliases": [
+        "Drum Rockies"
+      ],
+      "canonicalNames": [
+        "Drum Rockies"
+      ],
+      "tags": [
+        "location:drum-rockies"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:gold-roger": {
+      "type": "character",
+      "label": "Gol D. Roger",
+      "aliases": [
+        "Gol D. Roger"
+      ],
+      "canonicalNames": [
+        "Gol D. Roger"
+      ],
+      "tags": [
+        "character:gol-d-roger"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:human-human-fruit": {
+      "type": "item",
+      "label": "Human-Human Fruit",
+      "aliases": [
+        "Human-Human Fruit"
+      ],
+      "canonicalNames": [
+        "Human-Human Fruit"
+      ],
+      "tags": [
+        "item:human-human-fruit"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:isshi-20": {
+      "type": "faction",
+      "label": "Isshi-20",
+      "aliases": [
+        "Isshi-20"
+      ],
+      "canonicalNames": [
+        "Isshi-20"
+      ],
+      "tags": [
+        "faction:isshi-20"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:kuromarimo": {
+      "type": "character",
+      "label": "Kuromarimo",
+      "aliases": [
+        "Kuromarimo"
+      ],
+      "canonicalNames": [
+        "Kuromarimo"
+      ],
+      "tags": [
+        "character:kuromarimo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:medicine": {
+      "type": "knowledge",
+      "label": "medicine",
+      "aliases": [
+        "medicine"
+      ],
+      "canonicalNames": [
+        "medicine"
+      ],
+      "tags": [
+        "topic:medicine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:militia": {
+      "type": "faction",
+      "label": "Drum militia",
+      "aliases": [
+        "Drum militia"
+      ],
+      "canonicalNames": [
+        "Drum militia"
+      ],
+      "tags": [
+        "faction:drum-militia"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:nami": {
+      "type": "character",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "character:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:sakura-powder": {
+      "type": "item",
+      "label": "sakura powder",
+      "aliases": [
+        "sakura powder"
+      ],
+      "canonicalNames": [
+        "sakura powder"
+      ],
+      "tags": [
+        "item:sakura-powder"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:sanji": {
+      "type": "character",
+      "label": "Sanji",
+      "aliases": [
+        "Sanji"
+      ],
+      "canonicalNames": [
+        "Sanji"
+      ],
+      "tags": [
+        "character:sanji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:snow-villages": {
+      "type": "location",
+      "label": "snow villages",
+      "aliases": [
+        "snow villages"
+      ],
+      "canonicalNames": [
+        "snow villages"
+      ],
+      "tags": [
+        "location:snow-villages"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:straw-hat-pirates": {
+      "type": "faction",
+      "label": "Straw Hat Pirates",
+      "aliases": [
+        "Straw Hat Pirates"
+      ],
+      "canonicalNames": [
+        "Straw Hat Pirates"
+      ],
+      "tags": [
+        "faction:straw-hat-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:tony-tony-chopper": {
+      "type": "character",
+      "label": "Tony Tony Chopper",
+      "aliases": [
+        "Tony Tony Chopper"
+      ],
+      "canonicalNames": [
+        "Tony Tony Chopper"
+      ],
+      "tags": [
+        "character:tony-tony-chopper"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:usopp": {
+      "type": "character",
+      "label": "Usopp",
+      "aliases": [
+        "Usopp"
+      ],
+      "canonicalNames": [
+        "Usopp"
+      ],
+      "tags": [
+        "character:usopp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:vivi": {
+      "type": "character",
+      "label": "Vivi",
+      "aliases": [
+        "Vivi"
+      ],
+      "canonicalNames": [
+        "Vivi"
+      ],
+      "tags": [
+        "character:vivi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:wapol": {
+      "type": "character",
+      "label": "Wapol",
+      "aliases": [
+        "Wapol"
+      ],
+      "canonicalNames": [
+        "Wapol"
+      ],
+      "tags": [
+        "character:wapol"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:will-of-d": {
+      "type": "knowledge",
+      "label": "Will of D.",
+      "aliases": [
+        "Will of D."
+      ],
+      "canonicalNames": [
+        "Will of D."
+      ],
+      "tags": [
+        "topic:will-of-d"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    }
+  }
+}

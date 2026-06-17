@@ -1,0 +1,2803 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_face-of-the-enemy-episode-gate",
+      "title": "Face Of The Enemy anchors Vulcan/Romulan reunification",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 51,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e14.face-of-the-enemy",
+        "validToAnchor": "tng.s6.e15.tapestry",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 15260,
+        "sortKeyTo": 15280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Face Of The Enemy",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e14.face-of-the-enemy",
+          "label": "Face Of The Enemy",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:sub-commander",
+          "st:nvek",
+          "st:romulan-warbird",
+          "st:khazara",
+          "st:starfleet",
+          "st:romulan-star-empire",
+          "st:vulcans"
+        ],
+        "characters": [
+          "Deanna Troi",
+          "Sub-Commander",
+          "N'Vek",
+          "Romulan Warbird",
+          "Khazara"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire",
+          "Vulcans"
+        ],
+        "topics": [
+          "Vulcan/Romulan reunification",
+          "Romulan secrecy/political pressure gate",
+          "Deanna Troi",
+          "mirror",
+          "surgically altered",
+          "Romulan",
+          "Sub-Commander",
+          "N'Vek"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-face-of-the-enemy",
+        "character:deanna-troi",
+        "character:sub-commander",
+        "character:nvek",
+        "character:romulan-warbird",
+        "character:khazara",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "faction:vulcans",
+        "topic:vulcanromulan-reunification",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:deanna-troi",
+        "topic:mirror",
+        "topic:surgically-altered",
+        "topic:romulan",
+        "topic:sub-commander",
+        "topic:nvek"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi",
+            "Sub-Commander",
+            "N'Vek",
+            "Romulan Warbird",
+            "Khazara"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire",
+            "Vulcans"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Sub-Commander",
+            "N'Vek",
+            "Romulan Warbird",
+            "Khazara",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Vulcans"
+          ],
+          "topicsAny": [
+            "Vulcan/Romulan reunification",
+            "Romulan secrecy/political pressure gate",
+            "Deanna Troi",
+            "mirror",
+            "surgically altered",
+            "Romulan",
+            "Sub-Commander",
+            "N'Vek"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Sub-Commander",
+            "N'Vek",
+            "Romulan Warbird",
+            "Khazara",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Vulcans",
+            "Vulcan/Romulan reunification",
+            "Romulan secrecy/political pressure gate",
+            "mirror",
+            "surgically altered",
+            "Romulan",
+            "Face Of The Enemy",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Face Of The Enemy (46519.1 (2369)) is Memory Alpha story row 14 for this season. Face Of The Enemy is a TNG season 6 story gate centered on Vulcan/Romulan reunification; the evidence marks Romulan secrecy/political pressure gate.",
+        "injection": "Use Face Of The Enemy as the active episode Context gate when scenes reference Vulcan/Romulan reunification, Romulan secrecy/political pressure gate, Deanna Troi.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Face Of The Enemy",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Face_Of_The_Enemy_(episode)",
+        "stardate": "46519.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_tapestry-episode-gate",
+      "title": "Tapestry anchors Q intervention or trial gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e15.tapestry",
+        "validToAnchor": "tng.s6.e16.birthright-part-i",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 15280,
+        "sortKeyTo": 15300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Tapestry",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e15.tapestry",
+          "label": "Tapestry",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:selar",
+          "st:william-riker",
+          "st:starfleet",
+          "st:q-continuum"
+        ],
+        "characters": [
+          "Worf",
+          "Dr.",
+          "Beverly Crusher",
+          "Selar",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Q Continuum"
+        ],
+        "topics": [
+          "Q intervention or trial gate",
+          "death/status-change gate",
+          "Dr.",
+          "Crusher",
+          "stasis unit",
+          "Selar",
+          "Riker",
+          "Worf"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-tapestry",
+        "character:worf",
+        "character:dr",
+        "character:beverly-crusher",
+        "character:selar",
+        "character:william-riker",
+        "faction:starfleet",
+        "faction:q-continuum",
+        "topic:q-intervention-or-trial-gate",
+        "topic:deathstatus-change-gate",
+        "topic:dr",
+        "topic:crusher",
+        "topic:stasis-unit",
+        "topic:selar",
+        "topic:riker",
+        "topic:worf"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Dr.",
+            "Beverly Crusher",
+            "Selar",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Q Continuum"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Dr.",
+            "Beverly Crusher",
+            "Selar",
+            "William Riker",
+            "Starfleet",
+            "Q Continuum"
+          ],
+          "topicsAny": [
+            "Q intervention or trial gate",
+            "death/status-change gate",
+            "Dr.",
+            "Crusher",
+            "stasis unit",
+            "Selar",
+            "Riker",
+            "Worf"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Dr.",
+            "Beverly Crusher",
+            "Selar",
+            "William Riker",
+            "Starfleet",
+            "Q Continuum",
+            "Q intervention or trial gate",
+            "death/status-change gate",
+            "Crusher",
+            "stasis unit",
+            "Riker",
+            "Tapestry",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Tapestry (Unknown (2369)) is Memory Alpha story row 15 for this season. Tapestry is a TNG season 6 story gate centered on Q intervention or trial gate; the evidence marks Q intervention or trial gate; death/status-change gate.",
+        "injection": "Use Tapestry as the active episode Context gate when scenes reference Q intervention or trial gate, death/status-change gate, Dr..",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Tapestry",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tapestry_(episode)",
+        "stardate": "Unknown (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_birthright-part-i-episode-gate",
+      "title": "Birthright, Part I anchors Birthright",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e16.birthright-part-i",
+        "validToAnchor": "tng.s6.e17.birthright-part-ii",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 15300,
+        "sortKeyTo": 15320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Birthright, Part I",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e16.birthright-part-i",
+          "label": "Birthright, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:beverly-crusher",
+          "st:quark",
+          "st:occupation",
+          "st:promenade",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Beverly Crusher",
+          "Quark",
+          "Occupation",
+          "Promenade"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Birthright",
+          "Soong android lineage gate",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Enterprise",
+          "Station",
+          "Deep Space 9",
+          "Bajoran"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-birthright-part-i",
+        "character:jean-luc-picard",
+        "character:beverly-crusher",
+        "character:quark",
+        "character:occupation",
+        "character:promenade",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:birthright",
+        "topic:soong-android-lineage-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:enterprise",
+        "topic:station",
+        "topic:deep-space-9",
+        "topic:bajoran"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Beverly Crusher",
+            "Quark",
+            "Occupation",
+            "Promenade"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Beverly Crusher",
+            "Quark",
+            "Occupation",
+            "Promenade",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Birthright",
+            "Soong android lineage gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Enterprise",
+            "Station",
+            "Deep Space 9",
+            "Bajoran"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Beverly Crusher",
+            "Quark",
+            "Occupation",
+            "Promenade",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Birthright",
+            "Soong android lineage gate",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Enterprise",
+            "Station",
+            "Deep Space 9",
+            "Bajoran",
+            "Birthright, Part I",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Birthright, Part I (46578.4 (2369)) is Memory Alpha story row 16 for this season. Birthright, Part I is a TNG season 6 story gate centered on Birthright; the evidence marks Soong android lineage gate; Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use Birthright, Part I as the active episode Context gate when scenes reference Birthright, Soong android lineage gate, Cardassian occupation or border-pressure gate.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Birthright, Part I",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Birthright%2C_Part_I_(episode)",
+        "stardate": "46578.4 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_birthright-part-ii-episode-gate",
+      "title": "Birthright, Part II anchors Birthright",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e17.birthright-part-ii",
+        "validToAnchor": "tng.s6.e18.starship-mine",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 15320,
+        "sortKeyTo": 15340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Birthright, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e17.birthright-part-ii",
+          "label": "Birthright, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:lkor",
+          "st:giral",
+          "st:khitomer-massacre",
+          "st:klingon-empire",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Worf",
+          "L'Kor",
+          "Gi'ral",
+          "Khitomer Massacre",
+          "Klingon Empire"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "Birthright",
+          "Klingon duty/faction-status gate",
+          "Romulan secrecy/political pressure gate",
+          "Worf",
+          "Romulan",
+          "L'Kor",
+          "Gi'ral",
+          "Klingon"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-birthright-part-ii",
+        "character:worf",
+        "character:lkor",
+        "character:giral",
+        "character:khitomer-massacre",
+        "character:klingon-empire",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:romulan-star-empire",
+        "topic:birthright",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:worf",
+        "topic:romulan",
+        "topic:lkor",
+        "topic:giral",
+        "topic:klingon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "L'Kor",
+            "Gi'ral",
+            "Khitomer Massacre",
+            "Klingon Empire"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "L'Kor",
+            "Gi'ral",
+            "Khitomer Massacre",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon Empire",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "Birthright",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "Worf",
+            "Romulan",
+            "L'Kor",
+            "Gi'ral",
+            "Klingon"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "L'Kor",
+            "Gi'ral",
+            "Khitomer Massacre",
+            "Klingon Empire",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Birthright",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "Romulan",
+            "Klingon",
+            "Birthright, Part II",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Birthright, Part II (46579.2 (2369)) is Memory Alpha story row 17 for this season. Birthright, Part II is a TNG season 6 story gate centered on Birthright; the evidence marks Klingon duty/faction-status gate; Romulan secrecy/political pressure gate.",
+        "injection": "Use Birthright, Part II as the active episode Context gate when scenes reference Birthright, Klingon duty/faction-status gate, Romulan secrecy/political pressure gate.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Birthright, Part II",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Birthright%2C_Part_II_(episode)",
+        "stardate": "46579.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_starship-mine-episode-gate",
+      "title": "Starship Mine anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e18.starship-mine",
+        "validToAnchor": "tng.s6.e19.lessons",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 15340,
+        "sortKeyTo": 15360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Starship Mine",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e18.starship-mine",
+          "label": "Starship Mine",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:remmler-array",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Remmler Array",
+          "Dr.",
+          "Beverly Crusher",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Remmler Array",
+          "baryon",
+          "baryon sweep",
+          "radiation",
+          "hull",
+          "warp",
+          "Starship Mine"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-starship-mine",
+        "character:data",
+        "character:remmler-array",
+        "character:dr",
+        "character:beverly-crusher",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:remmler-array",
+        "topic:baryon",
+        "topic:baryon-sweep",
+        "topic:radiation",
+        "topic:hull",
+        "topic:warp",
+        "topic:starship-mine"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Remmler Array",
+            "Dr.",
+            "Beverly Crusher",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Remmler Array",
+            "Dr.",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Remmler Array",
+            "baryon",
+            "baryon sweep",
+            "radiation",
+            "hull",
+            "warp",
+            "Starship Mine"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Remmler Array",
+            "Dr.",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "baryon",
+            "baryon sweep",
+            "radiation",
+            "hull",
+            "warp",
+            "Starship Mine",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Starship Mine (46682.4 (2369)) is Memory Alpha story row 18 for this season. Starship Mine is a TNG season 6 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Starship Mine as the active episode Context gate when scenes reference episode-local fact/status gate, Remmler Array, baryon.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Starship Mine",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Starship_Mine_(episode)",
+        "stardate": "46682.4 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_lessons-episode-gate",
+      "title": "Lessons anchors Borg encounter/assimilation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e19.lessons",
+        "validToAnchor": "tng.s6.e20.the-chase",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 15360,
+        "sortKeyTo": 15380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Lessons",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e19.lessons",
+          "label": "Lessons",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:jean-luc-picard",
+          "st:mowray",
+          "st:nella-daren",
+          "st:beverly-crusher",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Data",
+          "Jean-Luc Picard",
+          "Mowray",
+          "Nella Daren",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "Picard",
+          "Data",
+          "Mowray",
+          "archaeological dig",
+          "Landris II",
+          "library computer",
+          "Lessons"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-lessons",
+        "character:data",
+        "character:jean-luc-picard",
+        "character:mowray",
+        "character:nella-daren",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:borg-encounterassimilation-gate",
+        "topic:picard",
+        "topic:data",
+        "topic:mowray",
+        "topic:archaeological-dig",
+        "topic:landris-ii",
+        "topic:library-computer",
+        "topic:lessons"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "Mowray",
+            "Nella Daren",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "Mowray",
+            "Nella Daren",
+            "Beverly Crusher",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "Picard",
+            "Data",
+            "Mowray",
+            "archaeological dig",
+            "Landris II",
+            "library computer",
+            "Lessons"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "Mowray",
+            "Nella Daren",
+            "Beverly Crusher",
+            "Starfleet",
+            "Borg Collective",
+            "Borg encounter/assimilation gate",
+            "Picard",
+            "archaeological dig",
+            "Landris II",
+            "library computer",
+            "Lessons",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Lessons (46693.1-46697.2 (2369)) is Memory Alpha story row 19 for this season. Lessons is a TNG season 6 story gate centered on Borg encounter/assimilation gate; the evidence marks Borg encounter/assimilation gate.",
+        "injection": "Use Lessons as the active episode Context gate when scenes reference Borg encounter/assimilation gate, Picard, Data.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Lessons",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lessons_(episode)",
+        "stardate": "46693.1-46697.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_the-chase-episode-gate",
+      "title": "The Chase anchors The Progenitors",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e20.the-chase",
+        "validToAnchor": "tng.s6.e21.frame-of-mind",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 15380,
+        "sortKeyTo": 15400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: The Chase",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e20.the-chase",
+          "label": "The Chase",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:starfleet-academy",
+          "st:ten-forward",
+          "st:dr",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:romulan-star-empire",
+          "st:cardassian-union"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Starfleet Academy",
+          "Ten Forward",
+          "Dr."
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Romulan Star Empire",
+          "Cardassian Union"
+        ],
+        "topics": [
+          "The Progenitors",
+          "Klingon duty/faction-status gate",
+          "Romulan secrecy/political pressure gate",
+          "Cardassian occupation or border-pressure gate",
+          "secret-knowledge gate",
+          "reveal timing gate",
+          "protostar",
+          "Volterra Nebula"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-the-chase",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:starfleet-academy",
+        "character:ten-forward",
+        "character:dr",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:romulan-star-empire",
+        "faction:cardassian-union",
+        "topic:the-progenitors",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:secret-knowledge-gate",
+        "topic:reveal-timing-gate",
+        "topic:protostar",
+        "topic:volterra-nebula"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet Academy",
+            "Ten Forward",
+            "Dr."
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Cardassian Union"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet Academy",
+            "Ten Forward",
+            "Dr.",
+            "Starfleet",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Cardassian Union"
+          ],
+          "topicsAny": [
+            "The Progenitors",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "Cardassian occupation or border-pressure gate",
+            "secret-knowledge gate",
+            "reveal timing gate",
+            "protostar",
+            "Volterra Nebula"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet Academy",
+            "Ten Forward",
+            "Dr.",
+            "Starfleet",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Cardassian Union",
+            "The Progenitors",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "Cardassian occupation or border-pressure gate",
+            "secret-knowledge gate",
+            "reveal timing gate",
+            "protostar",
+            "Volterra Nebula",
+            "The Chase",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Chase (46731.5-46735.2 (2369)) is Memory Alpha story row 20 for this season. The Chase is a TNG season 6 story gate centered on The Progenitors; the evidence marks Klingon duty/faction-status gate; Romulan secrecy/political pressure gate; Cardassian occupation or border-pressure gate; secret-knowledge gate; reveal timing gate.",
+        "injection": "Use The Chase as the active episode Context gate when scenes reference The Progenitors, Klingon duty/faction-status gate, Romulan secrecy/political pressure gate.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Chase",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Chase_(episode)",
+        "stardate": "46731.5-46735.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_frame-of-mind-episode-gate",
+      "title": "Frame of Mind anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e21.frame-of-mind",
+        "validToAnchor": "tng.s6.e22.suspicions",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 15400,
+        "sortKeyTo": 15420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Frame of Mind",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e21.frame-of-mind",
+          "label": "Frame of Mind",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:worf",
+          "st:beverly-crusher",
+          "st:william-t-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data",
+          "Worf",
+          "Beverly Crusher",
+          "William T. Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "William T. Riker",
+          "Data",
+          "Frame of Mind",
+          "Beverly Crusher",
+          "Jean-Luc Picard",
+          "Tilonus IV"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-frame-of-mind",
+        "character:jean-luc-picard",
+        "character:data",
+        "character:worf",
+        "character:beverly-crusher",
+        "character:william-t-riker",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:william-t-riker",
+        "topic:data",
+        "topic:frame-of-mind",
+        "topic:beverly-crusher",
+        "topic:jean-luc-picard",
+        "topic:tilonus-iv"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "William T. Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "William T. Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "William T. Riker",
+            "Data",
+            "Frame of Mind",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Tilonus IV"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "William T. Riker",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "Frame of Mind",
+            "Tilonus IV",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Frame of Mind (46778.1 (2369)) is Memory Alpha story row 21 for this season. Frame of Mind is a TNG season 6 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use Frame of Mind as the active episode Context gate when scenes reference episode-local fact/status gate, William T. Riker, Data.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Frame of Mind",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Frame_of_Mind_(episode)",
+        "stardate": "46778.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_suspicions-episode-gate",
+      "title": "Suspicions anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e22.suspicions",
+        "validToAnchor": "tng.s6.e23.rightful-heir",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 15420,
+        "sortKeyTo": 15440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Suspicions",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e22.suspicions",
+          "label": "Suspicions",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:beverly-crusher",
+          "st:guinan",
+          "st:geordi",
+          "st:selar",
+          "st:reyga",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "Beverly Crusher",
+          "Guinan",
+          "Geordi",
+          "Selar",
+          "Reyga"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Ferengi family/rule-of-acquisition gate",
+          "death/status-change gate",
+          "Beverly Crusher",
+          "uniform",
+          "Guinan",
+          "tennis elbow",
+          "Geordi"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-suspicions",
+        "character:beverly-crusher",
+        "character:guinan",
+        "character:geordi",
+        "character:selar",
+        "character:reyga",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:ferengi-alliance",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:deathstatus-change-gate",
+        "topic:beverly-crusher",
+        "topic:uniform",
+        "topic:guinan",
+        "topic:tennis-elbow",
+        "topic:geordi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Beverly Crusher",
+            "Guinan",
+            "Geordi",
+            "Selar",
+            "Reyga"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "Beverly Crusher",
+            "Guinan",
+            "Geordi",
+            "Selar",
+            "Reyga",
+            "Starfleet",
+            "Klingon Empire",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "death/status-change gate",
+            "Beverly Crusher",
+            "uniform",
+            "Guinan",
+            "tennis elbow",
+            "Geordi"
+          ],
+          "keywordsAny": [
+            "Beverly Crusher",
+            "Guinan",
+            "Geordi",
+            "Selar",
+            "Reyga",
+            "Starfleet",
+            "Klingon Empire",
+            "Ferengi Alliance",
+            "Klingon duty/faction-status gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "death/status-change gate",
+            "uniform",
+            "tennis elbow",
+            "Suspicions",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Suspicions (46830.1-46831.2 (2369)) is Memory Alpha story row 22 for this season. Suspicions is a TNG season 6 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate; Ferengi family/rule-of-acquisition gate; death/status-change gate.",
+        "injection": "Use Suspicions as the active episode Context gate when scenes reference Klingon duty/faction-status gate, Ferengi family/rule-of-acquisition gate, death/status-change gate.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Suspicions",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Suspicions_(episode)",
+        "stardate": "46830.1-46831.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_rightful-heir-episode-gate",
+      "title": "Rightful Heir anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e23.rightful-heir",
+        "validToAnchor": "tng.s6.e24.second-chances",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 15440,
+        "sortKeyTo": 15460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Rightful Heir",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e23.rightful-heir",
+          "label": "Rightful Heir",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:william-riker",
+          "st:torigan",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "William Riker",
+          "Torigan"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Gariman sector",
+          "shift",
+          "Data",
+          "Riker",
+          "lateral sensor array",
+          "spectral analyses",
+          "Rightful Heir"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-rightful-heir",
+        "character:data",
+        "character:worf",
+        "character:william-riker",
+        "character:torigan",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:gariman-sector",
+        "topic:shift",
+        "topic:data",
+        "topic:riker",
+        "topic:lateral-sensor-array",
+        "topic:spectral-analyses",
+        "topic:rightful-heir"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "William Riker",
+            "Torigan"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "William Riker",
+            "Torigan",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Gariman sector",
+            "shift",
+            "Data",
+            "Riker",
+            "lateral sensor array",
+            "spectral analyses",
+            "Rightful Heir"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "William Riker",
+            "Torigan",
+            "Starfleet",
+            "Klingon Empire",
+            "Klingon duty/faction-status gate",
+            "Gariman sector",
+            "shift",
+            "Riker",
+            "lateral sensor array",
+            "spectral analyses",
+            "Rightful Heir",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Rightful Heir (46852.2 (2369)) is Memory Alpha story row 23 for this season. Rightful Heir is a TNG season 6 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate.",
+        "injection": "Use Rightful Heir as the active episode Context gate when scenes reference Klingon duty/faction-status gate, Gariman sector, shift.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Rightful Heir",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rightful_Heir_(episode)",
+        "stardate": "46852.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_second-chances-episode-gate",
+      "title": "Second Chances anchors Thomas Riker",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e24.second-chances",
+        "validToAnchor": "tng.s6.e25.timescape",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 15460,
+        "sortKeyTo": 15480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Second Chances",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e24.second-chances",
+          "label": "Second Chances",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:deanna-troi",
+          "st:ten-forward",
+          "st:will-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Deanna Troi",
+          "Ten Forward",
+          "Will Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Thomas Riker",
+          "Defiant/station militarization gate",
+          "Enterprise",
+          "Nervala IV",
+          "Ten Forward",
+          "jazz",
+          "Will Riker",
+          "trombone"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-second-chances",
+        "character:data",
+        "character:worf",
+        "character:deanna-troi",
+        "character:ten-forward",
+        "character:will-riker",
+        "faction:starfleet",
+        "topic:thomas-riker",
+        "topic:defiantstation-militarization-gate",
+        "topic:enterprise",
+        "topic:nervala-iv",
+        "topic:ten-forward",
+        "topic:jazz",
+        "topic:will-riker",
+        "topic:trombone"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Deanna Troi",
+            "Ten Forward",
+            "Will Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Deanna Troi",
+            "Ten Forward",
+            "Will Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Thomas Riker",
+            "Defiant/station militarization gate",
+            "Enterprise",
+            "Nervala IV",
+            "Ten Forward",
+            "jazz",
+            "Will Riker",
+            "trombone"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Deanna Troi",
+            "Ten Forward",
+            "Will Riker",
+            "Starfleet",
+            "Thomas Riker",
+            "Defiant/station militarization gate",
+            "Enterprise",
+            "Nervala IV",
+            "jazz",
+            "trombone",
+            "Second Chances",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Second Chances (46915.2-46920.1 (2369)) is Memory Alpha story row 24 for this season. Second Chances is a TNG season 6 story gate centered on Thomas Riker; the evidence marks Defiant/station militarization gate.",
+        "injection": "Use Second Chances as the active episode Context gate when scenes reference Thomas Riker, Defiant/station militarization gate, Enterprise.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Second Chances",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Second_Chances_(episode)",
+        "stardate": "46915.2-46920.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_timescape-episode-gate",
+      "title": "Timescape anchors Romulan secrecy/political pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e25.timescape",
+        "validToAnchor": "tng.s6.e26.descent",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 15480,
+        "sortKeyTo": 15500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Timescape",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e25.timescape",
+          "label": "Timescape",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:william-riker",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:starfleet",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "William Riker",
+          "Dr.",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "Romulan secrecy/political pressure gate",
+          "temporal anomaly/status gate",
+          "Riker",
+          "Dr.",
+          "Crusher",
+          "medical tricorder",
+          "parrises squares",
+          "neck"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-timescape",
+        "character:data",
+        "character:worf",
+        "character:william-riker",
+        "character:dr",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:temporal-anomalystatus-gate",
+        "topic:riker",
+        "topic:dr",
+        "topic:crusher",
+        "topic:medical-tricorder",
+        "topic:parrises-squares",
+        "topic:neck"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "Romulan secrecy/political pressure gate",
+            "temporal anomaly/status gate",
+            "Riker",
+            "Dr.",
+            "Crusher",
+            "medical tricorder",
+            "parrises squares",
+            "neck"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "William Riker",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Romulan secrecy/political pressure gate",
+            "temporal anomaly/status gate",
+            "Riker",
+            "Crusher",
+            "medical tricorder",
+            "parrises squares",
+            "neck",
+            "Timescape",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Timescape (46944.2-46945.3 (2369)) is Memory Alpha story row 25 for this season. Timescape is a TNG season 6 story gate centered on Romulan secrecy/political pressure gate; the evidence marks Romulan secrecy/political pressure gate; temporal anomaly/status gate.",
+        "injection": "Use Timescape as the active episode Context gate when scenes reference Romulan secrecy/political pressure gate, temporal anomaly/status gate, Riker.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Timescape",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Timescape_(episode)",
+        "stardate": "46944.2-46945.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_descent-episode-gate",
+      "title": "Descent anchors Descent",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e26.descent",
+        "validToAnchor": "tng.s6.e26.descent",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 15500,
+        "sortKeyTo": 15500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Descent",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e26.descent",
+          "label": "Descent",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:stephen-hawking",
+          "st:humanity",
+          "st:william-riker",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Stephen Hawking",
+          "Humanity",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Descent",
+          "Borg encounter/assimilation gate",
+          "Data/Lore android-family gate",
+          "Soong android lineage gate",
+          "Data",
+          "poker",
+          "Stephen Hawking",
+          "space-time"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-descent",
+        "character:data",
+        "character:worf",
+        "character:stephen-hawking",
+        "character:humanity",
+        "character:william-riker",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:descent",
+        "topic:borg-encounterassimilation-gate",
+        "topic:datalore-android-family-gate",
+        "topic:soong-android-lineage-gate",
+        "topic:data",
+        "topic:poker",
+        "topic:stephen-hawking",
+        "topic:space-time"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Stephen Hawking",
+            "Humanity",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Stephen Hawking",
+            "Humanity",
+            "William Riker",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Descent",
+            "Borg encounter/assimilation gate",
+            "Data/Lore android-family gate",
+            "Soong android lineage gate",
+            "Data",
+            "poker",
+            "Stephen Hawking",
+            "space-time"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Stephen Hawking",
+            "Humanity",
+            "William Riker",
+            "Starfleet",
+            "Borg Collective",
+            "Descent",
+            "Borg encounter/assimilation gate",
+            "Data/Lore android-family gate",
+            "Soong android lineage gate",
+            "poker",
+            "space-time",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Descent (46982.1-46984.6 (2369)) is Memory Alpha story row 26 for this season. Descent is a TNG season 6 story gate centered on Descent; the evidence marks Borg encounter/assimilation gate; Data/Lore android-family gate; Soong android lineage gate.",
+        "injection": "Use Descent as the active episode Context gate when scenes reference Descent, Borg encounter/assimilation gate, Data/Lore android-family gate.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Descent",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Descent_(episode)",
+        "stardate": "46982.1-46984.6 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

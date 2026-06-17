@@ -1,0 +1,1689 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Voyager season 7 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "voy.s7.e01.unimatrix-zero-part-ii",
+      "label": "Unimatrix Zero, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 37000,
+      "stardate": "54014.4 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Unimatrix Zero, Part II",
+        "VOY season 7 Unimatrix Zero, Part II",
+        "VOY S7 Unimatrix Zero, Part II",
+        "VOY 7x01 story",
+        "VOY S07 story 01",
+        "VOY 7x01",
+        "VOY S07E01",
+        "VOY season 7 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-unimatrix-zero-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Unimatrix Zero, Part II",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unimatrix_Zero%2C_Part_II_(episode)",
+        "stardate": "54014.4 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e02.imperfection",
+      "label": "Imperfection",
+      "contextType": "story_anchor",
+      "sortKey": 37020,
+      "stardate": "54129.4 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Imperfection",
+        "VOY season 7 Imperfection",
+        "VOY S7 Imperfection",
+        "VOY 7x02 story",
+        "VOY S07 story 02",
+        "VOY 7x02",
+        "VOY S07E02",
+        "VOY season 7 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-imperfection"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Imperfection",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Imperfection_(episode)",
+        "stardate": "54129.4 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e03.drive",
+      "label": "Drive",
+      "contextType": "story_anchor",
+      "sortKey": 37040,
+      "stardate": "54058.6 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Drive",
+        "VOY season 7 Drive",
+        "VOY S7 Drive",
+        "VOY 7x03 story",
+        "VOY S07 story 03",
+        "VOY 7x03",
+        "VOY S07E03",
+        "VOY season 7 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-drive"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Drive",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Drive_(episode)",
+        "stardate": "54058.6 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e04.repression",
+      "label": "Repression",
+      "contextType": "story_anchor",
+      "sortKey": 37060,
+      "stardate": "54090.4-54101 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Repression",
+        "VOY season 7 Repression",
+        "VOY S7 Repression",
+        "VOY 7x04 story",
+        "VOY S07 story 04",
+        "VOY 7x04",
+        "VOY S07E04",
+        "VOY season 7 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-repression"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Repression",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Repression_(episode)",
+        "stardate": "54090.4-54101 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e05.critical-care",
+      "label": "Critical Care",
+      "contextType": "story_anchor",
+      "sortKey": 37080,
+      "stardate": "Unknown (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Critical Care",
+        "VOY season 7 Critical Care",
+        "VOY S7 Critical Care",
+        "VOY 7x05 story",
+        "VOY S07 story 05",
+        "VOY 7x05",
+        "VOY S07E05",
+        "VOY season 7 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-critical-care"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Critical Care",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Critical_Care_(episode)",
+        "stardate": "Unknown (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e06.inside-man",
+      "label": "Inside Man",
+      "contextType": "story_anchor",
+      "sortKey": 37100,
+      "stardate": "54208.3 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Inside Man",
+        "VOY season 7 Inside Man",
+        "VOY S7 Inside Man",
+        "VOY 7x06 story",
+        "VOY S07 story 06",
+        "VOY 7x06",
+        "VOY S07E06",
+        "VOY season 7 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-inside-man"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Inside Man",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Inside_Man_(episode)",
+        "stardate": "54208.3 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e07.body-and-soul",
+      "label": "Body and Soul",
+      "contextType": "story_anchor",
+      "sortKey": 37120,
+      "stardate": "54238.3 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Body and Soul",
+        "VOY season 7 Body and Soul",
+        "VOY S7 Body and Soul",
+        "VOY 7x07 story",
+        "VOY S07 story 07",
+        "VOY 7x07",
+        "VOY S07E07",
+        "VOY season 7 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-body-and-soul"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Body and Soul",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Body_and_Soul_(episode)",
+        "stardate": "54238.3 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e08.nightingale",
+      "label": "Nightingale",
+      "contextType": "story_anchor",
+      "sortKey": 37140,
+      "stardate": "54274.7-54282.5 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Nightingale",
+        "VOY season 7 Nightingale",
+        "VOY S7 Nightingale",
+        "VOY 7x08 story",
+        "VOY S07 story 08",
+        "VOY 7x08",
+        "VOY S07E08",
+        "VOY season 7 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-nightingale"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Nightingale",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Nightingale_(episode)",
+        "stardate": "54274.7-54282.5 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e09.flesh-and-blood",
+      "label": "Flesh and Blood",
+      "contextType": "story_anchor",
+      "sortKey": 37160,
+      "stardate": "54315.3-54337.5 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Flesh and Blood",
+        "VOY season 7 Flesh and Blood",
+        "VOY S7 Flesh and Blood",
+        "VOY 7x09 story",
+        "VOY S07 story 09",
+        "VOY 7x09",
+        "VOY S07E09",
+        "VOY season 7 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-flesh-and-blood"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Flesh and Blood",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Flesh_and_Blood_(episode)",
+        "stardate": "54315.3-54337.5 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e10.shattered",
+      "label": "Shattered",
+      "contextType": "story_anchor",
+      "sortKey": 37180,
+      "stardate": "Unknown (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Shattered",
+        "VOY season 7 Shattered",
+        "VOY S7 Shattered",
+        "VOY 7x10 story",
+        "VOY S07 story 10",
+        "VOY 7x10",
+        "VOY S07E10",
+        "VOY season 7 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-shattered"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Shattered",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shattered_(episode)",
+        "stardate": "Unknown (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e11.lineage",
+      "label": "Lineage",
+      "contextType": "story_anchor",
+      "sortKey": 37200,
+      "stardate": "54452.6 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Lineage",
+        "VOY season 7 Lineage",
+        "VOY S7 Lineage",
+        "VOY 7x11 story",
+        "VOY S07 story 11",
+        "VOY 7x11",
+        "VOY S07E11",
+        "VOY season 7 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-lineage"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Lineage",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lineage_(episode)",
+        "stardate": "54452.6 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e12.repentance",
+      "label": "Repentance",
+      "contextType": "story_anchor",
+      "sortKey": 37220,
+      "stardate": "54474.6 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Repentance",
+        "VOY season 7 Repentance",
+        "VOY S7 Repentance",
+        "VOY 7x12 story",
+        "VOY S07 story 12",
+        "VOY 7x12",
+        "VOY S07E12",
+        "VOY season 7 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-repentance"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Repentance",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Repentance_(episode)",
+        "stardate": "54474.6 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e13.prophecy",
+      "label": "Prophecy",
+      "contextType": "story_anchor",
+      "sortKey": 37240,
+      "stardate": "54518.2 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Prophecy",
+        "VOY season 7 Prophecy",
+        "VOY S7 Prophecy",
+        "VOY 7x13 story",
+        "VOY S07 story 13",
+        "VOY 7x13",
+        "VOY S07E13",
+        "VOY season 7 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-prophecy"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Prophecy",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Prophecy_(episode)",
+        "stardate": "54518.2 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e14.the-void",
+      "label": "The Void",
+      "contextType": "story_anchor",
+      "sortKey": 37260,
+      "stardate": "54553.4-54562.7 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "The Void",
+        "VOY season 7 The Void",
+        "VOY S7 The Void",
+        "VOY 7x14 story",
+        "VOY S07 story 14",
+        "VOY 7x14",
+        "VOY S07E14",
+        "VOY season 7 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-the-void"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Void",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Void_(episode)",
+        "stardate": "54553.4-54562.7 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e15.workforce",
+      "label": "Workforce",
+      "contextType": "story_anchor",
+      "sortKey": 37280,
+      "stardate": "54584.3-54608.6 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Workforce",
+        "VOY season 7 Workforce",
+        "VOY S7 Workforce",
+        "VOY 7x15 story",
+        "VOY S07 story 15",
+        "VOY 7x15",
+        "VOY S07E15",
+        "VOY season 7 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-workforce"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Workforce",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Workforce_(episode)",
+        "stardate": "54584.3-54608.6 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e16.workforce-part-ii",
+      "label": "Workforce, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 37300,
+      "stardate": "54622.4 (2377)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Workforce, Part II",
+        "VOY season 7 Workforce, Part II",
+        "VOY S7 Workforce, Part II",
+        "VOY 7x16 story",
+        "VOY S07 story 16",
+        "VOY 7x16",
+        "VOY S07E16",
+        "VOY season 7 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-workforce-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Workforce, Part II",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Workforce%2C_Part_II_(episode)",
+        "stardate": "54622.4 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e17.human-error",
+      "label": "Human Error",
+      "contextType": "story_anchor",
+      "sortKey": 37320,
+      "stardate": "Unknown (2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Human Error",
+        "VOY season 7 Human Error",
+        "VOY S7 Human Error",
+        "VOY 7x17 story",
+        "VOY S07 story 17",
+        "VOY 7x17",
+        "VOY S07E17",
+        "VOY season 7 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-human-error"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Human Error",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Human_Error_(episode)",
+        "stardate": "Unknown (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e18.q2",
+      "label": "Q2",
+      "contextType": "story_anchor",
+      "sortKey": 37340,
+      "stardate": "54704.5 (2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Q2",
+        "VOY season 7 Q2",
+        "VOY S7 Q2",
+        "VOY 7x18 story",
+        "VOY S07 story 18",
+        "VOY 7x18",
+        "VOY S07E18",
+        "VOY season 7 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-q2"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Q2",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q2_(episode)",
+        "stardate": "54704.5 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e19.author-author",
+      "label": "Author, Author",
+      "contextType": "story_anchor",
+      "sortKey": 37360,
+      "stardate": "54732.3 (2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Author, Author",
+        "VOY season 7 Author, Author",
+        "VOY S7 Author, Author",
+        "VOY 7x19 story",
+        "VOY S07 story 19",
+        "VOY 7x19",
+        "VOY S07E19",
+        "VOY season 7 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-author-author"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Author, Author",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Author%2C_Author_(episode)",
+        "stardate": "54732.3 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e20.friendship-one",
+      "label": "Friendship One",
+      "contextType": "story_anchor",
+      "sortKey": 37380,
+      "stardate": "54775.4 (2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Friendship One",
+        "VOY season 7 Friendship One",
+        "VOY S7 Friendship One",
+        "VOY 7x20 story",
+        "VOY S07 story 20",
+        "VOY 7x20",
+        "VOY S07E20",
+        "VOY season 7 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-friendship-one"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Friendship One",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Friendship_One_(episode)",
+        "stardate": "54775.4 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e21.natural-law",
+      "label": "Natural Law",
+      "contextType": "story_anchor",
+      "sortKey": 37400,
+      "stardate": "54827.7 (2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Natural Law",
+        "VOY season 7 Natural Law",
+        "VOY S7 Natural Law",
+        "VOY 7x21 story",
+        "VOY S07 story 21",
+        "VOY 7x21",
+        "VOY S07E21",
+        "VOY season 7 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-natural-law"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Natural Law",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Natural_Law_(episode)",
+        "stardate": "54827.7 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e22.homestead",
+      "label": "Homestead",
+      "contextType": "story_anchor",
+      "sortKey": 37420,
+      "stardate": "54868.6 (April 5, 2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Homestead",
+        "VOY season 7 Homestead",
+        "VOY S7 Homestead",
+        "VOY 7x22 story",
+        "VOY S07 story 22",
+        "VOY 7x22",
+        "VOY S07E22",
+        "VOY season 7 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-homestead"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Homestead",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Homestead_(episode)",
+        "stardate": "54868.6 (April 5, 2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e23.renaissance-man",
+      "label": "Renaissance Man",
+      "contextType": "story_anchor",
+      "sortKey": 37440,
+      "stardate": "54890.7 (2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Renaissance Man",
+        "VOY season 7 Renaissance Man",
+        "VOY S7 Renaissance Man",
+        "VOY 7x23 story",
+        "VOY S07 story 23",
+        "VOY 7x23",
+        "VOY S07E23",
+        "VOY season 7 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-renaissance-man"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Renaissance Man",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Renaissance_Man_(episode)",
+        "stardate": "54890.7 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s7.e24.endgame",
+      "label": "Endgame",
+      "contextType": "story_anchor",
+      "sortKey": 37460,
+      "stardate": "54973.4 (2378)",
+      "year": "2377",
+      "series": "VOY",
+      "season": 7,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Endgame",
+        "VOY season 7 Endgame",
+        "VOY S7 Endgame",
+        "VOY 7x24 story",
+        "VOY S07 story 24",
+        "VOY 7x24",
+        "VOY S07E24",
+        "VOY season 7 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-endgame"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Endgame",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Endgame_(episode)",
+        "stardate": "54973.4 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "voy.s7.full-season",
+      "label": "VOY season 7 full window",
+      "anchorFrom": "voy.s7.e01.unimatrix-zero-part-ii",
+      "anchorTo": "voy.s7.e24.endgame",
+      "sortKeyFrom": 37000,
+      "sortKeyTo": 37460,
+      "aliases": [
+        "VOY season 7",
+        "Star Trek: Voyager season 7",
+        "VOY S7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "voy.s7.e01.unimatrix-zero-part-ii.window",
+      "label": "Unimatrix Zero, Part II episode window",
+      "anchorFrom": "voy.s7.e01.unimatrix-zero-part-ii",
+      "anchorTo": "voy.s7.e02.imperfection",
+      "sortKeyFrom": 37000,
+      "sortKeyTo": 37020,
+      "aliases": [
+        "during Unimatrix Zero, Part II",
+        "after Unimatrix Zero, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-unimatrix-zero-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s7.e02.imperfection.window",
+      "label": "Imperfection episode window",
+      "anchorFrom": "voy.s7.e02.imperfection",
+      "anchorTo": "voy.s7.e03.drive",
+      "sortKeyFrom": 37020,
+      "sortKeyTo": 37040,
+      "aliases": [
+        "during Imperfection",
+        "after Imperfection"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-imperfection"
+      ]
+    },
+    {
+      "id": "voy.s7.e03.drive.window",
+      "label": "Drive episode window",
+      "anchorFrom": "voy.s7.e03.drive",
+      "anchorTo": "voy.s7.e04.repression",
+      "sortKeyFrom": 37040,
+      "sortKeyTo": 37060,
+      "aliases": [
+        "during Drive",
+        "after Drive"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-drive"
+      ]
+    },
+    {
+      "id": "voy.s7.e04.repression.window",
+      "label": "Repression episode window",
+      "anchorFrom": "voy.s7.e04.repression",
+      "anchorTo": "voy.s7.e05.critical-care",
+      "sortKeyFrom": 37060,
+      "sortKeyTo": 37080,
+      "aliases": [
+        "during Repression",
+        "after Repression"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-repression"
+      ]
+    },
+    {
+      "id": "voy.s7.e05.critical-care.window",
+      "label": "Critical Care episode window",
+      "anchorFrom": "voy.s7.e05.critical-care",
+      "anchorTo": "voy.s7.e06.inside-man",
+      "sortKeyFrom": 37080,
+      "sortKeyTo": 37100,
+      "aliases": [
+        "during Critical Care",
+        "after Critical Care"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-critical-care"
+      ]
+    },
+    {
+      "id": "voy.s7.e06.inside-man.window",
+      "label": "Inside Man episode window",
+      "anchorFrom": "voy.s7.e06.inside-man",
+      "anchorTo": "voy.s7.e07.body-and-soul",
+      "sortKeyFrom": 37100,
+      "sortKeyTo": 37120,
+      "aliases": [
+        "during Inside Man",
+        "after Inside Man"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-inside-man"
+      ]
+    },
+    {
+      "id": "voy.s7.e07.body-and-soul.window",
+      "label": "Body and Soul episode window",
+      "anchorFrom": "voy.s7.e07.body-and-soul",
+      "anchorTo": "voy.s7.e08.nightingale",
+      "sortKeyFrom": 37120,
+      "sortKeyTo": 37140,
+      "aliases": [
+        "during Body and Soul",
+        "after Body and Soul"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-body-and-soul"
+      ]
+    },
+    {
+      "id": "voy.s7.e08.nightingale.window",
+      "label": "Nightingale episode window",
+      "anchorFrom": "voy.s7.e08.nightingale",
+      "anchorTo": "voy.s7.e09.flesh-and-blood",
+      "sortKeyFrom": 37140,
+      "sortKeyTo": 37160,
+      "aliases": [
+        "during Nightingale",
+        "after Nightingale"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-nightingale"
+      ]
+    },
+    {
+      "id": "voy.s7.e09.flesh-and-blood.window",
+      "label": "Flesh and Blood episode window",
+      "anchorFrom": "voy.s7.e09.flesh-and-blood",
+      "anchorTo": "voy.s7.e10.shattered",
+      "sortKeyFrom": 37160,
+      "sortKeyTo": 37180,
+      "aliases": [
+        "during Flesh and Blood",
+        "after Flesh and Blood"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-flesh-and-blood"
+      ]
+    },
+    {
+      "id": "voy.s7.e10.shattered.window",
+      "label": "Shattered episode window",
+      "anchorFrom": "voy.s7.e10.shattered",
+      "anchorTo": "voy.s7.e11.lineage",
+      "sortKeyFrom": 37180,
+      "sortKeyTo": 37200,
+      "aliases": [
+        "during Shattered",
+        "after Shattered"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-shattered"
+      ]
+    },
+    {
+      "id": "voy.s7.e11.lineage.window",
+      "label": "Lineage episode window",
+      "anchorFrom": "voy.s7.e11.lineage",
+      "anchorTo": "voy.s7.e12.repentance",
+      "sortKeyFrom": 37200,
+      "sortKeyTo": 37220,
+      "aliases": [
+        "during Lineage",
+        "after Lineage"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-lineage"
+      ]
+    },
+    {
+      "id": "voy.s7.e12.repentance.window",
+      "label": "Repentance episode window",
+      "anchorFrom": "voy.s7.e12.repentance",
+      "anchorTo": "voy.s7.e13.prophecy",
+      "sortKeyFrom": 37220,
+      "sortKeyTo": 37240,
+      "aliases": [
+        "during Repentance",
+        "after Repentance"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-repentance"
+      ]
+    },
+    {
+      "id": "voy.s7.e13.prophecy.window",
+      "label": "Prophecy episode window",
+      "anchorFrom": "voy.s7.e13.prophecy",
+      "anchorTo": "voy.s7.e14.the-void",
+      "sortKeyFrom": 37240,
+      "sortKeyTo": 37260,
+      "aliases": [
+        "during Prophecy",
+        "after Prophecy"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-prophecy"
+      ]
+    },
+    {
+      "id": "voy.s7.e14.the-void.window",
+      "label": "The Void episode window",
+      "anchorFrom": "voy.s7.e14.the-void",
+      "anchorTo": "voy.s7.e15.workforce",
+      "sortKeyFrom": 37260,
+      "sortKeyTo": 37280,
+      "aliases": [
+        "during The Void",
+        "after The Void"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-the-void"
+      ]
+    },
+    {
+      "id": "voy.s7.e15.workforce.window",
+      "label": "Workforce episode window",
+      "anchorFrom": "voy.s7.e15.workforce",
+      "anchorTo": "voy.s7.e16.workforce-part-ii",
+      "sortKeyFrom": 37280,
+      "sortKeyTo": 37300,
+      "aliases": [
+        "during Workforce",
+        "after Workforce"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-workforce"
+      ]
+    },
+    {
+      "id": "voy.s7.e16.workforce-part-ii.window",
+      "label": "Workforce, Part II episode window",
+      "anchorFrom": "voy.s7.e16.workforce-part-ii",
+      "anchorTo": "voy.s7.e17.human-error",
+      "sortKeyFrom": 37300,
+      "sortKeyTo": 37320,
+      "aliases": [
+        "during Workforce, Part II",
+        "after Workforce, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-workforce-part-ii"
+      ]
+    },
+    {
+      "id": "voy.s7.e17.human-error.window",
+      "label": "Human Error episode window",
+      "anchorFrom": "voy.s7.e17.human-error",
+      "anchorTo": "voy.s7.e18.q2",
+      "sortKeyFrom": 37320,
+      "sortKeyTo": 37340,
+      "aliases": [
+        "during Human Error",
+        "after Human Error"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-human-error"
+      ]
+    },
+    {
+      "id": "voy.s7.e18.q2.window",
+      "label": "Q2 episode window",
+      "anchorFrom": "voy.s7.e18.q2",
+      "anchorTo": "voy.s7.e19.author-author",
+      "sortKeyFrom": 37340,
+      "sortKeyTo": 37360,
+      "aliases": [
+        "during Q2",
+        "after Q2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-q2"
+      ]
+    },
+    {
+      "id": "voy.s7.e19.author-author.window",
+      "label": "Author, Author episode window",
+      "anchorFrom": "voy.s7.e19.author-author",
+      "anchorTo": "voy.s7.e20.friendship-one",
+      "sortKeyFrom": 37360,
+      "sortKeyTo": 37380,
+      "aliases": [
+        "during Author, Author",
+        "after Author, Author"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-author-author"
+      ]
+    },
+    {
+      "id": "voy.s7.e20.friendship-one.window",
+      "label": "Friendship One episode window",
+      "anchorFrom": "voy.s7.e20.friendship-one",
+      "anchorTo": "voy.s7.e21.natural-law",
+      "sortKeyFrom": 37380,
+      "sortKeyTo": 37400,
+      "aliases": [
+        "during Friendship One",
+        "after Friendship One"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-friendship-one"
+      ]
+    },
+    {
+      "id": "voy.s7.e21.natural-law.window",
+      "label": "Natural Law episode window",
+      "anchorFrom": "voy.s7.e21.natural-law",
+      "anchorTo": "voy.s7.e22.homestead",
+      "sortKeyFrom": 37400,
+      "sortKeyTo": 37420,
+      "aliases": [
+        "during Natural Law",
+        "after Natural Law"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-natural-law"
+      ]
+    },
+    {
+      "id": "voy.s7.e22.homestead.window",
+      "label": "Homestead episode window",
+      "anchorFrom": "voy.s7.e22.homestead",
+      "anchorTo": "voy.s7.e23.renaissance-man",
+      "sortKeyFrom": 37420,
+      "sortKeyTo": 37440,
+      "aliases": [
+        "during Homestead",
+        "after Homestead"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-homestead"
+      ]
+    },
+    {
+      "id": "voy.s7.e23.renaissance-man.window",
+      "label": "Renaissance Man episode window",
+      "anchorFrom": "voy.s7.e23.renaissance-man",
+      "anchorTo": "voy.s7.e24.endgame",
+      "sortKeyFrom": 37440,
+      "sortKeyTo": 37460,
+      "aliases": [
+        "during Renaissance Man",
+        "after Renaissance Man"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-renaissance-man"
+      ]
+    }
+  ]
+}

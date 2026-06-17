@@ -15,6 +15,7 @@ const runtimeSafetyPanel = await readText('src/runtime/runtime-safety-panel.js')
 const defaultSettings = await readText('src/state/default-settings.js');
 const runtimeGuideContent = await readText('src/runtime/runtime-guide-content.js');
 const lorePanel = await readText('src/runtime/lore-panel.js');
+const runtimeComposition = await readText('src/runtime/runtime-composition.js');
 const runtimeNavigation = await readText('src/runtime/runtime-navigation.js');
 const activeStackPanel = await readText('src/runtime/active-stack-panel.js');
 const storageAndStateSafetyDoc = await readText('docs/user/STORAGE_AND_STATE_SAFETY.md');
@@ -25,7 +26,7 @@ const runtimeTheme = await readText('src/theme/runtime-theme.js');
 assert(!advancedRuntimePanel.includes('createDangerZoneCard'), 'Session tab must not depend on or render the Danger Zone card.');
 assert(runtimeSettingsTab.includes('createDangerZoneCard') && runtimeSettingsTab.includes("'settings.dangerZone'"), 'Settings tab must render the relocated Danger Zone section.');
 assert(runtimeSettingsTab.includes('appendDangerZoneCard(container, state)') && !runtimeSettingsTab.includes("'settings.dangerZone',\n            'Danger Zone'") && !runtimeSettingsTab.includes("'settings.dangerZone',\n        'Danger Zone'"), 'Settings Danger Zone must render directly instead of through a collapsible dropdown.');
-assert(lorePanel.includes('configureRuntimeSettingsTab({') && lorePanel.includes('createDangerZoneCard,'), 'Runtime settings tab must receive the Danger Zone renderer dependency.');
+assert(runtimeComposition.includes('configureRuntimeSettingsTab({') && runtimeComposition.includes('createDangerZoneCard: deps.createDangerZoneCard'), 'Runtime settings tab must receive the Danger Zone renderer dependency.');
 assert(!lorePanel.includes('configureAdvancedRuntimePanel({\n    createCollapsibleSection,\n    createDangerZoneCard,'), 'Advanced Session panel must not receive the Danger Zone renderer dependency.');
 assert(!defaultSettings.includes("'settings.dangerZone'"), 'Danger Zone must not keep a collapsed-section default after the dropdown is removed.');
 assert(runtimeTheme.includes("target.style.setProperty('--saga-danger', colors.danger)") && runtimeTheme.includes("target.style.setProperty('--saga-danger-surface', hexToRgba(colors.danger, 0.24))"), 'Runtime themes must publish explicit danger tokens from the active Theme Pack danger color.');

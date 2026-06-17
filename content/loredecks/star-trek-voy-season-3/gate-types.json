@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "gateTypes": {
+    "anchor_window": {
+      "label": "Anchor Window",
+      "description": "Lorecard is eligible inside a bounded episode or story window."
+    },
+    "character_state": {
+      "label": "Character State",
+      "description": "Lorecard constrains season-local character behavior or status."
+    },
+    "knowledge_gate": {
+      "label": "Knowledge Gate",
+      "description": "Lorecard controls what is known, hidden, or misunderstood in Context."
+    },
+    "lore_gate": {
+      "label": "Lore Gate",
+      "description": "Lorecard defines a durable setting, technology, faction, or command rule."
+    },
+    "reveal_gate": {
+      "label": "Reveal Gate",
+      "description": "Lorecard becomes eligible only after a season-local reveal."
+    },
+    "relationship_state": {
+      "label": "Relationship State",
+      "description": "Lorecard constrains a bond, obligation, grief state, or trust state."
+    },
+    "spoiler_guard": {
+      "label": "Spoiler Guard",
+      "description": "Lorecard prevents later canon from leaking backward."
+    }
+  }
+}

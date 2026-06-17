@@ -1,0 +1,509 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:alvida": {
+      "type": "character",
+      "label": "Alvida",
+      "aliases": [
+        "Alvida"
+      ],
+      "canonicalNames": [
+        "Alvida"
+      ],
+      "tags": [
+        "character:alvida"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:alvida-ship": {
+      "type": "knowledge",
+      "label": "Alvida ship",
+      "aliases": [
+        "Alvida ship"
+      ],
+      "canonicalNames": [
+        "Alvida ship"
+      ],
+      "tags": [
+        "topic:alvida-ship"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:axe-hand-morgan": {
+      "type": "character",
+      "label": "Axe-Hand Morgan",
+      "aliases": [
+        "Axe-Hand Morgan"
+      ],
+      "canonicalNames": [
+        "Axe-Hand Morgan"
+      ],
+      "tags": [
+        "character:axe-hand-morgan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:coby": {
+      "type": "character",
+      "label": "Coby",
+      "aliases": [
+        "Coby"
+      ],
+      "canonicalNames": [
+        "Coby"
+      ],
+      "tags": [
+        "character:coby"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:east-blue": {
+      "type": "character",
+      "label": "East Blue",
+      "aliases": [
+        "East Blue"
+      ],
+      "canonicalNames": [
+        "East Blue"
+      ],
+      "tags": [
+        "character:east-blue"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:foosha-village": {
+      "type": "knowledge",
+      "label": "Foosha Village",
+      "aliases": [
+        "Foosha Village"
+      ],
+      "canonicalNames": [
+        "Foosha Village"
+      ],
+      "tags": [
+        "topic:foosha-village"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:gum-gum-fruit": {
+      "type": "character",
+      "label": "Gum-Gum Fruit",
+      "aliases": [
+        "Gum-Gum Fruit"
+      ],
+      "canonicalNames": [
+        "Gum-Gum Fruit"
+      ],
+      "tags": [
+        "character:gum-gum-fruit"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:helmeppo": {
+      "type": "character",
+      "label": "Helmeppo",
+      "aliases": [
+        "Helmeppo"
+      ],
+      "canonicalNames": [
+        "Helmeppo"
+      ],
+      "tags": [
+        "character:helmeppo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:marines": {
+      "type": "character",
+      "label": "Marines",
+      "aliases": [
+        "Marines"
+      ],
+      "canonicalNames": [
+        "Marines"
+      ],
+      "tags": [
+        "character:marines"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:nami": {
+      "type": "knowledge",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "relationship:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:rika": {
+      "type": "character",
+      "label": "Rika",
+      "aliases": [
+        "Rika"
+      ],
+      "canonicalNames": [
+        "Rika"
+      ],
+      "tags": [
+        "character:rika"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:shanks": {
+      "type": "character",
+      "label": "Shanks",
+      "aliases": [
+        "Shanks"
+      ],
+      "canonicalNames": [
+        "Shanks"
+      ],
+      "tags": [
+        "character:shanks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:shells-town": {
+      "type": "character",
+      "label": "Shells Town",
+      "aliases": [
+        "Shells Town"
+      ],
+      "canonicalNames": [
+        "Shells Town"
+      ],
+      "tags": [
+        "character:shells-town"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:straw-hat": {
+      "type": "character",
+      "label": "Straw Hat",
+      "aliases": [
+        "Straw Hat"
+      ],
+      "canonicalNames": [
+        "Straw Hat"
+      ],
+      "tags": [
+        "character:straw-hat"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:straw-hat-pirates": {
+      "type": "knowledge",
+      "label": "Straw Hat Pirates",
+      "aliases": [
+        "Straw Hat Pirates"
+      ],
+      "canonicalNames": [
+        "Straw Hat Pirates"
+      ],
+      "tags": [
+        "relationship:straw-hat-pirates"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    },
+    "op:zoro-swords": {
+      "type": "character",
+      "label": "Zoro swords",
+      "aliases": [
+        "Zoro swords"
+      ],
+      "canonicalNames": [
+        "Zoro swords"
+      ],
+      "tags": [
+        "character:zoro-swords"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga-anime",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Hybrid manga/anime deck. Manga facts are the canon spine; anime episode boundaries and filler-within-arc scenes are supported when useful."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.76
+      },
+      "extensions": {}
+    }
+  }
+}

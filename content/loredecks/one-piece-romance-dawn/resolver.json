@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Romance Dawn Arc Context inside East Blue Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Romance Dawn Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during romance dawn arc: luffy origin and shanks",
+      "result": {
+        "anchorFrom": "op.romance-dawn.romance-dawn",
+        "label": "Romance Dawn Arc: Luffy origin and Shanks"
+      }
+    },
+    {
+      "pattern": "during romance dawn arc: coby, alvida, and early marines",
+      "result": {
+        "anchorFrom": "op.romance-dawn.coby-alvida-and-early-marines",
+        "label": "Romance Dawn Arc: Coby, Alvida, and early Marines"
+      }
+    },
+    {
+      "pattern": "during romance dawn arc: zoro and shells town",
+      "result": {
+        "anchorFrom": "op.romance-dawn.zoro-and-shells-town",
+        "label": "Romance Dawn Arc: Zoro and Shells Town"
+      }
+    },
+    {
+      "pattern": "during romance dawn arc: crew start and nami hook",
+      "result": {
+        "anchorFrom": "op.romance-dawn.crew-start-and-nami-hook",
+        "label": "Romance Dawn Arc: Crew start and Nami hook"
+      }
+    },
+    {
+      "pattern": "during romance dawn arc: locations, items, and world rules",
+      "result": {
+        "anchorFrom": "op.romance-dawn.locations-items-and-world-rules",
+        "label": "Romance Dawn Arc: Locations, items, and world rules"
+      }
+    },
+    {
+      "pattern": "during romance dawn arc: conflicts and character rules",
+      "result": {
+        "anchorFrom": "op.romance-dawn.conflicts-and-character-rules",
+        "label": "Romance Dawn Arc: Conflicts and character rules"
+      }
+    },
+    {
+      "pattern": "during romance dawn arc: timeline and spoiler gates",
+      "result": {
+        "anchorFrom": "op.romance-dawn.timeline-and-spoiler-gates",
+        "label": "Romance Dawn Arc: Timeline and spoiler gates"
+      }
+    },
+    {
+      "pattern": "during romance dawn arc: aftermath boundary",
+      "result": {
+        "anchorFrom": "op.romance-dawn.after",
+        "label": "Romance Dawn Arc: aftermath boundary"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

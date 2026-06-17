@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-syrup-village",
+  "type": "bundled",
+  "title": "One Piece: Syrup Village Arc",
+  "description": "Reviewed manga-main Loredeck for Usopp credibility gates, Kaya and Kuro deception, Syrup Village defense geography, Black Cat battle pressure, and Going Merry provenance.",
+  "fandom": "One Piece",
+  "era": "Syrup Village Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-syrup-village-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-syrup-village",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-syrup-village"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "East Blue Saga"
+    ],
+    "familyOrder": 30
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:east-blue",
+    "arc:syrup-village",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga/anime",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "syrup_village/syrup_village.json",
+    "syrup_village/kuro-and-black-cat-pirates.json",
+    "syrup_village/straw-hats-and-usopp.json",
+    "syrup_village/village-geography-and-defense.json",
+    "syrup_village/going-merry-and-merry.json",
+    "syrup_village/deception-and-reveal.json",
+    "syrup_village/battle-and-aftermath.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 37,
+    "categoryCounts": {
+      "character": 7,
+      "event": 4,
+      "faction": 3,
+      "item": 5,
+      "knowledge": 10,
+      "location": 4,
+      "relationship": 3,
+      "rule": 1
+    },
+    "timelineAnchorCount": 9,
+    "timelineWindowCount": 9,
+    "tagCount": 66,
+    "entityCount": 25
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Syrup Village runtime-lore pass completed: cards now emphasize credibility gates, secret-identity reveal timing, character states, battle geography, ship provenance, and departure boundaries."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

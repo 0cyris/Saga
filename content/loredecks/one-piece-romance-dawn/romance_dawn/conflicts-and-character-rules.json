@@ -1,0 +1,772 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_luffy_judges_people_by_what_they_choose_under_pressure_030",
+      "title": "Luffy judges choices under pressure more than labels",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 81,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "validToAnchor": "op.romance-dawn.timeline-and-spoiler-gates",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1640,
+        "sortKeyTo": 1768,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Luffy judges choices under pressure more than labels"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Luffy moral logic",
+          "choices under pressure",
+          "labels versus action"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "topic:monkey-d-luffy",
+        "topic:dream-declaration",
+        "topic:conflicts-and-character-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Luffy moral logic",
+            "choices under pressure",
+            "labels versus action"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Luffy moral logic",
+            "choices under pressure",
+            "labels versus action",
+            "Luffy judges choices under pressure more than labels",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy responds to what people choose under pressure: Shanks protecting friends, Coby naming his dream, and Zoro honoring a promise matter more than legal labels.",
+        "injection": "For Luffy's early moral logic, prioritize pressure-tested choices over faction labels. He should not sound politically sophisticated yet.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_coby_s_fear_matters_because_he_acts_despite_it_031",
+      "title": "Coby's courage is fear with action, not sudden confidence",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "validToAnchor": "op.romance-dawn.timeline-and-spoiler-gates",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1640,
+        "sortKeyTo": 1768,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Coby's courage is fear with action, not sudden confidence"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:coby"
+        ],
+        "characters": [
+          "Coby"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Coby fear",
+          "courage through fear",
+          "not instantly confident"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:coby",
+        "topic:coby",
+        "topic:dream-declaration",
+        "topic:conflicts-and-character-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Coby"
+          ],
+          "entitiesAny": [
+            "Coby"
+          ],
+          "topicsAny": [
+            "Coby fear",
+            "courage through fear",
+            "not instantly confident"
+          ],
+          "keywordsAny": [
+            "Coby",
+            "Coby fear",
+            "courage through fear",
+            "not instantly confident",
+            "Coby's courage is fear with action, not sudden confidence",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Coby's fear remains part of him; the important shift is that he acts and speaks despite it.",
+        "injection": "After Coby's pivot, do not write him as instantly fearless or supercompetent. His courage should read as a decision made through fear.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_zoro_tests_luffy_s_seriousness_before_accepting_him_032",
+      "title": "Zoro tests whether Luffy respects his swords and dream",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "validToAnchor": "op.romance-dawn.timeline-and-spoiler-gates",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1640,
+        "sortKeyTo": 1768,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Zoro tests whether Luffy respects his swords and dream"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Zoro tests Luffy",
+          "swords and dream",
+          "pre-join skepticism"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:roronoa-zoro",
+        "topic:roronoa-zoro",
+        "topic:dream-declaration",
+        "topic:conflicts-and-character-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "Zoro tests Luffy",
+            "swords and dream",
+            "pre-join skepticism"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Zoro tests Luffy",
+            "swords and dream",
+            "pre-join skepticism",
+            "Zoro tests whether Luffy respects his swords and dream",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Zoro tests whether Luffy treats his swords, survival, and dream seriously before accepting him as captain.",
+        "injection": "Before the rescue resolves, keep Zoro skeptical and transactional. His loyalty should not become settled until Luffy restores his swords and fights Morgan.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_morgan_s_defeat_frees_shells_town_from_a_marine_rather_than_a_pirate_033",
+      "title": "Morgan's defeat changes Shells Town's local world-state",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "validToAnchor": "op.romance-dawn.timeline-and-spoiler-gates",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1640,
+        "sortKeyTo": 1768,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Morgan's defeat changes Shells Town's local world-state"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:axe-hand-morgan",
+          "op:shells-town"
+        ],
+        "characters": [
+          "Axe-Hand Morgan",
+          "Shells Town"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Morgan defeat",
+          "Shells Town world-state",
+          "local liberation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:axe-hand-morgan",
+        "character:shells-town",
+        "topic:axe-hand-morgan",
+        "topic:dream-declaration",
+        "topic:conflicts-and-character-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Axe-Hand Morgan",
+            "Shells Town"
+          ],
+          "entitiesAny": [
+            "Axe-Hand Morgan",
+            "Shells Town"
+          ],
+          "topicsAny": [
+            "Morgan defeat",
+            "Shells Town world-state",
+            "local liberation"
+          ],
+          "keywordsAny": [
+            "Axe-Hand Morgan",
+            "Shells Town",
+            "Morgan defeat",
+            "Shells Town world-state",
+            "local liberation",
+            "Morgan's defeat changes Shells Town's local world-state",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Morgan's defeat changes Shells Town's local world-state: the town is freed from his Marine tyranny, not from a pirate occupation.",
+        "injection": "After Morgan falls, write the change as local liberation from corrupt Marine command. Do not turn it into a broad anti-Marine revolution.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_helmeppo_s_threats_depend_entirely_on_borrowed_authority_034",
+      "title": "Helmeppo collapses when borrowed authority fails",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "validToAnchor": "op.romance-dawn.timeline-and-spoiler-gates",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1640,
+        "sortKeyTo": 1768,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Helmeppo collapses when borrowed authority fails"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:helmeppo"
+        ],
+        "characters": [
+          "Helmeppo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Helmeppo collapse",
+          "borrowed authority",
+          "no later growth"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:helmeppo",
+        "topic:helmeppo",
+        "topic:dream-declaration",
+        "topic:conflicts-and-character-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Helmeppo"
+          ],
+          "entitiesAny": [
+            "Helmeppo"
+          ],
+          "topicsAny": [
+            "Helmeppo collapse",
+            "borrowed authority",
+            "no later growth"
+          ],
+          "keywordsAny": [
+            "Helmeppo",
+            "Helmeppo collapse",
+            "borrowed authority",
+            "no later growth",
+            "Helmeppo collapses when borrowed authority fails",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Helmeppo's threats depend on Morgan's protection; once that borrowed authority fails, his power collapses.",
+        "injection": "Use Helmeppo as a weak authority-abuser in Romance Dawn. Do not import later growth, Marine training, or Coby partnership material.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    }
+  ]
+}

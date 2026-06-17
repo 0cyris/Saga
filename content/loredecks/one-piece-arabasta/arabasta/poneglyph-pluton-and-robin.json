@@ -1,0 +1,857 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_the_poneglyph_is_an_ancient_stone_record_that_robin_can_read_033",
+      "title": "The Poneglyph Is A Readable Ancient Stone, Not A Full Lore Dump",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "validToAnchor": "op.arabasta.desert-travel-and-local-worldbuilding",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12486,
+        "sortKeyTo": 12567,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: The Poneglyph Is A Readable Ancient Stone, Not A Full Lore Dump"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:poneglyph",
+          "op:nico-robin",
+          "op:miss-all-sunday",
+          "op:royal-tomb"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Poneglyph term-level",
+          "Robin can read",
+          "royal tomb"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:poneglyph",
+        "topic:nico-robin",
+        "topic:miss-all-sunday",
+        "topic:royal-tomb",
+        "topic:kingdom-war",
+        "topic:poneglyph-pluton"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Poneglyph",
+            "Nico Robin",
+            "Miss All Sunday",
+            "royal tomb"
+          ],
+          "topicsAny": [
+            "Poneglyph term-level",
+            "Robin can read",
+            "royal tomb"
+          ],
+          "keywordsAny": [
+            "Poneglyph",
+            "Nico Robin",
+            "Miss All Sunday",
+            "royal tomb",
+            "Poneglyph term-level",
+            "Robin can read",
+            "Robin",
+            "tomb",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "The Poneglyph is an ancient stone record that Robin can read, but Arabasta should not explain the full Void Century or later Poneglyph system.",
+        "injection": "Use the Poneglyph as restricted tomb knowledge: enough to drive Crocodile and Robin, not enough to open later history.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_pluton_is_named_as_an_ancient_weapon_sought_by_crocodile_034",
+      "title": "Pluton Is Named As An Ancient Weapon, With Details Locked",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "validToAnchor": "op.arabasta.desert-travel-and-local-worldbuilding",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12486,
+        "sortKeyTo": 12567,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Pluton Is Named As An Ancient Weapon, With Details Locked"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:pluton",
+          "op:ancient-weapons",
+          "op:crocodile",
+          "op:poneglyph"
+        ],
+        "characters": [
+          "Pluton",
+          "Crocodile"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Pluton term-level",
+          "Ancient Weapon",
+          "details locked"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:pluton",
+        "topic:ancient-weapons",
+        "character:crocodile",
+        "topic:poneglyph",
+        "topic:crocodile",
+        "topic:poneglyph-pluton"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Pluton",
+            "Crocodile"
+          ],
+          "entitiesAny": [
+            "Pluton",
+            "Ancient Weapons",
+            "Crocodile",
+            "Poneglyph"
+          ],
+          "topicsAny": [
+            "Pluton term-level",
+            "Ancient Weapon",
+            "details locked"
+          ],
+          "keywordsAny": [
+            "Pluton",
+            "Ancient Weapons",
+            "Crocodile",
+            "Poneglyph",
+            "Pluton term-level",
+            "Ancient Weapon",
+            "details locked",
+            "locked",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Pluton is named as an Ancient Weapon sought by Crocodile, but its broader nature and later location details stay locked.",
+        "injection": "Use Pluton as a dangerous word and motive, not an encyclopedia entry about Ancient Weapons.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_robin_withholds_what_crocodile_wants_from_the_tomb_035",
+      "title": "Robin Reads The Poneglyph But Does Not Give Crocodile Pluton",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "validToAnchor": "op.arabasta.desert-travel-and-local-worldbuilding",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12486,
+        "sortKeyTo": 12567,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Robin Reads The Poneglyph But Does Not Give Crocodile Pluton"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nico-robin",
+          "op:miss-all-sunday",
+          "op:crocodile",
+          "op:poneglyph",
+          "op:pluton"
+        ],
+        "characters": [
+          "Crocodile",
+          "Pluton"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Robin withholding",
+          "Pluton answer",
+          "tomb betrayal"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:nico-robin",
+        "topic:miss-all-sunday",
+        "character:crocodile",
+        "topic:poneglyph",
+        "character:pluton",
+        "topic:crocodile",
+        "topic:poneglyph-pluton"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Crocodile",
+            "Pluton"
+          ],
+          "entitiesAny": [
+            "Nico Robin",
+            "Miss All Sunday",
+            "Crocodile",
+            "Poneglyph",
+            "Pluton"
+          ],
+          "topicsAny": [
+            "Robin withholding",
+            "Pluton answer",
+            "tomb betrayal"
+          ],
+          "keywordsAny": [
+            "Nico Robin",
+            "Miss All Sunday",
+            "Crocodile",
+            "Poneglyph",
+            "Pluton",
+            "Robin withholding",
+            "Pluton answer",
+            "tomb betrayal",
+            "Robin",
+            "withholds",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Robin reads the Poneglyph but does not give Crocodile the Pluton answer he wants, revealing an agenda beyond obedient partnership.",
+        "injection": "Use Robin as dangerous and independent: she is not simply Crocodile's subordinate, but her full past remains locked.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_cobra_is_tied_to_royal_knowledge_without_explaining_later_void_century_lore_036",
+      "title": "Cobra's Royal Tomb Knowledge Stays Arabasta-Local",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "validToAnchor": "op.arabasta.desert-travel-and-local-worldbuilding",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12486,
+        "sortKeyTo": 12567,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Cobra's Royal Tomb Knowledge Stays Arabasta-Local"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nefertari-cobra",
+          "op:royal-tomb",
+          "op:poneglyph",
+          "op:void-century"
+        ],
+        "characters": [
+          "Nefertari Cobra"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Cobra royal knowledge",
+          "tomb boundary",
+          "Void Century locked"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nefertari-cobra",
+        "topic:royal-tomb",
+        "topic:poneglyph",
+        "topic:void-century",
+        "topic:kingdom-war",
+        "topic:vivi-leadership",
+        "topic:poneglyph-pluton"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nefertari Cobra"
+          ],
+          "entitiesAny": [
+            "Nefertari Cobra",
+            "royal tomb",
+            "Poneglyph",
+            "Void Century"
+          ],
+          "topicsAny": [
+            "Cobra royal knowledge",
+            "tomb boundary",
+            "Void Century locked"
+          ],
+          "keywordsAny": [
+            "Nefertari Cobra",
+            "royal tomb",
+            "Poneglyph",
+            "Void Century",
+            "Cobra royal knowledge",
+            "tomb boundary",
+            "Void Century locked",
+            "Cobra",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Cobra is tied to the royal tomb and Poneglyph knowledge, but this deck keeps later Void Century implications out of public or casual scenes.",
+        "injection": "Use Cobra's knowledge as restricted royal duty, not as permission to explain later world history.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_arabasta_robin_s_transition_from_miss_all_sunday_to_nico_robin_should_be_tightly_gated_037",
+      "title": "Robin's Miss All Sunday To Nico Robin Transition Is Gated",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.arabasta.poneglyph-pluton-and-robin",
+        "validToAnchor": "op.arabasta.desert-travel-and-local-worldbuilding",
+        "arc": "Arabasta Arc",
+        "arcId": "arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "155-217",
+        "episode": "92-130",
+        "sortKeyFrom": 12486,
+        "sortKeyTo": 12567,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Arabasta Arc: Robin's Miss All Sunday To Nico Robin Transition Is Gated"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "arabasta",
+          "label": "Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:miss-all-sunday",
+          "op:nico-robin",
+          "op:going-merry",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Robin identity gate",
+          "new crewmate risk",
+          "backstory locked"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:arabasta",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:miss-all-sunday",
+        "topic:nico-robin",
+        "topic:going-merry",
+        "topic:monkey-d-luffy",
+        "topic:baroque-works",
+        "topic:poneglyph-pluton"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Miss All Sunday",
+            "Nico Robin",
+            "Going Merry",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Robin identity gate",
+            "new crewmate risk",
+            "backstory locked"
+          ],
+          "keywordsAny": [
+            "Miss All Sunday",
+            "Nico Robin",
+            "Going Merry",
+            "Monkey D. Luffy",
+            "Robin identity gate",
+            "new crewmate risk",
+            "backstory locked",
+            "gate",
+            "Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "content": {
+        "fact": "Robin's transition from Miss All Sunday to Nico Robin should be gated through the tomb, Luffy saving her, and her unexpected boarding after departure.",
+        "injection": "Use the name shift only when the scene permits it; keep her deeper biography outside Arabasta scenes.",
+        "constraints": [
+          "Keep this card inside Arabasta Arc, manga chapters 155-217, anime episodes 92-130.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats only when tagged as support."
+        ],
+        "antiLore": [
+          "Do not explain Ohara, CP9, Enies Lobby, Road Poneglyphs, or full Void Century lore.",
+          "Do not expand Pluton, Ancient Weapons, or Poneglyphs beyond Arabasta-presented terms.",
+          "Do not import Crocodile later history beyond his Arabasta status change.",
+          "Do not explain Whitebeard crew history, Marineford, Sabo, Haki, Gear techniques, or later Ace fate.",
+          "Do not import later Nami Clima-Tact upgrades or later Straw Hat power systems.",
+          "Do not let anime desert filler overwrite the manga route logic or core event order."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Arabasta Arc",
+        "chapterRange": "Manga chapters 155-217",
+        "episodeRange": "Anime episodes 92-130",
+        "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+        "confidence": 0.91,
+        "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Arabasta Arc",
+    "chapterRange": "Manga chapters 155-217",
+    "episodeRange": "Anime episodes 92-130",
+    "reference": "https://onepiece.fandom.com/wiki/Arabasta_Arc",
+    "confidence": 0.91,
+    "notes": "Checked against the Arabasta Arc source page and Saga authoring guidance; written as kingdom-war state, roleplay gates, reveal boundaries, matchup rules, and aftermath state rather than an arc recap."
+  }
+}

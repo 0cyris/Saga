@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Deep Space Nine season 5 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ds9.s5.e01.apocalypse-rising",
+      "label": "Apocalypse Rising",
+      "contextType": "story_anchor",
+      "sortKey": 25000,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Apocalypse Rising",
+        "DS9 season 5 Apocalypse Rising",
+        "DS9 S5 Apocalypse Rising",
+        "DS9 5x01 story",
+        "DS9 S05 story 01",
+        "DS9 5x01",
+        "DS9 S05E01",
+        "DS9 season 5 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Apocalypse Rising",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Apocalypse_Rising_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e02.the-ship",
+      "label": "The Ship",
+      "contextType": "story_anchor",
+      "sortKey": 25020,
+      "stardate": "50049.3 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "The Ship",
+        "DS9 season 5 The Ship",
+        "DS9 S5 The Ship",
+        "DS9 5x02 story",
+        "DS9 S05 story 02",
+        "DS9 5x02",
+        "DS9 S05E02",
+        "DS9 season 5 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-ship"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Ship",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Ship_(episode)",
+        "stardate": "50049.3 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+      "label": "Looking for par'Mach in All the Wrong Places",
+      "contextType": "story_anchor",
+      "sortKey": 25040,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Looking for par'Mach in All the Wrong Places",
+        "DS9 season 5 Looking for par'Mach in All the Wrong Places",
+        "DS9 S5 Looking for par'Mach in All the Wrong Places",
+        "DS9 5x03 story",
+        "DS9 S05 story 03",
+        "DS9 5x03",
+        "DS9 S05E03",
+        "DS9 season 5 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-looking-for-parmach-in-all-the-wrong-places"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Looking for par'Mach in All the Wrong Places",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Looking_for_par'Mach_in_All_the_Wrong_Places_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e04.nor-the-battle-to-the-strong",
+      "label": "Nor the Battle to the Strong",
+      "contextType": "story_anchor",
+      "sortKey": 25060,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Nor the Battle to the Strong",
+        "DS9 season 5 Nor the Battle to the Strong",
+        "DS9 S5 Nor the Battle to the Strong",
+        "DS9 5x04 story",
+        "DS9 S05 story 04",
+        "DS9 5x04",
+        "DS9 S05E04",
+        "DS9 season 5 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-nor-the-battle-to-the-strong"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Nor the Battle to the Strong",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Nor_the_Battle_to_the_Strong_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e05.the-assignment",
+      "label": "The Assignment",
+      "contextType": "story_anchor",
+      "sortKey": 25080,
+      "stardate": "Unknown (September 2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "The Assignment",
+        "DS9 season 5 The Assignment",
+        "DS9 S5 The Assignment",
+        "DS9 5x05 story",
+        "DS9 S05 story 05",
+        "DS9 5x05",
+        "DS9 S05E05",
+        "DS9 season 5 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-assignment"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Assignment",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Assignment_(episode)",
+        "stardate": "Unknown (September 2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e06.trials-and-tribble-ations",
+      "label": "Trials and Tribble-ations",
+      "contextType": "story_anchor",
+      "sortKey": 25100,
+      "stardate": "2373",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Trials and Tribble-ations",
+        "DS9 season 5 Trials and Tribble-ations",
+        "DS9 S5 Trials and Tribble-ations",
+        "DS9 5x06 story",
+        "DS9 S05 story 06",
+        "DS9 5x06",
+        "DS9 S05E06",
+        "DS9 season 5 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-trials-and-tribble-ations"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Trials and Tribble-ations",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Trials_and_Tribble-ations_(episode)",
+        "stardate": "2373",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e07.let-he-who-is-without-sin",
+      "label": "Let He Who Is Without Sin...",
+      "contextType": "story_anchor",
+      "sortKey": 25120,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Let He Who Is Without Sin...",
+        "DS9 season 5 Let He Who Is Without Sin...",
+        "DS9 S5 Let He Who Is Without Sin...",
+        "DS9 5x07 story",
+        "DS9 S05 story 07",
+        "DS9 5x07",
+        "DS9 S05E07",
+        "DS9 season 5 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-let-he-who-is-without-sin"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Let He Who Is Without Sin...",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Let_He_Who_Is_Without_Sin..._(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e08.things-past",
+      "label": "Things Past",
+      "contextType": "story_anchor",
+      "sortKey": 25140,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Things Past",
+        "DS9 season 5 Things Past",
+        "DS9 S5 Things Past",
+        "DS9 5x08 story",
+        "DS9 S05 story 08",
+        "DS9 5x08",
+        "DS9 S05E08",
+        "DS9 season 5 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-things-past"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Things Past",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Things_Past_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e09.the-ascent",
+      "label": "The Ascent",
+      "contextType": "story_anchor",
+      "sortKey": 25160,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "The Ascent",
+        "DS9 season 5 The Ascent",
+        "DS9 S5 The Ascent",
+        "DS9 5x09 story",
+        "DS9 S05 story 09",
+        "DS9 5x09",
+        "DS9 S05E09",
+        "DS9 season 5 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-ascent"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Ascent",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Ascent_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e10.rapture",
+      "label": "Rapture",
+      "contextType": "story_anchor",
+      "sortKey": 25180,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Rapture",
+        "DS9 season 5 Rapture",
+        "DS9 S5 Rapture",
+        "DS9 5x10 story",
+        "DS9 S05 story 10",
+        "DS9 5x10",
+        "DS9 S05E10",
+        "DS9 season 5 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-rapture"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rapture",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rapture_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e11.the-darkness-and-the-light",
+      "label": "The Darkness and the Light",
+      "contextType": "story_anchor",
+      "sortKey": 25200,
+      "stardate": "50416.2 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "The Darkness and the Light",
+        "DS9 season 5 The Darkness and the Light",
+        "DS9 S5 The Darkness and the Light",
+        "DS9 5x11 story",
+        "DS9 S05 story 11",
+        "DS9 5x11",
+        "DS9 S05E11",
+        "DS9 season 5 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-darkness-and-the-light"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Darkness and the Light",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Darkness_and_the_Light_(episode)",
+        "stardate": "50416.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e12.the-begotten",
+      "label": "The Begotten",
+      "contextType": "story_anchor",
+      "sortKey": 25220,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "The Begotten",
+        "DS9 season 5 The Begotten",
+        "DS9 S5 The Begotten",
+        "DS9 5x12 story",
+        "DS9 S05 story 12",
+        "DS9 5x12",
+        "DS9 S05E12",
+        "DS9 season 5 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-begotten"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Begotten",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Begotten_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e13.for-the-uniform",
+      "label": "For the Uniform",
+      "contextType": "story_anchor",
+      "sortKey": 25240,
+      "stardate": "50485.2-50488.2 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "For the Uniform",
+        "DS9 season 5 For the Uniform",
+        "DS9 S5 For the Uniform",
+        "DS9 5x13 story",
+        "DS9 S05 story 13",
+        "DS9 5x13",
+        "DS9 S05E13",
+        "DS9 season 5 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-for-the-uniform"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "For the Uniform",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/For_the_Uniform_(episode)",
+        "stardate": "50485.2-50488.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e14.in-purgatorys-shadow",
+      "label": "In Purgatory's Shadow",
+      "contextType": "story_anchor",
+      "sortKey": 25260,
+      "stardate": "2373",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "In Purgatory's Shadow",
+        "DS9 season 5 In Purgatory's Shadow",
+        "DS9 S5 In Purgatory's Shadow",
+        "DS9 5x14 story",
+        "DS9 S05 story 14",
+        "DS9 5x14",
+        "DS9 S05E14",
+        "DS9 season 5 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-in-purgatorys-shadow"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "In Purgatory's Shadow",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_Purgatory's_Shadow_(episode)",
+        "stardate": "2373",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e15.by-infernos-light",
+      "label": "By Inferno's Light",
+      "contextType": "story_anchor",
+      "sortKey": 25280,
+      "stardate": "50564.2 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "By Inferno's Light",
+        "DS9 season 5 By Inferno's Light",
+        "DS9 S5 By Inferno's Light",
+        "DS9 5x15 story",
+        "DS9 S05 story 15",
+        "DS9 5x15",
+        "DS9 S05E15",
+        "DS9 season 5 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-by-infernos-light"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "By Inferno's Light",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/By_Inferno's_Light_(episode)",
+        "stardate": "50564.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e16.doctor-bashir-i-presume",
+      "label": "Doctor Bashir, I Presume",
+      "contextType": "story_anchor",
+      "sortKey": 25300,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Doctor Bashir, I Presume",
+        "DS9 season 5 Doctor Bashir, I Presume",
+        "DS9 S5 Doctor Bashir, I Presume",
+        "DS9 5x16 story",
+        "DS9 S05 story 16",
+        "DS9 5x16",
+        "DS9 S05E16",
+        "DS9 season 5 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-doctor-bashir-i-presume"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Doctor Bashir, I Presume",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Doctor_Bashir%2C_I_Presume_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e17.a-simple-investigation",
+      "label": "A Simple Investigation",
+      "contextType": "story_anchor",
+      "sortKey": 25320,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "A Simple Investigation",
+        "DS9 season 5 A Simple Investigation",
+        "DS9 S5 A Simple Investigation",
+        "DS9 5x17 story",
+        "DS9 S05 story 17",
+        "DS9 5x17",
+        "DS9 S05E17",
+        "DS9 season 5 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-a-simple-investigation"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "A Simple Investigation",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Simple_Investigation_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e18.business-as-usual",
+      "label": "Business as Usual",
+      "contextType": "story_anchor",
+      "sortKey": 25340,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Business as Usual",
+        "DS9 season 5 Business as Usual",
+        "DS9 S5 Business as Usual",
+        "DS9 5x18 story",
+        "DS9 S05 story 18",
+        "DS9 5x18",
+        "DS9 S05E18",
+        "DS9 season 5 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-business-as-usual"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Business as Usual",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Business_as_Usual_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e19.ties-of-blood-and-water",
+      "label": "Ties of Blood and Water",
+      "contextType": "story_anchor",
+      "sortKey": 25360,
+      "stardate": "50712.5 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Ties of Blood and Water",
+        "DS9 season 5 Ties of Blood and Water",
+        "DS9 S5 Ties of Blood and Water",
+        "DS9 5x19 story",
+        "DS9 S05 story 19",
+        "DS9 5x19",
+        "DS9 S05E19",
+        "DS9 season 5 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-ties-of-blood-and-water"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Ties of Blood and Water",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ties_of_Blood_and_Water_(episode)",
+        "stardate": "50712.5 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e20.ferengi-love-songs",
+      "label": "Ferengi Love Songs",
+      "contextType": "story_anchor",
+      "sortKey": 25380,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Ferengi Love Songs",
+        "DS9 season 5 Ferengi Love Songs",
+        "DS9 S5 Ferengi Love Songs",
+        "DS9 5x20 story",
+        "DS9 S05 story 20",
+        "DS9 5x20",
+        "DS9 S05E20",
+        "DS9 season 5 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-ferengi-love-songs"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Ferengi Love Songs",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ferengi_Love_Songs_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e21.soldiers-of-the-empire",
+      "label": "Soldiers of the Empire",
+      "contextType": "story_anchor",
+      "sortKey": 25400,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Soldiers of the Empire",
+        "DS9 season 5 Soldiers of the Empire",
+        "DS9 S5 Soldiers of the Empire",
+        "DS9 5x21 story",
+        "DS9 S05 story 21",
+        "DS9 5x21",
+        "DS9 S05E21",
+        "DS9 season 5 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-soldiers-of-the-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Soldiers of the Empire",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Soldiers_of_the_Empire_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e22.children-of-time",
+      "label": "Children of Time",
+      "contextType": "story_anchor",
+      "sortKey": 25420,
+      "stardate": "50814.2 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Children of Time",
+        "DS9 season 5 Children of Time",
+        "DS9 S5 Children of Time",
+        "DS9 5x22 story",
+        "DS9 S05 story 22",
+        "DS9 5x22",
+        "DS9 S05E22",
+        "DS9 season 5 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-children-of-time"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Children of Time",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Children_of_Time_(episode)",
+        "stardate": "50814.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e23.blaze-of-glory",
+      "label": "Blaze of Glory",
+      "contextType": "story_anchor",
+      "sortKey": 25440,
+      "stardate": "Unknown (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Blaze of Glory",
+        "DS9 season 5 Blaze of Glory",
+        "DS9 S5 Blaze of Glory",
+        "DS9 5x23 story",
+        "DS9 S05 story 23",
+        "DS9 5x23",
+        "DS9 S05E23",
+        "DS9 season 5 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-blaze-of-glory"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Blaze of Glory",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Blaze_of_Glory_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e24.empok-nor",
+      "label": "Empok Nor",
+      "contextType": "story_anchor",
+      "sortKey": 25460,
+      "stardate": "50901.7 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Empok Nor",
+        "DS9 season 5 Empok Nor",
+        "DS9 S5 Empok Nor",
+        "DS9 5x24 story",
+        "DS9 S05 story 24",
+        "DS9 5x24",
+        "DS9 S05E24",
+        "DS9 season 5 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-empok-nor"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Empok Nor",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Empok_Nor_(episode)",
+        "stardate": "50901.7 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e25.in-the-cards",
+      "label": "In the Cards",
+      "contextType": "story_anchor",
+      "sortKey": 25480,
+      "stardate": "50929.4 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "In the Cards",
+        "DS9 season 5 In the Cards",
+        "DS9 S5 In the Cards",
+        "DS9 5x25 story",
+        "DS9 S05 story 25",
+        "DS9 5x25",
+        "DS9 S05E25",
+        "DS9 season 5 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-in-the-cards"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "In the Cards",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_the_Cards_(episode)",
+        "stardate": "50929.4 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s5.e26.call-to-arms",
+      "label": "Call to Arms",
+      "contextType": "story_anchor",
+      "sortKey": 25500,
+      "stardate": "50975.2 (2373)",
+      "year": "2373",
+      "series": "DS9",
+      "season": 5,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Call to Arms",
+        "DS9 season 5 Call to Arms",
+        "DS9 S5 Call to Arms",
+        "DS9 5x26 story",
+        "DS9 S05 story 26",
+        "DS9 5x26",
+        "DS9 S05E26",
+        "DS9 season 5 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-call-to-arms"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Call to Arms",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Call_to_Arms_(episode)",
+        "stardate": "50975.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "ds9.s5.full-season",
+      "label": "DS9 season 5 full window",
+      "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+      "anchorTo": "ds9.s5.e26.call-to-arms",
+      "sortKeyFrom": 25000,
+      "sortKeyTo": 25500,
+      "aliases": [
+        "DS9 season 5",
+        "Star Trek: Deep Space Nine season 5",
+        "DS9 S5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "ds9.s5.e01.apocalypse-rising.window",
+      "label": "Apocalypse Rising episode window",
+      "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+      "anchorTo": "ds9.s5.e02.the-ship",
+      "sortKeyFrom": 25000,
+      "sortKeyTo": 25020,
+      "aliases": [
+        "during Apocalypse Rising",
+        "after Apocalypse Rising"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising"
+      ]
+    },
+    {
+      "id": "ds9.s5.e02.the-ship.window",
+      "label": "The Ship episode window",
+      "anchorFrom": "ds9.s5.e02.the-ship",
+      "anchorTo": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+      "sortKeyFrom": 25020,
+      "sortKeyTo": 25040,
+      "aliases": [
+        "during The Ship",
+        "after The Ship"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-ship"
+      ]
+    },
+    {
+      "id": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places.window",
+      "label": "Looking for par'Mach in All the Wrong Places episode window",
+      "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+      "anchorTo": "ds9.s5.e04.nor-the-battle-to-the-strong",
+      "sortKeyFrom": 25040,
+      "sortKeyTo": 25060,
+      "aliases": [
+        "during Looking for par'Mach in All the Wrong Places",
+        "after Looking for par'Mach in All the Wrong Places"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-looking-for-parmach-in-all-the-wrong-places"
+      ]
+    },
+    {
+      "id": "ds9.s5.e04.nor-the-battle-to-the-strong.window",
+      "label": "Nor the Battle to the Strong episode window",
+      "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+      "anchorTo": "ds9.s5.e05.the-assignment",
+      "sortKeyFrom": 25060,
+      "sortKeyTo": 25080,
+      "aliases": [
+        "during Nor the Battle to the Strong",
+        "after Nor the Battle to the Strong"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-nor-the-battle-to-the-strong"
+      ]
+    },
+    {
+      "id": "ds9.s5.e05.the-assignment.window",
+      "label": "The Assignment episode window",
+      "anchorFrom": "ds9.s5.e05.the-assignment",
+      "anchorTo": "ds9.s5.e06.trials-and-tribble-ations",
+      "sortKeyFrom": 25080,
+      "sortKeyTo": 25100,
+      "aliases": [
+        "during The Assignment",
+        "after The Assignment"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-assignment"
+      ]
+    },
+    {
+      "id": "ds9.s5.e06.trials-and-tribble-ations.window",
+      "label": "Trials and Tribble-ations episode window",
+      "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+      "anchorTo": "ds9.s5.e07.let-he-who-is-without-sin",
+      "sortKeyFrom": 25100,
+      "sortKeyTo": 25120,
+      "aliases": [
+        "during Trials and Tribble-ations",
+        "after Trials and Tribble-ations"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-trials-and-tribble-ations"
+      ]
+    },
+    {
+      "id": "ds9.s5.e07.let-he-who-is-without-sin.window",
+      "label": "Let He Who Is Without Sin... episode window",
+      "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+      "anchorTo": "ds9.s5.e08.things-past",
+      "sortKeyFrom": 25120,
+      "sortKeyTo": 25140,
+      "aliases": [
+        "during Let He Who Is Without Sin...",
+        "after Let He Who Is Without Sin..."
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-let-he-who-is-without-sin"
+      ]
+    },
+    {
+      "id": "ds9.s5.e08.things-past.window",
+      "label": "Things Past episode window",
+      "anchorFrom": "ds9.s5.e08.things-past",
+      "anchorTo": "ds9.s5.e09.the-ascent",
+      "sortKeyFrom": 25140,
+      "sortKeyTo": 25160,
+      "aliases": [
+        "during Things Past",
+        "after Things Past"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-things-past"
+      ]
+    },
+    {
+      "id": "ds9.s5.e09.the-ascent.window",
+      "label": "The Ascent episode window",
+      "anchorFrom": "ds9.s5.e09.the-ascent",
+      "anchorTo": "ds9.s5.e10.rapture",
+      "sortKeyFrom": 25160,
+      "sortKeyTo": 25180,
+      "aliases": [
+        "during The Ascent",
+        "after The Ascent"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-ascent"
+      ]
+    },
+    {
+      "id": "ds9.s5.e10.rapture.window",
+      "label": "Rapture episode window",
+      "anchorFrom": "ds9.s5.e10.rapture",
+      "anchorTo": "ds9.s5.e11.the-darkness-and-the-light",
+      "sortKeyFrom": 25180,
+      "sortKeyTo": 25200,
+      "aliases": [
+        "during Rapture",
+        "after Rapture"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-rapture"
+      ]
+    },
+    {
+      "id": "ds9.s5.e11.the-darkness-and-the-light.window",
+      "label": "The Darkness and the Light episode window",
+      "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+      "anchorTo": "ds9.s5.e12.the-begotten",
+      "sortKeyFrom": 25200,
+      "sortKeyTo": 25220,
+      "aliases": [
+        "during The Darkness and the Light",
+        "after The Darkness and the Light"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-darkness-and-the-light"
+      ]
+    },
+    {
+      "id": "ds9.s5.e12.the-begotten.window",
+      "label": "The Begotten episode window",
+      "anchorFrom": "ds9.s5.e12.the-begotten",
+      "anchorTo": "ds9.s5.e13.for-the-uniform",
+      "sortKeyFrom": 25220,
+      "sortKeyTo": 25240,
+      "aliases": [
+        "during The Begotten",
+        "after The Begotten"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-begotten"
+      ]
+    },
+    {
+      "id": "ds9.s5.e13.for-the-uniform.window",
+      "label": "For the Uniform episode window",
+      "anchorFrom": "ds9.s5.e13.for-the-uniform",
+      "anchorTo": "ds9.s5.e14.in-purgatorys-shadow",
+      "sortKeyFrom": 25240,
+      "sortKeyTo": 25260,
+      "aliases": [
+        "during For the Uniform",
+        "after For the Uniform"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-for-the-uniform"
+      ]
+    },
+    {
+      "id": "ds9.s5.e14.in-purgatorys-shadow.window",
+      "label": "In Purgatory's Shadow episode window",
+      "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+      "anchorTo": "ds9.s5.e15.by-infernos-light",
+      "sortKeyFrom": 25260,
+      "sortKeyTo": 25280,
+      "aliases": [
+        "during In Purgatory's Shadow",
+        "after In Purgatory's Shadow"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-in-purgatorys-shadow"
+      ]
+    },
+    {
+      "id": "ds9.s5.e15.by-infernos-light.window",
+      "label": "By Inferno's Light episode window",
+      "anchorFrom": "ds9.s5.e15.by-infernos-light",
+      "anchorTo": "ds9.s5.e16.doctor-bashir-i-presume",
+      "sortKeyFrom": 25280,
+      "sortKeyTo": 25300,
+      "aliases": [
+        "during By Inferno's Light",
+        "after By Inferno's Light"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-by-infernos-light"
+      ]
+    },
+    {
+      "id": "ds9.s5.e16.doctor-bashir-i-presume.window",
+      "label": "Doctor Bashir, I Presume episode window",
+      "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+      "anchorTo": "ds9.s5.e17.a-simple-investigation",
+      "sortKeyFrom": 25300,
+      "sortKeyTo": 25320,
+      "aliases": [
+        "during Doctor Bashir, I Presume",
+        "after Doctor Bashir, I Presume"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-doctor-bashir-i-presume"
+      ]
+    },
+    {
+      "id": "ds9.s5.e17.a-simple-investigation.window",
+      "label": "A Simple Investigation episode window",
+      "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+      "anchorTo": "ds9.s5.e18.business-as-usual",
+      "sortKeyFrom": 25320,
+      "sortKeyTo": 25340,
+      "aliases": [
+        "during A Simple Investigation",
+        "after A Simple Investigation"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-a-simple-investigation"
+      ]
+    },
+    {
+      "id": "ds9.s5.e18.business-as-usual.window",
+      "label": "Business as Usual episode window",
+      "anchorFrom": "ds9.s5.e18.business-as-usual",
+      "anchorTo": "ds9.s5.e19.ties-of-blood-and-water",
+      "sortKeyFrom": 25340,
+      "sortKeyTo": 25360,
+      "aliases": [
+        "during Business as Usual",
+        "after Business as Usual"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-business-as-usual"
+      ]
+    },
+    {
+      "id": "ds9.s5.e19.ties-of-blood-and-water.window",
+      "label": "Ties of Blood and Water episode window",
+      "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+      "anchorTo": "ds9.s5.e20.ferengi-love-songs",
+      "sortKeyFrom": 25360,
+      "sortKeyTo": 25380,
+      "aliases": [
+        "during Ties of Blood and Water",
+        "after Ties of Blood and Water"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-ties-of-blood-and-water"
+      ]
+    },
+    {
+      "id": "ds9.s5.e20.ferengi-love-songs.window",
+      "label": "Ferengi Love Songs episode window",
+      "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+      "anchorTo": "ds9.s5.e21.soldiers-of-the-empire",
+      "sortKeyFrom": 25380,
+      "sortKeyTo": 25400,
+      "aliases": [
+        "during Ferengi Love Songs",
+        "after Ferengi Love Songs"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-ferengi-love-songs"
+      ]
+    },
+    {
+      "id": "ds9.s5.e21.soldiers-of-the-empire.window",
+      "label": "Soldiers of the Empire episode window",
+      "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+      "anchorTo": "ds9.s5.e22.children-of-time",
+      "sortKeyFrom": 25400,
+      "sortKeyTo": 25420,
+      "aliases": [
+        "during Soldiers of the Empire",
+        "after Soldiers of the Empire"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-soldiers-of-the-empire"
+      ]
+    },
+    {
+      "id": "ds9.s5.e22.children-of-time.window",
+      "label": "Children of Time episode window",
+      "anchorFrom": "ds9.s5.e22.children-of-time",
+      "anchorTo": "ds9.s5.e23.blaze-of-glory",
+      "sortKeyFrom": 25420,
+      "sortKeyTo": 25440,
+      "aliases": [
+        "during Children of Time",
+        "after Children of Time"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-children-of-time"
+      ]
+    },
+    {
+      "id": "ds9.s5.e23.blaze-of-glory.window",
+      "label": "Blaze of Glory episode window",
+      "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+      "anchorTo": "ds9.s5.e24.empok-nor",
+      "sortKeyFrom": 25440,
+      "sortKeyTo": 25460,
+      "aliases": [
+        "during Blaze of Glory",
+        "after Blaze of Glory"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-blaze-of-glory"
+      ]
+    },
+    {
+      "id": "ds9.s5.e24.empok-nor.window",
+      "label": "Empok Nor episode window",
+      "anchorFrom": "ds9.s5.e24.empok-nor",
+      "anchorTo": "ds9.s5.e25.in-the-cards",
+      "sortKeyFrom": 25460,
+      "sortKeyTo": 25480,
+      "aliases": [
+        "during Empok Nor",
+        "after Empok Nor"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-empok-nor"
+      ]
+    },
+    {
+      "id": "ds9.s5.e25.in-the-cards.window",
+      "label": "In the Cards episode window",
+      "anchorFrom": "ds9.s5.e25.in-the-cards",
+      "anchorTo": "ds9.s5.e26.call-to-arms",
+      "sortKeyFrom": 25480,
+      "sortKeyTo": 25500,
+      "aliases": [
+        "during In the Cards",
+        "after In the Cards"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-in-the-cards"
+      ]
+    }
+  ]
+}

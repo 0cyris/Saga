@@ -1,0 +1,875 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_nami_introduces_herself_through_theft_and_navigation_skill_007",
+      "title": "Nami Enters As A Pirate-Targeting Thief-Navigator",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.nami-and-treasure",
+        "validToAnchor": "op.orange-town.orange-town-civilians",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2128,
+        "sortKeyTo": 2256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Nami Enters As A Pirate-Targeting Thief-Navigator"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:grand-line-map",
+          "op:buggy-pirates"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "Grand Line map",
+          "treasure"
+        ],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "pirate thief",
+          "navigator value",
+          "Grand Line map"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "item:grand-line-map",
+        "item:treasure",
+        "topic:pirate-thief",
+        "topic:navigation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Grand Line map",
+            "Buggy Pirates"
+          ],
+          "topicsAny": [
+            "pirate thief",
+            "navigator value",
+            "Grand Line map"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Grand Line map",
+            "Buggy Pirates",
+            "Orange Town",
+            "treasure",
+            "pirate thief",
+            "navigator value",
+            "burglar",
+            "navigator",
+            "map",
+            "rob pirates",
+            "Nami Enters As A Pirate-Targeting Thief-Navigator",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nami first operates as a pirate-targeting thief with navigation skill, stealing from Buggy's men and treating maps and treasure as leverage rather than crew property.",
+        "injection": "Use this Nami snapshot before formal trust: she is clever, practical, anti-pirate, and valuable because she understands maps and sea routes in ways Luffy and Zoro do not.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_she_hates_pirates_while_still_exploiting_pirate_treasure_008",
+      "title": "Nami Hates Pirates But Still Uses Pirate Wealth",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.nami-and-treasure",
+        "validToAnchor": "op.orange-town.orange-town-civilians",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2128,
+        "sortKeyTo": 2256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Nami Hates Pirates But Still Uses Pirate Wealth"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:treasure",
+          "op:buggy-pirates"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "treasure"
+        ],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "anti-pirate stance",
+          "pirate treasure",
+          "survival bargain"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "item:treasure",
+        "faction:buggy-pirates",
+        "topic:anti-pirate-nami",
+        "topic:pirate-thief"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "treasure",
+            "Buggy Pirates"
+          ],
+          "topicsAny": [
+            "anti-pirate stance",
+            "pirate treasure",
+            "survival bargain"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "treasure",
+            "Buggy Pirates",
+            "Orange Town",
+            "anti-pirate stance",
+            "pirate treasure",
+            "survival bargain",
+            "hates pirates",
+            "gold",
+            "treasure bag",
+            "transactional",
+            "Nami Hates Pirates But Still Uses Pirate Wealth",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nami hates pirates in Orange Town, but she still exploits pirate treasure, pirate maps, and pirate rivalries when doing so helps her survive or profit.",
+        "injection": "Use Nami's cooperation as transactional, not ideological: she can work with Luffy or deceive Buggy without softening her stated hatred of pirates.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_her_hidden_money_motive_should_not_reveal_arlong_park_too_early_009",
+      "title": "Nami's Money Goal Is Private During Orange Town",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.nami-and-treasure",
+        "validToAnchor": "op.orange-town.orange-town-civilians",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2128,
+        "sortKeyTo": 2256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Nami's Money Goal Is Private During Orange Town"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:treasure"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "treasure"
+        ],
+        "factions": [],
+        "topics": [
+          "money goal",
+          "Nami secret",
+          "anti-spoiler boundary"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "item:treasure",
+        "topic:knowledge-gate",
+        "topic:nami-secret",
+        "topic:anti-pirate-nami"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "treasure"
+          ],
+          "topicsAny": [
+            "money goal",
+            "Nami secret",
+            "anti-spoiler boundary"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "treasure",
+            "Orange Town",
+            "money goal",
+            "Nami secret",
+            "anti-spoiler boundary",
+            "100,000,000",
+            "certain village",
+            "private motive",
+            "hidden reason",
+            "Nami's Money Goal Is Private During Orange Town",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "In Orange Town, Nami's drive to gather 100,000,000 should remain private or only vaguely tied to a certain village; the true reason is not available yet.",
+        "injection": "Use this as Nami's anti-spoiler gate: she may show urgency about money, but scenes before Arlong Park should not explain the people, place, or coercion behind that goal.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat.",
+          "Favor the anime opacity if a scene would otherwise over-explain Nami's money motive."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_nami_bargains_with_both_luffy_and_buggy_when_survival_demands_it_010",
+      "title": "Nami Bargains Across Enemy Lines To Survive",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.nami-and-treasure",
+        "validToAnchor": "op.orange-town.orange-town-civilians",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2128,
+        "sortKeyTo": 2256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Nami Bargains Across Enemy Lines To Survive"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:monkey-d-luffy",
+          "op:buggy"
+        ],
+        "characters": [
+          "Nami",
+          "Monkey D. Luffy",
+          "Buggy"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [],
+        "factions": [
+          "Buggy Pirates"
+        ],
+        "topics": [
+          "temporary bargain",
+          "survival deception",
+          "provisional alliance"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:monkey-d-luffy",
+        "character:buggy",
+        "topic:provisional-alliance",
+        "topic:pirate-thief"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Buggy"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Buggy"
+          ],
+          "topicsAny": [
+            "temporary bargain",
+            "survival deception",
+            "provisional alliance"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Buggy",
+            "Orange Town",
+            "Buggy Pirates",
+            "temporary bargain",
+            "survival deception",
+            "provisional alliance",
+            "bargain",
+            "pretend to join",
+            "cage",
+            "conscience",
+            "Nami Bargains Across Enemy Lines To Survive",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Nami bargains with Luffy, pretends to cooperate with Buggy, and changes tactics quickly when survival or conscience demands it.",
+        "injection": "Use Nami as tactically flexible in Orange Town: she can lie, bargain, stall, or switch sides, but her decision not to kill Luffy marks a real moral limit.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_orange_town_maps_and_route_knowledge_make_her_valuable_before_formal_crew_trust_011",
+      "title": "Grand Line Map Makes Nami Valuable Before Trust",
+      "kind": "reference_note",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.orange-town.nami-and-treasure",
+        "validToAnchor": "op.orange-town.orange-town-civilians",
+        "arc": "Orange Town Arc",
+        "arcId": "orange-town",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "8-21",
+        "episode": "4-8",
+        "sortKeyFrom": 2128,
+        "sortKeyTo": 2256,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orange Town Arc: Grand Line Map Makes Nami Valuable Before Trust"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "orange-town",
+          "label": "Orange Town Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:nami",
+          "op:grand-line-map",
+          "op:monkey-d-luffy",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Nami",
+          "Monkey D. Luffy",
+          "Roronoa Zoro"
+        ],
+        "locations": [
+          "Orange Town"
+        ],
+        "objects": [
+          "Grand Line map"
+        ],
+        "factions": [],
+        "topics": [
+          "navigation gap",
+          "Grand Line map",
+          "crew utility before trust"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:orange-town",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:nami",
+        "character:monkey-d-luffy",
+        "character:roronoa-zoro",
+        "item:grand-line-map",
+        "topic:navigation",
+        "topic:provisional-alliance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Nami",
+            "Grand Line map",
+            "Monkey D. Luffy",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "navigation gap",
+            "Grand Line map",
+            "crew utility before trust"
+          ],
+          "keywordsAny": [
+            "Nami",
+            "Grand Line map",
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Orange Town",
+            "navigation gap",
+            "crew utility before trust",
+            "Grand Line",
+            "navigator",
+            "lost",
+            "route",
+            "Grand Line Map Makes Nami Valuable Before Trust",
+            "Orange Town Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Orange Town Arc, manga chapters 8-21, anime episodes 4-8, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Grand Line map and Nami's route knowledge make her valuable immediately because Luffy and Zoro are lost and lack practical navigation skill.",
+        "injection": "Use Nami's map knowledge as functional leverage: Luffy wants a navigator, Zoro recognizes the practical gap, and Nami knows she has something they need before trust exists.",
+        "constraints": [
+          "Keep this card inside Orange Town Arc, manga chapters 8-21, anime episodes 4-8.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character status into this arc-local card.",
+          "Do not reveal Arlong, Bellemere, Cocoyasi, or the true reason for Nami collecting money before Arlong Park.",
+          "Do not expand Buggy and Shanks history beyond the Orange Town grudge; omit Roger Pirates, Rayleigh, Impel Down, Marineford, Cross Guild, and later Buggy status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Orange Town Arc",
+        "chapterRange": "Manga chapters 8-21",
+        "episodeRange": "Anime episodes 4-8",
+        "reference": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Orange Town Arc source page and Saga authoring guidance; written as a retrieval-aware card rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-orange-town",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "orange-town-runtime-lore"
+        }
+      }
+    }
+  ]
+}

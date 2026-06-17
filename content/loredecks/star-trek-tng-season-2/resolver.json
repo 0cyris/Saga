@@ -1,0 +1,1259 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: The Next Generation season 2 Context from episode titles, story rows, runtime aliases, and common TNG S2 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer TNG season 2 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "the child",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "tng season 2 the child",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "tng s2 the child",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "tng 2x01 story",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "tng s02 story 01",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "tng 2x01",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "tng s02e01",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 1",
+      "result": {
+        "anchorFrom": "tng.s2.e01.the-child",
+        "label": "The Child"
+      }
+    },
+    {
+      "pattern": "where silence has lease",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "tng season 2 where silence has lease",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "tng s2 where silence has lease",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "tng 2x02 story",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "tng s02 story 02",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "tng 2x02",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "tng s02e02",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 2",
+      "result": {
+        "anchorFrom": "tng.s2.e02.where-silence-has-lease",
+        "label": "Where Silence Has Lease"
+      }
+    },
+    {
+      "pattern": "elementary, dear data",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "tng season 2 elementary, dear data",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "tng s2 elementary, dear data",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "tng 2x03 story",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "tng s02 story 03",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "tng 2x03",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "tng s02e03",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 3",
+      "result": {
+        "anchorFrom": "tng.s2.e03.elementary-dear-data",
+        "label": "Elementary, Dear Data"
+      }
+    },
+    {
+      "pattern": "the outrageous okona",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "tng season 2 the outrageous okona",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "tng s2 the outrageous okona",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "tng 2x04 story",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "tng s02 story 04",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "tng 2x04",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "tng s02e04",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 4",
+      "result": {
+        "anchorFrom": "tng.s2.e04.the-outrageous-okona",
+        "label": "The Outrageous Okona"
+      }
+    },
+    {
+      "pattern": "loud as a whisper",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "tng season 2 loud as a whisper",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "tng s2 loud as a whisper",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "tng 2x05 story",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "tng s02 story 05",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "tng 2x05",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "tng s02e05",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 5",
+      "result": {
+        "anchorFrom": "tng.s2.e05.loud-as-a-whisper",
+        "label": "Loud As A Whisper"
+      }
+    },
+    {
+      "pattern": "the schizoid man",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "tng season 2 the schizoid man",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "tng s2 the schizoid man",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "tng 2x06 story",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "tng s02 story 06",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "tng 2x06",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "tng s02e06",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 6",
+      "result": {
+        "anchorFrom": "tng.s2.e06.the-schizoid-man",
+        "label": "The Schizoid Man"
+      }
+    },
+    {
+      "pattern": "unnatural selection",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "tng season 2 unnatural selection",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "tng s2 unnatural selection",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "tng 2x07 story",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "tng s02 story 07",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "tng 2x07",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "tng s02e07",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 7",
+      "result": {
+        "anchorFrom": "tng.s2.e07.unnatural-selection",
+        "label": "Unnatural Selection"
+      }
+    },
+    {
+      "pattern": "a matter of honor",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "tng season 2 a matter of honor",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "tng s2 a matter of honor",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "tng 2x08 story",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "tng s02 story 08",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "tng 2x08",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "tng s02e08",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 8",
+      "result": {
+        "anchorFrom": "tng.s2.e08.a-matter-of-honor",
+        "label": "A Matter Of Honor"
+      }
+    },
+    {
+      "pattern": "the measure of a man",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "tng season 2 the measure of a man",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "tng s2 the measure of a man",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "tng 2x09 story",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "tng s02 story 09",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "tng 2x09",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "tng s02e09",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 9",
+      "result": {
+        "anchorFrom": "tng.s2.e09.the-measure-of-a-man",
+        "label": "The Measure Of A Man"
+      }
+    },
+    {
+      "pattern": "the dauphin",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "tng season 2 the dauphin",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "tng s2 the dauphin",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "tng 2x10 story",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "tng s02 story 10",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "tng 2x10",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "tng s02e10",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 10",
+      "result": {
+        "anchorFrom": "tng.s2.e10.the-dauphin",
+        "label": "The Dauphin"
+      }
+    },
+    {
+      "pattern": "contagion",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "tng season 2 contagion",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "tng s2 contagion",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "tng 2x11 story",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "tng s02 story 11",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "tng 2x11",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "tng s02e11",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 11",
+      "result": {
+        "anchorFrom": "tng.s2.e11.contagion",
+        "label": "Contagion"
+      }
+    },
+    {
+      "pattern": "the royale",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "tng season 2 the royale",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "tng s2 the royale",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "tng 2x12 story",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "tng s02 story 12",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "tng 2x12",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "tng s02e12",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 12",
+      "result": {
+        "anchorFrom": "tng.s2.e12.the-royale",
+        "label": "The Royale"
+      }
+    },
+    {
+      "pattern": "time squared",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "tng season 2 time squared",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "tng s2 time squared",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "tng 2x13 story",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "tng s02 story 13",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "tng 2x13",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "tng s02e13",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 13",
+      "result": {
+        "anchorFrom": "tng.s2.e13.time-squared",
+        "label": "Time Squared"
+      }
+    },
+    {
+      "pattern": "the icarus factor",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "tng season 2 the icarus factor",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "tng s2 the icarus factor",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "tng 2x14 story",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "tng s02 story 14",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "tng 2x14",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "tng s02e14",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 14",
+      "result": {
+        "anchorFrom": "tng.s2.e14.the-icarus-factor",
+        "label": "The Icarus Factor"
+      }
+    },
+    {
+      "pattern": "pen pals",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "tng season 2 pen pals",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "tng s2 pen pals",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "tng 2x15 story",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "tng s02 story 15",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "tng 2x15",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "tng s02e15",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 15",
+      "result": {
+        "anchorFrom": "tng.s2.e15.pen-pals",
+        "label": "Pen Pals"
+      }
+    },
+    {
+      "pattern": "q who",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "tng season 2 q who",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "tng s2 q who",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "tng 2x16 story",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "tng s02 story 16",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "tng 2x16",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "tng s02e16",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 16",
+      "result": {
+        "anchorFrom": "tng.s2.e16.q-who",
+        "label": "Q Who"
+      }
+    },
+    {
+      "pattern": "samaritan snare",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "tng season 2 samaritan snare",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "tng s2 samaritan snare",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "tng 2x17 story",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "tng s02 story 17",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "tng 2x17",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "tng s02e17",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 17",
+      "result": {
+        "anchorFrom": "tng.s2.e17.samaritan-snare",
+        "label": "Samaritan Snare"
+      }
+    },
+    {
+      "pattern": "up the long ladder",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "tng season 2 up the long ladder",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "tng s2 up the long ladder",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "tng 2x18 story",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "tng s02 story 18",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "tng 2x18",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "tng s02e18",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 18",
+      "result": {
+        "anchorFrom": "tng.s2.e18.up-the-long-ladder",
+        "label": "Up The Long Ladder"
+      }
+    },
+    {
+      "pattern": "manhunt",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "tng season 2 manhunt",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "tng s2 manhunt",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "tng 2x19 story",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "tng s02 story 19",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "tng 2x19",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "tng s02e19",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 19",
+      "result": {
+        "anchorFrom": "tng.s2.e19.manhunt",
+        "label": "Manhunt"
+      }
+    },
+    {
+      "pattern": "the emissary",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "tng season 2 the emissary",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "tng s2 the emissary",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "tng 2x20 story",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "tng s02 story 20",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "tng 2x20",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "tng s02e20",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 20",
+      "result": {
+        "anchorFrom": "tng.s2.e20.the-emissary",
+        "label": "The Emissary"
+      }
+    },
+    {
+      "pattern": "peak performance",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "tng season 2 peak performance",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "tng s2 peak performance",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "tng 2x21 story",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "tng s02 story 21",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "tng 2x21",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "tng s02e21",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 21",
+      "result": {
+        "anchorFrom": "tng.s2.e21.peak-performance",
+        "label": "Peak Performance"
+      }
+    },
+    {
+      "pattern": "shades of gray",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    },
+    {
+      "pattern": "tng season 2 shades of gray",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    },
+    {
+      "pattern": "tng s2 shades of gray",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    },
+    {
+      "pattern": "tng 2x22 story",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    },
+    {
+      "pattern": "tng s02 story 22",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    },
+    {
+      "pattern": "tng 2x22",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    },
+    {
+      "pattern": "tng s02e22",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    },
+    {
+      "pattern": "tng season 2 episode 22",
+      "result": {
+        "anchorFrom": "tng.s2.e22.shades-of-gray",
+        "label": "Shades of Gray"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

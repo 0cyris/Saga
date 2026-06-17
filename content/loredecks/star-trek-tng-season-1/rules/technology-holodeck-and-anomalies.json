@@ -1,0 +1,1726 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_traveler-warp-thought-link",
+      "title": "The Traveler links warp travel with thought and perception",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 71,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e05.where-no-one-has-gone-before",
+        "validToAnchor": "tng.s1.e06.lonely-among-us",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 10080,
+        "sortKeyTo": 10100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Where No One Has Gone Before",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e05.where-no-one-has-gone-before",
+          "label": "Where No One Has Gone Before",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:the-traveler",
+          "st:wesley-crusher",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "The Traveler",
+          "Wesley Crusher",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Traveler",
+          "warp thought",
+          "Wesley aptitude"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-where-no-one-has-gone-before",
+        "character:the-traveler",
+        "character:wesley-crusher",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:traveler",
+        "topic:warp-thought",
+        "topic:wesley-aptitude"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "The Traveler",
+            "Wesley Crusher",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "The Traveler",
+            "Wesley Crusher",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Traveler",
+            "warp thought",
+            "Wesley aptitude"
+          ],
+          "keywordsAny": [
+            "The Traveler",
+            "Wesley Crusher",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Traveler",
+            "warp thought",
+            "Wesley aptitude",
+            "Where No One Has Gone Before",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Where No One Has Gone Before shows the Traveler amplifying the Enterprise beyond normal space, where thought and reality interact in ways Starfleet does not understand.",
+        "injection": "Use the Traveler incident as a rare space-thought anomaly. Do not generalize it into routine warp capability or reveal later Wesley outcomes before their windows.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Where No One Has Gone Before",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Where_No_One_Has_Gone_Before_(episode)",
+        "stardate": "41263.1-41263.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_picard-maneuver-established",
+      "title": "The Picard Maneuver is a known tactical legacy from Stargazer command",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e08.the-battle",
+        "validToAnchor": "tng.s1.e09.hide-and-q",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 10140,
+        "sortKeyTo": 10160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Battle",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e08.the-battle",
+          "label": "The Battle",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Picard Maneuver",
+          "Stargazer",
+          "warp tactic"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-battle",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:picard-maneuver",
+        "topic:stargazer",
+        "topic:warp-tactic"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Picard Maneuver",
+            "Stargazer",
+            "warp tactic"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Picard Maneuver",
+            "Stargazer",
+            "warp tactic",
+            "The Battle",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Battle identifies the Picard Maneuver as a past warp-tactical trick associated with Picard and the Stargazer, not an Enterprise-D standard attack pattern.",
+        "injection": "Use the Picard Maneuver as a specific legacy tactic from Stargazer history. Do not make it a routine Enterprise-D combat solution.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Battle",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Battle_(episode)",
+        "stardate": "41723.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_dixon-hill-holodeck-danger",
+      "title": "The Big Goodbye proves holodeck fiction can become operationally dangerous",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e11.the-big-goodbye",
+        "validToAnchor": "tng.s1.e12.datalore",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 10200,
+        "sortKeyTo": 10220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Big Goodbye",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e11.the-big-goodbye",
+          "label": "The Big Goodbye",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Dixon Hill",
+          "holodeck safety",
+          "The Big Goodbye"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-big-goodbye",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:dixon-hill",
+        "topic:holodeck-safety",
+        "topic:the-big-goodbye"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Dixon Hill",
+            "holodeck safety",
+            "The Big Goodbye"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Dixon Hill",
+            "holodeck safety",
+            "The Big Goodbye",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Dixon Hill malfunction traps Picard and guests in a program where safety assumptions break down, making holodeck risk a practical Enterprise-D rule.",
+        "injection": "Use early TNG holodeck scenes with caution: fictional settings can trap or endanger users when ship systems fail. Do not treat holodeck danger as impossible just because it is simulated.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Big Goodbye",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Big_Goodbye_(episode)",
+        "stardate": "41997.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_bynars-steal-enterprise-for-planetary-repair",
+      "title": "11001001 establishes Bynars as computer-linked specialists with desperate motives",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e14.11001001",
+        "validToAnchor": "tng.s1.e15.too-short-a-season",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 10260,
+        "sortKeyTo": 10280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: 11001001",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e14.11001001",
+          "label": "11001001",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:bynars",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Bynars",
+          "Starfleet"
+        ],
+        "topics": [
+          "Bynars",
+          "Enterprise hijack",
+          "computer repair"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-11001001",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "faction:bynars",
+        "faction:starfleet",
+        "topic:bynars",
+        "topic:enterprise-hijack",
+        "topic:computer-repair"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Bynars",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Bynars",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Bynars",
+            "Enterprise hijack",
+            "computer repair"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Bynars",
+            "Starfleet",
+            "Enterprise hijack",
+            "computer repair",
+            "11001001",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Bynars hijack the Enterprise to save their homeworld computer system, making them a high-competence cybernetic culture rather than ordinary saboteurs.",
+        "injection": "When Bynars appear in season 1 context, write them as computer-dependent specialists whose deception is tied to survival of their planetary system.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "11001001",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/11001001_(episode)",
+        "stardate": "41365.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_minuet-holodeck-social-sophistication",
+      "title": "Minuet shows the holodeck can create socially persuasive simulated people",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e14.11001001",
+        "validToAnchor": "tng.s1.e15.too-short-a-season",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 10260,
+        "sortKeyTo": 10280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: 11001001",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e14.11001001",
+          "label": "11001001",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:jean-luc-picard",
+          "st:starfleet",
+          "st:bynars"
+        ],
+        "characters": [
+          "William Riker",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bynars"
+        ],
+        "topics": [
+          "Minuet",
+          "holodeck simulation",
+          "Bynars"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-11001001",
+        "character:william-riker",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "faction:bynars",
+        "topic:minuet",
+        "topic:holodeck-simulation",
+        "topic:bynars"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bynars"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Bynars"
+          ],
+          "topicsAny": [
+            "Minuet",
+            "holodeck simulation",
+            "Bynars"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Bynars",
+            "Minuet",
+            "holodeck simulation",
+            "11001001",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Minuet is convincing enough to emotionally affect Riker, making the 11001001 holodeck incident a social-simulation gate as well as a ship-control plot.",
+        "injection": "Use Minuet as an early sign of holodeck social sophistication. Do not treat her as a free-standing person beyond this episode-local program context.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "11001001",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/11001001_(episode)",
+        "stardate": "41365.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_geordi-command-arsenal",
+      "title": "The Arsenal of Freedom gives Geordi a command-pressure episode",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e20.the-arsenal-of-freedom",
+        "validToAnchor": "tng.s1.e21.symbiosis",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 10380,
+        "sortKeyTo": 10400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Arsenal of Freedom",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e20.the-arsenal-of-freedom",
+          "label": "The Arsenal of Freedom",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Geordi command",
+          "Minos",
+          "Arsenal of Freedom"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-arsenal-of-freedom",
+        "character:geordi-la-forge",
+        "faction:starfleet",
+        "topic:geordi-command",
+        "topic:minos",
+        "topic:arsenal-of-freedom"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Geordi command",
+            "Minos",
+            "Arsenal of Freedom"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Starfleet",
+            "Geordi command",
+            "Minos",
+            "Arsenal of Freedom",
+            "The Arsenal of Freedom",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "On Minos, Geordi commands the Enterprise during a crisis while senior officers are trapped below, showing early command competence before his engineering promotion era.",
+        "injection": "Use Arsenal of Freedom for season 1 Geordi competence under pressure. Do not conflate it with later chief-engineer authority.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Arsenal of Freedom",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Arsenal_of_Freedom_(episode)",
+        "stardate": "41798.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_minos-weapons-system-adapts",
+      "title": "The Minos arsenal is an adaptive automated weapons-sales system",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 47,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e20.the-arsenal-of-freedom",
+        "validToAnchor": "tng.s1.e21.symbiosis",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 10380,
+        "sortKeyTo": 10400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Arsenal of Freedom",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e20.the-arsenal-of-freedom",
+          "label": "The Arsenal of Freedom",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:geordi-la-forge",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Geordi La Forge"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Minos",
+          "adaptive weapon",
+          "arms merchant"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-arsenal-of-freedom",
+        "character:jean-luc-picard",
+        "character:geordi-la-forge",
+        "faction:starfleet",
+        "topic:minos",
+        "topic:adaptive-weapon",
+        "topic:arms-merchant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Geordi La Forge"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Geordi La Forge",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Minos",
+            "adaptive weapon",
+            "arms merchant"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Geordi La Forge",
+            "Starfleet",
+            "Minos",
+            "adaptive weapon",
+            "arms merchant",
+            "The Arsenal of Freedom",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Minos system keeps escalating because it is an automated arms demonstration built to adapt against buyers and intruders.",
+        "injection": "Use Minos as an episode-local adaptive weapon rule. Do not generalize it into recurring Federation technology.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Arsenal of Freedom",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Arsenal_of_Freedom_(episode)",
+        "stardate": "41798.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_holodeck-season-one-capability-boundary",
+      "title": "Season 1 holodecks can be immersive but remain failure-prone",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e11.the-big-goodbye",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 10200,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e11.the-big-goodbye",
+          "label": "The Big Goodbye",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "holodeck capability",
+          "Dixon Hill",
+          "Minuet"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-big-goodbye",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:holodeck-capability",
+        "topic:dixon-hill",
+        "topic:minuet"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "holodeck capability",
+            "Dixon Hill",
+            "Minuet"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet",
+            "holodeck capability",
+            "Dixon Hill",
+            "Minuet",
+            "The Big Goodbye",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Big Goodbye and 11001001 establish highly immersive holodeck characters and environments while also showing safety and control failures.",
+        "injection": "Use season 1 holodecks as convincing and useful but not perfectly safe. Do not import later Moriarty sentience or Vic Fontaine-style social permanence.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Big Goodbye",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Big_Goodbye_(episode)",
+        "stardate": "41997.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_transporter-and-pattern-risk-locality",
+      "title": "Transporter events can solve crises but should stay episode-specific",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e06.lonely-among-us",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e06.lonely-among-us",
+          "label": "Lonely Among Us",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:beverly-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "transporter limits",
+          "episode science",
+          "pattern risk"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-lonely-among-us",
+        "character:data",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "topic:transporter-limits",
+        "topic:episode-science",
+        "topic:pattern-risk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Beverly Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "transporter limits",
+            "episode science",
+            "pattern risk"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Beverly Crusher",
+            "Starfleet",
+            "transporter limits",
+            "episode science",
+            "pattern risk",
+            "Lonely Among Us",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 uses transporters in medical, possession, and crisis resolutions, but those solutions depend on local conditions rather than universal miracle repair.",
+        "injection": "Do not use the transporter as a generic reset button. Tie transporter fixes to the specific episode science and constraints.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Lonely Among Us",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lonely_Among_Us_(episode)",
+        "stardate": "41249.3-41249.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_prime-directive-not-simple-noninterference",
+      "title": "Season 1 treats the Prime Directive as judgment, not passivity",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e07.justice",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 10120,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e07.justice",
+          "label": "Justice",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Prime Directive",
+          "noninterference",
+          "ethical command"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-justice",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:prime-directive",
+        "topic:noninterference",
+        "topic:ethical-command"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Prime Directive",
+            "noninterference",
+            "ethical command"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Prime Directive",
+            "noninterference",
+            "ethical command",
+            "Justice",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Justice, Symbiosis, and Home Soil show Picard weighing noninterference against proportionality, truth, and recognition of sentience.",
+        "injection": "Write Prime Directive scenes as command judgment under constraints. Picard may refuse direct rule-breaking while still seeking ethical ways to reduce harm.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Justice",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Justice_(episode)",
+        "stardate": "41255.6-41255.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

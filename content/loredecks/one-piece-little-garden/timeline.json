@@ -1,0 +1,565 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Manga-main Little Garden deck covering prehistoric island hazards, Dorry and Brogy honor, Baroque Works sabotage, wax and color tactics, Sanji route recovery, Nami illness, and Elbaf boundaries.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.little-garden.little-garden",
+      "label": "Little Garden Arc: Island ecology and geography",
+      "sortKey": 10000,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Island ecology and geography"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.dorry-brogy-and-giant-honor",
+      "label": "Little Garden Arc: Dorry, Brogy, and giant honor",
+      "sortKey": 10100,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Dorry, Brogy, and giant honor"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.baroque-works-agents",
+      "label": "Little Garden Arc: Baroque Works agents",
+      "sortKey": 10200,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Baroque Works agents"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.straw-hat-pairings",
+      "label": "Little Garden Arc: Straw Hat pairings",
+      "sortKey": 10300,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Straw Hat pairings"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.duel-sabotage-and-battle",
+      "label": "Little Garden Arc: Duel sabotage and battle",
+      "sortKey": 10400,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Duel sabotage and battle"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.wax-set-pieces-and-tactics",
+      "label": "Little Garden Arc: Wax set pieces and tactics",
+      "sortKey": 10500,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Wax set pieces and tactics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.nami-illness-bridge",
+      "label": "Little Garden Arc: Nami illness bridge",
+      "sortKey": 10600,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Nami illness bridge"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.elbaf-and-world-hooks",
+      "label": "Little Garden Arc: Elbaf and world hooks",
+      "sortKey": 10700,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Elbaf and world hooks"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.timeline-and-spoiler-gates",
+      "label": "Little Garden Arc: Timeline and spoiler gates",
+      "sortKey": 10800,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.little-garden.after",
+      "label": "Little Garden Arc: aftermath boundary",
+      "sortKey": 10999,
+      "arc": "Little Garden Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "115-129",
+      "episode": "70-77",
+      "aliases": [
+        "Little Garden Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Little Garden Arc",
+        "chapterRange": "Manga chapters 115-129",
+        "episodeRange": "Anime episodes 70-77",
+        "reference": "https://onepiece.fandom.com/wiki/Little_Garden_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Little Garden Arc source page and Saga authoring guidance; written as island-hazard, honor, sabotage, and medical-urgency gates rather than an arc recap."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.little-garden.window.full",
+      "label": "Little Garden Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.little-garden",
+      "anchorTo": "op.little-garden.after",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 10999,
+      "aliases": [
+        "Little Garden Arc",
+        "little-garden"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.little-garden",
+      "label": "Little Garden Arc: Island ecology and geography",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.little-garden",
+      "anchorTo": "op.little-garden.dorry-brogy-and-giant-honor",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 10100,
+      "aliases": [
+        "Island ecology and geography"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.dorry-brogy-and-giant-honor",
+      "label": "Little Garden Arc: Dorry, Brogy, and giant honor",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.dorry-brogy-and-giant-honor",
+      "anchorTo": "op.little-garden.baroque-works-agents",
+      "sortKeyFrom": 10100,
+      "sortKeyTo": 10200,
+      "aliases": [
+        "Dorry, Brogy, and giant honor"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.baroque-works-agents",
+      "label": "Little Garden Arc: Baroque Works agents",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.baroque-works-agents",
+      "anchorTo": "op.little-garden.straw-hat-pairings",
+      "sortKeyFrom": 10200,
+      "sortKeyTo": 10300,
+      "aliases": [
+        "Baroque Works agents"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.straw-hat-pairings",
+      "label": "Little Garden Arc: Straw Hat pairings",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.straw-hat-pairings",
+      "anchorTo": "op.little-garden.duel-sabotage-and-battle",
+      "sortKeyFrom": 10300,
+      "sortKeyTo": 10400,
+      "aliases": [
+        "Straw Hat pairings"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.duel-sabotage-and-battle",
+      "label": "Little Garden Arc: Duel sabotage and battle",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.duel-sabotage-and-battle",
+      "anchorTo": "op.little-garden.wax-set-pieces-and-tactics",
+      "sortKeyFrom": 10400,
+      "sortKeyTo": 10500,
+      "aliases": [
+        "Duel sabotage and battle"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.wax-set-pieces-and-tactics",
+      "label": "Little Garden Arc: Wax set pieces and tactics",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.wax-set-pieces-and-tactics",
+      "anchorTo": "op.little-garden.nami-illness-bridge",
+      "sortKeyFrom": 10500,
+      "sortKeyTo": 10600,
+      "aliases": [
+        "Wax set pieces and tactics"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.nami-illness-bridge",
+      "label": "Little Garden Arc: Nami illness bridge",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.nami-illness-bridge",
+      "anchorTo": "op.little-garden.elbaf-and-world-hooks",
+      "sortKeyFrom": 10600,
+      "sortKeyTo": 10700,
+      "aliases": [
+        "Nami illness bridge"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.elbaf-and-world-hooks",
+      "label": "Little Garden Arc: Elbaf and world hooks",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.elbaf-and-world-hooks",
+      "anchorTo": "op.little-garden.timeline-and-spoiler-gates",
+      "sortKeyFrom": 10700,
+      "sortKeyTo": 10800,
+      "aliases": [
+        "Elbaf and world hooks"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.little-garden.window.timeline-and-spoiler-gates",
+      "label": "Little Garden Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.little-garden.timeline-and-spoiler-gates",
+      "anchorTo": "op.little-garden.after",
+      "sortKeyFrom": 10800,
+      "sortKeyTo": 10999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:little-garden",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "arabasta"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "little-garden"
+      ]
+    }
+  ]
+}

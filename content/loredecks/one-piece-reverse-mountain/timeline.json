@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "one_piece_east_blue_arabasta",
+  "summary": "Manga-main Reverse Mountain deck covering Grand Line entry mechanics, Laboon and Crocus at Twin Cape, Log Pose basics, and the first suspicious Baroque Works route hook.",
+  "axes": [
+    {
+      "id": "saga",
+      "type": "phase",
+      "label": "Saga"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Arc"
+    },
+    {
+      "id": "chapter",
+      "type": "chapter",
+      "label": "Manga Chapter Range"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Anime Episode Range"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Story Event"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "op.reverse-mountain.reverse-mountain",
+      "label": "Reverse Mountain Arc: Grand Line entry",
+      "sortKey": 8000,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: Grand Line entry"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.reverse-mountain.laboon-and-crocus",
+      "label": "Reverse Mountain Arc: Laboon and Crocus",
+      "sortKey": 8128,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: Laboon and Crocus"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.reverse-mountain.miss-wednesday-and-mr-9",
+      "label": "Reverse Mountain Arc: Miss Wednesday and Mr. 9",
+      "sortKey": 8256,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: Miss Wednesday and Mr. 9"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.reverse-mountain.straw-hats-at-twin-cape",
+      "label": "Reverse Mountain Arc: Straw Hats at Twin Cape",
+      "sortKey": 8384,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: Straw Hats at Twin Cape"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.reverse-mountain.geography-and-navigation-rules",
+      "label": "Reverse Mountain Arc: Geography and navigation rules",
+      "sortKey": 8512,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: Geography and navigation rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.reverse-mountain.baroque-works-hook",
+      "label": "Reverse Mountain Arc: Baroque Works hook",
+      "sortKey": 8640,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: Baroque Works hook"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.reverse-mountain.timeline-and-spoiler-gates",
+      "label": "Reverse Mountain Arc: Timeline and spoiler gates",
+      "sortKey": 8768,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    },
+    {
+      "id": "op.reverse-mountain.after",
+      "label": "Reverse Mountain Arc: aftermath boundary",
+      "sortKey": 8999,
+      "arc": "Reverse Mountain Arc",
+      "phase": "Arabasta Saga",
+      "chapter": "101-105",
+      "episode": "62-63",
+      "aliases": [
+        "Reverse Mountain Arc: aftermath boundary"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ],
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "op.reverse-mountain.window.full",
+      "label": "Reverse Mountain Arc",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.reverse-mountain",
+      "anchorTo": "op.reverse-mountain.after",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 8999,
+      "aliases": [
+        "Reverse Mountain Arc",
+        "reverse-mountain"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.reverse-mountain.window.reverse-mountain",
+      "label": "Reverse Mountain Arc: Grand Line entry",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.reverse-mountain",
+      "anchorTo": "op.reverse-mountain.laboon-and-crocus",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 8128,
+      "aliases": [
+        "Grand Line entry"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.reverse-mountain.window.laboon-and-crocus",
+      "label": "Reverse Mountain Arc: Laboon and Crocus",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.laboon-and-crocus",
+      "anchorTo": "op.reverse-mountain.miss-wednesday-and-mr-9",
+      "sortKeyFrom": 8128,
+      "sortKeyTo": 8256,
+      "aliases": [
+        "Laboon and Crocus"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.reverse-mountain.window.miss-wednesday-and-mr-9",
+      "label": "Reverse Mountain Arc: Miss Wednesday and Mr. 9",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.miss-wednesday-and-mr-9",
+      "anchorTo": "op.reverse-mountain.straw-hats-at-twin-cape",
+      "sortKeyFrom": 8256,
+      "sortKeyTo": 8384,
+      "aliases": [
+        "Miss Wednesday and Mr. 9"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.reverse-mountain.window.straw-hats-at-twin-cape",
+      "label": "Reverse Mountain Arc: Straw Hats at Twin Cape",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.straw-hats-at-twin-cape",
+      "anchorTo": "op.reverse-mountain.geography-and-navigation-rules",
+      "sortKeyFrom": 8384,
+      "sortKeyTo": 8512,
+      "aliases": [
+        "Straw Hats at Twin Cape"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.reverse-mountain.window.geography-and-navigation-rules",
+      "label": "Reverse Mountain Arc: Geography and navigation rules",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.geography-and-navigation-rules",
+      "anchorTo": "op.reverse-mountain.baroque-works-hook",
+      "sortKeyFrom": 8512,
+      "sortKeyTo": 8640,
+      "aliases": [
+        "Geography and navigation rules"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.reverse-mountain.window.baroque-works-hook",
+      "label": "Reverse Mountain Arc: Baroque Works hook",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.baroque-works-hook",
+      "anchorTo": "op.reverse-mountain.timeline-and-spoiler-gates",
+      "sortKeyFrom": 8640,
+      "sortKeyTo": 8768,
+      "aliases": [
+        "Baroque Works hook"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    },
+    {
+      "id": "op.reverse-mountain.window.timeline-and-spoiler-gates",
+      "label": "Reverse Mountain Arc: Timeline and spoiler gates",
+      "contextType": "window",
+      "windowKind": "story_phase",
+      "anchorFrom": "op.reverse-mountain.timeline-and-spoiler-gates",
+      "anchorTo": "op.reverse-mountain.after",
+      "sortKeyFrom": 8768,
+      "sortKeyTo": 8999,
+      "aliases": [
+        "Timeline and spoiler gates"
+      ],
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "saga",
+      "label": "Saga",
+      "values": [
+        "arabasta"
+      ]
+    },
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "reverse-mountain"
+      ]
+    }
+  ]
+}

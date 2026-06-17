@@ -1,0 +1,1483 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: Deep Space Nine season 5 Context from episode titles, story rows, runtime aliases, and common DS9 S5 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer DS9 season 5 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "apocalypse rising",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 apocalypse rising",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "ds9 s5 apocalypse rising",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "ds9 5x01 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 01",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "ds9 5x01",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "ds9 s05e01",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 1",
+      "result": {
+        "anchorFrom": "ds9.s5.e01.apocalypse-rising",
+        "label": "Apocalypse Rising"
+      }
+    },
+    {
+      "pattern": "the ship",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 the ship",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "ds9 s5 the ship",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "ds9 5x02 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 02",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "ds9 5x02",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "ds9 s05e02",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 2",
+      "result": {
+        "anchorFrom": "ds9.s5.e02.the-ship",
+        "label": "The Ship"
+      }
+    },
+    {
+      "pattern": "looking for par'mach in all the wrong places",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 looking for par'mach in all the wrong places",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "ds9 s5 looking for par'mach in all the wrong places",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "ds9 5x03 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 03",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "ds9 5x03",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "ds9 s05e03",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 3",
+      "result": {
+        "anchorFrom": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "label": "Looking for par'Mach in All the Wrong Places"
+      }
+    },
+    {
+      "pattern": "nor the battle to the strong",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 nor the battle to the strong",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "ds9 s5 nor the battle to the strong",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "ds9 5x04 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 04",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "ds9 5x04",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "ds9 s05e04",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 4",
+      "result": {
+        "anchorFrom": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "label": "Nor the Battle to the Strong"
+      }
+    },
+    {
+      "pattern": "the assignment",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 the assignment",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "ds9 s5 the assignment",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "ds9 5x05 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 05",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "ds9 5x05",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "ds9 s05e05",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 5",
+      "result": {
+        "anchorFrom": "ds9.s5.e05.the-assignment",
+        "label": "The Assignment"
+      }
+    },
+    {
+      "pattern": "trials and tribble-ations",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 trials and tribble-ations",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "ds9 s5 trials and tribble-ations",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "ds9 5x06 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 06",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "ds9 5x06",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "ds9 s05e06",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 6",
+      "result": {
+        "anchorFrom": "ds9.s5.e06.trials-and-tribble-ations",
+        "label": "Trials and Tribble-ations"
+      }
+    },
+    {
+      "pattern": "let he who is without sin...",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "ds9 season 5 let he who is without sin...",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "ds9 s5 let he who is without sin...",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "ds9 5x07 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 07",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "ds9 5x07",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "ds9 s05e07",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 7",
+      "result": {
+        "anchorFrom": "ds9.s5.e07.let-he-who-is-without-sin",
+        "label": "Let He Who Is Without Sin..."
+      }
+    },
+    {
+      "pattern": "things past",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 things past",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "ds9 s5 things past",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "ds9 5x08 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 08",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "ds9 5x08",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "ds9 s05e08",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 8",
+      "result": {
+        "anchorFrom": "ds9.s5.e08.things-past",
+        "label": "Things Past"
+      }
+    },
+    {
+      "pattern": "the ascent",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 the ascent",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "ds9 s5 the ascent",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "ds9 5x09 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 09",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "ds9 5x09",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "ds9 s05e09",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 9",
+      "result": {
+        "anchorFrom": "ds9.s5.e09.the-ascent",
+        "label": "The Ascent"
+      }
+    },
+    {
+      "pattern": "rapture",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 rapture",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "ds9 s5 rapture",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "ds9 5x10 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 10",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "ds9 5x10",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "ds9 s05e10",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 10",
+      "result": {
+        "anchorFrom": "ds9.s5.e10.rapture",
+        "label": "Rapture"
+      }
+    },
+    {
+      "pattern": "the darkness and the light",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 the darkness and the light",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "ds9 s5 the darkness and the light",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "ds9 5x11 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 11",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "ds9 5x11",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "ds9 s05e11",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 11",
+      "result": {
+        "anchorFrom": "ds9.s5.e11.the-darkness-and-the-light",
+        "label": "The Darkness and the Light"
+      }
+    },
+    {
+      "pattern": "the begotten",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 the begotten",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "ds9 s5 the begotten",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "ds9 5x12 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 12",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "ds9 5x12",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "ds9 s05e12",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 12",
+      "result": {
+        "anchorFrom": "ds9.s5.e12.the-begotten",
+        "label": "The Begotten"
+      }
+    },
+    {
+      "pattern": "for the uniform",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 for the uniform",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "ds9 s5 for the uniform",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "ds9 5x13 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 13",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "ds9 5x13",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "ds9 s05e13",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 13",
+      "result": {
+        "anchorFrom": "ds9.s5.e13.for-the-uniform",
+        "label": "For the Uniform"
+      }
+    },
+    {
+      "pattern": "in purgatory's shadow",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 in purgatory's shadow",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "ds9 s5 in purgatory's shadow",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "ds9 5x14 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 14",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "ds9 5x14",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "ds9 s05e14",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 14",
+      "result": {
+        "anchorFrom": "ds9.s5.e14.in-purgatorys-shadow",
+        "label": "In Purgatory's Shadow"
+      }
+    },
+    {
+      "pattern": "by inferno's light",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 by inferno's light",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "ds9 s5 by inferno's light",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "ds9 5x15 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 15",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "ds9 5x15",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "ds9 s05e15",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 15",
+      "result": {
+        "anchorFrom": "ds9.s5.e15.by-infernos-light",
+        "label": "By Inferno's Light"
+      }
+    },
+    {
+      "pattern": "doctor bashir, i presume",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 doctor bashir, i presume",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "ds9 s5 doctor bashir, i presume",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "ds9 5x16 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 16",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "ds9 5x16",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "ds9 s05e16",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 16",
+      "result": {
+        "anchorFrom": "ds9.s5.e16.doctor-bashir-i-presume",
+        "label": "Doctor Bashir, I Presume"
+      }
+    },
+    {
+      "pattern": "a simple investigation",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 a simple investigation",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "ds9 s5 a simple investigation",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "ds9 5x17 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 17",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "ds9 5x17",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "ds9 s05e17",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 17",
+      "result": {
+        "anchorFrom": "ds9.s5.e17.a-simple-investigation",
+        "label": "A Simple Investigation"
+      }
+    },
+    {
+      "pattern": "business as usual",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 business as usual",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ds9 s5 business as usual",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ds9 5x18 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 18",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ds9 5x18",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ds9 s05e18",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 18",
+      "result": {
+        "anchorFrom": "ds9.s5.e18.business-as-usual",
+        "label": "Business as Usual"
+      }
+    },
+    {
+      "pattern": "ties of blood and water",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 ties of blood and water",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ds9 s5 ties of blood and water",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ds9 5x19 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 19",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ds9 5x19",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ds9 s05e19",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 19",
+      "result": {
+        "anchorFrom": "ds9.s5.e19.ties-of-blood-and-water",
+        "label": "Ties of Blood and Water"
+      }
+    },
+    {
+      "pattern": "ferengi love songs",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 ferengi love songs",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "ds9 s5 ferengi love songs",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "ds9 5x20 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 20",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "ds9 5x20",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "ds9 s05e20",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 20",
+      "result": {
+        "anchorFrom": "ds9.s5.e20.ferengi-love-songs",
+        "label": "Ferengi Love Songs"
+      }
+    },
+    {
+      "pattern": "soldiers of the empire",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 soldiers of the empire",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "ds9 s5 soldiers of the empire",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "ds9 5x21 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 21",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "ds9 5x21",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "ds9 s05e21",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 21",
+      "result": {
+        "anchorFrom": "ds9.s5.e21.soldiers-of-the-empire",
+        "label": "Soldiers of the Empire"
+      }
+    },
+    {
+      "pattern": "children of time",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 children of time",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "ds9 s5 children of time",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "ds9 5x22 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 22",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "ds9 5x22",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "ds9 s05e22",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 22",
+      "result": {
+        "anchorFrom": "ds9.s5.e22.children-of-time",
+        "label": "Children of Time"
+      }
+    },
+    {
+      "pattern": "blaze of glory",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 blaze of glory",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "ds9 s5 blaze of glory",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "ds9 5x23 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 23",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "ds9 5x23",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "ds9 s05e23",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 23",
+      "result": {
+        "anchorFrom": "ds9.s5.e23.blaze-of-glory",
+        "label": "Blaze of Glory"
+      }
+    },
+    {
+      "pattern": "empok nor",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 empok nor",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "ds9 s5 empok nor",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "ds9 5x24 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 24",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "ds9 5x24",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "ds9 s05e24",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 24",
+      "result": {
+        "anchorFrom": "ds9.s5.e24.empok-nor",
+        "label": "Empok Nor"
+      }
+    },
+    {
+      "pattern": "in the cards",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 in the cards",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "ds9 s5 in the cards",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "ds9 5x25 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 25",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "ds9 5x25",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "ds9 s05e25",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 25",
+      "result": {
+        "anchorFrom": "ds9.s5.e25.in-the-cards",
+        "label": "In the Cards"
+      }
+    },
+    {
+      "pattern": "call to arms",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 call to arms",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    },
+    {
+      "pattern": "ds9 s5 call to arms",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    },
+    {
+      "pattern": "ds9 5x26 story",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    },
+    {
+      "pattern": "ds9 s05 story 26",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    },
+    {
+      "pattern": "ds9 5x26",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    },
+    {
+      "pattern": "ds9 s05e26",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    },
+    {
+      "pattern": "ds9 season 5 episode 26",
+      "result": {
+        "anchorFrom": "ds9.s5.e26.call-to-arms",
+        "label": "Call to Arms"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

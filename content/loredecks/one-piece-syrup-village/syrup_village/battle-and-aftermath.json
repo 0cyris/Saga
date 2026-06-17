@@ -1,0 +1,896 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_the_slope_battle_lets_usopp_defend_his_home_without_public_credit_033",
+      "title": "Slope Defense Lets Usopp Save Home Without Public Credit",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.battle-and-aftermath",
+        "validToAnchor": "op.syrup-village.timeline-and-spoiler-gates",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3672,
+        "sortKeyTo": 3784,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Slope Defense Lets Usopp Save Home Without Public Credit"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:usopp",
+          "op:coastal-slope",
+          "op:black-cat-pirates",
+          "op:syrup-village"
+        ],
+        "characters": [
+          "Usopp"
+        ],
+        "locations": [
+          "coastal slope",
+          "Syrup Village"
+        ],
+        "objects": [],
+        "factions": [
+          "Black Cat Pirates"
+        ],
+        "topics": [
+          "slope defense timing",
+          "private victory",
+          "no public credit"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:usopp",
+        "location:coastal-slope",
+        "faction:black-cat-pirates",
+        "location:syrup-village",
+        "topic:slope-defense-timing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Usopp"
+          ],
+          "entitiesAny": [
+            "Usopp",
+            "coastal slope",
+            "Black Cat Pirates",
+            "Syrup Village"
+          ],
+          "topicsAny": [
+            "slope defense timing",
+            "private victory",
+            "no public credit"
+          ],
+          "keywordsAny": [
+            "Usopp",
+            "coastal slope",
+            "Black Cat Pirates",
+            "Syrup Village",
+            "slope defense timing",
+            "private victory",
+            "no public credit",
+            "slope battle",
+            "defend home",
+            "hidden victory",
+            "landing",
+            "Slope Defense Lets Usopp Save Home Without Public Credit",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The slope battle lets Usopp defend his home from a real pirate landing while most villagers never learn how close the attack came.",
+        "injection": "Use the slope battle as private heroism: Usopp protects people who do not believe him, and the win can remain hidden to preserve village peace.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_luffy_s_fight_with_kuro_punishes_speed_without_loyalty_034",
+      "title": "Luffy Beats Kuro As A Rejection Of Crew Contempt",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.battle-and-aftermath",
+        "validToAnchor": "op.syrup-village.timeline-and-spoiler-gates",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3672,
+        "sortKeyTo": 3784,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Luffy Beats Kuro As A Rejection Of Crew Contempt"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:kuro",
+          "op:black-cat-pirates"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Kuro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Black Cat Pirates"
+        ],
+        "topics": [
+          "Kuro defeat",
+          "crew contempt",
+          "speed without loyalty"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:kuro",
+        "faction:black-cat-pirates",
+        "topic:kuro-defeat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Kuro"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Kuro",
+            "Black Cat Pirates"
+          ],
+          "topicsAny": [
+            "Kuro defeat",
+            "crew contempt",
+            "speed without loyalty"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Kuro",
+            "Black Cat Pirates",
+            "Kuro defeat",
+            "crew contempt",
+            "speed without loyalty",
+            "Gomu Gomu no Kane",
+            "speed",
+            "crew",
+            "Luffy Beats Kuro As A Rejection Of Crew Contempt",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy's fight with Kuro is not only about speed; it rejects Kuro's willingness to abandon, use, and kill his own crew.",
+        "injection": "Use Luffy's anger in the final fight as a values clash: Kuro is fast and clever, but Luffy defeats the version of piracy that treats crew as disposable.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_kaya_survives_because_multiple_small_choices_interrupt_the_plan_035",
+      "title": "Kaya Survives Because Several Small Choices Break The Plan",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.battle-and-aftermath",
+        "validToAnchor": "op.syrup-village.timeline-and-spoiler-gates",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3672,
+        "sortKeyTo": 3784,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Kaya Survives Because Several Small Choices Break The Plan"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:kaya",
+          "op:usopp",
+          "op:merry",
+          "op:nami",
+          "op:roronoa-zoro",
+          "op:jango"
+        ],
+        "characters": [
+          "Kaya",
+          "Usopp",
+          "Merry",
+          "Nami",
+          "Roronoa Zoro",
+          "Jango"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kaya rescue",
+          "interrupted plan",
+          "small choices"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:kaya",
+        "character:usopp",
+        "character:merry",
+        "character:nami",
+        "character:roronoa-zoro",
+        "character:jango",
+        "topic:kaya-rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kaya",
+            "Usopp",
+            "Merry",
+            "Nami",
+            "Roronoa Zoro",
+            "Jango"
+          ],
+          "entitiesAny": [
+            "Kaya",
+            "Usopp",
+            "Merry",
+            "Nami",
+            "Roronoa Zoro",
+            "Jango"
+          ],
+          "topicsAny": [
+            "Kaya rescue",
+            "interrupted plan",
+            "small choices"
+          ],
+          "keywordsAny": [
+            "Kaya",
+            "Usopp",
+            "Merry",
+            "Nami",
+            "Roronoa Zoro",
+            "Jango",
+            "Kaya rescue",
+            "interrupted plan",
+            "small choices",
+            "rescue",
+            "children",
+            "Merry warning",
+            "Jango stopped",
+            "Kaya Survives Because Several Small Choices Break The Plan",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Kaya survives because Merry warns her, Usopp refuses to quit, the children help her flee, Nami and Zoro interrupt threats, and Jango's coercion is stopped.",
+        "injection": "Use Kaya's survival as cumulative teamwork rather than a single rescue beat: many frightened or wounded people make small choices that break Kuro's clean plan.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_usopp_leaves_quietly_rather_than_demanding_applause_036",
+      "title": "Usopp Leaves Quietly Rather Than Demanding Applause",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.battle-and-aftermath",
+        "validToAnchor": "op.syrup-village.timeline-and-spoiler-gates",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3672,
+        "sortKeyTo": 3784,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Usopp Leaves Quietly Rather Than Demanding Applause"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:usopp",
+          "op:kaya",
+          "op:usopp-pirates",
+          "op:syrup-village"
+        ],
+        "characters": [
+          "Usopp",
+          "Kaya"
+        ],
+        "locations": [
+          "Syrup Village"
+        ],
+        "objects": [],
+        "factions": [
+          "Usopp Pirates"
+        ],
+        "topics": [
+          "quiet departure",
+          "village peace",
+          "disbanded play crew"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:usopp",
+        "character:kaya",
+        "faction:usopp-pirates",
+        "location:syrup-village",
+        "topic:quiet-departure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Usopp",
+            "Kaya"
+          ],
+          "entitiesAny": [
+            "Usopp",
+            "Kaya",
+            "Usopp Pirates",
+            "Syrup Village"
+          ],
+          "topicsAny": [
+            "quiet departure",
+            "village peace",
+            "disbanded play crew"
+          ],
+          "keywordsAny": [
+            "Usopp",
+            "Kaya",
+            "Usopp Pirates",
+            "Syrup Village",
+            "quiet departure",
+            "village peace",
+            "disbanded play crew",
+            "quiet goodbye",
+            "disband crew",
+            "real pirate",
+            "no applause",
+            "Usopp Leaves Quietly Rather Than Demanding Applause",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "After the battle, Usopp keeps the real attack quiet, disbands his play crew, and leaves to become a real pirate rather than demanding village applause.",
+        "injection": "Use Usopp's departure as growth: he still loves grand stories, but he chooses a quiet goodbye and lets Syrup Village keep its peace.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_the_crew_departs_with_usopp_and_the_going_merry_037",
+      "title": "The Crew Departs With Usopp And Going Merry",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.battle-and-aftermath",
+        "validToAnchor": "op.syrup-village.timeline-and-spoiler-gates",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3672,
+        "sortKeyTo": 3784,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: The Crew Departs With Usopp And Going Merry"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:roronoa-zoro",
+          "op:nami",
+          "op:usopp",
+          "op:going-merry",
+          "op:kaya"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Roronoa Zoro",
+          "Nami",
+          "Usopp",
+          "Kaya"
+        ],
+        "locations": [],
+        "objects": [
+          "Going Merry"
+        ],
+        "factions": [],
+        "topics": [
+          "Usopp joins",
+          "Going Merry gift",
+          "Syrup Village departure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:roronoa-zoro",
+        "character:nami",
+        "character:usopp",
+        "item:going-merry",
+        "character:kaya",
+        "topic:usopp-joins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "Usopp",
+            "Kaya"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "Usopp",
+            "Going Merry",
+            "Kaya"
+          ],
+          "topicsAny": [
+            "Usopp joins",
+            "Going Merry gift",
+            "Syrup Village departure"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "Usopp",
+            "Going Merry",
+            "Kaya",
+            "Usopp joins",
+            "Going Merry gift",
+            "Syrup Village departure",
+            "join crew",
+            "new ship",
+            "departure",
+            "Grand Line",
+            "The Crew Departs With Usopp And Going Merry",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Syrup Village departure adds both Usopp and the Going Merry, turning the small crew's next leg into a more complete pirate voyage.",
+        "injection": "Use this as the deck's forward boundary: after Syrup Village, Usopp can be part of the crew and Going Merry can be active, but later ship and sniper arcs remain gated.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    }
+  ]
+}

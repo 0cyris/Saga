@@ -1,0 +1,850 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_the_going_merry_becomes_a_recovery_space_after_the_kingdom_scale_conflict_021",
+      "title": "The Going Merry Becomes A Recovery Space After Arabasta",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "validToAnchor": "op.post-arabasta.transition-and-timeline-gates",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13600,
+        "sortKeyTo": 13750,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: The Going Merry Becomes A Recovery Space After Arabasta"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:going-merry",
+          "op:arabasta",
+          "op:post-arabasta"
+        ],
+        "characters": [
+          "Going Merry"
+        ],
+        "locations": [
+          "Arabasta"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Going Merry recovery",
+          "after Arabasta",
+          "shipboard aftercare"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:going-merry",
+        "location:arabasta",
+        "topic:post-arabasta",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Going Merry",
+            "Arabasta",
+            "Post-Arabasta"
+          ],
+          "topicsAny": [
+            "Going Merry recovery",
+            "after Arabasta",
+            "shipboard aftercare"
+          ],
+          "keywordsAny": [
+            "Going Merry",
+            "Arabasta",
+            "Post-Arabasta",
+            "Going Merry recovery",
+            "after Arabasta",
+            "shipboard aftercare",
+            "recovery",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "The Going Merry becomes a recovery space after the kingdom-scale conflict of Arabasta.",
+        "injection": "Use the ship as a decompression setting where small routines can matter because the crew has just survived a war.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_the_crew_carries_emotional_residue_from_leaving_vivi_behind_022",
+      "title": "Vivi's Absence Remains Emotional After The Silent Farewell",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "validToAnchor": "op.post-arabasta.transition-and-timeline-gates",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13600,
+        "sortKeyTo": 13750,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Vivi's Absence Remains Emotional After The Silent Farewell"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:vivi",
+          "op:going-merry",
+          "op:post-arabasta"
+        ],
+        "characters": [
+          "Going Merry"
+        ],
+        "locations": [
+          "Vivi"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Vivi absence",
+          "silent farewell residue",
+          "crew emotion"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:vivi",
+        "character:going-merry",
+        "topic:post-arabasta",
+        "topic:episode-131-135",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Vivi",
+            "Going Merry",
+            "Post-Arabasta"
+          ],
+          "topicsAny": [
+            "Vivi absence",
+            "silent farewell residue",
+            "crew emotion"
+          ],
+          "keywordsAny": [
+            "Vivi",
+            "Going Merry",
+            "Post-Arabasta",
+            "Vivi absence",
+            "silent farewell residue",
+            "crew emotion",
+            "absence",
+            "farewell",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Vivi's absence remains emotionally relevant after the silent farewell even though she is not present on the ship.",
+        "injection": "Use absence as emotional residue, not as an excuse to reopen Arabasta's active conflict.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_supplies_repairs_and_rest_matter_after_arabasta_023",
+      "title": "Supplies, Repairs, And Rest Matter After Arabasta",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "rule",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "validToAnchor": "op.post-arabasta.transition-and-timeline-gates",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13600,
+        "sortKeyTo": 13750,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Supplies, Repairs, And Rest Matter After Arabasta"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:supplies",
+          "op:going-merry",
+          "op:post-arabasta"
+        ],
+        "characters": [
+          "supplies",
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "supplies repairs rest",
+          "aftercare routine",
+          "shipboard constraint"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:supplies",
+        "character:going-merry",
+        "topic:post-arabasta",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "supplies",
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "supplies",
+            "Going Merry",
+            "Post-Arabasta"
+          ],
+          "topicsAny": [
+            "supplies repairs rest",
+            "aftercare routine",
+            "shipboard constraint"
+          ],
+          "keywordsAny": [
+            "supplies",
+            "Going Merry",
+            "Post-Arabasta",
+            "supplies repairs rest",
+            "aftercare routine",
+            "shipboard constraint",
+            "repairs",
+            "rest",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Supplies, repairs, and rest matter after Arabasta because the ship is between crises, not outside consequence.",
+        "injection": "Use mundane maintenance as aftermath pressure when writing these anime-only scenes.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_routine_scenes_should_feel_like_decompression_rather_than_filler_padding_024",
+      "title": "Episode 131-135 Routine Is Anime-Only Continuity",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "rule",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "validToAnchor": "op.post-arabasta.transition-and-timeline-gates",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13600,
+        "sortKeyTo": 13750,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Episode 131-135 Routine Is Anime-Only Continuity"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:post-arabasta",
+          "op:going-merry",
+          "op:next-island-boundary"
+        ],
+        "characters": [
+          "Going Merry"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "episodes 131-135",
+          "anime-only continuity",
+          "filler containment"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:post-arabasta",
+        "character:going-merry",
+        "topic:next-island-boundary",
+        "topic:episode-131-135",
+        "topic:post-arabasta-aftercare"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Going Merry"
+          ],
+          "entitiesAny": [
+            "Post-Arabasta",
+            "Going Merry",
+            "next island boundary"
+          ],
+          "topicsAny": [
+            "episodes 131-135",
+            "anime-only continuity",
+            "filler containment"
+          ],
+          "keywordsAny": [
+            "Post-Arabasta",
+            "Going Merry",
+            "next island boundary",
+            "episodes 131-135",
+            "anime-only continuity",
+            "filler containment",
+            "anime-only",
+            "show continuity",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Episodes 131-135 are anime-only continuity and should retrieve for show-forward aftermath, not manga-required facts.",
+        "injection": "Use this deck only when the session wants Post-Arabasta anime decompression; manga-primary stacks can omit it.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_post_arabasta_vivi_s_absence_can_be_felt_without_making_her_present_on_the_ship_025",
+      "title": "Post-Arabasta Stops Before The Next Island Arc",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "non-canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "anime-only",
+      "revealPolicy": "gated",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.post-arabasta.shipboard-routines-and-aftercare",
+        "validToAnchor": "op.post-arabasta.transition-and-timeline-gates",
+        "arc": "Post-Arabasta Arc",
+        "arcId": "post-arabasta",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "Filler arc",
+        "episode": "131-135",
+        "sortKeyFrom": 13600,
+        "sortKeyTo": 13750,
+        "precision": "anchor_window",
+        "windowKind": "anime_only",
+        "label": "Post-Arabasta Arc: Post-Arabasta Stops Before The Next Island Arc"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "post-arabasta",
+          "label": "Post-Arabasta Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "anime",
+          "label": "Anime",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:post-arabasta",
+          "op:next-island-boundary",
+          "op:sea-route"
+        ],
+        "characters": [],
+        "locations": [
+          "sea route"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "next island boundary",
+          "exclude next arcs",
+          "show-only stop point"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-anime-main",
+        "adaptation:anime",
+        "saga:arabasta",
+        "arc:post-arabasta",
+        "topic:show-only",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:post-arabasta",
+        "topic:next-island-boundary",
+        "location:sea-route",
+        "topic:episode-131-135",
+        "topic:vivi-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Post-Arabasta",
+            "next island boundary",
+            "sea route"
+          ],
+          "topicsAny": [
+            "next island boundary",
+            "exclude next arcs",
+            "show-only stop point"
+          ],
+          "keywordsAny": [
+            "Post-Arabasta",
+            "next island boundary",
+            "sea route",
+            "exclude next arcs",
+            "show-only stop point",
+            "next island",
+            "boundary",
+            "next arcs",
+            "Post-Arabasta Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "content": {
+        "fact": "Post-Arabasta stops with episodes 131-135 before the next island arc; later anime filler and next-saga facts belong elsewhere.",
+        "injection": "Use this as a hard boundary: the deck supports immediate aftercare only, not later voyage material.",
+        "constraints": [
+          "Keep this card inside Post-Arabasta Arc, anime episodes 131-135.",
+          "Use anime-only show continuity; do not overwrite manga-primary assumptions."
+        ],
+        "antiLore": [
+          "Do not import subsequent island arcs, sky-island material, or later anime-filler arcs.",
+          "Do not explain Robin biography or later government pursuit material beyond early onboard suspicion.",
+          "Do not make these anime-only episodes mandatory for manga-primary continuity.",
+          "Do not use generic crew traits unless tied to an episode 131-135 retrieval condition.",
+          "Do not reopen Arabasta as an active war after Vivi farewell state has resolved."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "anime",
+        "title": "Post-Arabasta Arc",
+        "chapterRange": "Anime-only filler arc",
+        "episodeRange": "Anime episodes 131-135",
+        "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-post-arabasta",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "post-arabasta-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "anime",
+    "title": "Post-Arabasta Arc",
+    "chapterRange": "Anime-only filler arc",
+    "episodeRange": "Anime episodes 131-135",
+    "reference": "https://onepiece.fandom.com/wiki/Post-Arabasta_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Post-Arabasta Arc source page and Saga authoring guidance; written as anime-only shipboard aftermath and episode-specific vignette gates rather than generic crew personality notes."
+  }
+}

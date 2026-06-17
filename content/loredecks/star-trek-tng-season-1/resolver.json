@@ -1,0 +1,1476 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: The Next Generation season 1 Context from episode titles, story rows, runtime aliases, and common TNG S1 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer TNG season 1 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "encounter at farpoint",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng season 1 encounter at farpoint",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng s1 encounter at farpoint",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng 1x01 story",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng s01 story 01",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng 1x01",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng s01e01",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 1",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng 1x02",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng s01e02",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 2",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "encounter at farpoint part i",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "encounter at farpoint part ii",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "encounter at farpoint part 1",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "encounter at farpoint part 2",
+      "result": {
+        "anchorFrom": "tng.s1.e01.encounter-at-farpoint",
+        "label": "Encounter at Farpoint"
+      }
+    },
+    {
+      "pattern": "the naked now",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "tng season 1 the naked now",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "tng s1 the naked now",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "tng 1x02 story",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "tng s01 story 02",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "tng 1x03",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "tng s01e03",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 3",
+      "result": {
+        "anchorFrom": "tng.s1.e02.the-naked-now",
+        "label": "The Naked Now"
+      }
+    },
+    {
+      "pattern": "code of honor",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "tng season 1 code of honor",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "tng s1 code of honor",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "tng 1x03 story",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "tng s01 story 03",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "tng 1x04",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "tng s01e04",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 4",
+      "result": {
+        "anchorFrom": "tng.s1.e03.code-of-honor",
+        "label": "Code of Honor"
+      }
+    },
+    {
+      "pattern": "the last outpost",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "tng season 1 the last outpost",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "tng s1 the last outpost",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "tng 1x04 story",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "tng s01 story 04",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "tng 1x05",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "tng s01e05",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 5",
+      "result": {
+        "anchorFrom": "tng.s1.e04.the-last-outpost",
+        "label": "The Last Outpost"
+      }
+    },
+    {
+      "pattern": "where no one has gone before",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "tng season 1 where no one has gone before",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "tng s1 where no one has gone before",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "tng 1x05 story",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "tng s01 story 05",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "tng 1x06",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "tng s01e06",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 6",
+      "result": {
+        "anchorFrom": "tng.s1.e05.where-no-one-has-gone-before",
+        "label": "Where No One Has Gone Before"
+      }
+    },
+    {
+      "pattern": "lonely among us",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "tng season 1 lonely among us",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "tng s1 lonely among us",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "tng 1x06 story",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "tng s01 story 06",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "tng 1x07",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "tng s01e07",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 7",
+      "result": {
+        "anchorFrom": "tng.s1.e06.lonely-among-us",
+        "label": "Lonely Among Us"
+      }
+    },
+    {
+      "pattern": "justice",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "tng season 1 justice",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "tng s1 justice",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "tng 1x07 story",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "tng s01 story 07",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "tng 1x08",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "tng s01e08",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 8",
+      "result": {
+        "anchorFrom": "tng.s1.e07.justice",
+        "label": "Justice"
+      }
+    },
+    {
+      "pattern": "the battle",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "tng season 1 the battle",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "tng s1 the battle",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "tng 1x08 story",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "tng s01 story 08",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "tng 1x09",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "tng s01e09",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 9",
+      "result": {
+        "anchorFrom": "tng.s1.e08.the-battle",
+        "label": "The Battle"
+      }
+    },
+    {
+      "pattern": "hide and q",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "tng season 1 hide and q",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "tng s1 hide and q",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "tng 1x09 story",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "tng s01 story 09",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "tng 1x10",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "tng s01e10",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 10",
+      "result": {
+        "anchorFrom": "tng.s1.e09.hide-and-q",
+        "label": "Hide And Q"
+      }
+    },
+    {
+      "pattern": "haven",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "tng season 1 haven",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "tng s1 haven",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "tng 1x10 story",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "tng s01 story 10",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "tng 1x11",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "tng s01e11",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 11",
+      "result": {
+        "anchorFrom": "tng.s1.e10.haven",
+        "label": "Haven"
+      }
+    },
+    {
+      "pattern": "the big goodbye",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "tng season 1 the big goodbye",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "tng s1 the big goodbye",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "tng 1x11 story",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "tng s01 story 11",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "tng 1x12",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "tng s01e12",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 12",
+      "result": {
+        "anchorFrom": "tng.s1.e11.the-big-goodbye",
+        "label": "The Big Goodbye"
+      }
+    },
+    {
+      "pattern": "datalore",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "tng season 1 datalore",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "tng s1 datalore",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "tng 1x12 story",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "tng s01 story 12",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "tng 1x13",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "tng s01e13",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 13",
+      "result": {
+        "anchorFrom": "tng.s1.e12.datalore",
+        "label": "Datalore"
+      }
+    },
+    {
+      "pattern": "angel one",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "tng season 1 angel one",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "tng s1 angel one",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "tng 1x13 story",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "tng s01 story 13",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "tng 1x14",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "tng s01e14",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 14",
+      "result": {
+        "anchorFrom": "tng.s1.e13.angel-one",
+        "label": "Angel One"
+      }
+    },
+    {
+      "pattern": "11001001",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "tng season 1 11001001",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "tng s1 11001001",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "tng 1x14 story",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "tng s01 story 14",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "tng 1x15",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "tng s01e15",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 15",
+      "result": {
+        "anchorFrom": "tng.s1.e14.11001001",
+        "label": "11001001"
+      }
+    },
+    {
+      "pattern": "too short a season",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "tng season 1 too short a season",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "tng s1 too short a season",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "tng 1x15 story",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "tng s01 story 15",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "tng 1x16",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "tng s01e16",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 16",
+      "result": {
+        "anchorFrom": "tng.s1.e15.too-short-a-season",
+        "label": "Too Short A Season"
+      }
+    },
+    {
+      "pattern": "when the bough breaks",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "tng season 1 when the bough breaks",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "tng s1 when the bough breaks",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "tng 1x16 story",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "tng s01 story 16",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "tng 1x17",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "tng s01e17",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 17",
+      "result": {
+        "anchorFrom": "tng.s1.e16.when-the-bough-breaks",
+        "label": "When The Bough Breaks"
+      }
+    },
+    {
+      "pattern": "home soil",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "tng season 1 home soil",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "tng s1 home soil",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "tng 1x17 story",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "tng s01 story 17",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "tng 1x18",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "tng s01e18",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 18",
+      "result": {
+        "anchorFrom": "tng.s1.e17.home-soil",
+        "label": "Home Soil"
+      }
+    },
+    {
+      "pattern": "coming of age",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "tng season 1 coming of age",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "tng s1 coming of age",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "tng 1x18 story",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "tng s01 story 18",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "tng 1x19",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "tng s01e19",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 19",
+      "result": {
+        "anchorFrom": "tng.s1.e18.coming-of-age",
+        "label": "Coming of Age"
+      }
+    },
+    {
+      "pattern": "heart of glory",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "tng season 1 heart of glory",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "tng s1 heart of glory",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "tng 1x19 story",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "tng s01 story 19",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "tng 1x20",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "tng s01e20",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 20",
+      "result": {
+        "anchorFrom": "tng.s1.e19.heart-of-glory",
+        "label": "Heart of Glory"
+      }
+    },
+    {
+      "pattern": "the arsenal of freedom",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "tng season 1 the arsenal of freedom",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "tng s1 the arsenal of freedom",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "tng 1x20 story",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "tng s01 story 20",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "tng 1x21",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "tng s01e21",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 21",
+      "result": {
+        "anchorFrom": "tng.s1.e20.the-arsenal-of-freedom",
+        "label": "The Arsenal of Freedom"
+      }
+    },
+    {
+      "pattern": "symbiosis",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "tng season 1 symbiosis",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "tng s1 symbiosis",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "tng 1x21 story",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "tng s01 story 21",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "tng 1x22",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "tng s01e22",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 22",
+      "result": {
+        "anchorFrom": "tng.s1.e21.symbiosis",
+        "label": "Symbiosis"
+      }
+    },
+    {
+      "pattern": "skin of evil",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "tng season 1 skin of evil",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "tng s1 skin of evil",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "tng 1x22 story",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "tng s01 story 22",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "tng 1x23",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "tng s01e23",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 23",
+      "result": {
+        "anchorFrom": "tng.s1.e22.skin-of-evil",
+        "label": "Skin Of Evil"
+      }
+    },
+    {
+      "pattern": "we'll always have paris",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "tng season 1 we'll always have paris",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "tng s1 we'll always have paris",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "tng 1x23 story",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "tng s01 story 23",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "tng 1x24",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "tng s01e24",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 24",
+      "result": {
+        "anchorFrom": "tng.s1.e23.well-always-have-paris",
+        "label": "We'll Always Have Paris"
+      }
+    },
+    {
+      "pattern": "conspiracy",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "tng season 1 conspiracy",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "tng s1 conspiracy",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "tng 1x24 story",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "tng s01 story 24",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "tng 1x25",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "tng s01e25",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 25",
+      "result": {
+        "anchorFrom": "tng.s1.e24.conspiracy",
+        "label": "Conspiracy"
+      }
+    },
+    {
+      "pattern": "the neutral zone",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    },
+    {
+      "pattern": "tng season 1 the neutral zone",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    },
+    {
+      "pattern": "tng s1 the neutral zone",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    },
+    {
+      "pattern": "tng 1x25 story",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    },
+    {
+      "pattern": "tng s01 story 25",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    },
+    {
+      "pattern": "tng 1x26",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    },
+    {
+      "pattern": "tng s01e26",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    },
+    {
+      "pattern": "tng season 1 episode 26",
+      "result": {
+        "anchorFrom": "tng.s1.e25.the-neutral-zone",
+        "label": "The Neutral Zone"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

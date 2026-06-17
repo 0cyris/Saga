@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-warship-island",
+  "type": "bundled",
+  "title": "One Piece: Warship Island Arc",
+  "description": "Reviewed show-continuity Loredeck for Apis, Ryu, Warship Island, Lost Island, local Marine pursuit, Eric and Nelson pressure, and the anime bridge into Reverse Mountain.",
+  "fandom": "One Piece",
+  "era": "Warship Island Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-warship-island-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-warship-island",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "show-continuity-arc"
+  },
+  "recommendedStack": [
+    "one-piece-warship-island"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "East Blue Saga"
+    ],
+    "familyOrder": 70
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-anime-main",
+    "adaptation:anime",
+    "saga:east-blue",
+    "arc:warship-island",
+    "topic:show-only",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Warship_Island_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-anime-main",
+    "canonTier": "anime-only",
+    "adaptation": "anime",
+    "medium": "anime",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Warship Island Arc, anime episodes 54-61, One Piece anime show-continuity filler arc.",
+    "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "warship_island/warship_island.json",
+    "warship_island/lost-island-and-dragons.json",
+    "warship_island/eric-nelson-and-marines.json",
+    "warship_island/straw-hat-show-dynamics.json",
+    "warship_island/escape-and-grand-line-bridge.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 25,
+    "categoryCounts": {
+      "character": 6,
+      "event": 3,
+      "faction": 1,
+      "item": 1,
+      "knowledge": 3,
+      "location": 2,
+      "relationship": 3,
+      "rule": 6
+    },
+    "timelineAnchorCount": 7,
+    "timelineWindowCount": 7,
+    "tagCount": 36,
+    "entityCount": 22
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Warship Island runtime-lore pass completed: cards now emphasize show-only continuity gates, Apis/Ryu protection stakes, Lost Island resolution, local Marine pursuit, and Reverse Mountain handoff boundaries."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

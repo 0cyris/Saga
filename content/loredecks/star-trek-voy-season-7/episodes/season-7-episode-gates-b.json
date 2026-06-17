@@ -1,0 +1,2402 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_the-void-episode-gate",
+      "title": "The Void anchors Delta Quadrant isolation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 51,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e14.the-void",
+        "validToAnchor": "voy.s7.e15.workforce",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 37260,
+        "sortKeyTo": 37280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: The Void",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e14.the-void",
+          "label": "The Void",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:seven-of-nine",
+          "st:delta-quadrant",
+          "st:tom-paris",
+          "st:general",
+          "st:valen",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Seven of Nine",
+          "Delta Quadrant",
+          "Tom Paris",
+          "General",
+          "Valen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Delta Quadrant isolation gate",
+          "Seven/Borg recovery gate",
+          "Delta Quadrant",
+          "Seven of Nine",
+          "star",
+          "energy",
+          "shields",
+          "deuterium"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-the-void",
+        "character:seven-of-nine",
+        "character:delta-quadrant",
+        "character:tom-paris",
+        "character:general",
+        "character:valen",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:delta-quadrant",
+        "topic:seven-of-nine",
+        "topic:star",
+        "topic:energy",
+        "topic:shields",
+        "topic:deuterium"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Seven of Nine",
+            "Delta Quadrant",
+            "Tom Paris",
+            "General",
+            "Valen"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Seven of Nine",
+            "Delta Quadrant",
+            "Tom Paris",
+            "General",
+            "Valen",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Delta Quadrant isolation gate",
+            "Seven/Borg recovery gate",
+            "Delta Quadrant",
+            "Seven of Nine",
+            "star",
+            "energy",
+            "shields",
+            "deuterium"
+          ],
+          "keywordsAny": [
+            "Seven of Nine",
+            "Delta Quadrant",
+            "Tom Paris",
+            "General",
+            "Valen",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Delta Quadrant isolation gate",
+            "Seven/Borg recovery gate",
+            "star",
+            "energy",
+            "shields",
+            "deuterium",
+            "The Void",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Void (54553.4-54562.7 (2377)) is Memory Alpha story row 14 for this season. The Void is a VOY season 7 story gate centered on Delta Quadrant isolation gate; the evidence marks Delta Quadrant isolation gate; Seven/Borg recovery gate.",
+        "injection": "Use The Void as the active episode Context gate when scenes reference Delta Quadrant isolation gate, Seven/Borg recovery gate, Delta Quadrant.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Void",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Void_(episode)",
+        "stardate": "54553.4-54562.7 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_workforce-episode-gate",
+      "title": "Workforce anchors Workforce",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e15.workforce",
+        "validToAnchor": "voy.s7.e16.workforce-part-ii",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 37280,
+        "sortKeyTo": 37300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Workforce",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e15.workforce",
+          "label": "Workforce",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tom-paris",
+          "st:seven-of-nine",
+          "st:jaffen",
+          "st:annika-hansen",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tom Paris",
+          "Seven of Nine",
+          "Jaffen",
+          "Annika Hansen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Workforce",
+          "Seven/Borg recovery gate",
+          "industrial complex",
+          "Kathryn Janeway",
+          "thermal dynamics",
+          "quantum fusion",
+          "transport",
+          "atmosphere filtration facility"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-workforce",
+        "character:kathryn-janeway",
+        "character:tom-paris",
+        "character:seven-of-nine",
+        "character:jaffen",
+        "character:annika-hansen",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:workforce",
+        "topic:sevenborg-recovery-gate",
+        "topic:industrial-complex",
+        "topic:kathryn-janeway",
+        "topic:thermal-dynamics",
+        "topic:quantum-fusion",
+        "topic:transport",
+        "topic:atmosphere-filtration-facility"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Seven of Nine",
+            "Jaffen",
+            "Annika Hansen"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Seven of Nine",
+            "Jaffen",
+            "Annika Hansen",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Workforce",
+            "Seven/Borg recovery gate",
+            "industrial complex",
+            "Kathryn Janeway",
+            "thermal dynamics",
+            "quantum fusion",
+            "transport",
+            "atmosphere filtration facility"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tom Paris",
+            "Seven of Nine",
+            "Jaffen",
+            "Annika Hansen",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Workforce",
+            "Seven/Borg recovery gate",
+            "industrial complex",
+            "thermal dynamics",
+            "quantum fusion",
+            "transport",
+            "atmosphere filtration facility",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Workforce (54584.3-54608.6 (2377)) is Memory Alpha story row 15 for this season. Workforce is a VOY season 7 story gate centered on Workforce; the evidence marks Seven/Borg recovery gate.",
+        "injection": "Use Workforce as the active episode Context gate when scenes reference Workforce, Seven/Borg recovery gate, industrial complex.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Workforce",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Workforce_(episode)",
+        "stardate": "54584.3-54608.6 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_workforce-part-ii-episode-gate",
+      "title": "Workforce, Part II anchors Workforce",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e16.workforce-part-ii",
+        "validToAnchor": "voy.s7.e17.human-error",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 37300,
+        "sortKeyTo": 37320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Workforce, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e16.workforce-part-ii",
+          "label": "Workforce, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tom Paris",
+          "Harry Kim",
+          "The Doctor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Workforce",
+          "EMH autonomy/identity gate",
+          "Chakotay",
+          "force field",
+          "Quarren patrol ship",
+          "ECH",
+          "Harry Kim",
+          "The Doctor"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-workforce-part-ii",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:the-doctor",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:workforce",
+        "topic:emh-autonomyidentity-gate",
+        "topic:chakotay",
+        "topic:force-field",
+        "topic:quarren-patrol-ship",
+        "topic:ech",
+        "topic:harry-kim",
+        "topic:the-doctor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Workforce",
+            "EMH autonomy/identity gate",
+            "Chakotay",
+            "force field",
+            "Quarren patrol ship",
+            "ECH",
+            "Harry Kim",
+            "The Doctor"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew",
+            "Workforce",
+            "EMH autonomy/identity gate",
+            "force field",
+            "Quarren patrol ship",
+            "ECH",
+            "Workforce, Part II",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Workforce, Part II (54622.4 (2377)) is Memory Alpha story row 16 for this season. Workforce, Part II is a VOY season 7 story gate centered on Workforce; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Workforce, Part II as the active episode Context gate when scenes reference Workforce, EMH autonomy/identity gate, Chakotay.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Workforce, Part II",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Workforce%2C_Part_II_(episode)",
+        "stardate": "54622.4 (2377)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_human-error-episode-gate",
+      "title": "Human Error anchors Borg encounter/assimilation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e17.human-error",
+        "validToAnchor": "voy.s7.e18.q2",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 37320,
+        "sortKeyTo": 37340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Human Error",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e17.human-error",
+          "label": "Human Error",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tuvok",
+          "st:belanna-torres",
+          "st:harry-kim",
+          "st:seven-of-nine",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:vulcans",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tuvok",
+          "B'Elanna Torres",
+          "Harry Kim",
+          "Seven of Nine"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "Vulcans",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Borg encounter/assimilation gate",
+          "Seven/Borg recovery gate",
+          "holodeck reality/safety gate",
+          "piano",
+          "Seven of Nine",
+          "ocular implant",
+          "mess hall",
+          "B'Elanna Torres"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-human-error",
+        "character:tuvok",
+        "character:belanna-torres",
+        "character:harry-kim",
+        "character:seven-of-nine",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:vulcans",
+        "faction:uss-voyager-crew",
+        "topic:borg-encounterassimilation-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:holodeck-realitysafety-gate",
+        "topic:piano",
+        "topic:seven-of-nine",
+        "topic:ocular-implant",
+        "topic:mess-hall",
+        "topic:belanna-torres"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tuvok",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Seven of Nine"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tuvok",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Seven of Nine",
+            "Starfleet",
+            "Borg Collective",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "holodeck reality/safety gate",
+            "piano",
+            "Seven of Nine",
+            "ocular implant",
+            "mess hall",
+            "B'Elanna Torres"
+          ],
+          "keywordsAny": [
+            "Tuvok",
+            "B'Elanna Torres",
+            "Harry Kim",
+            "Seven of Nine",
+            "Starfleet",
+            "Borg Collective",
+            "Vulcans",
+            "USS Voyager crew",
+            "Borg encounter/assimilation gate",
+            "Seven/Borg recovery gate",
+            "holodeck reality/safety gate",
+            "piano",
+            "ocular implant",
+            "mess hall",
+            "Human Error",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Human Error (Unknown (2378)) is Memory Alpha story row 17 for this season. Human Error is a VOY season 7 story gate centered on Borg encounter/assimilation gate; the evidence marks Borg encounter/assimilation gate; Seven/Borg recovery gate; holodeck reality/safety gate.",
+        "injection": "Use Human Error as the active episode Context gate when scenes reference Borg encounter/assimilation gate, Seven/Borg recovery gate, holodeck reality/safety gate.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Human Error",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Human_Error_(episode)",
+        "stardate": "Unknown (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_q2-episode-gate",
+      "title": "Q2 anchors Q Civil War",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e18.q2",
+        "validToAnchor": "voy.s7.e19.author-author",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 37340,
+        "sortKeyTo": 37360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Q2",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e18.q2",
+          "label": "Q2",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:cadet",
+          "st:icheb",
+          "st:starfleet",
+          "st:q-continuum",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "Cadet",
+          "Icheb"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Q Continuum",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Q Civil War",
+          "Q intervention or trial gate",
+          "Q Continuum gate",
+          "Kathryn Janeway",
+          "Cadet",
+          "Icheb",
+          "command red",
+          "insignia"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-q2",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:cadet",
+        "character:icheb",
+        "faction:starfleet",
+        "faction:q-continuum",
+        "faction:uss-voyager-crew",
+        "topic:q-civil-war",
+        "topic:q-intervention-or-trial-gate",
+        "topic:q-continuum-gate",
+        "topic:kathryn-janeway",
+        "topic:cadet",
+        "topic:icheb",
+        "topic:command-red",
+        "topic:insignia"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Cadet",
+            "Icheb"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Cadet",
+            "Icheb",
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Q Civil War",
+            "Q intervention or trial gate",
+            "Q Continuum gate",
+            "Kathryn Janeway",
+            "Cadet",
+            "Icheb",
+            "command red",
+            "insignia"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Cadet",
+            "Icheb",
+            "Starfleet",
+            "Q Continuum",
+            "USS Voyager crew",
+            "Q Civil War",
+            "Q intervention or trial gate",
+            "Q Continuum gate",
+            "command red",
+            "insignia",
+            "Q2",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Q2 (54704.5 (2378)) is Memory Alpha story row 18 for this season. Q2 is a VOY season 7 story gate centered on Q Civil War; the evidence marks Q intervention or trial gate; Q Continuum gate.",
+        "injection": "Use Q2 as the active episode Context gate when scenes reference Q Civil War, Q intervention or trial gate, Q Continuum gate.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Q2",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q2_(episode)",
+        "stardate": "54704.5 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_author-author-episode-gate",
+      "title": "Author, Author anchors The Pathfinder Project",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e19.author-author",
+        "validToAnchor": "voy.s7.e20.friendship-one",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 37360,
+        "sortKeyTo": 37380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Author, Author",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e19.author-author",
+          "label": "Author, Author",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:seven-of-nine",
+          "st:photons-be-free",
+          "st:operation-watson",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Tom Paris",
+          "Harry Kim",
+          "Seven of Nine",
+          "Photons Be Free",
+          "Operation Watson"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "The Pathfinder Project",
+          "EMH autonomy/identity gate",
+          "Seven/Borg recovery gate",
+          "Alpha Quadrant contact gate",
+          "Barclay Pathfinder support gate",
+          "Photons Be Free",
+          "Operation Watson",
+          "Janeway"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-author-author",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:seven-of-nine",
+        "character:photons-be-free",
+        "character:operation-watson",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:the-pathfinder-project",
+        "topic:emh-autonomyidentity-gate",
+        "topic:sevenborg-recovery-gate",
+        "topic:alpha-quadrant-contact-gate",
+        "topic:barclay-pathfinder-support-gate",
+        "topic:photons-be-free",
+        "topic:operation-watson",
+        "topic:janeway"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "Seven of Nine",
+            "Photons Be Free",
+            "Operation Watson"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "Seven of Nine",
+            "Photons Be Free",
+            "Operation Watson",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "The Pathfinder Project",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Alpha Quadrant contact gate",
+            "Barclay Pathfinder support gate",
+            "Photons Be Free",
+            "Operation Watson",
+            "Janeway"
+          ],
+          "keywordsAny": [
+            "Tom Paris",
+            "Harry Kim",
+            "Seven of Nine",
+            "Photons Be Free",
+            "Operation Watson",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "The Pathfinder Project",
+            "EMH autonomy/identity gate",
+            "Seven/Borg recovery gate",
+            "Alpha Quadrant contact gate",
+            "Barclay Pathfinder support gate",
+            "Janeway",
+            "Author, Author",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Author, Author (54732.3 (2378)) is Memory Alpha story row 19 for this season. Author, Author is a VOY season 7 story gate centered on The Pathfinder Project; the evidence marks EMH autonomy/identity gate; Seven/Borg recovery gate; Alpha Quadrant contact gate; Barclay Pathfinder support gate.",
+        "injection": "Use Author, Author as the active episode Context gate when scenes reference The Pathfinder Project, EMH autonomy/identity gate, Seven/Borg recovery gate.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Author, Author",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Author%2C_Author_(episode)",
+        "stardate": "54732.3 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_friendship-one-episode-gate",
+      "title": "Friendship One anchors Delta Quadrant isolation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e20.friendship-one",
+        "validToAnchor": "voy.s7.e21.natural-law",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 37380,
+        "sortKeyTo": 37400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Friendship One",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e20.friendship-one",
+          "label": "Friendship One",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:harry-kim",
+          "st:the-four-seasons",
+          "st:kathryn-janeway",
+          "st:vice-admiral",
+          "st:hendricks",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Harry Kim",
+          "The Four Seasons",
+          "Kathryn Janeway",
+          "Vice Admiral",
+          "Hendricks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Delta Quadrant isolation gate",
+          "Friendship 1",
+          "hull",
+          "The Four Seasons",
+          "atmosphere",
+          "astrometrics",
+          "Janeway",
+          "Friendship One"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-friendship-one",
+        "character:harry-kim",
+        "character:the-four-seasons",
+        "character:kathryn-janeway",
+        "character:vice-admiral",
+        "character:hendricks",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:friendship-1",
+        "topic:hull",
+        "topic:the-four-seasons",
+        "topic:atmosphere",
+        "topic:astrometrics",
+        "topic:janeway",
+        "topic:friendship-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Harry Kim",
+            "The Four Seasons",
+            "Kathryn Janeway",
+            "Vice Admiral",
+            "Hendricks"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Harry Kim",
+            "The Four Seasons",
+            "Kathryn Janeway",
+            "Vice Admiral",
+            "Hendricks",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Delta Quadrant isolation gate",
+            "Friendship 1",
+            "hull",
+            "The Four Seasons",
+            "atmosphere",
+            "astrometrics",
+            "Janeway",
+            "Friendship One"
+          ],
+          "keywordsAny": [
+            "Harry Kim",
+            "The Four Seasons",
+            "Kathryn Janeway",
+            "Vice Admiral",
+            "Hendricks",
+            "Starfleet",
+            "USS Voyager crew",
+            "Delta Quadrant isolation gate",
+            "Friendship 1",
+            "hull",
+            "atmosphere",
+            "astrometrics",
+            "Janeway",
+            "Friendship One",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Friendship One (54775.4 (2378)) is Memory Alpha story row 20 for this season. Friendship One is a VOY season 7 story gate centered on Delta Quadrant isolation gate; the evidence marks Delta Quadrant isolation gate.",
+        "injection": "Use Friendship One as the active episode Context gate when scenes reference Delta Quadrant isolation gate, Friendship 1, hull.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Friendship One",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Friendship_One_(episode)",
+        "stardate": "54775.4 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_natural-law-episode-gate",
+      "title": "Natural Law anchors Seven/Borg recovery gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e21.natural-law",
+        "validToAnchor": "voy.s7.e22.homestead",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 37400,
+        "sortKeyTo": 37420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Natural Law",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e21.natural-law",
+          "label": "Natural Law",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:chakotay",
+          "st:tom-paris",
+          "st:seven-of-nine",
+          "st:ledos",
+          "st:starfleet",
+          "st:borg-collective",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Chakotay",
+          "Tom Paris",
+          "Seven of Nine",
+          "Ledos"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Seven/Borg recovery gate",
+          "Chakotay",
+          "Seven of Nine",
+          "Ledos",
+          "warp field dynamics",
+          "energy barrier",
+          "phaser",
+          "Natural Law"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-natural-law",
+        "character:kathryn-janeway",
+        "character:chakotay",
+        "character:tom-paris",
+        "character:seven-of-nine",
+        "character:ledos",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "faction:uss-voyager-crew",
+        "topic:sevenborg-recovery-gate",
+        "topic:chakotay",
+        "topic:seven-of-nine",
+        "topic:ledos",
+        "topic:warp-field-dynamics",
+        "topic:energy-barrier",
+        "topic:phaser",
+        "topic:natural-law"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Seven of Nine",
+            "Ledos"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Seven of Nine",
+            "Ledos",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Seven/Borg recovery gate",
+            "Chakotay",
+            "Seven of Nine",
+            "Ledos",
+            "warp field dynamics",
+            "energy barrier",
+            "phaser",
+            "Natural Law"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Chakotay",
+            "Tom Paris",
+            "Seven of Nine",
+            "Ledos",
+            "Starfleet",
+            "Borg Collective",
+            "USS Voyager crew",
+            "Seven/Borg recovery gate",
+            "warp field dynamics",
+            "energy barrier",
+            "phaser",
+            "Natural Law",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Natural Law (54827.7 (2378)) is Memory Alpha story row 21 for this season. Natural Law is a VOY season 7 story gate centered on Seven/Borg recovery gate; the evidence marks Seven/Borg recovery gate.",
+        "injection": "Use Natural Law as the active episode Context gate when scenes reference Seven/Borg recovery gate, Chakotay, Seven of Nine.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Natural Law",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Natural_Law_(episode)",
+        "stardate": "54827.7 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_homestead-episode-gate",
+      "title": "Homestead anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e22.homestead",
+        "validToAnchor": "voy.s7.e23.renaissance-man",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 37420,
+        "sortKeyTo": 37440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Homestead",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e22.homestead",
+          "label": "Homestead",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:chakotay",
+          "st:tuvok",
+          "st:the-doctor",
+          "st:neelix",
+          "st:first-contact-day",
+          "st:starfleet",
+          "st:vulcans",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Chakotay",
+          "Tuvok",
+          "The Doctor",
+          "Neelix",
+          "First Contact Day"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Vulcans",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "First Contact Day",
+          "jukebox",
+          "music",
+          "Zefram Cochrane",
+          "food",
+          "The Doctor",
+          "Homestead"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-homestead",
+        "character:chakotay",
+        "character:tuvok",
+        "character:the-doctor",
+        "character:neelix",
+        "character:first-contact-day",
+        "faction:starfleet",
+        "faction:vulcans",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:first-contact-day",
+        "topic:jukebox",
+        "topic:music",
+        "topic:zefram-cochrane",
+        "topic:food",
+        "topic:the-doctor",
+        "topic:homestead"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chakotay",
+            "Tuvok",
+            "The Doctor",
+            "Neelix",
+            "First Contact Day"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Chakotay",
+            "Tuvok",
+            "The Doctor",
+            "Neelix",
+            "First Contact Day",
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "First Contact Day",
+            "jukebox",
+            "music",
+            "Zefram Cochrane",
+            "food",
+            "The Doctor",
+            "Homestead"
+          ],
+          "keywordsAny": [
+            "Chakotay",
+            "Tuvok",
+            "The Doctor",
+            "Neelix",
+            "First Contact Day",
+            "Starfleet",
+            "Vulcans",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "jukebox",
+            "music",
+            "Zefram Cochrane",
+            "food",
+            "Homestead",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Homestead (54868.6 (April 5, 2378)) is Memory Alpha story row 22 for this season. Homestead is a VOY season 7 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Homestead as the active episode Context gate when scenes reference EMH autonomy/identity gate, First Contact Day, jukebox.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Homestead",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Homestead_(episode)",
+        "stardate": "54868.6 (April 5, 2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_renaissance-man-episode-gate",
+      "title": "Renaissance Man anchors EMH autonomy/identity gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e23.renaissance-man",
+        "validToAnchor": "voy.s7.e24.endgame",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 37440,
+        "sortKeyTo": 37460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Renaissance Man",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e23.renaissance-man",
+          "label": "Renaissance Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:belanna-torres",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:kathryn-janeway",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "B'Elanna Torres",
+          "Tom Paris",
+          "Harry Kim",
+          "The Doctor",
+          "Kathryn Janeway"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "EMH autonomy/identity gate",
+          "The Doctor",
+          "Questa o quella",
+          "Janeway",
+          "coffee",
+          "hologram",
+          "Mutara-class nebula",
+          "Renaissance Man"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-renaissance-man",
+        "character:belanna-torres",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:the-doctor",
+        "character:kathryn-janeway",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:emh-autonomyidentity-gate",
+        "topic:the-doctor",
+        "topic:questa-o-quella",
+        "topic:janeway",
+        "topic:coffee",
+        "topic:hologram",
+        "topic:mutara-class-nebula",
+        "topic:renaissance-man"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Kathryn Janeway"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "EMH autonomy/identity gate",
+            "The Doctor",
+            "Questa o quella",
+            "Janeway",
+            "coffee",
+            "hologram",
+            "Mutara-class nebula",
+            "Renaissance Man"
+          ],
+          "keywordsAny": [
+            "B'Elanna Torres",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Kathryn Janeway",
+            "Starfleet",
+            "USS Voyager crew",
+            "EMH autonomy/identity gate",
+            "Questa o quella",
+            "Janeway",
+            "coffee",
+            "hologram",
+            "Mutara-class nebula",
+            "Renaissance Man",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Renaissance Man (54890.7 (2378)) is Memory Alpha story row 23 for this season. Renaissance Man is a VOY season 7 story gate centered on EMH autonomy/identity gate; the evidence marks EMH autonomy/identity gate.",
+        "injection": "Use Renaissance Man as the active episode Context gate when scenes reference EMH autonomy/identity gate, The Doctor, Questa o quella.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Renaissance Man",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Renaissance_Man_(episode)",
+        "stardate": "54890.7 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_voy_s7_endgame-episode-gate",
+      "title": "Endgame anchors Delta Quadrant isolation gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "voy.s7.e24.endgame",
+        "validToAnchor": "voy.s7.e24.endgame",
+        "series": "VOY",
+        "season": "7",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 37460,
+        "sortKeyTo": 37460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "VOY season 7: Endgame",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "voy",
+          "label": "Star Trek: Voyager",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "voy-s7",
+          "label": "VOY season 7",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "voy.s7.e24.endgame",
+          "label": "Endgame",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kathryn-janeway",
+          "st:tuvok",
+          "st:tom-paris",
+          "st:harry-kim",
+          "st:the-doctor",
+          "st:starfleet",
+          "st:uss-voyager-crew"
+        ],
+        "characters": [
+          "Kathryn Janeway",
+          "Tuvok",
+          "Tom Paris",
+          "Harry Kim",
+          "The Doctor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "USS Voyager crew"
+        ],
+        "topics": [
+          "Delta Quadrant isolation gate",
+          "EMH autonomy/identity gate",
+          "Fireworks",
+          "San Francisco",
+          "Delta Quadrant",
+          "Golden Gate Bridge",
+          "Vice Admiral",
+          "Kathryn Janeway"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s7",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s7-endgame",
+        "character:kathryn-janeway",
+        "character:tuvok",
+        "character:tom-paris",
+        "character:harry-kim",
+        "character:the-doctor",
+        "faction:starfleet",
+        "faction:uss-voyager-crew",
+        "topic:delta-quadrant-isolation-gate",
+        "topic:emh-autonomyidentity-gate",
+        "topic:fireworks",
+        "topic:san-francisco",
+        "topic:delta-quadrant",
+        "topic:golden-gate-bridge",
+        "topic:vice-admiral",
+        "topic:kathryn-janeway"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "entitiesAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew"
+          ],
+          "topicsAny": [
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Fireworks",
+            "San Francisco",
+            "Delta Quadrant",
+            "Golden Gate Bridge",
+            "Vice Admiral",
+            "Kathryn Janeway"
+          ],
+          "keywordsAny": [
+            "Kathryn Janeway",
+            "Tuvok",
+            "Tom Paris",
+            "Harry Kim",
+            "The Doctor",
+            "Starfleet",
+            "USS Voyager crew",
+            "Delta Quadrant isolation gate",
+            "EMH autonomy/identity gate",
+            "Fireworks",
+            "San Francisco",
+            "Delta Quadrant",
+            "Golden Gate Bridge",
+            "Vice Admiral",
+            "Endgame",
+            "VOY season 7"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Voyager season 7, Memory Alpha story rows 1-24, runtime episode aliases 1-24, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Endgame (54973.4 (2378)) is Memory Alpha story row 24 for this season. Endgame is a VOY season 7 story gate centered on Delta Quadrant isolation gate; the evidence marks Delta Quadrant isolation gate; EMH autonomy/identity gate.",
+        "injection": "Use Endgame as the active episode Context gate when scenes reference Delta Quadrant isolation gate, EMH autonomy/identity gate, Fireworks.",
+        "constraints": [
+          "Keep this card inside VOY season 7 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 7 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Endgame",
+        "series": "VOY",
+        "season": 7,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Endgame_(episode)",
+        "stardate": "54973.4 (2378)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-voy-season-7",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

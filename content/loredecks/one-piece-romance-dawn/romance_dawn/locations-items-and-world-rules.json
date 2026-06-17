@@ -1,0 +1,746 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_east_blue_travel_begins_with_tiny_boats_and_local_islands_rather_than_grand_line_scale_025",
+      "title": "East Blue travel is tiny boats and local-island scale",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "validToAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1512,
+        "sortKeyTo": 1640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: East Blue travel is tiny boats and local-island scale"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:east-blue"
+        ],
+        "characters": [
+          "East Blue"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "East Blue travel scale",
+          "tiny boats",
+          "pre-Grand-Line navigation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:east-blue",
+        "topic:foosha-village",
+        "topic:east-blue-scale",
+        "topic:locations-items-and-world-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "East Blue"
+          ],
+          "entitiesAny": [
+            "East Blue"
+          ],
+          "topicsAny": [
+            "East Blue travel scale",
+            "tiny boats",
+            "pre-Grand-Line navigation"
+          ],
+          "keywordsAny": [
+            "East Blue",
+            "East Blue travel scale",
+            "tiny boats",
+            "pre-Grand-Line navigation",
+            "East Blue travel is tiny boats and local-island scale",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Romance Dawn travel uses tiny boats, local islands, scarce supplies, and improvised route choices rather than Grand Line scale or Log Pose navigation.",
+        "injection": "Use early East Blue travel as a practical constraint: boats are small, supplies are thin, and navigation is fragile. Do not introduce Grand Line systems before their reveal.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_devil_fruit_powers_are_treated_as_strange_and_rare_at_this_stage_026",
+      "title": "Devil Fruit powers feel strange and rare, not systematized",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "validToAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1512,
+        "sortKeyTo": 1640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Devil Fruit powers feel strange and rare, not systematized"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:gum-gum-fruit"
+        ],
+        "characters": [
+          "Gum-Gum Fruit"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Devil Fruit rarity",
+          "rubber-body reaction",
+          "power-system anti-spoiler"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:gum-gum-fruit",
+        "topic:shells-town",
+        "topic:east-blue-scale",
+        "topic:locations-items-and-world-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gum-Gum Fruit"
+          ],
+          "entitiesAny": [
+            "Gum-Gum Fruit"
+          ],
+          "topicsAny": [
+            "Devil Fruit rarity",
+            "rubber-body reaction",
+            "power-system anti-spoiler"
+          ],
+          "keywordsAny": [
+            "Gum-Gum Fruit",
+            "Devil Fruit rarity",
+            "rubber-body reaction",
+            "power-system anti-spoiler",
+            "Devil Fruit powers feel strange and rare, not systematized",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "At Romance Dawn scale, Devil Fruit powers are strange and rare; Luffy's rubber body is visible, but the broader power system is not explained.",
+        "injection": "When characters react to Luffy stretching, keep the reaction local and surprised. Avoid taxonomy, awakening, Haki counters, or later power-system vocabulary.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_pirate_reputation_depends_on_behavior_as_much_as_the_word_pirate_027",
+      "title": "Pirate reputation is behavior-shaped in Romance Dawn",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "validToAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1512,
+        "sortKeyTo": 1640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Pirate reputation is behavior-shaped in Romance Dawn"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "pirate reputation",
+          "Shanks Alvida Luffy contrast",
+          "behavior over label"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:east-blue",
+        "topic:east-blue-scale",
+        "topic:locations-items-and-world-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [],
+          "topicsAny": [
+            "pirate reputation",
+            "Shanks Alvida Luffy contrast",
+            "behavior over label"
+          ],
+          "keywordsAny": [
+            "pirate reputation",
+            "Shanks Alvida Luffy contrast",
+            "behavior over label",
+            "Pirate reputation is behavior-shaped in Romance Dawn",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Romance Dawn frames pirate reputation through behavior: Shanks is honorable, Alvida is abusive, and Luffy is illegal but protective.",
+        "injection": "When characters judge pirates here, let labels create tension but behavior carry the scene. Avoid flattening all pirates into heroes or villains.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_marine_authority_can_protect_people_or_enable_abuse_depending_on_local_command_028",
+      "title": "Marine authority is split between Coby's ideal and Morgan's abuse",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "validToAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1512,
+        "sortKeyTo": 1640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Marine authority is split between Coby's ideal and Morgan's abuse"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Marine authority split",
+          "Coby ideal",
+          "Morgan local command"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:gum-gum-fruit",
+        "topic:east-blue-scale",
+        "topic:locations-items-and-world-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [],
+          "topicsAny": [
+            "Marine authority split",
+            "Coby ideal",
+            "Morgan local command"
+          ],
+          "keywordsAny": [
+            "Marine authority split",
+            "Coby ideal",
+            "Morgan local command",
+            "Marine authority is split between Coby's ideal and Morgan's abuse",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Marine authority is morally split in Romance Dawn: Coby idealizes it, Morgan abuses it, and scenes should distinguish the institution from local command.",
+        "injection": "Use this as a faction constraint whenever Marines are mentioned: Morgan's base is corrupt, but Coby's dream keeps Marine justice aspirational.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_the_straw_hat_is_already_luffy_s_identity_marker_before_he_has_a_flag_029",
+      "title": "The straw hat is Luffy's identity marker before any flag",
+      "kind": "reference_note",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.locations-items-and-world-rules",
+        "validToAnchor": "op.romance-dawn.conflicts-and-character-rules",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1512,
+        "sortKeyTo": 1640,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: The straw hat is Luffy's identity marker before any flag"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:straw-hat"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Straw Hat"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "straw hat identity",
+          "promise marker",
+          "before Jolly Roger"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:straw-hat",
+        "topic:straw-hat",
+        "topic:east-blue-scale",
+        "topic:locations-items-and-world-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Straw Hat"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Straw Hat"
+          ],
+          "topicsAny": [
+            "straw hat identity",
+            "promise marker",
+            "before Jolly Roger"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Straw Hat",
+            "straw hat identity",
+            "promise marker",
+            "before Jolly Roger",
+            "The straw hat is Luffy's identity marker before any flag",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The straw hat is already Luffy's promise marker and visual identity before he has a flag, ship, or known crew symbol.",
+        "injection": "When the hat appears, make it carry Shanks's promise and Luffy's self-definition. Do not import later crew iconography or bounty-poster symbolism.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    }
+  ]
+}

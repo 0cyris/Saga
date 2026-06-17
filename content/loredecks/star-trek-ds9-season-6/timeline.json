@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Deep Space Nine season 6 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ds9.s6.e01.a-time-to-stand",
+      "label": "A Time to Stand",
+      "contextType": "story_anchor",
+      "sortKey": 26000,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "A Time to Stand",
+        "DS9 season 6 A Time to Stand",
+        "DS9 S6 A Time to Stand",
+        "DS9 6x01 story",
+        "DS9 S06 story 01",
+        "DS9 6x01",
+        "DS9 S06E01",
+        "DS9 season 6 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-a-time-to-stand"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "A Time to Stand",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Time_to_Stand_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e02.rocks-and-shoals",
+      "label": "Rocks and Shoals",
+      "contextType": "story_anchor",
+      "sortKey": 26020,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Rocks and Shoals",
+        "DS9 season 6 Rocks and Shoals",
+        "DS9 S6 Rocks and Shoals",
+        "DS9 6x02 story",
+        "DS9 S06 story 02",
+        "DS9 6x02",
+        "DS9 S06E02",
+        "DS9 season 6 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-rocks-and-shoals"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rocks and Shoals",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rocks_and_Shoals_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e03.sons-and-daughters",
+      "label": "Sons and Daughters",
+      "contextType": "story_anchor",
+      "sortKey": 26040,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Sons and Daughters",
+        "DS9 season 6 Sons and Daughters",
+        "DS9 S6 Sons and Daughters",
+        "DS9 6x03 story",
+        "DS9 S06 story 03",
+        "DS9 6x03",
+        "DS9 S06E03",
+        "DS9 season 6 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-sons-and-daughters"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sons and Daughters",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sons_and_Daughters_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e04.behind-the-lines",
+      "label": "Behind the Lines",
+      "contextType": "story_anchor",
+      "sortKey": 26060,
+      "stardate": "51145.3-51149.5 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Behind the Lines",
+        "DS9 season 6 Behind the Lines",
+        "DS9 S6 Behind the Lines",
+        "DS9 6x04 story",
+        "DS9 S06 story 04",
+        "DS9 6x04",
+        "DS9 S06E04",
+        "DS9 season 6 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-behind-the-lines"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Behind the Lines",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Behind_the_Lines_(episode)",
+        "stardate": "51145.3-51149.5 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e05.favor-the-bold",
+      "label": "Favor the Bold",
+      "contextType": "story_anchor",
+      "sortKey": 26080,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Favor the Bold",
+        "DS9 season 6 Favor the Bold",
+        "DS9 S6 Favor the Bold",
+        "DS9 6x05 story",
+        "DS9 S06 story 05",
+        "DS9 6x05",
+        "DS9 S06E05",
+        "DS9 season 6 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-favor-the-bold"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Favor the Bold",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Favor_the_Bold_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e06.sacrifice-of-angels",
+      "label": "Sacrifice of Angels",
+      "contextType": "story_anchor",
+      "sortKey": 26100,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Sacrifice of Angels",
+        "DS9 season 6 Sacrifice of Angels",
+        "DS9 S6 Sacrifice of Angels",
+        "DS9 6x06 story",
+        "DS9 S06 story 06",
+        "DS9 6x06",
+        "DS9 S06E06",
+        "DS9 season 6 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-sacrifice-of-angels"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Sacrifice of Angels",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sacrifice_of_Angels_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e07.you-are-cordially-invited",
+      "label": "You Are Cordially Invited",
+      "contextType": "story_anchor",
+      "sortKey": 26120,
+      "stardate": "51247.5 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "You Are Cordially Invited",
+        "DS9 season 6 You Are Cordially Invited",
+        "DS9 S6 You Are Cordially Invited",
+        "DS9 6x07 story",
+        "DS9 S06 story 07",
+        "DS9 6x07",
+        "DS9 S06E07",
+        "DS9 season 6 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-you-are-cordially-invited"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "You Are Cordially Invited",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/You_Are_Cordially_Invited_(episode)",
+        "stardate": "51247.5 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e08.resurrection",
+      "label": "Resurrection",
+      "contextType": "story_anchor",
+      "sortKey": 26140,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Resurrection",
+        "DS9 season 6 Resurrection",
+        "DS9 S6 Resurrection",
+        "DS9 6x08 story",
+        "DS9 S06 story 08",
+        "DS9 6x08",
+        "DS9 S06E08",
+        "DS9 season 6 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-resurrection"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Resurrection",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Resurrection_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e09.statistical-probabilities",
+      "label": "Statistical Probabilities",
+      "contextType": "story_anchor",
+      "sortKey": 26160,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Statistical Probabilities",
+        "DS9 season 6 Statistical Probabilities",
+        "DS9 S6 Statistical Probabilities",
+        "DS9 6x09 story",
+        "DS9 S06 story 09",
+        "DS9 6x09",
+        "DS9 S06E09",
+        "DS9 season 6 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-statistical-probabilities"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Statistical Probabilities",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Statistical_Probabilities_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e10.the-magnificent-ferengi",
+      "label": "The Magnificent Ferengi",
+      "contextType": "story_anchor",
+      "sortKey": 26180,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "The Magnificent Ferengi",
+        "DS9 season 6 The Magnificent Ferengi",
+        "DS9 S6 The Magnificent Ferengi",
+        "DS9 6x10 story",
+        "DS9 S06 story 10",
+        "DS9 6x10",
+        "DS9 S06E10",
+        "DS9 season 6 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-the-magnificent-ferengi"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Magnificent Ferengi",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Magnificent_Ferengi_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e11.waltz",
+      "label": "Waltz",
+      "contextType": "story_anchor",
+      "sortKey": 26200,
+      "stardate": "51408.6-51413.6 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Waltz",
+        "DS9 season 6 Waltz",
+        "DS9 S6 Waltz",
+        "DS9 6x11 story",
+        "DS9 S06 story 11",
+        "DS9 6x11",
+        "DS9 S06E11",
+        "DS9 season 6 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-waltz"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Waltz",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Waltz_(episode)",
+        "stardate": "51408.6-51413.6 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e12.who-mourns-for-morn",
+      "label": "Who Mourns for Morn?",
+      "contextType": "story_anchor",
+      "sortKey": 26220,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Who Mourns for Morn?",
+        "DS9 season 6 Who Mourns for Morn?",
+        "DS9 S6 Who Mourns for Morn?",
+        "DS9 6x12 story",
+        "DS9 S06 story 12",
+        "DS9 6x12",
+        "DS9 S06E12",
+        "DS9 season 6 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-who-mourns-for-morn"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Who Mourns for Morn?",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Who_Mourns_for_Morn%3F_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e13.far-beyond-the-stars",
+      "label": "Far Beyond the Stars",
+      "contextType": "story_anchor",
+      "sortKey": 26240,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Far Beyond the Stars",
+        "DS9 season 6 Far Beyond the Stars",
+        "DS9 S6 Far Beyond the Stars",
+        "DS9 6x13 story",
+        "DS9 S06 story 13",
+        "DS9 6x13",
+        "DS9 S06E13",
+        "DS9 season 6 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-far-beyond-the-stars"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Far Beyond the Stars",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Far_Beyond_the_Stars_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e14.one-little-ship",
+      "label": "One Little Ship",
+      "contextType": "story_anchor",
+      "sortKey": 26260,
+      "stardate": "51474.2 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "One Little Ship",
+        "DS9 season 6 One Little Ship",
+        "DS9 S6 One Little Ship",
+        "DS9 6x14 story",
+        "DS9 S06 story 14",
+        "DS9 6x14",
+        "DS9 S06E14",
+        "DS9 season 6 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-one-little-ship"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "One Little Ship",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/One_Little_Ship_(episode)",
+        "stardate": "51474.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e15.honor-among-thieves",
+      "label": "Honor Among Thieves",
+      "contextType": "story_anchor",
+      "sortKey": 26280,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Honor Among Thieves",
+        "DS9 season 6 Honor Among Thieves",
+        "DS9 S6 Honor Among Thieves",
+        "DS9 6x15 story",
+        "DS9 S06 story 15",
+        "DS9 6x15",
+        "DS9 S06E15",
+        "DS9 season 6 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-honor-among-thieves"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Honor Among Thieves",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Honor_Among_Thieves_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e16.change-of-heart",
+      "label": "Change of Heart",
+      "contextType": "story_anchor",
+      "sortKey": 26300,
+      "stardate": "51597.2 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Change of Heart",
+        "DS9 season 6 Change of Heart",
+        "DS9 S6 Change of Heart",
+        "DS9 6x16 story",
+        "DS9 S06 story 16",
+        "DS9 6x16",
+        "DS9 S06E16",
+        "DS9 season 6 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-change-of-heart"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Change of Heart",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Change_of_Heart_(episode)",
+        "stardate": "51597.2 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e17.wrongs-darker-than-death-or-night",
+      "label": "Wrongs Darker Than Death or Night",
+      "contextType": "story_anchor",
+      "sortKey": 26320,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Wrongs Darker Than Death or Night",
+        "DS9 season 6 Wrongs Darker Than Death or Night",
+        "DS9 S6 Wrongs Darker Than Death or Night",
+        "DS9 6x17 story",
+        "DS9 S06 story 17",
+        "DS9 6x17",
+        "DS9 S06E17",
+        "DS9 season 6 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-wrongs-darker-than-death-or-night"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Wrongs Darker Than Death or Night",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Wrongs_Darker_Than_Death_or_Night_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e18.inquisition",
+      "label": "Inquisition",
+      "contextType": "story_anchor",
+      "sortKey": 26340,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Inquisition",
+        "DS9 season 6 Inquisition",
+        "DS9 S6 Inquisition",
+        "DS9 6x18 story",
+        "DS9 S06 story 18",
+        "DS9 6x18",
+        "DS9 S06E18",
+        "DS9 season 6 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-inquisition"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Inquisition",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Inquisition_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e19.in-the-pale-moonlight",
+      "label": "In the Pale Moonlight",
+      "contextType": "story_anchor",
+      "sortKey": 26360,
+      "stardate": "51721.3 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "In the Pale Moonlight",
+        "DS9 season 6 In the Pale Moonlight",
+        "DS9 S6 In the Pale Moonlight",
+        "DS9 6x19 story",
+        "DS9 S06 story 19",
+        "DS9 6x19",
+        "DS9 S06E19",
+        "DS9 season 6 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-in-the-pale-moonlight"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "In the Pale Moonlight",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_the_Pale_Moonlight_(episode)",
+        "stardate": "51721.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e20.his-way",
+      "label": "His Way",
+      "contextType": "story_anchor",
+      "sortKey": 26380,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "His Way",
+        "DS9 season 6 His Way",
+        "DS9 S6 His Way",
+        "DS9 6x20 story",
+        "DS9 S06 story 20",
+        "DS9 6x20",
+        "DS9 S06E20",
+        "DS9 season 6 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-his-way"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "His Way",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/His_Way_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e21.the-reckoning",
+      "label": "The Reckoning",
+      "contextType": "story_anchor",
+      "sortKey": 26400,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "The Reckoning",
+        "DS9 season 6 The Reckoning",
+        "DS9 S6 The Reckoning",
+        "DS9 6x21 story",
+        "DS9 S06 story 21",
+        "DS9 6x21",
+        "DS9 S06E21",
+        "DS9 season 6 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-the-reckoning"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Reckoning",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Reckoning_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e22.valiant",
+      "label": "Valiant",
+      "contextType": "story_anchor",
+      "sortKey": 26420,
+      "stardate": "51825.4 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Valiant",
+        "DS9 season 6 Valiant",
+        "DS9 S6 Valiant",
+        "DS9 6x22 story",
+        "DS9 S06 story 22",
+        "DS9 6x22",
+        "DS9 S06E22",
+        "DS9 season 6 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-valiant"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Valiant",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Valiant_(episode)",
+        "stardate": "51825.4 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e23.profit-and-lace",
+      "label": "Profit and Lace",
+      "contextType": "story_anchor",
+      "sortKey": 26440,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Profit and Lace",
+        "DS9 season 6 Profit and Lace",
+        "DS9 S6 Profit and Lace",
+        "DS9 6x23 story",
+        "DS9 S06 story 23",
+        "DS9 6x23",
+        "DS9 S06E23",
+        "DS9 season 6 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-profit-and-lace"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Profit and Lace",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Profit_and_Lace_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e24.times-orphan",
+      "label": "Time's Orphan",
+      "contextType": "story_anchor",
+      "sortKey": 26460,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Time's Orphan",
+        "DS9 season 6 Time's Orphan",
+        "DS9 S6 Time's Orphan",
+        "DS9 6x24 story",
+        "DS9 S06 story 24",
+        "DS9 6x24",
+        "DS9 S06E24",
+        "DS9 season 6 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-times-orphan"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Time's Orphan",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Time's_Orphan_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e25.the-sound-of-her-voice",
+      "label": "The Sound of Her Voice",
+      "contextType": "story_anchor",
+      "sortKey": 26480,
+      "stardate": "51948.3 (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "The Sound of Her Voice",
+        "DS9 season 6 The Sound of Her Voice",
+        "DS9 S6 The Sound of Her Voice",
+        "DS9 6x25 story",
+        "DS9 S06 story 25",
+        "DS9 6x25",
+        "DS9 S06E25",
+        "DS9 season 6 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-the-sound-of-her-voice"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Sound of Her Voice",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Sound_of_Her_Voice_(episode)",
+        "stardate": "51948.3 (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s6.e26.tears-of-the-prophets",
+      "label": "Tears of the Prophets",
+      "contextType": "story_anchor",
+      "sortKey": 26500,
+      "stardate": "Unknown (2374)",
+      "year": "2374",
+      "series": "DS9",
+      "season": 6,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Tears of the Prophets",
+        "DS9 season 6 Tears of the Prophets",
+        "DS9 S6 Tears of the Prophets",
+        "DS9 6x26 story",
+        "DS9 S06 story 26",
+        "DS9 6x26",
+        "DS9 S06E26",
+        "DS9 season 6 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-tears-of-the-prophets"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Tears of the Prophets",
+        "series": "DS9",
+        "season": 6,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tears_of_the_Prophets_(episode)",
+        "stardate": "Unknown (2374)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "ds9.s6.full-season",
+      "label": "DS9 season 6 full window",
+      "anchorFrom": "ds9.s6.e01.a-time-to-stand",
+      "anchorTo": "ds9.s6.e26.tears-of-the-prophets",
+      "sortKeyFrom": 26000,
+      "sortKeyTo": 26500,
+      "aliases": [
+        "DS9 season 6",
+        "Star Trek: Deep Space Nine season 6",
+        "DS9 S6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "ds9.s6.e01.a-time-to-stand.window",
+      "label": "A Time to Stand episode window",
+      "anchorFrom": "ds9.s6.e01.a-time-to-stand",
+      "anchorTo": "ds9.s6.e02.rocks-and-shoals",
+      "sortKeyFrom": 26000,
+      "sortKeyTo": 26020,
+      "aliases": [
+        "during A Time to Stand",
+        "after A Time to Stand"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-a-time-to-stand"
+      ]
+    },
+    {
+      "id": "ds9.s6.e02.rocks-and-shoals.window",
+      "label": "Rocks and Shoals episode window",
+      "anchorFrom": "ds9.s6.e02.rocks-and-shoals",
+      "anchorTo": "ds9.s6.e03.sons-and-daughters",
+      "sortKeyFrom": 26020,
+      "sortKeyTo": 26040,
+      "aliases": [
+        "during Rocks and Shoals",
+        "after Rocks and Shoals"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-rocks-and-shoals"
+      ]
+    },
+    {
+      "id": "ds9.s6.e03.sons-and-daughters.window",
+      "label": "Sons and Daughters episode window",
+      "anchorFrom": "ds9.s6.e03.sons-and-daughters",
+      "anchorTo": "ds9.s6.e04.behind-the-lines",
+      "sortKeyFrom": 26040,
+      "sortKeyTo": 26060,
+      "aliases": [
+        "during Sons and Daughters",
+        "after Sons and Daughters"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-sons-and-daughters"
+      ]
+    },
+    {
+      "id": "ds9.s6.e04.behind-the-lines.window",
+      "label": "Behind the Lines episode window",
+      "anchorFrom": "ds9.s6.e04.behind-the-lines",
+      "anchorTo": "ds9.s6.e05.favor-the-bold",
+      "sortKeyFrom": 26060,
+      "sortKeyTo": 26080,
+      "aliases": [
+        "during Behind the Lines",
+        "after Behind the Lines"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-behind-the-lines"
+      ]
+    },
+    {
+      "id": "ds9.s6.e05.favor-the-bold.window",
+      "label": "Favor the Bold episode window",
+      "anchorFrom": "ds9.s6.e05.favor-the-bold",
+      "anchorTo": "ds9.s6.e06.sacrifice-of-angels",
+      "sortKeyFrom": 26080,
+      "sortKeyTo": 26100,
+      "aliases": [
+        "during Favor the Bold",
+        "after Favor the Bold"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-favor-the-bold"
+      ]
+    },
+    {
+      "id": "ds9.s6.e06.sacrifice-of-angels.window",
+      "label": "Sacrifice of Angels episode window",
+      "anchorFrom": "ds9.s6.e06.sacrifice-of-angels",
+      "anchorTo": "ds9.s6.e07.you-are-cordially-invited",
+      "sortKeyFrom": 26100,
+      "sortKeyTo": 26120,
+      "aliases": [
+        "during Sacrifice of Angels",
+        "after Sacrifice of Angels"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-sacrifice-of-angels"
+      ]
+    },
+    {
+      "id": "ds9.s6.e07.you-are-cordially-invited.window",
+      "label": "You Are Cordially Invited episode window",
+      "anchorFrom": "ds9.s6.e07.you-are-cordially-invited",
+      "anchorTo": "ds9.s6.e08.resurrection",
+      "sortKeyFrom": 26120,
+      "sortKeyTo": 26140,
+      "aliases": [
+        "during You Are Cordially Invited",
+        "after You Are Cordially Invited"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-you-are-cordially-invited"
+      ]
+    },
+    {
+      "id": "ds9.s6.e08.resurrection.window",
+      "label": "Resurrection episode window",
+      "anchorFrom": "ds9.s6.e08.resurrection",
+      "anchorTo": "ds9.s6.e09.statistical-probabilities",
+      "sortKeyFrom": 26140,
+      "sortKeyTo": 26160,
+      "aliases": [
+        "during Resurrection",
+        "after Resurrection"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-resurrection"
+      ]
+    },
+    {
+      "id": "ds9.s6.e09.statistical-probabilities.window",
+      "label": "Statistical Probabilities episode window",
+      "anchorFrom": "ds9.s6.e09.statistical-probabilities",
+      "anchorTo": "ds9.s6.e10.the-magnificent-ferengi",
+      "sortKeyFrom": 26160,
+      "sortKeyTo": 26180,
+      "aliases": [
+        "during Statistical Probabilities",
+        "after Statistical Probabilities"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-statistical-probabilities"
+      ]
+    },
+    {
+      "id": "ds9.s6.e10.the-magnificent-ferengi.window",
+      "label": "The Magnificent Ferengi episode window",
+      "anchorFrom": "ds9.s6.e10.the-magnificent-ferengi",
+      "anchorTo": "ds9.s6.e11.waltz",
+      "sortKeyFrom": 26180,
+      "sortKeyTo": 26200,
+      "aliases": [
+        "during The Magnificent Ferengi",
+        "after The Magnificent Ferengi"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-the-magnificent-ferengi"
+      ]
+    },
+    {
+      "id": "ds9.s6.e11.waltz.window",
+      "label": "Waltz episode window",
+      "anchorFrom": "ds9.s6.e11.waltz",
+      "anchorTo": "ds9.s6.e12.who-mourns-for-morn",
+      "sortKeyFrom": 26200,
+      "sortKeyTo": 26220,
+      "aliases": [
+        "during Waltz",
+        "after Waltz"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-waltz"
+      ]
+    },
+    {
+      "id": "ds9.s6.e12.who-mourns-for-morn.window",
+      "label": "Who Mourns for Morn? episode window",
+      "anchorFrom": "ds9.s6.e12.who-mourns-for-morn",
+      "anchorTo": "ds9.s6.e13.far-beyond-the-stars",
+      "sortKeyFrom": 26220,
+      "sortKeyTo": 26240,
+      "aliases": [
+        "during Who Mourns for Morn?",
+        "after Who Mourns for Morn?"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-who-mourns-for-morn"
+      ]
+    },
+    {
+      "id": "ds9.s6.e13.far-beyond-the-stars.window",
+      "label": "Far Beyond the Stars episode window",
+      "anchorFrom": "ds9.s6.e13.far-beyond-the-stars",
+      "anchorTo": "ds9.s6.e14.one-little-ship",
+      "sortKeyFrom": 26240,
+      "sortKeyTo": 26260,
+      "aliases": [
+        "during Far Beyond the Stars",
+        "after Far Beyond the Stars"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-far-beyond-the-stars"
+      ]
+    },
+    {
+      "id": "ds9.s6.e14.one-little-ship.window",
+      "label": "One Little Ship episode window",
+      "anchorFrom": "ds9.s6.e14.one-little-ship",
+      "anchorTo": "ds9.s6.e15.honor-among-thieves",
+      "sortKeyFrom": 26260,
+      "sortKeyTo": 26280,
+      "aliases": [
+        "during One Little Ship",
+        "after One Little Ship"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-one-little-ship"
+      ]
+    },
+    {
+      "id": "ds9.s6.e15.honor-among-thieves.window",
+      "label": "Honor Among Thieves episode window",
+      "anchorFrom": "ds9.s6.e15.honor-among-thieves",
+      "anchorTo": "ds9.s6.e16.change-of-heart",
+      "sortKeyFrom": 26280,
+      "sortKeyTo": 26300,
+      "aliases": [
+        "during Honor Among Thieves",
+        "after Honor Among Thieves"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-honor-among-thieves"
+      ]
+    },
+    {
+      "id": "ds9.s6.e16.change-of-heart.window",
+      "label": "Change of Heart episode window",
+      "anchorFrom": "ds9.s6.e16.change-of-heart",
+      "anchorTo": "ds9.s6.e17.wrongs-darker-than-death-or-night",
+      "sortKeyFrom": 26300,
+      "sortKeyTo": 26320,
+      "aliases": [
+        "during Change of Heart",
+        "after Change of Heart"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-change-of-heart"
+      ]
+    },
+    {
+      "id": "ds9.s6.e17.wrongs-darker-than-death-or-night.window",
+      "label": "Wrongs Darker Than Death or Night episode window",
+      "anchorFrom": "ds9.s6.e17.wrongs-darker-than-death-or-night",
+      "anchorTo": "ds9.s6.e18.inquisition",
+      "sortKeyFrom": 26320,
+      "sortKeyTo": 26340,
+      "aliases": [
+        "during Wrongs Darker Than Death or Night",
+        "after Wrongs Darker Than Death or Night"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-wrongs-darker-than-death-or-night"
+      ]
+    },
+    {
+      "id": "ds9.s6.e18.inquisition.window",
+      "label": "Inquisition episode window",
+      "anchorFrom": "ds9.s6.e18.inquisition",
+      "anchorTo": "ds9.s6.e19.in-the-pale-moonlight",
+      "sortKeyFrom": 26340,
+      "sortKeyTo": 26360,
+      "aliases": [
+        "during Inquisition",
+        "after Inquisition"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-inquisition"
+      ]
+    },
+    {
+      "id": "ds9.s6.e19.in-the-pale-moonlight.window",
+      "label": "In the Pale Moonlight episode window",
+      "anchorFrom": "ds9.s6.e19.in-the-pale-moonlight",
+      "anchorTo": "ds9.s6.e20.his-way",
+      "sortKeyFrom": 26360,
+      "sortKeyTo": 26380,
+      "aliases": [
+        "during In the Pale Moonlight",
+        "after In the Pale Moonlight"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-in-the-pale-moonlight"
+      ]
+    },
+    {
+      "id": "ds9.s6.e20.his-way.window",
+      "label": "His Way episode window",
+      "anchorFrom": "ds9.s6.e20.his-way",
+      "anchorTo": "ds9.s6.e21.the-reckoning",
+      "sortKeyFrom": 26380,
+      "sortKeyTo": 26400,
+      "aliases": [
+        "during His Way",
+        "after His Way"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-his-way"
+      ]
+    },
+    {
+      "id": "ds9.s6.e21.the-reckoning.window",
+      "label": "The Reckoning episode window",
+      "anchorFrom": "ds9.s6.e21.the-reckoning",
+      "anchorTo": "ds9.s6.e22.valiant",
+      "sortKeyFrom": 26400,
+      "sortKeyTo": 26420,
+      "aliases": [
+        "during The Reckoning",
+        "after The Reckoning"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-the-reckoning"
+      ]
+    },
+    {
+      "id": "ds9.s6.e22.valiant.window",
+      "label": "Valiant episode window",
+      "anchorFrom": "ds9.s6.e22.valiant",
+      "anchorTo": "ds9.s6.e23.profit-and-lace",
+      "sortKeyFrom": 26420,
+      "sortKeyTo": 26440,
+      "aliases": [
+        "during Valiant",
+        "after Valiant"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-valiant"
+      ]
+    },
+    {
+      "id": "ds9.s6.e23.profit-and-lace.window",
+      "label": "Profit and Lace episode window",
+      "anchorFrom": "ds9.s6.e23.profit-and-lace",
+      "anchorTo": "ds9.s6.e24.times-orphan",
+      "sortKeyFrom": 26440,
+      "sortKeyTo": 26460,
+      "aliases": [
+        "during Profit and Lace",
+        "after Profit and Lace"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-profit-and-lace"
+      ]
+    },
+    {
+      "id": "ds9.s6.e24.times-orphan.window",
+      "label": "Time's Orphan episode window",
+      "anchorFrom": "ds9.s6.e24.times-orphan",
+      "anchorTo": "ds9.s6.e25.the-sound-of-her-voice",
+      "sortKeyFrom": 26460,
+      "sortKeyTo": 26480,
+      "aliases": [
+        "during Time's Orphan",
+        "after Time's Orphan"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-times-orphan"
+      ]
+    },
+    {
+      "id": "ds9.s6.e25.the-sound-of-her-voice.window",
+      "label": "The Sound of Her Voice episode window",
+      "anchorFrom": "ds9.s6.e25.the-sound-of-her-voice",
+      "anchorTo": "ds9.s6.e26.tears-of-the-prophets",
+      "sortKeyFrom": 26480,
+      "sortKeyTo": 26500,
+      "aliases": [
+        "during The Sound of Her Voice",
+        "after The Sound of Her Voice"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s6-the-sound-of-her-voice"
+      ]
+    }
+  ]
+}

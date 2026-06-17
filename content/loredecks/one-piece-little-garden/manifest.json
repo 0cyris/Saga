@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-little-garden",
+  "type": "bundled",
+  "title": "One Piece: Little Garden Arc",
+  "description": "Reviewed manga-main Loredeck for Little Garden hazards, Dorry and Brogy honor, Elbaf boundaries, Baroque Works sabotage, wax and color tactics, Sanji route recovery, and Nami illness bridge.",
+  "fandom": "One Piece",
+  "era": "Little Garden Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-little-garden-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-little-garden",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-little-garden"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "Arabasta Saga"
+    ],
+    "familyOrder": 100
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:arabasta",
+    "arc:little-garden",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Little_Garden_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "canon",
+    "adaptation": "manga",
+    "medium": "manga",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Little Garden Arc, manga chapters 115-129, anime episodes 70-77, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-main deck with anime episode support. Use anime differences only when they reinforce the same Little Garden arc beats."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "little_garden/little_garden.json",
+    "little_garden/dorry-brogy-and-giant-honor.json",
+    "little_garden/baroque-works-agents.json",
+    "little_garden/straw-hat-pairings.json",
+    "little_garden/duel-sabotage-and-battle.json",
+    "little_garden/wax-set-pieces-and-tactics.json",
+    "little_garden/nami-illness-bridge.json",
+    "little_garden/elbaf-and-world-hooks.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 40,
+    "categoryCounts": {
+      "character": 7,
+      "event": 7,
+      "faction": 2,
+      "knowledge": 6,
+      "location": 4,
+      "relationship": 4,
+      "rule": 10
+    },
+    "timelineAnchorCount": 10,
+    "timelineWindowCount": 10,
+    "tagCount": 40,
+    "entityCount": 27
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Little Garden runtime-lore pass completed: cards now emphasize island hazard constraints, giant honor gates, Baroque Works sabotage, wax/color tactical rules, Sanji independent route recovery, Nami illness bridge, and Elbaf anti-spoiler boundaries."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

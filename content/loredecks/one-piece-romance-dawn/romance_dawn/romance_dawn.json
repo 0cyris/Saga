@@ -1,0 +1,938 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_luffy_begins_with_a_direct_promise_to_become_pirate_king_001",
+      "title": "Luffy's straw-hat promise drives him before crew formation",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.romance-dawn",
+        "validToAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1128,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Luffy's straw-hat promise drives him before crew formation"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "straw-hat promise",
+          "Pirate King dream",
+          "early Luffy before crew"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "topic:pirate-king-dream",
+        "topic:luffy-origin-and-shanks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "straw-hat promise",
+            "Pirate King dream",
+            "early Luffy before crew"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "straw-hat promise",
+            "Pirate King dream",
+            "early Luffy before crew",
+            "Luffy's straw-hat promise drives him before crew formation",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy leaves Foosha with the straw hat promise as an active standard: he intends to surpass Shanks, gather his own crew, find One Piece, and become Pirate King.",
+        "injection": "For early Luffy scenes, make the straw-hat promise drive his choices before he has a crew, flag, ship, or reputation. Keep him reckless and loyalty-driven without importing later destiny, family, Haki, or fruit reveals.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_shanks_treats_the_straw_hat_as_a_promise_object_rather_than_a_trophy_002",
+      "title": "Shanks makes the straw hat a return-it-when-surpassed promise",
+      "kind": "snapshot",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.romance-dawn",
+        "validToAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1128,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Shanks makes the straw hat a return-it-when-surpassed promise"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:shanks",
+          "op:straw-hat"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Shanks",
+          "Straw Hat"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "straw hat promise",
+          "Shanks and Luffy",
+          "return the hat"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:shanks",
+        "character:straw-hat",
+        "topic:pirate-king-dream",
+        "topic:luffy-origin-and-shanks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Shanks",
+            "Straw Hat"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Shanks",
+            "Straw Hat"
+          ],
+          "topicsAny": [
+            "straw hat promise",
+            "Shanks and Luffy",
+            "return the hat"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Shanks",
+            "Straw Hat",
+            "straw hat promise",
+            "Shanks and Luffy",
+            "return the hat",
+            "Shanks makes the straw hat a return-it-when-surpassed promise",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Shanks gives Luffy the straw hat as a promise object after saving him: Luffy should return it only after becoming a pirate who surpasses Shanks.",
+        "injection": "When Shanks, Luffy, or the straw hat matters in Romance Dawn, treat the hat as a promise and emotional debt, not a trophy or generic costume piece. Do not add later Shanks status or Haki context.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_luffy_eating_the_gum_gum_fruit_makes_his_body_rubber_before_he_has_any_crew_003",
+      "title": "The Gum-Gum Fruit is only a rubber-body rule in this window",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.romance-dawn",
+        "validToAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1128,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: The Gum-Gum Fruit is only a rubber-body rule in this window"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:gum-gum-fruit",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Gum-Gum Fruit",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gum-Gum Fruit basics",
+          "rubber body rule",
+          "Devil Fruit anti-spoiler"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:gum-gum-fruit",
+        "character:monkey-d-luffy",
+        "topic:pirate-king-dream",
+        "topic:luffy-origin-and-shanks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gum-Gum Fruit",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Gum-Gum Fruit",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "Gum-Gum Fruit basics",
+            "rubber body rule",
+            "Devil Fruit anti-spoiler"
+          ],
+          "keywordsAny": [
+            "Gum-Gum Fruit",
+            "Monkey D. Luffy",
+            "Gum-Gum Fruit basics",
+            "rubber body rule",
+            "Devil Fruit anti-spoiler",
+            "The Gum-Gum Fruit is only a rubber-body rule in this window",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "In Romance Dawn, the Gum-Gum Fruit means Luffy's body stretches like rubber and he cannot swim; the story does not explain later Devil Fruit taxonomy or hidden truths.",
+        "injection": "Use Luffy's rubber body as a simple observed combat and hazard rule: blunt impacts can fail, stretching enables reach, and seawater remains dangerous. Block Nika, awakening, Haki, and later fruit explanations.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_foosha_village_sees_pirates_through_shanks_before_luffy_leaves_home_004",
+      "title": "Foosha frames pirates through Shanks before Luffy sails",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 81,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.romance-dawn",
+        "validToAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1128,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Foosha frames pirates through Shanks before Luffy sails"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:foosha-village",
+          "op:monkey-d-luffy",
+          "op:shanks"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Shanks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Foosha Village",
+          "Shanks pirate model",
+          "Higuma threat"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "topic:foosha-village",
+        "character:monkey-d-luffy",
+        "character:shanks",
+        "topic:pirate-king-dream",
+        "topic:luffy-origin-and-shanks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Shanks"
+          ],
+          "entitiesAny": [
+            "Foosha Village",
+            "Monkey D. Luffy",
+            "Shanks"
+          ],
+          "topicsAny": [
+            "Foosha Village",
+            "Shanks pirate model",
+            "Higuma threat"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Shanks",
+            "Foosha Village",
+            "Shanks pirate model",
+            "Higuma threat",
+            "Foosha frames pirates through Shanks before Luffy sails",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Foosha Village gives Luffy a pirate model shaped by Shanks's friendly crew and Higuma's threat, so piracy is not a single moral category to him.",
+        "injection": "For Foosha flashback scenes, let Shanks's crew define Luffy's idea of honorable piracy while Higuma supplies the immediate danger. Do not turn this into a broad pirate history lesson.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_shanks_loses_an_arm_protecting_luffy_from_a_sea_beast_005",
+      "title": "Shanks protects friends even after tolerating insults",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.romance-dawn",
+        "validToAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1128,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Shanks protects friends even after tolerating insults"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy",
+          "op:shanks"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Shanks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Shanks protects friends",
+          "sea beast rescue",
+          "friend-harm line"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "character:shanks",
+        "topic:pirate-king-dream",
+        "topic:luffy-origin-and-shanks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Shanks"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy",
+            "Shanks"
+          ],
+          "topicsAny": [
+            "Shanks protects friends",
+            "sea beast rescue",
+            "friend-harm line"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "Shanks",
+            "Shanks protects friends",
+            "sea beast rescue",
+            "friend-harm line",
+            "Shanks protects friends even after tolerating insults",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Shanks tolerates personal insults but draws a hard line at harm to friends, losing an arm to save Luffy from the sea beast.",
+        "injection": "When Shanks's example influences Luffy, preserve the distinction: Shanks laughs off disrespect but acts decisively when a friend is threatened. Do not use later reputation to explain the scene.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_romance_dawn_luffy_learns_that_a_pirate_crew_is_chosen_through_trust_and_courage_006",
+      "title": "Luffy learns crew worth from trust and courage",
+      "kind": "snapshot",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.romance-dawn.romance-dawn",
+        "validToAnchor": "op.romance-dawn.coby-alvida-and-early-marines",
+        "arc": "Romance Dawn Arc",
+        "arcId": "romance-dawn",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "1-7",
+        "episode": "1-4",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1128,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Romance Dawn Arc: Luffy learns crew worth from trust and courage"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "romance-dawn",
+          "label": "Romance Dawn Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "crew standard",
+          "trust and courage",
+          "early recruitment"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:romance-dawn",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:monkey-d-luffy",
+        "topic:pirate-king-dream",
+        "topic:luffy-origin-and-shanks"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "crew standard",
+            "trust and courage",
+            "early recruitment"
+          ],
+          "keywordsAny": [
+            "Monkey D. Luffy",
+            "crew standard",
+            "trust and courage",
+            "early recruitment",
+            "Luffy learns crew worth from trust and courage",
+            "Romance Dawn Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Luffy's first crew standard comes from Shanks: a pirate crew is chosen through trust, courage, and protection rather than size or reputation.",
+        "injection": "For early recruitment scenes, let Luffy value courage and loyalty over credentials. He is not building an institution yet, and he should not know future Straw Hat roles.",
+        "constraints": [
+          "Keep this card inside Romance Dawn Arc, manga chapters 1-7, anime episodes 1-4, One Piece manga-main continuity with anime episode support.",
+          "Favor manga facts when an anime scene embellishes the same beat."
+        ],
+        "antiLore": [
+          "Do not import later One Piece reveals, later power systems, or later character backstory into this arc-local card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Romance Dawn Arc",
+        "chapterRange": "Manga chapters 1-7",
+        "episodeRange": "Anime episodes 1-4",
+        "reference": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+        "confidence": 0.84,
+        "notes": "Reviewed against the Romance Dawn Arc source page, the Saga One Piece authoring plan, and the quality-pass review report."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-romance-dawn",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "pass": "romance-dawn-runtime-lore",
+          "developedAt": "2026-06-17",
+          "source": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md"
+        }
+      }
+    }
+  ]
+}

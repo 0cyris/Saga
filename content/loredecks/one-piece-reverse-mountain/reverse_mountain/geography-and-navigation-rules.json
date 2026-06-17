@@ -1,0 +1,844 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_ordinary_compass_habits_fail_in_the_grand_line_021",
+      "title": "Ordinary Compass Habits Fail In The Grand Line",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.geography-and-navigation-rules",
+        "validToAnchor": "op.reverse-mountain.baroque-works-hook",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8512,
+        "sortKeyTo": 8640,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: Ordinary Compass Habits Fail In The Grand Line"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:grand-line",
+          "op:log-pose",
+          "op:nami"
+        ],
+        "characters": [
+          "Nami"
+        ],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [
+          "Log Pose"
+        ],
+        "factions": [],
+        "topics": [
+          "compass failure",
+          "Grand Line navigation",
+          "Nami adaptation"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:grand-line",
+        "item:log-pose",
+        "character:nami",
+        "topic:grand-line-navigation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Grand Line",
+            "Log Pose",
+            "Nami"
+          ],
+          "topicsAny": [
+            "compass failure",
+            "Grand Line navigation",
+            "Nami adaptation"
+          ],
+          "keywordsAny": [
+            "Grand Line",
+            "Log Pose",
+            "Nami",
+            "compass failure",
+            "Grand Line navigation",
+            "Nami adaptation",
+            "ordinary compass",
+            "navigation model",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Ordinary compass habits fail in the Grand Line, forcing the crew to accept a new navigation model immediately.",
+        "injection": "Use compass failure to create practical pressure in travel scenes: familiar East Blue assumptions no longer point the way.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_the_log_pose_is_introduced_as_the_necessary_navigation_tool_022",
+      "title": "The Log Pose Becomes The Necessary Navigation Tool",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.geography-and-navigation-rules",
+        "validToAnchor": "op.reverse-mountain.baroque-works-hook",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8512,
+        "sortKeyTo": 8640,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: The Log Pose Becomes The Necessary Navigation Tool"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:log-pose",
+          "op:crocus",
+          "op:nami",
+          "op:grand-line"
+        ],
+        "characters": [
+          "Crocus",
+          "Nami"
+        ],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [
+          "Log Pose"
+        ],
+        "factions": [],
+        "topics": [
+          "Log Pose introduction",
+          "necessary tool",
+          "Crocus gives Log Pose"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:log-pose",
+        "character:crocus",
+        "character:nami",
+        "location:grand-line",
+        "topic:grand-line-navigation",
+        "topic:twin-cape"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Crocus",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Log Pose",
+            "Crocus",
+            "Nami",
+            "Grand Line"
+          ],
+          "topicsAny": [
+            "Log Pose introduction",
+            "necessary tool",
+            "Crocus gives Log Pose"
+          ],
+          "keywordsAny": [
+            "Log Pose",
+            "Crocus",
+            "Nami",
+            "Grand Line",
+            "Log Pose introduction",
+            "necessary tool",
+            "Crocus gives Log Pose",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "The Log Pose becomes the necessary Grand Line navigation tool after Crocus explains why the crew cannot rely on ordinary compasses.",
+        "injection": "Use the Log Pose as immediate survival equipment, not a broad lore lecture: it tells the crew how to leave Twin Cape and follow island magnetism.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_islands_affect_magnetic_routes_and_waiting_times_023",
+      "title": "Island Magnetism Creates Route Commitment And Waiting Time",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.geography-and-navigation-rules",
+        "validToAnchor": "op.reverse-mountain.baroque-works-hook",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8512,
+        "sortKeyTo": 8640,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: Island Magnetism Creates Route Commitment And Waiting Time"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:log-pose",
+          "op:grand-line",
+          "op:routes"
+        ],
+        "characters": [],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [
+          "Log Pose"
+        ],
+        "factions": [],
+        "topics": [
+          "island magnetism",
+          "route commitment",
+          "waiting time"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:log-pose",
+        "location:grand-line",
+        "topic:grand-line-routes",
+        "topic:grand-line-navigation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Log Pose",
+            "Grand Line",
+            "Grand Line routes"
+          ],
+          "topicsAny": [
+            "island magnetism",
+            "route commitment",
+            "waiting time"
+          ],
+          "keywordsAny": [
+            "Log Pose",
+            "Grand Line",
+            "Grand Line routes",
+            "island magnetism",
+            "route commitment",
+            "waiting time",
+            "magnetism",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Grand Line islands affect magnetic routes and waiting times, so travel becomes a sequence of commitments rather than free sailing.",
+        "injection": "Use this only at the practical level: the party must wait, lock on, and follow a route without needing a full Grand Line geography lesson.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_the_crew_cannot_simply_choose_any_direction_after_entry_024",
+      "title": "The Crew Cannot Freely Choose Any Direction After Entry",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.geography-and-navigation-rules",
+        "validToAnchor": "op.reverse-mountain.baroque-works-hook",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8512,
+        "sortKeyTo": 8640,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: The Crew Cannot Freely Choose Any Direction After Entry"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:straw-hat-pirates",
+          "op:log-pose",
+          "op:routes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [
+          "Log Pose"
+        ],
+        "factions": [
+          "Straw Hat Pirates"
+        ],
+        "topics": [
+          "route constraint",
+          "direction choice blocked",
+          "Grand Line travel"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:straw-hat-pirates",
+        "item:log-pose",
+        "topic:grand-line-routes",
+        "topic:grand-line-navigation",
+        "topic:identity-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Straw Hat Pirates",
+            "Log Pose",
+            "Grand Line routes"
+          ],
+          "topicsAny": [
+            "route constraint",
+            "direction choice blocked",
+            "Grand Line travel"
+          ],
+          "keywordsAny": [
+            "Straw Hat Pirates",
+            "Log Pose",
+            "Grand Line routes",
+            "route constraint",
+            "direction choice blocked",
+            "Grand Line travel",
+            "direction choice",
+            "travel choice",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "After entry, the crew cannot simply choose any direction and expect East Blue-style navigation to work.",
+        "injection": "Use this to constrain travel choices in roleplay: confidence and curiosity still need to obey the Log Pose route model.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_reverse_mountain_navigation_rules_should_retrieve_for_practical_route_scenes_025",
+      "title": "Navigation Rules Retrieve For Practical Route Scenes",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.reverse-mountain.geography-and-navigation-rules",
+        "validToAnchor": "op.reverse-mountain.baroque-works-hook",
+        "arc": "Reverse Mountain Arc",
+        "arcId": "reverse-mountain",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "101-105",
+        "episode": "62-63",
+        "sortKeyFrom": 8512,
+        "sortKeyTo": 8640,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Reverse Mountain Arc: Navigation Rules Retrieve For Practical Route Scenes"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "reverse-mountain",
+          "label": "Reverse Mountain Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:log-pose",
+          "op:grand-line",
+          "op:routes"
+        ],
+        "characters": [],
+        "locations": [
+          "Grand Line"
+        ],
+        "objects": [
+          "Log Pose"
+        ],
+        "factions": [],
+        "topics": [
+          "navigation retrieval boundary",
+          "practical route scene",
+          "no encyclopedia"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:reverse-mountain",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "item:log-pose",
+        "location:grand-line",
+        "topic:grand-line-routes",
+        "topic:grand-line-navigation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Log Pose",
+            "Grand Line",
+            "Grand Line routes"
+          ],
+          "topicsAny": [
+            "navigation retrieval boundary",
+            "practical route scene",
+            "no encyclopedia"
+          ],
+          "keywordsAny": [
+            "Log Pose",
+            "Grand Line",
+            "Grand Line routes",
+            "navigation retrieval boundary",
+            "practical route scene",
+            "no encyclopedia",
+            "route scene",
+            "compass failure",
+            "scope gate",
+            "Reverse Mountain Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Reverse Mountain arc beats."
+      },
+      "content": {
+        "fact": "Reverse Mountain navigation rules should retrieve for practical route scenes involving the Log Pose, course choice, waiting, or compass failure.",
+        "injection": "Use this as a scope gate: activate navigation lore when it changes action at the table, not for general Grand Line exposition.",
+        "constraints": [
+          "Keep this card inside Reverse Mountain Arc, manga chapters 101-105, anime episodes 62-63.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not reveal Laboon later-linked crew history, future crewmate connections, or later backstory.",
+          "Do not reveal Miss Wednesday's later name, status, or mission before the Whisky Peak identity reveal.",
+          "Do not explain Baroque Works full hierarchy, employer identity, or Arabasta endgame stakes.",
+          "Do not turn the Log Pose or Grand Line into a complete geography encyclopedia.",
+          "Do not import later final-island or Pirate King revelations beyond source-bound term-level references."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Reverse Mountain Arc",
+        "chapterRange": "Manga chapters 101-105",
+        "episodeRange": "Anime episodes 62-63",
+        "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-reverse-mountain",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "reverse-mountain-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Reverse Mountain Arc",
+    "chapterRange": "Manga chapters 101-105",
+    "episodeRange": "Anime episodes 62-63",
+    "reference": "https://onepiece.fandom.com/wiki/Reverse_Mountain_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Reverse Mountain Arc source page and Saga authoring guidance; written as route, promise, and identity-boundary gates rather than an arc recap."
+  }
+}

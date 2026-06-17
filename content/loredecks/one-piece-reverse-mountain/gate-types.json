@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "gateTypes": {
+    "anchor_window": {
+      "label": "Anchor Window",
+      "description": "Lorecard is eligible inside a bounded story window."
+    },
+    "show_continuity": {
+      "label": "Show Continuity",
+      "description": "Lorecard is anime/show continuity and should stay gated to anime-forward stacks."
+    },
+    "spoiler_guard": {
+      "label": "Spoiler Guard",
+      "description": "Lorecard should stay quiet before the matching reveal window."
+    }
+  }
+}

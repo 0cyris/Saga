@@ -1,0 +1,2488 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_clues-state-gate",
+      "title": "Clues state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e14.clues",
+        "validToAnchor": "tng.s4.e15.first-contact",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 13260,
+        "sortKeyTo": 13280,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: Clues",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e14.clues",
+          "label": "Clues",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:starfleet",
+          "st:paxans"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Paxans"
+        ],
+        "topics": [
+          "memory erasure",
+          "missing day",
+          "Data deception",
+          "wormhole/anomaly route gate",
+          "holodeck reality/safety gate",
+          "Picard as Dixon Hill"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-clues",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:starfleet",
+        "faction:paxans",
+        "topic:memory-erasure",
+        "topic:missing-day",
+        "topic:data-deception",
+        "topic:wormholeanomaly-route-gate",
+        "topic:holodeck-realitysafety-gate",
+        "topic:picard-as-dixon-hill"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Paxans"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Paxans"
+          ],
+          "topicsAny": [
+            "memory erasure",
+            "missing day",
+            "Data deception",
+            "wormhole/anomaly route gate",
+            "holodeck reality/safety gate",
+            "Picard as Dixon Hill"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Paxans",
+            "memory erasure",
+            "missing day",
+            "Data deception",
+            "wormhole/anomaly route gate",
+            "holodeck reality/safety gate",
+            "Picard as Dixon Hill",
+            "Clues",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data apparent dishonesty is an order-bound exception in a contact-secrecy crisis.",
+        "injection": "Inside Clues, write Jean-Luc Picard, Data with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Clues",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Clues_(episode)",
+        "stardate": "44502.7 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_first-contact-state-gate",
+      "title": "First Contact state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e15.first-contact",
+        "validToAnchor": "tng.s4.e16.galaxys-child",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 13280,
+        "sortKeyTo": 13300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: First Contact",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e15.first-contact",
+          "label": "First Contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:mirasta-yale",
+          "st:avel-durken",
+          "st:malcorians",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Mirasta Yale",
+          "Avel Durken"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Malcorians",
+          "Starfleet"
+        ],
+        "topics": [
+          "Malcor III",
+          "undercover Riker",
+          "warp threshold",
+          "episode-local fact/status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-first-contact",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:mirasta-yale",
+        "character:avel-durken",
+        "faction:malcorians",
+        "faction:starfleet",
+        "topic:malcor-iii",
+        "topic:undercover-riker",
+        "topic:warp-threshold",
+        "topic:episode-local-factstatus-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Mirasta Yale",
+            "Avel Durken"
+          ],
+          "factionsAny": [
+            "Malcorians",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Mirasta Yale",
+            "Avel Durken",
+            "Malcorians",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Malcor III",
+            "undercover Riker",
+            "warp threshold",
+            "episode-local fact/status gate"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Mirasta Yale",
+            "Avel Durken",
+            "Malcorians",
+            "Starfleet",
+            "Malcor III",
+            "undercover Riker",
+            "warp threshold",
+            "episode-local fact/status gate",
+            "First Contact",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Mirasta Yale accepts spacefaring life, while Durken delays open contact until his people are ready.",
+        "injection": "Inside First Contact, write Jean-Luc Picard, William Riker, Mirasta Yale with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "First Contact",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/First_Contact_(episode)",
+        "stardate": "Unknown (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_galaxys-child-state-gate",
+      "title": "Galaxy's Child state gate for Geordi La Forge",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e16.galaxys-child",
+        "validToAnchor": "tng.s4.e17.night-terrors",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 13300,
+        "sortKeyTo": 13320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: Galaxy's Child",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e16.galaxys-child",
+          "label": "Galaxy's Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:leah-brahms",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge",
+          "Leah Brahms",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "real Leah Brahms",
+          "holodeck consent",
+          "spaceborne lifeform",
+          "death/status-change gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-galaxys-child",
+        "character:geordi-la-forge",
+        "character:leah-brahms",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:real-leah-brahms",
+        "topic:holodeck-consent",
+        "topic:spaceborne-lifeform",
+        "topic:deathstatus-change-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge",
+            "Leah Brahms",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Leah Brahms",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "real Leah Brahms",
+            "holodeck consent",
+            "spaceborne lifeform",
+            "death/status-change gate"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Leah Brahms",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "real Leah Brahms",
+            "holodeck consent",
+            "spaceborne lifeform",
+            "death/status-change gate",
+            "Galaxy's Child",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Geordi must distinguish the real Leah from his prior holodeck simulation and repair professional boundaries.",
+        "injection": "Inside Galaxy's Child, write Geordi La Forge, Leah Brahms, Jean-Luc Picard with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Galaxy's Child",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Galaxy's_Child_(episode)",
+        "stardate": "44614.6 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_night-terrors-state-gate",
+      "title": "Night Terrors state gate for Beverly Crusher",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e17.night-terrors",
+        "validToAnchor": "tng.s4.e18.identity-crisis",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 13320,
+        "sortKeyTo": 13340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: Night Terrors",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e17.night-terrors",
+          "label": "Night Terrors",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:beverly-crusher",
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Beverly Crusher",
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "REM deprivation",
+          "dream contact",
+          "Tyken rift",
+          "Data/Lore android-family gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-night-terrors",
+        "character:beverly-crusher",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:rem-deprivation",
+        "topic:dream-contact",
+        "topic:tyken-rift",
+        "topic:datalore-android-family-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Beverly Crusher",
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "REM deprivation",
+            "dream contact",
+            "Tyken rift",
+            "Data/Lore android-family gate"
+          ],
+          "keywordsAny": [
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Starfleet",
+            "REM deprivation",
+            "dream contact",
+            "Tyken rift",
+            "Data/Lore android-family gate",
+            "Night Terrors",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Troi dream imagery becomes the specific communication key for the trapped aliens.",
+        "injection": "Inside Night Terrors, write Beverly Crusher, Deanna Troi with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Night Terrors",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Night_Terrors_(episode)",
+        "stardate": "44631.2-44642.1 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_identity-crisis-state-gate",
+      "title": "Identity Crisis state gate for Geordi La Forge",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e18.identity-crisis",
+        "validToAnchor": "tng.s4.e19.the-nth-degree",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 13340,
+        "sortKeyTo": 13360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: Identity Crisis",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e18.identity-crisis",
+          "label": "Identity Crisis",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:susanna-leijten",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge",
+          "Susanna Leijten"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Tarchannen III",
+          "transformation",
+          "holodeck clue",
+          "relationship-status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-identity-crisis",
+        "character:geordi-la-forge",
+        "character:susanna-leijten",
+        "faction:starfleet",
+        "topic:tarchannen-iii",
+        "topic:transformation",
+        "topic:holodeck-clue",
+        "topic:relationship-status-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge",
+            "Susanna Leijten"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Susanna Leijten",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Tarchannen III",
+            "transformation",
+            "holodeck clue",
+            "relationship-status gate"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Susanna Leijten",
+            "Starfleet",
+            "Tarchannen III",
+            "transformation",
+            "holodeck clue",
+            "relationship-status gate",
+            "Identity Crisis",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Susanna Leijten ties Geordi to the old mission, and holodeck reconstruction provides the forensic clue.",
+        "injection": "Inside Identity Crisis, write Geordi La Forge, Susanna Leijten with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Identity Crisis",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Identity_Crisis_(episode)",
+        "stardate": "44664.5-44668.1 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_the-nth-degree-state-gate",
+      "title": "The Nth Degree state gate for Reginald Barclay",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e19.the-nth-degree",
+        "validToAnchor": "tng.s4.e20.qpid",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 13360,
+        "sortKeyTo": 13380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: The Nth Degree",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e19.the-nth-degree",
+          "label": "The Nth Degree",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:reginald-barclay",
+          "st:jean-luc-picard",
+          "st:starfleet",
+          "st:cytherians"
+        ],
+        "characters": [
+          "Reginald Barclay",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cytherians"
+        ],
+        "topics": [
+          "Cytherian probe",
+          "Barclay enhancement",
+          "long-range contact",
+          "Barclay Pathfinder support gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-nth-degree",
+        "character:reginald-barclay",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "faction:cytherians",
+        "topic:cytherian-probe",
+        "topic:barclay-enhancement",
+        "topic:long-range-contact",
+        "topic:barclay-pathfinder-support-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Reginald Barclay",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cytherians"
+          ],
+          "entitiesAny": [
+            "Reginald Barclay",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Cytherians"
+          ],
+          "topicsAny": [
+            "Cytherian probe",
+            "Barclay enhancement",
+            "long-range contact",
+            "Barclay Pathfinder support gate"
+          ],
+          "keywordsAny": [
+            "Reginald Barclay",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Cytherians",
+            "Cytherian probe",
+            "Barclay enhancement",
+            "long-range contact",
+            "Barclay Pathfinder support gate",
+            "The Nth Degree",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Barclay gains confidence from the experience but does not remain permanently superintelligent.",
+        "injection": "Inside The Nth Degree, write Reginald Barclay, Jean-Luc Picard with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Nth Degree",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Nth_Degree_(episode)",
+        "stardate": "44704.2-44721.9 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_qpid-state-gate",
+      "title": "Qpid state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e20.qpid",
+        "validToAnchor": "tng.s4.e21.the-drumhead",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 13380,
+        "sortKeyTo": 13400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: Qpid",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e20.qpid",
+          "label": "Qpid",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:vash",
+          "st:q",
+          "st:starfleet",
+          "st:q-continuum"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Vash",
+          "Q"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Q Continuum"
+        ],
+        "topics": [
+          "Vash",
+          "Robin Hood fantasy",
+          "Q test",
+          "Q intervention or trial gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-qpid",
+        "character:jean-luc-picard",
+        "character:vash",
+        "character:q",
+        "faction:starfleet",
+        "faction:q-continuum",
+        "topic:vash",
+        "topic:robin-hood-fantasy",
+        "topic:q-test",
+        "topic:q-intervention-or-trial-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Vash",
+            "Q"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Q Continuum"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Vash",
+            "Q",
+            "Starfleet",
+            "Q Continuum"
+          ],
+          "topicsAny": [
+            "Vash",
+            "Robin Hood fantasy",
+            "Q test",
+            "Q intervention or trial gate"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Vash",
+            "Q",
+            "Starfleet",
+            "Q Continuum",
+            "Robin Hood fantasy",
+            "Q test",
+            "Q intervention or trial gate",
+            "Qpid",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Vash is a known Picard relationship by this point, but the Sherwood identities are Q-created scenario roles.",
+        "injection": "Inside Qpid, write Jean-Luc Picard, Vash, Q with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Qpid",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Qpid_(episode)",
+        "stardate": "44741.9 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_the-drumhead-state-gate",
+      "title": "The Drumhead state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e21.the-drumhead",
+        "validToAnchor": "tng.s4.e22.half-a-life",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 13400,
+        "sortKeyTo": 13420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: The Drumhead",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e21.the-drumhead",
+          "label": "The Drumhead",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:norah-satie",
+          "st:simon-tarses",
+          "st:worf",
+          "st:starfleet",
+          "st:romulan-star-empire"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Norah Satie",
+          "Simon Tarses",
+          "Worf"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire"
+        ],
+        "topics": [
+          "Satie inquiry",
+          "civil liberties",
+          "Romulan ancestry",
+          "Klingon duty/faction-status gate",
+          "Romulan secrecy/political pressure gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-drumhead",
+        "character:jean-luc-picard",
+        "character:norah-satie",
+        "character:simon-tarses",
+        "character:worf",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "topic:satie-inquiry",
+        "topic:civil-liberties",
+        "topic:romulan-ancestry",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:romulan-secrecypolitical-pressure-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Norah Satie",
+            "Simon Tarses",
+            "Worf"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Norah Satie",
+            "Simon Tarses",
+            "Worf",
+            "Starfleet",
+            "Romulan Star Empire"
+          ],
+          "topicsAny": [
+            "Satie inquiry",
+            "civil liberties",
+            "Romulan ancestry",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Norah Satie",
+            "Simon Tarses",
+            "Worf",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Satie inquiry",
+            "civil liberties",
+            "Romulan ancestry",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "The Drumhead",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Worf learns the cost of hardline security without evidence, while Tarses ancestry lie is not treason.",
+        "injection": "Inside The Drumhead, write Jean-Luc Picard, Norah Satie, Simon Tarses with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Drumhead",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Drumhead_(episode)",
+        "stardate": "44769.2-44780 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_half-a-life-state-gate",
+      "title": "Half a Life state gate for Lwaxana Troi",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e22.half-a-life",
+        "validToAnchor": "tng.s4.e23.the-host",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 13420,
+        "sortKeyTo": 13440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: Half a Life",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e22.half-a-life",
+          "label": "Half a Life",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:lwaxana-troi",
+          "st:timicin",
+          "st:kaelons",
+          "st:federation"
+        ],
+        "characters": [
+          "Lwaxana Troi",
+          "Timicin"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Kaelons",
+          "Federation"
+        ],
+        "topics": [
+          "Kaelon Resolution",
+          "ritual death",
+          "Prime Directive",
+          "episode-local fact/status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-half-a-life",
+        "character:lwaxana-troi",
+        "character:timicin",
+        "faction:kaelons",
+        "faction:federation",
+        "topic:kaelon-resolution",
+        "topic:ritual-death",
+        "topic:prime-directive",
+        "topic:episode-local-factstatus-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lwaxana Troi",
+            "Timicin"
+          ],
+          "factionsAny": [
+            "Kaelons",
+            "Federation"
+          ],
+          "entitiesAny": [
+            "Lwaxana Troi",
+            "Timicin",
+            "Kaelons",
+            "Federation"
+          ],
+          "topicsAny": [
+            "Kaelon Resolution",
+            "ritual death",
+            "Prime Directive",
+            "episode-local fact/status gate"
+          ],
+          "keywordsAny": [
+            "Lwaxana Troi",
+            "Timicin",
+            "Kaelons",
+            "Federation",
+            "Kaelon Resolution",
+            "ritual death",
+            "Prime Directive",
+            "episode-local fact/status gate",
+            "Half a Life",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Timicin remains trapped between personal desire, scientific duty, and cultural law.",
+        "injection": "Inside Half a Life, write Lwaxana Troi, Timicin with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Half a Life",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Half_a_Life_(episode)",
+        "stardate": "44805.3-44812.6 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_the-host-state-gate",
+      "title": "The Host state gate for Beverly Crusher",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e23.the-host",
+        "validToAnchor": "tng.s4.e24.the-minds-eye",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 13440,
+        "sortKeyTo": 13460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: The Host",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e23.the-host",
+          "label": "The Host",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:beverly-crusher",
+          "st:odan",
+          "st:william-riker",
+          "st:trill",
+          "st:federation",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Beverly Crusher",
+          "Odan",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Trill",
+          "Federation",
+          "Starfleet"
+        ],
+        "topics": [
+          "Trill symbiont",
+          "host transfer",
+          "Crusher Odan relationship",
+          "death/status-change gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-host",
+        "character:beverly-crusher",
+        "character:odan",
+        "character:william-riker",
+        "faction:trill",
+        "faction:federation",
+        "faction:starfleet",
+        "topic:trill-symbiont",
+        "topic:host-transfer",
+        "topic:crusher-odan-relationship",
+        "topic:deathstatus-change-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Beverly Crusher",
+            "Odan",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Trill",
+            "Federation",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Beverly Crusher",
+            "Odan",
+            "William Riker",
+            "Trill",
+            "Federation",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Trill symbiont",
+            "host transfer",
+            "Crusher Odan relationship",
+            "death/status-change gate"
+          ],
+          "keywordsAny": [
+            "Beverly Crusher",
+            "Odan",
+            "William Riker",
+            "Trill",
+            "Federation",
+            "Starfleet",
+            "Trill symbiont",
+            "host transfer",
+            "Crusher Odan relationship",
+            "death/status-change gate",
+            "The Host",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Crusher relationship with Odan is real but does not survive the host-transfer boundary as an ongoing romance.",
+        "injection": "Inside The Host, write Beverly Crusher, Odan, William Riker with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Host",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Host_(episode)",
+        "stardate": "44821.3-44824.4 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_the-minds-eye-state-gate",
+      "title": "The Mind's Eye state gate for Geordi La Forge",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e24.the-minds-eye",
+        "validToAnchor": "tng.s4.e25.in-theory",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 13460,
+        "sortKeyTo": 13480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: The Mind's Eye",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e24.the-minds-eye",
+          "label": "The Mind's Eye",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:worf",
+          "st:kell",
+          "st:sela",
+          "st:starfleet",
+          "st:romulan-star-empire",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Geordi La Forge",
+          "Worf",
+          "Kell",
+          "Sela"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Romulan conditioning",
+          "Duras conspiracy",
+          "Sela reveal guard",
+          "Klingon duty/faction-status gate",
+          "Romulan secrecy/political pressure gate",
+          "Worf vs. Duras"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-the-minds-eye",
+        "character:geordi-la-forge",
+        "character:worf",
+        "character:kell",
+        "character:sela",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "faction:klingon-empire",
+        "topic:romulan-conditioning",
+        "topic:duras-conspiracy",
+        "topic:sela-reveal-guard",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:worf-vs-duras"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge",
+            "Worf",
+            "Kell",
+            "Sela"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Worf",
+            "Kell",
+            "Sela",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Romulan conditioning",
+            "Duras conspiracy",
+            "Sela reveal guard",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "Worf vs. Duras"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Worf",
+            "Kell",
+            "Sela",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Klingon Empire",
+            "Romulan conditioning",
+            "Duras conspiracy",
+            "Sela reveal guard",
+            "Klingon duty/faction-status gate",
+            "Romulan secrecy/political pressure gate",
+            "Worf vs. Duras",
+            "The Mind's Eye",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Geordi is a victim of coercive conditioning, while Kell links the plot to Duras-aligned Klingon politics.",
+        "injection": "Inside The Mind's Eye, write Geordi La Forge, Worf, Kell with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Mind's Eye",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Mind's_Eye_(episode)",
+        "stardate": "44885.5-44896.9 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_in-theory-state-gate",
+      "title": "In Theory state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e25.in-theory",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 13480,
+        "sortKeyTo": 13500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: In Theory",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e25.in-theory",
+          "label": "In Theory",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:jenna-dsora",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Jenna D'Sora",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data relationship experiment",
+          "dark matter nebula",
+          "android boundaries",
+          "episode-local fact/status gate"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-in-theory",
+        "character:data",
+        "character:jenna-dsora",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:data-relationship-experiment",
+        "topic:dark-matter-nebula",
+        "topic:android-boundaries",
+        "topic:episode-local-factstatus-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Jenna D'Sora",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Jenna D'Sora",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data relationship experiment",
+            "dark matter nebula",
+            "android boundaries",
+            "episode-local fact/status gate"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Jenna D'Sora",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Data relationship experiment",
+            "dark matter nebula",
+            "android boundaries",
+            "episode-local fact/status gate",
+            "In Theory",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data can follow relationship expectations procedurally without becoming emotionally human.",
+        "injection": "Inside In Theory, write Data, Jenna D'Sora, Jean-Luc Picard with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "In Theory",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/In_Theory_(episode)",
+        "stardate": "44932.3-44935.6 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s4_redemption-state-gate",
+      "title": "Redemption state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s4.e26.redemption",
+        "validToAnchor": "tng.s4.e26.redemption",
+        "series": "TNG",
+        "season": "4",
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 13500,
+        "sortKeyTo": 13500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 4: Redemption",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s4",
+          "label": "TNG season 4",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s4.e26.redemption",
+          "label": "Redemption",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:gowron",
+          "st:lursa",
+          "st:betor",
+          "st:toral",
+          "st:sela",
+          "st:klingon-empire",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Gowron",
+          "Lursa",
+          "B'Etor",
+          "Toral",
+          "Sela"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Klingon civil war",
+          "Duras sisters",
+          "Worf resigns",
+          "Sela reveal",
+          "Klingon duty/faction-status gate",
+          "Redemption"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s4",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s4-redemption",
+        "character:worf",
+        "character:gowron",
+        "character:lursa",
+        "character:betor",
+        "character:toral",
+        "character:sela",
+        "faction:klingon-empire",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:klingon-civil-war",
+        "topic:duras-sisters",
+        "topic:worf-resigns",
+        "topic:sela-reveal",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:redemption"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Gowron",
+            "Lursa",
+            "B'Etor",
+            "Toral",
+            "Sela"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Gowron",
+            "Lursa",
+            "B'Etor",
+            "Toral",
+            "Sela",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Klingon civil war",
+            "Duras sisters",
+            "Worf resigns",
+            "Sela reveal",
+            "Klingon duty/faction-status gate",
+            "Redemption"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Gowron",
+            "Lursa",
+            "B'Etor",
+            "Toral",
+            "Sela",
+            "Klingon Empire",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Klingon civil war",
+            "Duras sisters",
+            "Worf resigns",
+            "Sela reveal",
+            "Klingon duty/faction-status gate",
+            "Redemption",
+            "TNG season 4"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 4, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 4 ends with Worf away from his normal post and Sela revealed as the Romulan face behind Duras support.",
+        "injection": "Inside Redemption, write Worf, Gowron, Lursa with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 4 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 4 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Redemption",
+        "series": "TNG",
+        "season": 4,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Redemption_(episode)",
+        "stardate": "44995.3-44998.3 (2367)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-4",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

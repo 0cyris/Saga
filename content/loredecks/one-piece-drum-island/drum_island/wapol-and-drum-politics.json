@@ -1,0 +1,863 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_wapol_monopolized_doctors_through_the_isshi_20_to_control_the_kingdom_012",
+      "title": "Wapol Makes Medicine A Political Weapon",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.wapol-and-drum-politics",
+        "validToAnchor": "op.drum-island.dalton-and-citizens",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11180,
+        "sortKeyTo": 11270,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Wapol Makes Medicine A Political Weapon"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:wapol",
+          "op:isshi-20",
+          "op:medicine",
+          "op:doctors"
+        ],
+        "characters": [
+          "Wapol"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Isshi-20",
+          "doctors"
+        ],
+        "topics": [
+          "doctor monopoly",
+          "medicine as control",
+          "Isshi-20"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:wapol",
+        "faction:isshi-20",
+        "topic:medicine",
+        "faction:doctors",
+        "topic:medical-urgency",
+        "topic:drum-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Wapol"
+          ],
+          "entitiesAny": [
+            "Wapol",
+            "Isshi-20",
+            "medicine",
+            "doctors"
+          ],
+          "topicsAny": [
+            "doctor monopoly",
+            "medicine as control",
+            "Isshi-20"
+          ],
+          "keywordsAny": [
+            "Wapol",
+            "Isshi-20",
+            "medicine",
+            "doctors",
+            "doctor monopoly",
+            "medicine as control",
+            "medical control",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Wapol monopolized doctors through the Isshi-20, turning medical access into a political weapon.",
+        "injection": "Use Wapol's tyranny through medicine: people do not merely dislike him, they depended on his permission to receive care.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_he_abandoned_drum_during_crisis_and_returns_to_reclaim_power_013",
+      "title": "Wapol Abandoned Drum And Returns To Reclaim Power",
+      "kind": "event_moment",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_moment",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.wapol-and-drum-politics",
+        "validToAnchor": "op.drum-island.dalton-and-citizens",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11180,
+        "sortKeyTo": 11270,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Wapol Abandoned Drum And Returns To Reclaim Power"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:wapol",
+          "op:drum-island",
+          "op:blackbeard"
+        ],
+        "characters": [
+          "Wapol",
+          "Blackbeard"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Wapol return",
+          "abandoned kingdom",
+          "prior crisis"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:wapol",
+        "location:drum-island",
+        "character:blackbeard",
+        "topic:drum-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wapol",
+            "Blackbeard"
+          ],
+          "entitiesAny": [
+            "Wapol",
+            "Drum Island",
+            "Blackbeard"
+          ],
+          "topicsAny": [
+            "Wapol return",
+            "abandoned kingdom",
+            "prior crisis"
+          ],
+          "keywordsAny": [
+            "Wapol",
+            "Drum Island",
+            "Blackbeard",
+            "Wapol return",
+            "abandoned kingdom",
+            "prior crisis",
+            "abandoned",
+            "return",
+            "reclaim power",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Wapol abandoned Drum during crisis and returns later to reclaim power without accepting responsibility for the country he left behind.",
+        "injection": "Use Wapol's return as political threat: he wants authority back, not reconciliation with the people.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_dalton_represents_duty_to_the_country_after_serving_a_bad_king_014",
+      "title": "Dalton Represents Duty After Serving A Bad King",
+      "kind": "snapshot",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.wapol-and-drum-politics",
+        "validToAnchor": "op.drum-island.dalton-and-citizens",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11180,
+        "sortKeyTo": 11270,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Dalton Represents Duty After Serving A Bad King"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:dalton",
+          "op:wapol",
+          "op:drum-citizens"
+        ],
+        "characters": [
+          "Dalton",
+          "Wapol"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Drum citizens"
+        ],
+        "topics": [
+          "Dalton duty",
+          "former servant",
+          "citizen protector"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:dalton",
+        "character:wapol",
+        "faction:drum-citizens",
+        "topic:drum-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dalton",
+            "Wapol"
+          ],
+          "entitiesAny": [
+            "Dalton",
+            "Wapol",
+            "Drum citizens"
+          ],
+          "topicsAny": [
+            "Dalton duty",
+            "former servant",
+            "citizen protector"
+          ],
+          "keywordsAny": [
+            "Dalton",
+            "Wapol",
+            "Drum citizens",
+            "Dalton duty",
+            "former servant",
+            "citizen protector",
+            "duty",
+            "guilt",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Dalton represents duty to Drum after serving a bad king, carrying guilt while choosing the citizens over Wapol.",
+        "injection": "Use Dalton as accountability under pressure: he knows the old system and still tries to protect people from its return.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_chess_and_kuromarimo_enforce_wapol_s_return_015",
+      "title": "Chess And Kuromarimo Enforce Wapol's Return",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.wapol-and-drum-politics",
+        "validToAnchor": "op.drum-island.dalton-and-citizens",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11180,
+        "sortKeyTo": 11270,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Chess And Kuromarimo Enforce Wapol's Return"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:chess",
+          "op:kuromarimo",
+          "op:wapol",
+          "op:drum-castle"
+        ],
+        "characters": [
+          "Chess",
+          "Kuromarimo",
+          "Wapol"
+        ],
+        "locations": [
+          "Drum Castle"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Wapol faction",
+          "castle pressure",
+          "enforcers"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:chess",
+        "character:kuromarimo",
+        "character:wapol",
+        "location:drum-castle",
+        "topic:drum-politics",
+        "topic:castle-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chess",
+            "Kuromarimo",
+            "Wapol"
+          ],
+          "entitiesAny": [
+            "Chess",
+            "Kuromarimo",
+            "Wapol",
+            "Drum Castle"
+          ],
+          "topicsAny": [
+            "Wapol faction",
+            "castle pressure",
+            "enforcers"
+          ],
+          "keywordsAny": [
+            "Chess",
+            "Kuromarimo",
+            "Wapol",
+            "Drum Castle",
+            "Wapol faction",
+            "castle pressure",
+            "enforcers",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Chess and Kuromarimo enforce Wapol's return by pressuring the castle defense and supporting his claim to rule.",
+        "injection": "Use them as Wapol's factional pressure, not as standalone arc-defining villains.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_the_kingdom_s_politics_are_inseparable_from_access_to_medicine_016",
+      "title": "Drum Politics Are Inseparable From Medical Access",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.wapol-and-drum-politics",
+        "validToAnchor": "op.drum-island.dalton-and-citizens",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11180,
+        "sortKeyTo": 11270,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Drum Politics Are Inseparable From Medical Access"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-island",
+          "op:medicine",
+          "op:wapol",
+          "op:drum-citizens"
+        ],
+        "characters": [
+          "Wapol"
+        ],
+        "locations": [
+          "Drum Island"
+        ],
+        "objects": [],
+        "factions": [
+          "Drum citizens"
+        ],
+        "topics": [
+          "medicine politics",
+          "kingdom control",
+          "public health"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-island",
+        "topic:medicine",
+        "character:wapol",
+        "faction:drum-citizens",
+        "topic:medical-urgency",
+        "topic:drum-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Wapol"
+          ],
+          "entitiesAny": [
+            "Drum Island",
+            "medicine",
+            "Wapol",
+            "Drum citizens"
+          ],
+          "topicsAny": [
+            "medicine politics",
+            "kingdom control",
+            "public health"
+          ],
+          "keywordsAny": [
+            "Drum Island",
+            "medicine",
+            "Wapol",
+            "Drum citizens",
+            "medicine politics",
+            "kingdom control",
+            "public health",
+            "health care",
+            "power",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Drum Island politics are inseparable from medical access because Wapol's rule made health care a tool of power.",
+        "injection": "Use political scenes through the medical lens: tyranny here is measured by who can get treated and who cannot.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Drum Island Arc",
+    "chapterRange": "Manga chapters 130-154",
+    "episodeRange": "Anime episodes 78-91",
+    "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+  }
+}

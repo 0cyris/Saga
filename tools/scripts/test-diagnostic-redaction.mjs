@@ -53,10 +53,12 @@ assert(!redactDiagnosticText(`Authorization: ${bearerValue}`).includes('abcdefgh
 const healthPanel = await readFile(path.join(repoRoot, 'src/loredecks/loredeck-health-panel.js'), 'utf8');
 const liveSmoke = await readFile(path.join(repoRoot, 'tools/scripts/smoke-live-st-cdp.mjs'), 'utf8');
 const lorePanel = await readFile(path.join(repoRoot, 'src/runtime/lore-panel.js'), 'utf8');
+const creatorGenerationDiagnostics = await readFile(path.join(repoRoot, 'src/loredecks/loredeck-creator-generation-diagnostics.js'), 'utf8');
 
 assert(healthPanel.includes('stringifyRedactedDiagnostic(context.report)'), 'Pack Health Copy Diagnostics must redact report JSON.');
 assert(healthPanel.includes('downloadJson(redactDiagnosticValue(context.report)'), 'Pack Health Export Report must redact report JSON.');
 assert(liveSmoke.includes('redactDiagnosticValue(payload)') && liveSmoke.includes('redactDiagnosticText(raw)'), 'Live smoke debug-frame logs must redact CDP payloads.');
-assert(lorePanel.includes('buildLoredeckCreatorGenerationFailureDiagnostic') && lorePanel.includes('redactDiagnosticValue(diagnostic)'), 'Deck Maker failure diagnostics must be redacted before persistence.');
+assert(lorePanel.includes('buildLoredeckCreatorGenerationFailureDiagnostic(payload, unitConfig, requestOptions, { redactDiagnostic: redactDiagnosticValue })'), 'Deck Maker runtime must inject the diagnostic redactor before persistence.');
+assert(creatorGenerationDiagnostics.includes('redactDiagnostic(diagnostic)'), 'Deck Maker diagnostics must apply the injected redactor before returning diagnostics.');
 
 console.log('Diagnostic redaction contract passed.');

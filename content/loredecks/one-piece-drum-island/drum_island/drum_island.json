@@ -1,0 +1,869 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_drum_island_is_a_winter_kingdom_defined_by_snow_mountains_and_medical_scarcity_001",
+      "title": "Drum Island Is A Winter Kingdom Defined By Medical Scarcity",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.drum-island",
+        "validToAnchor": "op.drum-island.chopper-hiriluk-and-kureha",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11090,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Drum Island Is A Winter Kingdom Defined By Medical Scarcity"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-island",
+          "op:medicine",
+          "op:drum-rockies",
+          "op:snow-villages"
+        ],
+        "characters": [],
+        "locations": [
+          "Drum Island",
+          "Drum Rockies",
+          "snow villages"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "winter kingdom",
+          "medical scarcity",
+          "snow terrain"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-island",
+        "topic:medicine",
+        "location:drum-rockies",
+        "location:snow-villages",
+        "topic:medical-urgency",
+        "topic:drum-politics",
+        "topic:mountain-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Drum Island",
+            "medicine",
+            "Drum Rockies",
+            "snow villages"
+          ],
+          "topicsAny": [
+            "winter kingdom",
+            "medical scarcity",
+            "snow terrain"
+          ],
+          "keywordsAny": [
+            "Drum Island",
+            "medicine",
+            "Drum Rockies",
+            "snow villages",
+            "winter kingdom",
+            "medical scarcity",
+            "snow terrain",
+            "winter",
+            "snow",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Drum Island is a winter kingdom where snow, mountains, and medical scarcity shape every survival and political scene.",
+        "injection": "Use Drum Island as harsh terrain plus broken medical access: the crew is not just docking, they are entering a country where illness and care are political problems.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_drum_castle_sits_high_enough_that_reaching_it_becomes_a_survival_problem_002",
+      "title": "Reaching Drum Castle Is A Survival Problem",
+      "kind": "reference_note",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "lore_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.drum-island",
+        "validToAnchor": "op.drum-island.chopper-hiriluk-and-kureha",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11090,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Reaching Drum Castle Is A Survival Problem"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-castle",
+          "op:drum-rockies",
+          "op:nami",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Nami",
+          "Monkey D. Luffy"
+        ],
+        "locations": [
+          "Drum Castle",
+          "Drum Rockies"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "castle climb",
+          "mountain survival",
+          "medical time pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-castle",
+        "location:drum-rockies",
+        "character:nami",
+        "character:monkey-d-luffy",
+        "topic:medical-urgency",
+        "topic:mountain-survival",
+        "topic:castle-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nami",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Drum Castle",
+            "Drum Rockies",
+            "Nami",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "castle climb",
+            "mountain survival",
+            "medical time pressure"
+          ],
+          "keywordsAny": [
+            "Drum Castle",
+            "Drum Rockies",
+            "Nami",
+            "Monkey D. Luffy",
+            "castle climb",
+            "mountain survival",
+            "medical time pressure",
+            "mountain climb",
+            "doctor",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Drum Castle sits high in the Drum Rockies, so reaching the doctor becomes a survival problem under medical time pressure.",
+        "injection": "Use the castle height as active pressure: cold, injury, avalanches, and climbing matter because Nami cannot wait.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_villages_fear_both_illness_and_wapol_s_return_003",
+      "title": "Villages Fear Illness And Wapol's Return",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.drum-island",
+        "validToAnchor": "op.drum-island.chopper-hiriluk-and-kureha",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11090,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Villages Fear Illness And Wapol's Return"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:snow-villages",
+          "op:drum-citizens",
+          "op:medicine",
+          "op:wapol"
+        ],
+        "characters": [
+          "Wapol"
+        ],
+        "locations": [
+          "snow villages"
+        ],
+        "objects": [],
+        "factions": [
+          "Drum citizens"
+        ],
+        "topics": [
+          "village fear",
+          "Wapol return",
+          "medical trauma"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:snow-villages",
+        "faction:drum-citizens",
+        "topic:medicine",
+        "character:wapol",
+        "topic:medical-urgency",
+        "topic:drum-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wapol"
+          ],
+          "entitiesAny": [
+            "snow villages",
+            "Drum citizens",
+            "medicine",
+            "Wapol"
+          ],
+          "topicsAny": [
+            "village fear",
+            "Wapol return",
+            "medical trauma"
+          ],
+          "keywordsAny": [
+            "snow villages",
+            "Drum citizens",
+            "medicine",
+            "Wapol",
+            "village fear",
+            "Wapol return",
+            "medical trauma",
+            "villages",
+            "fear",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Drum villages fear both illness and Wapol's return because the country has already been damaged by medical control and abandonment.",
+        "injection": "Use village fear as earned caution: armed civilians are reacting to trauma, not simply being hostile to protagonists.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_the_drum_rockies_create_a_vertical_route_for_luffy_and_sanji_004",
+      "title": "The Drum Rockies Force A Vertical Rescue Route",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.drum-island",
+        "validToAnchor": "op.drum-island.chopper-hiriluk-and-kureha",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11090,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: The Drum Rockies Force A Vertical Rescue Route"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-rockies",
+          "op:monkey-d-luffy",
+          "op:sanji",
+          "op:nami"
+        ],
+        "characters": [
+          "Monkey D. Luffy",
+          "Sanji",
+          "Nami"
+        ],
+        "locations": [
+          "Drum Rockies"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "vertical route",
+          "mountain climb",
+          "medical rescue"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-rockies",
+        "character:monkey-d-luffy",
+        "character:sanji",
+        "character:nami",
+        "topic:medical-urgency",
+        "topic:mountain-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monkey D. Luffy",
+            "Sanji",
+            "Nami"
+          ],
+          "entitiesAny": [
+            "Drum Rockies",
+            "Monkey D. Luffy",
+            "Sanji",
+            "Nami"
+          ],
+          "topicsAny": [
+            "vertical route",
+            "mountain climb",
+            "medical rescue"
+          ],
+          "keywordsAny": [
+            "Drum Rockies",
+            "Monkey D. Luffy",
+            "Sanji",
+            "Nami",
+            "vertical route",
+            "mountain climb",
+            "medical rescue",
+            "vertical",
+            "climb",
+            "carry Nami",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "The Drum Rockies force Luffy and Sanji into a vertical rescue route where carrying Nami matters more than speed or combat.",
+        "injection": "Use the climb as a physical ordeal: survival and endurance are the scene mechanics.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_drum_island_weather_and_terrain_should_retrieve_for_travel_pressure_005",
+      "title": "Weather And Terrain Retrieve For Travel Pressure",
+      "kind": "reference_note",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.drum-island.drum-island",
+        "validToAnchor": "op.drum-island.chopper-hiriluk-and-kureha",
+        "arc": "Drum Island Arc",
+        "arcId": "drum-island",
+        "phase": "Arabasta Saga",
+        "phaseId": "arabasta",
+        "chapter": "130-154",
+        "episode": "78-91",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11090,
+        "precision": "anchor_window",
+        "windowKind": "manga_main",
+        "label": "Drum Island Arc: Weather And Terrain Retrieve For Travel Pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "arabasta",
+          "label": "Arabasta Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "drum-island",
+          "label": "Drum Island Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:drum-island",
+          "op:drum-rockies",
+          "op:snow-villages"
+        ],
+        "characters": [],
+        "locations": [
+          "Drum Island",
+          "Drum Rockies",
+          "snow villages"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "winter retrieval",
+          "terrain pressure",
+          "travel constraint"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:arabasta",
+        "arc:drum-island",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "location:drum-island",
+        "location:drum-rockies",
+        "location:snow-villages",
+        "topic:mountain-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "entitiesAny": [
+            "Drum Island",
+            "Drum Rockies",
+            "snow villages"
+          ],
+          "topicsAny": [
+            "winter retrieval",
+            "terrain pressure",
+            "travel constraint"
+          ],
+          "keywordsAny": [
+            "Drum Island",
+            "Drum Rockies",
+            "snow villages",
+            "winter retrieval",
+            "terrain pressure",
+            "travel constraint",
+            "weather",
+            "terrain",
+            "travel",
+            "Drum Island Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Drum Island Arc, manga chapters 130-154, anime episodes 78-91, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Use anime details only when they support the same Drum Island arc beats."
+      },
+      "content": {
+        "fact": "Drum weather and terrain should retrieve when cold, snow, avalanches, distance, or mountain access changes what a scene allows.",
+        "injection": "Use this as a retrieval boundary: activate winter lore when it constrains travel, rescue, or combat.",
+        "constraints": [
+          "Keep this card inside Drum Island Arc, manga chapters 130-154, anime episodes 78-91.",
+          "Use manga-main continuity as the source spine; anime details may support the same arc beats."
+        ],
+        "antiLore": [
+          "Do not explain later Blackbeard powers, crew role, or future conflict payoffs.",
+          "Do not expand Ace beyond his Drum Island message and search context.",
+          "Do not explain the Will of D. or later Pirate King mysteries beyond term-level hints.",
+          "Do not import later Chopper forms, later medicine, mascot framing, or post-timeskip material.",
+          "Do not import later Wapol world status or kingdom-politics outcomes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Drum Island Arc",
+        "chapterRange": "Manga chapters 130-154",
+        "episodeRange": "Anime episodes 78-91",
+        "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+        "confidence": 0.9,
+        "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-drum-island",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "source": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+          "developedAt": "2026-06-17",
+          "pass": "drum-island-runtime-lore"
+        }
+      }
+    }
+  ],
+  "sourceInfo": {
+    "work": "One Piece",
+    "sourceType": "manga/anime",
+    "title": "Drum Island Arc",
+    "chapterRange": "Manga chapters 130-154",
+    "episodeRange": "Anime episodes 78-91",
+    "reference": "https://onepiece.fandom.com/wiki/Drum_Island_Arc",
+    "confidence": 0.9,
+    "notes": "Checked against the Drum Island Arc source page and Saga authoring guidance; written as medical urgency, political control, identity, and recruitment gates rather than an arc recap."
+  }
+}

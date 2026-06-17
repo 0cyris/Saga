@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: The Next Generation season 3 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "tng.s3.e01.evolution",
+      "label": "Evolution",
+      "contextType": "story_anchor",
+      "sortKey": 12000,
+      "stardate": "43125.8 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Evolution",
+        "TNG season 3 Evolution",
+        "TNG S3 Evolution",
+        "TNG 3x01 story",
+        "TNG S03 story 01",
+        "TNG 3x01",
+        "TNG S03E01",
+        "TNG season 3 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Evolution",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Evolution_(episode)",
+        "stardate": "43125.8 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e02.the-ensigns-of-command",
+      "label": "The Ensigns of Command",
+      "contextType": "story_anchor",
+      "sortKey": 12020,
+      "stardate": "Unknown (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "The Ensigns of Command",
+        "TNG season 3 The Ensigns of Command",
+        "TNG S3 The Ensigns of Command",
+        "TNG 3x02 story",
+        "TNG S03 story 02",
+        "TNG 3x02",
+        "TNG S03E02",
+        "TNG season 3 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-ensigns-of-command"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Ensigns of Command",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Ensigns_of_Command_(episode)",
+        "stardate": "Unknown (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e03.the-survivors",
+      "label": "The Survivors",
+      "contextType": "story_anchor",
+      "sortKey": 12040,
+      "stardate": "43152.4-43153.7 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "The Survivors",
+        "TNG season 3 The Survivors",
+        "TNG S3 The Survivors",
+        "TNG 3x03 story",
+        "TNG S03 story 03",
+        "TNG 3x03",
+        "TNG S03E03",
+        "TNG season 3 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-survivors"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Survivors",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Survivors_(episode)",
+        "stardate": "43152.4-43153.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e04.who-watches-the-watchers",
+      "label": "Who Watches The Watchers",
+      "contextType": "story_anchor",
+      "sortKey": 12060,
+      "stardate": "43173.5-43174.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Who Watches The Watchers",
+        "TNG season 3 Who Watches The Watchers",
+        "TNG S3 Who Watches The Watchers",
+        "TNG 3x04 story",
+        "TNG S03 story 04",
+        "TNG 3x04",
+        "TNG S03E04",
+        "TNG season 3 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-who-watches-the-watchers"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Who Watches The Watchers",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Who_Watches_The_Watchers_(episode)",
+        "stardate": "43173.5-43174.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e05.the-bonding",
+      "label": "The Bonding",
+      "contextType": "story_anchor",
+      "sortKey": 12080,
+      "stardate": "43198.7 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "The Bonding",
+        "TNG season 3 The Bonding",
+        "TNG S3 The Bonding",
+        "TNG 3x05 story",
+        "TNG S03 story 05",
+        "TNG 3x05",
+        "TNG S03E05",
+        "TNG season 3 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-bonding"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Bonding",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Bonding_(episode)",
+        "stardate": "43198.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e06.booby-trap",
+      "label": "Booby Trap",
+      "contextType": "story_anchor",
+      "sortKey": 12100,
+      "stardate": "43205.6 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Booby Trap",
+        "TNG season 3 Booby Trap",
+        "TNG S3 Booby Trap",
+        "TNG 3x06 story",
+        "TNG S03 story 06",
+        "TNG 3x06",
+        "TNG S03E06",
+        "TNG season 3 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-booby-trap"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Booby Trap",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Booby_Trap_(episode)",
+        "stardate": "43205.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e07.the-enemy",
+      "label": "The Enemy",
+      "contextType": "story_anchor",
+      "sortKey": 12120,
+      "stardate": "43349.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "The Enemy",
+        "TNG season 3 The Enemy",
+        "TNG S3 The Enemy",
+        "TNG 3x07 story",
+        "TNG S03 story 07",
+        "TNG 3x07",
+        "TNG S03E07",
+        "TNG season 3 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-enemy"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Enemy",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Enemy_(episode)",
+        "stardate": "43349.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e08.the-price",
+      "label": "The Price",
+      "contextType": "story_anchor",
+      "sortKey": 12140,
+      "stardate": "43385.6 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "The Price",
+        "TNG season 3 The Price",
+        "TNG S3 The Price",
+        "TNG 3x08 story",
+        "TNG S03 story 08",
+        "TNG 3x08",
+        "TNG S03E08",
+        "TNG season 3 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-price"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Price",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Price_(episode)",
+        "stardate": "43385.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e09.the-vengeance-factor",
+      "label": "The Vengeance Factor",
+      "contextType": "story_anchor",
+      "sortKey": 12160,
+      "stardate": "43421.9 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "The Vengeance Factor",
+        "TNG season 3 The Vengeance Factor",
+        "TNG S3 The Vengeance Factor",
+        "TNG 3x09 story",
+        "TNG S03 story 09",
+        "TNG 3x09",
+        "TNG S03E09",
+        "TNG season 3 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-vengeance-factor"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Vengeance Factor",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Vengeance_Factor_(episode)",
+        "stardate": "43421.9 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e10.the-defector",
+      "label": "The Defector",
+      "contextType": "story_anchor",
+      "sortKey": 12180,
+      "stardate": "43462.5-43465.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "The Defector",
+        "TNG season 3 The Defector",
+        "TNG S3 The Defector",
+        "TNG 3x10 story",
+        "TNG S03 story 10",
+        "TNG 3x10",
+        "TNG S03E10",
+        "TNG season 3 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-defector"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Defector",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Defector_(episode)",
+        "stardate": "43462.5-43465.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e11.the-hunted",
+      "label": "The Hunted",
+      "contextType": "story_anchor",
+      "sortKey": 12200,
+      "stardate": "43489.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "The Hunted",
+        "TNG season 3 The Hunted",
+        "TNG S3 The Hunted",
+        "TNG 3x11 story",
+        "TNG S03 story 11",
+        "TNG 3x11",
+        "TNG S03E11",
+        "TNG season 3 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-hunted"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Hunted",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Hunted_(episode)",
+        "stardate": "43489.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e12.the-high-ground",
+      "label": "The High Ground",
+      "contextType": "story_anchor",
+      "sortKey": 12220,
+      "stardate": "43510.7 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "The High Ground",
+        "TNG season 3 The High Ground",
+        "TNG S3 The High Ground",
+        "TNG 3x12 story",
+        "TNG S03 story 12",
+        "TNG 3x12",
+        "TNG S03E12",
+        "TNG season 3 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-high-ground"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The High Ground",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_High_Ground_(episode)",
+        "stardate": "43510.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e13.deja-q",
+      "label": "Deja Q",
+      "contextType": "story_anchor",
+      "sortKey": 12240,
+      "stardate": "43539.1 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Deja Q",
+        "TNG season 3 Deja Q",
+        "TNG S3 Deja Q",
+        "TNG 3x13 story",
+        "TNG S03 story 13",
+        "TNG 3x13",
+        "TNG S03E13",
+        "TNG season 3 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-deja-q"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Deja Q",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Deja_Q_(episode)",
+        "stardate": "43539.1 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e14.a-matter-of-perspective",
+      "label": "A Matter of Perspective",
+      "contextType": "story_anchor",
+      "sortKey": 12260,
+      "stardate": "43610.4-43611.6 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "A Matter of Perspective",
+        "TNG season 3 A Matter of Perspective",
+        "TNG S3 A Matter of Perspective",
+        "TNG 3x14 story",
+        "TNG S03 story 14",
+        "TNG 3x14",
+        "TNG S03E14",
+        "TNG season 3 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-a-matter-of-perspective"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Matter of Perspective",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Matter_of_Perspective_(episode)",
+        "stardate": "43610.4-43611.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e15.yesterdays-enterprise",
+      "label": "Yesterday's Enterprise",
+      "contextType": "story_anchor",
+      "sortKey": 12280,
+      "stardate": "43625.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Yesterday's Enterprise",
+        "TNG season 3 Yesterday's Enterprise",
+        "TNG S3 Yesterday's Enterprise",
+        "TNG 3x15 story",
+        "TNG S03 story 15",
+        "TNG 3x15",
+        "TNG S03E15",
+        "TNG season 3 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-yesterdays-enterprise"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Yesterday's Enterprise",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Yesterday's_Enterprise_(episode)",
+        "stardate": "43625.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e16.the-offspring",
+      "label": "The Offspring",
+      "contextType": "story_anchor",
+      "sortKey": 12300,
+      "stardate": "43657.0 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "The Offspring",
+        "TNG season 3 The Offspring",
+        "TNG S3 The Offspring",
+        "TNG 3x16 story",
+        "TNG S03 story 16",
+        "TNG 3x16",
+        "TNG S03E16",
+        "TNG season 3 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-offspring"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Offspring",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Offspring_(episode)",
+        "stardate": "43657.0 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e17.sins-of-the-father",
+      "label": "Sins of The Father",
+      "contextType": "story_anchor",
+      "sortKey": 12320,
+      "stardate": "43685.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Sins of The Father",
+        "TNG season 3 Sins of The Father",
+        "TNG S3 Sins of The Father",
+        "TNG 3x17 story",
+        "TNG S03 story 17",
+        "TNG 3x17",
+        "TNG S03E17",
+        "TNG season 3 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sins-of-the-father"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sins of The Father",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sins_of_The_Father_(episode)",
+        "stardate": "43685.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e18.allegiance",
+      "label": "Allegiance",
+      "contextType": "story_anchor",
+      "sortKey": 12340,
+      "stardate": "43714.1 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Allegiance",
+        "TNG season 3 Allegiance",
+        "TNG S3 Allegiance",
+        "TNG 3x18 story",
+        "TNG S03 story 18",
+        "TNG 3x18",
+        "TNG S03E18",
+        "TNG season 3 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-allegiance"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Allegiance",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Allegiance_(episode)",
+        "stardate": "43714.1 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e19.captains-holiday",
+      "label": "Captain's Holiday",
+      "contextType": "story_anchor",
+      "sortKey": 12360,
+      "stardate": "43745.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Captain's Holiday",
+        "TNG season 3 Captain's Holiday",
+        "TNG S3 Captain's Holiday",
+        "TNG 3x19 story",
+        "TNG S03 story 19",
+        "TNG 3x19",
+        "TNG S03E19",
+        "TNG season 3 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-captains-holiday"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Captain's Holiday",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Captain's_Holiday_(episode)",
+        "stardate": "43745.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e20.tin-man",
+      "label": "Tin Man",
+      "contextType": "story_anchor",
+      "sortKey": 12380,
+      "stardate": "43779.3 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Tin Man",
+        "TNG season 3 Tin Man",
+        "TNG S3 Tin Man",
+        "TNG 3x20 story",
+        "TNG S03 story 20",
+        "TNG 3x20",
+        "TNG S03E20",
+        "TNG season 3 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-tin-man"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Tin Man",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tin_Man_(episode)",
+        "stardate": "43779.3 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e21.hollow-pursuits",
+      "label": "Hollow Pursuits",
+      "contextType": "story_anchor",
+      "sortKey": 12400,
+      "stardate": "43807.4-43808.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Hollow Pursuits",
+        "TNG season 3 Hollow Pursuits",
+        "TNG S3 Hollow Pursuits",
+        "TNG 3x21 story",
+        "TNG S03 story 21",
+        "TNG 3x21",
+        "TNG S03E21",
+        "TNG season 3 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-hollow-pursuits"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Hollow Pursuits",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hollow_Pursuits_(episode)",
+        "stardate": "43807.4-43808.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e22.the-most-toys",
+      "label": "The Most Toys",
+      "contextType": "story_anchor",
+      "sortKey": 12420,
+      "stardate": "43872.2 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "The Most Toys",
+        "TNG season 3 The Most Toys",
+        "TNG S3 The Most Toys",
+        "TNG 3x22 story",
+        "TNG S03 story 22",
+        "TNG 3x22",
+        "TNG S03E22",
+        "TNG season 3 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-most-toys"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Most Toys",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Most_Toys_(episode)",
+        "stardate": "43872.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e23.sarek",
+      "label": "Sarek",
+      "contextType": "story_anchor",
+      "sortKey": 12440,
+      "stardate": "43917.4-43920.7 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Sarek",
+        "TNG season 3 Sarek",
+        "TNG S3 Sarek",
+        "TNG 3x23 story",
+        "TNG S03 story 23",
+        "TNG 3x23",
+        "TNG S03E23",
+        "TNG season 3 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sarek"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sarek",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sarek_(episode)",
+        "stardate": "43917.4-43920.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e24.menage-a-troi",
+      "label": "Ménage à Troi",
+      "contextType": "story_anchor",
+      "sortKey": 12460,
+      "stardate": "43930.7 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Ménage à Troi",
+        "TNG season 3 Ménage à Troi",
+        "TNG S3 Ménage à Troi",
+        "TNG 3x24 story",
+        "TNG S03 story 24",
+        "TNG 3x24",
+        "TNG S03E24",
+        "TNG season 3 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-menage-a-troi"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ménage à Troi",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/M%C3%A9nage_%C3%A0_Troi_(episode)",
+        "stardate": "43930.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e25.transfigurations",
+      "label": "Transfigurations",
+      "contextType": "story_anchor",
+      "sortKey": 12480,
+      "stardate": "43957.2-43960.6 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Transfigurations",
+        "TNG season 3 Transfigurations",
+        "TNG S3 Transfigurations",
+        "TNG 3x25 story",
+        "TNG S03 story 25",
+        "TNG 3x25",
+        "TNG S03E25",
+        "TNG season 3 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-transfigurations"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Transfigurations",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Transfigurations_(episode)",
+        "stardate": "43957.2-43960.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "tng.s3.e26.the-best-of-both-worlds",
+      "label": "The Best of Both Worlds",
+      "contextType": "story_anchor",
+      "sortKey": 12500,
+      "stardate": "43989.1-43998.5 (2366)",
+      "year": "2366",
+      "series": "TNG",
+      "season": 3,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "The Best of Both Worlds",
+        "TNG season 3 The Best of Both Worlds",
+        "TNG S3 The Best of Both Worlds",
+        "TNG 3x26 story",
+        "TNG S03 story 26",
+        "TNG 3x26",
+        "TNG S03E26",
+        "TNG season 3 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-best-of-both-worlds"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds_(episode)",
+        "stardate": "43989.1-43998.5 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "tng.s3.full-season",
+      "label": "TNG season 3 full window",
+      "anchorFrom": "tng.s3.e01.evolution",
+      "anchorTo": "tng.s3.e26.the-best-of-both-worlds",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 12500,
+      "aliases": [
+        "TNG season 3",
+        "Star Trek The Next Generation season 3",
+        "TNG S3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "tng.s3.e01.evolution.window",
+      "label": "Evolution episode window",
+      "anchorFrom": "tng.s3.e01.evolution",
+      "anchorTo": "tng.s3.e02.the-ensigns-of-command",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 12020,
+      "aliases": [
+        "during Evolution",
+        "after Evolution"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution"
+      ]
+    },
+    {
+      "id": "tng.s3.e02.the-ensigns-of-command.window",
+      "label": "The Ensigns of Command episode window",
+      "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+      "anchorTo": "tng.s3.e03.the-survivors",
+      "sortKeyFrom": 12020,
+      "sortKeyTo": 12040,
+      "aliases": [
+        "during The Ensigns of Command",
+        "after The Ensigns of Command"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-ensigns-of-command"
+      ]
+    },
+    {
+      "id": "tng.s3.e03.the-survivors.window",
+      "label": "The Survivors episode window",
+      "anchorFrom": "tng.s3.e03.the-survivors",
+      "anchorTo": "tng.s3.e04.who-watches-the-watchers",
+      "sortKeyFrom": 12040,
+      "sortKeyTo": 12060,
+      "aliases": [
+        "during The Survivors",
+        "after The Survivors"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-survivors"
+      ]
+    },
+    {
+      "id": "tng.s3.e04.who-watches-the-watchers.window",
+      "label": "Who Watches The Watchers episode window",
+      "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+      "anchorTo": "tng.s3.e05.the-bonding",
+      "sortKeyFrom": 12060,
+      "sortKeyTo": 12080,
+      "aliases": [
+        "during Who Watches The Watchers",
+        "after Who Watches The Watchers"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-who-watches-the-watchers"
+      ]
+    },
+    {
+      "id": "tng.s3.e05.the-bonding.window",
+      "label": "The Bonding episode window",
+      "anchorFrom": "tng.s3.e05.the-bonding",
+      "anchorTo": "tng.s3.e06.booby-trap",
+      "sortKeyFrom": 12080,
+      "sortKeyTo": 12100,
+      "aliases": [
+        "during The Bonding",
+        "after The Bonding"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-bonding"
+      ]
+    },
+    {
+      "id": "tng.s3.e06.booby-trap.window",
+      "label": "Booby Trap episode window",
+      "anchorFrom": "tng.s3.e06.booby-trap",
+      "anchorTo": "tng.s3.e07.the-enemy",
+      "sortKeyFrom": 12100,
+      "sortKeyTo": 12120,
+      "aliases": [
+        "during Booby Trap",
+        "after Booby Trap"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-booby-trap"
+      ]
+    },
+    {
+      "id": "tng.s3.e07.the-enemy.window",
+      "label": "The Enemy episode window",
+      "anchorFrom": "tng.s3.e07.the-enemy",
+      "anchorTo": "tng.s3.e08.the-price",
+      "sortKeyFrom": 12120,
+      "sortKeyTo": 12140,
+      "aliases": [
+        "during The Enemy",
+        "after The Enemy"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-enemy"
+      ]
+    },
+    {
+      "id": "tng.s3.e08.the-price.window",
+      "label": "The Price episode window",
+      "anchorFrom": "tng.s3.e08.the-price",
+      "anchorTo": "tng.s3.e09.the-vengeance-factor",
+      "sortKeyFrom": 12140,
+      "sortKeyTo": 12160,
+      "aliases": [
+        "during The Price",
+        "after The Price"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-price"
+      ]
+    },
+    {
+      "id": "tng.s3.e09.the-vengeance-factor.window",
+      "label": "The Vengeance Factor episode window",
+      "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+      "anchorTo": "tng.s3.e10.the-defector",
+      "sortKeyFrom": 12160,
+      "sortKeyTo": 12180,
+      "aliases": [
+        "during The Vengeance Factor",
+        "after The Vengeance Factor"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-vengeance-factor"
+      ]
+    },
+    {
+      "id": "tng.s3.e10.the-defector.window",
+      "label": "The Defector episode window",
+      "anchorFrom": "tng.s3.e10.the-defector",
+      "anchorTo": "tng.s3.e11.the-hunted",
+      "sortKeyFrom": 12180,
+      "sortKeyTo": 12200,
+      "aliases": [
+        "during The Defector",
+        "after The Defector"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-defector"
+      ]
+    },
+    {
+      "id": "tng.s3.e11.the-hunted.window",
+      "label": "The Hunted episode window",
+      "anchorFrom": "tng.s3.e11.the-hunted",
+      "anchorTo": "tng.s3.e12.the-high-ground",
+      "sortKeyFrom": 12200,
+      "sortKeyTo": 12220,
+      "aliases": [
+        "during The Hunted",
+        "after The Hunted"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-hunted"
+      ]
+    },
+    {
+      "id": "tng.s3.e12.the-high-ground.window",
+      "label": "The High Ground episode window",
+      "anchorFrom": "tng.s3.e12.the-high-ground",
+      "anchorTo": "tng.s3.e13.deja-q",
+      "sortKeyFrom": 12220,
+      "sortKeyTo": 12240,
+      "aliases": [
+        "during The High Ground",
+        "after The High Ground"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-high-ground"
+      ]
+    },
+    {
+      "id": "tng.s3.e13.deja-q.window",
+      "label": "Deja Q episode window",
+      "anchorFrom": "tng.s3.e13.deja-q",
+      "anchorTo": "tng.s3.e14.a-matter-of-perspective",
+      "sortKeyFrom": 12240,
+      "sortKeyTo": 12260,
+      "aliases": [
+        "during Deja Q",
+        "after Deja Q"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-deja-q"
+      ]
+    },
+    {
+      "id": "tng.s3.e14.a-matter-of-perspective.window",
+      "label": "A Matter of Perspective episode window",
+      "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+      "anchorTo": "tng.s3.e15.yesterdays-enterprise",
+      "sortKeyFrom": 12260,
+      "sortKeyTo": 12280,
+      "aliases": [
+        "during A Matter of Perspective",
+        "after A Matter of Perspective"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-a-matter-of-perspective"
+      ]
+    },
+    {
+      "id": "tng.s3.e15.yesterdays-enterprise.window",
+      "label": "Yesterday's Enterprise episode window",
+      "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+      "anchorTo": "tng.s3.e16.the-offspring",
+      "sortKeyFrom": 12280,
+      "sortKeyTo": 12300,
+      "aliases": [
+        "during Yesterday's Enterprise",
+        "after Yesterday's Enterprise"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-yesterdays-enterprise"
+      ]
+    },
+    {
+      "id": "tng.s3.e16.the-offspring.window",
+      "label": "The Offspring episode window",
+      "anchorFrom": "tng.s3.e16.the-offspring",
+      "anchorTo": "tng.s3.e17.sins-of-the-father",
+      "sortKeyFrom": 12300,
+      "sortKeyTo": 12320,
+      "aliases": [
+        "during The Offspring",
+        "after The Offspring"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-offspring"
+      ]
+    },
+    {
+      "id": "tng.s3.e17.sins-of-the-father.window",
+      "label": "Sins of The Father episode window",
+      "anchorFrom": "tng.s3.e17.sins-of-the-father",
+      "anchorTo": "tng.s3.e18.allegiance",
+      "sortKeyFrom": 12320,
+      "sortKeyTo": 12340,
+      "aliases": [
+        "during Sins of The Father",
+        "after Sins of The Father"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sins-of-the-father"
+      ]
+    },
+    {
+      "id": "tng.s3.e18.allegiance.window",
+      "label": "Allegiance episode window",
+      "anchorFrom": "tng.s3.e18.allegiance",
+      "anchorTo": "tng.s3.e19.captains-holiday",
+      "sortKeyFrom": 12340,
+      "sortKeyTo": 12360,
+      "aliases": [
+        "during Allegiance",
+        "after Allegiance"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-allegiance"
+      ]
+    },
+    {
+      "id": "tng.s3.e19.captains-holiday.window",
+      "label": "Captain's Holiday episode window",
+      "anchorFrom": "tng.s3.e19.captains-holiday",
+      "anchorTo": "tng.s3.e20.tin-man",
+      "sortKeyFrom": 12360,
+      "sortKeyTo": 12380,
+      "aliases": [
+        "during Captain's Holiday",
+        "after Captain's Holiday"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-captains-holiday"
+      ]
+    },
+    {
+      "id": "tng.s3.e20.tin-man.window",
+      "label": "Tin Man episode window",
+      "anchorFrom": "tng.s3.e20.tin-man",
+      "anchorTo": "tng.s3.e21.hollow-pursuits",
+      "sortKeyFrom": 12380,
+      "sortKeyTo": 12400,
+      "aliases": [
+        "during Tin Man",
+        "after Tin Man"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-tin-man"
+      ]
+    },
+    {
+      "id": "tng.s3.e21.hollow-pursuits.window",
+      "label": "Hollow Pursuits episode window",
+      "anchorFrom": "tng.s3.e21.hollow-pursuits",
+      "anchorTo": "tng.s3.e22.the-most-toys",
+      "sortKeyFrom": 12400,
+      "sortKeyTo": 12420,
+      "aliases": [
+        "during Hollow Pursuits",
+        "after Hollow Pursuits"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-hollow-pursuits"
+      ]
+    },
+    {
+      "id": "tng.s3.e22.the-most-toys.window",
+      "label": "The Most Toys episode window",
+      "anchorFrom": "tng.s3.e22.the-most-toys",
+      "anchorTo": "tng.s3.e23.sarek",
+      "sortKeyFrom": 12420,
+      "sortKeyTo": 12440,
+      "aliases": [
+        "during The Most Toys",
+        "after The Most Toys"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-most-toys"
+      ]
+    },
+    {
+      "id": "tng.s3.e23.sarek.window",
+      "label": "Sarek episode window",
+      "anchorFrom": "tng.s3.e23.sarek",
+      "anchorTo": "tng.s3.e24.menage-a-troi",
+      "sortKeyFrom": 12440,
+      "sortKeyTo": 12460,
+      "aliases": [
+        "during Sarek",
+        "after Sarek"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sarek"
+      ]
+    },
+    {
+      "id": "tng.s3.e24.menage-a-troi.window",
+      "label": "Ménage à Troi episode window",
+      "anchorFrom": "tng.s3.e24.menage-a-troi",
+      "anchorTo": "tng.s3.e25.transfigurations",
+      "sortKeyFrom": 12460,
+      "sortKeyTo": 12480,
+      "aliases": [
+        "during Ménage à Troi",
+        "after Ménage à Troi"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-menage-a-troi"
+      ]
+    },
+    {
+      "id": "tng.s3.e25.transfigurations.window",
+      "label": "Transfigurations episode window",
+      "anchorFrom": "tng.s3.e25.transfigurations",
+      "anchorTo": "tng.s3.e26.the-best-of-both-worlds",
+      "sortKeyFrom": 12480,
+      "sortKeyTo": 12500,
+      "aliases": [
+        "during Transfigurations",
+        "after Transfigurations"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-transfigurations"
+      ]
+    }
+  ]
+}

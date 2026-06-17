@@ -1,0 +1,2652 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_enterprise-d-family-civilian-ship",
+      "title": "The Enterprise-D is a family-bearing exploratory flagship",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Enterprise-D",
+          "civilians aboard",
+          "saucer separation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:enterprise-d",
+        "topic:civilians-aboard",
+        "topic:saucer-separation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Enterprise-D",
+            "civilians aboard",
+            "saucer separation"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Starfleet",
+            "Enterprise-D",
+            "civilians aboard",
+            "saucer separation",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Enterprise-D carries civilians and families as well as Starfleet personnel, which makes saucer separation, evacuation, and command risk different from a warship-only frame.",
+        "injection": "Treat the Enterprise-D as a large exploratory starship with families aboard. Command choices should account for civilian risk and diplomatic mission posture.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_q-puts-humanity-on-trial",
+      "title": "Q frames the Farpoint mission as a trial of humanity",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:q",
+          "st:jean-luc-picard",
+          "st:q-continuum"
+        ],
+        "characters": [
+          "Q",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum"
+        ],
+        "topics": [
+          "Q trial",
+          "Humanity on Trial",
+          "Farpoint"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:q",
+        "character:jean-luc-picard",
+        "faction:q-continuum",
+        "topic:q-trial",
+        "topic:humanity-on-trial",
+        "topic:farpoint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Q",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Q Continuum"
+          ],
+          "entitiesAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Q Continuum"
+          ],
+          "topicsAny": [
+            "Q trial",
+            "Humanity on Trial",
+            "Farpoint"
+          ],
+          "keywordsAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "Q Continuum",
+            "Q trial",
+            "Humanity on Trial",
+            "Farpoint",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Q does not merely harass the Enterprise at Farpoint; he places humanity on trial and uses Picard as the representative case for whether humans remain savage.",
+        "injection": "When Q appears in TNG season 1, frame him as an adversarial judge testing humanity and Picard, not yet a familiar trickster or mentor figure.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_farpoint-lifeform-revealed",
+      "title": "Farpoint Station is tied to captive spaceborne lifeforms",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e01.encounter-at-farpoint",
+        "validToAnchor": "tng.s1.e02.the-naked-now",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Encounter at Farpoint",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e01.encounter-at-farpoint",
+          "label": "Encounter at Farpoint",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:q",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Q"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Farpoint Station",
+          "spaceborne lifeform",
+          "Q trial"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-encounter-at-farpoint",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:q",
+        "faction:starfleet",
+        "topic:farpoint-station",
+        "topic:spaceborne-lifeform",
+        "topic:q-trial"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Q"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Q",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Farpoint Station",
+            "spaceborne lifeform",
+            "Q trial"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Q",
+            "Starfleet",
+            "Farpoint Station",
+            "spaceborne lifeform",
+            "Q trial",
+            "Encounter at Farpoint",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Farpoint mystery resolves when the crew discovers the station depends on a captive shape-changing spaceborne lifeform and its mate is attacking to free it.",
+        "injection": "For Farpoint-era scenes, treat the station mystery as a moral test about exploitation and recognition of non-humanoid life, not a conventional military threat.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Encounter at Farpoint",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1,
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Encounter_at_Farpoint_(episode)",
+        "stardate": "41153.7-41174.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_q-power-scale-season-one",
+      "title": "Q can overpower the Enterprise-D through courtroom reality shifts",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e09.hide-and-q",
+        "validToAnchor": "tng.s1.e10.haven",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 10160,
+        "sortKeyTo": 10180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Hide And Q",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e09.hide-and-q",
+          "label": "Hide And Q",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:q",
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:q-continuum",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Q",
+          "Jean-Luc Picard",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum",
+          "Starfleet"
+        ],
+        "topics": [
+          "Q powers",
+          "reality manipulation",
+          "Humanity on Trial"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-hide-and-q",
+        "character:q",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "faction:q-continuum",
+        "faction:starfleet",
+        "topic:q-powers",
+        "topic:reality-manipulation",
+        "topic:humanity-on-trial"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Q powers",
+            "reality manipulation",
+            "Humanity on Trial"
+          ],
+          "keywordsAny": [
+            "Q",
+            "Jean-Luc Picard",
+            "William Riker",
+            "Q Continuum",
+            "Starfleet",
+            "Q powers",
+            "reality manipulation",
+            "Humanity on Trial",
+            "Hide And Q",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "At Farpoint and Hide and Q, Q demonstrates reality-warping power far beyond Enterprise-D defenses, including forced transport, historical staging, and impossible tests.",
+        "injection": "Use Q power in season 1 as overwhelming and theatrical. Starfleet cannot fight him conventionally; Picard and crew respond through ethics, refusal, and judgment.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Hide And Q",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hide_And_Q_(episode)",
+        "stardate": "41590.5-41591.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_riker-rejects-q-power",
+      "title": "Riker rejects Q-granted power after seeing its moral cost",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e09.hide-and-q",
+        "validToAnchor": "tng.s1.e10.haven",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 10160,
+        "sortKeyTo": 10180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Hide And Q",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e09.hide-and-q",
+          "label": "Hide And Q",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:q",
+          "st:q-continuum",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Q"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum",
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker Q powers",
+          "temptation",
+          "command ethics"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-hide-and-q",
+        "character:william-riker",
+        "character:q",
+        "faction:q-continuum",
+        "faction:starfleet",
+        "topic:riker-q-powers",
+        "topic:temptation",
+        "topic:command-ethics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Q"
+          ],
+          "factionsAny": [
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Q",
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker Q powers",
+            "temptation",
+            "command ethics"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Q",
+            "Q Continuum",
+            "Starfleet",
+            "Riker Q powers",
+            "temptation",
+            "command ethics",
+            "Hide And Q",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "In Hide and Q, Riker receives Q-like power but loses the crew's trust when gifts become coercive, and he ultimately rejects the offer.",
+        "injection": "If Riker is tempted by power in TNG season 1, use Hide and Q as the boundary: he learns that imposed miracles and superiority damage trust and command integrity.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Hide And Q",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hide_And_Q_(episode)",
+        "stardate": "41590.5-41591.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_ferengi-first-major-contact",
+      "title": "The Last Outpost establishes the Ferengi as a known but poorly understood rival power",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 73,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e04.the-last-outpost",
+        "validToAnchor": "tng.s1.e05.where-no-one-has-gone-before",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 10060,
+        "sortKeyTo": 10080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Last Outpost",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e04.the-last-outpost",
+          "label": "The Last Outpost",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:ferengi-alliance",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Ferengi Alliance",
+          "Starfleet"
+        ],
+        "topics": [
+          "Ferengi first contact",
+          "Delphi Ardu",
+          "Tkon outpost"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-last-outpost",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:ferengi-alliance",
+        "faction:starfleet",
+        "topic:ferengi-first-contact",
+        "topic:delphi-ardu",
+        "topic:tkon-outpost"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Ferengi first contact",
+            "Delphi Ardu",
+            "Tkon outpost"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Ferengi Alliance",
+            "Starfleet",
+            "Ferengi first contact",
+            "Delphi Ardu",
+            "Tkon outpost",
+            "The Last Outpost",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "At Delphi Ardu, the Enterprise-D crew treats the Ferengi as a significant rival they know mostly through reputation, not yet as the later comic-commercial baseline.",
+        "injection": "In season 1, write Ferengi encounters as uncertain and adversarial. Do not import Quark, Rules of Acquisition depth, or DS9 Ferengi family politics.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Last Outpost",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Last_Outpost_(episode)",
+        "stardate": "41386.4-41386.5 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_tkon-portal-tests-both-crews",
+      "title": "The Tkon Portal reframes the Ferengi standoff as an ancient test",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e04.the-last-outpost",
+        "validToAnchor": "tng.s1.e05.where-no-one-has-gone-before",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 10060,
+        "sortKeyTo": 10080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Last Outpost",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e04.the-last-outpost",
+          "label": "The Last Outpost",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:jean-luc-picard",
+          "st:ferengi-alliance",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Ferengi Alliance",
+          "Starfleet"
+        ],
+        "topics": [
+          "Tkon Empire",
+          "Portal 63",
+          "Ferengi standoff"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-last-outpost",
+        "character:data",
+        "character:jean-luc-picard",
+        "faction:ferengi-alliance",
+        "faction:starfleet",
+        "topic:tkon-empire",
+        "topic:portal-63",
+        "topic:ferengi-standoff"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Tkon Empire",
+            "Portal 63",
+            "Ferengi standoff"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Jean-Luc Picard",
+            "Ferengi Alliance",
+            "Starfleet",
+            "Tkon Empire",
+            "Portal 63",
+            "Ferengi standoff",
+            "The Last Outpost",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Ferengi standoff at Delphi Ardu is resolved only when the Tkon Portal judges the crews, shifting the conflict from simple enemy action to an ancient automated test.",
+        "injection": "Use the Tkon Portal as an episode-local ancient-power gate. It should not become recurring TNG technology unless specifically referenced.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Last Outpost",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Last_Outpost_(episode)",
+        "stardate": "41386.4-41386.5 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_worf-klingon-death-ritual",
+      "title": "Heart of Glory establishes Worf performing a Klingon death howl",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e19.heart-of-glory",
+        "validToAnchor": "tng.s1.e20.the-arsenal-of-freedom",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 10360,
+        "sortKeyTo": 10380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Heart of Glory",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e19.heart-of-glory",
+          "label": "Heart of Glory",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:korris",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Korris"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Klingon death ritual",
+          "Worf heritage",
+          "Heart of Glory"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-heart-of-glory",
+        "character:worf",
+        "character:korris",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:klingon-death-ritual",
+        "topic:worf-heritage",
+        "topic:heart-of-glory"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Korris"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Korris",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Klingon death ritual",
+            "Worf heritage",
+            "Heart of Glory"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Korris",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon death ritual",
+            "Worf heritage",
+            "Heart of Glory",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "After Korris dies, Worf performs a Klingon death ritual, showing that his Starfleet service has not erased Klingon spiritual and warrior customs.",
+        "injection": "Use Heart of Glory to give Worf Klingon cultural depth in season 1. Keep it tied to honor, death, and identity rather than generic aggression.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Heart of Glory",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Heart_of_Glory_(episode)",
+        "stardate": "41503.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_klingon-fugitives-vs-starfleet-worf",
+      "title": "Heart of Glory tests Worf against Klingon fugitives who reject peace",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 49,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e19.heart-of-glory",
+        "validToAnchor": "tng.s1.e20.the-arsenal-of-freedom",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 10360,
+        "sortKeyTo": 10380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Heart of Glory",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e19.heart-of-glory",
+          "label": "Heart of Glory",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:korris",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Korris"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Klingon fugitives",
+          "Worf loyalty",
+          "Federation-Klingon peace"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-heart-of-glory",
+        "character:worf",
+        "character:korris",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:klingon-fugitives",
+        "topic:worf-loyalty",
+        "topic:federation-klingon-peace"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Korris"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Korris",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Klingon fugitives",
+            "Worf loyalty",
+            "Federation-Klingon peace"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Korris",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon fugitives",
+            "Worf loyalty",
+            "Federation-Klingon peace",
+            "Heart of Glory",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Korris and the other Klingon fugitives pressure Worf with warrior nostalgia, but Worf chooses Starfleet duty over their violent path.",
+        "injection": "When Worf faces Klingon identity pressure in season 1, keep his loyalty with Starfleet. He values Klingon honor but rejects undisciplined violence.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Heart of Glory",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Heart_of_Glory_(episode)",
+        "stardate": "41503.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_romulans-return-neutral-zone",
+      "title": "The Neutral Zone marks the Romulans returning to active contact",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e25.the-neutral-zone",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 10480,
+        "sortKeyTo": 10480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Neutral Zone",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e25.the-neutral-zone",
+          "label": "The Neutral Zone",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:worf",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Worf"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Romulan return",
+          "Neutral Zone",
+          "outpost destruction"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-neutral-zone",
+        "character:jean-luc-picard",
+        "character:worf",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:romulan-return",
+        "topic:neutral-zone",
+        "topic:outpost-destruction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Worf"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Romulan return",
+            "Neutral Zone",
+            "outpost destruction"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Romulan return",
+            "Neutral Zone",
+            "outpost destruction",
+            "The Neutral Zone",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Romulans reappear along the Neutral Zone after a long silence, with both sides aware that outposts have been destroyed by an unknown force.",
+        "injection": "After The Neutral Zone, Romulan contact is active again but cautious. Do not import later Sela, reunification, or Dominion-era Romulan politics.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Neutral Zone",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Neutral_Zone_(episode)",
+        "stardate": "41986.0 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_unknown-outpost-destruction-no-borg-name-yet",
+      "title": "Season 1 knows Neutral Zone outposts were destroyed but not the Borg explanation",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e25.the-neutral-zone",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 10480,
+        "sortKeyTo": 10480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Neutral Zone",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e25.the-neutral-zone",
+          "label": "The Neutral Zone",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Neutral Zone mystery",
+          "Borg future guard",
+          "outpost destruction"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-neutral-zone",
+        "character:jean-luc-picard",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:neutral-zone-mystery",
+        "topic:borg-future-guard",
+        "topic:outpost-destruction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Neutral Zone mystery",
+            "Borg future guard",
+            "outpost destruction"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Neutral Zone mystery",
+            "Borg future guard",
+            "outpost destruction",
+            "The Neutral Zone",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Neutral Zone leaves destroyed outposts as an unknown threat shared by Federation and Romulan observers; the Borg connection is not season 1 knowledge.",
+        "injection": "For season 1 scenes after The Neutral Zone, characters may know outposts vanished or were destroyed, but they should not identify the Borg yet.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Neutral Zone",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Neutral_Zone_(episode)",
+        "stardate": "41986.0 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_federation-first-contact-ethic-season-one",
+      "title": "Season 1 Federation contact favors recognition of unfamiliar sentience",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e17.home-soil",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 10320,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e17.home-soil",
+          "label": "Home Soil",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet",
+          "st:united-federation-of-planets"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "United Federation of Planets"
+        ],
+        "topics": [
+          "Federation ethics",
+          "sentience recognition",
+          "Prime Directive"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-home-soil",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "faction:united-federation-of-planets",
+        "topic:federation-ethics",
+        "topic:sentience-recognition",
+        "topic:prime-directive"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "United Federation of Planets"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "United Federation of Planets"
+          ],
+          "topicsAny": [
+            "Federation ethics",
+            "sentience recognition",
+            "Prime Directive"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "United Federation of Planets",
+            "Federation ethics",
+            "sentience recognition",
+            "Prime Directive",
+            "Home Soil",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Farpoint, Home Soil, and Justice all reinforce that the Enterprise-D should identify unfamiliar life and moral agency before imposing simple threat categories.",
+        "injection": "Use this as a season-level Federation ethic: unknown life, alien law, and nonhuman intelligence require investigation and restraint before force.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Home Soil",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Home_Soil_(episode)",
+        "stardate": "41463.9-41464.8 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_starfleet-command-can-be-politically-vulnerable",
+      "title": "Season 1 Starfleet Command can be infiltrated or politically compromised",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e24.conspiracy",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          25
+        ],
+        "sortKeyFrom": 10460,
+        "sortKeyTo": 10480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Conspiracy",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e24.conspiracy",
+          "label": "Conspiracy",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Starfleet Command",
+          "Remmick audit",
+          "parasite infiltration"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-conspiracy",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:starfleet-command",
+        "topic:remmick-audit",
+        "topic:parasite-infiltration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Starfleet Command",
+            "Remmick audit",
+            "parasite infiltration"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Starfleet Command",
+            "Remmick audit",
+            "parasite infiltration",
+            "Conspiracy",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Coming of Age and Conspiracy establish that Starfleet institutions are not immune to paranoia, audit pressure, or alien infiltration.",
+        "injection": "Use Starfleet as principled but vulnerable in season 1. Do not make command automatically clean or automatically corrupt; gate parasite knowledge by Conspiracy.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Conspiracy",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Conspiracy_(episode)",
+        "stardate": "41775.5-41780.2 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_federation-klingon-peace-context",
+      "title": "Klingons are not Federation enemies in season 1",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "faction",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e19.heart-of-glory",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 10360,
+        "sortKeyTo": 10480,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 1",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e19.heart-of-glory",
+          "label": "Heart of Glory",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:klingon-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Klingon Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Klingon peace",
+          "Worf Starfleet",
+          "Heart of Glory"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-heart-of-glory",
+        "character:worf",
+        "faction:klingon-empire",
+        "faction:starfleet",
+        "topic:klingon-peace",
+        "topic:worf-starfleet",
+        "topic:heart-of-glory"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf"
+          ],
+          "factionsAny": [
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Klingon Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Klingon peace",
+            "Worf Starfleet",
+            "Heart of Glory"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Klingon Empire",
+            "Starfleet",
+            "Klingon peace",
+            "Worf Starfleet",
+            "Heart of Glory",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Heart of Glory depends on a Federation-Klingon peace context: Worf serves in Starfleet, and Klingon fugitives are the problem, not the whole Empire.",
+        "injection": "For TNG season 1, avoid TOS-style default Federation-Klingon war framing. Klingon identity and warrior culture remain active, but open war is not the baseline.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Heart of Glory",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Heart_of_Glory_(episode)",
+        "stardate": "41503.7 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_romulan-silence-before-neutral-zone",
+      "title": "Before The Neutral Zone, Romulans are mostly a historical absence",
+      "kind": "spoiler_guard",
+      "gateType": "spoiler_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e25.the-neutral-zone",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 10480,
+        "sortKeyTo": 10480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Neutral Zone",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e25.the-neutral-zone",
+          "label": "The Neutral Zone",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:romulan-star-empire",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Romulan Star Empire",
+          "Starfleet"
+        ],
+        "topics": [
+          "Romulan absence",
+          "Neutral Zone",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-neutral-zone",
+        "character:jean-luc-picard",
+        "faction:romulan-star-empire",
+        "faction:starfleet",
+        "topic:romulan-absence",
+        "topic:neutral-zone",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Romulan Star Empire",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Romulan absence",
+            "Neutral Zone",
+            "spoiler guard"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Romulan Star Empire",
+            "Starfleet",
+            "Romulan absence",
+            "Neutral Zone",
+            "spoiler guard",
+            "The Neutral Zone",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 1 should not treat active Romulan politics as known until The Neutral Zone brings Romulan contact back into focus.",
+        "injection": "Before The Neutral Zone, keep Romulans as a historical or border concern, not an active recurring presence. Afterward, cautious contact resumes.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Neutral Zone",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Neutral_Zone_(episode)",
+        "stardate": "41986.0 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Arlong Park Arc Context inside East Blue Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Arlong Park Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during arlong park arc: nami, bellemere, and cocoyasi",
+      "result": {
+        "anchorFrom": "op.arlong-park.arlong-park",
+        "label": "Arlong Park Arc: Nami, Bellemere, and Cocoyasi"
+      }
+    },
+    {
+      "pattern": "during arlong park arc: arlong pirates",
+      "result": {
+        "anchorFrom": "op.arlong-park.arlong-pirates",
+        "label": "Arlong Park Arc: Arlong Pirates"
+      }
+    },
+    {
+      "pattern": "during arlong park arc: village occupation and money",
+      "result": {
+        "anchorFrom": "op.arlong-park.village-occupation-and-money",
+        "label": "Arlong Park Arc: Village occupation and money"
+      }
+    },
+    {
+      "pattern": "during arlong park arc: straw hats response",
+      "result": {
+        "anchorFrom": "op.arlong-park.straw-hats-response",
+        "label": "Arlong Park Arc: Straw Hats response"
+      }
+    },
+    {
+      "pattern": "during arlong park arc: battles and matchups",
+      "result": {
+        "anchorFrom": "op.arlong-park.battles-and-matchups",
+        "label": "Arlong Park Arc: Battles and matchups"
+      }
+    },
+    {
+      "pattern": "during arlong park arc: nami and luffy bond",
+      "result": {
+        "anchorFrom": "op.arlong-park.nami-and-luffy-bond",
+        "label": "Arlong Park Arc: Nami and Luffy bond"
+      }
+    },
+    {
+      "pattern": "during arlong park arc: fish-men and east blue context",
+      "result": {
+        "anchorFrom": "op.arlong-park.fish-men-and-east-blue-context",
+        "label": "Arlong Park Arc: Fish-Men and East Blue context"
+      }
+    },
+    {
+      "pattern": "during arlong park arc: cartography and navigation",
+      "result": {
+        "anchorFrom": "op.arlong-park.cartography-and-navigation",
+        "label": "Arlong Park Arc: Cartography and navigation"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

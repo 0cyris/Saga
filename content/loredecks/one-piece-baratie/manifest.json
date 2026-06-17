@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "one-piece-baratie",
+  "type": "bundled",
+  "title": "One Piece: Baratie Arc",
+  "description": "Reviewed manga-main Loredeck for Baratie food ethics, Sanji and Zeff debt, Krieg siege pressure, Mihawk and Zoro scale shock, Nami pursuit gating, and Sanji goodbye.",
+  "fandom": "One Piece",
+  "era": "Baratie Arc",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.4.1-baratie-runtime-lore",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.one-piece-baratie",
+  "deckFamilyId": "one-piece-east-blue-arabasta-hybrid",
+  "family": {
+    "id": "one-piece-east-blue-arabasta-hybrid",
+    "title": "One Piece: East Blue and Arabasta",
+    "role": "arc"
+  },
+  "recommendedStack": [
+    "one-piece-baratie"
+  ],
+  "library": {
+    "suggestedPath": [
+      "One Piece",
+      "East Blue Saga"
+    ],
+    "familyOrder": 40
+  },
+  "tags": [
+    "fandom:one-piece",
+    "continuity:one-piece-manga-main",
+    "saga:east-blue",
+    "arc:baratie",
+    "structure:arc-split-loredeck",
+    "quality:reviewed-baseline"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://onepiece.fandom.com/wiki/Baratie_Arc"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "one-piece-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga/anime",
+    "variantOf": "one-piece-mainline",
+    "sourceBoundary": "Baratie Arc, manga chapters 42-68, anime episodes 19-30, One Piece manga-main continuity with anime episode support.",
+    "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "baratie/baratie.json",
+    "baratie/sanji-and-zeff.json",
+    "baratie/krieg-pirates.json",
+    "baratie/mihawk-and-zoro.json",
+    "baratie/luffy-and-sanji.json",
+    "baratie/nami-departure-bridge.json",
+    "baratie/battle-and-set-pieces.json",
+    "baratie/world-scale-and-dreams.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 41,
+    "categoryCounts": {
+      "character": 6,
+      "event": 10,
+      "faction": 2,
+      "knowledge": 6,
+      "location": 3,
+      "relationship": 9,
+      "rule": 5
+    },
+    "timelineAnchorCount": 10,
+    "timelineWindowCount": 10,
+    "tagCount": 68,
+    "entityCount": 21
+  },
+  "license": {
+    "name": "Reviewed fan reference data",
+    "notes": "For local testing and reference development. Count changes require a retrieval-value note in the One Piece review report."
+  },
+  "health": {
+    "status": "reviewed_baseline",
+    "notes": "Baratie runtime-lore pass completed: cards now emphasize food ethics, dream/debt gates, siege logistics, Mihawk scale shock, unresolved Nami pursuit, and anti-spoiler boundaries."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781654400000
+}

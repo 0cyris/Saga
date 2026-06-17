@@ -1,0 +1,1483 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: The Next Generation season 3 Context from episode titles, story rows, runtime aliases, and common TNG S3 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer TNG season 3 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "evolution",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "tng season 3 evolution",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "tng s3 evolution",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "tng 3x01 story",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "tng s03 story 01",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "tng 3x01",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "tng s03e01",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 1",
+      "result": {
+        "anchorFrom": "tng.s3.e01.evolution",
+        "label": "Evolution"
+      }
+    },
+    {
+      "pattern": "the ensigns of command",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "tng season 3 the ensigns of command",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "tng s3 the ensigns of command",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "tng 3x02 story",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "tng s03 story 02",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "tng 3x02",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "tng s03e02",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 2",
+      "result": {
+        "anchorFrom": "tng.s3.e02.the-ensigns-of-command",
+        "label": "The Ensigns of Command"
+      }
+    },
+    {
+      "pattern": "the survivors",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "tng season 3 the survivors",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "tng s3 the survivors",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "tng 3x03 story",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "tng s03 story 03",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "tng 3x03",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "tng s03e03",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 3",
+      "result": {
+        "anchorFrom": "tng.s3.e03.the-survivors",
+        "label": "The Survivors"
+      }
+    },
+    {
+      "pattern": "who watches the watchers",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "tng season 3 who watches the watchers",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "tng s3 who watches the watchers",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "tng 3x04 story",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "tng s03 story 04",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "tng 3x04",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "tng s03e04",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 4",
+      "result": {
+        "anchorFrom": "tng.s3.e04.who-watches-the-watchers",
+        "label": "Who Watches The Watchers"
+      }
+    },
+    {
+      "pattern": "the bonding",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "tng season 3 the bonding",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "tng s3 the bonding",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "tng 3x05 story",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "tng s03 story 05",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "tng 3x05",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "tng s03e05",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 5",
+      "result": {
+        "anchorFrom": "tng.s3.e05.the-bonding",
+        "label": "The Bonding"
+      }
+    },
+    {
+      "pattern": "booby trap",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "tng season 3 booby trap",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "tng s3 booby trap",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "tng 3x06 story",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "tng s03 story 06",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "tng 3x06",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "tng s03e06",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 6",
+      "result": {
+        "anchorFrom": "tng.s3.e06.booby-trap",
+        "label": "Booby Trap"
+      }
+    },
+    {
+      "pattern": "the enemy",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "tng season 3 the enemy",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "tng s3 the enemy",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "tng 3x07 story",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "tng s03 story 07",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "tng 3x07",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "tng s03e07",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 7",
+      "result": {
+        "anchorFrom": "tng.s3.e07.the-enemy",
+        "label": "The Enemy"
+      }
+    },
+    {
+      "pattern": "the price",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "tng season 3 the price",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "tng s3 the price",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "tng 3x08 story",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "tng s03 story 08",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "tng 3x08",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "tng s03e08",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 8",
+      "result": {
+        "anchorFrom": "tng.s3.e08.the-price",
+        "label": "The Price"
+      }
+    },
+    {
+      "pattern": "the vengeance factor",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "tng season 3 the vengeance factor",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "tng s3 the vengeance factor",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "tng 3x09 story",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "tng s03 story 09",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "tng 3x09",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "tng s03e09",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 9",
+      "result": {
+        "anchorFrom": "tng.s3.e09.the-vengeance-factor",
+        "label": "The Vengeance Factor"
+      }
+    },
+    {
+      "pattern": "the defector",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "tng season 3 the defector",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "tng s3 the defector",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "tng 3x10 story",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "tng s03 story 10",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "tng 3x10",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "tng s03e10",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 10",
+      "result": {
+        "anchorFrom": "tng.s3.e10.the-defector",
+        "label": "The Defector"
+      }
+    },
+    {
+      "pattern": "the hunted",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "tng season 3 the hunted",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "tng s3 the hunted",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "tng 3x11 story",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "tng s03 story 11",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "tng 3x11",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "tng s03e11",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 11",
+      "result": {
+        "anchorFrom": "tng.s3.e11.the-hunted",
+        "label": "The Hunted"
+      }
+    },
+    {
+      "pattern": "the high ground",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "tng season 3 the high ground",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "tng s3 the high ground",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "tng 3x12 story",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "tng s03 story 12",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "tng 3x12",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "tng s03e12",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 12",
+      "result": {
+        "anchorFrom": "tng.s3.e12.the-high-ground",
+        "label": "The High Ground"
+      }
+    },
+    {
+      "pattern": "deja q",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "tng season 3 deja q",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "tng s3 deja q",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "tng 3x13 story",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "tng s03 story 13",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "tng 3x13",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "tng s03e13",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 13",
+      "result": {
+        "anchorFrom": "tng.s3.e13.deja-q",
+        "label": "Deja Q"
+      }
+    },
+    {
+      "pattern": "a matter of perspective",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "tng season 3 a matter of perspective",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "tng s3 a matter of perspective",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "tng 3x14 story",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "tng s03 story 14",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "tng 3x14",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "tng s03e14",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 14",
+      "result": {
+        "anchorFrom": "tng.s3.e14.a-matter-of-perspective",
+        "label": "A Matter of Perspective"
+      }
+    },
+    {
+      "pattern": "yesterday's enterprise",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "tng season 3 yesterday's enterprise",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "tng s3 yesterday's enterprise",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "tng 3x15 story",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "tng s03 story 15",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "tng 3x15",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "tng s03e15",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 15",
+      "result": {
+        "anchorFrom": "tng.s3.e15.yesterdays-enterprise",
+        "label": "Yesterday's Enterprise"
+      }
+    },
+    {
+      "pattern": "the offspring",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "tng season 3 the offspring",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "tng s3 the offspring",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "tng 3x16 story",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "tng s03 story 16",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "tng 3x16",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "tng s03e16",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 16",
+      "result": {
+        "anchorFrom": "tng.s3.e16.the-offspring",
+        "label": "The Offspring"
+      }
+    },
+    {
+      "pattern": "sins of the father",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "tng season 3 sins of the father",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "tng s3 sins of the father",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "tng 3x17 story",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "tng s03 story 17",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "tng 3x17",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "tng s03e17",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 17",
+      "result": {
+        "anchorFrom": "tng.s3.e17.sins-of-the-father",
+        "label": "Sins of The Father"
+      }
+    },
+    {
+      "pattern": "allegiance",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "tng season 3 allegiance",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "tng s3 allegiance",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "tng 3x18 story",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "tng s03 story 18",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "tng 3x18",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "tng s03e18",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 18",
+      "result": {
+        "anchorFrom": "tng.s3.e18.allegiance",
+        "label": "Allegiance"
+      }
+    },
+    {
+      "pattern": "captain's holiday",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tng season 3 captain's holiday",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tng s3 captain's holiday",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tng 3x19 story",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tng s03 story 19",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tng 3x19",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tng s03e19",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 19",
+      "result": {
+        "anchorFrom": "tng.s3.e19.captains-holiday",
+        "label": "Captain's Holiday"
+      }
+    },
+    {
+      "pattern": "tin man",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "tng season 3 tin man",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "tng s3 tin man",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "tng 3x20 story",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "tng s03 story 20",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "tng 3x20",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "tng s03e20",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 20",
+      "result": {
+        "anchorFrom": "tng.s3.e20.tin-man",
+        "label": "Tin Man"
+      }
+    },
+    {
+      "pattern": "hollow pursuits",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "tng season 3 hollow pursuits",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "tng s3 hollow pursuits",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "tng 3x21 story",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "tng s03 story 21",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "tng 3x21",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "tng s03e21",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 21",
+      "result": {
+        "anchorFrom": "tng.s3.e21.hollow-pursuits",
+        "label": "Hollow Pursuits"
+      }
+    },
+    {
+      "pattern": "the most toys",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "tng season 3 the most toys",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "tng s3 the most toys",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "tng 3x22 story",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "tng s03 story 22",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "tng 3x22",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "tng s03e22",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 22",
+      "result": {
+        "anchorFrom": "tng.s3.e22.the-most-toys",
+        "label": "The Most Toys"
+      }
+    },
+    {
+      "pattern": "sarek",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "tng season 3 sarek",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "tng s3 sarek",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "tng 3x23 story",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "tng s03 story 23",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "tng 3x23",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "tng s03e23",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 23",
+      "result": {
+        "anchorFrom": "tng.s3.e23.sarek",
+        "label": "Sarek"
+      }
+    },
+    {
+      "pattern": "ménage à troi",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "tng season 3 ménage à troi",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "tng s3 ménage à troi",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "tng 3x24 story",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "tng s03 story 24",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "tng 3x24",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "tng s03e24",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 24",
+      "result": {
+        "anchorFrom": "tng.s3.e24.menage-a-troi",
+        "label": "Ménage à Troi"
+      }
+    },
+    {
+      "pattern": "transfigurations",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "tng season 3 transfigurations",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "tng s3 transfigurations",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "tng 3x25 story",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "tng s03 story 25",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "tng 3x25",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "tng s03e25",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 25",
+      "result": {
+        "anchorFrom": "tng.s3.e25.transfigurations",
+        "label": "Transfigurations"
+      }
+    },
+    {
+      "pattern": "the best of both worlds",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    },
+    {
+      "pattern": "tng season 3 the best of both worlds",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    },
+    {
+      "pattern": "tng s3 the best of both worlds",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    },
+    {
+      "pattern": "tng 3x26 story",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    },
+    {
+      "pattern": "tng s03 story 26",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    },
+    {
+      "pattern": "tng 3x26",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    },
+    {
+      "pattern": "tng s03e26",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    },
+    {
+      "pattern": "tng season 3 episode 26",
+      "result": {
+        "anchorFrom": "tng.s3.e26.the-best-of-both-worlds",
+        "label": "The Best of Both Worlds"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

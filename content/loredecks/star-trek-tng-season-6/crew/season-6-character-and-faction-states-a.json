@@ -1,0 +1,2735 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_times-arrow-part-ii-state-gate",
+      "title": "Time's Arrow, Part II state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e01.times-arrow-part-ii",
+        "validToAnchor": "tng.s6.e02.realm-of-fear",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 15000,
+        "sortKeyTo": 15020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Time's Arrow, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e01.times-arrow-part-ii",
+          "label": "Time's Arrow, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:samuel-clemens",
+          "st:san-francisco",
+          "st:california",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Samuel Clemens",
+          "San Francisco",
+          "California",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Time's Arrow",
+          "death/status-change gate",
+          "1893",
+          "Samuel Clemens",
+          "San Francisco",
+          "California",
+          "young reporter",
+          "time travel"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-times-arrow-part-ii",
+        "character:data",
+        "character:samuel-clemens",
+        "character:san-francisco",
+        "character:california",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:times-arrow",
+        "topic:deathstatus-change-gate",
+        "topic:1893",
+        "topic:samuel-clemens",
+        "topic:san-francisco",
+        "topic:california",
+        "topic:young-reporter",
+        "topic:time-travel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Samuel Clemens",
+            "San Francisco",
+            "California",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Samuel Clemens",
+            "San Francisco",
+            "California",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Time's Arrow",
+            "death/status-change gate",
+            "1893",
+            "Samuel Clemens",
+            "San Francisco",
+            "California",
+            "young reporter",
+            "time travel"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Samuel Clemens",
+            "San Francisco",
+            "California",
+            "William Riker",
+            "Starfleet",
+            "Time's Arrow",
+            "death/status-change gate",
+            "1893",
+            "young reporter",
+            "time travel",
+            "Time's Arrow, Part II",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Time's Arrow, Part II constrains Data, Samuel Clemens, San Francisco around Time's Arrow and the episode-local faction state.",
+        "injection": "Inside Time's Arrow, Part II, write Data, Samuel Clemens, San Francisco with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Time's Arrow, Part II",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Time's_Arrow%2C_Part_II_(episode)",
+        "stardate": "46001.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_realm-of-fear-state-gate",
+      "title": "Realm Of Fear state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e02.realm-of-fear",
+        "validToAnchor": "tng.s6.e03.man-of-the-people",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 15020,
+        "sortKeyTo": 15040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Realm Of Fear",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e02.realm-of-fear",
+          "label": "Realm Of Fear",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:transporter-chief",
+          "st:miles-obrien",
+          "st:barclay",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "Transporter Chief",
+          "Miles O'Brien",
+          "Barclay",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Barclay Pathfinder support gate",
+          "science vessel",
+          "Igo sector",
+          "plasma streamer",
+          "beam",
+          "Transporter Chief",
+          "O'Brien",
+          "Realm Of Fear"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-realm-of-fear",
+        "character:worf",
+        "character:transporter-chief",
+        "character:miles-obrien",
+        "character:barclay",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:barclay-pathfinder-support-gate",
+        "topic:science-vessel",
+        "topic:igo-sector",
+        "topic:plasma-streamer",
+        "topic:beam",
+        "topic:transporter-chief",
+        "topic:obrien",
+        "topic:realm-of-fear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Transporter Chief",
+            "Miles O'Brien",
+            "Barclay",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Transporter Chief",
+            "Miles O'Brien",
+            "Barclay",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Barclay Pathfinder support gate",
+            "science vessel",
+            "Igo sector",
+            "plasma streamer",
+            "beam",
+            "Transporter Chief",
+            "O'Brien",
+            "Realm Of Fear"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Transporter Chief",
+            "Miles O'Brien",
+            "Barclay",
+            "William Riker",
+            "Starfleet",
+            "Barclay Pathfinder support gate",
+            "science vessel",
+            "Igo sector",
+            "plasma streamer",
+            "beam",
+            "O'Brien",
+            "Realm Of Fear",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Realm Of Fear constrains Worf, Transporter Chief, Miles O'Brien around Barclay Pathfinder support gate and the episode-local faction state.",
+        "injection": "Inside Realm Of Fear, write Worf, Transporter Chief, Miles O'Brien with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Realm Of Fear",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Realm_Of_Fear_(episode)",
+        "stardate": "46041.1-46043.6 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_man-of-the-people-state-gate",
+      "title": "Man Of The People state gate for Rekag-Seronia",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e03.man-of-the-people",
+        "validToAnchor": "tng.s6.e04.relics",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 15040,
+        "sortKeyTo": 15060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Man Of The People",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e03.man-of-the-people",
+          "label": "Man Of The People",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:rekag-seronia",
+          "st:rekag",
+          "st:talmadge",
+          "st:dorian",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Rekag-Seronia",
+          "Rekag",
+          "Talmadge",
+          "Dorian",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "transport ship",
+          "Rekag-Seronia",
+          "Rekag",
+          "battle cruiser",
+          "Talmadge",
+          "Dorian",
+          "Man Of The People"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-man-of-the-people",
+        "character:rekag-seronia",
+        "character:rekag",
+        "character:talmadge",
+        "character:dorian",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:transport-ship",
+        "topic:rekag-seronia",
+        "topic:rekag",
+        "topic:battle-cruiser",
+        "topic:talmadge",
+        "topic:dorian",
+        "topic:man-of-the-people"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Rekag-Seronia",
+            "Rekag",
+            "Talmadge",
+            "Dorian",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Rekag-Seronia",
+            "Rekag",
+            "Talmadge",
+            "Dorian",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "transport ship",
+            "Rekag-Seronia",
+            "Rekag",
+            "battle cruiser",
+            "Talmadge",
+            "Dorian",
+            "Man Of The People"
+          ],
+          "keywordsAny": [
+            "Rekag-Seronia",
+            "Rekag",
+            "Talmadge",
+            "Dorian",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "transport ship",
+            "battle cruiser",
+            "Man Of The People",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Man Of The People constrains Rekag-Seronia, Rekag, Talmadge around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Man Of The People, write Rekag-Seronia, Rekag, Talmadge with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Man Of The People",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Man_Of_The_People_(episode)",
+        "stardate": "46071.6-46075.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_relics-state-gate",
+      "title": "Relics state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e04.relics",
+        "validToAnchor": "tng.s6.e05.schisms",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 15060,
+        "sortKeyTo": 15080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Relics",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e04.relics",
+          "label": "Relics",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:freeman-dyson",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Freeman Dyson"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "holodeck reality/safety gate",
+          "distress call",
+          "transport",
+          "seventy-five years",
+          "warp",
+          "Code 1-Alpha-Zero",
+          "gravitational field",
+          "Relics"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-relics",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:freeman-dyson",
+        "faction:starfleet",
+        "topic:holodeck-realitysafety-gate",
+        "topic:distress-call",
+        "topic:transport",
+        "topic:seventy-five-years",
+        "topic:warp",
+        "topic:code-1-alpha-zero",
+        "topic:gravitational-field",
+        "topic:relics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Freeman Dyson"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Freeman Dyson",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "holodeck reality/safety gate",
+            "distress call",
+            "transport",
+            "seventy-five years",
+            "warp",
+            "Code 1-Alpha-Zero",
+            "gravitational field",
+            "Relics"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Freeman Dyson",
+            "Starfleet",
+            "holodeck reality/safety gate",
+            "distress call",
+            "transport",
+            "seventy-five years",
+            "warp",
+            "Code 1-Alpha-Zero",
+            "gravitational field",
+            "Relics",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Relics constrains Jean-Luc Picard, William Riker, Freeman Dyson around holodeck reality/safety gate and the episode-local faction state.",
+        "injection": "Inside Relics, write Jean-Luc Picard, William Riker, Freeman Dyson with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Relics",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Relics_(episode)",
+        "stardate": "46125.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_schisms-state-gate",
+      "title": "Schisms state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e05.schisms",
+        "validToAnchor": "tng.s6.e06.true-q",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 15080,
+        "sortKeyTo": 15100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Schisms",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e05.schisms",
+          "label": "Schisms",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:amargosa-diaspora",
+          "st:william-t-riker",
+          "st:shipley",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Amargosa Diaspora",
+          "William T. Riker",
+          "Shipley"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Enterprise",
+          "Amargosa Diaspora",
+          "globular cluster",
+          "William T. Riker",
+          "bed",
+          "Geordi La Forge",
+          "Schisms"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-schisms",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:amargosa-diaspora",
+        "character:william-t-riker",
+        "character:shipley",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:enterprise",
+        "topic:amargosa-diaspora",
+        "topic:globular-cluster",
+        "topic:william-t-riker",
+        "topic:bed",
+        "topic:geordi-la-forge",
+        "topic:schisms"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Amargosa Diaspora",
+            "William T. Riker",
+            "Shipley"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Amargosa Diaspora",
+            "William T. Riker",
+            "Shipley",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Enterprise",
+            "Amargosa Diaspora",
+            "globular cluster",
+            "William T. Riker",
+            "bed",
+            "Geordi La Forge",
+            "Schisms"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Amargosa Diaspora",
+            "William T. Riker",
+            "Shipley",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "Enterprise",
+            "globular cluster",
+            "bed",
+            "Schisms",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Schisms constrains Data, Geordi La Forge, Amargosa Diaspora around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Schisms, write Data, Geordi La Forge, Amargosa Diaspora with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Schisms",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Schisms_(episode)",
+        "stardate": "46154.2-46191.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_true-q-state-gate",
+      "title": "True Q state gate for Amanda Rogers",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e06.true-q",
+        "validToAnchor": "tng.s6.e07.rascals",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 15100,
+        "sortKeyTo": 15120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: True Q",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e06.true-q",
+          "label": "True Q",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:amanda-rogers",
+          "st:jean-luc-picard",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:starfleet-academy",
+          "st:starfleet",
+          "st:q-continuum"
+        ],
+        "characters": [
+          "Amanda Rogers",
+          "Jean-Luc Picard",
+          "Dr.",
+          "Beverly Crusher",
+          "Starfleet Academy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Q Continuum"
+        ],
+        "topics": [
+          "Q intervention or trial gate",
+          "Starbase 112",
+          "Tagra IV",
+          "Argolis Cluster",
+          "Amanda Rogers",
+          "Picard",
+          "Dr.",
+          "True Q"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-true-q",
+        "character:amanda-rogers",
+        "character:jean-luc-picard",
+        "character:dr",
+        "character:beverly-crusher",
+        "character:starfleet-academy",
+        "faction:starfleet",
+        "faction:q-continuum",
+        "topic:q-intervention-or-trial-gate",
+        "topic:starbase-112",
+        "topic:tagra-iv",
+        "topic:argolis-cluster",
+        "topic:amanda-rogers",
+        "topic:picard",
+        "topic:dr",
+        "topic:true-q"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Amanda Rogers",
+            "Jean-Luc Picard",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet Academy"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Q Continuum"
+          ],
+          "entitiesAny": [
+            "Amanda Rogers",
+            "Jean-Luc Picard",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet Academy",
+            "Starfleet",
+            "Q Continuum"
+          ],
+          "topicsAny": [
+            "Q intervention or trial gate",
+            "Starbase 112",
+            "Tagra IV",
+            "Argolis Cluster",
+            "Amanda Rogers",
+            "Picard",
+            "Dr.",
+            "True Q"
+          ],
+          "keywordsAny": [
+            "Amanda Rogers",
+            "Jean-Luc Picard",
+            "Dr.",
+            "Beverly Crusher",
+            "Starfleet Academy",
+            "Starfleet",
+            "Q Continuum",
+            "Q intervention or trial gate",
+            "Starbase 112",
+            "Tagra IV",
+            "Argolis Cluster",
+            "Picard",
+            "True Q",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "True Q constrains Amanda Rogers, Jean-Luc Picard, Dr. around Q intervention or trial gate and the episode-local faction state.",
+        "injection": "Inside True Q, write Amanda Rogers, Jean-Luc Picard, Dr. with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "True Q",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/True_Q_(episode)",
+        "stardate": "46192.3-46193.8 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_rascals-state-gate",
+      "title": "Rascals state gate for Guinan",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 71,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e07.rascals",
+        "validToAnchor": "tng.s6.e08.a-fistful-of-datas",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 15120,
+        "sortKeyTo": 15140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Rascals",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e07.rascals",
+          "label": "Rascals",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:guinan",
+          "st:ro",
+          "st:keiko-obrien",
+          "st:marlonia",
+          "st:fermi",
+          "st:starfleet",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "Guinan",
+          "Ro",
+          "Keiko O'Brien",
+          "Marlonia",
+          "Fermi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Ferengi family/rule-of-acquisition gate",
+          "Ro",
+          "Keiko O'Brien",
+          "Guinan",
+          "I",
+          "Enterprise",
+          "Marlonia",
+          "Rascals"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-rascals",
+        "character:guinan",
+        "character:ro",
+        "character:keiko-obrien",
+        "character:marlonia",
+        "character:fermi",
+        "faction:starfleet",
+        "faction:ferengi-alliance",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:ro",
+        "topic:keiko-obrien",
+        "topic:guinan",
+        "topic:i",
+        "topic:enterprise",
+        "topic:marlonia",
+        "topic:rascals"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Guinan",
+            "Ro",
+            "Keiko O'Brien",
+            "Marlonia",
+            "Fermi"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "Guinan",
+            "Ro",
+            "Keiko O'Brien",
+            "Marlonia",
+            "Fermi",
+            "Starfleet",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Ferengi family/rule-of-acquisition gate",
+            "Ro",
+            "Keiko O'Brien",
+            "Guinan",
+            "I",
+            "Enterprise",
+            "Marlonia",
+            "Rascals"
+          ],
+          "keywordsAny": [
+            "Guinan",
+            "Ro",
+            "Keiko O'Brien",
+            "Marlonia",
+            "Fermi",
+            "Starfleet",
+            "Ferengi Alliance",
+            "Ferengi family/rule-of-acquisition gate",
+            "I",
+            "Enterprise",
+            "Rascals",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Rascals constrains Guinan, Ro, Keiko O'Brien around Ferengi family/rule-of-acquisition gate and the episode-local faction state.",
+        "injection": "Inside Rascals, write Guinan, Ro, Keiko O'Brien with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Rascals",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rascals_(episode)",
+        "stardate": "46235.7-46236.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_a-fistful-of-datas-state-gate",
+      "title": "A Fistful of Datas state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e08.a-fistful-of-datas",
+        "validToAnchor": "tng.s6.e09.the-quality-of-life",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 15140,
+        "sortKeyTo": 15160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: A Fistful of Datas",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e08.a-fistful-of-datas",
+          "label": "A Fistful of Datas",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:worf",
+          "st:beverly-crusher",
+          "st:biko",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Worf",
+          "Beverly Crusher",
+          "Biko",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "holodeck reality/safety gate",
+          "Enterprise",
+          "Deinonychus VII",
+          "Biko",
+          "Picard",
+          "Mozart",
+          "Ressikan flute",
+          "A Fistful of Datas"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-a-fistful-of-datas",
+        "character:data",
+        "character:worf",
+        "character:beverly-crusher",
+        "character:biko",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:holodeck-realitysafety-gate",
+        "topic:enterprise",
+        "topic:deinonychus-vii",
+        "topic:biko",
+        "topic:picard",
+        "topic:mozart",
+        "topic:ressikan-flute",
+        "topic:a-fistful-of-datas"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "Biko",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "Biko",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "holodeck reality/safety gate",
+            "Enterprise",
+            "Deinonychus VII",
+            "Biko",
+            "Picard",
+            "Mozart",
+            "Ressikan flute",
+            "A Fistful of Datas"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Worf",
+            "Beverly Crusher",
+            "Biko",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "holodeck reality/safety gate",
+            "Enterprise",
+            "Deinonychus VII",
+            "Picard",
+            "Mozart",
+            "Ressikan flute",
+            "A Fistful of Datas",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "A Fistful of Datas constrains Data, Worf, Beverly Crusher around holodeck reality/safety gate and the episode-local faction state.",
+        "injection": "Inside A Fistful of Datas, write Data, Worf, Beverly Crusher with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "A Fistful of Datas",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/A_Fistful_of_Datas_(episode)",
+        "stardate": "46271.5-46278.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_the-quality-of-life-state-gate",
+      "title": "The Quality of Life state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 65,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e09.the-quality-of-life",
+        "validToAnchor": "tng.s6.e10.chain-of-command-part-i",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 15160,
+        "sortKeyTo": 15180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: The Quality of Life",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e09.the-quality-of-life",
+          "label": "The Quality of Life",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:william-riker",
+          "st:geordi-la-forge",
+          "st:beverly-crusher",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Worf",
+          "William Riker",
+          "Geordi La Forge",
+          "Beverly Crusher",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Riker",
+          "Worf",
+          "La Forge",
+          "Crusher",
+          "poker",
+          "small talk",
+          "The Quality of Life"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-the-quality-of-life",
+        "character:worf",
+        "character:william-riker",
+        "character:geordi-la-forge",
+        "character:beverly-crusher",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:episode-local-factstatus-gate",
+        "topic:riker",
+        "topic:worf",
+        "topic:la-forge",
+        "topic:crusher",
+        "topic:poker",
+        "topic:small-talk",
+        "topic:the-quality-of-life"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "William Riker",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "William Riker",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Riker",
+            "Worf",
+            "La Forge",
+            "Crusher",
+            "poker",
+            "small talk",
+            "The Quality of Life"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "William Riker",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "episode-local fact/status gate",
+            "Riker",
+            "La Forge",
+            "Crusher",
+            "poker",
+            "small talk",
+            "The Quality of Life",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Quality of Life constrains Worf, William Riker, Geordi La Forge around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside The Quality of Life, write Worf, William Riker, Geordi La Forge with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Quality of Life",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Quality_of_Life_(episode)",
+        "stardate": "46307.2-46317.8 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_chain-of-command-part-i-state-gate",
+      "title": "Chain Of Command, Part I state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e10.chain-of-command-part-i",
+        "validToAnchor": "tng.s6.e11.chain-of-command-part-ii",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 15180,
+        "sortKeyTo": 15200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Chain Of Command, Part I",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e10.chain-of-command-part-i",
+          "label": "Chain Of Command, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:cairo",
+          "st:vice-admiral",
+          "st:nechayev",
+          "st:jean-luc-picard",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Data",
+          "Cairo",
+          "Vice Admiral",
+          "Nechayev",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Chain Of Command",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "secret-knowledge gate",
+          "Cairo",
+          "Cardassian",
+          "border",
+          "Vice Admiral"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-chain-of-command-part-i",
+        "character:data",
+        "character:cairo",
+        "character:vice-admiral",
+        "character:nechayev",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:chain-of-command",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:secret-knowledge-gate",
+        "topic:cairo",
+        "topic:cardassian",
+        "topic:border",
+        "topic:vice-admiral"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Cairo",
+            "Vice Admiral",
+            "Nechayev",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Cairo",
+            "Vice Admiral",
+            "Nechayev",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Chain Of Command",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "secret-knowledge gate",
+            "Cairo",
+            "Cardassian",
+            "border",
+            "Vice Admiral"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Cairo",
+            "Vice Admiral",
+            "Nechayev",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Chain Of Command",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "secret-knowledge gate",
+            "Cardassian",
+            "border",
+            "Chain Of Command, Part I",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Chain Of Command, Part I constrains Data, Cairo, Vice Admiral around Chain Of Command and the episode-local faction state.",
+        "injection": "Inside Chain Of Command, Part I, write Data, Cairo, Vice Admiral with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Chain Of Command, Part I",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Chain_Of_Command%2C_Part_I_(episode)",
+        "stardate": "46357.4-46358.2 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_chain-of-command-part-ii-state-gate",
+      "title": "Chain Of Command, Part II state gate for Jean-Luc Picard",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 59,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e11.chain-of-command-part-ii",
+        "validToAnchor": "tng.s6.e12.ship-in-a-bottle",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 15200,
+        "sortKeyTo": 15220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Chain Of Command, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e11.chain-of-command-part-ii",
+          "label": "Chain Of Command, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:worf",
+          "st:beverly-crusher",
+          "st:deanna-troi",
+          "st:gul",
+          "st:starfleet",
+          "st:cardassian-union"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Worf",
+          "Beverly Crusher",
+          "Deanna Troi",
+          "Gul"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union"
+        ],
+        "topics": [
+          "Chain Of Command",
+          "Cardassian occupation or border-pressure gate",
+          "secret-knowledge gate",
+          "Jean-Luc Picard",
+          "Gul",
+          "Madred",
+          "Celtris III",
+          "Minos Korva"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-chain-of-command-part-ii",
+        "character:jean-luc-picard",
+        "character:worf",
+        "character:beverly-crusher",
+        "character:deanna-troi",
+        "character:gul",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "topic:chain-of-command",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:secret-knowledge-gate",
+        "topic:jean-luc-picard",
+        "topic:gul",
+        "topic:madred",
+        "topic:celtris-iii",
+        "topic:minos-korva"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Gul"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Gul",
+            "Starfleet",
+            "Cardassian Union"
+          ],
+          "topicsAny": [
+            "Chain Of Command",
+            "Cardassian occupation or border-pressure gate",
+            "secret-knowledge gate",
+            "Jean-Luc Picard",
+            "Gul",
+            "Madred",
+            "Celtris III",
+            "Minos Korva"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Worf",
+            "Beverly Crusher",
+            "Deanna Troi",
+            "Gul",
+            "Starfleet",
+            "Cardassian Union",
+            "Chain Of Command",
+            "Cardassian occupation or border-pressure gate",
+            "secret-knowledge gate",
+            "Madred",
+            "Celtris III",
+            "Minos Korva",
+            "Chain Of Command, Part II",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Chain Of Command, Part II constrains Jean-Luc Picard, Worf, Beverly Crusher around Chain Of Command and the episode-local faction state.",
+        "injection": "Inside Chain Of Command, Part II, write Jean-Luc Picard, Worf, Beverly Crusher with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Chain Of Command, Part II",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Chain_Of_Command%2C_Part_II_(episode)",
+        "stardate": "46360.8 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_ship-in-a-bottle-state-gate",
+      "title": "Ship In A Bottle state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e12.ship-in-a-bottle",
+        "validToAnchor": "tng.s6.e13.aquiel",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 15220,
+        "sortKeyTo": 15240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Ship In A Bottle",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e12.ship-in-a-bottle",
+          "label": "Ship In A Bottle",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:geordi-la-forge",
+          "st:reginald-barclay",
+          "st:sherlock-holmes",
+          "st:professor",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Geordi La Forge",
+          "Reginald Barclay",
+          "Sherlock Holmes",
+          "Professor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Professor James Moriarty",
+          "Barclay Pathfinder support gate",
+          "holodeck reality/safety gate",
+          "Data",
+          "Geordi La Forge",
+          "Sherlock Holmes",
+          "left handed",
+          "Reginald Barclay"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-ship-in-a-bottle",
+        "character:data",
+        "character:geordi-la-forge",
+        "character:reginald-barclay",
+        "character:sherlock-holmes",
+        "character:professor",
+        "faction:starfleet",
+        "topic:professor-james-moriarty",
+        "topic:barclay-pathfinder-support-gate",
+        "topic:holodeck-realitysafety-gate",
+        "topic:data",
+        "topic:geordi-la-forge",
+        "topic:sherlock-holmes",
+        "topic:left-handed",
+        "topic:reginald-barclay"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Geordi La Forge",
+            "Reginald Barclay",
+            "Sherlock Holmes",
+            "Professor"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Geordi La Forge",
+            "Reginald Barclay",
+            "Sherlock Holmes",
+            "Professor",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Professor James Moriarty",
+            "Barclay Pathfinder support gate",
+            "holodeck reality/safety gate",
+            "Data",
+            "Geordi La Forge",
+            "Sherlock Holmes",
+            "left handed",
+            "Reginald Barclay"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Geordi La Forge",
+            "Reginald Barclay",
+            "Sherlock Holmes",
+            "Professor",
+            "Starfleet",
+            "Professor James Moriarty",
+            "Barclay Pathfinder support gate",
+            "holodeck reality/safety gate",
+            "left handed",
+            "Ship In A Bottle",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Ship In A Bottle constrains Data, Geordi La Forge, Reginald Barclay around Professor James Moriarty and the episode-local faction state.",
+        "injection": "Inside Ship In A Bottle, write Data, Geordi La Forge, Reginald Barclay with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Ship In A Bottle",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ship_In_A_Bottle_(episode)",
+        "stardate": "46424.1 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s6_aquiel-state-gate",
+      "title": "Aquiel state gate for Worf",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 53,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s6.e13.aquiel",
+        "validToAnchor": "tng.s6.e14.face-of-the-enemy",
+        "series": "TNG",
+        "season": "6",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 15240,
+        "sortKeyTo": 15260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 6: Aquiel",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s6",
+          "label": "TNG season 6",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s6.e13.aquiel",
+          "label": "Aquiel",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:dr",
+          "st:beverly-crusher",
+          "st:geordi-la-forge",
+          "st:william-riker",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Dr.",
+          "Beverly Crusher",
+          "Geordi La Forge",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "communication relay station",
+          "Klingon border",
+          "Dr.",
+          "Crusher",
+          "La Forge",
+          "Riker",
+          "Aquiel"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s6",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s6-aquiel",
+        "character:worf",
+        "character:dr",
+        "character:beverly-crusher",
+        "character:geordi-la-forge",
+        "character:william-riker",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:communication-relay-station",
+        "topic:klingon-border",
+        "topic:dr",
+        "topic:crusher",
+        "topic:la-forge",
+        "topic:riker",
+        "topic:aquiel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Dr.",
+            "Beverly Crusher",
+            "Geordi La Forge",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Dr.",
+            "Beverly Crusher",
+            "Geordi La Forge",
+            "William Riker",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "communication relay station",
+            "Klingon border",
+            "Dr.",
+            "Crusher",
+            "La Forge",
+            "Riker",
+            "Aquiel"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Dr.",
+            "Beverly Crusher",
+            "Geordi La Forge",
+            "William Riker",
+            "Starfleet",
+            "Klingon Empire",
+            "Klingon duty/faction-status gate",
+            "communication relay station",
+            "Klingon border",
+            "Crusher",
+            "La Forge",
+            "Riker",
+            "Aquiel",
+            "TNG season 6"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 6, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Aquiel constrains Worf, Dr., Beverly Crusher around Klingon duty/faction-status gate and the episode-local faction state.",
+        "injection": "Inside Aquiel, write Worf, Dr., Beverly Crusher with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside TNG season 6 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 6 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Aquiel",
+        "series": "TNG",
+        "season": 6,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Aquiel_(episode)",
+        "stardate": "46461.3 (2369)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-6",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

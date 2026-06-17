@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Baratie Arc Context inside East Blue Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Baratie Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during baratie arc: baratie and cooks",
+      "result": {
+        "anchorFrom": "op.baratie.baratie",
+        "label": "Baratie Arc: Baratie and cooks"
+      }
+    },
+    {
+      "pattern": "during baratie arc: sanji and zeff",
+      "result": {
+        "anchorFrom": "op.baratie.sanji-and-zeff",
+        "label": "Baratie Arc: Sanji and Zeff"
+      }
+    },
+    {
+      "pattern": "during baratie arc: krieg pirates",
+      "result": {
+        "anchorFrom": "op.baratie.krieg-pirates",
+        "label": "Baratie Arc: Krieg Pirates"
+      }
+    },
+    {
+      "pattern": "during baratie arc: mihawk and zoro",
+      "result": {
+        "anchorFrom": "op.baratie.mihawk-and-zoro",
+        "label": "Baratie Arc: Mihawk and Zoro"
+      }
+    },
+    {
+      "pattern": "during baratie arc: luffy and sanji",
+      "result": {
+        "anchorFrom": "op.baratie.luffy-and-sanji",
+        "label": "Baratie Arc: Luffy and Sanji"
+      }
+    },
+    {
+      "pattern": "during baratie arc: nami departure bridge",
+      "result": {
+        "anchorFrom": "op.baratie.nami-departure-bridge",
+        "label": "Baratie Arc: Nami departure bridge"
+      }
+    },
+    {
+      "pattern": "during baratie arc: battle and set pieces",
+      "result": {
+        "anchorFrom": "op.baratie.battle-and-set-pieces",
+        "label": "Baratie Arc: Battle and set pieces"
+      }
+    },
+    {
+      "pattern": "during baratie arc: world scale and dreams",
+      "result": {
+        "anchorFrom": "op.baratie.world-scale-and-dreams",
+        "label": "Baratie Arc: World scale and dreams"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

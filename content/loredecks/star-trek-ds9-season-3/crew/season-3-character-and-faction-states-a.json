@@ -1,0 +1,2870 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_the-search-part-i-state-gate",
+      "title": "The Search, Part I state gate for Benjamin Sisko",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e01.the-search-part-i",
+        "validToAnchor": "ds9.s3.e02.the-search-part-ii",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: The Search, Part I",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e01.the-search-part-i",
+          "label": "The Search, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:odo",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:miles-obrien",
+          "st:starfleet",
+          "st:bajorans",
+          "st:dominion",
+          "st:jemhadar"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Odo",
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Miles O'Brien"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans",
+          "Dominion",
+          "Jem'Hadar"
+        ],
+        "topics": [
+          "Dominion introduction",
+          "Bajoran occupation/religion gate",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "Founder identity/Changeling gate",
+          "wormhole/anomaly route gate",
+          "Kira",
+          "Dax"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i",
+        "character:benjamin-sisko",
+        "character:odo",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:miles-obrien",
+        "faction:starfleet",
+        "faction:bajorans",
+        "faction:dominion",
+        "faction:jemhadar",
+        "topic:dominion-introduction",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:founder-identitychangeling-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:kira",
+        "topic:dax"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans",
+            "Dominion",
+            "Jem'Hadar"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans",
+            "Dominion",
+            "Jem'Hadar"
+          ],
+          "topicsAny": [
+            "Dominion introduction",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Kira",
+            "Dax"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Odo",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Miles O'Brien",
+            "Starfleet",
+            "Bajorans",
+            "Dominion",
+            "Jem'Hadar",
+            "Dominion introduction",
+            "Bajoran occupation/religion gate",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Founder identity/Changeling gate",
+            "wormhole/anomaly route gate",
+            "Kira",
+            "Dax",
+            "The Search, Part I",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Search, Part I constrains Benjamin Sisko, Odo, Kira Nerys around Dominion introduction and the episode-local faction state.",
+        "injection": "Inside The Search, Part I, write Benjamin Sisko, Odo, Kira Nerys with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_I_(episode)",
+        "stardate": "48212.4-48214.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_the-search-part-ii-state-gate",
+      "title": "The Search, Part II state gate for Odo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e02.the-search-part-ii",
+        "validToAnchor": "ds9.s3.e03.the-house-of-quark",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 23020,
+        "sortKeyTo": 23040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: The Search, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e02.the-search-part-ii",
+          "label": "The Search, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:great-link",
+          "st:changeling",
+          "st:kira-nerys",
+          "st:defiant",
+          "st:starfleet",
+          "st:dominion",
+          "st:jemhadar",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Great Link",
+          "Changeling",
+          "Kira Nerys",
+          "Defiant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Jem'Hadar",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion introduction",
+          "Dominion strategic-threat gate",
+          "Jem'Hadar reveal or war gate",
+          "Changeling identity/Founder gate",
+          "wormhole/anomaly route gate",
+          "Defiant/station militarization gate",
+          "Great Link",
+          "Odo"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-ii",
+        "character:odo",
+        "character:great-link",
+        "character:changeling",
+        "character:kira-nerys",
+        "character:defiant",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:jemhadar",
+        "faction:bajorans",
+        "topic:dominion-introduction",
+        "topic:dominion-strategic-threat-gate",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:wormholeanomaly-route-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:great-link",
+        "topic:odo"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Great Link",
+            "Changeling",
+            "Kira Nerys",
+            "Defiant"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Great Link",
+            "Changeling",
+            "Kira Nerys",
+            "Defiant",
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion introduction",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Changeling identity/Founder gate",
+            "wormhole/anomaly route gate",
+            "Defiant/station militarization gate",
+            "Great Link",
+            "Odo"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Great Link",
+            "Changeling",
+            "Kira Nerys",
+            "Defiant",
+            "Starfleet",
+            "Dominion",
+            "Jem'Hadar",
+            "Bajorans",
+            "Dominion introduction",
+            "Dominion strategic-threat gate",
+            "Jem'Hadar reveal or war gate",
+            "Changeling identity/Founder gate",
+            "wormhole/anomaly route gate",
+            "Defiant/station militarization gate",
+            "The Search, Part II",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Search, Part II constrains Odo, Great Link, Changeling around Dominion introduction and the episode-local faction state.",
+        "injection": "Inside The Search, Part II, write Odo, Great Link, Changeling with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part II",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_II_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_the-house-of-quark-state-gate",
+      "title": "The House of Quark state gate for Miles O'Brien",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e03.the-house-of-quark",
+        "validToAnchor": "ds9.s3.e04.equilibrium",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 23040,
+        "sortKeyTo": 23060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: The House of Quark",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e03.the-house-of-quark",
+          "label": "The House of Quark",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:odo",
+          "st:quark",
+          "st:rom",
+          "st:dominion",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Odo",
+          "Quark",
+          "Rom",
+          "Dominion"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Quark and Grilka",
+          "Klingon duty/faction-status gate",
+          "Dominion strategic-threat gate",
+          "Quark",
+          "Rom",
+          "bar",
+          "Dominion",
+          "station"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-house-of-quark",
+        "character:miles-obrien",
+        "character:odo",
+        "character:quark",
+        "character:rom",
+        "character:dominion",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:quark-and-grilka",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:dominion-strategic-threat-gate",
+        "topic:quark",
+        "topic:rom",
+        "topic:bar",
+        "topic:dominion",
+        "topic:station"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Odo",
+            "Quark",
+            "Rom",
+            "Dominion"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Odo",
+            "Quark",
+            "Rom",
+            "Dominion",
+            "Starfleet",
+            "Klingon Empire",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Quark and Grilka",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "Quark",
+            "Rom",
+            "bar",
+            "Dominion",
+            "station"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Odo",
+            "Quark",
+            "Rom",
+            "Dominion",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Quark and Grilka",
+            "Klingon duty/faction-status gate",
+            "Dominion strategic-threat gate",
+            "bar",
+            "station",
+            "The House of Quark",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The House of Quark constrains Miles O'Brien, Odo, Quark around Quark and Grilka and the episode-local faction state.",
+        "injection": "Inside The House of Quark, write Miles O'Brien, Odo, Quark with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The House of Quark",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_House_of_Quark_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_equilibrium-state-gate",
+      "title": "Equilibrium state gate for Odo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e04.equilibrium",
+        "validToAnchor": "ds9.s3.e05.second-skin",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 23060,
+        "sortKeyTo": 23080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Equilibrium",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e04.equilibrium",
+          "label": "Equilibrium",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:benjamin-sisko",
+          "st:jake",
+          "st:julian-bashir",
+          "st:kira-nerys",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Benjamin Sisko",
+          "Jake",
+          "Julian Bashir",
+          "Kira Nerys"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Sisko",
+          "food",
+          "Jake",
+          "Bashir",
+          "Major",
+          "Kira",
+          "Equilibrium"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-equilibrium",
+        "character:odo",
+        "character:benjamin-sisko",
+        "character:jake",
+        "character:julian-bashir",
+        "character:kira-nerys",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:episode-local-factstatus-gate",
+        "topic:sisko",
+        "topic:food",
+        "topic:jake",
+        "topic:bashir",
+        "topic:major",
+        "topic:kira",
+        "topic:equilibrium"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Benjamin Sisko",
+            "Jake",
+            "Julian Bashir",
+            "Kira Nerys"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Benjamin Sisko",
+            "Jake",
+            "Julian Bashir",
+            "Kira Nerys",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Sisko",
+            "food",
+            "Jake",
+            "Bashir",
+            "Major",
+            "Kira",
+            "Equilibrium"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Benjamin Sisko",
+            "Jake",
+            "Julian Bashir",
+            "Kira Nerys",
+            "Starfleet",
+            "Bajorans",
+            "episode-local fact/status gate",
+            "Sisko",
+            "food",
+            "Bashir",
+            "Major",
+            "Kira",
+            "Equilibrium",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Equilibrium constrains Odo, Benjamin Sisko, Jake around episode-local fact/status gate and the episode-local faction state.",
+        "injection": "Inside Equilibrium, write Odo, Benjamin Sisko, Jake with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Equilibrium",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equilibrium_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_second-skin-state-gate",
+      "title": "Second Skin state gate for Quark",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e05.second-skin",
+        "validToAnchor": "ds9.s3.e06.the-abandoned",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 23080,
+        "sortKeyTo": 23100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Second Skin",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e05.second-skin",
+          "label": "Second Skin",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:quark",
+          "st:jadzia-dax",
+          "st:kira-nerys",
+          "st:bajoran-central-archives",
+          "st:alenis-grem",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Quark",
+          "Jadzia Dax",
+          "Kira Nerys",
+          "Bajoran Central Archives",
+          "Alenis Grem"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Quark",
+          "Dax",
+          "Replimat",
+          "Kira",
+          "anti-grav sailing",
+          "holosuite"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-second-skin",
+        "character:quark",
+        "character:jadzia-dax",
+        "character:kira-nerys",
+        "character:bajoran-central-archives",
+        "character:alenis-grem",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:quark",
+        "topic:dax",
+        "topic:replimat",
+        "topic:kira",
+        "topic:anti-grav-sailing",
+        "topic:holosuite"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Quark",
+            "Jadzia Dax",
+            "Kira Nerys",
+            "Bajoran Central Archives",
+            "Alenis Grem"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Quark",
+            "Jadzia Dax",
+            "Kira Nerys",
+            "Bajoran Central Archives",
+            "Alenis Grem",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Quark",
+            "Dax",
+            "Replimat",
+            "Kira",
+            "anti-grav sailing",
+            "holosuite"
+          ],
+          "keywordsAny": [
+            "Quark",
+            "Jadzia Dax",
+            "Kira Nerys",
+            "Bajoran Central Archives",
+            "Alenis Grem",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Dax",
+            "Replimat",
+            "Kira",
+            "anti-grav sailing",
+            "holosuite",
+            "Second Skin",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Second Skin constrains Quark, Jadzia Dax, Kira Nerys around Cardassian occupation or border-pressure gate and the episode-local faction state.",
+        "injection": "Inside Second Skin, write Quark, Jadzia Dax, Kira Nerys with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Second Skin",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Second_Skin_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_the-abandoned-state-gate",
+      "title": "The Abandoned state gate for Quark",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e06.the-abandoned",
+        "validToAnchor": "ds9.s3.e07.civil-defense",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 23100,
+        "sortKeyTo": 23120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: The Abandoned",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e06.the-abandoned",
+          "label": "The Abandoned",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:quark",
+          "st:quarks",
+          "st:okalar",
+          "st:mardah",
+          "st:jake",
+          "st:starfleet",
+          "st:jemhadar",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Quark",
+          "Quark's",
+          "Okalar",
+          "Mardah",
+          "Jake"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Jem'Hadar",
+          "Bajorans"
+        ],
+        "topics": [
+          "Jem'Hadar reveal or war gate",
+          "Quark's",
+          "Okalar",
+          "dabo",
+          "Mardah",
+          "dabo girl",
+          "Jake",
+          "The Abandoned"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-abandoned",
+        "character:quark",
+        "character:quarks",
+        "character:okalar",
+        "character:mardah",
+        "character:jake",
+        "faction:starfleet",
+        "faction:jemhadar",
+        "faction:bajorans",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:quarks",
+        "topic:okalar",
+        "topic:dabo",
+        "topic:mardah",
+        "topic:dabo-girl",
+        "topic:jake",
+        "topic:the-abandoned"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Quark",
+            "Quark's",
+            "Okalar",
+            "Mardah",
+            "Jake"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Quark",
+            "Quark's",
+            "Okalar",
+            "Mardah",
+            "Jake",
+            "Starfleet",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Jem'Hadar reveal or war gate",
+            "Quark's",
+            "Okalar",
+            "dabo",
+            "Mardah",
+            "dabo girl",
+            "Jake",
+            "The Abandoned"
+          ],
+          "keywordsAny": [
+            "Quark",
+            "Quark's",
+            "Okalar",
+            "Mardah",
+            "Jake",
+            "Starfleet",
+            "Jem'Hadar",
+            "Bajorans",
+            "Jem'Hadar reveal or war gate",
+            "dabo",
+            "dabo girl",
+            "The Abandoned",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Abandoned constrains Quark, Quark's, Okalar around Jem'Hadar reveal or war gate and the episode-local faction state.",
+        "injection": "Inside The Abandoned, write Quark, Quark's, Okalar with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Abandoned",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Abandoned_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_civil-defense-state-gate",
+      "title": "Civil Defense state gate for Odo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 71,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e07.civil-defense",
+        "validToAnchor": "ds9.s3.e08.meridian",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 23120,
+        "sortKeyTo": 23140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Civil Defense",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e07.civil-defense",
+          "label": "Civil Defense",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:dukat",
+          "st:miles-obrien",
+          "st:jake",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Dukat",
+          "Miles O'Brien",
+          "Jake"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Deep Space 9",
+          "O'Brien",
+          "Jake",
+          "Cardassian",
+          "deuterium",
+          "Sisko"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-civil-defense",
+        "character:odo",
+        "character:quark",
+        "character:dukat",
+        "character:miles-obrien",
+        "character:jake",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:deep-space-9",
+        "topic:obrien",
+        "topic:jake",
+        "topic:cardassian",
+        "topic:deuterium",
+        "topic:sisko"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Dukat",
+            "Miles O'Brien",
+            "Jake"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Dukat",
+            "Miles O'Brien",
+            "Jake",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Deep Space 9",
+            "O'Brien",
+            "Jake",
+            "Cardassian",
+            "deuterium",
+            "Sisko"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Dukat",
+            "Miles O'Brien",
+            "Jake",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Deep Space 9",
+            "O'Brien",
+            "Cardassian",
+            "deuterium",
+            "Sisko",
+            "Civil Defense",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Civil Defense constrains Odo, Quark, Dukat around Cardassian occupation or border-pressure gate and the episode-local faction state.",
+        "injection": "Inside Civil Defense, write Odo, Quark, Dukat with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Civil Defense",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Civil_Defense_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_meridian-state-gate",
+      "title": "Meridian state gate for Odo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e08.meridian",
+        "validToAnchor": "ds9.s3.e09.defiant",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 23140,
+        "sortKeyTo": 23160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Meridian",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e08.meridian",
+          "label": "Meridian",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:kira-nerys",
+          "st:changeling",
+          "st:tiron",
+          "st:starfleet",
+          "st:dominion",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Kira Nerys",
+          "Changeling",
+          "Tiron"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Dominion",
+          "Bajorans"
+        ],
+        "topics": [
+          "Dominion strategic-threat gate",
+          "Changeling identity/Founder gate",
+          "Deep Space 9",
+          "Replimat",
+          "Major",
+          "Kira",
+          "replicate",
+          "coffee"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-meridian",
+        "character:odo",
+        "character:quark",
+        "character:kira-nerys",
+        "character:changeling",
+        "character:tiron",
+        "faction:starfleet",
+        "faction:dominion",
+        "faction:bajorans",
+        "topic:dominion-strategic-threat-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:deep-space-9",
+        "topic:replimat",
+        "topic:major",
+        "topic:kira",
+        "topic:replicate",
+        "topic:coffee"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Kira Nerys",
+            "Changeling",
+            "Tiron"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Kira Nerys",
+            "Changeling",
+            "Tiron",
+            "Starfleet",
+            "Dominion",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Dominion strategic-threat gate",
+            "Changeling identity/Founder gate",
+            "Deep Space 9",
+            "Replimat",
+            "Major",
+            "Kira",
+            "replicate",
+            "coffee"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Kira Nerys",
+            "Changeling",
+            "Tiron",
+            "Starfleet",
+            "Dominion",
+            "Bajorans",
+            "Dominion strategic-threat gate",
+            "Changeling identity/Founder gate",
+            "Deep Space 9",
+            "Replimat",
+            "Major",
+            "Kira",
+            "replicate",
+            "coffee",
+            "Meridian",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Meridian constrains Odo, Quark, Kira Nerys around Dominion strategic-threat gate and the episode-local faction state.",
+        "injection": "Inside Meridian, write Odo, Quark, Kira Nerys with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Meridian",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Meridian_(episode)",
+        "stardate": "48423.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_defiant-state-gate",
+      "title": "Defiant state gate for Kira Nerys",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 65,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e09.defiant",
+        "validToAnchor": "ds9.s3.e10.fascination",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 23160,
+        "sortKeyTo": 23180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Defiant",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e09.defiant",
+          "label": "Defiant",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:byzallian",
+          "st:julian-bashir",
+          "st:starfleet",
+          "st:romulan-star-empire",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Byzallian",
+          "Julian Bashir"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Romulan Star Empire",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Thomas Riker",
+          "Romulan secrecy/political pressure gate",
+          "Cardassian occupation or border-pressure gate",
+          "Defiant/station militarization gate",
+          "reveal timing gate",
+          "Ops",
+          "Major",
+          "Kira Nerys"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-defiant",
+        "character:kira-nerys",
+        "character:byzallian",
+        "character:julian-bashir",
+        "faction:starfleet",
+        "faction:romulan-star-empire",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:thomas-riker",
+        "topic:romulan-secrecypolitical-pressure-gate",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:reveal-timing-gate",
+        "topic:ops",
+        "topic:major",
+        "topic:kira-nerys"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Byzallian",
+            "Julian Bashir"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Romulan Star Empire",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Byzallian",
+            "Julian Bashir",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Thomas Riker",
+            "Romulan secrecy/political pressure gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate",
+            "reveal timing gate",
+            "Ops",
+            "Major",
+            "Kira Nerys"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Byzallian",
+            "Julian Bashir",
+            "Starfleet",
+            "Romulan Star Empire",
+            "Cardassian Union",
+            "Bajorans",
+            "Thomas Riker",
+            "Romulan secrecy/political pressure gate",
+            "Cardassian occupation or border-pressure gate",
+            "Defiant/station militarization gate",
+            "reveal timing gate",
+            "Ops",
+            "Major",
+            "Defiant",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Defiant constrains Kira Nerys, Byzallian, Julian Bashir around Thomas Riker and the episode-local faction state.",
+        "injection": "Inside Defiant, write Kira Nerys, Byzallian, Julian Bashir with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Defiant",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Defiant_(episode)",
+        "stardate": "48467.3 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_fascination-state-gate",
+      "title": "Fascination state gate for Jake",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e10.fascination",
+        "validToAnchor": "ds9.s3.e11.past-tense-part-i",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 23180,
+        "sortKeyTo": 23200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Fascination",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e10.fascination",
+          "label": "Fascination",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jake",
+          "st:mardah",
+          "st:bajoran-gratitude-festival",
+          "st:miles-obrien",
+          "st:julian-bashir",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Jake",
+          "Mardah",
+          "Bajoran Gratitude Festival",
+          "Miles O'Brien",
+          "Julian Bashir"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "secret-knowledge gate",
+          "Jake",
+          "couch",
+          "his father",
+          "earring",
+          "Mardah",
+          "the station"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-fascination",
+        "character:jake",
+        "character:mardah",
+        "character:bajoran-gratitude-festival",
+        "character:miles-obrien",
+        "character:julian-bashir",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:secret-knowledge-gate",
+        "topic:jake",
+        "topic:couch",
+        "topic:his-father",
+        "topic:earring",
+        "topic:mardah",
+        "topic:the-station"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jake",
+            "Mardah",
+            "Bajoran Gratitude Festival",
+            "Miles O'Brien",
+            "Julian Bashir"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Jake",
+            "Mardah",
+            "Bajoran Gratitude Festival",
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "secret-knowledge gate",
+            "Jake",
+            "couch",
+            "his father",
+            "earring",
+            "Mardah",
+            "the station"
+          ],
+          "keywordsAny": [
+            "Jake",
+            "Mardah",
+            "Bajoran Gratitude Festival",
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "secret-knowledge gate",
+            "couch",
+            "his father",
+            "earring",
+            "the station",
+            "Fascination",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Fascination constrains Jake, Mardah, Bajoran Gratitude Festival around Bajoran occupation/religion gate and the episode-local faction state.",
+        "injection": "Inside Fascination, write Jake, Mardah, Bajoran Gratitude Festival with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Fascination",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Fascination_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_past-tense-part-i-state-gate",
+      "title": "Past Tense, Part I state gate for Annual Starfleet Symposium",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 59,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e11.past-tense-part-i",
+        "validToAnchor": "ds9.s3.e12.past-tense-part-ii",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 23200,
+        "sortKeyTo": 23220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Past Tense, Part I",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e11.past-tense-part-i",
+          "label": "Past Tense, Part I",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:annual-starfleet-symposium",
+          "st:gamma-quadrant",
+          "st:portland",
+          "st:benjamin-sisko",
+          "st:jadzia-dax",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Annual Starfleet Symposium",
+          "Gamma Quadrant",
+          "Portland",
+          "Benjamin Sisko",
+          "Jadzia Dax"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Past Tense",
+          "episode-local fact/status gate",
+          "Annual Starfleet Symposium",
+          "Gamma Quadrant",
+          "sister",
+          "Portland",
+          "Sisko",
+          "Dax"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-past-tense-part-i",
+        "character:annual-starfleet-symposium",
+        "character:gamma-quadrant",
+        "character:portland",
+        "character:benjamin-sisko",
+        "character:jadzia-dax",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:past-tense",
+        "topic:episode-local-factstatus-gate",
+        "topic:annual-starfleet-symposium",
+        "topic:gamma-quadrant",
+        "topic:sister",
+        "topic:portland",
+        "topic:sisko",
+        "topic:dax"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Annual Starfleet Symposium",
+            "Gamma Quadrant",
+            "Portland",
+            "Benjamin Sisko",
+            "Jadzia Dax"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Annual Starfleet Symposium",
+            "Gamma Quadrant",
+            "Portland",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Past Tense",
+            "episode-local fact/status gate",
+            "Annual Starfleet Symposium",
+            "Gamma Quadrant",
+            "sister",
+            "Portland",
+            "Sisko",
+            "Dax"
+          ],
+          "keywordsAny": [
+            "Annual Starfleet Symposium",
+            "Gamma Quadrant",
+            "Portland",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Starfleet",
+            "Bajorans",
+            "Past Tense",
+            "episode-local fact/status gate",
+            "sister",
+            "Sisko",
+            "Dax",
+            "Past Tense, Part I",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Past Tense, Part I constrains Annual Starfleet Symposium, Gamma Quadrant, Portland around Past Tense and the episode-local faction state.",
+        "injection": "Inside Past Tense, Part I, write Annual Starfleet Symposium, Gamma Quadrant, Portland with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Past Tense, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Past_Tense%2C_Part_I_(episode)",
+        "stardate": "48481.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_past-tense-part-ii-state-gate",
+      "title": "Past Tense, Part II state gate for Benjamin Sisko",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e12.past-tense-part-ii",
+        "validToAnchor": "ds9.s3.e13.life-support",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 23220,
+        "sortKeyTo": 23240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Past Tense, Part II",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e12.past-tense-part-ii",
+          "label": "Past Tense, Part II",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:jadzia-dax",
+          "st:district-processing-center",
+          "st:biddle-coleridge",
+          "st:gabriel-bell",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Jadzia Dax",
+          "District Processing Center",
+          "Biddle Coleridge",
+          "Gabriel Bell"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Past Tense",
+          "episode-local fact/status gate",
+          "hostages",
+          "District Processing Center",
+          "Biddle Coleridge",
+          "Gabriel Bell",
+          "Benjamin Sisko",
+          "Sanctuary District"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-past-tense-part-ii",
+        "character:benjamin-sisko",
+        "character:jadzia-dax",
+        "character:district-processing-center",
+        "character:biddle-coleridge",
+        "character:gabriel-bell",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:past-tense",
+        "topic:episode-local-factstatus-gate",
+        "topic:hostages",
+        "topic:district-processing-center",
+        "topic:biddle-coleridge",
+        "topic:gabriel-bell",
+        "topic:benjamin-sisko",
+        "topic:sanctuary-district"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "District Processing Center",
+            "Biddle Coleridge",
+            "Gabriel Bell"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "District Processing Center",
+            "Biddle Coleridge",
+            "Gabriel Bell",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Past Tense",
+            "episode-local fact/status gate",
+            "hostages",
+            "District Processing Center",
+            "Biddle Coleridge",
+            "Gabriel Bell",
+            "Benjamin Sisko",
+            "Sanctuary District"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "District Processing Center",
+            "Biddle Coleridge",
+            "Gabriel Bell",
+            "Starfleet",
+            "Bajorans",
+            "Past Tense",
+            "episode-local fact/status gate",
+            "hostages",
+            "Sanctuary District",
+            "Past Tense, Part II",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Past Tense, Part II constrains Benjamin Sisko, Jadzia Dax, District Processing Center around Past Tense and the episode-local faction state.",
+        "injection": "Inside Past Tense, Part II, write Benjamin Sisko, Jadzia Dax, District Processing Center with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Past Tense, Part II",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Past_Tense%2C_Part_II_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s3_life-support-state-gate",
+      "title": "Life Support state gate for Data",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 53,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s3.e13.life-support",
+        "validToAnchor": "ds9.s3.e14.heart-of-stone",
+        "series": "DS9",
+        "season": "3",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 23240,
+        "sortKeyTo": 23260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 3: Life Support",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s3",
+          "label": "DS9 season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s3.e13.life-support",
+          "label": "Life Support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:odo",
+          "st:jake-sisko",
+          "st:promenade",
+          "st:leanne",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "Data",
+          "Odo",
+          "Jake Sisko",
+          "Promenade",
+          "Leanne"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Data/Lore android-family gate",
+          "Klingon duty/faction-status gate",
+          "Bajoran occupation/religion gate",
+          "Ferengi family/rule-of-acquisition gate",
+          "Jake Sisko",
+          "Promenade",
+          "Deep Space 9",
+          "Leanne"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-life-support",
+        "character:data",
+        "character:odo",
+        "character:jake-sisko",
+        "character:promenade",
+        "character:leanne",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "faction:ferengi-alliance",
+        "topic:datalore-android-family-gate",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:ferengi-familyrule-of-acquisition-gate",
+        "topic:jake-sisko",
+        "topic:promenade",
+        "topic:deep-space-9",
+        "topic:leanne"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Odo",
+            "Jake Sisko",
+            "Promenade",
+            "Leanne"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Odo",
+            "Jake Sisko",
+            "Promenade",
+            "Leanne",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Data/Lore android-family gate",
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Jake Sisko",
+            "Promenade",
+            "Deep Space 9",
+            "Leanne"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Odo",
+            "Jake Sisko",
+            "Promenade",
+            "Leanne",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Ferengi Alliance",
+            "Data/Lore android-family gate",
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "Ferengi family/rule-of-acquisition gate",
+            "Deep Space 9",
+            "Life Support",
+            "DS9 season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Life Support constrains Data, Odo, Jake Sisko around Data/Lore android-family gate and the episode-local faction state.",
+        "injection": "Inside Life Support, write Data, Odo, Jake Sisko with this season-local state and avoid replacing it with later outcomes.",
+        "constraints": [
+          "Keep this card inside DS9 season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Life Support",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Life_Support_(episode)",
+        "stardate": "48498.4 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

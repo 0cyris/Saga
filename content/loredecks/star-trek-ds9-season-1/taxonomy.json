@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "character": {
+      "label": "Character",
+      "color": "#315c35",
+      "description": "Character identity, role, behavior, or season-local status."
+    },
+    "event": {
+      "label": "Event",
+      "color": "#8e5a2a",
+      "description": "Episode event or durable story-state change."
+    },
+    "faction": {
+      "label": "Faction",
+      "color": "#6f3c7a",
+      "description": "Crew, polity, organization, or diplomatic state."
+    },
+    "knowledge": {
+      "label": "Knowledge",
+      "color": "#59636f",
+      "description": "Who knows, hides, or misunderstands season-local information."
+    },
+    "relationship": {
+      "label": "Relationship",
+      "color": "#b04a7a",
+      "description": "Social bond, trust state, obligation, or grief state."
+    },
+    "rule": {
+      "label": "Rule",
+      "color": "#2e86c1",
+      "description": "Technology, command, legal, cultural, or anomaly constraint."
+    },
+    "secret": {
+      "label": "Secret",
+      "color": "#922b21",
+      "description": "Hidden identity, reveal timing, spoiler guard, or unresolved truth."
+    },
+    "other": {
+      "label": "Other",
+      "color": "#5d6d7e",
+      "description": "Other Saga-compatible lore."
+    }
+  }
+}

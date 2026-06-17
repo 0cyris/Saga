@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Deep Space Nine season 3 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ds9.s3.e01.the-search-part-i",
+      "label": "The Search, Part I",
+      "contextType": "story_anchor",
+      "sortKey": 23000,
+      "stardate": "48212.4-48214.5 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "The Search, Part I",
+        "DS9 season 3 The Search, Part I",
+        "DS9 S3 The Search, Part I",
+        "DS9 3x01 story",
+        "DS9 S03 story 01",
+        "DS9 3x01",
+        "DS9 S03E01",
+        "DS9 season 3 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_I_(episode)",
+        "stardate": "48212.4-48214.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e02.the-search-part-ii",
+      "label": "The Search, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 23020,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "The Search, Part II",
+        "DS9 season 3 The Search, Part II",
+        "DS9 S3 The Search, Part II",
+        "DS9 3x02 story",
+        "DS9 S03 story 02",
+        "DS9 3x02",
+        "DS9 S03E02",
+        "DS9 season 3 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Search, Part II",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Search%2C_Part_II_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e03.the-house-of-quark",
+      "label": "The House of Quark",
+      "contextType": "story_anchor",
+      "sortKey": 23040,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "The House of Quark",
+        "DS9 season 3 The House of Quark",
+        "DS9 S3 The House of Quark",
+        "DS9 3x03 story",
+        "DS9 S03 story 03",
+        "DS9 3x03",
+        "DS9 S03E03",
+        "DS9 season 3 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-house-of-quark"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The House of Quark",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_House_of_Quark_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e04.equilibrium",
+      "label": "Equilibrium",
+      "contextType": "story_anchor",
+      "sortKey": 23060,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Equilibrium",
+        "DS9 season 3 Equilibrium",
+        "DS9 S3 Equilibrium",
+        "DS9 3x04 story",
+        "DS9 S03 story 04",
+        "DS9 3x04",
+        "DS9 S03E04",
+        "DS9 season 3 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-equilibrium"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Equilibrium",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Equilibrium_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e05.second-skin",
+      "label": "Second Skin",
+      "contextType": "story_anchor",
+      "sortKey": 23080,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Second Skin",
+        "DS9 season 3 Second Skin",
+        "DS9 S3 Second Skin",
+        "DS9 3x05 story",
+        "DS9 S03 story 05",
+        "DS9 3x05",
+        "DS9 S03E05",
+        "DS9 season 3 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-second-skin"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Second Skin",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Second_Skin_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e06.the-abandoned",
+      "label": "The Abandoned",
+      "contextType": "story_anchor",
+      "sortKey": 23100,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "The Abandoned",
+        "DS9 season 3 The Abandoned",
+        "DS9 S3 The Abandoned",
+        "DS9 3x06 story",
+        "DS9 S03 story 06",
+        "DS9 3x06",
+        "DS9 S03E06",
+        "DS9 season 3 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-abandoned"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Abandoned",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Abandoned_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e07.civil-defense",
+      "label": "Civil Defense",
+      "contextType": "story_anchor",
+      "sortKey": 23120,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Civil Defense",
+        "DS9 season 3 Civil Defense",
+        "DS9 S3 Civil Defense",
+        "DS9 3x07 story",
+        "DS9 S03 story 07",
+        "DS9 3x07",
+        "DS9 S03E07",
+        "DS9 season 3 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-civil-defense"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Civil Defense",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Civil_Defense_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e08.meridian",
+      "label": "Meridian",
+      "contextType": "story_anchor",
+      "sortKey": 23140,
+      "stardate": "48423.2 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Meridian",
+        "DS9 season 3 Meridian",
+        "DS9 S3 Meridian",
+        "DS9 3x08 story",
+        "DS9 S03 story 08",
+        "DS9 3x08",
+        "DS9 S03E08",
+        "DS9 season 3 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-meridian"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Meridian",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Meridian_(episode)",
+        "stardate": "48423.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e09.defiant",
+      "label": "Defiant",
+      "contextType": "story_anchor",
+      "sortKey": 23160,
+      "stardate": "48467.3 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Defiant",
+        "DS9 season 3 Defiant",
+        "DS9 S3 Defiant",
+        "DS9 3x09 story",
+        "DS9 S03 story 09",
+        "DS9 3x09",
+        "DS9 S03E09",
+        "DS9 season 3 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-defiant"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Defiant",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Defiant_(episode)",
+        "stardate": "48467.3 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e10.fascination",
+      "label": "Fascination",
+      "contextType": "story_anchor",
+      "sortKey": 23180,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Fascination",
+        "DS9 season 3 Fascination",
+        "DS9 S3 Fascination",
+        "DS9 3x10 story",
+        "DS9 S03 story 10",
+        "DS9 3x10",
+        "DS9 S03E10",
+        "DS9 season 3 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-fascination"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Fascination",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Fascination_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e11.past-tense-part-i",
+      "label": "Past Tense, Part I",
+      "contextType": "story_anchor",
+      "sortKey": 23200,
+      "stardate": "48481.2 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Past Tense, Part I",
+        "DS9 season 3 Past Tense, Part I",
+        "DS9 S3 Past Tense, Part I",
+        "DS9 3x11 story",
+        "DS9 S03 story 11",
+        "DS9 3x11",
+        "DS9 S03E11",
+        "DS9 season 3 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-past-tense-part-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Past Tense, Part I",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Past_Tense%2C_Part_I_(episode)",
+        "stardate": "48481.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e12.past-tense-part-ii",
+      "label": "Past Tense, Part II",
+      "contextType": "story_anchor",
+      "sortKey": 23220,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Past Tense, Part II",
+        "DS9 season 3 Past Tense, Part II",
+        "DS9 S3 Past Tense, Part II",
+        "DS9 3x12 story",
+        "DS9 S03 story 12",
+        "DS9 3x12",
+        "DS9 S03E12",
+        "DS9 season 3 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-past-tense-part-ii"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Past Tense, Part II",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Past_Tense%2C_Part_II_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e13.life-support",
+      "label": "Life Support",
+      "contextType": "story_anchor",
+      "sortKey": 23240,
+      "stardate": "48498.4 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Life Support",
+        "DS9 season 3 Life Support",
+        "DS9 S3 Life Support",
+        "DS9 3x13 story",
+        "DS9 S03 story 13",
+        "DS9 3x13",
+        "DS9 S03E13",
+        "DS9 season 3 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-life-support"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Life Support",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Life_Support_(episode)",
+        "stardate": "48498.4 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e14.heart-of-stone",
+      "label": "Heart of Stone",
+      "contextType": "story_anchor",
+      "sortKey": 23260,
+      "stardate": "48521.5 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Heart of Stone",
+        "DS9 season 3 Heart of Stone",
+        "DS9 S3 Heart of Stone",
+        "DS9 3x14 story",
+        "DS9 S03 story 14",
+        "DS9 3x14",
+        "DS9 S03E14",
+        "DS9 season 3 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-heart-of-stone"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Heart of Stone",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Heart_of_Stone_(episode)",
+        "stardate": "48521.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e15.destiny",
+      "label": "Destiny",
+      "contextType": "story_anchor",
+      "sortKey": 23280,
+      "stardate": "48543.2 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Destiny",
+        "DS9 season 3 Destiny",
+        "DS9 S3 Destiny",
+        "DS9 3x15 story",
+        "DS9 S03 story 15",
+        "DS9 3x15",
+        "DS9 S03E15",
+        "DS9 season 3 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-destiny"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Destiny",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Destiny_(episode)",
+        "stardate": "48543.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e16.prophet-motive",
+      "label": "Prophet Motive",
+      "contextType": "story_anchor",
+      "sortKey": 23300,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Prophet Motive",
+        "DS9 season 3 Prophet Motive",
+        "DS9 S3 Prophet Motive",
+        "DS9 3x16 story",
+        "DS9 S03 story 16",
+        "DS9 3x16",
+        "DS9 S03E16",
+        "DS9 season 3 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-prophet-motive"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Prophet Motive",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Prophet_Motive_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e17.visionary",
+      "label": "Visionary",
+      "contextType": "story_anchor",
+      "sortKey": 23320,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Visionary",
+        "DS9 season 3 Visionary",
+        "DS9 S3 Visionary",
+        "DS9 3x17 story",
+        "DS9 S03 story 17",
+        "DS9 3x17",
+        "DS9 S03E17",
+        "DS9 season 3 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-visionary"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Visionary",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Visionary_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e18.distant-voices",
+      "label": "Distant Voices",
+      "contextType": "story_anchor",
+      "sortKey": 23340,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Distant Voices",
+        "DS9 season 3 Distant Voices",
+        "DS9 S3 Distant Voices",
+        "DS9 3x18 story",
+        "DS9 S03 story 18",
+        "DS9 3x18",
+        "DS9 S03E18",
+        "DS9 season 3 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-distant-voices"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Distant Voices",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Distant_Voices_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e19.through-the-looking-glass",
+      "label": "Through the Looking Glass",
+      "contextType": "story_anchor",
+      "sortKey": 23360,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Through the Looking Glass",
+        "DS9 season 3 Through the Looking Glass",
+        "DS9 S3 Through the Looking Glass",
+        "DS9 3x19 story",
+        "DS9 S03 story 19",
+        "DS9 3x19",
+        "DS9 S03E19",
+        "DS9 season 3 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-through-the-looking-glass"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Through the Looking Glass",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Through_the_Looking_Glass_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e20.improbable-cause",
+      "label": "Improbable Cause",
+      "contextType": "story_anchor",
+      "sortKey": 23380,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Improbable Cause",
+        "DS9 season 3 Improbable Cause",
+        "DS9 S3 Improbable Cause",
+        "DS9 3x20 story",
+        "DS9 S03 story 20",
+        "DS9 3x20",
+        "DS9 S03E20",
+        "DS9 season 3 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-improbable-cause"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Improbable Cause",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Improbable_Cause_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e21.the-die-is-cast",
+      "label": "The Die is Cast",
+      "contextType": "story_anchor",
+      "sortKey": 23400,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "The Die is Cast",
+        "DS9 season 3 The Die is Cast",
+        "DS9 S3 The Die is Cast",
+        "DS9 3x21 story",
+        "DS9 S03 story 21",
+        "DS9 3x21",
+        "DS9 S03E21",
+        "DS9 season 3 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-die-is-cast"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Die is Cast",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Die_is_Cast_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e22.explorers",
+      "label": "Explorers",
+      "contextType": "story_anchor",
+      "sortKey": 23420,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Explorers",
+        "DS9 season 3 Explorers",
+        "DS9 S3 Explorers",
+        "DS9 3x22 story",
+        "DS9 S03 story 22",
+        "DS9 3x22",
+        "DS9 S03E22",
+        "DS9 season 3 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-explorers"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Explorers",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Explorers_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e23.family-business",
+      "label": "Family Business",
+      "contextType": "story_anchor",
+      "sortKey": 23440,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "Family Business",
+        "DS9 season 3 Family Business",
+        "DS9 S3 Family Business",
+        "DS9 3x23 story",
+        "DS9 S03 story 23",
+        "DS9 3x23",
+        "DS9 S03E23",
+        "DS9 season 3 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-family-business"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Family Business",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Family_Business_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e24.shakaar",
+      "label": "Shakaar",
+      "contextType": "story_anchor",
+      "sortKey": 23460,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Shakaar",
+        "DS9 season 3 Shakaar",
+        "DS9 S3 Shakaar",
+        "DS9 3x24 story",
+        "DS9 S03 story 24",
+        "DS9 3x24",
+        "DS9 S03E24",
+        "DS9 season 3 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-shakaar"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Shakaar",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shakaar_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e25.facets",
+      "label": "Facets",
+      "contextType": "story_anchor",
+      "sortKey": 23480,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Facets",
+        "DS9 season 3 Facets",
+        "DS9 S3 Facets",
+        "DS9 3x25 story",
+        "DS9 S03 story 25",
+        "DS9 3x25",
+        "DS9 S03E25",
+        "DS9 season 3 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-facets"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Facets",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Facets_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "ds9.s3.e26.the-adversary",
+      "label": "The Adversary",
+      "contextType": "story_anchor",
+      "sortKey": 23500,
+      "stardate": "48959.1-48962.5 (2371)",
+      "year": "2371",
+      "series": "DS9",
+      "season": 3,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "The Adversary",
+        "DS9 season 3 The Adversary",
+        "DS9 S3 The Adversary",
+        "DS9 3x26 story",
+        "DS9 S03 story 26",
+        "DS9 3x26",
+        "DS9 S03E26",
+        "DS9 season 3 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-adversary"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Adversary",
+        "series": "DS9",
+        "season": 3,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Adversary_(episode)",
+        "stardate": "48959.1-48962.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "ds9.s3.full-season",
+      "label": "DS9 season 3 full window",
+      "anchorFrom": "ds9.s3.e01.the-search-part-i",
+      "anchorTo": "ds9.s3.e26.the-adversary",
+      "sortKeyFrom": 23000,
+      "sortKeyTo": 23500,
+      "aliases": [
+        "DS9 season 3",
+        "Star Trek: Deep Space Nine season 3",
+        "DS9 S3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "ds9.s3.e01.the-search-part-i.window",
+      "label": "The Search, Part I episode window",
+      "anchorFrom": "ds9.s3.e01.the-search-part-i",
+      "anchorTo": "ds9.s3.e02.the-search-part-ii",
+      "sortKeyFrom": 23000,
+      "sortKeyTo": 23020,
+      "aliases": [
+        "during The Search, Part I",
+        "after The Search, Part I"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-i"
+      ]
+    },
+    {
+      "id": "ds9.s3.e02.the-search-part-ii.window",
+      "label": "The Search, Part II episode window",
+      "anchorFrom": "ds9.s3.e02.the-search-part-ii",
+      "anchorTo": "ds9.s3.e03.the-house-of-quark",
+      "sortKeyFrom": 23020,
+      "sortKeyTo": 23040,
+      "aliases": [
+        "during The Search, Part II",
+        "after The Search, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-search-part-ii"
+      ]
+    },
+    {
+      "id": "ds9.s3.e03.the-house-of-quark.window",
+      "label": "The House of Quark episode window",
+      "anchorFrom": "ds9.s3.e03.the-house-of-quark",
+      "anchorTo": "ds9.s3.e04.equilibrium",
+      "sortKeyFrom": 23040,
+      "sortKeyTo": 23060,
+      "aliases": [
+        "during The House of Quark",
+        "after The House of Quark"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-house-of-quark"
+      ]
+    },
+    {
+      "id": "ds9.s3.e04.equilibrium.window",
+      "label": "Equilibrium episode window",
+      "anchorFrom": "ds9.s3.e04.equilibrium",
+      "anchorTo": "ds9.s3.e05.second-skin",
+      "sortKeyFrom": 23060,
+      "sortKeyTo": 23080,
+      "aliases": [
+        "during Equilibrium",
+        "after Equilibrium"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-equilibrium"
+      ]
+    },
+    {
+      "id": "ds9.s3.e05.second-skin.window",
+      "label": "Second Skin episode window",
+      "anchorFrom": "ds9.s3.e05.second-skin",
+      "anchorTo": "ds9.s3.e06.the-abandoned",
+      "sortKeyFrom": 23080,
+      "sortKeyTo": 23100,
+      "aliases": [
+        "during Second Skin",
+        "after Second Skin"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-second-skin"
+      ]
+    },
+    {
+      "id": "ds9.s3.e06.the-abandoned.window",
+      "label": "The Abandoned episode window",
+      "anchorFrom": "ds9.s3.e06.the-abandoned",
+      "anchorTo": "ds9.s3.e07.civil-defense",
+      "sortKeyFrom": 23100,
+      "sortKeyTo": 23120,
+      "aliases": [
+        "during The Abandoned",
+        "after The Abandoned"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-abandoned"
+      ]
+    },
+    {
+      "id": "ds9.s3.e07.civil-defense.window",
+      "label": "Civil Defense episode window",
+      "anchorFrom": "ds9.s3.e07.civil-defense",
+      "anchorTo": "ds9.s3.e08.meridian",
+      "sortKeyFrom": 23120,
+      "sortKeyTo": 23140,
+      "aliases": [
+        "during Civil Defense",
+        "after Civil Defense"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-civil-defense"
+      ]
+    },
+    {
+      "id": "ds9.s3.e08.meridian.window",
+      "label": "Meridian episode window",
+      "anchorFrom": "ds9.s3.e08.meridian",
+      "anchorTo": "ds9.s3.e09.defiant",
+      "sortKeyFrom": 23140,
+      "sortKeyTo": 23160,
+      "aliases": [
+        "during Meridian",
+        "after Meridian"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-meridian"
+      ]
+    },
+    {
+      "id": "ds9.s3.e09.defiant.window",
+      "label": "Defiant episode window",
+      "anchorFrom": "ds9.s3.e09.defiant",
+      "anchorTo": "ds9.s3.e10.fascination",
+      "sortKeyFrom": 23160,
+      "sortKeyTo": 23180,
+      "aliases": [
+        "during Defiant",
+        "after Defiant"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-defiant"
+      ]
+    },
+    {
+      "id": "ds9.s3.e10.fascination.window",
+      "label": "Fascination episode window",
+      "anchorFrom": "ds9.s3.e10.fascination",
+      "anchorTo": "ds9.s3.e11.past-tense-part-i",
+      "sortKeyFrom": 23180,
+      "sortKeyTo": 23200,
+      "aliases": [
+        "during Fascination",
+        "after Fascination"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-fascination"
+      ]
+    },
+    {
+      "id": "ds9.s3.e11.past-tense-part-i.window",
+      "label": "Past Tense, Part I episode window",
+      "anchorFrom": "ds9.s3.e11.past-tense-part-i",
+      "anchorTo": "ds9.s3.e12.past-tense-part-ii",
+      "sortKeyFrom": 23200,
+      "sortKeyTo": 23220,
+      "aliases": [
+        "during Past Tense, Part I",
+        "after Past Tense, Part I"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-past-tense-part-i"
+      ]
+    },
+    {
+      "id": "ds9.s3.e12.past-tense-part-ii.window",
+      "label": "Past Tense, Part II episode window",
+      "anchorFrom": "ds9.s3.e12.past-tense-part-ii",
+      "anchorTo": "ds9.s3.e13.life-support",
+      "sortKeyFrom": 23220,
+      "sortKeyTo": 23240,
+      "aliases": [
+        "during Past Tense, Part II",
+        "after Past Tense, Part II"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-past-tense-part-ii"
+      ]
+    },
+    {
+      "id": "ds9.s3.e13.life-support.window",
+      "label": "Life Support episode window",
+      "anchorFrom": "ds9.s3.e13.life-support",
+      "anchorTo": "ds9.s3.e14.heart-of-stone",
+      "sortKeyFrom": 23240,
+      "sortKeyTo": 23260,
+      "aliases": [
+        "during Life Support",
+        "after Life Support"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-life-support"
+      ]
+    },
+    {
+      "id": "ds9.s3.e14.heart-of-stone.window",
+      "label": "Heart of Stone episode window",
+      "anchorFrom": "ds9.s3.e14.heart-of-stone",
+      "anchorTo": "ds9.s3.e15.destiny",
+      "sortKeyFrom": 23260,
+      "sortKeyTo": 23280,
+      "aliases": [
+        "during Heart of Stone",
+        "after Heart of Stone"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-heart-of-stone"
+      ]
+    },
+    {
+      "id": "ds9.s3.e15.destiny.window",
+      "label": "Destiny episode window",
+      "anchorFrom": "ds9.s3.e15.destiny",
+      "anchorTo": "ds9.s3.e16.prophet-motive",
+      "sortKeyFrom": 23280,
+      "sortKeyTo": 23300,
+      "aliases": [
+        "during Destiny",
+        "after Destiny"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-destiny"
+      ]
+    },
+    {
+      "id": "ds9.s3.e16.prophet-motive.window",
+      "label": "Prophet Motive episode window",
+      "anchorFrom": "ds9.s3.e16.prophet-motive",
+      "anchorTo": "ds9.s3.e17.visionary",
+      "sortKeyFrom": 23300,
+      "sortKeyTo": 23320,
+      "aliases": [
+        "during Prophet Motive",
+        "after Prophet Motive"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-prophet-motive"
+      ]
+    },
+    {
+      "id": "ds9.s3.e17.visionary.window",
+      "label": "Visionary episode window",
+      "anchorFrom": "ds9.s3.e17.visionary",
+      "anchorTo": "ds9.s3.e18.distant-voices",
+      "sortKeyFrom": 23320,
+      "sortKeyTo": 23340,
+      "aliases": [
+        "during Visionary",
+        "after Visionary"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-visionary"
+      ]
+    },
+    {
+      "id": "ds9.s3.e18.distant-voices.window",
+      "label": "Distant Voices episode window",
+      "anchorFrom": "ds9.s3.e18.distant-voices",
+      "anchorTo": "ds9.s3.e19.through-the-looking-glass",
+      "sortKeyFrom": 23340,
+      "sortKeyTo": 23360,
+      "aliases": [
+        "during Distant Voices",
+        "after Distant Voices"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-distant-voices"
+      ]
+    },
+    {
+      "id": "ds9.s3.e19.through-the-looking-glass.window",
+      "label": "Through the Looking Glass episode window",
+      "anchorFrom": "ds9.s3.e19.through-the-looking-glass",
+      "anchorTo": "ds9.s3.e20.improbable-cause",
+      "sortKeyFrom": 23360,
+      "sortKeyTo": 23380,
+      "aliases": [
+        "during Through the Looking Glass",
+        "after Through the Looking Glass"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-through-the-looking-glass"
+      ]
+    },
+    {
+      "id": "ds9.s3.e20.improbable-cause.window",
+      "label": "Improbable Cause episode window",
+      "anchorFrom": "ds9.s3.e20.improbable-cause",
+      "anchorTo": "ds9.s3.e21.the-die-is-cast",
+      "sortKeyFrom": 23380,
+      "sortKeyTo": 23400,
+      "aliases": [
+        "during Improbable Cause",
+        "after Improbable Cause"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-improbable-cause"
+      ]
+    },
+    {
+      "id": "ds9.s3.e21.the-die-is-cast.window",
+      "label": "The Die is Cast episode window",
+      "anchorFrom": "ds9.s3.e21.the-die-is-cast",
+      "anchorTo": "ds9.s3.e22.explorers",
+      "sortKeyFrom": 23400,
+      "sortKeyTo": 23420,
+      "aliases": [
+        "during The Die is Cast",
+        "after The Die is Cast"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-the-die-is-cast"
+      ]
+    },
+    {
+      "id": "ds9.s3.e22.explorers.window",
+      "label": "Explorers episode window",
+      "anchorFrom": "ds9.s3.e22.explorers",
+      "anchorTo": "ds9.s3.e23.family-business",
+      "sortKeyFrom": 23420,
+      "sortKeyTo": 23440,
+      "aliases": [
+        "during Explorers",
+        "after Explorers"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-explorers"
+      ]
+    },
+    {
+      "id": "ds9.s3.e23.family-business.window",
+      "label": "Family Business episode window",
+      "anchorFrom": "ds9.s3.e23.family-business",
+      "anchorTo": "ds9.s3.e24.shakaar",
+      "sortKeyFrom": 23440,
+      "sortKeyTo": 23460,
+      "aliases": [
+        "during Family Business",
+        "after Family Business"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-family-business"
+      ]
+    },
+    {
+      "id": "ds9.s3.e24.shakaar.window",
+      "label": "Shakaar episode window",
+      "anchorFrom": "ds9.s3.e24.shakaar",
+      "anchorTo": "ds9.s3.e25.facets",
+      "sortKeyFrom": 23460,
+      "sortKeyTo": 23480,
+      "aliases": [
+        "during Shakaar",
+        "after Shakaar"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-shakaar"
+      ]
+    },
+    {
+      "id": "ds9.s3.e25.facets.window",
+      "label": "Facets episode window",
+      "anchorFrom": "ds9.s3.e25.facets",
+      "anchorTo": "ds9.s3.e26.the-adversary",
+      "sortKeyFrom": 23480,
+      "sortKeyTo": 23500,
+      "aliases": [
+        "during Facets",
+        "after Facets"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s3-facets"
+      ]
+    }
+  ]
+}

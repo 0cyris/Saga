@@ -1,0 +1,1068 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Voyager season 1 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "voy.s1.e01.caretaker",
+      "label": "Caretaker",
+      "contextType": "story_anchor",
+      "sortKey": 31000,
+      "stardate": "48315.6-48317 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "Caretaker",
+        "VOY season 1 Caretaker",
+        "VOY S1 Caretaker",
+        "VOY 1x01 story",
+        "VOY S01 story 01",
+        "VOY 1x01",
+        "VOY S01E01",
+        "VOY season 1 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-caretaker"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Caretaker",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Caretaker_(episode)",
+        "stardate": "48315.6-48317 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e02.parallax",
+      "label": "Parallax",
+      "contextType": "story_anchor",
+      "sortKey": 31020,
+      "stardate": "48439.7 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Parallax",
+        "VOY season 1 Parallax",
+        "VOY S1 Parallax",
+        "VOY 1x02 story",
+        "VOY S01 story 02",
+        "VOY 1x02",
+        "VOY S01E02",
+        "VOY season 1 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-parallax"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Parallax",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Parallax_(episode)",
+        "stardate": "48439.7 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e03.time-and-again",
+      "label": "Time and Again",
+      "contextType": "story_anchor",
+      "sortKey": 31040,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Time and Again",
+        "VOY season 1 Time and Again",
+        "VOY S1 Time and Again",
+        "VOY 1x03 story",
+        "VOY S01 story 03",
+        "VOY 1x03",
+        "VOY S01E03",
+        "VOY season 1 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-time-and-again"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Time and Again",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Time_and_Again_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e04.phage",
+      "label": "Phage",
+      "contextType": "story_anchor",
+      "sortKey": 31060,
+      "stardate": "48532.4 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Phage",
+        "VOY season 1 Phage",
+        "VOY S1 Phage",
+        "VOY 1x04 story",
+        "VOY S01 story 04",
+        "VOY 1x04",
+        "VOY S01E04",
+        "VOY season 1 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-phage"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Phage",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Phage_(episode)",
+        "stardate": "48532.4 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e05.the-cloud",
+      "label": "The Cloud",
+      "contextType": "story_anchor",
+      "sortKey": 31080,
+      "stardate": "48546.2 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "The Cloud",
+        "VOY season 1 The Cloud",
+        "VOY S1 The Cloud",
+        "VOY 1x05 story",
+        "VOY S01 story 05",
+        "VOY 1x05",
+        "VOY S01E05",
+        "VOY season 1 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-the-cloud"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Cloud",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Cloud_(episode)",
+        "stardate": "48546.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e06.eye-of-the-needle",
+      "label": "Eye of the Needle",
+      "contextType": "story_anchor",
+      "sortKey": 31100,
+      "stardate": "48579.4 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Eye of the Needle",
+        "VOY season 1 Eye of the Needle",
+        "VOY S1 Eye of the Needle",
+        "VOY 1x06 story",
+        "VOY S01 story 06",
+        "VOY 1x06",
+        "VOY S01E06",
+        "VOY season 1 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-eye-of-the-needle"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Eye of the Needle",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Eye_of_the_Needle_(episode)",
+        "stardate": "48579.4 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e07.ex-post-facto",
+      "label": "Ex Post Facto",
+      "contextType": "story_anchor",
+      "sortKey": 31120,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Ex Post Facto",
+        "VOY season 1 Ex Post Facto",
+        "VOY S1 Ex Post Facto",
+        "VOY 1x07 story",
+        "VOY S01 story 07",
+        "VOY 1x07",
+        "VOY S01E07",
+        "VOY season 1 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-ex-post-facto"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Ex Post Facto",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Ex_Post_Facto_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e08.emanations",
+      "label": "Emanations",
+      "contextType": "story_anchor",
+      "sortKey": 31140,
+      "stardate": "48623.5 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Emanations",
+        "VOY season 1 Emanations",
+        "VOY S1 Emanations",
+        "VOY 1x08 story",
+        "VOY S01 story 08",
+        "VOY 1x08",
+        "VOY S01E08",
+        "VOY season 1 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-emanations"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Emanations",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Emanations_(episode)",
+        "stardate": "48623.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e09.prime-factors",
+      "label": "Prime Factors",
+      "contextType": "story_anchor",
+      "sortKey": 31160,
+      "stardate": "48642.5 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Prime Factors",
+        "VOY season 1 Prime Factors",
+        "VOY S1 Prime Factors",
+        "VOY 1x09 story",
+        "VOY S01 story 09",
+        "VOY 1x09",
+        "VOY S01E09",
+        "VOY season 1 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-prime-factors"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Prime Factors",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Prime_Factors_(episode)",
+        "stardate": "48642.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e10.state-of-flux",
+      "label": "State of Flux",
+      "contextType": "story_anchor",
+      "sortKey": 31180,
+      "stardate": "48658.2 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "State of Flux",
+        "VOY season 1 State of Flux",
+        "VOY S1 State of Flux",
+        "VOY 1x10 story",
+        "VOY S01 story 10",
+        "VOY 1x10",
+        "VOY S01E10",
+        "VOY season 1 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-state-of-flux"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "State of Flux",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/State_of_Flux_(episode)",
+        "stardate": "48658.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e11.heroes-and-demons",
+      "label": "Heroes and Demons",
+      "contextType": "story_anchor",
+      "sortKey": 31200,
+      "stardate": "48693.2-48710.5 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Heroes and Demons",
+        "VOY season 1 Heroes and Demons",
+        "VOY S1 Heroes and Demons",
+        "VOY 1x11 story",
+        "VOY S01 story 11",
+        "VOY 1x11",
+        "VOY S01E11",
+        "VOY season 1 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-heroes-and-demons"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Heroes and Demons",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Heroes_and_Demons_(episode)",
+        "stardate": "48693.2-48710.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e12.cathexis",
+      "label": "Cathexis",
+      "contextType": "story_anchor",
+      "sortKey": 31220,
+      "stardate": "48734.2-48735.9 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Cathexis",
+        "VOY season 1 Cathexis",
+        "VOY S1 Cathexis",
+        "VOY 1x12 story",
+        "VOY S01 story 12",
+        "VOY 1x12",
+        "VOY S01E12",
+        "VOY season 1 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-cathexis"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Cathexis",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cathexis_(episode)",
+        "stardate": "48734.2-48735.9 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e13.faces",
+      "label": "Faces",
+      "contextType": "story_anchor",
+      "sortKey": 31240,
+      "stardate": "48784.2 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Faces",
+        "VOY season 1 Faces",
+        "VOY S1 Faces",
+        "VOY 1x13 story",
+        "VOY S01 story 13",
+        "VOY 1x13",
+        "VOY S01E13",
+        "VOY season 1 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-faces"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Faces",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Faces_(episode)",
+        "stardate": "48784.2 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e14.jetrel",
+      "label": "Jetrel",
+      "contextType": "story_anchor",
+      "sortKey": 31260,
+      "stardate": "48832.1-48840.5 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Jetrel",
+        "VOY season 1 Jetrel",
+        "VOY S1 Jetrel",
+        "VOY 1x14 story",
+        "VOY S01 story 14",
+        "VOY 1x14",
+        "VOY S01E14",
+        "VOY season 1 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-jetrel"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Jetrel",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Jetrel_(episode)",
+        "stardate": "48832.1-48840.5 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s1.e15.learning-curve",
+      "label": "Learning Curve",
+      "contextType": "story_anchor",
+      "sortKey": 31280,
+      "stardate": "48846.5-48859.3 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 1,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Learning Curve",
+        "VOY season 1 Learning Curve",
+        "VOY S1 Learning Curve",
+        "VOY 1x15 story",
+        "VOY S01 story 15",
+        "VOY 1x15",
+        "VOY S01E15",
+        "VOY season 1 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-learning-curve"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Learning Curve",
+        "series": "VOY",
+        "season": 1,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Learning_Curve_(episode)",
+        "stardate": "48846.5-48859.3 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "voy.s1.full-season",
+      "label": "VOY season 1 full window",
+      "anchorFrom": "voy.s1.e01.caretaker",
+      "anchorTo": "voy.s1.e15.learning-curve",
+      "sortKeyFrom": 31000,
+      "sortKeyTo": 31280,
+      "aliases": [
+        "VOY season 1",
+        "Star Trek: Voyager season 1",
+        "VOY S1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "voy.s1.e01.caretaker.window",
+      "label": "Caretaker episode window",
+      "anchorFrom": "voy.s1.e01.caretaker",
+      "anchorTo": "voy.s1.e02.parallax",
+      "sortKeyFrom": 31000,
+      "sortKeyTo": 31020,
+      "aliases": [
+        "during Caretaker",
+        "after Caretaker"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-caretaker"
+      ]
+    },
+    {
+      "id": "voy.s1.e02.parallax.window",
+      "label": "Parallax episode window",
+      "anchorFrom": "voy.s1.e02.parallax",
+      "anchorTo": "voy.s1.e03.time-and-again",
+      "sortKeyFrom": 31020,
+      "sortKeyTo": 31040,
+      "aliases": [
+        "during Parallax",
+        "after Parallax"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-parallax"
+      ]
+    },
+    {
+      "id": "voy.s1.e03.time-and-again.window",
+      "label": "Time and Again episode window",
+      "anchorFrom": "voy.s1.e03.time-and-again",
+      "anchorTo": "voy.s1.e04.phage",
+      "sortKeyFrom": 31040,
+      "sortKeyTo": 31060,
+      "aliases": [
+        "during Time and Again",
+        "after Time and Again"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-time-and-again"
+      ]
+    },
+    {
+      "id": "voy.s1.e04.phage.window",
+      "label": "Phage episode window",
+      "anchorFrom": "voy.s1.e04.phage",
+      "anchorTo": "voy.s1.e05.the-cloud",
+      "sortKeyFrom": 31060,
+      "sortKeyTo": 31080,
+      "aliases": [
+        "during Phage",
+        "after Phage"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-phage"
+      ]
+    },
+    {
+      "id": "voy.s1.e05.the-cloud.window",
+      "label": "The Cloud episode window",
+      "anchorFrom": "voy.s1.e05.the-cloud",
+      "anchorTo": "voy.s1.e06.eye-of-the-needle",
+      "sortKeyFrom": 31080,
+      "sortKeyTo": 31100,
+      "aliases": [
+        "during The Cloud",
+        "after The Cloud"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-the-cloud"
+      ]
+    },
+    {
+      "id": "voy.s1.e06.eye-of-the-needle.window",
+      "label": "Eye of the Needle episode window",
+      "anchorFrom": "voy.s1.e06.eye-of-the-needle",
+      "anchorTo": "voy.s1.e07.ex-post-facto",
+      "sortKeyFrom": 31100,
+      "sortKeyTo": 31120,
+      "aliases": [
+        "during Eye of the Needle",
+        "after Eye of the Needle"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-eye-of-the-needle"
+      ]
+    },
+    {
+      "id": "voy.s1.e07.ex-post-facto.window",
+      "label": "Ex Post Facto episode window",
+      "anchorFrom": "voy.s1.e07.ex-post-facto",
+      "anchorTo": "voy.s1.e08.emanations",
+      "sortKeyFrom": 31120,
+      "sortKeyTo": 31140,
+      "aliases": [
+        "during Ex Post Facto",
+        "after Ex Post Facto"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-ex-post-facto"
+      ]
+    },
+    {
+      "id": "voy.s1.e08.emanations.window",
+      "label": "Emanations episode window",
+      "anchorFrom": "voy.s1.e08.emanations",
+      "anchorTo": "voy.s1.e09.prime-factors",
+      "sortKeyFrom": 31140,
+      "sortKeyTo": 31160,
+      "aliases": [
+        "during Emanations",
+        "after Emanations"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-emanations"
+      ]
+    },
+    {
+      "id": "voy.s1.e09.prime-factors.window",
+      "label": "Prime Factors episode window",
+      "anchorFrom": "voy.s1.e09.prime-factors",
+      "anchorTo": "voy.s1.e10.state-of-flux",
+      "sortKeyFrom": 31160,
+      "sortKeyTo": 31180,
+      "aliases": [
+        "during Prime Factors",
+        "after Prime Factors"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-prime-factors"
+      ]
+    },
+    {
+      "id": "voy.s1.e10.state-of-flux.window",
+      "label": "State of Flux episode window",
+      "anchorFrom": "voy.s1.e10.state-of-flux",
+      "anchorTo": "voy.s1.e11.heroes-and-demons",
+      "sortKeyFrom": 31180,
+      "sortKeyTo": 31200,
+      "aliases": [
+        "during State of Flux",
+        "after State of Flux"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-state-of-flux"
+      ]
+    },
+    {
+      "id": "voy.s1.e11.heroes-and-demons.window",
+      "label": "Heroes and Demons episode window",
+      "anchorFrom": "voy.s1.e11.heroes-and-demons",
+      "anchorTo": "voy.s1.e12.cathexis",
+      "sortKeyFrom": 31200,
+      "sortKeyTo": 31220,
+      "aliases": [
+        "during Heroes and Demons",
+        "after Heroes and Demons"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-heroes-and-demons"
+      ]
+    },
+    {
+      "id": "voy.s1.e12.cathexis.window",
+      "label": "Cathexis episode window",
+      "anchorFrom": "voy.s1.e12.cathexis",
+      "anchorTo": "voy.s1.e13.faces",
+      "sortKeyFrom": 31220,
+      "sortKeyTo": 31240,
+      "aliases": [
+        "during Cathexis",
+        "after Cathexis"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-cathexis"
+      ]
+    },
+    {
+      "id": "voy.s1.e13.faces.window",
+      "label": "Faces episode window",
+      "anchorFrom": "voy.s1.e13.faces",
+      "anchorTo": "voy.s1.e14.jetrel",
+      "sortKeyFrom": 31240,
+      "sortKeyTo": 31260,
+      "aliases": [
+        "during Faces",
+        "after Faces"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-faces"
+      ]
+    },
+    {
+      "id": "voy.s1.e14.jetrel.window",
+      "label": "Jetrel episode window",
+      "anchorFrom": "voy.s1.e14.jetrel",
+      "anchorTo": "voy.s1.e15.learning-curve",
+      "sortKeyFrom": 31260,
+      "sortKeyTo": 31280,
+      "aliases": [
+        "during Jetrel",
+        "after Jetrel"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s1-jetrel"
+      ]
+    }
+  ]
+}

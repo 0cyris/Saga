@@ -1,0 +1,1044 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_kuro_hides_as_klahadore_to_steal_kaya_s_fortune_007",
+      "title": "Kuro Hides As Klahadore To Reach Kaya's Fortune",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.kuro-and-black-cat-pirates",
+        "validToAnchor": "op.syrup-village.straw-hats-and-usopp",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3112,
+        "sortKeyTo": 3224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Kuro Hides As Klahadore To Reach Kaya's Fortune"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:kuro",
+          "op:klahadore",
+          "op:kaya",
+          "op:kaya-mansion"
+        ],
+        "characters": [
+          "Kuro",
+          "Klahadore",
+          "Kaya"
+        ],
+        "locations": [
+          "Kaya mansion"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Klahadore persona",
+          "Kuro identity reveal",
+          "inheritance plot"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:kuro",
+        "character:klahadore",
+        "character:kaya",
+        "location:kaya-mansion",
+        "topic:klahadore-persona"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kuro",
+            "Klahadore",
+            "Kaya"
+          ],
+          "entitiesAny": [
+            "Kuro",
+            "Klahadore",
+            "Kaya",
+            "Kaya mansion"
+          ],
+          "topicsAny": [
+            "Klahadore persona",
+            "Kuro identity reveal",
+            "inheritance plot"
+          ],
+          "keywordsAny": [
+            "Kuro",
+            "Klahadore",
+            "Kaya",
+            "Kaya mansion",
+            "Klahadore persona",
+            "Kuro identity reveal",
+            "inheritance plot",
+            "butler",
+            "fortune",
+            "Kuro Hides As Klahadore To Reach Kaya's Fortune",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Kuro is living as Kaya's butler Klahadore, using years of polite service and household trust to position himself to steal her fortune.",
+        "injection": "Use this as a gated identity reveal: before the reveal Context, Klahadore should read as a strict loyal butler; after it, every polite habit can feel calculated.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat.",
+          "Before the reveal, do not retrieve Kuro identity into scenes that only know Klahadore as Kaya's butler."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_his_plan_depends_on_assassination_disguised_as_inheritance_008",
+      "title": "Kuro's Plan Needs Murder To Look Like Inheritance",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "gated",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.kuro-and-black-cat-pirates",
+        "validToAnchor": "op.syrup-village.straw-hats-and-usopp",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3112,
+        "sortKeyTo": 3224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Kuro's Plan Needs Murder To Look Like Inheritance"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:kuro",
+          "op:kaya",
+          "op:will",
+          "op:jango"
+        ],
+        "characters": [
+          "Kuro",
+          "Kaya",
+          "Jango"
+        ],
+        "locations": [],
+        "objects": [
+          "Kaya will"
+        ],
+        "factions": [],
+        "topics": [
+          "assassination plot",
+          "forced will",
+          "cover story"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:kuro",
+        "character:kaya",
+        "item:will",
+        "character:jango",
+        "topic:assassination-plot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kuro",
+            "Kaya",
+            "Jango"
+          ],
+          "entitiesAny": [
+            "Kuro",
+            "Kaya",
+            "Kaya will",
+            "Jango"
+          ],
+          "topicsAny": [
+            "assassination plot",
+            "forced will",
+            "cover story"
+          ],
+          "keywordsAny": [
+            "Kuro",
+            "Kaya",
+            "Kaya will",
+            "Jango",
+            "assassination plot",
+            "forced will",
+            "cover story",
+            "will",
+            "inheritance",
+            "assassination",
+            "legal cover",
+            "Kuro's Plan Needs Murder To Look Like Inheritance",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Kuro's plan depends on killing Kaya, coercing or faking legal transfer through a will, and disguising murder as inheritance rather than open piracy.",
+        "injection": "Use the plot as domestic betrayal plus legal cover: the danger is not only an attack, but a plan to make Kaya's death and fortune theft look orderly.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_jango_s_hypnosis_turns_lies_and_suggestion_into_danger_009",
+      "title": "Jango's Hypnosis Makes Suggestion A Combat And Plot Threat",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.kuro-and-black-cat-pirates",
+        "validToAnchor": "op.syrup-village.straw-hats-and-usopp",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3112,
+        "sortKeyTo": 3224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Jango's Hypnosis Makes Suggestion A Combat And Plot Threat"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:jango",
+          "op:hypnosis",
+          "op:monkey-d-luffy",
+          "op:black-cat-pirates"
+        ],
+        "characters": [
+          "Jango",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [
+          "hypnosis"
+        ],
+        "factions": [
+          "Black Cat Pirates"
+        ],
+        "topics": [
+          "hypnosis threat",
+          "sleep command",
+          "strength boost"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:jango",
+        "rule:hypnosis",
+        "character:monkey-d-luffy",
+        "faction:black-cat-pirates",
+        "topic:hypnosis-threat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jango",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Jango",
+            "hypnosis",
+            "Monkey D. Luffy",
+            "Black Cat Pirates"
+          ],
+          "topicsAny": [
+            "hypnosis threat",
+            "sleep command",
+            "strength boost"
+          ],
+          "keywordsAny": [
+            "Jango",
+            "hypnosis",
+            "Monkey D. Luffy",
+            "Black Cat Pirates",
+            "hypnosis threat",
+            "sleep command",
+            "strength boost",
+            "hypnotize",
+            "sleep",
+            "boost",
+            "Jango's Hypnosis Makes Suggestion A Combat And Plot Threat",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Jango's hypnosis can put targets to sleep, empower Black Cat fighters, and support Kuro's cover story, but it is imprecise enough to backfire on allies and Luffy.",
+        "injection": "Use hypnosis as a volatile rule in Syrup Village scenes: it can swing a fight or coercion attempt, but careless commands can create unintended consequences.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_the_black_cat_pirates_are_waiting_offshore_for_the_plan_to_begin_010",
+      "title": "The Black Cat Pirates Are Waiting For Kuro's Signal",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.kuro-and-black-cat-pirates",
+        "validToAnchor": "op.syrup-village.straw-hats-and-usopp",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3112,
+        "sortKeyTo": 3224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: The Black Cat Pirates Are Waiting For Kuro's Signal"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:black-cat-pirates",
+          "op:kuro",
+          "op:jango",
+          "op:coastal-slope"
+        ],
+        "characters": [
+          "Kuro",
+          "Jango"
+        ],
+        "locations": [
+          "coastal slope"
+        ],
+        "objects": [],
+        "factions": [
+          "Black Cat Pirates"
+        ],
+        "topics": [
+          "offshore crew",
+          "planned landing",
+          "returning threat"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "faction:black-cat-pirates",
+        "character:kuro",
+        "character:jango",
+        "location:coastal-slope",
+        "topic:offshore-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kuro",
+            "Jango"
+          ],
+          "entitiesAny": [
+            "Black Cat Pirates",
+            "Kuro",
+            "Jango",
+            "coastal slope"
+          ],
+          "topicsAny": [
+            "offshore crew",
+            "planned landing",
+            "returning threat"
+          ],
+          "keywordsAny": [
+            "Black Cat Pirates",
+            "Kuro",
+            "Jango",
+            "coastal slope",
+            "offshore crew",
+            "planned landing",
+            "returning threat",
+            "offshore",
+            "landing",
+            "planned raid",
+            "Kuro crew",
+            "The Black Cat Pirates Are Waiting For Kuro's Signal",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "The Black Cat Pirates are not randomly raiding Syrup Village; they are waiting offshore for Kuro and Jango's planned landing and inheritance plot to begin.",
+        "injection": "Use the crew as Kuro's returning weapon: they matter because of timing, landing route, and obedience to the old captain's plan, not as a broad pirate encyclopedia.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_buchi_and_sham_pressure_the_defenders_as_the_nyaban_brothers_011",
+      "title": "Buchi And Sham Pressure Zoro Through Teamwork And Disarmament",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.kuro-and-black-cat-pirates",
+        "validToAnchor": "op.syrup-village.straw-hats-and-usopp",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3112,
+        "sortKeyTo": 3224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Buchi And Sham Pressure Zoro Through Teamwork And Disarmament"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:buchi",
+          "op:sham",
+          "op:nyaban-brothers",
+          "op:roronoa-zoro"
+        ],
+        "characters": [
+          "Buchi",
+          "Sham",
+          "Roronoa Zoro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Nyaban Brothers"
+        ],
+        "topics": [
+          "Nyaban Brothers",
+          "Zoro disarmed",
+          "teamwork pressure"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:buchi",
+        "character:sham",
+        "faction:nyaban-brothers",
+        "character:roronoa-zoro",
+        "topic:nyaban-brothers"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Buchi",
+            "Sham",
+            "Roronoa Zoro"
+          ],
+          "entitiesAny": [
+            "Buchi",
+            "Sham",
+            "Nyaban Brothers",
+            "Roronoa Zoro"
+          ],
+          "topicsAny": [
+            "Nyaban Brothers",
+            "Zoro disarmed",
+            "teamwork pressure"
+          ],
+          "keywordsAny": [
+            "Buchi",
+            "Sham",
+            "Nyaban Brothers",
+            "Roronoa Zoro",
+            "Zoro disarmed",
+            "teamwork pressure",
+            "Nyaban",
+            "swords",
+            "Buchi And Sham Pressure Zoro Through Teamwork And Disarmament",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Buchi and Sham, the Nyaban Brothers, pressure Zoro by fighting as a pair and exploiting the disruption when he is separated from most of his swords.",
+        "injection": "Use Buchi and Sham as a practical obstacle for Zoro: the threat is coordination, disarmament, and time pressure before Zoro regains his rhythm.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "op_one_piece_syrup_village_kuro_treats_his_own_crew_as_disposable_tools_012",
+      "title": "Kuro Treats His Own Crew As Disposable Tools",
+      "kind": "reference_note",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "op.syrup-village.kuro-and-black-cat-pirates",
+        "validToAnchor": "op.syrup-village.straw-hats-and-usopp",
+        "arc": "Syrup Village Arc",
+        "arcId": "syrup-village",
+        "phase": "East Blue Saga",
+        "phaseId": "east-blue",
+        "chapter": "22-41",
+        "episode": "9-18",
+        "sortKeyFrom": 3112,
+        "sortKeyTo": 3224,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Syrup Village Arc: Kuro Treats His Own Crew As Disposable Tools"
+      },
+      "coordinates": [
+        {
+          "axis": "saga",
+          "id": "east-blue",
+          "label": "East Blue Saga",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "syrup-village",
+          "label": "Syrup Village Arc",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-main",
+          "label": "Manga main with anime episode support",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "op:kuro",
+          "op:black-cat-pirates",
+          "op:monkey-d-luffy"
+        ],
+        "characters": [
+          "Kuro",
+          "Monkey D. Luffy"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Black Cat Pirates"
+        ],
+        "topics": [
+          "crew contempt",
+          "Shakushi danger",
+          "pirate loyalty contrast"
+        ]
+      },
+      "tags": [
+        "fandom:one-piece",
+        "continuity:one-piece-manga-main",
+        "saga:east-blue",
+        "arc:syrup-village",
+        "structure:arc-split-loredeck",
+        "quality:reviewed-baseline",
+        "character:kuro",
+        "faction:black-cat-pirates",
+        "character:monkey-d-luffy",
+        "topic:crew-contempt"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kuro",
+            "Monkey D. Luffy"
+          ],
+          "entitiesAny": [
+            "Kuro",
+            "Black Cat Pirates",
+            "Monkey D. Luffy"
+          ],
+          "topicsAny": [
+            "crew contempt",
+            "Shakushi danger",
+            "pirate loyalty contrast"
+          ],
+          "keywordsAny": [
+            "Kuro",
+            "Black Cat Pirates",
+            "Monkey D. Luffy",
+            "crew contempt",
+            "Shakushi danger",
+            "pirate loyalty contrast",
+            "disposable crew",
+            "Shakushi",
+            "quiet retirement",
+            "witnesses",
+            "Kuro Treats His Own Crew As Disposable Tools",
+            "Syrup Village Arc"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga/anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Syrup Village Arc, manga chapters 22-41, anime episodes 9-18, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-backed deck. Manga facts are the canon spine; anime episode boundaries are source metadata and anime-only support must be explicitly tagged."
+      },
+      "content": {
+        "fact": "Kuro treats the Black Cat Pirates as disposable tools and is willing to kill his own crew to erase witnesses and secure his quiet retirement.",
+        "injection": "Use Kuro as a contrast to Luffy's idea of piracy: his speed and planning are dangerous, but his contempt for crew loyalty is the moral fault Luffy punishes.",
+        "constraints": [
+          "Keep this card inside Syrup Village Arc, manga chapters 22-41, anime episodes 9-18.",
+          "Use manga facts as the canon spine and use anime episode support only to clarify the same arc-local beat."
+        ],
+        "antiLore": [
+          "Do not import Sogeking, Kabuto, Pop Greens, later sniper upgrades, Water 7, Enies Lobby, or Going Merry spirit material.",
+          "Do not turn Yasopp into broader Red Hair Pirates exposition beyond the arc-local father connection.",
+          "Do not expand the Black Cat Pirates into a broader East Blue institution beyond Kuro and Jango's Syrup Village plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "sourceType": "manga/anime",
+        "title": "Syrup Village Arc",
+        "chapterRange": "Manga chapters 22-41",
+        "episodeRange": "Anime episodes 9-18",
+        "reference": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+        "confidence": 0.88,
+        "notes": "Checked against the Syrup Village Arc source page and Saga authoring guidance; written as retrieval-aware cards rather than an arc recap."
+      },
+      "extensions": {
+        "sagaOnePieceReviewedBaseline": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "reviewedAt": "2026-06-17",
+          "pass": "continuity-quality-development"
+        },
+        "sagaOnePieceArcDevelopment": {
+          "targetPackId": "one-piece-syrup-village",
+          "plan": "docs/loredecks/ONE_PIECE_EAST_BLUE_ARABASTA_AUTHORING_PLAN.md",
+          "reviewReport": "docs/loredecks/ONE_PIECE_LOREDECK_REVIEW_REPORT.md",
+          "source": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "reviewedAt": "2026-06-17",
+          "pass": "syrup-village-runtime-lore"
+        }
+      }
+    }
+  ]
+}

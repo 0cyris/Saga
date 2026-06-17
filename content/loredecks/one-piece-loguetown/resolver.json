@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Loguetown Arc Context inside East Blue Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Loguetown Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during loguetown arc: roger legacy and town",
+      "result": {
+        "anchorFrom": "op.loguetown.loguetown",
+        "label": "Loguetown Arc: Roger legacy and town"
+      }
+    },
+    {
+      "pattern": "during loguetown arc: smoker and tashigi",
+      "result": {
+        "anchorFrom": "op.loguetown.smoker-and-tashigi",
+        "label": "Loguetown Arc: Smoker and Tashigi"
+      }
+    },
+    {
+      "pattern": "during loguetown arc: crew provisioning",
+      "result": {
+        "anchorFrom": "op.loguetown.crew-provisioning",
+        "label": "Loguetown Arc: Crew provisioning"
+      }
+    },
+    {
+      "pattern": "during loguetown arc: buggy and alvida return",
+      "result": {
+        "anchorFrom": "op.loguetown.buggy-and-alvida-return",
+        "label": "Loguetown Arc: Buggy and Alvida return"
+      }
+    },
+    {
+      "pattern": "during loguetown arc: execution platform event",
+      "result": {
+        "anchorFrom": "op.loguetown.execution-platform-event",
+        "label": "Loguetown Arc: Execution platform event"
+      }
+    },
+    {
+      "pattern": "during loguetown arc: dragon and weather",
+      "result": {
+        "anchorFrom": "op.loguetown.dragon-and-weather",
+        "label": "Loguetown Arc: Dragon and weather"
+      }
+    },
+    {
+      "pattern": "during loguetown arc: grand line threshold",
+      "result": {
+        "anchorFrom": "op.loguetown.grand-line-threshold",
+        "label": "Loguetown Arc: Grand Line threshold"
+      }
+    },
+    {
+      "pattern": "during loguetown arc: timeline and spoiler gates",
+      "result": {
+        "anchorFrom": "op.loguetown.timeline-and-spoiler-gates",
+        "label": "Loguetown Arc: Timeline and spoiler gates"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

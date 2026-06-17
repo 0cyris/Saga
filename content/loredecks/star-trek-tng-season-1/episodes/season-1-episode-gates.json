@@ -1,0 +1,2429 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_polywater-intoxication-crew-disruption",
+      "title": "Polywater intoxication temporarily disrupts the Enterprise crew in The Naked Now",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e02.the-naked-now",
+        "validToAnchor": "tng.s1.e03.code-of-honor",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 10020,
+        "sortKeyTo": 10040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Naked Now",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e02.the-naked-now",
+          "label": "The Naked Now",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:natasha-yar",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Natasha Yar",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "polywater intoxication",
+          "The Naked Now",
+          "crew inhibition"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-naked-now",
+        "character:data",
+        "character:natasha-yar",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:polywater-intoxication",
+        "topic:the-naked-now",
+        "topic:crew-inhibition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Natasha Yar",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Natasha Yar",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "polywater intoxication",
+            "The Naked Now",
+            "crew inhibition"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Natasha Yar",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "polywater intoxication",
+            "The Naked Now",
+            "crew inhibition",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Naked Now exposes the Enterprise-D crew to a Psi 2000-style intoxication that lowers inhibitions and threatens ship control without creating durable romance or competence changes.",
+        "injection": "Use the polywater incident as episode-local disinhibition and danger. Do not turn intoxicated behavior into stable characterization after the episode window closes.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Naked Now",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Naked_Now_(episode)",
+        "stardate": "41209.2-41209.3 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_ligonian-vaccine-diplomacy",
+      "title": "Code of Honor centers on vaccine diplomacy under cultural pressure",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e03.code-of-honor",
+        "validToAnchor": "tng.s1.e04.the-last-outpost",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 10040,
+        "sortKeyTo": 10060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Code of Honor",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e03.code-of-honor",
+          "label": "Code of Honor",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:natasha-yar",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Natasha Yar"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Ligon II",
+          "vaccine diplomacy",
+          "Tasha Yar"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-code-of-honor",
+        "character:jean-luc-picard",
+        "character:natasha-yar",
+        "faction:starfleet",
+        "topic:ligon-ii",
+        "topic:vaccine-diplomacy",
+        "topic:tasha-yar"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Natasha Yar"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Natasha Yar",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Ligon II",
+            "vaccine diplomacy",
+            "Tasha Yar"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Natasha Yar",
+            "Starfleet",
+            "Ligon II",
+            "vaccine diplomacy",
+            "Tasha Yar",
+            "Code of Honor",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Ligon II mission is valuable because Styris IV needs vaccine, forcing Picard to manage diplomacy while Yar is pulled into Ligonian power ritual.",
+        "injection": "Keep Code of Honor facts local: the durable gate is Picard balancing medical urgency against local political customs and Yar's safety.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Code of Honor",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Code_of_Honor_(episode)",
+        "stardate": "41235.25-41235.32 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_lonely-among-us-possession-diplomacy",
+      "title": "Lonely Among Us combines diplomatic escort duty with alien possession risk",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e06.lonely-among-us",
+        "validToAnchor": "tng.s1.e07.justice",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Lonely Among Us",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e06.lonely-among-us",
+          "label": "Lonely Among Us",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Antican",
+          "Selay",
+          "alien possession"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-lonely-among-us",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:starfleet",
+        "topic:antican",
+        "topic:selay",
+        "topic:alien-possession"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Antican",
+            "Selay",
+            "alien possession"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Antican",
+            "Selay",
+            "alien possession",
+            "Lonely Among Us",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Enterprise is escorting Antican and Selay delegates when an energy being begins moving through ship systems and Picard, making the mission a command-contamination case.",
+        "injection": "Use Lonely Among Us as an episode-local possession and diplomacy case. Do not treat Antican/Selay details as broad recurring politics unless directly invoked.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Lonely Among Us",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lonely_Among_Us_(episode)",
+        "stardate": "41249.3-41249.4 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_edo-law-prime-directive-pressure",
+      "title": "Justice tests Starfleet ethics against absolute local law",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e07.justice",
+        "validToAnchor": "tng.s1.e08.the-battle",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 10120,
+        "sortKeyTo": 10140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Justice",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e07.justice",
+          "label": "Justice",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Edo law",
+          "Prime Directive",
+          "death penalty"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-justice",
+        "character:jean-luc-picard",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:edo-law",
+        "topic:prime-directive",
+        "topic:death-penalty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Edo law",
+            "Prime Directive",
+            "death penalty"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet",
+            "Edo law",
+            "Prime Directive",
+            "death penalty",
+            "Justice",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "On Rubicun III, Wesley's accidental violation of Edo law creates a death-penalty crisis that Picard resolves by challenging blind obedience to local law and superior beings.",
+        "injection": "Use Justice as a Prime Directive and legal-ethics gate: Picard weighs local law, Starfleet duty, and proportional justice rather than treating rules as automatic.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Justice",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Justice_(episode)",
+        "stardate": "41255.6-41255.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_stargazer-past-and-bok-revenge",
+      "title": "The Battle exposes Picard's Stargazer past and Bok's revenge plot",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 67,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e08.the-battle",
+        "validToAnchor": "tng.s1.e09.hide-and-q",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 10140,
+        "sortKeyTo": 10160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Battle",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e08.the-battle",
+          "label": "The Battle",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:bok",
+          "st:ferengi-alliance",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Bok"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Ferengi Alliance",
+          "Starfleet"
+        ],
+        "topics": [
+          "USS Stargazer",
+          "Battle of Maxia",
+          "Bok revenge"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-battle",
+        "character:jean-luc-picard",
+        "character:bok",
+        "faction:ferengi-alliance",
+        "faction:starfleet",
+        "topic:uss-stargazer",
+        "topic:battle-of-maxia",
+        "topic:bok-revenge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Bok"
+          ],
+          "factionsAny": [
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Bok",
+            "Ferengi Alliance",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "USS Stargazer",
+            "Battle of Maxia",
+            "Bok revenge"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Bok",
+            "Ferengi Alliance",
+            "Starfleet",
+            "USS Stargazer",
+            "Battle of Maxia",
+            "Bok revenge",
+            "The Battle",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "DaiMon Bok uses the recovered Stargazer and the Battle of Maxia history to attack Picard psychologically, making Picard's pre-Enterprise command past active season 1 lore.",
+        "injection": "When Picard's past command is relevant in season 1, use the Stargazer and Maxia as known history. Keep Bok revenge local unless another Ferengi plot invokes it.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Battle",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Battle_(episode)",
+        "stardate": "41723.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_troi-arranged-marriage-haven",
+      "title": "Haven establishes Troi family obligations and Lwaxana pressure",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 65,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e10.haven",
+        "validToAnchor": "tng.s1.e11.the-big-goodbye",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 10180,
+        "sortKeyTo": 10200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Haven",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e10.haven",
+          "label": "Haven",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:lwaxana-troi",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi",
+          "Lwaxana Troi",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Troi family",
+          "arranged marriage",
+          "Haven"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-haven",
+        "character:deanna-troi",
+        "character:lwaxana-troi",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:troi-family",
+        "topic:arranged-marriage",
+        "topic:haven"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi",
+            "Lwaxana Troi",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Lwaxana Troi",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Troi family",
+            "arranged marriage",
+            "Haven"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Lwaxana Troi",
+            "William Riker",
+            "Starfleet",
+            "Troi family",
+            "arranged marriage",
+            "Haven",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Haven shows Deanna Troi bound by an old arranged-marriage contract while Lwaxana Troi publicly pressures the situation aboard the Enterprise.",
+        "injection": "Use Haven for Troi family/social obligation scenes: Deanna balances personal autonomy, Betazoid family pressure, and professionalism.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Haven",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Haven_(episode)",
+        "stardate": "41294.5-41294.6 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_tarelian-plague-ship-boundary",
+      "title": "Haven uses the Tarellian ship as a plague quarantine problem",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e10.haven",
+        "validToAnchor": "tng.s1.e11.the-big-goodbye",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 10180,
+        "sortKeyTo": 10200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Haven",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e10.haven",
+          "label": "Haven",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Tarellian plague ship",
+          "Haven",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-haven",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:tarellian-plague-ship",
+        "topic:haven",
+        "topic:quarantine"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Tarellian plague ship",
+            "Haven",
+            "quarantine"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Starfleet",
+            "Tarellian plague ship",
+            "Haven",
+            "quarantine",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Tarellian vessel in Haven matters as a quarantine and compassion dilemma, not as a recurring galactic faction baseline.",
+        "injection": "Keep Tarellian plague-ship details local to Haven unless the scene directly invokes plague quarantine, Haven, or Wyatt Miller.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Haven",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Haven_(episode)",
+        "stardate": "41294.5-41294.6 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_angel-one-survivors-local-politics",
+      "title": "Angel One is an episode-local gender-politics and survivor dispute",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e13.angel-one",
+        "validToAnchor": "tng.s1.e14.11001001",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          14
+        ],
+        "sortKeyFrom": 10240,
+        "sortKeyTo": 10260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Angel One",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e13.angel-one",
+          "label": "Angel One",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Angel I",
+          "Odin survivors",
+          "local politics"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-angel-one",
+        "character:william-riker",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:angel-i",
+        "topic:odin-survivors",
+        "topic:local-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Angel I",
+            "Odin survivors",
+            "local politics"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Angel I",
+            "Odin survivors",
+            "local politics",
+            "Angel One",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Angel One centers on Odin survivors living under Angel I gender politics and should not become a broad Federation political baseline.",
+        "injection": "Use Angel One only when the scene invokes Angel I, the Odin survivors, or local gendered power customs. Keep it narrow.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Angel One",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Angel_One_(episode)",
+        "stardate": "41636.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_jameson-youth-drug-secret",
+      "title": "Too Short a Season centers on Admiral Jameson hiding his de-aging drug use",
+      "kind": "reveal_gate",
+      "gateType": "reveal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 55,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e15.too-short-a-season",
+        "validToAnchor": "tng.s1.e16.when-the-bough-breaks",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 10280,
+        "sortKeyTo": 10300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Too Short A Season",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e15.too-short-a-season",
+          "label": "Too Short A Season",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:mark-jameson",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Mark Jameson",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Mark Jameson",
+          "de-aging drug",
+          "Mordan IV"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-too-short-a-season",
+        "character:mark-jameson",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:mark-jameson",
+        "topic:de-aging-drug",
+        "topic:mordan-iv"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mark Jameson",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Mark Jameson",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Mark Jameson",
+            "de-aging drug",
+            "Mordan IV"
+          ],
+          "keywordsAny": [
+            "Mark Jameson",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "de-aging drug",
+            "Mordan IV",
+            "Too Short A Season",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Admiral Mark Jameson secretly uses an alien drug to reverse aging before the Mordan IV hostage crisis, creating a command-trust and medical-risk gate.",
+        "injection": "Use Jameson as an episode-local warning: hidden medical manipulation and old political guilt destabilize command credibility.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Too Short A Season",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Too_Short_A_Season_(episode)",
+        "stardate": "41309.5 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_aldea-children-abduction",
+      "title": "When The Bough Breaks makes Aldea a child-abduction and infertility crisis",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e16.when-the-bough-breaks",
+        "validToAnchor": "tng.s1.e17.home-soil",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: When The Bough Breaks",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e16.when-the-bough-breaks",
+          "label": "When The Bough Breaks",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Aldea",
+          "children abducted",
+          "sterility crisis"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-when-the-bough-breaks",
+        "character:wesley-crusher",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:aldea",
+        "topic:children-abducted",
+        "topic:sterility-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Aldea",
+            "children abducted",
+            "sterility crisis"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Aldea",
+            "children abducted",
+            "sterility crisis",
+            "When The Bough Breaks",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Aldea abducts Enterprise children because its society is sterile, turning a mythical advanced world into a coercive survival problem.",
+        "injection": "Use Aldea facts only for child abduction, infertility, planetary shield, and advanced isolation context. Keep it episode-local.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "When The Bough Breaks",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/When_The_Bough_Breaks_(episode)",
+        "stardate": "41509.1-41512.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_home-soil-inorganic-life",
+      "title": "Home Soil recognizes inorganic microbrain life as sentient",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 53,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e17.home-soil",
+        "validToAnchor": "tng.s1.e18.coming-of-age",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 10320,
+        "sortKeyTo": 10340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Home Soil",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e17.home-soil",
+          "label": "Home Soil",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Velara III",
+          "microbrain",
+          "terraforming ethics"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-home-soil",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:starfleet",
+        "topic:velara-iii",
+        "topic:microbrain",
+        "topic:terraforming-ethics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Velara III",
+            "microbrain",
+            "terraforming ethics"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "Velara III",
+            "microbrain",
+            "terraforming ethics",
+            "Home Soil",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Velara III terraforming crisis reveals inorganic microbrain life that the colonists had not recognized as sentient, forcing Starfleet to stop treating the site as empty matter.",
+        "injection": "Use Home Soil as a life-recognition gate: unknown non-organic intelligence can invalidate ordinary terraforming assumptions.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Home Soil",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Home_Soil_(episode)",
+        "stardate": "41463.9-41464.8 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_symbiosis-drug-exploitation",
+      "title": "Symbiosis reveals an interplanetary addiction economy",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 46,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e21.symbiosis",
+        "validToAnchor": "tng.s1.e22.skin-of-evil",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: Symbiosis",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e21.symbiosis",
+          "label": "Symbiosis",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:beverly-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Ornara",
+          "Brekka",
+          "drug exploitation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-symbiosis",
+        "character:jean-luc-picard",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "topic:ornara",
+        "topic:brekka",
+        "topic:drug-exploitation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Beverly Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Ornara",
+            "Brekka",
+            "drug exploitation"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Beverly Crusher",
+            "Starfleet",
+            "Ornara",
+            "Brekka",
+            "drug exploitation",
+            "Symbiosis",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Ornaran-Brekkian trade depends on Brekka maintaining Ornaran addiction and false medical dependence, giving Picard a noninterference dilemma.",
+        "injection": "Use Symbiosis as a Prime Directive and exploitation gate: Picard can expose truth indirectly but avoids simply taking over another society.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Symbiosis",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Symbiosis_(episode)",
+        "stardate": "Unknown (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_paris-time-experiment-local",
+      "title": "We'll Always Have Paris is a local time-distortion and Picard-past episode",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e23.well-always-have-paris",
+        "validToAnchor": "tng.s1.e24.conspiracy",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          24
+        ],
+        "sortKeyFrom": 10440,
+        "sortKeyTo": 10460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: We'll Always Have Paris",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e23.well-always-have-paris",
+          "label": "We'll Always Have Paris",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Manheim effect",
+          "Picard old romance",
+          "time distortion"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-well-always-have-paris",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:manheim-effect",
+        "topic:picard-old-romance",
+        "topic:time-distortion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Manheim effect",
+            "Picard old romance",
+            "time distortion"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Manheim effect",
+            "Picard old romance",
+            "time distortion",
+            "We'll Always Have Paris",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Manheim experiment creates time distortions while Picard confronts old regret with Jenice Manheim, but it does not alter the season timeline beyond the episode.",
+        "injection": "Use this episode for local time echoes and Picard personal history only. Do not create broad temporal mechanics from Manheim's experiment.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "We'll Always Have Paris",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/We'll_Always_Have_Paris_(episode)",
+        "stardate": "41697.9 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s1_twentieth-century-survivors-culture-contrast",
+      "title": "The Neutral Zone uses revived 20th-century humans as a culture-contrast gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s1.e25.the-neutral-zone",
+        "validToAnchor": "tng.s1.e25.the-neutral-zone",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 10480,
+        "sortKeyTo": 10480,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 1: The Neutral Zone",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s1",
+          "label": "TNG season 1",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s1.e25.the-neutral-zone",
+          "label": "The Neutral Zone",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "20th-century survivors",
+          "Federation values",
+          "cryonics"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s1",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s1-the-neutral-zone",
+        "character:jean-luc-picard",
+        "character:data",
+        "faction:starfleet",
+        "topic:20th-century-survivors",
+        "topic:federation-values",
+        "topic:cryonics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "20th-century survivors",
+            "Federation values",
+            "cryonics"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Data",
+            "Starfleet",
+            "20th-century survivors",
+            "Federation values",
+            "cryonics",
+            "The Neutral Zone",
+            "TNG season 1"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 1, Memory Alpha story rows 1-25, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The cryonically revived humans let Picard contrast 20th-century money and status assumptions with 24th-century Federation values.",
+        "injection": "Use the revived 20th-century humans for culture contrast and Federation social values. Keep them episode-local unless directly invoked.",
+        "constraints": [
+          "Keep this card inside TNG season 1 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 1 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Neutral Zone",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Neutral_Zone_(episode)",
+        "stardate": "41986.0 (2364)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-1",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

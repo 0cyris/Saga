@@ -1,0 +1,2962 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_hazardous-sample-pressure-in-the-child",
+      "title": "The Child combines Troi crisis with hazardous-plague-sample transport",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e01.the-child",
+        "validToAnchor": "tng.s2.e02.where-silence-has-lease",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Child",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e01.the-child",
+          "label": "The Child",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:katherine-pulaski",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi",
+          "Katherine Pulaski"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "plasma plague",
+          "quarantine",
+          "The Child"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-child",
+        "character:deanna-troi",
+        "character:katherine-pulaski",
+        "faction:starfleet",
+        "topic:plasma-plague",
+        "topic:quarantine",
+        "topic:the-child"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi",
+            "Katherine Pulaski"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Katherine Pulaski",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "plasma plague",
+            "quarantine",
+            "The Child"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Katherine Pulaski",
+            "Starfleet",
+            "plasma plague",
+            "quarantine",
+            "The Child",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Enterprise is transporting dangerous plasma plague specimens while Troi experiences the alien pregnancy, giving the episode both medical risk and family-ethics pressure.",
+        "injection": "Keep the plague-specimen danger local to The Child. It should not become an ongoing ship contamination issue after the episode.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Child",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Child_(episode)",
+        "stardate": "42073.1 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_nagilum-experiments-on-enterprise",
+      "title": "Nagilum turns a void encounter into a mortality experiment",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e02.where-silence-has-lease",
+        "validToAnchor": "tng.s2.e03.elementary-dear-data",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 11020,
+        "sortKeyTo": 11040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Where Silence Has Lease",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e02.where-silence-has-lease",
+          "label": "Where Silence Has Lease",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:nagilum",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Nagilum"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Nagilum",
+          "void",
+          "self-destruct"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-where-silence-has-lease",
+        "character:jean-luc-picard",
+        "character:nagilum",
+        "faction:starfleet",
+        "topic:nagilum",
+        "topic:void",
+        "topic:self-destruct"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Nagilum"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Nagilum",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Nagilum",
+            "void",
+            "self-destruct"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Nagilum",
+            "Starfleet",
+            "void",
+            "self-destruct",
+            "Where Silence Has Lease",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Where Silence Has Lease traps the Enterprise in a false void and treats crew death as an experiment, forcing Picard to consider self-destruction rather than submit.",
+        "injection": "Use Nagilum as episode-local cosmic testing. Picard may choose self-destruction to deny an entity control over the crew, but Nagilum is not a recurring season villain.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Where Silence Has Lease",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Where_Silence_Has_Lease_(episode)",
+        "stardate": "42193.6-42194.7 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_okona-local-charisma-dispute",
+      "title": "Okona is an episode-local charismatic troublemaker tied to two local families",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 77,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e04.the-outrageous-okona",
+        "validToAnchor": "tng.s2.e05.loud-as-a-whisper",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 11060,
+        "sortKeyTo": 11080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Outrageous Okona",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e04.the-outrageous-okona",
+          "label": "The Outrageous Okona",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:thadiun-okona",
+          "st:william-riker",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Thadiun Okona",
+          "William Riker"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Okona",
+          "local dispute",
+          "family obligation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-outrageous-okona",
+        "character:thadiun-okona",
+        "character:william-riker",
+        "faction:starfleet",
+        "topic:okona",
+        "topic:local-dispute",
+        "topic:family-obligation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Thadiun Okona",
+            "William Riker"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Thadiun Okona",
+            "William Riker",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Okona",
+            "local dispute",
+            "family obligation"
+          ],
+          "keywordsAny": [
+            "Thadiun Okona",
+            "William Riker",
+            "Starfleet",
+            "Okona",
+            "local dispute",
+            "family obligation",
+            "The Outrageous Okona",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Okona draws the Enterprise into a local family dispute and mistaken criminal framing, but his importance is charm and local obligation rather than broad galactic politics.",
+        "injection": "Use Okona only when the scene invokes his local dispute, charm, or cargo-ship encounter. Do not turn him into a recurring rogue baseline.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Outrageous Okona",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Outrageous_Okona_(episode)",
+        "stardate": "42402.7 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_riva-communication-after-chorus-death",
+      "title": "Loud As A Whisper makes mediation depend on communication after Riva loses his chorus",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e05.loud-as-a-whisper",
+        "validToAnchor": "tng.s2.e06.the-schizoid-man",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 11080,
+        "sortKeyTo": 11100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Loud As A Whisper",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e05.loud-as-a-whisper",
+          "label": "Loud As A Whisper",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:riva",
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Riva",
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riva",
+          "deaf mediator",
+          "communication"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-loud-as-a-whisper",
+        "character:riva",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:riva",
+        "topic:deaf-mediator",
+        "topic:communication"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riva",
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Riva",
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riva",
+            "deaf mediator",
+            "communication"
+          ],
+          "keywordsAny": [
+            "Riva",
+            "Deanna Troi",
+            "Starfleet",
+            "deaf mediator",
+            "communication",
+            "Loud As A Whisper",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riva is a deaf mediator who communicates through a chorus until they are killed, forcing him and the mission to rebuild mediation through sign and adaptation.",
+        "injection": "Use Riva as an episode-local disability and communication gate: his mediation skill remains, but the loss of his chorus changes how negotiations can happen.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Loud As A Whisper",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Loud_As_A_Whisper_(episode)",
+        "stardate": "42477.2-42479.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_solais-mediation-local",
+      "title": "The Solais conflict is a local mediation assignment",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e05.loud-as-a-whisper",
+        "validToAnchor": "tng.s2.e06.the-schizoid-man",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 11080,
+        "sortKeyTo": 11100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Loud As A Whisper",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e05.loud-as-a-whisper",
+          "label": "Loud As A Whisper",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:riva",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Riva",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Solais V",
+          "mediation",
+          "Riva"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-loud-as-a-whisper",
+        "character:riva",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:solais-v",
+        "topic:mediation",
+        "topic:riva"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Riva",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Riva",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Solais V",
+            "mediation",
+            "Riva"
+          ],
+          "keywordsAny": [
+            "Riva",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Solais V",
+            "mediation",
+            "Loud As A Whisper",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Enterprise transports Riva to mediate the Solais conflict, but the durable gate is communication adaptation, not an ongoing Federation war arc.",
+        "injection": "Keep the Solais dispute local. Use it only for mediation, diplomacy, and communication-access context.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Loud As A Whisper",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Loud_As_A_Whisper_(episode)",
+        "stardate": "42477.2-42479.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_pulaski-rapid-aging-risk",
+      "title": "Unnatural Selection puts Pulaski through rapid aging and recovery",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e07.unnatural-selection",
+        "validToAnchor": "tng.s2.e08.a-matter-of-honor",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 11120,
+        "sortKeyTo": 11140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Unnatural Selection",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e07.unnatural-selection",
+          "label": "Unnatural Selection",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:katherine-pulaski",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Katherine Pulaski",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Pulaski aging",
+          "Darwin Station",
+          "genetic children"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-unnatural-selection",
+        "character:katherine-pulaski",
+        "character:data",
+        "faction:starfleet",
+        "topic:pulaski-aging",
+        "topic:darwin-station",
+        "topic:genetic-children"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katherine Pulaski",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Pulaski aging",
+            "Darwin Station",
+            "genetic children"
+          ],
+          "keywordsAny": [
+            "Katherine Pulaski",
+            "Data",
+            "Starfleet",
+            "Pulaski aging",
+            "Darwin Station",
+            "genetic children",
+            "Unnatural Selection",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Pulaski is exposed to the Darwin Station genetic-immune crisis and rapidly ages before a transporter-based recovery returns her to normal.",
+        "injection": "Use Unnatural Selection for Pulaski medical-risk scenes only inside or after that episode. Do not keep her aged or treat the transporter fix as routine immortality technology.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Unnatural Selection",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Unnatural_Selection_(episode)",
+        "stardate": "42494.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_salia-shapeshifter-duty",
+      "title": "The Dauphin makes Wesley romance collide with Salia shapeshifter duty",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e10.the-dauphin",
+        "validToAnchor": "tng.s2.e11.contagion",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 11180,
+        "sortKeyTo": 11200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Dauphin",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e10.the-dauphin",
+          "label": "The Dauphin",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:salia",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher",
+          "Salia"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Salia",
+          "Wesley romance",
+          "shapeshifter"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-dauphin",
+        "character:wesley-crusher",
+        "character:salia",
+        "faction:starfleet",
+        "topic:salia",
+        "topic:wesley-romance",
+        "topic:shapeshifter"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher",
+            "Salia"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Salia",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Salia",
+            "Wesley romance",
+            "shapeshifter"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Salia",
+            "Starfleet",
+            "Wesley romance",
+            "shapeshifter",
+            "The Dauphin",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Salia appears as a young future ruler but is actually an allasomorph whose duty to Daled IV overrides Wesley romantic expectations.",
+        "injection": "Use Salia as a local young-duty and shapeshifter reveal. Do not keep her aboard or treat Wesley as in an ongoing relationship afterward.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Dauphin",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Dauphin_(episode)",
+        "stardate": "42568.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_anya-guardian-threat-local",
+      "title": "Anya protects Salia with dangerous shapeshifter force",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e10.the-dauphin",
+        "validToAnchor": "tng.s2.e11.contagion",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 11180,
+        "sortKeyTo": 11200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Dauphin",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e10.the-dauphin",
+          "label": "The Dauphin",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:salia",
+          "st:anya",
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Salia",
+          "Anya",
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Anya",
+          "guardian",
+          "Daled IV"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-dauphin",
+        "character:salia",
+        "character:anya",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:anya",
+        "topic:guardian",
+        "topic:daled-iv"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Salia",
+            "Anya",
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Salia",
+            "Anya",
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Anya",
+            "guardian",
+            "Daled IV"
+          ],
+          "keywordsAny": [
+            "Salia",
+            "Anya",
+            "Wesley Crusher",
+            "Starfleet",
+            "guardian",
+            "Daled IV",
+            "The Dauphin",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Anya acts as Salia guardian and can become violently protective, making the diplomatic passenger mission a security risk.",
+        "injection": "Keep Anya local to The Dauphin. Use her as guardian-pressure context, not a recurring alien species baseline.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Dauphin",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Dauphin_(episode)",
+        "stardate": "42568.8 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_royale-alien-hotel-prison-local",
+      "title": "The Royale is an alien-built pocket prison based on a bad Earth novel",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e12.the-royale",
+        "validToAnchor": "tng.s2.e13.time-squared",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 11220,
+        "sortKeyTo": 11240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: The Royale",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e12.the-royale",
+          "label": "The Royale",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "The Royale",
+          "casino prison",
+          "Colonel Richey"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-the-royale",
+        "character:william-riker",
+        "character:data",
+        "faction:starfleet",
+        "topic:the-royale",
+        "topic:casino-prison",
+        "topic:colonel-richey"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "The Royale",
+            "casino prison",
+            "Colonel Richey"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Data",
+            "Starfleet",
+            "The Royale",
+            "casino prison",
+            "Colonel Richey",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Royale traps a 21st-century astronaut in a constructed casino-hotel reality derived from a paperback novel, making it an episode-local alien simulation.",
+        "injection": "Use The Royale only for the casino-prison anomaly, Colonel Richey, or alien simulation context. Do not turn it into recurring holodeck lore.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Royale",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Royale_(episode)",
+        "stardate": "42625.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_time-squared-duplicate-picard-local",
+      "title": "Time Squared creates a duplicate Picard as an episode-local time-loop warning",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 59,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e13.time-squared",
+        "validToAnchor": "tng.s2.e14.the-icarus-factor",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 11240,
+        "sortKeyTo": 11260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Time Squared",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e13.time-squared",
+          "label": "Time Squared",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "duplicate Picard",
+          "time loop",
+          "temporal anomaly"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-time-squared",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:duplicate-picard",
+        "topic:time-loop",
+        "topic:temporal-anomaly"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "duplicate Picard",
+            "time loop",
+            "temporal anomaly"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Starfleet",
+            "duplicate Picard",
+            "time loop",
+            "temporal anomaly",
+            "Time Squared",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The duplicate Picard and shuttle signal a time-loop crisis that Picard resolves inside the episode, without creating a continuing duplicate.",
+        "injection": "Use Time Squared as local temporal anomaly context only. Do not keep a second Picard or broad timeline branch after the episode.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Time Squared",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Time_Squared_(episode)",
+        "stardate": "42679.2-42679.5 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_pen-pals-prime-directive-sarjenka",
+      "title": "Pen Pals tests the Prime Directive against Data bond with Sarjenka",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e15.pen-pals",
+        "validToAnchor": "tng.s2.e16.q-who",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "sortKeyFrom": 11280,
+        "sortKeyTo": 11300,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Pen Pals",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e15.pen-pals",
+          "label": "Pen Pals",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:sarjenka",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Sarjenka",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Sarjenka",
+          "Prime Directive",
+          "Data contact"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-pen-pals",
+        "character:data",
+        "character:sarjenka",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:sarjenka",
+        "topic:prime-directive",
+        "topic:data-contact"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Sarjenka",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Sarjenka",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Sarjenka",
+            "Prime Directive",
+            "Data contact"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Sarjenka",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Prime Directive",
+            "Data contact",
+            "Pen Pals",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data makes contact with Sarjenka while her world faces disaster, forcing Picard and the crew to debate intervention and memory erasure.",
+        "injection": "Use Pen Pals as a Prime Directive and child-contact gate: the crew intervenes under pressure, but the ethics remain contested.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Pen Pals",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Pen_Pals_(episode)",
+        "stardate": "42695.3-42741.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_pakled-threat-local",
+      "title": "Samaritan Snare makes the Pakled threat local and deceptively simple",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 49,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e17.samaritan-snare",
+        "validToAnchor": "tng.s2.e18.up-the-long-ladder",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "sortKeyFrom": 11320,
+        "sortKeyTo": 11340,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Samaritan Snare",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e17.samaritan-snare",
+          "label": "Samaritan Snare",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:jean-luc-picard",
+          "st:pakleds",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pakleds",
+          "Starfleet"
+        ],
+        "topics": [
+          "Pakleds",
+          "Geordi captured",
+          "Samaritan Snare"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-samaritan-snare",
+        "character:geordi-la-forge",
+        "character:jean-luc-picard",
+        "faction:pakleds",
+        "faction:starfleet",
+        "topic:pakleds",
+        "topic:geordi-captured",
+        "topic:samaritan-snare"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Pakleds",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Jean-Luc Picard",
+            "Pakleds",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Pakleds",
+            "Geordi captured",
+            "Samaritan Snare"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Jean-Luc Picard",
+            "Pakleds",
+            "Starfleet",
+            "Geordi captured",
+            "Samaritan Snare",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Pakleds exploit Geordi and the Enterprise through apparent simplicity and opportunistic violence, but the incident stays local to the episode.",
+        "injection": "Use Pakleds here as episode-local opportunists. Do not import later Lower Decks-era Pakled politics or comedy escalation.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Samaritan Snare",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Samaritan_Snare_(episode)",
+        "stardate": "42779.1-42779.5 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_up-the-long-ladder-clone-consent",
+      "title": "Up The Long Ladder centers on cloning consent and colony survival",
+      "kind": "lore_gate",
+      "gateType": "lore_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e18.up-the-long-ladder",
+        "validToAnchor": "tng.s2.e19.manhunt",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 11340,
+        "sortKeyTo": 11360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Up The Long Ladder",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e18.up-the-long-ladder",
+          "label": "Up The Long Ladder",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:katherine-pulaski",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Katherine Pulaski"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "cloning consent",
+          "Mariposa",
+          "colony survival"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-up-the-long-ladder",
+        "character:william-riker",
+        "character:katherine-pulaski",
+        "faction:starfleet",
+        "topic:cloning-consent",
+        "topic:mariposa",
+        "topic:colony-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Katherine Pulaski"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Katherine Pulaski",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "cloning consent",
+            "Mariposa",
+            "colony survival"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Katherine Pulaski",
+            "Starfleet",
+            "cloning consent",
+            "Mariposa",
+            "colony survival",
+            "Up The Long Ladder",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Mariposan cloning crisis turns Riker and Pulaski into unwilling genetic sources, forcing the crew to address consent and colony viability.",
+        "injection": "Use Up The Long Ladder as a cloning-consent and colony-survival gate. Keep Bringloidi/Mariposan details local unless directly invoked.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Up The Long Ladder",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Up_The_Long_Ladder_(episode)",
+        "stardate": "42823.2-42827.2 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_manhunt-lwaxana-dixon-hill-local",
+      "title": "Manhunt uses Lwaxana and Dixon Hill for local comedy and hidden assassin stakes",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 47,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e19.manhunt",
+        "validToAnchor": "tng.s2.e20.the-emissary",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 11360,
+        "sortKeyTo": 11380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Manhunt",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e19.manhunt",
+          "label": "Manhunt",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:lwaxana-troi",
+          "st:jean-luc-picard",
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Lwaxana Troi",
+          "Jean-Luc Picard",
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Lwaxana",
+          "Dixon Hill",
+          "Antedian assassins"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-manhunt",
+        "character:lwaxana-troi",
+        "character:jean-luc-picard",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:lwaxana",
+        "topic:dixon-hill",
+        "topic:antedian-assassins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lwaxana Troi",
+            "Jean-Luc Picard",
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Lwaxana Troi",
+            "Jean-Luc Picard",
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Lwaxana",
+            "Dixon Hill",
+            "Antedian assassins"
+          ],
+          "keywordsAny": [
+            "Lwaxana Troi",
+            "Jean-Luc Picard",
+            "Deanna Troi",
+            "Starfleet",
+            "Lwaxana",
+            "Dixon Hill",
+            "Antedian assassins",
+            "Manhunt",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Lwaxana pursues Picard during a diplomatic trip while Antedian assassins are hidden in the mission, making the episode a local social-comedy and security case.",
+        "injection": "Keep Manhunt local to Lwaxana pressure, Dixon Hill avoidance, and Antedian assassin reveal. Do not make it a broad Betazoid politics card.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Manhunt",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Manhunt_(episode)",
+        "stardate": "42859.2 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_peak-performance-command-exercise",
+      "title": "Peak Performance tests Riker and Picard in a strategic wargame",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e21.peak-performance",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Peak Performance",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e21.peak-performance",
+          "label": "Peak Performance",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:jean-luc-picard",
+          "st:starfleet",
+          "st:ferengi-alliance"
+        ],
+        "characters": [
+          "William Riker",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Ferengi Alliance"
+        ],
+        "topics": [
+          "Peak Performance",
+          "Hathaway",
+          "wargame"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-peak-performance",
+        "character:william-riker",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "faction:ferengi-alliance",
+        "topic:peak-performance",
+        "topic:hathaway",
+        "topic:wargame"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Ferengi Alliance"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Ferengi Alliance"
+          ],
+          "topicsAny": [
+            "Peak Performance",
+            "Hathaway",
+            "wargame"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Ferengi Alliance",
+            "Peak Performance",
+            "Hathaway",
+            "wargame",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Peak Performance puts Riker in command of the Hathaway against Picard and the Enterprise, testing command creativity before a real Ferengi threat intrudes.",
+        "injection": "Use Peak Performance as command-exercise context: Riker can improvise under constraints, and Picard respects strategic creativity.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Peak Performance",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Peak_Performance_(episode)",
+        "stardate": "42923.4 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_shades-of-gray-riker-infection-local",
+      "title": "Shades of Gray is a local Riker infection and memory-stimulation crisis",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e22.shades-of-gray",
+        "validToAnchor": "tng.s2.e22.shades-of-gray",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 11420,
+        "sortKeyTo": 11420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Shades of Gray",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e22.shades-of-gray",
+          "label": "Shades of Gray",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:katherine-pulaski",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Katherine Pulaski"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker infection",
+          "memory stimulation",
+          "Shades of Gray"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-shades-of-gray",
+        "character:william-riker",
+        "character:katherine-pulaski",
+        "faction:starfleet",
+        "topic:riker-infection",
+        "topic:memory-stimulation",
+        "topic:shades-of-gray"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Katherine Pulaski"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Katherine Pulaski",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker infection",
+            "memory stimulation",
+            "Shades of Gray"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Katherine Pulaski",
+            "Starfleet",
+            "Riker infection",
+            "memory stimulation",
+            "Shades of Gray",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riker is infected by an organism that Pulaski treats by stimulating negative memories, but the episode does not create durable new crew knowledge.",
+        "injection": "Use Shades of Gray only for the local infection and medical treatment if directly invoked. Do not turn the clip-memory structure into broad lore.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Shades of Gray",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Shades_of_Gray_(episode)",
+        "stardate": "42976.1-42976.3 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s2_sonya-gomez-rookie-engineering-beat",
+      "title": "Q Who introduces Sonya Gomez as a nervous but capable engineering officer",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s2.e16.q-who",
+        "validToAnchor": "tng.s2.e17.samaritan-snare",
+        "series": "TNG",
+        "season": "1",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 2: Q Who",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s2",
+          "label": "TNG season 2",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s2.e16.q-who",
+          "label": "Q Who",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:sonya-gomez",
+          "st:geordi-la-forge",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Sonya Gomez",
+          "Geordi La Forge",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Sonya Gomez",
+          "engineering junior officer",
+          "Q Who"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s2-q-who",
+        "character:sonya-gomez",
+        "character:geordi-la-forge",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:sonya-gomez",
+        "topic:engineering-junior-officer",
+        "topic:q-who"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sonya Gomez",
+            "Geordi La Forge",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Sonya Gomez",
+            "Geordi La Forge",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Sonya Gomez",
+            "engineering junior officer",
+            "Q Who"
+          ],
+          "keywordsAny": [
+            "Sonya Gomez",
+            "Geordi La Forge",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "engineering junior officer",
+            "Q Who",
+            "TNG season 2"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 2, Memory Alpha story rows 1-22, runtime episode aliases 1-22, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sonya Gomez spills hot chocolate on Picard before later helping in the Borg crisis, making her a local rookie-engineering presence rather than a broad command figure.",
+        "injection": "Use Sonya Gomez as a season 2 engineering junior-officer beat when relevant. Keep her local and do not overpromote her role.",
+        "constraints": [
+          "Keep this card inside TNG season 2 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 2 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Q Who",
+        "series": "TNG",
+        "season": 1,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Q_Who_(episode)",
+        "stardate": "42761.3-42761.9 (2365)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-2",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1827 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "star_trek_24th_century",
+  "summary": "Star Trek: Voyager season 2 Context anchors and episode windows.",
+  "axes": [
+    {
+      "id": "series",
+      "type": "series",
+      "label": "Series"
+    },
+    {
+      "id": "season",
+      "type": "season",
+      "label": "Season"
+    },
+    {
+      "id": "episode",
+      "type": "episode",
+      "label": "Episode"
+    },
+    {
+      "id": "stardate",
+      "type": "date",
+      "label": "Stardate"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "voy.s2.e01.the-37s",
+      "label": "The 37's",
+      "contextType": "story_anchor",
+      "sortKey": 32000,
+      "stardate": "48975.1 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 1,
+      "runtimeEpisodes": [
+        1
+      ],
+      "episode": "1",
+      "aliases": [
+        "The 37's",
+        "VOY season 2 The 37's",
+        "VOY S2 The 37's",
+        "VOY 2x01 story",
+        "VOY S02 story 01",
+        "VOY 2x01",
+        "VOY S02E01",
+        "VOY season 2 episode 1"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-the-37s"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The 37's",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_37's_(episode)",
+        "stardate": "48975.1 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e02.initiations",
+      "label": "Initiations",
+      "contextType": "story_anchor",
+      "sortKey": 32020,
+      "stardate": "49005.3 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 2,
+      "runtimeEpisodes": [
+        2
+      ],
+      "episode": "2",
+      "aliases": [
+        "Initiations",
+        "VOY season 2 Initiations",
+        "VOY S2 Initiations",
+        "VOY 2x02 story",
+        "VOY S02 story 02",
+        "VOY 2x02",
+        "VOY S02E02",
+        "VOY season 2 episode 2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-initiations"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Initiations",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Initiations_(episode)",
+        "stardate": "49005.3 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e03.projections",
+      "label": "Projections",
+      "contextType": "story_anchor",
+      "sortKey": 32040,
+      "stardate": "48892.1 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 3,
+      "runtimeEpisodes": [
+        3
+      ],
+      "episode": "3",
+      "aliases": [
+        "Projections",
+        "VOY season 2 Projections",
+        "VOY S2 Projections",
+        "VOY 2x03 story",
+        "VOY S02 story 03",
+        "VOY 2x03",
+        "VOY S02E03",
+        "VOY season 2 episode 3"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-projections"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Projections",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Projections_(episode)",
+        "stardate": "48892.1 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e04.elogium",
+      "label": "Elogium",
+      "contextType": "story_anchor",
+      "sortKey": 32060,
+      "stardate": "48921.3 (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 4,
+      "runtimeEpisodes": [
+        4
+      ],
+      "episode": "4",
+      "aliases": [
+        "Elogium",
+        "VOY season 2 Elogium",
+        "VOY S2 Elogium",
+        "VOY 2x04 story",
+        "VOY S02 story 04",
+        "VOY 2x04",
+        "VOY S02E04",
+        "VOY season 2 episode 4"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-elogium"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Elogium",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Elogium_(episode)",
+        "stardate": "48921.3 (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e05.non-sequitur",
+      "label": "Non Sequitur",
+      "contextType": "story_anchor",
+      "sortKey": 32080,
+      "stardate": "49011 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 5,
+      "runtimeEpisodes": [
+        5
+      ],
+      "episode": "5",
+      "aliases": [
+        "Non Sequitur",
+        "VOY season 2 Non Sequitur",
+        "VOY S2 Non Sequitur",
+        "VOY 2x05 story",
+        "VOY S02 story 05",
+        "VOY 2x05",
+        "VOY S02E05",
+        "VOY season 2 episode 5"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-non-sequitur"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Non Sequitur",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Non_Sequitur_(episode)",
+        "stardate": "49011 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e06.twisted",
+      "label": "Twisted",
+      "contextType": "story_anchor",
+      "sortKey": 32100,
+      "stardate": "Unknown (2371)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 6,
+      "runtimeEpisodes": [
+        6
+      ],
+      "episode": "6",
+      "aliases": [
+        "Twisted",
+        "VOY season 2 Twisted",
+        "VOY S2 Twisted",
+        "VOY 2x06 story",
+        "VOY S02 story 06",
+        "VOY 2x06",
+        "VOY S02E06",
+        "VOY season 2 episode 6"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-twisted"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Twisted",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Twisted_(episode)",
+        "stardate": "Unknown (2371)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e07.parturition",
+      "label": "Parturition",
+      "contextType": "story_anchor",
+      "sortKey": 32120,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 7,
+      "runtimeEpisodes": [
+        7
+      ],
+      "episode": "7",
+      "aliases": [
+        "Parturition",
+        "VOY season 2 Parturition",
+        "VOY S2 Parturition",
+        "VOY 2x07 story",
+        "VOY S02 story 07",
+        "VOY 2x07",
+        "VOY S02E07",
+        "VOY season 2 episode 7"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-parturition"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Parturition",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Parturition_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e08.persistence-of-vision",
+      "label": "Persistence of Vision",
+      "contextType": "story_anchor",
+      "sortKey": 32140,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 8,
+      "runtimeEpisodes": [
+        8
+      ],
+      "episode": "8",
+      "aliases": [
+        "Persistence of Vision",
+        "VOY season 2 Persistence of Vision",
+        "VOY S2 Persistence of Vision",
+        "VOY 2x08 story",
+        "VOY S02 story 08",
+        "VOY 2x08",
+        "VOY S02E08",
+        "VOY season 2 episode 8"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-persistence-of-vision"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Persistence of Vision",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Persistence_of_Vision_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e09.tattoo",
+      "label": "Tattoo",
+      "contextType": "story_anchor",
+      "sortKey": 32160,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 9,
+      "runtimeEpisodes": [
+        9
+      ],
+      "episode": "9",
+      "aliases": [
+        "Tattoo",
+        "VOY season 2 Tattoo",
+        "VOY S2 Tattoo",
+        "VOY 2x09 story",
+        "VOY S02 story 09",
+        "VOY 2x09",
+        "VOY S02E09",
+        "VOY season 2 episode 9"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-tattoo"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Tattoo",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tattoo_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e10.cold-fire",
+      "label": "Cold Fire",
+      "contextType": "story_anchor",
+      "sortKey": 32180,
+      "stardate": "49164.8 (2372) [1]",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 10,
+      "runtimeEpisodes": [
+        10
+      ],
+      "episode": "10",
+      "aliases": [
+        "Cold Fire",
+        "VOY season 2 Cold Fire",
+        "VOY S2 Cold Fire",
+        "VOY 2x10 story",
+        "VOY S02 story 10",
+        "VOY 2x10",
+        "VOY S02E10",
+        "VOY season 2 episode 10"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-cold-fire"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Cold Fire",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Cold_Fire_(episode)",
+        "stardate": "49164.8 (2372) [1]",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e11.maneuvers",
+      "label": "Maneuvers",
+      "contextType": "story_anchor",
+      "sortKey": 32200,
+      "stardate": "49208.5-49211.5 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 11,
+      "runtimeEpisodes": [
+        11
+      ],
+      "episode": "11",
+      "aliases": [
+        "Maneuvers",
+        "VOY season 2 Maneuvers",
+        "VOY S2 Maneuvers",
+        "VOY 2x11 story",
+        "VOY S02 story 11",
+        "VOY 2x11",
+        "VOY S02E11",
+        "VOY season 2 episode 11"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-maneuvers"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Maneuvers",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Maneuvers_(episode)",
+        "stardate": "49208.5-49211.5 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e12.resistance",
+      "label": "Resistance",
+      "contextType": "story_anchor",
+      "sortKey": 32220,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 12,
+      "runtimeEpisodes": [
+        12
+      ],
+      "episode": "12",
+      "aliases": [
+        "Resistance",
+        "VOY season 2 Resistance",
+        "VOY S2 Resistance",
+        "VOY 2x12 story",
+        "VOY S02 story 12",
+        "VOY 2x12",
+        "VOY S02E12",
+        "VOY season 2 episode 12"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-resistance"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Resistance",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Resistance_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e13.prototype",
+      "label": "Prototype",
+      "contextType": "story_anchor",
+      "sortKey": 32240,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 13,
+      "runtimeEpisodes": [
+        13
+      ],
+      "episode": "13",
+      "aliases": [
+        "Prototype",
+        "VOY season 2 Prototype",
+        "VOY S2 Prototype",
+        "VOY 2x13 story",
+        "VOY S02 story 13",
+        "VOY 2x13",
+        "VOY S02E13",
+        "VOY season 2 episode 13"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-prototype"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Prototype",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Prototype_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e14.alliances",
+      "label": "Alliances",
+      "contextType": "story_anchor",
+      "sortKey": 32260,
+      "stardate": "49337.4-49342.5 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 14,
+      "runtimeEpisodes": [
+        14
+      ],
+      "episode": "14",
+      "aliases": [
+        "Alliances",
+        "VOY season 2 Alliances",
+        "VOY S2 Alliances",
+        "VOY 2x14 story",
+        "VOY S02 story 14",
+        "VOY 2x14",
+        "VOY S02E14",
+        "VOY season 2 episode 14"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-alliances"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Alliances",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 14,
+        "runtimeEpisodes": [
+          14
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Alliances_(episode)",
+        "stardate": "49337.4-49342.5 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e15.threshold",
+      "label": "Threshold",
+      "contextType": "story_anchor",
+      "sortKey": 32280,
+      "stardate": "49373.4 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 15,
+      "runtimeEpisodes": [
+        15
+      ],
+      "episode": "15",
+      "aliases": [
+        "Threshold",
+        "VOY season 2 Threshold",
+        "VOY S2 Threshold",
+        "VOY 2x15 story",
+        "VOY S02 story 15",
+        "VOY 2x15",
+        "VOY S02E15",
+        "VOY season 2 episode 15"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-threshold"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Threshold",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 15,
+        "runtimeEpisodes": [
+          15
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Threshold_(episode)",
+        "stardate": "49373.4 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e16.meld",
+      "label": "Meld",
+      "contextType": "story_anchor",
+      "sortKey": 32300,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 16,
+      "runtimeEpisodes": [
+        16
+      ],
+      "episode": "16",
+      "aliases": [
+        "Meld",
+        "VOY season 2 Meld",
+        "VOY S2 Meld",
+        "VOY 2x16 story",
+        "VOY S02 story 16",
+        "VOY 2x16",
+        "VOY S02E16",
+        "VOY season 2 episode 16"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-meld"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Meld",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Meld_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e17.dreadnought",
+      "label": "Dreadnought",
+      "contextType": "story_anchor",
+      "sortKey": 32320,
+      "stardate": "49447.0 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 17,
+      "runtimeEpisodes": [
+        17
+      ],
+      "episode": "17",
+      "aliases": [
+        "Dreadnought",
+        "VOY season 2 Dreadnought",
+        "VOY S2 Dreadnought",
+        "VOY 2x17 story",
+        "VOY S02 story 17",
+        "VOY 2x17",
+        "VOY S02E17",
+        "VOY season 2 episode 17"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-dreadnought"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Dreadnought",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 17,
+        "runtimeEpisodes": [
+          17
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Dreadnought_(episode)",
+        "stardate": "49447.0 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e18.death-wish",
+      "label": "Death Wish",
+      "contextType": "story_anchor",
+      "sortKey": 32340,
+      "stardate": "49301.2 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 18,
+      "runtimeEpisodes": [
+        18
+      ],
+      "episode": "18",
+      "aliases": [
+        "Death Wish",
+        "VOY season 2 Death Wish",
+        "VOY S2 Death Wish",
+        "VOY 2x18 story",
+        "VOY S02 story 18",
+        "VOY 2x18",
+        "VOY S02E18",
+        "VOY season 2 episode 18"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-death-wish"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Death Wish",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Death_Wish_(episode)",
+        "stardate": "49301.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e19.lifesigns",
+      "label": "Lifesigns",
+      "contextType": "story_anchor",
+      "sortKey": 32360,
+      "stardate": "49504.3-49507.2 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 19,
+      "runtimeEpisodes": [
+        19
+      ],
+      "episode": "19",
+      "aliases": [
+        "Lifesigns",
+        "VOY season 2 Lifesigns",
+        "VOY S2 Lifesigns",
+        "VOY 2x19 story",
+        "VOY S02 story 19",
+        "VOY 2x19",
+        "VOY S02E19",
+        "VOY season 2 episode 19"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-lifesigns"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Lifesigns",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Lifesigns_(episode)",
+        "stardate": "49504.3-49507.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e20.investigations",
+      "label": "Investigations",
+      "contextType": "story_anchor",
+      "sortKey": 32380,
+      "stardate": "49485.2 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 20,
+      "runtimeEpisodes": [
+        20
+      ],
+      "episode": "20",
+      "aliases": [
+        "Investigations",
+        "VOY season 2 Investigations",
+        "VOY S2 Investigations",
+        "VOY 2x20 story",
+        "VOY S02 story 20",
+        "VOY 2x20",
+        "VOY S02E20",
+        "VOY season 2 episode 20"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-investigations"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Investigations",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Investigations_(episode)",
+        "stardate": "49485.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e21.deadlock",
+      "label": "Deadlock",
+      "contextType": "story_anchor",
+      "sortKey": 32400,
+      "stardate": "49548.7 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 21,
+      "runtimeEpisodes": [
+        21
+      ],
+      "episode": "21",
+      "aliases": [
+        "Deadlock",
+        "VOY season 2 Deadlock",
+        "VOY S2 Deadlock",
+        "VOY 2x21 story",
+        "VOY S02 story 21",
+        "VOY 2x21",
+        "VOY S02E21",
+        "VOY season 2 episode 21"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-deadlock"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Deadlock",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Deadlock_(episode)",
+        "stardate": "49548.7 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e22.innocence",
+      "label": "Innocence",
+      "contextType": "story_anchor",
+      "sortKey": 32420,
+      "stardate": "49578.2 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 22,
+      "runtimeEpisodes": [
+        22
+      ],
+      "episode": "22",
+      "aliases": [
+        "Innocence",
+        "VOY season 2 Innocence",
+        "VOY S2 Innocence",
+        "VOY 2x22 story",
+        "VOY S02 story 22",
+        "VOY 2x22",
+        "VOY S02E22",
+        "VOY season 2 episode 22"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-innocence"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Innocence",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Innocence_(episode)",
+        "stardate": "49578.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e23.the-thaw",
+      "label": "The Thaw",
+      "contextType": "story_anchor",
+      "sortKey": 32440,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 23,
+      "runtimeEpisodes": [
+        23
+      ],
+      "episode": "23",
+      "aliases": [
+        "The Thaw",
+        "VOY season 2 The Thaw",
+        "VOY S2 The Thaw",
+        "VOY 2x23 story",
+        "VOY S02 story 23",
+        "VOY 2x23",
+        "VOY S02E23",
+        "VOY season 2 episode 23"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-the-thaw"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "The Thaw",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Thaw_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e24.tuvix",
+      "label": "Tuvix",
+      "contextType": "story_anchor",
+      "sortKey": 32460,
+      "stardate": "49655.2 - 49678.4 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 24,
+      "runtimeEpisodes": [
+        24
+      ],
+      "episode": "24",
+      "aliases": [
+        "Tuvix",
+        "VOY season 2 Tuvix",
+        "VOY S2 Tuvix",
+        "VOY 2x24 story",
+        "VOY S02 story 24",
+        "VOY 2x24",
+        "VOY S02E24",
+        "VOY season 2 episode 24"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-tuvix"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Tuvix",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 24,
+        "runtimeEpisodes": [
+          24
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tuvix_(episode)",
+        "stardate": "49655.2 - 49678.4 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e25.resolutions",
+      "label": "Resolutions",
+      "contextType": "story_anchor",
+      "sortKey": 32480,
+      "stardate": "49690.1-49694.2 (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 25,
+      "runtimeEpisodes": [
+        25
+      ],
+      "episode": "25",
+      "aliases": [
+        "Resolutions",
+        "VOY season 2 Resolutions",
+        "VOY S2 Resolutions",
+        "VOY 2x25 story",
+        "VOY S02 story 25",
+        "VOY 2x25",
+        "VOY S02E25",
+        "VOY season 2 episode 25"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-resolutions"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Resolutions",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 25,
+        "runtimeEpisodes": [
+          25
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Resolutions_(episode)",
+        "stardate": "49690.1-49694.2 (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    },
+    {
+      "id": "voy.s2.e26.basics-part-i",
+      "label": "Basics, Part I",
+      "contextType": "story_anchor",
+      "sortKey": 32500,
+      "stardate": "Unknown (2372)",
+      "year": "2371",
+      "series": "VOY",
+      "season": 2,
+      "storyEpisode": 26,
+      "runtimeEpisodes": [
+        26
+      ],
+      "episode": "26",
+      "aliases": [
+        "Basics, Part I",
+        "VOY season 2 Basics, Part I",
+        "VOY S2 Basics, Part I",
+        "VOY 2x26 story",
+        "VOY S02 story 26",
+        "VOY 2x26",
+        "VOY S02E26",
+        "VOY season 2 episode 26"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-basics-part-i"
+      ],
+      "sourceInfo": {
+        "work": "Star Trek: Voyager",
+        "sourceType": "episode",
+        "title": "Basics, Part I",
+        "series": "VOY",
+        "season": 2,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Basics%2C_Part_I_(episode)",
+        "stardate": "Unknown (2372)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "voy.s2.full-season",
+      "label": "VOY season 2 full window",
+      "anchorFrom": "voy.s2.e01.the-37s",
+      "anchorTo": "voy.s2.e26.basics-part-i",
+      "sortKeyFrom": 32000,
+      "sortKeyTo": 32500,
+      "aliases": [
+        "VOY season 2",
+        "Star Trek: Voyager season 2",
+        "VOY S2"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference"
+      ]
+    },
+    {
+      "id": "voy.s2.e01.the-37s.window",
+      "label": "The 37's episode window",
+      "anchorFrom": "voy.s2.e01.the-37s",
+      "anchorTo": "voy.s2.e02.initiations",
+      "sortKeyFrom": 32000,
+      "sortKeyTo": 32020,
+      "aliases": [
+        "during The 37's",
+        "after The 37's"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-the-37s"
+      ]
+    },
+    {
+      "id": "voy.s2.e02.initiations.window",
+      "label": "Initiations episode window",
+      "anchorFrom": "voy.s2.e02.initiations",
+      "anchorTo": "voy.s2.e03.projections",
+      "sortKeyFrom": 32020,
+      "sortKeyTo": 32040,
+      "aliases": [
+        "during Initiations",
+        "after Initiations"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-initiations"
+      ]
+    },
+    {
+      "id": "voy.s2.e03.projections.window",
+      "label": "Projections episode window",
+      "anchorFrom": "voy.s2.e03.projections",
+      "anchorTo": "voy.s2.e04.elogium",
+      "sortKeyFrom": 32040,
+      "sortKeyTo": 32060,
+      "aliases": [
+        "during Projections",
+        "after Projections"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-projections"
+      ]
+    },
+    {
+      "id": "voy.s2.e04.elogium.window",
+      "label": "Elogium episode window",
+      "anchorFrom": "voy.s2.e04.elogium",
+      "anchorTo": "voy.s2.e05.non-sequitur",
+      "sortKeyFrom": 32060,
+      "sortKeyTo": 32080,
+      "aliases": [
+        "during Elogium",
+        "after Elogium"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-elogium"
+      ]
+    },
+    {
+      "id": "voy.s2.e05.non-sequitur.window",
+      "label": "Non Sequitur episode window",
+      "anchorFrom": "voy.s2.e05.non-sequitur",
+      "anchorTo": "voy.s2.e06.twisted",
+      "sortKeyFrom": 32080,
+      "sortKeyTo": 32100,
+      "aliases": [
+        "during Non Sequitur",
+        "after Non Sequitur"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-non-sequitur"
+      ]
+    },
+    {
+      "id": "voy.s2.e06.twisted.window",
+      "label": "Twisted episode window",
+      "anchorFrom": "voy.s2.e06.twisted",
+      "anchorTo": "voy.s2.e07.parturition",
+      "sortKeyFrom": 32100,
+      "sortKeyTo": 32120,
+      "aliases": [
+        "during Twisted",
+        "after Twisted"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-twisted"
+      ]
+    },
+    {
+      "id": "voy.s2.e07.parturition.window",
+      "label": "Parturition episode window",
+      "anchorFrom": "voy.s2.e07.parturition",
+      "anchorTo": "voy.s2.e08.persistence-of-vision",
+      "sortKeyFrom": 32120,
+      "sortKeyTo": 32140,
+      "aliases": [
+        "during Parturition",
+        "after Parturition"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-parturition"
+      ]
+    },
+    {
+      "id": "voy.s2.e08.persistence-of-vision.window",
+      "label": "Persistence of Vision episode window",
+      "anchorFrom": "voy.s2.e08.persistence-of-vision",
+      "anchorTo": "voy.s2.e09.tattoo",
+      "sortKeyFrom": 32140,
+      "sortKeyTo": 32160,
+      "aliases": [
+        "during Persistence of Vision",
+        "after Persistence of Vision"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-persistence-of-vision"
+      ]
+    },
+    {
+      "id": "voy.s2.e09.tattoo.window",
+      "label": "Tattoo episode window",
+      "anchorFrom": "voy.s2.e09.tattoo",
+      "anchorTo": "voy.s2.e10.cold-fire",
+      "sortKeyFrom": 32160,
+      "sortKeyTo": 32180,
+      "aliases": [
+        "during Tattoo",
+        "after Tattoo"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-tattoo"
+      ]
+    },
+    {
+      "id": "voy.s2.e10.cold-fire.window",
+      "label": "Cold Fire episode window",
+      "anchorFrom": "voy.s2.e10.cold-fire",
+      "anchorTo": "voy.s2.e11.maneuvers",
+      "sortKeyFrom": 32180,
+      "sortKeyTo": 32200,
+      "aliases": [
+        "during Cold Fire",
+        "after Cold Fire"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-cold-fire"
+      ]
+    },
+    {
+      "id": "voy.s2.e11.maneuvers.window",
+      "label": "Maneuvers episode window",
+      "anchorFrom": "voy.s2.e11.maneuvers",
+      "anchorTo": "voy.s2.e12.resistance",
+      "sortKeyFrom": 32200,
+      "sortKeyTo": 32220,
+      "aliases": [
+        "during Maneuvers",
+        "after Maneuvers"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-maneuvers"
+      ]
+    },
+    {
+      "id": "voy.s2.e12.resistance.window",
+      "label": "Resistance episode window",
+      "anchorFrom": "voy.s2.e12.resistance",
+      "anchorTo": "voy.s2.e13.prototype",
+      "sortKeyFrom": 32220,
+      "sortKeyTo": 32240,
+      "aliases": [
+        "during Resistance",
+        "after Resistance"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-resistance"
+      ]
+    },
+    {
+      "id": "voy.s2.e13.prototype.window",
+      "label": "Prototype episode window",
+      "anchorFrom": "voy.s2.e13.prototype",
+      "anchorTo": "voy.s2.e14.alliances",
+      "sortKeyFrom": 32240,
+      "sortKeyTo": 32260,
+      "aliases": [
+        "during Prototype",
+        "after Prototype"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-prototype"
+      ]
+    },
+    {
+      "id": "voy.s2.e14.alliances.window",
+      "label": "Alliances episode window",
+      "anchorFrom": "voy.s2.e14.alliances",
+      "anchorTo": "voy.s2.e15.threshold",
+      "sortKeyFrom": 32260,
+      "sortKeyTo": 32280,
+      "aliases": [
+        "during Alliances",
+        "after Alliances"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-alliances"
+      ]
+    },
+    {
+      "id": "voy.s2.e15.threshold.window",
+      "label": "Threshold episode window",
+      "anchorFrom": "voy.s2.e15.threshold",
+      "anchorTo": "voy.s2.e16.meld",
+      "sortKeyFrom": 32280,
+      "sortKeyTo": 32300,
+      "aliases": [
+        "during Threshold",
+        "after Threshold"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-threshold"
+      ]
+    },
+    {
+      "id": "voy.s2.e16.meld.window",
+      "label": "Meld episode window",
+      "anchorFrom": "voy.s2.e16.meld",
+      "anchorTo": "voy.s2.e17.dreadnought",
+      "sortKeyFrom": 32300,
+      "sortKeyTo": 32320,
+      "aliases": [
+        "during Meld",
+        "after Meld"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-meld"
+      ]
+    },
+    {
+      "id": "voy.s2.e17.dreadnought.window",
+      "label": "Dreadnought episode window",
+      "anchorFrom": "voy.s2.e17.dreadnought",
+      "anchorTo": "voy.s2.e18.death-wish",
+      "sortKeyFrom": 32320,
+      "sortKeyTo": 32340,
+      "aliases": [
+        "during Dreadnought",
+        "after Dreadnought"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-dreadnought"
+      ]
+    },
+    {
+      "id": "voy.s2.e18.death-wish.window",
+      "label": "Death Wish episode window",
+      "anchorFrom": "voy.s2.e18.death-wish",
+      "anchorTo": "voy.s2.e19.lifesigns",
+      "sortKeyFrom": 32340,
+      "sortKeyTo": 32360,
+      "aliases": [
+        "during Death Wish",
+        "after Death Wish"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-death-wish"
+      ]
+    },
+    {
+      "id": "voy.s2.e19.lifesigns.window",
+      "label": "Lifesigns episode window",
+      "anchorFrom": "voy.s2.e19.lifesigns",
+      "anchorTo": "voy.s2.e20.investigations",
+      "sortKeyFrom": 32360,
+      "sortKeyTo": 32380,
+      "aliases": [
+        "during Lifesigns",
+        "after Lifesigns"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-lifesigns"
+      ]
+    },
+    {
+      "id": "voy.s2.e20.investigations.window",
+      "label": "Investigations episode window",
+      "anchorFrom": "voy.s2.e20.investigations",
+      "anchorTo": "voy.s2.e21.deadlock",
+      "sortKeyFrom": 32380,
+      "sortKeyTo": 32400,
+      "aliases": [
+        "during Investigations",
+        "after Investigations"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-investigations"
+      ]
+    },
+    {
+      "id": "voy.s2.e21.deadlock.window",
+      "label": "Deadlock episode window",
+      "anchorFrom": "voy.s2.e21.deadlock",
+      "anchorTo": "voy.s2.e22.innocence",
+      "sortKeyFrom": 32400,
+      "sortKeyTo": 32420,
+      "aliases": [
+        "during Deadlock",
+        "after Deadlock"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-deadlock"
+      ]
+    },
+    {
+      "id": "voy.s2.e22.innocence.window",
+      "label": "Innocence episode window",
+      "anchorFrom": "voy.s2.e22.innocence",
+      "anchorTo": "voy.s2.e23.the-thaw",
+      "sortKeyFrom": 32420,
+      "sortKeyTo": 32440,
+      "aliases": [
+        "during Innocence",
+        "after Innocence"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-innocence"
+      ]
+    },
+    {
+      "id": "voy.s2.e23.the-thaw.window",
+      "label": "The Thaw episode window",
+      "anchorFrom": "voy.s2.e23.the-thaw",
+      "anchorTo": "voy.s2.e24.tuvix",
+      "sortKeyFrom": 32440,
+      "sortKeyTo": 32460,
+      "aliases": [
+        "during The Thaw",
+        "after The Thaw"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-the-thaw"
+      ]
+    },
+    {
+      "id": "voy.s2.e24.tuvix.window",
+      "label": "Tuvix episode window",
+      "anchorFrom": "voy.s2.e24.tuvix",
+      "anchorTo": "voy.s2.e25.resolutions",
+      "sortKeyFrom": 32460,
+      "sortKeyTo": 32480,
+      "aliases": [
+        "during Tuvix",
+        "after Tuvix"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-tuvix"
+      ]
+    },
+    {
+      "id": "voy.s2.e25.resolutions.window",
+      "label": "Resolutions episode window",
+      "anchorFrom": "voy.s2.e25.resolutions",
+      "anchorTo": "voy.s2.e26.basics-part-i",
+      "sortKeyFrom": 32480,
+      "sortKeyTo": 32500,
+      "aliases": [
+        "during Resolutions",
+        "after Resolutions"
+      ],
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:voy",
+        "season:voy-s2",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:voy-s2-resolutions"
+      ]
+    }
+  ]
+}

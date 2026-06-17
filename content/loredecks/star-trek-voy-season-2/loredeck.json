@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "star-trek-voy-season-2",
+  "type": "bundled",
+  "title": "Star Trek Voyager Season 2",
+  "description": "Draft season Loredeck for Star Trek: Voyager season 2, covering Seska, Suder's Penance, Q Civil War, Basics with season-local spoiler guards.",
+  "fandom": "Star Trek",
+  "era": "Voyager Season 2",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-17",
+  "databaseId": "saga.star-trek-voy-season-2",
+  "deckFamilyId": "star-trek-tng-ds9-voy-seasons",
+  "family": {
+    "id": "star-trek-tng-ds9-voy-seasons",
+    "title": "Star Trek: TNG, DS9, and Voyager",
+    "role": "season"
+  },
+  "recommendedStack": [
+    "star-trek-voy-season-2"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Trek",
+      "Voyager"
+    ],
+    "familyOrder": 220
+  },
+  "tags": [
+    "fandom:star-trek",
+    "continuity:star-trek-prime",
+    "series:voy",
+    "season:voy-s2",
+    "structure:season-split-loredeck",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": "https://memory-alpha.fandom.com/wiki/Portal:Main"
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-trek-prime",
+    "canonTier": "primary",
+    "adaptation": "television",
+    "medium": "television",
+    "variantOf": "star-trek-prime",
+    "sourceBoundary": "Star Trek: Voyager season 2, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity. Excludes later Star Trek seasons, films, Picard-era material, beta canon, novels, comics, games, deleted scenes, production trivia, and fanon."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "crew/season-2-baseline-and-season-guards.json",
+    "episodes/season-2-episode-gates-a.json",
+    "crew/season-2-character-and-faction-states-a.json",
+    "secrets/season-2-reveal-and-future-guards-a.json",
+    "episodes/season-2-episode-gates-b.json",
+    "crew/season-2-character-and-faction-states-b.json",
+    "secrets/season-2-reveal-and-future-guards-b.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 83,
+    "categoryCounts": {
+      "character": 27,
+      "event": 27,
+      "faction": 1,
+      "rule": 1,
+      "secret": 27
+    },
+    "timelineAnchorCount": 26,
+    "timelineWindowCount": 26,
+    "tagCount": 190,
+    "entityCount": 37
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "needs_review",
+    "notes": "First-pass Star Trek VOY season 2 Loredeck generated from Saga authoring plan and Memory Alpha evidence artifacts."
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1781740800000
+}

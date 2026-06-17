@@ -1,0 +1,1483 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Star Trek: The Next Generation season 4 Context from episode titles, story rows, runtime aliases, and common TNG S4 labels.",
+  "preferredFields": [
+    "series",
+    "season",
+    "episode",
+    "stardate",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer TNG season 4 anchors and before/after windows. Do not infer later Star Trek events unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "the best of both worlds, part ii",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 4 the best of both worlds, part ii",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "tng s4 the best of both worlds, part ii",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "tng 4x01 story",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "tng s04 story 01",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "tng 4x01",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "tng s04e01",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 1",
+      "result": {
+        "anchorFrom": "tng.s4.e01.the-best-of-both-worlds-part-ii",
+        "label": "The Best of Both Worlds, Part II"
+      }
+    },
+    {
+      "pattern": "family",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "tng season 4 family",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "tng s4 family",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "tng 4x02 story",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "tng s04 story 02",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "tng 4x02",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "tng s04e02",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 2",
+      "result": {
+        "anchorFrom": "tng.s4.e02.family",
+        "label": "Family"
+      }
+    },
+    {
+      "pattern": "brothers",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "tng season 4 brothers",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "tng s4 brothers",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "tng 4x03 story",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "tng s04 story 03",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "tng 4x03",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "tng s04e03",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 3",
+      "result": {
+        "anchorFrom": "tng.s4.e03.brothers",
+        "label": "Brothers"
+      }
+    },
+    {
+      "pattern": "suddenly human",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "tng season 4 suddenly human",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "tng s4 suddenly human",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "tng 4x04 story",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "tng s04 story 04",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "tng 4x04",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "tng s04e04",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 4",
+      "result": {
+        "anchorFrom": "tng.s4.e04.suddenly-human",
+        "label": "Suddenly Human"
+      }
+    },
+    {
+      "pattern": "remember me",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "tng season 4 remember me",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "tng s4 remember me",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "tng 4x05 story",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "tng s04 story 05",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "tng 4x05",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "tng s04e05",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 5",
+      "result": {
+        "anchorFrom": "tng.s4.e05.remember-me",
+        "label": "Remember Me"
+      }
+    },
+    {
+      "pattern": "legacy",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "tng season 4 legacy",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "tng s4 legacy",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "tng 4x06 story",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "tng s04 story 06",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "tng 4x06",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "tng s04e06",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 6",
+      "result": {
+        "anchorFrom": "tng.s4.e06.legacy",
+        "label": "Legacy"
+      }
+    },
+    {
+      "pattern": "reunion",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "tng season 4 reunion",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "tng s4 reunion",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "tng 4x07 story",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "tng s04 story 07",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "tng 4x07",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "tng s04e07",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 7",
+      "result": {
+        "anchorFrom": "tng.s4.e07.reunion",
+        "label": "Reunion"
+      }
+    },
+    {
+      "pattern": "future imperfect",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "tng season 4 future imperfect",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "tng s4 future imperfect",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "tng 4x08 story",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "tng s04 story 08",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "tng 4x08",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "tng s04e08",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 8",
+      "result": {
+        "anchorFrom": "tng.s4.e08.future-imperfect",
+        "label": "Future Imperfect"
+      }
+    },
+    {
+      "pattern": "final mission",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "tng season 4 final mission",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "tng s4 final mission",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "tng 4x09 story",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "tng s04 story 09",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "tng 4x09",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "tng s04e09",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 9",
+      "result": {
+        "anchorFrom": "tng.s4.e09.final-mission",
+        "label": "Final Mission"
+      }
+    },
+    {
+      "pattern": "the loss",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "tng season 4 the loss",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "tng s4 the loss",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "tng 4x10 story",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "tng s04 story 10",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "tng 4x10",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "tng s04e10",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 10",
+      "result": {
+        "anchorFrom": "tng.s4.e10.the-loss",
+        "label": "The Loss"
+      }
+    },
+    {
+      "pattern": "data's day",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "tng season 4 data's day",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "tng s4 data's day",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "tng 4x11 story",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "tng s04 story 11",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "tng 4x11",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "tng s04e11",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 11",
+      "result": {
+        "anchorFrom": "tng.s4.e11.datas-day",
+        "label": "Data's Day"
+      }
+    },
+    {
+      "pattern": "the wounded",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "tng season 4 the wounded",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "tng s4 the wounded",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "tng 4x12 story",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "tng s04 story 12",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "tng 4x12",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "tng s04e12",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 12",
+      "result": {
+        "anchorFrom": "tng.s4.e12.the-wounded",
+        "label": "The Wounded"
+      }
+    },
+    {
+      "pattern": "devil's due",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "tng season 4 devil's due",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "tng s4 devil's due",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "tng 4x13 story",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "tng s04 story 13",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "tng 4x13",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "tng s04e13",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 13",
+      "result": {
+        "anchorFrom": "tng.s4.e13.devils-due",
+        "label": "Devil's Due"
+      }
+    },
+    {
+      "pattern": "clues",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "tng season 4 clues",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "tng s4 clues",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "tng 4x14 story",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "tng s04 story 14",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "tng 4x14",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "tng s04e14",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 14",
+      "result": {
+        "anchorFrom": "tng.s4.e14.clues",
+        "label": "Clues"
+      }
+    },
+    {
+      "pattern": "first contact",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "tng season 4 first contact",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "tng s4 first contact",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "tng 4x15 story",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "tng s04 story 15",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "tng 4x15",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "tng s04e15",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 15",
+      "result": {
+        "anchorFrom": "tng.s4.e15.first-contact",
+        "label": "First Contact"
+      }
+    },
+    {
+      "pattern": "galaxy's child",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "tng season 4 galaxy's child",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "tng s4 galaxy's child",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "tng 4x16 story",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "tng s04 story 16",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "tng 4x16",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "tng s04e16",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 16",
+      "result": {
+        "anchorFrom": "tng.s4.e16.galaxys-child",
+        "label": "Galaxy's Child"
+      }
+    },
+    {
+      "pattern": "night terrors",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "tng season 4 night terrors",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "tng s4 night terrors",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "tng 4x17 story",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "tng s04 story 17",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "tng 4x17",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "tng s04e17",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 17",
+      "result": {
+        "anchorFrom": "tng.s4.e17.night-terrors",
+        "label": "Night Terrors"
+      }
+    },
+    {
+      "pattern": "identity crisis",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "tng season 4 identity crisis",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "tng s4 identity crisis",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "tng 4x18 story",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "tng s04 story 18",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "tng 4x18",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "tng s04e18",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 18",
+      "result": {
+        "anchorFrom": "tng.s4.e18.identity-crisis",
+        "label": "Identity Crisis"
+      }
+    },
+    {
+      "pattern": "the nth degree",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "tng season 4 the nth degree",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "tng s4 the nth degree",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "tng 4x19 story",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "tng s04 story 19",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "tng 4x19",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "tng s04e19",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 19",
+      "result": {
+        "anchorFrom": "tng.s4.e19.the-nth-degree",
+        "label": "The Nth Degree"
+      }
+    },
+    {
+      "pattern": "qpid",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "tng season 4 qpid",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "tng s4 qpid",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "tng 4x20 story",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "tng s04 story 20",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "tng 4x20",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "tng s04e20",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 20",
+      "result": {
+        "anchorFrom": "tng.s4.e20.qpid",
+        "label": "Qpid"
+      }
+    },
+    {
+      "pattern": "the drumhead",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "tng season 4 the drumhead",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "tng s4 the drumhead",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "tng 4x21 story",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "tng s04 story 21",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "tng 4x21",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "tng s04e21",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 21",
+      "result": {
+        "anchorFrom": "tng.s4.e21.the-drumhead",
+        "label": "The Drumhead"
+      }
+    },
+    {
+      "pattern": "half a life",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "tng season 4 half a life",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "tng s4 half a life",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "tng 4x22 story",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "tng s04 story 22",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "tng 4x22",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "tng s04e22",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 22",
+      "result": {
+        "anchorFrom": "tng.s4.e22.half-a-life",
+        "label": "Half a Life"
+      }
+    },
+    {
+      "pattern": "the host",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "tng season 4 the host",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "tng s4 the host",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "tng 4x23 story",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "tng s04 story 23",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "tng 4x23",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "tng s04e23",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 23",
+      "result": {
+        "anchorFrom": "tng.s4.e23.the-host",
+        "label": "The Host"
+      }
+    },
+    {
+      "pattern": "the mind's eye",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "tng season 4 the mind's eye",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "tng s4 the mind's eye",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "tng 4x24 story",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "tng s04 story 24",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "tng 4x24",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "tng s04e24",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 24",
+      "result": {
+        "anchorFrom": "tng.s4.e24.the-minds-eye",
+        "label": "The Mind's Eye"
+      }
+    },
+    {
+      "pattern": "in theory",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "tng season 4 in theory",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "tng s4 in theory",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "tng 4x25 story",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "tng s04 story 25",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "tng 4x25",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "tng s04e25",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 25",
+      "result": {
+        "anchorFrom": "tng.s4.e25.in-theory",
+        "label": "In Theory"
+      }
+    },
+    {
+      "pattern": "redemption",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    },
+    {
+      "pattern": "tng season 4 redemption",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    },
+    {
+      "pattern": "tng s4 redemption",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    },
+    {
+      "pattern": "tng 4x26 story",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    },
+    {
+      "pattern": "tng s04 story 26",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    },
+    {
+      "pattern": "tng 4x26",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    },
+    {
+      "pattern": "tng s04e26",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    },
+    {
+      "pattern": "tng season 4 episode 26",
+      "result": {
+        "anchorFrom": "tng.s4.e26.redemption",
+        "label": "Redemption"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

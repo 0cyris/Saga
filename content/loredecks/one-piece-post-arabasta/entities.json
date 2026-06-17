@@ -1,0 +1,789 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:arabasta": {
+      "type": "location",
+      "label": "Arabasta",
+      "aliases": [
+        "Arabasta"
+      ],
+      "canonicalNames": [
+        "Arabasta"
+      ],
+      "tags": [
+        "location:arabasta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:curry": {
+      "type": "item",
+      "label": "curry",
+      "aliases": [
+        "curry"
+      ],
+      "canonicalNames": [
+        "curry"
+      ],
+      "tags": [
+        "item:curry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:doctorine": {
+      "type": "character",
+      "label": "Doctorine",
+      "aliases": [
+        "Doctorine"
+      ],
+      "canonicalNames": [
+        "Doctorine"
+      ],
+      "tags": [
+        "character:doctorine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:east-blue": {
+      "type": "location",
+      "label": "East Blue",
+      "aliases": [
+        "East Blue"
+      ],
+      "canonicalNames": [
+        "East Blue"
+      ],
+      "tags": [
+        "location:east-blue"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:fireworks": {
+      "type": "item",
+      "label": "fireworks",
+      "aliases": [
+        "fireworks"
+      ],
+      "canonicalNames": [
+        "fireworks"
+      ],
+      "tags": [
+        "item:fireworks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:going-merry": {
+      "type": "character",
+      "label": "Going Merry",
+      "aliases": [
+        "Going Merry"
+      ],
+      "canonicalNames": [
+        "Going Merry"
+      ],
+      "tags": [
+        "character:going-merry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:johnny": {
+      "type": "character",
+      "label": "Johnny",
+      "aliases": [
+        "Johnny"
+      ],
+      "canonicalNames": [
+        "Johnny"
+      ],
+      "tags": [
+        "character:johnny"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:kodama": {
+      "type": "character",
+      "label": "Kodama",
+      "aliases": [
+        "Kodama"
+      ],
+      "canonicalNames": [
+        "Kodama"
+      ],
+      "tags": [
+        "character:kodama"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:map-paper": {
+      "type": "item",
+      "label": "durable map paper",
+      "aliases": [
+        "durable map paper"
+      ],
+      "canonicalNames": [
+        "durable map paper"
+      ],
+      "tags": [
+        "item:durable-map-paper"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:marines": {
+      "type": "faction",
+      "label": "Marines",
+      "aliases": [
+        "Marines"
+      ],
+      "canonicalNames": [
+        "Marines"
+      ],
+      "tags": [
+        "faction:marines"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:monkey-d-luffy": {
+      "type": "character",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "character:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:nami": {
+      "type": "character",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "character:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:next-island-boundary": {
+      "type": "knowledge",
+      "label": "next island boundary",
+      "aliases": [
+        "next island boundary"
+      ],
+      "canonicalNames": [
+        "next island boundary"
+      ],
+      "tags": [
+        "topic:next-island-boundary"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:nico-robin": {
+      "type": "knowledge",
+      "label": "Nico Robin",
+      "aliases": [
+        "Nico Robin"
+      ],
+      "canonicalNames": [
+        "Nico Robin"
+      ],
+      "tags": [
+        "topic:nico-robin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:post-arabasta": {
+      "type": "knowledge",
+      "label": "Post-Arabasta",
+      "aliases": [
+        "Post-Arabasta"
+      ],
+      "canonicalNames": [
+        "Post-Arabasta"
+      ],
+      "tags": [
+        "topic:post-arabasta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:roronoa-zoro": {
+      "type": "character",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "character:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:rumble-ball": {
+      "type": "item",
+      "label": "Rumble Ball",
+      "aliases": [
+        "Rumble Ball"
+      ],
+      "canonicalNames": [
+        "Rumble Ball"
+      ],
+      "tags": [
+        "item:rumble-ball"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:sanji": {
+      "type": "character",
+      "label": "Sanji",
+      "aliases": [
+        "Sanji"
+      ],
+      "canonicalNames": [
+        "Sanji"
+      ],
+      "tags": [
+        "character:sanji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:sea-route": {
+      "type": "location",
+      "label": "sea route",
+      "aliases": [
+        "sea route"
+      ],
+      "canonicalNames": [
+        "sea route"
+      ],
+      "tags": [
+        "location:sea-route"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:supplies": {
+      "type": "character",
+      "label": "supplies",
+      "aliases": [
+        "supplies"
+      ],
+      "canonicalNames": [
+        "supplies"
+      ],
+      "tags": [
+        "character:supplies"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:tajio": {
+      "type": "character",
+      "label": "Tajio",
+      "aliases": [
+        "Tajio"
+      ],
+      "canonicalNames": [
+        "Tajio"
+      ],
+      "tags": [
+        "character:tajio"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:tony-tony-chopper": {
+      "type": "character",
+      "label": "Tony Tony Chopper",
+      "aliases": [
+        "Tony Tony Chopper"
+      ],
+      "canonicalNames": [
+        "Tony Tony Chopper"
+      ],
+      "tags": [
+        "character:tony-tony-chopper"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:usopp": {
+      "type": "character",
+      "label": "Usopp",
+      "aliases": [
+        "Usopp"
+      ],
+      "canonicalNames": [
+        "Usopp"
+      ],
+      "tags": [
+        "character:usopp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:vivi": {
+      "type": "location",
+      "label": "Vivi",
+      "aliases": [
+        "Vivi"
+      ],
+      "canonicalNames": [
+        "Vivi"
+      ],
+      "tags": [
+        "location:vivi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:wado-ichimonji": {
+      "type": "item",
+      "label": "Wado Ichimonji",
+      "aliases": [
+        "Wado Ichimonji"
+      ],
+      "canonicalNames": [
+        "Wado Ichimonji"
+      ],
+      "tags": [
+        "item:wado-ichimonji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:weather": {
+      "type": "character",
+      "label": "weather",
+      "aliases": [
+        "weather"
+      ],
+      "canonicalNames": [
+        "weather"
+      ],
+      "tags": [
+        "character:weather"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:world-map": {
+      "type": "item",
+      "label": "Nami's world map",
+      "aliases": [
+        "Nami's world map"
+      ],
+      "canonicalNames": [
+        "Nami's world map"
+      ],
+      "tags": [
+        "item:nami-s-world-map"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "op:yosaku": {
+      "type": "character",
+      "label": "Yosaku",
+      "aliases": [
+        "Yosaku"
+      ],
+      "canonicalNames": [
+        "Yosaku"
+      ],
+      "tags": [
+        "character:yosaku"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-anime-main",
+        "canonTier": "anime-only",
+        "adaptation": "anime",
+        "medium": "anime",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Post-Arabasta Arc, anime episodes 131-135, One Piece anime show-continuity filler arc.",
+        "notes": "Show-continuity support deck. Keep material gated to anime-forward stacks and do not overwrite manga-primary arc facts."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    }
+  }
+}

@@ -1,0 +1,2836 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_apocalypse-rising-episode-gate",
+      "title": "Apocalypse Rising anchors Changeling infiltration",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e01.apocalypse-rising",
+        "validToAnchor": "ds9.s5.e02.the-ship",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25020,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: Apocalypse Rising",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e01.apocalypse-rising",
+          "label": "Apocalypse Rising",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:gowron",
+          "st:benjamin-sisko",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:odo",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Gowron",
+          "Benjamin Sisko",
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Odo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans"
+        ],
+        "topics": [
+          "Changeling infiltration",
+          "Klingon duty/faction-status gate",
+          "Changeling identity/Founder gate",
+          "Benjamin Sisko",
+          "Lt. Commander",
+          "Jadzia Dax",
+          "Deep Space 9",
+          "Klingon"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-apocalypse-rising",
+        "character:gowron",
+        "character:benjamin-sisko",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:odo",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "topic:changeling-infiltration",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:changeling-identityfounder-gate",
+        "topic:benjamin-sisko",
+        "topic:lt-commander",
+        "topic:jadzia-dax",
+        "topic:deep-space-9",
+        "topic:klingon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Changeling infiltration",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Benjamin Sisko",
+            "Lt. Commander",
+            "Jadzia Dax",
+            "Deep Space 9",
+            "Klingon"
+          ],
+          "keywordsAny": [
+            "Gowron",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Odo",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Changeling infiltration",
+            "Klingon duty/faction-status gate",
+            "Changeling identity/Founder gate",
+            "Lt. Commander",
+            "Deep Space 9",
+            "Klingon",
+            "Apocalypse Rising",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Apocalypse Rising (Unknown (2373)) is Memory Alpha story row 1 for this season. Apocalypse Rising is a DS9 season 5 story gate centered on Changeling infiltration; the evidence marks Klingon duty/faction-status gate; Changeling identity/Founder gate.",
+        "injection": "Use Apocalypse Rising as the active episode Context gate when scenes reference Changeling infiltration, Klingon duty/faction-status gate, Changeling identity/Founder gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Apocalypse Rising",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Apocalypse_Rising_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_the-ship-episode-gate",
+      "title": "The Ship anchors Jem'Hadar reveal or war gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e02.the-ship",
+        "validToAnchor": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 25020,
+        "sortKeyTo": 25040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: The Ship",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e02.the-ship",
+          "label": "The Ship",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:gamma-quadrant",
+          "st:miles-obrien",
+          "st:crewman",
+          "st:muniz",
+          "st:benjamin-sisko",
+          "st:starfleet",
+          "st:jemhadar",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Gamma Quadrant",
+          "Miles O'Brien",
+          "Crewman",
+          "Muniz",
+          "Benjamin Sisko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Jem'Hadar",
+          "Bajorans"
+        ],
+        "topics": [
+          "Jem'Hadar reveal or war gate",
+          "Torga IV",
+          "Gamma Quadrant",
+          "cormaline",
+          "mining",
+          "planetary survey",
+          "Chief",
+          "The Ship"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-ship",
+        "character:gamma-quadrant",
+        "character:miles-obrien",
+        "character:crewman",
+        "character:muniz",
+        "character:benjamin-sisko",
+        "faction:starfleet",
+        "faction:jemhadar",
+        "faction:bajorans",
+        "topic:jemhadar-reveal-or-war-gate",
+        "topic:torga-iv",
+        "topic:gamma-quadrant",
+        "topic:cormaline",
+        "topic:mining",
+        "topic:planetary-survey",
+        "topic:chief",
+        "topic:the-ship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gamma Quadrant",
+            "Miles O'Brien",
+            "Crewman",
+            "Muniz",
+            "Benjamin Sisko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Gamma Quadrant",
+            "Miles O'Brien",
+            "Crewman",
+            "Muniz",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Jem'Hadar",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Jem'Hadar reveal or war gate",
+            "Torga IV",
+            "Gamma Quadrant",
+            "cormaline",
+            "mining",
+            "planetary survey",
+            "Chief",
+            "The Ship"
+          ],
+          "keywordsAny": [
+            "Gamma Quadrant",
+            "Miles O'Brien",
+            "Crewman",
+            "Muniz",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Jem'Hadar",
+            "Bajorans",
+            "Jem'Hadar reveal or war gate",
+            "Torga IV",
+            "cormaline",
+            "mining",
+            "planetary survey",
+            "Chief",
+            "The Ship",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Ship (50049.3 (2373)) is Memory Alpha story row 2 for this season. The Ship is a DS9 season 5 story gate centered on Jem'Hadar reveal or war gate; the evidence marks Jem'Hadar reveal or war gate.",
+        "injection": "Use The Ship as the active episode Context gate when scenes reference Jem'Hadar reveal or war gate, Torga IV, Gamma Quadrant.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Ship",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Ship_(episode)",
+        "stardate": "50049.3 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_looking-for-parmach-in-all-the-wrong-places-episode-gate",
+      "title": "Looking for par'Mach in All the Wrong Places anchors Quark and Grilka",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+        "validToAnchor": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "sortKeyFrom": 25040,
+        "sortKeyTo": 25060,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: Looking for par'Mach in All the Wrong Places",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e03.looking-for-parmach-in-all-the-wrong-places",
+          "label": "Looking for par'Mach in All the Wrong Places",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:miles-obrien",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:julian-bashir",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Miles O'Brien",
+          "Kira Nerys",
+          "Jadzia Dax",
+          "Julian Bashir"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans"
+        ],
+        "topics": [
+          "Quark and Grilka",
+          "Klingon duty/faction-status gate",
+          "Quark",
+          "Julian Bashir",
+          "Keiko O'Brien",
+          "Kira Nerys",
+          "Miles O'Brien",
+          "his child"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-looking-for-parmach-in-all-the-wrong-places",
+        "character:worf",
+        "character:miles-obrien",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "character:julian-bashir",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "topic:quark-and-grilka",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:quark",
+        "topic:julian-bashir",
+        "topic:keiko-obrien",
+        "topic:kira-nerys",
+        "topic:miles-obrien",
+        "topic:his-child"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Julian Bashir"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Quark and Grilka",
+            "Klingon duty/faction-status gate",
+            "Quark",
+            "Julian Bashir",
+            "Keiko O'Brien",
+            "Kira Nerys",
+            "Miles O'Brien",
+            "his child"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Miles O'Brien",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Julian Bashir",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Quark and Grilka",
+            "Klingon duty/faction-status gate",
+            "Quark",
+            "Keiko O'Brien",
+            "his child",
+            "Looking for par'Mach in All the Wrong Places",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Looking for par'Mach in All the Wrong Places (Unknown (2373)) is Memory Alpha story row 3 for this season. Looking for par'Mach in All the Wrong Places is a DS9 season 5 story gate centered on Quark and Grilka; the evidence marks Klingon duty/faction-status gate.",
+        "injection": "Use Looking for par'Mach in All the Wrong Places as the active episode Context gate when scenes reference Quark and Grilka, Klingon duty/faction-status gate, Quark.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Looking for par'Mach in All the Wrong Places",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 3,
+        "runtimeEpisodes": [
+          3
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Looking_for_par'Mach_in_All_the_Wrong_Places_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_nor-the-battle-to-the-strong-episode-gate",
+      "title": "Nor the Battle to the Strong anchors Klingon War",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e04.nor-the-battle-to-the-strong",
+        "validToAnchor": "ds9.s5.e05.the-assignment",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "sortKeyFrom": 25060,
+        "sortKeyTo": 25080,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: Nor the Battle to the Strong",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e04.nor-the-battle-to-the-strong",
+          "label": "Nor the Battle to the Strong",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jake-sisko",
+          "st:julian-bashir",
+          "st:ajilon-prime",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Jake Sisko",
+          "Julian Bashir",
+          "Ajilon Prime"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans"
+        ],
+        "topics": [
+          "Klingon War",
+          "Klingon duty/faction-status gate",
+          "runabout",
+          "Bashir",
+          "Jake Sisko",
+          "Deep Space 9",
+          "medical conference",
+          "news"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-nor-the-battle-to-the-strong",
+        "character:jake-sisko",
+        "character:julian-bashir",
+        "character:ajilon-prime",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "topic:klingon-war",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:runabout",
+        "topic:bashir",
+        "topic:jake-sisko",
+        "topic:deep-space-9",
+        "topic:medical-conference",
+        "topic:news"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jake Sisko",
+            "Julian Bashir",
+            "Ajilon Prime"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Jake Sisko",
+            "Julian Bashir",
+            "Ajilon Prime",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "runabout",
+            "Bashir",
+            "Jake Sisko",
+            "Deep Space 9",
+            "medical conference",
+            "news"
+          ],
+          "keywordsAny": [
+            "Jake Sisko",
+            "Julian Bashir",
+            "Ajilon Prime",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Klingon War",
+            "Klingon duty/faction-status gate",
+            "runabout",
+            "Bashir",
+            "Deep Space 9",
+            "medical conference",
+            "news",
+            "Nor the Battle to the Strong",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Nor the Battle to the Strong (Unknown (2373)) is Memory Alpha story row 4 for this season. Nor the Battle to the Strong is a DS9 season 5 story gate centered on Klingon War; the evidence marks Klingon duty/faction-status gate.",
+        "injection": "Use Nor the Battle to the Strong as the active episode Context gate when scenes reference Klingon War, Klingon duty/faction-status gate, runabout.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Nor the Battle to the Strong",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 4,
+        "runtimeEpisodes": [
+          4
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Nor_the_Battle_to_the_Strong_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_the-assignment-episode-gate",
+      "title": "The Assignment anchors Bajoran occupation/religion gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e05.the-assignment",
+        "validToAnchor": "ds9.s5.e06.trials-and-tribble-ations",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 25080,
+        "sortKeyTo": 25100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: The Assignment",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e05.the-assignment",
+          "label": "The Assignment",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:miles-obrien",
+          "st:julian-bashir",
+          "st:quark",
+          "st:rom",
+          "st:quarks",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Miles O'Brien",
+          "Julian Bashir",
+          "Quark",
+          "Rom",
+          "Quark's"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Bajoran occupation/religion gate",
+          "Pah-wraith secrecy/endgame gate",
+          "death/status-change gate",
+          "Quark's",
+          "Quark",
+          "Rom",
+          "puree of beetle",
+          "bacon and eggs"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-assignment",
+        "character:miles-obrien",
+        "character:julian-bashir",
+        "character:quark",
+        "character:rom",
+        "character:quarks",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:pah-wraith-secrecyendgame-gate",
+        "topic:deathstatus-change-gate",
+        "topic:quarks",
+        "topic:quark",
+        "topic:rom",
+        "topic:puree-of-beetle",
+        "topic:bacon-and-eggs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Quark",
+            "Rom",
+            "Quark's"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "Quark's",
+            "Quark",
+            "Rom",
+            "puree of beetle",
+            "bacon and eggs"
+          ],
+          "keywordsAny": [
+            "Miles O'Brien",
+            "Julian Bashir",
+            "Quark",
+            "Rom",
+            "Quark's",
+            "Starfleet",
+            "Bajorans",
+            "Bajoran occupation/religion gate",
+            "Pah-wraith secrecy/endgame gate",
+            "death/status-change gate",
+            "puree of beetle",
+            "bacon and eggs",
+            "The Assignment",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Assignment (Unknown (September 2373)) is Memory Alpha story row 5 for this season. The Assignment is a DS9 season 5 story gate centered on Bajoran occupation/religion gate; the evidence marks Bajoran occupation/religion gate; Pah-wraith secrecy/endgame gate; death/status-change gate.",
+        "injection": "Use The Assignment as the active episode Context gate when scenes reference Bajoran occupation/religion gate, Pah-wraith secrecy/endgame gate, death/status-change gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Assignment",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Assignment_(episode)",
+        "stardate": "Unknown (September 2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_trials-and-tribble-ations-episode-gate",
+      "title": "Trials and Tribble-ations anchors Tribble troubles",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e06.trials-and-tribble-ations",
+        "validToAnchor": "ds9.s5.e07.let-he-who-is-without-sin",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 25100,
+        "sortKeyTo": 25120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: Trials and Tribble-ations",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e06.trials-and-tribble-ations",
+          "label": "Trials and Tribble-ations",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:lucsly",
+          "st:dulmur",
+          "st:temporal-investigations",
+          "st:kira-nerys",
+          "st:jadzia-dax",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Lucsly",
+          "Dulmur",
+          "Temporal Investigations",
+          "Kira Nerys",
+          "Jadzia Dax"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Tribble troubles",
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Defiant/station militarization gate",
+          "temporal anomaly/status gate",
+          "Lucsly",
+          "Dulmur",
+          "Temporal Investigations"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-trials-and-tribble-ations",
+        "character:lucsly",
+        "character:dulmur",
+        "character:temporal-investigations",
+        "character:kira-nerys",
+        "character:jadzia-dax",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:tribble-troubles",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:defiantstation-militarization-gate",
+        "topic:temporal-anomalystatus-gate",
+        "topic:lucsly",
+        "topic:dulmur",
+        "topic:temporal-investigations"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lucsly",
+            "Dulmur",
+            "Temporal Investigations",
+            "Kira Nerys",
+            "Jadzia Dax"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Lucsly",
+            "Dulmur",
+            "Temporal Investigations",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Tribble troubles",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Defiant/station militarization gate",
+            "temporal anomaly/status gate",
+            "Lucsly",
+            "Dulmur",
+            "Temporal Investigations"
+          ],
+          "keywordsAny": [
+            "Lucsly",
+            "Dulmur",
+            "Temporal Investigations",
+            "Kira Nerys",
+            "Jadzia Dax",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Tribble troubles",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Defiant/station militarization gate",
+            "temporal anomaly/status gate",
+            "Trials and Tribble-ations",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Trials and Tribble-ations (2373) is Memory Alpha story row 6 for this season. Trials and Tribble-ations is a DS9 season 5 story gate centered on Tribble troubles; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate; Defiant/station militarization gate; temporal anomaly/status gate.",
+        "injection": "Use Trials and Tribble-ations as the active episode Context gate when scenes reference Tribble troubles, Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Trials and Tribble-ations",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Trials_and_Tribble-ations_(episode)",
+        "stardate": "2373",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_let-he-who-is-without-sin-episode-gate",
+      "title": "Let He Who Is Without Sin... anchors Klingon duty/faction-status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e07.let-he-who-is-without-sin",
+        "validToAnchor": "ds9.s5.e08.things-past",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "sortKeyFrom": 25120,
+        "sortKeyTo": 25140,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: Let He Who Is Without Sin...",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e07.let-he-who-is-without-sin",
+          "label": "Let He Who Is Without Sin...",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:benjamin-sisko",
+          "st:jadzia-dax",
+          "st:odo",
+          "st:miles",
+          "st:starfleet",
+          "st:klingon-empire",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Benjamin Sisko",
+          "Jadzia Dax",
+          "Odo",
+          "Miles"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire",
+          "Bajorans"
+        ],
+        "topics": [
+          "Klingon duty/faction-status gate",
+          "Bajoran occupation/religion gate",
+          "Odo",
+          "Benjamin Sisko",
+          "Replimat",
+          "Miles",
+          "Keiko O'Brien",
+          "second child"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-let-he-who-is-without-sin",
+        "character:worf",
+        "character:benjamin-sisko",
+        "character:jadzia-dax",
+        "character:odo",
+        "character:miles",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "faction:bajorans",
+        "topic:klingon-dutyfaction-status-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:odo",
+        "topic:benjamin-sisko",
+        "topic:replimat",
+        "topic:miles",
+        "topic:keiko-obrien",
+        "topic:second-child"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Odo",
+            "Miles"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Odo",
+            "Miles",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "Odo",
+            "Benjamin Sisko",
+            "Replimat",
+            "Miles",
+            "Keiko O'Brien",
+            "second child"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Benjamin Sisko",
+            "Jadzia Dax",
+            "Odo",
+            "Miles",
+            "Starfleet",
+            "Klingon Empire",
+            "Bajorans",
+            "Klingon duty/faction-status gate",
+            "Bajoran occupation/religion gate",
+            "Replimat",
+            "Keiko O'Brien",
+            "second child",
+            "Let He Who Is Without Sin...",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Let He Who Is Without Sin... (Unknown (2373)) is Memory Alpha story row 7 for this season. Let He Who Is Without Sin... is a DS9 season 5 story gate centered on Klingon duty/faction-status gate; the evidence marks Klingon duty/faction-status gate; Bajoran occupation/religion gate.",
+        "injection": "Use Let He Who Is Without Sin... as the active episode Context gate when scenes reference Klingon duty/faction-status gate, Bajoran occupation/religion gate, Odo.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Let He Who Is Without Sin...",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 7,
+        "runtimeEpisodes": [
+          7
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Let_He_Who_Is_Without_Sin..._(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_things-past-episode-gate",
+      "title": "Things Past anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e08.things-past",
+        "validToAnchor": "ds9.s5.e09.the-ascent",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 25140,
+        "sortKeyTo": 25160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: Things Past",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e08.things-past",
+          "label": "Things Past",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:odo",
+          "st:jadzia-dax",
+          "st:benjamin-sisko",
+          "st:okala",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Odo",
+          "Jadzia Dax",
+          "Benjamin Sisko",
+          "Okala"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "Dax",
+          "Odo",
+          "Sisko",
+          "Deep Space 9",
+          "runabout",
+          "conference"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-things-past",
+        "character:worf",
+        "character:odo",
+        "character:jadzia-dax",
+        "character:benjamin-sisko",
+        "character:okala",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:dax",
+        "topic:odo",
+        "topic:sisko",
+        "topic:deep-space-9",
+        "topic:runabout",
+        "topic:conference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Odo",
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Okala"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Odo",
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Okala",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Dax",
+            "Odo",
+            "Sisko",
+            "Deep Space 9",
+            "runabout",
+            "conference"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Odo",
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Okala",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "Dax",
+            "Sisko",
+            "Deep Space 9",
+            "runabout",
+            "conference",
+            "Things Past",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Things Past (Unknown (2373)) is Memory Alpha story row 8 for this season. Things Past is a DS9 season 5 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use Things Past as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, Dax.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Things Past",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Things_Past_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_the-ascent-episode-gate",
+      "title": "The Ascent anchors episode-local fact/status gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e09.the-ascent",
+        "validToAnchor": "ds9.s5.e10.rapture",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "sortKeyFrom": 25160,
+        "sortKeyTo": 25180,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: The Ascent",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e09.the-ascent",
+          "label": "The Ascent",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:odo",
+          "st:quark",
+          "st:nog",
+          "st:rom",
+          "st:benjamin-sisko",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Odo",
+          "Quark",
+          "Nog",
+          "Rom",
+          "Benjamin Sisko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "episode-local fact/status gate",
+          "Sisko",
+          "Jake",
+          "Nog",
+          "habitat ring",
+          "Quark",
+          "Rom",
+          "The Ascent"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-ascent",
+        "character:odo",
+        "character:quark",
+        "character:nog",
+        "character:rom",
+        "character:benjamin-sisko",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:episode-local-factstatus-gate",
+        "topic:sisko",
+        "topic:jake",
+        "topic:nog",
+        "topic:habitat-ring",
+        "topic:quark",
+        "topic:rom",
+        "topic:the-ascent"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Odo",
+            "Quark",
+            "Nog",
+            "Rom",
+            "Benjamin Sisko"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Odo",
+            "Quark",
+            "Nog",
+            "Rom",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "episode-local fact/status gate",
+            "Sisko",
+            "Jake",
+            "Nog",
+            "habitat ring",
+            "Quark",
+            "Rom",
+            "The Ascent"
+          ],
+          "keywordsAny": [
+            "Odo",
+            "Quark",
+            "Nog",
+            "Rom",
+            "Benjamin Sisko",
+            "Starfleet",
+            "Bajorans",
+            "episode-local fact/status gate",
+            "Sisko",
+            "Jake",
+            "habitat ring",
+            "The Ascent",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Ascent (Unknown (2373)) is Memory Alpha story row 9 for this season. The Ascent is a DS9 season 5 story gate centered on episode-local fact/status gate; the evidence marks episode-local fact/status gate.",
+        "injection": "Use The Ascent as the active episode Context gate when scenes reference episode-local fact/status gate, Sisko, Jake.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Ascent",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 9,
+        "runtimeEpisodes": [
+          9
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Ascent_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_rapture-episode-gate",
+      "title": "Rapture anchors Cardassian occupation or border-pressure gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e10.rapture",
+        "validToAnchor": "ds9.s5.e11.the-darkness-and-the-light",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "sortKeyFrom": 25180,
+        "sortKeyTo": 25200,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: Rapture",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e10.rapture",
+          "label": "Rapture",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jadzia-dax",
+          "st:benjamin-sisko",
+          "st:kira-nerys",
+          "st:bhala",
+          "st:government",
+          "st:starfleet",
+          "st:cardassian-union",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Jadzia Dax",
+          "Benjamin Sisko",
+          "Kira Nerys",
+          "B'hala",
+          "Government"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Cardassian Union",
+          "Bajorans"
+        ],
+        "topics": [
+          "Cardassian occupation or border-pressure gate",
+          "Bajoran occupation/religion gate",
+          "wardroom",
+          "Deep Space 9",
+          "Sisko",
+          "Major",
+          "Kira",
+          "Jadzia Dax"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-rapture",
+        "character:jadzia-dax",
+        "character:benjamin-sisko",
+        "character:kira-nerys",
+        "character:bhala",
+        "character:government",
+        "faction:starfleet",
+        "faction:cardassian-union",
+        "faction:bajorans",
+        "topic:cardassian-occupation-or-border-pressure-gate",
+        "topic:bajoran-occupationreligion-gate",
+        "topic:wardroom",
+        "topic:deep-space-9",
+        "topic:sisko",
+        "topic:major",
+        "topic:kira",
+        "topic:jadzia-dax"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "B'hala",
+            "Government"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "B'hala",
+            "Government",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "wardroom",
+            "Deep Space 9",
+            "Sisko",
+            "Major",
+            "Kira",
+            "Jadzia Dax"
+          ],
+          "keywordsAny": [
+            "Jadzia Dax",
+            "Benjamin Sisko",
+            "Kira Nerys",
+            "B'hala",
+            "Government",
+            "Starfleet",
+            "Cardassian Union",
+            "Bajorans",
+            "Cardassian occupation or border-pressure gate",
+            "Bajoran occupation/religion gate",
+            "wardroom",
+            "Deep Space 9",
+            "Sisko",
+            "Major",
+            "Kira",
+            "Rapture",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Rapture (Unknown (2373)) is Memory Alpha story row 10 for this season. Rapture is a DS9 season 5 story gate centered on Cardassian occupation or border-pressure gate; the evidence marks Cardassian occupation or border-pressure gate; Bajoran occupation/religion gate.",
+        "injection": "Use Rapture as the active episode Context gate when scenes reference Cardassian occupation or border-pressure gate, Bajoran occupation/religion gate, wardroom.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "Rapture",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 10,
+        "runtimeEpisodes": [
+          10
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Rapture_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_the-darkness-and-the-light-episode-gate",
+      "title": "The Darkness and the Light anchors Prophets/Emissary gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e11.the-darkness-and-the-light",
+        "validToAnchor": "ds9.s5.e12.the-begotten",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "sortKeyFrom": 25200,
+        "sortKeyTo": 25220,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: The Darkness and the Light",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e11.the-darkness-and-the-light",
+          "label": "The Darkness and the Light",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:kira-nerys",
+          "st:odo",
+          "st:quark",
+          "st:latha-mabrin",
+          "st:prophet",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Kira Nerys",
+          "Odo",
+          "Quark",
+          "Latha Mabrin",
+          "Prophet"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Prophets/Emissary gate",
+          "vedek",
+          "Latha Mabrin",
+          "candle",
+          "disruptor",
+          "Deep Space 9",
+          "Major",
+          "The Darkness and the Light"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-darkness-and-the-light",
+        "character:kira-nerys",
+        "character:odo",
+        "character:quark",
+        "character:latha-mabrin",
+        "character:prophet",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:prophetsemissary-gate",
+        "topic:vedek",
+        "topic:latha-mabrin",
+        "topic:candle",
+        "topic:disruptor",
+        "topic:deep-space-9",
+        "topic:major",
+        "topic:the-darkness-and-the-light"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kira Nerys",
+            "Odo",
+            "Quark",
+            "Latha Mabrin",
+            "Prophet"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Kira Nerys",
+            "Odo",
+            "Quark",
+            "Latha Mabrin",
+            "Prophet",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Prophets/Emissary gate",
+            "vedek",
+            "Latha Mabrin",
+            "candle",
+            "disruptor",
+            "Deep Space 9",
+            "Major",
+            "The Darkness and the Light"
+          ],
+          "keywordsAny": [
+            "Kira Nerys",
+            "Odo",
+            "Quark",
+            "Latha Mabrin",
+            "Prophet",
+            "Starfleet",
+            "Bajorans",
+            "Prophets/Emissary gate",
+            "vedek",
+            "candle",
+            "disruptor",
+            "Deep Space 9",
+            "Major",
+            "The Darkness and the Light",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Darkness and the Light (50416.2 (2373)) is Memory Alpha story row 11 for this season. The Darkness and the Light is a DS9 season 5 story gate centered on Prophets/Emissary gate; the evidence marks Prophets/Emissary gate.",
+        "injection": "Use The Darkness and the Light as the active episode Context gate when scenes reference Prophets/Emissary gate, vedek, Latha Mabrin.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Darkness and the Light",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 11,
+        "runtimeEpisodes": [
+          11
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Darkness_and_the_Light_(episode)",
+        "stardate": "50416.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_the-begotten-episode-gate",
+      "title": "The Begotten anchors Changeling identity/Founder gate",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 57,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e12.the-begotten",
+        "validToAnchor": "ds9.s5.e13.for-the-uniform",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "sortKeyFrom": 25220,
+        "sortKeyTo": 25240,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: The Begotten",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e12.the-begotten",
+          "label": "The Begotten",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:odo",
+          "st:quark",
+          "st:constable",
+          "st:yridian",
+          "st:starfleet",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Worf",
+          "Odo",
+          "Quark",
+          "Constable",
+          "Yridian"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Bajorans"
+        ],
+        "topics": [
+          "Changeling identity/Founder gate",
+          "Odo",
+          "infirmary",
+          "Alvanian spine mite",
+          "diagnose",
+          "pinched nerve",
+          "Worf",
+          "The Begotten"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-the-begotten",
+        "character:worf",
+        "character:odo",
+        "character:quark",
+        "character:constable",
+        "character:yridian",
+        "faction:starfleet",
+        "faction:bajorans",
+        "topic:changeling-identityfounder-gate",
+        "topic:odo",
+        "topic:infirmary",
+        "topic:alvanian-spine-mite",
+        "topic:diagnose",
+        "topic:pinched-nerve",
+        "topic:worf",
+        "topic:the-begotten"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Odo",
+            "Quark",
+            "Constable",
+            "Yridian"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Odo",
+            "Quark",
+            "Constable",
+            "Yridian",
+            "Starfleet",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Changeling identity/Founder gate",
+            "Odo",
+            "infirmary",
+            "Alvanian spine mite",
+            "diagnose",
+            "pinched nerve",
+            "Worf",
+            "The Begotten"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Odo",
+            "Quark",
+            "Constable",
+            "Yridian",
+            "Starfleet",
+            "Bajorans",
+            "Changeling identity/Founder gate",
+            "infirmary",
+            "Alvanian spine mite",
+            "diagnose",
+            "pinched nerve",
+            "The Begotten",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "The Begotten (Unknown (2373)) is Memory Alpha story row 12 for this season. The Begotten is a DS9 season 5 story gate centered on Changeling identity/Founder gate; the evidence marks Changeling identity/Founder gate.",
+        "injection": "Use The Begotten as the active episode Context gate when scenes reference Changeling identity/Founder gate, Odo, infirmary.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "The Begotten",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 12,
+        "runtimeEpisodes": [
+          12
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Begotten_(episode)",
+        "stardate": "Unknown (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_ds9_s5_for-the-uniform-episode-gate",
+      "title": "For the Uniform anchors Eddington vs. Sisko",
+      "kind": "anchor_window",
+      "gateType": "anchor_window",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_moment",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "ds9.s5.e13.for-the-uniform",
+        "validToAnchor": "ds9.s5.e14.in-purgatorys-shadow",
+        "series": "DS9",
+        "season": "5",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 25240,
+        "sortKeyTo": 25260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "DS9 season 5: For the Uniform",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "ds9",
+          "label": "Star Trek: Deep Space Nine",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "ds9-s5",
+          "label": "DS9 season 5",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "ds9.s5.e13.for-the-uniform",
+          "label": "For the Uniform",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:benjamin-sisko",
+          "st:maquis",
+          "st:cingta",
+          "st:michael-eddington",
+          "st:badlands",
+          "st:starfleet",
+          "st:maquis",
+          "st:bajorans"
+        ],
+        "characters": [
+          "Benjamin Sisko",
+          "Maquis",
+          "Cing'ta",
+          "Michael Eddington",
+          "Badlands"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Maquis",
+          "Bajorans"
+        ],
+        "topics": [
+          "Eddington vs. Sisko",
+          "Maquis political/crew-loyalty gate",
+          "Sisko",
+          "Maquis",
+          "Marva IV",
+          "informant",
+          "Cing'ta",
+          "Michael Eddington"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:ds9",
+        "season:ds9-s5",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:ds9-s5-for-the-uniform",
+        "character:benjamin-sisko",
+        "character:maquis",
+        "character:cingta",
+        "character:michael-eddington",
+        "character:badlands",
+        "faction:starfleet",
+        "faction:maquis",
+        "faction:bajorans",
+        "topic:eddington-vs-sisko",
+        "topic:maquis-politicalcrew-loyalty-gate",
+        "topic:sisko",
+        "topic:maquis",
+        "topic:marva-iv",
+        "topic:informant",
+        "topic:cingta",
+        "topic:michael-eddington"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Benjamin Sisko",
+            "Maquis",
+            "Cing'ta",
+            "Michael Eddington",
+            "Badlands"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Maquis",
+            "Bajorans"
+          ],
+          "entitiesAny": [
+            "Benjamin Sisko",
+            "Maquis",
+            "Cing'ta",
+            "Michael Eddington",
+            "Badlands",
+            "Starfleet",
+            "Maquis",
+            "Bajorans"
+          ],
+          "topicsAny": [
+            "Eddington vs. Sisko",
+            "Maquis political/crew-loyalty gate",
+            "Sisko",
+            "Maquis",
+            "Marva IV",
+            "informant",
+            "Cing'ta",
+            "Michael Eddington"
+          ],
+          "keywordsAny": [
+            "Benjamin Sisko",
+            "Maquis",
+            "Cing'ta",
+            "Michael Eddington",
+            "Badlands",
+            "Starfleet",
+            "Bajorans",
+            "Eddington vs. Sisko",
+            "Maquis political/crew-loyalty gate",
+            "Sisko",
+            "Marva IV",
+            "informant",
+            "For the Uniform",
+            "DS9 season 5"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: Deep Space Nine season 5, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later Star Trek seasons, films, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "For the Uniform (50485.2-50488.2 (2373)) is Memory Alpha story row 13 for this season. For the Uniform is a DS9 season 5 story gate centered on Eddington vs. Sisko; the evidence marks Maquis political/crew-loyalty gate.",
+        "injection": "Use For the Uniform as the active episode Context gate when scenes reference Eddington vs. Sisko, Maquis political/crew-loyalty gate, Sisko.",
+        "constraints": [
+          "Keep this card inside DS9 season 5 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later Star Trek, film, Picard-era, beta-canon, novel, comic, game, or fanon facts into this season 5 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: Deep Space Nine",
+        "sourceType": "episode",
+        "title": "For the Uniform",
+        "series": "DS9",
+        "season": 5,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/For_the_Uniform_(episode)",
+        "stardate": "50485.2-50488.2 (2373)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.74,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-ds9-season-5",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

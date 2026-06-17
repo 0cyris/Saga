@@ -1,0 +1,3503 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_crusher-returns-as-chief-medical-officer",
+      "title": "Crusher is back as Enterprise-D chief medical officer in season 3",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e01.evolution",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e01.evolution",
+          "label": "Evolution",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:beverly-crusher",
+          "st:jean-luc-picard",
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Beverly Crusher",
+          "Jean-Luc Picard",
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Crusher return",
+          "chief medical officer",
+          "season 3 crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution",
+        "character:beverly-crusher",
+        "character:jean-luc-picard",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:crusher-return",
+        "topic:chief-medical-officer",
+        "topic:season-3-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Crusher return",
+            "chief medical officer",
+            "season 3 crew"
+          ],
+          "keywordsAny": [
+            "Beverly Crusher",
+            "Jean-Luc Picard",
+            "Wesley Crusher",
+            "Starfleet",
+            "Crusher return",
+            "chief medical officer",
+            "season 3 crew",
+            "Evolution",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 3 restores Beverly Crusher as chief medical officer, replacing the Pulaski season and reestablishing Crusher family and medical dynamics aboard the Enterprise-D.",
+        "injection": "Write Beverly Crusher as active Enterprise-D CMO in TNG season 3. Do not keep Pulaski aboard as the regular ship doctor unless a scene explicitly references season 2.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Evolution",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Evolution_(episode)",
+        "stardate": "43125.8 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_mature-enterprise-crew-baseline",
+      "title": "Season 3 has the settled mature Enterprise-D command baseline",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e01.evolution",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e01.evolution",
+          "label": "Evolution",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:william-riker",
+          "st:data",
+          "st:worf",
+          "st:geordi-la-forge",
+          "st:beverly-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "William Riker",
+          "Data",
+          "Worf",
+          "Geordi La Forge",
+          "Beverly Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "mature Enterprise crew",
+          "season 3 baseline",
+          "Enterprise-D"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution",
+        "character:jean-luc-picard",
+        "character:william-riker",
+        "character:data",
+        "character:worf",
+        "character:geordi-la-forge",
+        "character:beverly-crusher",
+        "faction:starfleet",
+        "topic:mature-enterprise-crew",
+        "topic:season-3-baseline",
+        "topic:enterprise-d"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Beverly Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "mature Enterprise crew",
+            "season 3 baseline",
+            "Enterprise-D"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "William Riker",
+            "Data",
+            "Worf",
+            "Geordi La Forge",
+            "Beverly Crusher",
+            "Starfleet",
+            "mature Enterprise crew",
+            "season 3 baseline",
+            "Enterprise-D",
+            "Evolution",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "By season 3, Picard, Riker, Data, Worf, Geordi, Troi, Crusher, Wesley, and Guinan function as a more settled Enterprise-D ensemble.",
+        "injection": "Use TNG season 3 as a mature Enterprise-D baseline: roles are clearer, relationships are more practiced, and episode gates override only where they narrow this state.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Evolution",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Evolution_(episode)",
+        "stardate": "43125.8 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_geordi-engineering-authority-season-three",
+      "title": "Geordi is the settled chief engineer throughout season 3",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e01.evolution",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e01.evolution",
+          "label": "Evolution",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Geordi chief engineer",
+          "engineering authority",
+          "season 3 crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution",
+        "character:geordi-la-forge",
+        "faction:starfleet",
+        "topic:geordi-chief-engineer",
+        "topic:engineering-authority",
+        "topic:season-3-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Geordi chief engineer",
+            "engineering authority",
+            "season 3 crew"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Starfleet",
+            "Geordi chief engineer",
+            "engineering authority",
+            "season 3 crew",
+            "Evolution",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 3 treats Geordi as the Enterprise-D chief engineer with full technical responsibility and greater authority than his season 1 conn-officer role.",
+        "injection": "Write Geordi as the settled chief engineer in season 3, especially in engineering, anomaly, holodeck, and ship-risk scenes.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Evolution",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Evolution_(episode)",
+        "stardate": "43125.8 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_worf-security-chief-season-three",
+      "title": "Worf is the settled security chief before Klingon family revelations escalate",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e01.evolution",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e01.evolution",
+          "label": "Evolution",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Worf security chief",
+          "Klingon honor",
+          "season 3 crew"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution",
+        "character:worf",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:worf-security-chief",
+        "topic:klingon-honor",
+        "topic:season-3-crew"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Worf"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Worf security chief",
+            "Klingon honor",
+            "season 3 crew"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Starfleet",
+            "Klingon Empire",
+            "Worf security chief",
+            "Klingon honor",
+            "season 3 crew",
+            "Evolution",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Season 3 continues Worf as Enterprise-D security chief while adding deeper Klingon family and honor stakes later in the season.",
+        "injection": "Use Worf as both Starfleet security chief and Klingon officer. Do not import discommendation before Sins of The Father.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Evolution",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Evolution_(episode)",
+        "stardate": "43125.8 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_wesley-season-three-acting-ensign",
+      "title": "Wesley remains a gifted acting ensign in season 3",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e01.evolution",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12500,
+        "precision": "season_window",
+        "windowKind": "season",
+        "label": "TNG season 3",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e01.evolution",
+          "label": "Evolution",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:wesley-crusher",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Wesley Crusher"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Wesley acting ensign",
+          "nanite accident",
+          "young officer"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-evolution",
+        "character:wesley-crusher",
+        "faction:starfleet",
+        "topic:wesley-acting-ensign",
+        "topic:nanite-accident",
+        "topic:young-officer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Wesley Crusher"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Wesley Crusher",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Wesley acting ensign",
+            "nanite accident",
+            "young officer"
+          ],
+          "keywordsAny": [
+            "Wesley Crusher",
+            "Starfleet",
+            "Wesley acting ensign",
+            "nanite accident",
+            "young officer",
+            "Evolution",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Wesley continues as a young acting ensign and technical contributor, including high-stakes mistakes such as the nanite accident in Evolution.",
+        "injection": "Write Wesley as brilliant but still young and accountable. His technical insight matters, but his choices can create real risk.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Evolution",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 1,
+        "runtimeEpisodes": [
+          1
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Evolution_(episode)",
+        "stardate": "43125.8 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_data-colony-persuasion-tau-cygna",
+      "title": "Data must persuade colonists who do not respond to authority alone",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 81,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e02.the-ensigns-of-command",
+        "validToAnchor": "tng.s3.e03.the-survivors",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "sortKeyFrom": 12020,
+        "sortKeyTo": 12040,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Ensigns of Command",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e02.the-ensigns-of-command",
+          "label": "The Ensigns of Command",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data persuasion",
+          "Tau Cygna V",
+          "colonists"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-ensigns-of-command",
+        "character:data",
+        "faction:starfleet",
+        "topic:data-persuasion",
+        "topic:tau-cygna-v",
+        "topic:colonists"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data persuasion",
+            "Tau Cygna V",
+            "colonists"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Starfleet",
+            "Data persuasion",
+            "Tau Cygna V",
+            "colonists",
+            "The Ensigns of Command",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "On Tau Cygna V, Data cannot rely on rank or android strength; he has to learn how to persuade stubborn colonists before the Sheliak deadline.",
+        "injection": "Use The Ensigns of Command to show Data learning social persuasion as a practical command skill, not just technical competence.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Ensigns of Command",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 2,
+        "runtimeEpisodes": [
+          2
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Ensigns_of_Command_(episode)",
+        "stardate": "Unknown (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_worf-bonds-with-jeremy-aster",
+      "title": "The Bonding gives Worf a ritual bond with Jeremy Aster",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 73,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e05.the-bonding",
+        "validToAnchor": "tng.s3.e06.booby-trap",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "sortKeyFrom": 12080,
+        "sortKeyTo": 12100,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Bonding",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e05.the-bonding",
+          "label": "The Bonding",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:worf",
+          "st:jeremy-aster",
+          "st:starfleet",
+          "st:klingon-empire"
+        ],
+        "characters": [
+          "Worf",
+          "Jeremy Aster"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Klingon Empire"
+        ],
+        "topics": [
+          "Jeremy Aster",
+          "Klingon bonding",
+          "Worf obligation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-bonding",
+        "character:worf",
+        "character:jeremy-aster",
+        "faction:starfleet",
+        "faction:klingon-empire",
+        "topic:jeremy-aster",
+        "topic:klingon-bonding",
+        "topic:worf-obligation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Worf",
+            "Jeremy Aster"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "entitiesAny": [
+            "Worf",
+            "Jeremy Aster",
+            "Starfleet",
+            "Klingon Empire"
+          ],
+          "topicsAny": [
+            "Jeremy Aster",
+            "Klingon bonding",
+            "Worf obligation"
+          ],
+          "keywordsAny": [
+            "Worf",
+            "Jeremy Aster",
+            "Starfleet",
+            "Klingon Empire",
+            "Klingon bonding",
+            "Worf obligation",
+            "The Bonding",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "After Marla Aster dies, Worf performs a Klingon bonding ritual with Jeremy, making his protective obligation personal and culturally specific.",
+        "injection": "Use Worf-Jeremy as a grief and obligation gate after The Bonding. Keep it local unless a scene invokes Jeremy or Worf family ritual.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Bonding",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 5,
+        "runtimeEpisodes": [
+          5
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Bonding_(episode)",
+        "stardate": "43198.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_geordi-leah-brahms-holoprogram-boundary",
+      "title": "Geordi works with a holographic Leah Brahms simulation, not the real engineer",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 69,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e06.booby-trap",
+        "validToAnchor": "tng.s3.e07.the-enemy",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "sortKeyFrom": 12100,
+        "sortKeyTo": 12120,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Booby Trap",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e06.booby-trap",
+          "label": "Booby Trap",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:geordi-la-forge",
+          "st:leah-brahms",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Geordi La Forge",
+          "Leah Brahms"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Leah Brahms hologram",
+          "Geordi",
+          "Booby Trap"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-booby-trap",
+        "character:geordi-la-forge",
+        "character:leah-brahms",
+        "faction:starfleet",
+        "topic:leah-brahms-hologram",
+        "topic:geordi",
+        "topic:booby-trap"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geordi La Forge",
+            "Leah Brahms"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Geordi La Forge",
+            "Leah Brahms",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Leah Brahms hologram",
+            "Geordi",
+            "Booby Trap"
+          ],
+          "keywordsAny": [
+            "Geordi La Forge",
+            "Leah Brahms",
+            "Starfleet",
+            "Leah Brahms hologram",
+            "Geordi",
+            "Booby Trap",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Booby Trap has Geordi collaborate with a computer-built Brahms simulation to solve the crisis, creating a later relationship boundary.",
+        "injection": "When using Booby Trap, distinguish holographic Leah from the real Leah Brahms. Do not treat the simulation as consent or a real relationship.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Booby Trap",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 6,
+        "runtimeEpisodes": [
+          6
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Booby_Trap_(episode)",
+        "stardate": "43205.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_troi-devinoni-ral-relationship-boundary",
+      "title": "The Price gives Troi a romantic conflict with Devinoni Ral",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 63,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e08.the-price",
+        "validToAnchor": "tng.s3.e09.the-vengeance-factor",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "sortKeyFrom": 12140,
+        "sortKeyTo": 12160,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Price",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e08.the-price",
+          "label": "The Price",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:deanna-troi",
+          "st:devinoni-ral",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Deanna Troi",
+          "Devinoni Ral"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Devinoni Ral",
+          "Troi romance",
+          "empathic manipulation"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-price",
+        "character:deanna-troi",
+        "character:devinoni-ral",
+        "faction:starfleet",
+        "topic:devinoni-ral",
+        "topic:troi-romance",
+        "topic:empathic-manipulation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Deanna Troi",
+            "Devinoni Ral"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Deanna Troi",
+            "Devinoni Ral",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Devinoni Ral",
+            "Troi romance",
+            "empathic manipulation"
+          ],
+          "keywordsAny": [
+            "Deanna Troi",
+            "Devinoni Ral",
+            "Starfleet",
+            "Troi romance",
+            "empathic manipulation",
+            "The Price",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Troi becomes involved with Devinoni Ral but his empathic manipulation and negotiation ethics make the relationship non-durable.",
+        "injection": "Use Troi-Ral only for The Price context. Do not carry it forward as an ongoing romance after the episode.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Price",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 8,
+        "runtimeEpisodes": [
+          8
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Price_(episode)",
+        "stardate": "43385.6 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_data-q-friendship-gift-laugh",
+      "title": "Deja Q gives Data a rare laughter gift from Q",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 51,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e13.deja-q",
+        "validToAnchor": "tng.s3.e14.a-matter-of-perspective",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "sortKeyFrom": 12240,
+        "sortKeyTo": 12260,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Deja Q",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e13.deja-q",
+          "label": "Deja Q",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:q",
+          "st:q-continuum",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Q"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Q Continuum",
+          "Starfleet"
+        ],
+        "topics": [
+          "Data laughter",
+          "Q gift",
+          "humanity quest"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-deja-q",
+        "character:data",
+        "character:q",
+        "faction:q-continuum",
+        "faction:starfleet",
+        "topic:data-laughter",
+        "topic:q-gift",
+        "topic:humanity-quest"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Q"
+          ],
+          "factionsAny": [
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Q",
+            "Q Continuum",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data laughter",
+            "Q gift",
+            "humanity quest"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Q",
+            "Q Continuum",
+            "Starfleet",
+            "Data laughter",
+            "Q gift",
+            "humanity quest",
+            "Deja Q",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Q thanks Data by briefly giving him the ability to laugh, making the moment a local Data-humanity beat rather than a permanent emotion upgrade.",
+        "injection": "After Deja Q, Data can remember laughing once, but he does not gain stable human emotions or full emotional capacity.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Deja Q",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 13,
+        "runtimeEpisodes": [
+          13
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Deja_Q_(episode)",
+        "stardate": "43539.1 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_data-creates-lal-as-child",
+      "title": "The Offspring makes Lal Data's created child, not a simple experiment",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e16.the-offspring",
+        "validToAnchor": "tng.s3.e17.sins-of-the-father",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 12300,
+        "sortKeyTo": 12320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Offspring",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e16.the-offspring",
+          "label": "The Offspring",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:lal",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Lal"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Lal",
+          "Data parenthood",
+          "android child"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-offspring",
+        "character:data",
+        "character:lal",
+        "faction:starfleet",
+        "topic:lal",
+        "topic:data-parenthood",
+        "topic:android-child"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Lal"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Lal",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Lal",
+            "Data parenthood",
+            "android child"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Lal",
+            "Starfleet",
+            "Data parenthood",
+            "android child",
+            "The Offspring",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data creates Lal as his offspring and treats parenthood as a serious relationship, forcing the crew and Starfleet to respond to an android family bond.",
+        "injection": "After The Offspring begins, write Lal as Data child and person, not just a device. Keep Data parenthood sincere and literal.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Offspring",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Offspring_(episode)",
+        "stardate": "43657.0 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_data-parenthood-memory-after-lal",
+      "title": "Data carries Lal's memories after her death",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e16.the-offspring",
+        "validToAnchor": "tng.s3.e17.sins-of-the-father",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "sortKeyFrom": 12300,
+        "sortKeyTo": 12320,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Offspring",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e16.the-offspring",
+          "label": "The Offspring",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:lal",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Lal"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Lal memories",
+          "Data parenthood",
+          "android grief"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-offspring",
+        "character:data",
+        "character:lal",
+        "faction:starfleet",
+        "topic:lal-memories",
+        "topic:data-parenthood",
+        "topic:android-grief"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Lal"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Lal",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Lal memories",
+            "Data parenthood",
+            "android grief"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Lal",
+            "Starfleet",
+            "Lal memories",
+            "Data parenthood",
+            "android grief",
+            "The Offspring",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "After Lal dies, Data integrates her memories, making the parenthood experience part of him even without ordinary emotional grief.",
+        "injection": "Use Lal aftermath as Data lived memory and family context. Do not make him emotionally human; keep his response android-specific.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Offspring",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 16,
+        "runtimeEpisodes": [
+          16
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Offspring_(episode)",
+        "stardate": "43657.0 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_riker-challenges-false-picard",
+      "title": "Allegiance shows Riker can challenge Picard-like orders when command behavior breaks pattern",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e18.allegiance",
+        "validToAnchor": "tng.s3.e19.captains-holiday",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "sortKeyFrom": 12340,
+        "sortKeyTo": 12360,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Allegiance",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e18.allegiance",
+          "label": "Allegiance",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:jean-luc-picard",
+          "st:starfleet"
+        ],
+        "characters": [
+          "William Riker",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Riker command skepticism",
+          "false Picard",
+          "bridge discipline"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-allegiance",
+        "character:william-riker",
+        "character:jean-luc-picard",
+        "faction:starfleet",
+        "topic:riker-command-skepticism",
+        "topic:false-picard",
+        "topic:bridge-discipline"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Riker command skepticism",
+            "false Picard",
+            "bridge discipline"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Starfleet",
+            "Riker command skepticism",
+            "false Picard",
+            "bridge discipline",
+            "Allegiance",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Riker eventually resists the duplicate Picard as orders become dangerous and inconsistent, showing disciplined command skepticism.",
+        "injection": "Use Allegiance for Riker judgment: loyalty does not require blind obedience when a captain behaves impossibly out of character.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Allegiance",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 18,
+        "runtimeEpisodes": [
+          18
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Allegiance_(episode)",
+        "stardate": "43714.1 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_vash-and-picard-risa-connection",
+      "title": "Captain's Holiday introduces Vash as Picard's Risa adventure partner",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e19.captains-holiday",
+        "validToAnchor": "tng.s3.e20.tin-man",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "sortKeyFrom": 12360,
+        "sortKeyTo": 12380,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Captain's Holiday",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e19.captains-holiday",
+          "label": "Captain's Holiday",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:vash",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Vash"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Vash",
+          "Risa",
+          "Picard romance"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-captains-holiday",
+        "character:jean-luc-picard",
+        "character:vash",
+        "faction:starfleet",
+        "topic:vash",
+        "topic:risa",
+        "topic:picard-romance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Vash"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Vash",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Vash",
+            "Risa",
+            "Picard romance"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Vash",
+            "Starfleet",
+            "Risa",
+            "Picard romance",
+            "Captain's Holiday",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard meets Vash on Risa and becomes drawn into an archaeological chase for the Tox Uthat, creating a recurring personal connection.",
+        "injection": "After Captain's Holiday, Vash is a known Picard romantic-adventure connection. Do not import later Qpid or DS9 Vash outcomes yet.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Captain's Holiday",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 19,
+        "runtimeEpisodes": [
+          19
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Captain's_Holiday_(episode)",
+        "stardate": "43745.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_tam-elbrun-telepathic-isolation",
+      "title": "Tam Elbrun is brilliant but damaged by uncontrolled telepathic openness",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e20.tin-man",
+        "validToAnchor": "tng.s3.e21.hollow-pursuits",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "sortKeyFrom": 12380,
+        "sortKeyTo": 12400,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Tin Man",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e20.tin-man",
+          "label": "Tin Man",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:tam-elbrun",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Tam Elbrun"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Tam Elbrun",
+          "telepathy",
+          "Gomtuu"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-tin-man",
+        "character:tam-elbrun",
+        "faction:starfleet",
+        "topic:tam-elbrun",
+        "topic:telepathy",
+        "topic:gomtuu"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tam Elbrun"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Tam Elbrun",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Tam Elbrun",
+            "telepathy",
+            "Gomtuu"
+          ],
+          "keywordsAny": [
+            "Tam Elbrun",
+            "Starfleet",
+            "telepathy",
+            "Gomtuu",
+            "Tin Man",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Tam Elbrun senses other minds too intensely, making him socially difficult but uniquely able to bond with Gomtuu.",
+        "injection": "Use Tam as a telepathic-specialist gate: his behavior is shaped by overwhelming perception, not simple arrogance.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Tin Man",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 20,
+        "runtimeEpisodes": [
+          20
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Tin_Man_(episode)",
+        "stardate": "43779.3 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_barclay-anxiety-and-holodeck-coping",
+      "title": "Hollow Pursuits introduces Barclay using holodeck fantasy to cope with anxiety",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e21.hollow-pursuits",
+        "validToAnchor": "tng.s3.e22.the-most-toys",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "sortKeyFrom": 12400,
+        "sortKeyTo": 12420,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Hollow Pursuits",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e21.hollow-pursuits",
+          "label": "Hollow Pursuits",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:reginald-barclay",
+          "st:geordi-la-forge",
+          "st:deanna-troi",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Reginald Barclay",
+          "Geordi La Forge",
+          "Deanna Troi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Barclay",
+          "holodeck coping",
+          "social anxiety"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-hollow-pursuits",
+        "character:reginald-barclay",
+        "character:geordi-la-forge",
+        "character:deanna-troi",
+        "faction:starfleet",
+        "topic:barclay",
+        "topic:holodeck-coping",
+        "topic:social-anxiety"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Reginald Barclay",
+            "Geordi La Forge",
+            "Deanna Troi"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Reginald Barclay",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Barclay",
+            "holodeck coping",
+            "social anxiety"
+          ],
+          "keywordsAny": [
+            "Reginald Barclay",
+            "Geordi La Forge",
+            "Deanna Troi",
+            "Starfleet",
+            "Barclay",
+            "holodeck coping",
+            "social anxiety",
+            "Hollow Pursuits",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Reginald Barclay is a gifted but anxious engineer whose holodeck fantasies distort crew relationships and interfere with duty.",
+        "injection": "After Hollow Pursuits, write Barclay as anxious, talented, avoidant, and in need of support rather than as a joke or villain.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Hollow Pursuits",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 21,
+        "runtimeEpisodes": [
+          21
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Hollow_Pursuits_(episode)",
+        "stardate": "43807.4-43808.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_data-lethal-choice-ambiguity",
+      "title": "The Most Toys leaves ambiguity around Data willingness to fire on Fajo",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e22.the-most-toys",
+        "validToAnchor": "tng.s3.e23.sarek",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "sortKeyFrom": 12420,
+        "sortKeyTo": 12440,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Most Toys",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e22.the-most-toys",
+          "label": "The Most Toys",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:data",
+          "st:kivas-fajo",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Data",
+          "Kivas Fajo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet"
+        ],
+        "topics": [
+          "Data ethics",
+          "lethal force ambiguity",
+          "The Most Toys"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-most-toys",
+        "character:data",
+        "character:kivas-fajo",
+        "faction:starfleet",
+        "topic:data-ethics",
+        "topic:lethal-force-ambiguity",
+        "topic:the-most-toys"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Data",
+            "Kivas Fajo"
+          ],
+          "factionsAny": [
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Data",
+            "Kivas Fajo",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Data ethics",
+            "lethal force ambiguity",
+            "The Most Toys"
+          ],
+          "keywordsAny": [
+            "Data",
+            "Kivas Fajo",
+            "Starfleet",
+            "Data ethics",
+            "lethal force ambiguity",
+            "The Most Toys",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Data is found with a weapon discharged during his final confrontation with Fajo, preserving ambiguity about whether he chose lethal force.",
+        "injection": "Use this as a Data ethics edge case. Do not simplify it into proof that Data feels rage or proof that he is incapable of lethal judgment.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Most Toys",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 22,
+        "runtimeEpisodes": [
+          22
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Most_Toys_(episode)",
+        "stardate": "43872.2 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_sarek-bendii-syndrome",
+      "title": "Sarek reveals the ambassador is losing emotional control to Bendii syndrome",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e23.sarek",
+        "validToAnchor": "tng.s3.e24.menage-a-troi",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 12440,
+        "sortKeyTo": 12460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Sarek",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e23.sarek",
+          "label": "Sarek",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:sarek",
+          "st:jean-luc-picard",
+          "st:vulcans",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Sarek",
+          "Jean-Luc Picard"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Vulcans",
+          "Starfleet"
+        ],
+        "topics": [
+          "Sarek",
+          "Bendii syndrome",
+          "Legaran treaty"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sarek",
+        "character:sarek",
+        "character:jean-luc-picard",
+        "faction:vulcans",
+        "faction:starfleet",
+        "topic:sarek",
+        "topic:bendii-syndrome",
+        "topic:legaran-treaty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sarek",
+            "Jean-Luc Picard"
+          ],
+          "factionsAny": [
+            "Vulcans",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Sarek",
+            "Jean-Luc Picard",
+            "Vulcans",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Sarek",
+            "Bendii syndrome",
+            "Legaran treaty"
+          ],
+          "keywordsAny": [
+            "Sarek",
+            "Jean-Luc Picard",
+            "Vulcans",
+            "Starfleet",
+            "Bendii syndrome",
+            "Legaran treaty",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Sarek diplomatic mission is compromised by Bendii syndrome, which leaks intense emotions into those around him.",
+        "injection": "After Sarek reveal, write Sarek as still dignified and important but medically compromised by Bendii syndrome.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sarek",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sarek_(episode)",
+        "stardate": "43917.4-43920.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_picard-sarek-mind-meld-burden",
+      "title": "Picard carries Sarek emotional burden through a mind meld",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e23.sarek",
+        "validToAnchor": "tng.s3.e24.menage-a-troi",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "sortKeyFrom": 12440,
+        "sortKeyTo": 12460,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: Sarek",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e23.sarek",
+          "label": "Sarek",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:jean-luc-picard",
+          "st:sarek",
+          "st:vulcans",
+          "st:starfleet"
+        ],
+        "characters": [
+          "Jean-Luc Picard",
+          "Sarek"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Vulcans",
+          "Starfleet"
+        ],
+        "topics": [
+          "Sarek mind meld",
+          "Picard emotion",
+          "Legaran treaty"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-sarek",
+        "character:jean-luc-picard",
+        "character:sarek",
+        "faction:vulcans",
+        "faction:starfleet",
+        "topic:sarek-mind-meld",
+        "topic:picard-emotion",
+        "topic:legaran-treaty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jean-Luc Picard",
+            "Sarek"
+          ],
+          "factionsAny": [
+            "Vulcans",
+            "Starfleet"
+          ],
+          "entitiesAny": [
+            "Jean-Luc Picard",
+            "Sarek",
+            "Vulcans",
+            "Starfleet"
+          ],
+          "topicsAny": [
+            "Sarek mind meld",
+            "Picard emotion",
+            "Legaran treaty"
+          ],
+          "keywordsAny": [
+            "Jean-Luc Picard",
+            "Sarek",
+            "Vulcans",
+            "Starfleet",
+            "Sarek mind meld",
+            "Picard emotion",
+            "Legaran treaty",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "Picard accepts a mind meld with Sarek so the ambassador can complete negotiations, exposing Picard to overwhelming Vulcan-suppressed emotion.",
+        "injection": "After Sarek, Picard can carry the memory of Sarek emotional burden. Do not import later Spock/Sarek resolutions before their windows.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "Sarek",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 23,
+        "runtimeEpisodes": [
+          23
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/Sarek_(episode)",
+        "stardate": "43917.4-43920.7 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "st_tng_s3_riker-takes-command-against-locutus",
+      "title": "Riker becomes acting captain against Locutus at the season 3 cliffhanger",
+      "kind": "character_state",
+      "gateType": "character_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "character_snapshot",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 45,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "validToAnchor": "tng.s3.e26.the-best-of-both-worlds",
+        "series": "TNG",
+        "season": "3",
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 12500,
+        "precision": "episode_window",
+        "windowKind": "bounded",
+        "label": "TNG season 3: The Best of Both Worlds",
+        "approximate": false
+      },
+      "coordinates": [
+        {
+          "axis": "series",
+          "id": "tng",
+          "label": "Star Trek: The Next Generation",
+          "required": false
+        },
+        {
+          "axis": "season",
+          "id": "tng-s3",
+          "label": "TNG season 3",
+          "required": false
+        },
+        {
+          "axis": "episode",
+          "id": "tng.s3.e26.the-best-of-both-worlds",
+          "label": "The Best of Both Worlds",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "st:william-riker",
+          "st:jean-luc-picard",
+          "st:elizabeth-shelby",
+          "st:starfleet",
+          "st:borg-collective"
+        ],
+        "characters": [
+          "William Riker",
+          "Jean-Luc Picard",
+          "Elizabeth Shelby"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Starfleet",
+          "Borg Collective"
+        ],
+        "topics": [
+          "Riker acting captain",
+          "Locutus",
+          "Borg cube"
+        ]
+      },
+      "tags": [
+        "fandom:star-trek",
+        "continuity:star-trek-prime",
+        "series:tng",
+        "season:tng-s3",
+        "structure:season-split-loredeck",
+        "quality:draft-reference",
+        "episode:tng-s3-the-best-of-both-worlds",
+        "character:william-riker",
+        "character:jean-luc-picard",
+        "character:elizabeth-shelby",
+        "faction:starfleet",
+        "faction:borg-collective",
+        "topic:riker-acting-captain",
+        "topic:locutus",
+        "topic:borg-cube"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Elizabeth Shelby"
+          ],
+          "factionsAny": [
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "entitiesAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Elizabeth Shelby",
+            "Starfleet",
+            "Borg Collective"
+          ],
+          "topicsAny": [
+            "Riker acting captain",
+            "Locutus",
+            "Borg cube"
+          ],
+          "keywordsAny": [
+            "William Riker",
+            "Jean-Luc Picard",
+            "Elizabeth Shelby",
+            "Starfleet",
+            "Borg Collective",
+            "Riker acting captain",
+            "Locutus",
+            "Borg cube",
+            "The Best of Both Worlds",
+            "TNG season 3"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-trek-prime",
+        "canonTier": "primary",
+        "adaptation": "television",
+        "medium": "television",
+        "variantOf": "star-trek-prime",
+        "sourceBoundary": "Star Trek: The Next Generation season 3, Memory Alpha story rows 1-26, runtime episode aliases 1-26, primary on-screen Prime continuity.",
+        "notes": "Draft reference deck. Excludes later TNG seasons, TNG films, DS9, Voyager, Picard-era material, beta canon, and fanon unless a card is an explicit future guard."
+      },
+      "content": {
+        "fact": "After Picard assimilation, Riker takes command and orders action against the Borg cube with Picard aboard as Locutus.",
+        "injection": "Use Riker as acting captain in the Best of Both Worlds cliffhanger. Do not resolve whether the order works until season 4.",
+        "constraints": [
+          "Keep this card inside TNG season 3 unless another active Star Trek deck provides a later Context window.",
+          "Use the episode and season Context gates before injecting this fact."
+        ],
+        "antiLore": [
+          "Do not copy Memory Alpha prose or substitute a plot recap for this gate.",
+          "Do not import later TNG, DS9, Voyager, film, Picard-era, beta-canon, novel, comic, or fanon facts into this season 3 card."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "Star Trek: The Next Generation",
+        "sourceType": "episode",
+        "title": "The Best of Both Worlds",
+        "series": "TNG",
+        "season": 3,
+        "storyEpisode": 26,
+        "runtimeEpisodes": [
+          26
+        ],
+        "memoryAlphaUrl": "https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds_(episode)",
+        "stardate": "43989.1-43998.5 (2366)",
+        "evidenceArtifact": "docs/loredecks/star-trek-memory-alpha-episode-evidence.json",
+        "confidence": 0.78,
+        "notes": "Drafted from Saga Star Trek authoring plan and Memory Alpha evidence index; needs human canon spot check before reference-quality release."
+      },
+      "extensions": {
+        "sagaStarTrekDraft": {
+          "targetPackId": "star-trek-tng-season-3",
+          "plan": "docs/loredecks/STAR_TREK_TNG_DS9_VOY_AUTHORING_PLAN.md",
+          "generatedAt": "2026-06-17"
+        }
+      }
+    }
+  ]
+}

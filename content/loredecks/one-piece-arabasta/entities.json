@@ -1,0 +1,1545 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "op:alubarna": {
+      "type": "location",
+      "label": "Alubarna",
+      "aliases": [
+        "Alubarna"
+      ],
+      "canonicalNames": [
+        "Alubarna"
+      ],
+      "tags": [
+        "location:alubarna"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:ancient-weapons": {
+      "type": "knowledge",
+      "label": "Ancient Weapons",
+      "aliases": [
+        "Ancient Weapons"
+      ],
+      "canonicalNames": [
+        "Ancient Weapons"
+      ],
+      "tags": [
+        "topic:ancient-weapons"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:arabasta": {
+      "type": "location",
+      "label": "Arabasta",
+      "aliases": [
+        "Arabasta"
+      ],
+      "canonicalNames": [
+        "Arabasta"
+      ],
+      "tags": [
+        "location:arabasta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:baroque-works": {
+      "type": "faction",
+      "label": "Baroque Works",
+      "aliases": [
+        "Baroque Works"
+      ],
+      "canonicalNames": [
+        "Baroque Works"
+      ],
+      "tags": [
+        "faction:baroque-works"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:bomb": {
+      "type": "knowledge",
+      "label": "bomb",
+      "aliases": [
+        "bomb"
+      ],
+      "canonicalNames": [
+        "bomb"
+      ],
+      "tags": [
+        "topic:bomb"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:captain-smoker": {
+      "type": "character",
+      "label": "Captain Smoker",
+      "aliases": [
+        "Captain Smoker"
+      ],
+      "canonicalNames": [
+        "Captain Smoker"
+      ],
+      "tags": [
+        "character:captain-smoker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:chaka": {
+      "type": "character",
+      "label": "Chaka",
+      "aliases": [
+        "Chaka"
+      ],
+      "canonicalNames": [
+        "Chaka"
+      ],
+      "tags": [
+        "character:chaka"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:clima-tact": {
+      "type": "item",
+      "label": "Clima-Tact",
+      "aliases": [
+        "Clima-Tact"
+      ],
+      "canonicalNames": [
+        "Clima-Tact"
+      ],
+      "tags": [
+        "item:clima-tact"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:clock-tower": {
+      "type": "knowledge",
+      "label": "clock tower",
+      "aliases": [
+        "clock tower"
+      ],
+      "canonicalNames": [
+        "clock tower"
+      ],
+      "tags": [
+        "topic:clock-tower"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:crocodile": {
+      "type": "character",
+      "label": "Crocodile",
+      "aliases": [
+        "Crocodile"
+      ],
+      "canonicalNames": [
+        "Crocodile"
+      ],
+      "tags": [
+        "character:crocodile"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:dance-powder": {
+      "type": "location",
+      "label": "Dance Powder",
+      "aliases": [
+        "Dance Powder"
+      ],
+      "canonicalNames": [
+        "Dance Powder"
+      ],
+      "tags": [
+        "location:dance-powder"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:daz-bones": {
+      "type": "faction",
+      "label": "Daz Bones",
+      "aliases": [
+        "Daz Bones"
+      ],
+      "canonicalNames": [
+        "Daz Bones"
+      ],
+      "tags": [
+        "faction:daz-bones"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:going-merry": {
+      "type": "knowledge",
+      "label": "Going Merry",
+      "aliases": [
+        "Going Merry"
+      ],
+      "canonicalNames": [
+        "Going Merry"
+      ],
+      "tags": [
+        "topic:going-merry"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:igaram": {
+      "type": "character",
+      "label": "Igaram",
+      "aliases": [
+        "Igaram"
+      ],
+      "canonicalNames": [
+        "Igaram"
+      ],
+      "tags": [
+        "character:igaram"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:karoo": {
+      "type": "character",
+      "label": "Karoo",
+      "aliases": [
+        "Karoo"
+      ],
+      "canonicalNames": [
+        "Karoo"
+      ],
+      "tags": [
+        "character:karoo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:koza": {
+      "type": "character",
+      "label": "Koza",
+      "aliases": [
+        "Koza"
+      ],
+      "canonicalNames": [
+        "Koza"
+      ],
+      "tags": [
+        "character:koza"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:lassoo": {
+      "type": "faction",
+      "label": "Lassoo",
+      "aliases": [
+        "Lassoo"
+      ],
+      "canonicalNames": [
+        "Lassoo"
+      ],
+      "tags": [
+        "faction:lassoo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:marines": {
+      "type": "faction",
+      "label": "Marines",
+      "aliases": [
+        "Marines"
+      ],
+      "canonicalNames": [
+        "Marines"
+      ],
+      "tags": [
+        "faction:marines"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:miss-all-sunday": {
+      "type": "knowledge",
+      "label": "Miss All Sunday",
+      "aliases": [
+        "Miss All Sunday"
+      ],
+      "canonicalNames": [
+        "Miss All Sunday"
+      ],
+      "tags": [
+        "topic:miss-all-sunday"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:miss-doublefinger": {
+      "type": "faction",
+      "label": "Miss Doublefinger",
+      "aliases": [
+        "Miss Doublefinger"
+      ],
+      "canonicalNames": [
+        "Miss Doublefinger"
+      ],
+      "tags": [
+        "faction:miss-doublefinger"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:miss-merry-christmas": {
+      "type": "faction",
+      "label": "Miss Merry Christmas",
+      "aliases": [
+        "Miss Merry Christmas"
+      ],
+      "canonicalNames": [
+        "Miss Merry Christmas"
+      ],
+      "tags": [
+        "faction:miss-merry-christmas"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:monkey-d-luffy": {
+      "type": "knowledge",
+      "label": "Monkey D. Luffy",
+      "aliases": [
+        "Monkey D. Luffy"
+      ],
+      "canonicalNames": [
+        "Monkey D. Luffy"
+      ],
+      "tags": [
+        "topic:monkey-d-luffy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:mr-1": {
+      "type": "faction",
+      "label": "Mr. 1",
+      "aliases": [
+        "Mr. 1"
+      ],
+      "canonicalNames": [
+        "Mr. 1"
+      ],
+      "tags": [
+        "faction:mr-1"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:mr-2-bon-clay": {
+      "type": "faction",
+      "label": "Mr. 2 Bon Clay",
+      "aliases": [
+        "Mr. 2 Bon Clay"
+      ],
+      "canonicalNames": [
+        "Mr. 2 Bon Clay"
+      ],
+      "tags": [
+        "faction:mr-2-bon-clay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:mr-4": {
+      "type": "faction",
+      "label": "Mr. 4",
+      "aliases": [
+        "Mr. 4"
+      ],
+      "canonicalNames": [
+        "Mr. 4"
+      ],
+      "tags": [
+        "faction:mr-4"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:nami": {
+      "type": "knowledge",
+      "label": "Nami",
+      "aliases": [
+        "Nami"
+      ],
+      "canonicalNames": [
+        "Nami"
+      ],
+      "tags": [
+        "topic:nami"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:nanohana": {
+      "type": "location",
+      "label": "Nanohana",
+      "aliases": [
+        "Nanohana"
+      ],
+      "canonicalNames": [
+        "Nanohana"
+      ],
+      "tags": [
+        "location:nanohana"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:nefertari-cobra": {
+      "type": "character",
+      "label": "Nefertari Cobra",
+      "aliases": [
+        "Nefertari Cobra"
+      ],
+      "canonicalNames": [
+        "Nefertari Cobra"
+      ],
+      "tags": [
+        "character:nefertari-cobra"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:nefertari-vivi": {
+      "type": "character",
+      "label": "Nefertari Vivi",
+      "aliases": [
+        "Nefertari Vivi"
+      ],
+      "canonicalNames": [
+        "Nefertari Vivi"
+      ],
+      "tags": [
+        "character:nefertari-vivi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:nico-robin": {
+      "type": "knowledge",
+      "label": "Nico Robin",
+      "aliases": [
+        "Nico Robin"
+      ],
+      "canonicalNames": [
+        "Nico Robin"
+      ],
+      "tags": [
+        "topic:nico-robin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:pell": {
+      "type": "character",
+      "label": "Pell",
+      "aliases": [
+        "Pell"
+      ],
+      "canonicalNames": [
+        "Pell"
+      ],
+      "tags": [
+        "character:pell"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:pluton": {
+      "type": "character",
+      "label": "Pluton",
+      "aliases": [
+        "Pluton"
+      ],
+      "canonicalNames": [
+        "Pluton"
+      ],
+      "tags": [
+        "character:pluton"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:poneglyph": {
+      "type": "knowledge",
+      "label": "Poneglyph",
+      "aliases": [
+        "Poneglyph"
+      ],
+      "canonicalNames": [
+        "Poneglyph"
+      ],
+      "tags": [
+        "topic:poneglyph"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:portgas-d-ace": {
+      "type": "character",
+      "label": "Portgas D. Ace",
+      "aliases": [
+        "Portgas D. Ace"
+      ],
+      "canonicalNames": [
+        "Portgas D. Ace"
+      ],
+      "tags": [
+        "character:portgas-d-ace"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:rain-dinners": {
+      "type": "character",
+      "label": "Rain Dinners",
+      "aliases": [
+        "Rain Dinners"
+      ],
+      "canonicalNames": [
+        "Rain Dinners"
+      ],
+      "tags": [
+        "character:rain-dinners"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:rainbase": {
+      "type": "character",
+      "label": "Rainbase",
+      "aliases": [
+        "Rainbase"
+      ],
+      "canonicalNames": [
+        "Rainbase"
+      ],
+      "tags": [
+        "character:rainbase"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:rebel-army": {
+      "type": "location",
+      "label": "rebel army",
+      "aliases": [
+        "rebel army"
+      ],
+      "canonicalNames": [
+        "rebel army"
+      ],
+      "tags": [
+        "location:rebel-army"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:roronoa-zoro": {
+      "type": "knowledge",
+      "label": "Roronoa Zoro",
+      "aliases": [
+        "Roronoa Zoro"
+      ],
+      "canonicalNames": [
+        "Roronoa Zoro"
+      ],
+      "tags": [
+        "topic:roronoa-zoro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:royal-army": {
+      "type": "location",
+      "label": "royal army",
+      "aliases": [
+        "royal army"
+      ],
+      "canonicalNames": [
+        "royal army"
+      ],
+      "tags": [
+        "location:royal-army"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:royal-guard": {
+      "type": "character",
+      "label": "royal guard",
+      "aliases": [
+        "royal guard"
+      ],
+      "canonicalNames": [
+        "royal guard"
+      ],
+      "tags": [
+        "character:royal-guard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:royal-tomb": {
+      "type": "knowledge",
+      "label": "royal tomb",
+      "aliases": [
+        "royal tomb"
+      ],
+      "canonicalNames": [
+        "royal tomb"
+      ],
+      "tags": [
+        "topic:royal-tomb"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:sand-sand-fruit": {
+      "type": "character",
+      "label": "Sand-Sand Fruit",
+      "aliases": [
+        "Sand-Sand Fruit"
+      ],
+      "canonicalNames": [
+        "Sand-Sand Fruit"
+      ],
+      "tags": [
+        "character:sand-sand-fruit"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:sandora-desert": {
+      "type": "location",
+      "label": "Sandora Desert",
+      "aliases": [
+        "Sandora Desert"
+      ],
+      "canonicalNames": [
+        "Sandora Desert"
+      ],
+      "tags": [
+        "location:sandora-desert"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:sanji": {
+      "type": "knowledge",
+      "label": "Sanji",
+      "aliases": [
+        "Sanji"
+      ],
+      "canonicalNames": [
+        "Sanji"
+      ],
+      "tags": [
+        "topic:sanji"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:seastone-cage": {
+      "type": "character",
+      "label": "seastone cage",
+      "aliases": [
+        "seastone cage"
+      ],
+      "canonicalNames": [
+        "seastone cage"
+      ],
+      "tags": [
+        "character:seastone-cage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:supplies": {
+      "type": "location",
+      "label": "supplies",
+      "aliases": [
+        "supplies"
+      ],
+      "canonicalNames": [
+        "supplies"
+      ],
+      "tags": [
+        "location:supplies"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:tashigi": {
+      "type": "character",
+      "label": "Tashigi",
+      "aliases": [
+        "Tashigi"
+      ],
+      "canonicalNames": [
+        "Tashigi"
+      ],
+      "tags": [
+        "character:tashigi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:tony-tony-chopper": {
+      "type": "knowledge",
+      "label": "Tony Tony Chopper",
+      "aliases": [
+        "Tony Tony Chopper"
+      ],
+      "canonicalNames": [
+        "Tony Tony Chopper"
+      ],
+      "tags": [
+        "topic:tony-tony-chopper"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:toto": {
+      "type": "character",
+      "label": "Toto",
+      "aliases": [
+        "Toto"
+      ],
+      "canonicalNames": [
+        "Toto"
+      ],
+      "tags": [
+        "character:toto"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:usopp": {
+      "type": "knowledge",
+      "label": "Usopp",
+      "aliases": [
+        "Usopp"
+      ],
+      "canonicalNames": [
+        "Usopp"
+      ],
+      "tags": [
+        "topic:usopp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:vivre-card": {
+      "type": "item",
+      "label": "Vivre Card",
+      "aliases": [
+        "Vivre Card"
+      ],
+      "canonicalNames": [
+        "Vivre Card"
+      ],
+      "tags": [
+        "item:vivre-card"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:void-century": {
+      "type": "knowledge",
+      "label": "Void Century",
+      "aliases": [
+        "Void Century"
+      ],
+      "canonicalNames": [
+        "Void Century"
+      ],
+      "tags": [
+        "topic:void-century"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:world-government": {
+      "type": "faction",
+      "label": "World Government",
+      "aliases": [
+        "World Government"
+      ],
+      "canonicalNames": [
+        "World Government"
+      ],
+      "tags": [
+        "faction:world-government"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:x-marks": {
+      "type": "knowledge",
+      "label": "X marks",
+      "aliases": [
+        "X marks"
+      ],
+      "canonicalNames": [
+        "X marks"
+      ],
+      "tags": [
+        "topic:x-marks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    },
+    "op:yuba": {
+      "type": "location",
+      "label": "Yuba",
+      "aliases": [
+        "Yuba"
+      ],
+      "canonicalNames": [
+        "Yuba"
+      ],
+      "tags": [
+        "location:yuba"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "one-piece-manga-main",
+        "canonTier": "canon",
+        "adaptation": "manga",
+        "medium": "manga",
+        "variantOf": "one-piece-mainline",
+        "sourceBoundary": "Arabasta Arc, manga chapters 155-217, anime episodes 92-130, One Piece manga-main continuity with anime episode support.",
+        "notes": "Manga-main deck with anime episode support. Episodes 93, 98-99, and 101-102 may support desert-route play only when they reinforce the same Arabasta arc pressure."
+      },
+      "sourceInfo": {
+        "work": "One Piece",
+        "confidence": 0.91
+      },
+      "extensions": {}
+    }
+  }
+}

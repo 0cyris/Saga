@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve One Piece: Orange Town Arc Context inside East Blue Saga.",
+  "preferredFields": [
+    "saga",
+    "arc",
+    "chapter",
+    "episode",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Orange Town Arc anchors and before/after windows. Do not infer later One Piece arcs unless their Loredecks are loaded.",
+  "localPatterns": [
+    {
+      "pattern": "during orange town arc: buggy and crew",
+      "result": {
+        "anchorFrom": "op.orange-town.orange-town",
+        "label": "Orange Town Arc: Buggy and crew"
+      }
+    },
+    {
+      "pattern": "during orange town arc: nami and treasure",
+      "result": {
+        "anchorFrom": "op.orange-town.nami-and-treasure",
+        "label": "Orange Town Arc: Nami and treasure"
+      }
+    },
+    {
+      "pattern": "during orange town arc: orange town civilians",
+      "result": {
+        "anchorFrom": "op.orange-town.orange-town-civilians",
+        "label": "Orange Town Arc: Orange Town civilians"
+      }
+    },
+    {
+      "pattern": "during orange town arc: luffy, zoro, and nami dynamics",
+      "result": {
+        "anchorFrom": "op.orange-town.luffy-zoro-nami-dynamics",
+        "label": "Orange Town Arc: Luffy, Zoro, and Nami dynamics"
+      }
+    },
+    {
+      "pattern": "during orange town arc: devil fruit and combat rules",
+      "result": {
+        "anchorFrom": "op.orange-town.devil-fruit-and-combat-rules",
+        "label": "Orange Town Arc: Devil Fruit and combat rules"
+      }
+    },
+    {
+      "pattern": "during orange town arc: conflict set pieces",
+      "result": {
+        "anchorFrom": "op.orange-town.conflict-set-pieces",
+        "label": "Orange Town Arc: Conflict set pieces"
+      }
+    },
+    {
+      "pattern": "during orange town arc: aftermath and course",
+      "result": {
+        "anchorFrom": "op.orange-town.aftermath-and-course",
+        "label": "Orange Town Arc: Aftermath and course"
+      }
+    },
+    {
+      "pattern": "during orange town arc: aftermath boundary",
+      "result": {
+        "anchorFrom": "op.orange-town.after",
+        "label": "Orange Town Arc: aftermath boundary"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

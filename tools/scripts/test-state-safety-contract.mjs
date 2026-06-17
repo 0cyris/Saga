@@ -23,6 +23,7 @@ const extensionLifecycle = await readText('src/extension/lifecycle.js');
 const stateManager = await readText('src/state/state-manager.js');
 const stateImportExport = await readText('src/state/import-export.js');
 const runtimePanel = await readText('src/runtime/lore-panel.js');
+const runtimeComposition = await readText('src/runtime/runtime-composition.js');
 const advancedRuntimePanel = await readText('src/runtime/advanced-runtime-panel.js');
 const runtimeSettingsTab = await readText('src/settings/runtime-settings-tab.js');
 const runtimeLoredeckEditorActions = await readText('src/runtime/loredeck-editor-actions.js');
@@ -101,7 +102,8 @@ assert(runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(next);'), 'Secti
 assert(runtimeSafetyPanel.includes('const settings = resetAllSettingsToDefaults();') && runtimeSafetyPanel.includes('refreshRuntimeThemeSurfaces(settings);'), 'Reset All Settings must refresh runtime theme/rail surfaces from the saved defaults.');
 assert(runtimeSafetyPanel.includes('clearStoredSecret') && runtimeSafetyPanel.includes('loreOpenAI') && runtimeSafetyPanel.includes('continuityOpenAI'), 'Reset All Settings must remove stored Saga provider key material.');
 assert(runtimeSafetyPanel.includes('Reset Active Chat') && !runtimeSafetyPanel.includes("createButton('Total Reset'"), 'Active-chat total reset must be labeled Reset Active Chat.');
-assert(runtimePanel.includes('refreshRuntimeThemeSurfaces: (settings = getSettings())') && runtimePanel.includes('refreshRuntimeRailIcons(settings)'), 'Runtime safety wiring must refresh shelf icons after theme-affecting settings reset.');
+assert(runtimeComposition.includes('refreshRuntimeThemeSurfaces: (settings = deps.getSettings?.())')
+  && runtimeComposition.includes('deps.refreshRuntimeRailIcons?.(settings)'), 'Runtime safety wiring must refresh shelf icons after theme-affecting settings reset.');
 
 assert(visualSmoke.includes('State Safety backup/export/restore card'), 'Visual smoke source contract must guard State Safety UI.');
 
