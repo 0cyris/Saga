@@ -107,5 +107,16 @@
     "notes": "Warship Island runtime-lore pass completed: cards now emphasize show-only continuity gates, Apis/Ryu protection stakes, Lost Island resolution, local Marine pursuit, and Reverse Mountain handoff boundaries."
   },
   "entrySchemaVersion": 3,
-  "updatedAt": 1781654400000
+  "updatedAt": 1781654400000,
+  "assets": {
+    "cover": {
+      "path": "assets/cover.jpg",
+      "alt": "One Piece: Warship Island Arc Loredeck cover, transitional manga volume 12",
+      "aspect": "2:3",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  }
 }

@@ -106,5 +106,16 @@
     "notes": "Romance Dawn runtime-lore pass completed: cards emphasize Luffy promise state, Coby courage, Zoro execution-yard restraint, Shells Town authority abuse, first crew bond, small-boat route limits, and early Devil Fruit spoiler gates."
   },
   "entrySchemaVersion": 3,
-  "updatedAt": 1781654400000
+  "updatedAt": 1781654400000,
+  "assets": {
+    "cover": {
+      "path": "assets/cover.jpg",
+      "alt": "One Piece: Romance Dawn Arc Loredeck cover, manga volume 1",
+      "aspect": "2:3",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  }
 }

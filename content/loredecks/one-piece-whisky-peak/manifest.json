@@ -107,5 +107,16 @@
     "notes": "Whisky Peak runtime-lore pass completed: cards now emphasize trap-town hospitality, Baroque Works identity gates, Zoro/Luffy misunderstanding, Vivi and Igaram reveal windows, officer-agent pressure, and Arabasta mission commitment."
   },
   "entrySchemaVersion": 3,
-  "updatedAt": 1781654400000
+  "updatedAt": 1781654400000,
+  "assets": {
+    "cover": {
+      "path": "assets/cover.jpg",
+      "alt": "One Piece: Whisky Peak Arc Loredeck cover, manga volume 13",
+      "aspect": "2:3",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  }
 }

@@ -112,5 +112,16 @@
     "notes": "Arabasta runtime-lore pass completed: cards now emphasize kingdom-war state, Crocodile/Baroque reveal gates, Vivi leadership constraints, Alubarna matchup mechanics, Poneglyph/Pluton boundaries, Ace source-bound contact token, farewell, Robin trust problem, and public cover-up aftermath."
   },
   "entrySchemaVersion": 3,
-  "updatedAt": 1781654400000
+  "updatedAt": 1781654400000,
+  "assets": {
+    "cover": {
+      "path": "assets/cover.jpg",
+      "alt": "One Piece: Arabasta Arc Loredeck cover, manga volume 23",
+      "aspect": "2:3",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  }
 }

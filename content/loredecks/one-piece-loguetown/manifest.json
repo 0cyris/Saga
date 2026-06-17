@@ -107,5 +107,16 @@
     "notes": "Loguetown runtime-lore pass completed: cards now emphasize Roger threshold symbolism, Smoker/Tashigi pressure, returning enemy climax, Dragon mystery, provisioning, and Grand Line departure boundaries."
   },
   "entrySchemaVersion": 3,
-  "updatedAt": 1781654400000
+  "updatedAt": 1781654400000,
+  "assets": {
+    "cover": {
+      "path": "assets/cover.jpg",
+      "alt": "One Piece: Loguetown Arc Loredeck cover, manga volume 12",
+      "aspect": "2:3",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  }
 }

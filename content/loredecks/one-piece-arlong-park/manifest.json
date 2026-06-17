@@ -107,5 +107,16 @@
     "notes": "Arlong Park runtime-lore pass completed: cards now emphasize Nami reveal gates, village occupation, buyback betrayal, map-room liberation, matchup constraints, and anti-spoiler boundaries."
   },
   "entrySchemaVersion": 3,
-  "updatedAt": 1781654400000
+  "updatedAt": 1781654400000,
+  "assets": {
+    "cover": {
+      "path": "assets/cover.jpg",
+      "alt": "One Piece: Arlong Park Arc Loredeck cover, manga volume 11",
+      "aspect": "2:3",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  }
 }

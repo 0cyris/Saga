@@ -957,6 +957,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Romance Dawn Arc Loredeck cover, manga volume 1",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 34,
             "categoryCounts": {
@@ -993,6 +1004,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Orange Town Arc Loredeck cover, manga volume 3",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 31,
             "categoryCounts": {
@@ -1028,6 +1050,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Syrup Village Arc Loredeck cover, manga volume 4",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 37,
             "categoryCounts": {
@@ -1064,6 +1097,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Baratie Arc Loredeck cover, manga volume 7",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 41,
             "categoryCounts": {
@@ -1099,6 +1143,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Arlong Park Arc Loredeck cover, manga volume 11",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 41,
             "categoryCounts": {
@@ -1134,6 +1189,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Loguetown Arc Loredeck cover, manga volume 12",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 35,
             "categoryCounts": {
@@ -1172,6 +1238,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Warship Island Arc Loredeck cover, transitional manga volume 12",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 25,
             "categoryCounts": {
@@ -1208,6 +1285,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Reverse Mountain Arc Loredeck cover, manga volume 12",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 30,
             "categoryCounts": {
@@ -1243,6 +1331,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Whisky Peak Arc Loredeck cover, manga volume 13",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 36,
             "categoryCounts": {
@@ -1279,6 +1378,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Little Garden Arc Loredeck cover, manga volume 14",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 40,
             "categoryCounts": {
@@ -1314,6 +1424,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Drum Island Arc Loredeck cover, manga volume 16",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 44,
             "categoryCounts": {
@@ -1350,6 +1471,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Arabasta Arc Loredeck cover, manga volume 23",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 58,
             "categoryCounts": {
@@ -1389,6 +1521,17 @@ const ONE_PIECE_ARC_LOREDECKS = Object.freeze([
             "structure:arc-split-loredeck",
             "quality:reviewed-baseline"
         ],
+        "assets": {
+            "cover": {
+                "path": "assets/cover.jpg",
+                "alt": "One Piece: Post-Arabasta Arc Loredeck cover, manga volume 24",
+                "aspect": "2:3",
+                "focalPoint": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            }
+        },
         "stats": {
             "entryCount": 25,
             "categoryCounts": {
