@@ -4,7 +4,7 @@ Saga documentation is being organized into release-facing topic folders. Older i
 
 ## Release Notes
 
-- [Saga 0.3.0-alpha.3 - Lorepack Expansion](release/0.3.0-alpha.3.md): current alpha with bundled One Piece and Star Trek Lorepack expansion, Story Maker reliability hardening, Deck Maker generation cleanup, and expanded alpha-gate coverage.
+- [Saga 0.3.0-alpha.3 - Voyages](release/0.3.0-alpha.3.md): current alpha with bundled One Piece and Star Trek Lorepack expansion, Story Maker reliability hardening, Deck Maker generation cleanup, and expanded alpha-gate coverage.
 - [Saga 0.2.0-alpha.2 - The Big Mobile Update](release/0.2.0-alpha.2.md): previous alpha with phone-width mobile UI, Story Maker, Deck Maker polish, mobile docs, and release-gate notes.
 - [Saga 0.1.0-alpha.1 - Fox One](release/0.1.0-alpha.1.md): first controlled alpha release notes.
 
