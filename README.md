@@ -12,7 +12,7 @@ It turns canon, alternate-universe, crossover, and user-created lore into modula
 
 Saga is a lore system for deciding what belongs in the story **now**: what is true, what is hidden, who knows what, and what has changed in this chat.
 
-The current state of development is **alpha-release**: `0.2.0-alpha.2` (**The Big Mobile Update**), with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled loredecks include Harry Potter, Jujutsu Kaisen, LOTR, My Hero Academia, and Star Wars. The desktop/tablet shell, phone-width mobile shell, Story Maker, Deck Maker, Loredeck imports, Pack Health, and Basic/Advanced workflows are functional, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
+The current state of development is **alpha-release**: `0.3.0-alpha.3` (**Lorepack Expansion**), with minimum SillyTavern version `1.12.0`. Automatic updates are disabled for alpha builds, so update manually from the repository. Bundled Loredecks include Harry Potter, Jujutsu Kaisen, Middle-earth, My Hero Academia, One Piece, Star Trek, and Star Wars. The desktop/tablet shell, phone-width mobile shell, Story Maker, Deck Maker, Loredeck imports, Pack Health, and Basic/Advanced workflows are functional, but set your expectations for 'alpha'. Stability is being improved with testing, and user feedback is highly valued.
 
 ## Contents
 
@@ -62,6 +62,7 @@ For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [
 
 Release Notes:
 
+- [Saga 0.3.0-alpha.3 - Lorepack Expansion](docs/release/0.3.0-alpha.3.md)
 - [Saga 0.2.0-alpha.2 - The Big Mobile Update](docs/release/0.2.0-alpha.2.md)
 - [Saga 0.1.0-alpha.1 - Fox One](docs/release/0.1.0-alpha.1.md)
 
@@ -88,7 +89,7 @@ Development notes live in [docs/development](docs/development/) until promoted, 
 
 - Alpha stabilization and live SillyTavern hardening.
 - UI/UX polish across desktop, tablet, and phone-width surfaces.
-- Bundled Loredeck expansion: Star Trek (TNG, VOY, DS9), One Piece, Marvel MCU, and Pokemon.
+- Bundled Loredeck expansion targets: Marvel MCU and Pokemon.
 - Broader live-provider smoke coverage for Story Maker, Deck Maker, Context, and Lore Automation.
 
 ## Security
