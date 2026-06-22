@@ -4156,7 +4156,7 @@ function getLoredeckCreatorPackFromCache(cached = {}, fallback = null) {
     return getFreshLoredeckLibraryPack(packId, fallback || getLoredeckDefinition(packId));
 }
 
-function getLoredeckCreatorPlanningPendingBatchIds(pack = {}) {
+export function getLoredeckCreatorPlanningPendingBatchIds(pack = {}) {
     const ids = new Set();
     for (const change of getLoredeckPendingChanges(pack)) {
         if (!isLoredeckCreatorPlanningPendingChange(change)) continue;
@@ -4180,7 +4180,7 @@ function getLoredeckCreatorPlanningPlannedBatchIds(cached = {}, pack = null) {
     ]);
 }
 
-function getLoredeckCreatorPlanningBatchRows(cached = {}) {
+export function getLoredeckCreatorPlanningBatchRows(cached = {}) {
     const titleBatches = getLoredeckCreatorTitleBatchRows(cached);
     const approvedTitles = getLoredeckCreatorApprovedTitleDrafts(cached);
     const rowsById = new Map(titleBatches.map(batch => [batch.id, { ...batch, approvedTitles: [] }]));
@@ -4209,10 +4209,23 @@ function getLoredeckCreatorPlanningBatchRows(cached = {}) {
         .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
 }
 
-function getLoredeckCreatorNextPlanningBatch(cached = {}) {
-    const planned = getLoredeckCreatorPlanningPlannedBatchIds(cached);
+export function getLoredeckCreatorNextPlanningBatch(cached = {}) {
+    // A batch must only be excluded from re-planning when it is genuinely settled:
+    // either ACCEPTED, or currently holding LIVE pending proposals in Pending Review.
+    // The stored `planningBatchQueuedIds` list is sticky (set once at draft time and
+    // never pruned), so a batch whose proposals were discarded WITHOUT acceptance would
+    // otherwise stay "queued" forever - stranded as Planned-but-unaccepted with nothing
+    // to review and no way to re-plan. Deriving the blocked set from accepted ∪ live
+    // pending (instead of stale queued ∪ accepted) lets such a batch be offered again,
+    // while a batch with proposals still awaiting review is correctly left out so we
+    // don't create duplicates (the button steers the user to review those instead).
+    const pack = getLoredeckCreatorPackFromCache(cached);
+    const blocked = new Set([
+        ...getLoredeckCreatorPlanningAcceptedBatchIds(cached),
+        ...getLoredeckCreatorPlanningPendingBatchIds(pack),
+    ]);
     return getLoredeckCreatorPlanningBatchRows(cached)
-        .find(batch => batch.approvedTitleCount > 0 && !planned.has(batch.id)) || null;
+        .find(batch => batch.approvedTitleCount > 0 && !blocked.has(batch.id)) || null;
 }
 
 function compactLoredeckCreatorPlanningBatchForPrompt(batch = {}) {
@@ -4812,7 +4825,7 @@ function getLoredeckCreatorEntryBatchLimit(limit = null, cached = getLoredeckCre
     return Math.max(1, Math.min(LOREDECK_CREATOR_ENTRY_BATCH_MAX, Number(limit ?? fallback) || fallback));
 }
 
-function getLoredeckCreatorPlanningAcceptedBatchIds(cached = {}) {
+export function getLoredeckCreatorPlanningAcceptedBatchIds(cached = {}) {
     return new Set(normalizeLoredeckCreatorTitleIdList(cached?.planningBatchAcceptedIds || [], 1200));
 }
 
