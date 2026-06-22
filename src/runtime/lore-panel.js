@@ -4488,6 +4488,13 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
             24,
             generationSettings.planningProposalLimit
         );
+        // Already-planned sibling sets are advisory context for the planning model so it
+        // keeps tag/timeline ids consistent. Exclude the current target: it is being
+        // (re)planned now, and a stranded batch can legitimately still appear in the
+        // sticky queued list. (Previously the guard guaranteed the target was absent
+        // here by returning early; the settled-only guard no longer does.)
+        const otherPlannedBatchIds = [...getLoredeckCreatorPlanningQueuedBatchIds(cached)]
+            .filter(id => id !== targetBatchId);
         const requestContext = {
             generatedPackId: pack.packId,
             brief,
@@ -4500,7 +4507,7 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
             approvedTitleDrafts: targetApprovedTitles.map(compactLoredeckCreatorTitleDraftForRevision).slice(0, 40),
             existingTimelineIds: getLoredeckCreatorPlanningExistingTimelineIds(pack),
             existingTagIds: getLoredeckCreatorPlanningExistingTagIds(pack),
-            queuedPlanningBatchIds: [...queuedBatchIds],
+            queuedPlanningBatchIds: otherPlannedBatchIds,
             proposalLimit: effectiveProposalLimit,
         };
         let generationOptions = null;
