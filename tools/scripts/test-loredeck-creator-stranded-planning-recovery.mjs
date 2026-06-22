@@ -49,6 +49,7 @@ globalThis.SillyTavern = {
 const {
   getLoredeckCreatorNextPlanningBatch,
   getLoredeckCreatorPlanningPendingBatchIds,
+  getLoredeckCreatorPlanningSettledBatchIds,
 } = await import('../../src/runtime/lore-panel.js');
 
 const BATCH_ID = 'batch-a';
@@ -109,6 +110,24 @@ function makePlanningPendingChange(batchId) {
   const cached = makeStrandedCached({ generatedPackId: TEST_PACK_ID });
   const next = getLoredeckCreatorNextPlanningBatch(cached);
   assert.equal(next, null, 'A batch with live pending proposals must not be re-offered (the user should review those instead).');
+}
+
+// --- Case 4: the shared "settled" helper drives BOTH the selector and the ----
+// planning-draft guard. The guard rejected the batch when it appeared in this set,
+// so a stranded batch must be ABSENT here (otherwise the button unlocks but the
+// handler still toasts "That Context and Tag set has already been planned").
+{
+  packPendingChanges.length = 0;
+  const strandedSettled = getLoredeckCreatorPlanningSettledBatchIds(makeStrandedCached());
+  assert.ok(!strandedSettled.has(BATCH_ID), 'A stranded batch must not be treated as settled, so the planning-draft guard lets it re-plan.');
+
+  const acceptedSettled = getLoredeckCreatorPlanningSettledBatchIds(makeStrandedCached({ planningBatchAcceptedIds: [BATCH_ID] }));
+  assert.ok(acceptedSettled.has(BATCH_ID), 'An accepted batch must be settled so the guard blocks duplicate planning.');
+
+  packPendingChanges.push(makePlanningPendingChange(BATCH_ID));
+  const pendingSettled = getLoredeckCreatorPlanningSettledBatchIds(makeStrandedCached({ generatedPackId: TEST_PACK_ID }));
+  assert.ok(pendingSettled.has(BATCH_ID), 'A batch awaiting review must be settled so the guard steers the user to review instead.');
+  packPendingChanges.length = 0;
 }
 
 console.log('Stranded Deck Maker planning recovery checks passed.');

@@ -4209,23 +4209,28 @@ export function getLoredeckCreatorPlanningBatchRows(cached = {}) {
         .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
 }
 
-export function getLoredeckCreatorNextPlanningBatch(cached = {}) {
-    // A batch must only be excluded from re-planning when it is genuinely settled:
-    // either ACCEPTED, or currently holding LIVE pending proposals in Pending Review.
-    // The stored `planningBatchQueuedIds` list is sticky (set once at draft time and
-    // never pruned), so a batch whose proposals were discarded WITHOUT acceptance would
-    // otherwise stay "queued" forever - stranded as Planned-but-unaccepted with nothing
-    // to review and no way to re-plan. Deriving the blocked set from accepted ∪ live
-    // pending (instead of stale queued ∪ accepted) lets such a batch be offered again,
-    // while a batch with proposals still awaiting review is correctly left out so we
-    // don't create duplicates (the button steers the user to review those instead).
-    const pack = getLoredeckCreatorPackFromCache(cached);
-    const blocked = new Set([
+// A planning batch is "settled" - and must not be re-planned - only when it is
+// genuinely done: either ACCEPTED, or currently holding LIVE pending proposals in
+// Pending Review. The stored `planningBatchQueuedIds` list is sticky (set once at
+// draft time and never pruned), so a batch whose proposals were discarded WITHOUT
+// acceptance would otherwise stay "queued" forever - stranded as Planned-but-
+// unaccepted with nothing to review and no way to re-plan. Deriving the settled set
+// from accepted ∪ live pending (instead of stale queued ∪ accepted) lets such a batch
+// be offered and re-planned again, while a batch with proposals still awaiting review
+// is correctly left out so we don't create duplicates. Both the next-batch selector
+// and the planning-draft guard share this helper so they can never disagree.
+export function getLoredeckCreatorPlanningSettledBatchIds(cached = {}, pack = null) {
+    const generatedPack = pack || getLoredeckCreatorPackFromCache(cached);
+    return new Set([
         ...getLoredeckCreatorPlanningAcceptedBatchIds(cached),
-        ...getLoredeckCreatorPlanningPendingBatchIds(pack),
+        ...getLoredeckCreatorPlanningPendingBatchIds(generatedPack),
     ]);
+}
+
+export function getLoredeckCreatorNextPlanningBatch(cached = {}) {
+    const settled = getLoredeckCreatorPlanningSettledBatchIds(cached);
     return getLoredeckCreatorPlanningBatchRows(cached)
-        .find(batch => batch.approvedTitleCount > 0 && !blocked.has(batch.id)) || null;
+        .find(batch => batch.approvedTitleCount > 0 && !settled.has(batch.id)) || null;
 }
 
 function compactLoredeckCreatorPlanningBatchForPrompt(batch = {}) {
@@ -4441,8 +4446,12 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
             return;
         }
         const targetBatchId = normalizeLoredeckCreatorTitleId(targetPlanningBatch.id || targetPlanningBatch.label || '', '');
-        const queuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
-        if (targetBatchId && queuedBatchIds.has(targetBatchId)) {
+        // Only block re-planning when the batch is genuinely settled (accepted or
+        // awaiting review). A stale `planningBatchQueuedIds` entry must NOT block it,
+        // otherwise a discarded-without-acceptance batch is stranded with no way to
+        // re-plan - see getLoredeckCreatorPlanningSettledBatchIds.
+        const settledBatchIds = getLoredeckCreatorPlanningSettledBatchIds(cached);
+        if (targetBatchId && settledBatchIds.has(targetBatchId)) {
             toast('That Context and Tag set has already been planned.', 'info');
             return;
         }
