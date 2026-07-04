@@ -100,6 +100,8 @@ const syntaxTargets = [
   'src/continuity/prompt-injector.js',
   'src/continuity/memo-builder.js',
   'tools/loredeck/loredeck-cli.mjs',
+  'plugins/loredeck-builder/scripts/sync-from-repo.mjs',
+  'tools/scripts/test-loredeck-plugin-bundle.mjs',
   'tools/scripts/smoke-live-st-cdp.mjs',
 ];
 
@@ -156,6 +158,7 @@ const gateScripts = [
   'tools/scripts/test-loredeck-evidence-store.mjs',
   'tools/scripts/test-loredeck-cli-conformance.mjs',
   'tools/scripts/test-loredeck-cli-package-roundtrip.mjs',
+  'tools/scripts/test-loredeck-plugin-bundle.mjs',
   'tools/scripts/test-one-piece-loredeck-health.mjs',
   'tools/scripts/test-loredeck-health-center-refresh.mjs',
   'tools/scripts/test-loredeck-health-repair-session-storage.mjs',

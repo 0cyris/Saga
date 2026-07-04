@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "loredeck-builder",
+  "displayName": "Saga Loredeck Builder",
+  "version": "0.1.0",
+  "description": "Build complete, validated Saga Loredecks for any fandom canon through a staged, user-gated workflow, and package them as importable .saga-loredeck.zip files. Bundles the authoring skill, the loredeck CLI, and a vendored Pack Health engine so it runs without the Saga repo.",
+  "keywords": ["saga", "sillytavern", "loredeck", "lorebook", "fandom", "worldbuilding", "roleplay"],
+  "author": { "name": "Saga" },
+  "repository": "https://github.com/0cyris/saga",
+  "license": "SEE LICENSE IN LICENSE"
+}

@@ -1,0 +1,27 @@
+{
+  "batchId": "batch-1",
+  "deckId": "<deck-id>",
+  "titles": [
+    {
+      "id": "canon.character.mara-venn",
+      "title": "Mara Venn — conscript recruit",
+      "category": "character",
+      "gateIntent": "Eligible from the story's opening; baseline identity, safe globally until later reveals refine it.",
+      "evidenceRefs": ["chapters/canon-ch-01", "characters/canon-char-mara"]
+    },
+    {
+      "id": "canon.secret.sethe-ashen-pact",
+      "title": "Warden Sethe's secret oath to the Ashen Pact",
+      "category": "secret",
+      "gateIntent": "Hard-gated reveal — only eligible after Book 1 Chapter 14; must never fire earlier.",
+      "evidenceRefs": ["chapters/canon-ch-14"]
+    },
+    {
+      "id": "canon.location.ravenhold-keep",
+      "title": "Ravenhold Keep — mountain garrison",
+      "category": "location",
+      "gateIntent": "Eligible whenever Ravenhold is in scene; place-state card scoped to the Warden's Order control era.",
+      "evidenceRefs": ["chapters/canon-ch-01", "places/canon-place-ravenhold"]
+    }
+  ]
+}

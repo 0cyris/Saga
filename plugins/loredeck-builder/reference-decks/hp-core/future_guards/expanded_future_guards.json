@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "future_guard_battle_of_hogwarts_future",
+      "title": "Battle of Hogwarts future event",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "timeline",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 70,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10347,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "scope": {
+        "topics": [
+          "Battle of Hogwarts",
+          "war"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Battle of Hogwarts",
+            "war"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Battle of Hogwarts has not happened before May 1998.",
+        "injection": "Do not imply the Battle of Hogwarts has already occurred or that characters know its outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Protect the final battle as future canon.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "future-guard",
+          "Battle of Hogwarts"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": true,
+          "activeUse": "blocks_context_leakage"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-05",
+  "sourcePackId": "hp-golden-trio",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "knowledge_gate_snape_loyalty_before_year7_end",
+      "title": "Snape loyalty truth gate",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": true,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7913,
+        "sortKeyTo": 10347,
+        "precision": "school_year_window",
+        "windowKind": "school_year",
+        "label": "Deathly Hallows: Year 7",
+        "approximate": false
+      },
+      "activation": {
+        "requiresMissingEvents": [
+          "snape_loyalty_truth_revealed"
+        ]
+      },
+      "expiration": {
+        "expiresWhenEventsHappen": [
+          "snape_loyalty_truth_revealed"
+        ],
+        "autoMuteOnExpire": true
+      },
+      "scope": {
+        "characters": [
+          "Severus Snape",
+          "Harry Potter"
+        ],
+        "topics": [
+          "Snape loyalty",
+          "Lily Potter",
+          "Dumbledore"
+        ],
+        "schoolYears": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "Snape loyalty",
+            "Lily Potter",
+            "Dumbledore"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Snape’s full motivations and loyalty are hidden until near the end of Year 7.",
+        "injection": "Do not reveal Snape’s full loyalty, Lily motivation, or Dumbledore plan before late Year 7 unless accepted story lore explicitly reveals it. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Protect Snape’s late-canon reveal.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "effects": {
+        "addsTags": [
+          "knowledge-gate",
+          "Snape",
+          "future-guard"
+        ],
+        "injectionRules": {
+          "includeOnlyWhenRelevant": true
+        }
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "book": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Expanded curated Context constraint entry."
+      },
+      "extensions": {
+        "sagaSplitLoredeck": {
+          "sourcePackId": "hp-golden-trio",
+          "targetPackId": "hp-core",
+          "splitAt": "2026-06-05"
+        }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ],
+      "ui": {
+        "preview": {
+          "primaryPack": "essential_guardrails",
+          "suggestionRole": "active_guardrail",
+          "detailLevel": "core",
+          "suggestByDefault": false,
+          "activeUse": "broad_future_leak_suppressor"
+        }
+      }
+    }
+  ]
+}
