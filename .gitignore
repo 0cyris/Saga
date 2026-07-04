@@ -14,6 +14,9 @@ assets/documentation/renders/*
 # Loredeck-builder WIP canon projects (promoted output ships as zip packages).
 workshop/
 
+# Loredeck-builder packaged .skill build artifact (regenerate with build-skill-file.mjs).
+plugins/loredeck-builder/dist/
+
 # Local developer secrets and scratch config.
 # Keep the extension keyring/client files tracked; these patterns are only for
 # active local keys or copied runtime settings.

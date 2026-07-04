@@ -101,6 +101,7 @@ const syntaxTargets = [
   'src/continuity/memo-builder.js',
   'tools/loredeck/loredeck-cli.mjs',
   'plugins/loredeck-builder/scripts/sync-from-repo.mjs',
+  'plugins/loredeck-builder/scripts/build-skill-file.mjs',
   'tools/scripts/test-loredeck-plugin-bundle.mjs',
   'tools/scripts/smoke-live-st-cdp.mjs',
 ];
