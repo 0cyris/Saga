@@ -11,6 +11,9 @@ assets/documentation/renders/*
 !assets/documentation/renders/
 !assets/documentation/renders/*.png
 
+# Loredeck-builder WIP canon projects (promoted output ships as zip packages).
+workshop/
+
 # Local developer secrets and scratch config.
 # Keep the extension keyring/client files tracked; these patterns are only for
 # active local keys or copied runtime settings.

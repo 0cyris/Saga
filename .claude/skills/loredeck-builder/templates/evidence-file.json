@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scope": "chapters",
+  "sourceKind": "user_supplied",
+  "provenance": {
+    "url": "",
+    "title": "The Founding Trilogy, Book 1 — reader notes",
+    "retrievedAt": "2026-07-04"
+  },
+  "records": [
+    {
+      "id": "canon-ch-01",
+      "title": "Chapter 1: The recruit arrives at Ravenhold",
+      "inUniverseSpan": "Book 1, opening day",
+      "keyEntities": ["Mara Venn", "Warden Sethe", "Ravenhold Keep"],
+      "authoringSignals": ["character-baseline", "place-state", "timeline-anchor"],
+      "facts": [
+        "Mara Venn is introduced as a 17-year-old conscript with no prior combat training.",
+        "Ravenhold Keep is a mountain garrison controlled by the Warden's Order at the story's start.",
+        "Warden Sethe is the fortress commander and Mara's first authority figure."
+      ],
+      "quotesOrRefs": ["\"Nobody leaves Ravenhold the same.\" — Warden Sethe, Ch. 1"]
+    },
+    {
+      "id": "canon-ch-14",
+      "title": "Chapter 14: Sethe's betrayal is revealed",
+      "inUniverseSpan": "Book 1, mid-siege",
+      "keyEntities": ["Warden Sethe", "Mara Venn", "the Ashen Pact"],
+      "authoringSignals": ["secret-knowledge gate", "status-change gate", "relationship"],
+      "facts": [
+        "Warden Sethe is revealed to have secretly sworn to the Ashen Pact before the events of Book 1.",
+        "This reveal reframes Sethe's earlier mentorship of Mara as manipulation.",
+        "The reveal is a hard spoiler: it must not surface before Book 1 Chapter 14."
+      ],
+      "quotesOrRefs": ["Reveal scene, Ch. 14 — Sethe's pact-mark is exposed during the siege."]
+    }
+  ],
+  "failures": []
+}

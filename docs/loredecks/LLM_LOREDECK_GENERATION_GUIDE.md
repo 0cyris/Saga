@@ -4,6 +4,8 @@ This guide is the handoff document for an LLM that needs to understand Saga well
 
 It is not the schema reference and it is not a replacement for Pack Health. Use this guide to understand the task, then use [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md) for exact schemas and [LOREDECK_AND_LORECARD_CREATION_GUIDE.md](LOREDECK_AND_LORECARD_CREATION_GUIDE.md) for authoring principles.
 
+If you are working inside Claude Code and can run the repo tooling, prefer the `loredeck-builder` skill and its `tools/loredeck/` CLI, which drive this same workflow with evidence gates, Pack Health parity, and packaging. See [LOREDECK_BUILDER_TOOLKIT.md](LOREDECK_BUILDER_TOOLKIT.md).
+
 Do not include the full Harry Potter reference Loredecks in a default LLM handoff. They are useful examples when structure or style needs comparison, but they are large and should not be the first context payload.
 
 ## Minimum File Bundle

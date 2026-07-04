@@ -14,13 +14,11 @@ import {
     analyzeTimelineWindowHealth,
     createInMemoryTimelineHealthIndex,
     createTimelineHealthIndex,
-    loadTimelineRegistryForHealth,
     normalizeTimelineRegistryForHealth,
 } from './context-health.js';
 import {
     addHealthIssue,
     createHealth,
-    entryListFromJson,
     finalizeHealth,
     isPlainObject,
 } from './loredeck-health-core.js';
@@ -31,11 +29,11 @@ import {
     buildLoredeckHealthForData,
 } from './loredeck-health-engine.js';
 import {
-    applyRegistryEntryOverrides,
     buildEmbeddedManifest,
     buildVirtualEntryFilesFromRegistry,
     isGeneratedRegistryRecord,
 } from './loredeck-normalizer.js';
+import { loadLoredeckEntryFilesForHealth } from './loredeck-source-health.js';
 import {
     analyzeSchemaV3EntryHealth,
     normalizeLoredeckEntryForSchemaV3,
@@ -47,8 +45,6 @@ import {
     createEmptyTagRegistryHealthIndex,
     createInMemoryTagRegistryHealthIndex,
     createTagRegistryHealthIndex,
-    getTagRegistryRef,
-    loadTagRegistryForHealth,
     normalizeTagRegistryForHealth,
 } from './tag-registry-health.js';
 import { hydrateExternalLorepackPayloadRecord } from '../storage/saga-lorepack-payload-storage.js';
@@ -56,6 +52,7 @@ import { hydrateExternalLorepackPayloadRecord } from '../storage/saga-lorepack-p
 export const DEFAULT_LOREDECK_ID = DEFAULT_HP_LOREDECK_ID;
 export { mergeLoredeckTimelineRegistries } from './context-health.js';
 export { buildLoredeckHealthForData } from './loredeck-health-engine.js';
+export { buildLoredeckHealthForSource, loadLoredeckEntryFilesForHealth } from './loredeck-source-health.js';
 export { normalizeLoredeckEntryForSchemaV3, repairLoredeckEntryForHealth } from './schema-v3-health.js';
 const BUNDLED_LOREDECKS_ROOT_URL = new URL('../../content/loredecks/', import.meta.url);
 
@@ -166,43 +163,7 @@ function buildMissingPackMeta(packId, registryRecord, stackPriority, stackIndex,
 }
 
 async function loadEntryFiles(manifest = {}, baseUrl, health, registryRecord = null) {
-    const files = Array.isArray(manifest.files) ? manifest.files : [];
-    const entryFiles = [];
-    health.summary.fileCount = files.length;
-    analyzeManifestFileListHealth(health, manifest);
-
-    for (const file of files) {
-        const url = new URL(file, baseUrl);
-        const result = await fetchJsonDetailed(url);
-        if (!result.ok) {
-            health.summary.missingFileCount += 1;
-            addHealthIssue(health, 'error', 'missing_entry_file', `Loredeck entry file failed to load: ${file}.`, {
-                file,
-                status: result.status,
-                detail: result.error || result.statusText || '',
-            });
-            entryFiles.push({ file, url, ok: false, entries: [], schemaVersion: 0, error: result.error || '' });
-            continue;
-        }
-
-        const entries = entryListFromJson(result.json);
-        health.summary.loadedFileCount += 1;
-        entryFiles.push({
-            file,
-            url,
-            ok: true,
-            json: result.json,
-            entries,
-            schemaVersion: result.json?.schemaVersion || manifest.entrySchemaVersion || 2,
-        });
-    }
-
-    const finalEntryFiles = applyRegistryEntryOverrides(entryFiles, registryRecord, manifest, health);
-    const timeline = await loadTimelineRegistryForHealth(manifest, baseUrl, health, registryRecord, fetchJsonDetailed);
-    const tagIndex = await loadTagRegistryForHealth(manifest, baseUrl, health, registryRecord, fetchJsonDetailed);
-    analyzeEntryContextHealth(health, finalEntryFiles, timeline);
-    analyzeEntries(health, finalEntryFiles, manifest, tagIndex);
-    return finalEntryFiles;
+    return loadLoredeckEntryFilesForHealth(manifest, baseUrl, health, registryRecord, fetchJsonDetailed);
 }
 
 export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, options = {}) {
