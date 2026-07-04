@@ -24,6 +24,7 @@ Expected on quality decks: `kind`/`gateType`, `relevance`, `lorePurpose`, `speci
 ## Context gating
 
 - `context.scope`: `window` for era/arc-bounded cards; `global` only for durable world rules.
+- **Every card needs a full `context` block, including global cards.** `global` scope does NOT mean "omit the context fields" — schema v3 health requires `sortKeyFrom`, `sortKeyTo`, `precision`, and `label` on *every* entry (health errors `schema_v3_missing_context_sort_keys` / `_precision` / `_label` fire otherwise). For a global card, set the span to cover the whole timeline (`sortKeyFrom` = your lowest anchor sortKey, `sortKeyTo` = your highest), a `precision` like `whole_story`, a `label` like `"Whole story"`, and `windowKind: "series"`. It stays always-eligible but is topic/entity-gated (see Retrieval).
 - Windows reference timeline anchors: `validFromAnchor`/`validToAnchor` MUST exist in `timeline.json` (broken references are health errors), plus `sortKeyFrom`/`sortKeyTo` matching those anchors' sortKeys.
 - Secrets, deaths, betrayals, identities, prophecies, future relationships: gate them so they cannot retrieve before the story point where they become valid. When unsure, gate tighter.
 
