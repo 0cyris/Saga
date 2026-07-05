@@ -12,6 +12,7 @@ import path from 'node:path';
 
 import { pathExists, readJsonFile } from '../lib/deck-fs.mjs';
 import { collectEntryFilePaths, computeDeckStats } from '../lib/manifest-stats.mjs';
+import { loadLoredeckSourceFromDir } from '../lib/node-loredeck-io.mjs';
 
 const DECK_TYPES = ['bundled', 'generated', 'custom'];
 const FAMILY_ROLES = ['core', 'era'];
@@ -67,6 +68,9 @@ export async function checkDeckConformance(deckDir) {
         if (assetPath && !(await pathExists(path.join(deckDir, assetPath)))) {
             errors.push(`Asset ${key} points to a missing file: ${assetPath}.`);
         }
+        if (key === 'cover' && assetPath && !/^assets\/cover\.(?:png|jpe?g|webp)$/i.test(assetPath)) {
+            warnings.push(`Cover asset path ${assetPath} does not follow the assets/cover.(png|jpg|jpeg|webp) convention.`);
+        }
     }
 
     const sortedCounts = (counts) => JSON.stringify(Object.fromEntries(Object.entries(counts || {}).sort()));
@@ -77,6 +81,31 @@ export async function checkDeckConformance(deckDir) {
     }
     if (sortedCounts(declared.categoryCounts) !== sortedCounts(computed.categoryCounts)) {
         errors.push('stats.categoryCounts do not match the recount.');
+    }
+    if (Number(declared.timelineAnchorCount || 0) !== computed.timelineAnchorCount) {
+        errors.push(`stats.timelineAnchorCount is ${declared.timelineAnchorCount ?? 0}, recount is ${computed.timelineAnchorCount}.`);
+    }
+    if (Number(declared.timelineWindowCount || 0) !== computed.timelineWindowCount) {
+        errors.push(`stats.timelineWindowCount is ${declared.timelineWindowCount ?? 0}, recount is ${computed.timelineWindowCount}.`);
+    }
+
+    try {
+        const source = await loadLoredeckSourceFromDir(deckDir);
+        const healthSummary = source.health?.summary || {};
+        if (Number(healthSummary.entryCount || 0) !== computed.entryCount) {
+            errors.push(`Pack Health entryCount (${healthSummary.entryCount ?? 0}) does not match the recount (${computed.entryCount}).`);
+        }
+        if (sortedCounts(healthSummary.categoryCounts) !== sortedCounts(computed.categoryCounts)) {
+            errors.push('Pack Health categoryCounts do not match the recount.');
+        }
+        if (Number(healthSummary.timelineAnchorCount || 0) !== computed.timelineAnchorCount) {
+            errors.push(`Pack Health timelineAnchorCount (${healthSummary.timelineAnchorCount ?? 0}) does not match the recount (${computed.timelineAnchorCount}).`);
+        }
+        if (Number(healthSummary.timelineWindowCount || 0) !== computed.timelineWindowCount) {
+            errors.push(`Pack Health timelineWindowCount (${healthSummary.timelineWindowCount ?? 0}) does not match the recount (${computed.timelineWindowCount}).`);
+        }
+    } catch (e) {
+        errors.push(`Pack Health could not be computed for cross-validation: ${e?.message || e}`);
     }
 
     const duplicatePath = path.join(deckDir, 'manifest.json');

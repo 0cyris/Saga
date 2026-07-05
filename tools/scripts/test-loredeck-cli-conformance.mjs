@@ -35,9 +35,12 @@ await cp(path.join(repoRoot, 'content', 'loredecks', 'hp-core'), mutatedDir, { r
 const manifestPath = path.join(mutatedDir, 'loredeck.json');
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
 manifest.stats.entryCount += 5;
+manifest.stats.timelineAnchorCount = Number(manifest.stats.timelineAnchorCount || 0) + 3;
+manifest.stats.timelineWindowCount = Number(manifest.stats.timelineWindowCount || 0) + 2;
 manifest.files.push('characters/does_not_exist.json');
 manifest.registries.tags = 'missing-tags.json';
 manifest.family = { id: 'hp-golden-trio', role: 'saga', recommendedCoreDeckId: '' };
+manifest.assets = { ...(manifest.assets || {}), cover: { path: 'assets/hp-core-cover-wrong-name.png', alt: 'Cover' } };
 await writeFile(manifestPath, JSON.stringify(manifest, null, 2));
 // leave manifest.json untouched so the duplicate-divergence check fires
 
@@ -47,8 +50,16 @@ const errors = mutated.report.errors.join('\n');
 assert.ok(errors.includes('missing entry file: characters/does_not_exist.json'), errors);
 assert.ok(errors.includes('Registry tags points to a missing file'), errors);
 assert.ok(errors.includes('stats.entryCount'), errors);
+assert.ok(errors.includes('stats.timelineAnchorCount'), errors);
+assert.ok(errors.includes('stats.timelineWindowCount'), errors);
 assert.ok(errors.includes('family.role'), errors);
 assert.ok(errors.includes('manifest.json duplicate has diverged'), errors);
+// Pack Health recomputes from the same real entry files as the raw recount, so a
+// manifest-only mutation (no changes to actual entry files) must NOT trip the
+// health cross-validation -- this proves the check doesn't false-positive.
+assert.ok(!errors.includes('Pack Health'), errors);
+const warnings = mutated.report.warnings.join('\n');
+assert.ok(warnings.includes('does not follow the assets/cover'), warnings);
 
 await rm(fixtureRoot, { recursive: true, force: true });
 console.log('Loredeck CLI conformance tests passed.');

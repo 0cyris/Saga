@@ -6,7 +6,7 @@
 
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { rm } from 'node:fs/promises';
+import { readFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -34,6 +34,11 @@ await rm(workshopRoot, { recursive: true, force: true });
 // init + resume contract
 const init = cli('init', 'state-canon', '--title', 'State Canon', '--size', 'family', '--decks', 'state-canon-core:core,state-canon-era-one:era');
 assert.equal(init.code, 0, init.stderr);
+
+const coreManifest = JSON.parse(await readFile(path.join(workshopRoot, 'state-canon', 'drafts', 'state-canon-core', 'loredeck.json'), 'utf8'));
+assert.deepEqual(coreManifest.library.suggestedPath, ['State Canon', 'Core'], 'Core deck should get a nested [title, "Core"] suggestedPath.');
+const eraManifest = JSON.parse(await readFile(path.join(workshopRoot, 'state-canon', 'drafts', 'state-canon-era-one', 'loredeck.json'), 'utf8'));
+assert.deepEqual(eraManifest.library.suggestedPath, ['State Canon', 'state-canon-era-one'], 'Era deck should get a nested [title, deckId] suggestedPath.');
 const reInit = cli('init', 'state-canon', '--title', 'State Canon');
 assert.equal(reInit.code, 1, 'Re-init of an existing project must fail.');
 

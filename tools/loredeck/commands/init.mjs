@@ -48,7 +48,11 @@ function buildSkeletonManifest(state, deck) {
                 },
             }
             : {}),
-        library: { suggestedPath: [state.title] },
+        library: {
+            suggestedPath: isFamily
+                ? [state.title, deck.role === 'core' ? 'Core' : deck.deckId]
+                : [state.title],
+        },
         continuity: {
             continuityId: state.continuity?.continuityId || '',
             canonTier: state.continuity?.canonTier || 'primary',

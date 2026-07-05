@@ -48,7 +48,17 @@ Expected on quality decks: `kind`/`gateType`, `relevance`, `lorePurpose`, `speci
 
 ## Deck manifest (`loredeck.json`)
 
-Skeleton comes from `init`. You must fill: `description`, `continuity` (`continuityId`, `canonTier`, `adaptation`, `sourceBoundary`), and keep `title`/`version` meaningful. `files[]` and `stats` are machine-managed — run `stats --write`; never hand-maintain them. Entry files live in category subfolders (`characters/`, `events/`, `rules/`, `knowledge/`...); root-level JSON is manifest + registries only.
+Skeleton comes from `init`. You must fill: `description`, `continuity` (`continuityId`, `canonTier`, `adaptation`, `sourceBoundary`), and keep `title`/`version` meaningful. `files[]` and `stats` are machine-managed — run `stats --write`; never hand-maintain them. Root-level JSON is manifest + registries only.
+
+**Name entry files by topic, not by generation batch.** The schema doesn't care how many files exist or what they're called — `stats --write` will happily accept `entries/batch-1.json`, `entries/batch-2.json`, etc. But generic batch-numbered files are a maintenance dead end: nobody can tell what's inside one without opening it, diffs are noisy, and later edits have nowhere obvious to go. Use category subfolders instead — `characters/`, `events/`, `rules/`, `knowledge/`, `secrets/`, `relationships/`, `locations/`, `factions/` — mirroring the bundled reference decks (`content/loredecks/hp-core`: `ages/`, `characters/`, `knowledge_gates/`, `places/`, `spell_gates/`, etc.). If a category grows large, split it further by sub-topic (`characters/adult_baselines.json`, `characters/core_students.json`), never by arbitrary sequence number.
+
+**Isolate gated reveals in their own file.** The HP reference deck keeps every character-death reveal in one dedicated file (`characters/death_states.json`) rather than scattering them across general character files. This makes a spoiler audit trivial — one file to check, not a tag-grep across the whole deck. Do the same for any category with a meaningful number of `revealPolicy: private` / gated-secret cards: give them a sibling file (`characters/death_states.json`, `secrets/major_reveals.json`) instead of mixing them into the baseline-facts file for that category.
+
+**`knowledge_gates/` and `knowledge/` are different things.** `knowledge/` holds static facts (durable, non-time-sensitive information). `knowledge_gates/` (or a `knowledge_gate` `kind`/`gateType`) models *who knows what, when* — reveal machinery tied to a story point, not the fact itself. Keep them in separate files even when they're about the same topic, so it's clear at a glance which cards are "this is true" versus "this becomes knowable/revealed here."
+
+**Family decks get a nested Library path.** `init --size family` gives the core deck `library.suggestedPath: [title, "Core"]` and each era deck `[title, deckId]`, mirroring the bundled reference decks' two-level convention (`['Harry Potter', 'Golden Trio']`, `['Star Wars', 'Legends']`). Hand-edit the second segment to something more readable than the raw deck id if you want (e.g. `"Golden Trio"` instead of `"hp-year-1-philosophers-stone"`) — the generated value is a deterministic placeholder, not a final label.
+
+**`stats --write` and `conformance` also track timeline shape.** `manifest.stats` includes `timelineAnchorCount`/`timelineWindowCount` alongside `entryCount`/`categoryCounts`, and `conformance` cross-checks all four against both a raw file recount *and* the live Pack Health engine's summary — catching manifest drift that a naive recount alone might miss. Always run `stats --write` after editing `timeline.json`, not just after editing entry files.
 
 ## Quality bar
 

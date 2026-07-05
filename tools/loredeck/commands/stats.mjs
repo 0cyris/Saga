@@ -35,7 +35,9 @@ export async function runStats({ positionals, flags }) {
     const sortedCounts = (counts) => JSON.stringify(Object.fromEntries(Object.entries(counts || {}).sort()));
     const filesInSync = JSON.stringify(files) === JSON.stringify([...manifestFiles].sort());
     const statsInSync = Number(manifest.stats?.entryCount) === stats.entryCount
-        && sortedCounts(manifest.stats?.categoryCounts) === sortedCounts(stats.categoryCounts);
+        && sortedCounts(manifest.stats?.categoryCounts) === sortedCounts(stats.categoryCounts)
+        && Number(manifest.stats?.timelineAnchorCount || 0) === stats.timelineAnchorCount
+        && Number(manifest.stats?.timelineWindowCount || 0) === stats.timelineWindowCount;
     if (flags.json) {
         console.log(JSON.stringify({ ok: filesInSync && statsInSync, wrote: false, filesInSync, statsInSync, computed: { files, stats } }, null, 2));
     } else {

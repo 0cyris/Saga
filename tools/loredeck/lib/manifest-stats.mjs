@@ -26,6 +26,27 @@ export async function collectEntryFilePaths(deckDir) {
         .sort();
 }
 
+export async function readDeckTimelineForStats(deckDir, manifest) {
+    const timelineRef = String(manifest?.registries?.timeline || '').trim();
+    if (!timelineRef) return { anchors: [], windows: [] };
+    const timelinePath = path.join(deckDir, timelineRef);
+    if (!(await pathExists(timelinePath))) return { anchors: [], windows: [] };
+    let timeline = null;
+    try {
+        timeline = await readJsonFile(timelinePath);
+    } catch (_) {
+        return { anchors: [], windows: [] };
+    }
+    return {
+        anchors: Array.isArray(timeline?.anchors) ? timeline.anchors : [],
+        windows: [
+            ...(Array.isArray(timeline?.windows) ? timeline.windows : []),
+            ...(Array.isArray(timeline?.arcs) ? timeline.arcs : []),
+            ...(Array.isArray(timeline?.phases) ? timeline.phases : []),
+        ],
+    };
+}
+
 export async function computeDeckStats(deckDir, manifest) {
     const files = Array.isArray(manifest?.files) ? manifest.files : [];
     let entryCount = 0;
@@ -45,7 +66,13 @@ export async function computeDeckStats(deckDir, manifest) {
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
         }
     }
-    return { entryCount, categoryCounts };
+    const { anchors, windows } = await readDeckTimelineForStats(deckDir, manifest);
+    return {
+        entryCount,
+        categoryCounts,
+        timelineAnchorCount: anchors.length,
+        timelineWindowCount: windows.length,
+    };
 }
 
 export async function rewriteDeckStats(deckDir, { syncFiles = true } = {}) {
