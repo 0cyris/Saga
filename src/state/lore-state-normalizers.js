@@ -896,7 +896,6 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
     const inputPacks = input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {};
     const defaultPacks = defaults.packs || {};
     const packs = {};
-    const importedZipPackIds = new Set();
     const removedDocumentationFixturePackIds = new Set();
 
     const mergedPacks = { ...defaultPacks, ...inputPacks };
@@ -916,7 +915,6 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
         const stats = raw.stats && typeof raw.stats === 'object' && !Array.isArray(raw.stats) ? raw.stats : {};
         const derivedFrom = cloneLoredeckPlainObject(raw.derivedFrom, 20000);
         const importedZip = isImportedZipLoredeckRecord(raw, source, derivedFrom);
-        if (importedZip) importedZipPackIds.add(id);
         const pack = {
             packId: id,
             type,
@@ -989,62 +987,7 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
         if (Object.keys(healthIssueStates).length) pack.healthIssueStates = healthIssueStates;
         packs[id] = pack;
     }
-    let registryInput = input;
-    if (importedZipPackIds.size) {
-        const rawPlacements = Array.isArray(input.deckPlacements) ? input.deckPlacements : [];
-        const removedFolderIds = new Set();
-        const deckPlacements = rawPlacements.filter(placement => {
-            const deckId = String(placement?.deckId || placement?.packId || '').trim();
-            if (!importedZipPackIds.has(deckId)) return true;
-            const folderId = String(placement?.folderId || '').trim();
-            if (folderId) removedFolderIds.add(folderId);
-            return false;
-        });
-        const folders = Array.isArray(input.folders) ? input.folders : [];
-        if (removedFolderIds.size && folders.length) {
-            const byId = new Map(folders.map(folder => [String(folder?.id || '').trim(), folder]));
-            const removalCandidates = new Set();
-            for (const folderId of removedFolderIds) {
-                let current = byId.get(folderId);
-                const seen = new Set();
-                while (current?.id && !seen.has(current.id)) {
-                    seen.add(current.id);
-                    removalCandidates.add(current.id);
-                    current = current.parentId ? byId.get(String(current.parentId || '').trim()) : null;
-                }
-            }
-            const remainingPlacementFolders = new Set(deckPlacements.map(placement => String(placement?.folderId || '').trim()).filter(Boolean));
-            const stackFolderIds = new Set((Array.isArray(input.activeStack) ? input.activeStack : [])
-                .map(item => String(item?.folderId || '').trim())
-                .filter(Boolean));
-            const hasRemainingUse = folderId => {
-                for (const usedId of [...remainingPlacementFolders, ...stackFolderIds]) {
-                    let current = byId.get(usedId);
-                    const seen = new Set();
-                    while (current?.id && !seen.has(current.id)) {
-                        seen.add(current.id);
-                        if (current.id === folderId) return true;
-                        current = current.parentId ? byId.get(String(current.parentId || '').trim()) : null;
-                    }
-                }
-                return false;
-            };
-            registryInput = {
-                ...input,
-                folders: folders.filter(folder => {
-                    const folderId = String(folder?.id || '').trim();
-                    return !removalCandidates.has(folderId) || hasRemainingUse(folderId);
-                }),
-                deckPlacements,
-            };
-        } else if (deckPlacements.length !== rawPlacements.length) {
-            registryInput = {
-                ...input,
-                deckPlacements,
-            };
-        }
-    }
-    const libraryIndex = normalizeLoredeckLibraryIndex(registryInput, { defaults, packs });
+    const libraryIndex = normalizeLoredeckLibraryIndex(input, { defaults, packs });
     const shouldRemoveFixtureLayoutPackId = packId => (
         removedDocumentationFixturePackIds.has(String(packId || '').trim())
         || (isDocumentationFixtureLoredeckPack(packId) && !shouldKeepDocumentationFixtureLoredeckPack(packId))

@@ -166,6 +166,8 @@ const gateScripts = [
   'tools/scripts/test-context-model-resolver.mjs',
   'tools/scripts/test-hp-reference-deck-conformance.mjs',
   'tools/scripts/test-loredeck-zip-package.mjs',
+  'tools/scripts/test-loredeck-package-install.mjs',
+  'tools/scripts/test-loredeck-library-folders.mjs',
   'tools/scripts/test-loredeck-library-transfer-actions.mjs',
   'tools/scripts/test-loredeck-dropdown-latency.mjs',
   'tools/scripts/test-context-current-contract.mjs',

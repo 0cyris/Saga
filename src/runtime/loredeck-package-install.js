@@ -10,6 +10,10 @@ import {
     parseLoredeckZipPackage,
 } from '../loredecks/loredeck-package-service.js';
 import {
+    normalizeLoredeckLibraryIndex,
+    normalizePackLibraryMetadata,
+} from '../loredecks/loredeck-library-index.js';
+import {
     normalizeLoredeckTagRegistry,
     normalizeLoredeckTimelineRegistry,
 } from '../state/lore-state-normalizers.js';
@@ -22,6 +26,7 @@ import {
 } from './active-stack-panel.js';
 import {
     buildEmbeddedCustomManifest,
+    buildLoredeckPackageFolderSubset,
     buildLoredeckStatsFromEntries,
     bytesToBase64,
     cloneLoredeckJson,
@@ -188,6 +193,7 @@ export async function buildLoredeckPackageDeckInstall(packageModel = {}, deck = 
 
     const sourceManifest = cloneLoredeckJson(deck.manifest) || {};
     const indexRecord = cloneLoredeckJson(deck.indexRecord) || {};
+    const sourceLibrary = normalizePackLibraryMetadata(indexRecord.library || sourceManifest.library || {});
     const sourceInfo = sourceManifest.source && typeof sourceManifest.source === 'object' && !Array.isArray(sourceManifest.source)
         ? sourceManifest.source
         : {};
@@ -276,6 +282,7 @@ export async function buildLoredeckPackageDeckInstall(packageModel = {}, deck = 
             warnings,
             originalPackId,
             originalType,
+            library: sourceLibrary,
             bundleType: 'saga_loredeck_zip_package',
             contentHash,
             declaredContentHash: '',
@@ -385,6 +392,7 @@ export async function buildLoredeckPackageDeckInstall(packageModel = {}, deck = 
         warnings,
         originalPackId,
         originalType,
+        library: sourceLibrary,
         bundleType: 'saga_loredeck_zip_package',
         contentHash,
         declaredContentHash: '',
@@ -446,15 +454,52 @@ export async function readLoredeckZipPackageInstallFile(file) {
     }
 }
 
+function asLoredeckPackageLayoutList(value) {
+    if (Array.isArray(value)) return value;
+    if (value && typeof value === 'object') return Object.values(value);
+    return [];
+}
+
 export function buildLoredeckPackageRegistryForInstall(packageInstall = {}, installs = []) {
     const selected = installs.filter(install => install?.record?.packId);
     const packs = {};
-    for (const install of selected) packs[install.record.packId] = install.record;
+    const packsMeta = {};
+    const idMap = new Map();
+    for (const install of selected) {
+        const packId = install.record.packId;
+        packs[packId] = install.record;
+        const originalPackId = String(install.originalPackId || install.record.source?.originalPackId || '').trim();
+        if (originalPackId) idMap.set(originalPackId, packId);
+        packsMeta[packId] = {
+            packId,
+            type: install.record.type,
+            title: install.record.title,
+            library: install.library || {},
+        };
+    }
+    const index = packageInstall?.packageModel?.index && typeof packageInstall.packageModel.index === 'object'
+        ? packageInstall.packageModel.index
+        : {};
+    const packageFolders = asLoredeckPackageLayoutList(index.folders);
+    const packagePlacements = asLoredeckPackageLayoutList(index.deckPlacements)
+        .map(placement => {
+            const deckId = String(placement?.deckId || placement?.packId || '').trim();
+            return idMap.has(deckId) ? { ...placement, deckId: idMap.get(deckId) } : null;
+        })
+        .filter(Boolean);
+    const subset = buildLoredeckPackageFolderSubset([...Object.keys(packs)], {
+        folders: packageFolders,
+        deckPlacements: packagePlacements,
+    });
+    const layout = normalizeLoredeckLibraryIndex(
+        { schemaVersion: 1, folders: subset.folders, deckPlacements: subset.deckPlacements },
+        { packs: packsMeta },
+    );
     return {
         schemaVersion: 1,
         packs,
-        folders: [],
-        deckPlacements: [],
+        folders: layout.folders,
+        deckPlacements: layout.deckPlacements,
         activeStack: [],
     };
 }
