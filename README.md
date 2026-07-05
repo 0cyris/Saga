@@ -82,6 +82,7 @@ Release-facing docs:
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 - [Loredeck Builder Toolkit](docs/loredecks/LOREDECK_BUILDER_TOOLKIT.md)
+- [Scripts Development Guide](docs/development/SCRIPTS_GUIDE.md): creating and maintaining 167 scripts for generation, testing, and maintenance.
 - [Saga Terminology](docs/development/SAGA_TERMINOLOGY.md)
 
 Development notes live in [docs/development](docs/development/) until promoted, rewritten, or archived as release-facing docs.
@@ -117,7 +118,7 @@ assets/                 Branding, icons, screenshots, and passive assets.
 content/presets/        Optional provider/preset data.
 docs/loredecks/         Release-facing Loredeck authoring docs.
 docs/development/       Planning, audits, runbooks, and implementation notes.
-tools/scripts/          Local tests, smoke helpers, and deck maintenance scripts.
+tools/scripts/          Local tests, smoke helpers, and deck maintenance scripts (see docs/development/SCRIPTS_GUIDE.md).
 tests/                  Visual smoke harness fixtures.
 ```
 
