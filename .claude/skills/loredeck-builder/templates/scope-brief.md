@@ -33,6 +33,7 @@
 - Primary axis: *e.g. book + chapter (story order), no in-world calendar.*
 - Secondary markers: *e.g. named arcs ("The Siege", "The Reckoning") used for windows.*
 - Notes: *e.g. flashbacks are common — sort by narrative reveal order, not in-universe chronology.*
+- Multi-axis? *If the canon has more than one coordinate system readers actually use (calendar date, book/season, named arc), plan `timeline.json` as `timelineMode: "hybrid"` with an `axes[]` array — one axis per coordinate — rather than forcing everything onto a single label. Single-axis canons should skip this.*
 
 ## Spoiler philosophy
 

@@ -55,7 +55,7 @@ Full stage-by-stage instructions, gate criteria, and artifacts: this section is 
 
 **Stage 6 — Health.** `promote <id>` (per deck). Fix every reported issue and re-promote until all decks land in dist/ strict-clean. Present `reviews/health-<deck>.md` → `gate approve`.
 
-**Stage 7 — Package.** `package <id> --author <user>` then `verify-package <zip>`. `report --stage final`, present the final review + zip path → `gate approve`.
+**Stage 7 — Package.** Bump each deck's manifest `tags[]` from `quality:draft-reference` to `quality:human-vetted` plus `quality:relevance-curated` (see `references/authoring-rules.md`), then `package <id> --author <user>` and `verify-package <zip>`. `report --stage final`, present the final review + zip path → `gate approve`.
 
 **Stage 8 — Complete.** Deliver the zip path and import instructions: SillyTavern → Saga → Loredeck Library → Import Deck; confirm Pack Health shows "good" in-app. Offer follow-ups (cover image, more decks in the family, revisions — revisions restart at the stage they touch).
 

@@ -61,6 +61,7 @@ function buildSkeletonManifest(state, deck) {
         },
         runtimeDefaults: { scanDepth: null, recursiveTriggers: false, tokenBudget: null },
         registries: { tags: 'tags.json', timeline: 'timeline.json' },
+        tags: isFamily ? ['quality:draft-reference', 'structure:split-loredeck'] : ['quality:draft-reference'],
         files: [],
         compatibility: { sagaSchemaMin: 3, sagaSchemaMax: 3 },
         stats: { entryCount: 0, categoryCounts: {} },
