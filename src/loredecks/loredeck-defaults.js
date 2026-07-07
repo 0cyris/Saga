@@ -29,6 +29,7 @@ const ONE_PIECE_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const STAR_TREK_SOURCE = Object.freeze({ kind: 'bundled', url: 'https://memory-alpha.fandom.com/wiki/Portal:Main' });
 const STAR_WARS_LEGENDS_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const ONE_PIECE_LOREDECK_VERSION_OVERRIDES = Object.freeze({
+    'one-piece-romance-dawn': '0.4.1-romance-dawn-runtime-lore',
     'one-piece-orange-town': '0.4.1-orange-town-runtime-lore',
     'one-piece-syrup-village': '0.4.1-syrup-village-runtime-lore',
     'one-piece-baratie': '0.4.1-baratie-runtime-lore',
@@ -39,6 +40,8 @@ const ONE_PIECE_LOREDECK_VERSION_OVERRIDES = Object.freeze({
     'one-piece-whisky-peak': '0.4.1-whisky-peak-runtime-lore',
     'one-piece-little-garden': '0.4.1-little-garden-runtime-lore',
     'one-piece-drum-island': '0.4.1-drum-island-runtime-lore',
+    'one-piece-arabasta': '0.4.1-arabasta-runtime-lore',
+    'one-piece-post-arabasta': '0.4.1-post-arabasta-runtime-lore',
 });
 const STAR_TREK_LOREDECK_DESCRIPTION_OVERRIDES = Object.freeze({
     'star-trek-ds9-season-2': 'Draft season Loredeck for Star Trek: Deep Space Nine season 2, covering Bajoran coup d\'\u00e9tat, The Maquis, Mirror universe, Dominion introduction with season-local spoiler guards.',
