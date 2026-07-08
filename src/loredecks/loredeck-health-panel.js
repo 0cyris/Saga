@@ -36,6 +36,10 @@ import {
 import {
     persistLoredeckHealthIssueState as persistLoredeckHealthIssueStateToStorage,
 } from './loredeck-health-issue-state-storage.js';
+import {
+    hydrateCachedExternalLorepackPayloadRecord,
+    isExternalLorepackPayloadBackedRecord,
+} from '../storage/saga-lorepack-payload-storage.js';
 
 let healthPanelDeps = {};
 
@@ -2355,10 +2359,13 @@ function getLoredeckStackHealthInsights(state, loadedPacks = []) {
     for (const pack of library.values()) {
         if (!pack?.derivedFrom?.packId) continue;
         if (!stack.some(item => item.packId === pack.packId)) continue;
-        const overrides = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
-            ? Object.keys(pack.entryOverrides).length
+        const hydratedPack = isExternalLorepackPayloadBackedRecord(pack)
+            ? hydrateCachedExternalLorepackPayloadRecord(pack)
+            : pack;
+        const overrides = hydratedPack.entryOverrides && typeof hydratedPack.entryOverrides === 'object' && !Array.isArray(hydratedPack.entryOverrides)
+            ? Object.keys(hydratedPack.entryOverrides).length
             : 0;
-        const disabled = Array.isArray(pack.disabledEntryIds) ? pack.disabledEntryIds.length : 0;
+        const disabled = Array.isArray(hydratedPack.disabledEntryIds) ? hydratedPack.disabledEntryIds.length : 0;
         if (overrides + disabled === 0) {
             issues.push({
                 severity: 'warning',
