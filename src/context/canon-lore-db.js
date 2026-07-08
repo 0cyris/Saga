@@ -339,13 +339,15 @@ export async function loadCanonLoreDatabase() {
             registry,
             allowEmptyStack: true,
         });
-        const usableSources = sources.filter(source => source?.manifest && source?.baseUrl);
+        const usableSources = sources.filter(source => source?.manifest
+            && (source?.baseUrl || (Array.isArray(source?.entryFiles) && source.entryFiles.length > 0)));
         const health = combineLoredeckHealth(sources);
 
         let taxonomy = DEFAULT_LORE_TAXONOMY;
         let gateTypes = DEFAULT_GATE_TYPES;
         let scoring = DEFAULT_SCORING;
         for (const source of usableSources.slice().reverse()) {
+            if (!source.baseUrl) continue;
             const registries = source.manifest.registries || {};
             taxonomy = mergeRegistry(
                 taxonomy,

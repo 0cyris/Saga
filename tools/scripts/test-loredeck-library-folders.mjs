@@ -580,4 +580,53 @@ assert.ok((normalizedExternalLibrary.folders || []).some(item => item.id === 'fo
 assert.ok((normalizedExternalLibrary.deckPlacements || []).some(item => item.deckId === 'local-deck' && item.folderId === 'folder_kept'));
 assert.ok((normalizedExternalLibrary.folders || []).some(item => item.id === 'folder_kept'));
 
+const { normalizeLoredeckRegistry } = await import('../../src/state/lore-state-normalizers.js');
+const importedZipRuntimeRegistry = normalizeLoredeckRegistry({
+  schemaVersion: 1,
+  packs: {
+    'imported-zip-deck': {
+      packId: 'imported-zip-deck',
+      type: 'custom',
+      title: 'Imported Zip Deck',
+      source: {
+        kind: 'imported_zip',
+        bundleType: 'saga_loredeck_zip_package',
+      },
+      library: {
+        suggestedPath: ['Package Root', 'Package Child'],
+      },
+      manifestData: {
+        id: 'imported-zip-deck',
+        title: 'Imported Zip Deck',
+        files: [],
+        library: {
+          suggestedPath: ['Package Root', 'Package Child'],
+        },
+      },
+    },
+  },
+  folders: [
+    { id: 'folder_package_root', title: 'Package Root', parentId: '' },
+    { id: 'folder_package_root__package_child', title: 'Package Child', parentId: 'folder_package_root' },
+  ],
+  deckPlacements: [
+    { deckId: 'imported-zip-deck', folderId: 'folder_package_root__package_child', sortOrder: 100 },
+  ],
+}, { schemaVersion: 1, packs: {} });
+assert.ok(
+  (importedZipRuntimeRegistry.deckPlacements || []).some(item => item.deckId === 'imported-zip-deck' && item.folderId === 'folder_package_root__package_child'),
+  'Explicit deck placements for imported zip decks must survive registry normalization.',
+);
+assert.ok(
+  (importedZipRuntimeRegistry.folders || []).some(item => item.id === 'folder_package_root__package_child'),
+  'Folders used by imported zip deck placements must survive registry normalization.',
+);
+assert.ok(
+  (importedZipRuntimeRegistry.folders || []).some(item => item.id === 'folder_package_root'),
+  'Ancestor folders of imported zip deck placements must survive registry normalization.',
+);
+const importedZipRuntimePack = importedZipRuntimeRegistry.packs['imported-zip-deck'];
+assert.equal(importedZipRuntimePack.library, undefined, 'Imported zip packs must not retain live library metadata (anti-respawn).');
+assert.equal(importedZipRuntimePack.manifestData?.library, undefined, 'Imported zip pack manifest data must not retain live library metadata (anti-respawn).');
+
 console.log('Loredeck Library folder tests passed.');
