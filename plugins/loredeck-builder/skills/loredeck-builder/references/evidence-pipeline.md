@@ -42,6 +42,17 @@ Rules enforced by `evidence validate`: `web` sources require `provenance.url`; `
 - **user_supplied**: notes, summaries, or excerpts the user provides. Preferred when web access is limited or the canon is a single book the user knows well. Never reproduce long copyrighted passages into evidence — record facts, short quotes only.
 - **web**: wiki/reference research (subagents fan out per scope). Always record the exact provenance URL and retrieval date. Prefer established fandom wikis; note contested facts as contested.
 
+### Fandom wiki sources
+
+For canons hosted on a fandom.com wiki, `scripts/fetch_fandom.py` pulls a page's rendered text via the site's MediaWiki API (`action=parse`) and strips it to clean plain text — more reliable than scraping the rendered HTML page by hand, and it follows redirects automatically.
+
+```
+python scripts/fetch_fandom.py <wiki-subdomain> <page_title>
+# e.g. python scripts/fetch_fandom.py dragonlance List_of_Dragonlance_deities
+```
+
+Requires only `requests` (stdlib otherwise). Treat its output as raw material for evidence records, not evidence itself — still extract discrete, source-grounded `facts` per the shape above, and record the page URL and retrieval date in `provenance`.
+
 ### PDF sources
 
 When a source is a PDF, extract text before drafting evidence — don't transcribe from a viewer by eye.
