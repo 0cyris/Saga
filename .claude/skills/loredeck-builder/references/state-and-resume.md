@@ -2,6 +2,15 @@
 
 `workshop/<project>/project.json` is the resume contract. It is owned by the CLI (`lib/project-state.mjs`); never hand-edit it.
 
+## Where the workshop lives
+
+`SAGA_WORKSHOP_ROOT` decides the parent directory all `<project-id>` folders live under — and the raw repo CLI and the packaged skill/plugin default it differently:
+
+- **Raw repo CLI** (`node tools/loredeck/loredeck-cli.mjs`): if `SAGA_WORKSHOP_ROOT` is unset, it defaults to `<repo-root>/workshop` (gitignored).
+- **Packaged plugin/skill CLI** (`cli/loredeck-plugin.mjs`, the wrapper `sync-from-repo.mjs` generates): if unset, it defaults to `<your project dir>/loredeck-workshop` instead, so workshop projects land next to the canon you're authoring rather than inside the plugin's own install location.
+
+If a `status`/`evidence`/etc. command can't find a project, this is the first thing to check — not "the CLI silently returned nothing." A missing or wrong project surfaces as a clear thrown error (`No workshop project found for <id> (missing .../project.json)`), not an empty pass; if you're seeing something that looks like an empty pass instead, check which CLI entry point (raw vs. packaged wrapper) you're actually invoking and where each one resolves the root to. Set `SAGA_WORKSHOP_ROOT` explicitly if you're ever unsure, rather than relying on either default.
+
 ## Shape (schemaVersion 1)
 
 - `projectId`, `title`, `canonSize` (`single|family`), `continuity` (`continuityId`, `canonTier`, `adaptation`).

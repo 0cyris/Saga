@@ -57,9 +57,10 @@ Requires only `requests` (stdlib otherwise). Treat its output as raw material fo
 
 When a source is a PDF, extract text before drafting evidence — don't transcribe from a viewer by eye.
 
-1. Try `pypdf` first. If it raises `DependencyError: cryptography>=3.1 is required`, the PDF is encrypted (commonly AES) — `pip install cryptography` and retry; pypdf decrypts transparently once the dependency is present.
-2. If `pypdf`'s extracted text is garbled (font-encoding/OCR noise — broken ligatures, dropped spaces, random symbol substitutions), fall back to `pdftotext` (poppler-utils; `pdftotext -layout` preserves column/table structure better than the default mode).
-3. If neither produces clean text, extract what you can and **record the extraction quality in the evidence file's `provenance`** (e.g. `"extractionQuality": "ocr-noisy"` or a note in `provenance.title`) rather than silently treating noisy text as ground truth — a low-confidence fact should read as one downstream.
+1. Try `pypdf` first. If it raises `DependencyError: cryptography>=3.1 is required`, the PDF is encrypted (commonly AES) — `pip install cryptography` and retry; pypdf decrypts transparently once the dependency is present. This is a pure-Python wheel, installable with `pip install --user` even without root.
+2. If `pypdf`'s extracted text is garbled (font-encoding/OCR noise — broken ligatures, dropped spaces, random symbol substitutions), fall back to `pdftotext -layout` (poppler-utils) if it's available — it preserves column/table structure better than either default-mode `pdftotext` or `pypdf`.
+3. **No root / can't install system packages?** `pdftotext` needs poppler-utils via the system package manager, which is a dead end in locked-down sandboxes. Try `pdfminer.six` instead (`pip install --user pdfminer.six`, then `python -m pdfminer.high_level PDF_PATH`) — also pure-Python, no root required, and often cleaner than `pypdf` on layout-heavy PDFs.
+4. If nothing produces clean text, extract what you can and **record the extraction quality in the evidence file's `provenance`** (e.g. `"extractionQuality": "ocr-noisy"` or a note in `provenance.title`) rather than silently treating noisy text as ground truth — a low-confidence fact should read as one downstream.
 
 ## Review
 

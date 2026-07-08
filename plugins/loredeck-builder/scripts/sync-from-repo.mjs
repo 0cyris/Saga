@@ -130,6 +130,13 @@ function syncVendor() {
     text = text.replaceAll('../lorecards/lore-matrix.js', './lore-matrix.js');
     writeFileSync(path.join(dest, path.basename(mod)), text);
   }
+  // These files use ESM `import`/`export` syntax with a plain .js extension;
+  // without a package.json declaring "type": "module" in an ancestor
+  // directory, Node emits a MODULE_TYPELESS_PACKAGE_JSON warning (and pays a
+  // detection-retry cost) on every command that loads them. The repo-side
+  // source (src/loredecks/package.json, src/lorecards/package.json) covers
+  // running the CLI from the repo; this covers the flattened packaged copy.
+  writeFileSync(path.join(dest, 'package.json'), '{\n  "type": "module"\n}\n');
 }
 
 /* ---- 4. Authoring docs ---- */

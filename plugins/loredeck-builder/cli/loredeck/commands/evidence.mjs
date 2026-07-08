@@ -58,6 +58,9 @@ export async function runEvidence({ positionals, flags }) {
     const visibleIssues = scopeFilter
         ? collected.issues.filter(issue => issue.includes(`evidence/${scopeFilter}/`))
         : collected.issues;
+    if (scopeFilter && !collected.files.some(file => file.scope === scopeFilter)) {
+        visibleIssues.unshift(`No evidence files found for scope "${scopeFilter}". Check the scope name matches an evidence file's "scope" field, or that evidence has been written for it yet.`);
+    }
 
     if (flags.json) {
         console.log(JSON.stringify({ ok: !visibleIssues.length, action, counts, issues: visibleIssues, files: collected.files }, null, 2));
