@@ -11,6 +11,14 @@ One card = one job: a fact, state, constraint, reveal, relationship, rule, event
 - `content.constraints[]` / `content.antiLore[]`: optional do/don't lists for the model.
 - Ask before drafting: what story point makes it eligible, what should retrieve it, is it safe/secret/future, and what should the model do differently when it fires?
 
+## Grounding, not just citing
+
+`sourceInfo.evidenceRefs` proves a card *cites* an accepted record — it does not prove the card's content actually came from that record. A citation to a real id, with prose drafted from memory or genre knowledge, still validates, still passes `report --stage cards`, and is still wrong. Before writing `content.fact`, a title's `gateIntent`, or any other prose field that makes a factual claim, find the specific string(s) in the cited record's `facts[]` that support it. If you can't point to one, the claim isn't ready — go verify it against the evidence, or go write the evidence first.
+
+`inUniverseSpan` (a short coordinate label like `"Chapter 26"`) is not evidence — it's a position, not a fact. Drafting from it (or from memory of "what happens around there") instead of the record's `facts[]` is the single most common way continuity errors slip past citation checks, because the schema has no way to detect it: the evidenceRef still resolves, the card still looks complete.
+
+Spot-check before every titles/cards gate: re-open the cited evidence records and confirm each claim in the batch actually traces to a specific fact — not just that the referenced id exists.
+
 ## Required and expected entry fields (schema v3)
 
 Required: `id`, `title`, `category`, `priority`, `content.fact`, `content.injection`, `schemaVersion: 3`.

@@ -34,6 +34,7 @@ Path: `evidence/<scope>/<slug>.json`, template `templates/evidence-file.json`. S
 Rules enforced by `evidence validate`: `web` sources require `provenance.url`; `user_supplied` requires `provenance.title`; record ids unique per file; every record needs a title and at least one fact.
 
 - `facts` must be specific and source-grounded — no interpretation, no drafting. If the source is ambiguous, record the ambiguity in the fact.
+- `inUniverseSpan` is a coordinate label (e.g. `"Chapter 26"`), not a fact. It's for sorting/scoping evidence, not for drafting titles or cards from — a card grounded in the span instead of `facts[]` will "cite" this record while actually containing whatever the drafter remembered happening around that point in the story. See `references/authoring-rules.md` § Grounding.
 - `authoringSignals` hint what the record supports; use a consistent vocabulary: `world-rule`, `character-baseline`, `character-state gate`, `secret-knowledge gate`, `status-change gate`, `relationship`, `faction`, `place-state`, `timeline-anchor`, `anti-lore`.
 - Record ids become citation keys: cards cite `<scope>/<recordId>` in `sourceInfo.evidenceRefs`.
 
