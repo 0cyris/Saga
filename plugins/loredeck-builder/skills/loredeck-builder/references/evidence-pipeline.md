@@ -63,6 +63,8 @@ When a source is a PDF, extract text before drafting evidence — don't transcri
 3. **No root / can't install system packages?** `pdftotext` needs poppler-utils via the system package manager, which is a dead end in locked-down sandboxes. Try `pdfminer.six` instead (`pip install --user pdfminer.six`, then `python -m pdfminer.high_level PDF_PATH`) — also pure-Python, no root required, and often cleaner than `pypdf` on layout-heavy PDFs.
 4. If nothing produces clean text, extract what you can and **record the extraction quality in the evidence file's `provenance`** (e.g. `"extractionQuality": "ocr-noisy"` or a note in `provenance.title`) rather than silently treating noisy text as ground truth — a low-confidence fact should read as one downstream.
 
+**If you're fanning out to research subagents for a large PDF source, run this extraction once yourself first.** Hand each subagent its assigned slice of the already-extracted plain text, not the PDF — a subagent paging through a PDF itself (one tool call per page) will exhaust its budget before writing anything. See `references/subagent-playbook.md`.
+
 ## Review
 
 `evidence validate <id>` regenerates `reviews/evidence.md` (file table + record table with statuses). The user accepts or rejects records — `evidence accept|reject <id> --scope S --ids a,b|--all [--note]`. Only accepted records may back cards; `report --stage cards` flags any card citing rejected/unknown records or citing nothing.

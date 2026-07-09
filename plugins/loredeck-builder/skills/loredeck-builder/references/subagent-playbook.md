@@ -22,6 +22,8 @@ Prompt contents: the approved scope brief; the assigned evidence scope and its b
 
 **Name the output file after the scope, not after a word that isn't the actual top-level JSON key** — e.g. `chapters-26-27.json`, not `encounters.json`. A filename that doesn't match the required `records` key invites the model to rename the field to match the file instead.
 
+**For PDF (or other binary/encoded) sources, extract the full readable text yourself before fanning out — never make a research subagent page through the source itself.** Per-page extraction (e.g. looping `reader.pages[i].extract_text()`) burns one tool call per page; a source of any real length exhausts the subagent's budget before it reaches the file write, and the subagent returns nothing usable. Run the extraction once in the orchestrator (`references/evidence-pipeline.md` § PDF sources has the pypdf → pdftotext → pdfminer.six fallback chain), then hand each research subagent its assigned slice of plain text — not the PDF. This also means encryption/dependency failures (missing `cryptography`, unavailable `poppler-utils`) get hit once total instead of once per subagent.
+
 Hard rules to include in the prompt: emit evidence JSON + nothing else (no cards, no tags, no timeline edits); facts must be source-grounded with provenance — ground every fact in the source text you actually read, never in memory or genre knowledge, and if the assigned span doesn't clearly support something, record it as a gap or contested rather than fill it in; record contested facts as contested; stay inside the declared continuity boundary.
 
 On return: run `evidence validate`, spot-check records against provenance, fix or regenerate weak files before presenting the evidence gate.
