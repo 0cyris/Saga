@@ -2,6 +2,8 @@
 
 Use subagents to parallelize large canons. The main session is the orchestrator: it owns all gates, project state writes, the cross-deck tag/timeline registries, merging, and dedupe. Subagents never call `gate approve`, `evidence accept/reject`, or edit `project.json`.
 
+If your runtime has a task-tracking tool, use it to track every spawned subagent's status (dispatched/returned/merged) once a wave is more than a couple of subagents — it's the difference between noticing a subagent went silent and finding out three batches later that one never made it into `drafts/`.
+
 ## When to fan out
 
 - Single deck: no subagents (overhead exceeds benefit).
