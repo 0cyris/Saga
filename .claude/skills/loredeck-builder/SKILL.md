@@ -24,6 +24,7 @@ All commands: `node tools/loredeck/loredeck-cli.mjs <command>` (run from the rep
 | `init <id> --title T [--size single\|family] [--decks id:role,...]` | Scaffold project + skeleton deck folders |
 | `status <id> --json` | Resume contract: stage, pending gate, counts |
 | `gate approve <id> [--note N] [--artifact P]` | Record user approval, advance stage |
+| `gate reopen <id> --stage S [--note N]` | Rewind to an earlier (or same) stage — for a family project already at `complete` gaining new decks; never advances |
 | `evidence validate\|accept\|reject <id> [--scope S] [--ids a,b\|--all]` | Evidence pipeline |
 | `batch set <id> --deck D --kind titles\|cards --id B --status S [--count N]` | Record batch review outcomes |
 | `report <id> --stage brief\|evidence\|plan\|titles\|cards\|final` | Regenerate the stage review artifact in `reviews/` |

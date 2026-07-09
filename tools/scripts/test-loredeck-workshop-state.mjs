@@ -67,6 +67,28 @@ assert.equal(status.pendingGate, null);
 assert.equal(status.gatesApproved.length, 8, 'All eight gates should be recorded.');
 assert.ok(status.gatesApproved.includes('final_package_signed_off'));
 
+// gate reopen rewinds a completed project so a new deck's cycle can run
+const badReopenNoStage = cli('gate', 'reopen', 'state-canon');
+assert.equal(badReopenNoStage.code, 1, 'reopen without --stage must fail.');
+const badReopenUnknownStage = cli('gate', 'reopen', 'state-canon', '--stage', 'nope');
+assert.equal(badReopenUnknownStage.code, 1, 'reopen to an unknown stage must fail.');
+const badReopenForward = cli('gate', 'reopen', 'state-canon', '--stage', 'complete');
+assert.equal(badReopenForward.code, 0, 'reopen to the current stage (no-op) is allowed.');
+const reopened = cliJson('gate', 'reopen', 'state-canon', '--stage', 'titles', '--note', 'new deck added to the family');
+assert.equal(reopened.stage, 'titles');
+status = cliJson('status', 'state-canon');
+assert.equal(status.stage, 'titles');
+assert.equal(status.pendingGate, 'titles_approved');
+assert.equal(status.gatesApproved.length, 8, 'Reopening must not remove prior gate history.');
+const reopenPastCurrent = cli('gate', 'reopen', 'state-canon', '--stage', 'package');
+assert.equal(reopenPastCurrent.code, 1, 'reopen must not be usable to skip forward past the current stage.');
+for (const expected of ['cards', 'health', 'package', 'complete']) {
+    const gate = cliJson('gate', 'approve', 'state-canon');
+    assert.equal(gate.stage, expected, `Second cycle's gate approval should advance to ${expected}.`);
+}
+status = cliJson('status', 'state-canon');
+assert.equal(status.gatesApproved.length, 12, 'Second cycle should append 4 more gate entries, not replace the first cycle.');
+
 // batch records
 const batch = cliJson('batch', 'set', 'state-canon', '--deck', 'state-canon-core', '--kind', 'titles', '--id', 'batch-1', '--status', 'approved', '--count', '12');
 assert.equal(batch.batches['state-canon-core'].titles[0].status, 'approved');

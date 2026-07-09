@@ -24,7 +24,7 @@ import { runVerifyPackage } from './commands/verify-package.mjs';
 const COMMANDS = {
     init: { run: runInit, help: 'init <project-id> --title <title> [--size single|family] [--decks id:role,...]' },
     status: { run: runStatus, help: 'status <project-id> [--json]' },
-    gate: { run: runGate, help: 'gate approve <project-id> [--note <note>] [--artifact <path>]' },
+    gate: { run: runGate, help: 'gate approve <project-id> [--note <note>] [--artifact <path>] | gate reopen <project-id> --stage <stage> [--note <note>]' },
     batch: { run: runBatch, help: 'batch set <project-id> --deck <deck-id> --kind titles|cards --id <batch-id> --status draft|approved|rejected [--count N]' },
     evidence: { run: runEvidence, help: 'evidence validate|accept|reject <project-id> [--scope <scope>] [--ids a,b|--all] [--note <note>]' },
     report: { run: runReport, help: 'report <project-id> --stage brief|evidence|plan|titles|cards|final' },
