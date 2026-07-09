@@ -12,21 +12,25 @@ Use subagents to parallelize large canons. The main session is the orchestrator:
 
 **One output file per subagent, max.** A subagent asked to write multiple files in one prompt (e.g. evidence + a cast file + a places file) risks exhausting its tool-call budget partway through and returning nothing usable at all — the failure is all-or-nothing, not partial credit. Split multi-file work into one subagent per file, even if that means more subagents in the wave.
 
+**Know your runtime's per-subagent tool-call budget before deciding paste-vs-read.** Some harnesses cap it low (a subagent that ran out of budget mid-task and returned nothing usable is what motivated the one-file rule above); others give subagents a generous, effectively unbounded budget. A budget that comfortably covers a handful of file reads plus the final write (roughly: number of cited evidence files + a couple) is enough to have drafting subagents read their own evidence instead of trusting a paste — see Drafting subagents below. If the budget is tight, fall back to pasting content verbatim instead.
+
 ## Research subagents
 
 Prompt contents: the approved scope brief; the assigned evidence scope and its boundaries; **the evidence file schema pasted verbatim from `evidence-pipeline.md` — in full, in every prompt, never shortened to "use the standard format" after the first one or two** (subagents given only a prose description have produced structurally different output, e.g. an `encounters[]` array instead of `records[]`); the authoringSignals vocabulary; output paths (`workshop/<project>/evidence/<scope>/`); the source policy (web with provenance URLs, or the user-supplied material passed verbatim).
 
 **Name the output file after the scope, not after a word that isn't the actual top-level JSON key** — e.g. `chapters-26-27.json`, not `encounters.json`. A filename that doesn't match the required `records` key invites the model to rename the field to match the file instead.
 
-Hard rules to include in the prompt: emit evidence JSON + nothing else (no cards, no tags, no timeline edits); facts must be source-grounded with provenance; record contested facts as contested; stay inside the declared continuity boundary.
+Hard rules to include in the prompt: emit evidence JSON + nothing else (no cards, no tags, no timeline edits); facts must be source-grounded with provenance — ground every fact in the source text you actually read, never in memory or genre knowledge, and if the assigned span doesn't clearly support something, record it as a gap or contested rather than fill it in; record contested facts as contested; stay inside the declared continuity boundary.
 
 On return: run `evidence validate`, spot-check records against provenance, fix or regenerate weak files before presenting the evidence gate.
 
 ## Drafting subagents
 
-Only after the planning gate (timeline + tags approved) and title gate for the batch. Prompt contents: the approved title batch JSON; the accepted evidence records the batch cites (paste the records, not paths — the subagent should not need to hunt); the deck's approved `timeline.json` and **`tags.json` as read-only reference material**; `references/authoring-rules.md` in full; the output path for the entry file(s).
+Only after the planning gate (timeline + tags approved) and title gate for the batch. Prompt contents: the approved title batch JSON; the deck's approved `timeline.json` and **`tags.json` as read-only reference material**; `references/authoring-rules.md` in full; the output path for the entry file(s).
 
-Hard rules to include in the prompt: use ONLY schema-supported fields; use ONLY anchors and tags that already exist in the provided registries — **never define new tags or edit `tags.json`; if a card needs a tag that doesn't exist yet, flag the gap in the return instead of inventing one** (drifted tags — bare strings like `"location"` instead of a namespaced `namespace:value` id, or tags defined but never used by any card — are a common subagent failure mode); every card cites accepted evidence in `sourceInfo.evidenceRefs`; wide entries use `topic_or_entity` activation; keep ids stable, namespaced, and drawn from the approved titles; return valid JSON only.
+**If the tool-call budget allows it (see Sizing above), give the subagent the evidence file *paths* the batch cites and instruct it to read each one directly before drafting — don't paste the records.** Reading the actual `facts[]` array removes the orchestrator's paste step as a place drift can creep in (a paraphrase or an accidentally-dropped record in the paste is exactly how a card ends up "citing" evidence it doesn't really match). Only fall back to pasting the records verbatim (not paraphrased) if the runtime's budget is too tight for a few extra reads per subagent.
+
+Hard rules to include in the prompt: **ground every claim in the evidence file(s) you read — never in memory, genre knowledge, or a record's `inUniverseSpan` label; if a fact you need isn't in the cited evidence, flag the gap in your return instead of drafting it anyway**; use ONLY schema-supported fields; use ONLY anchors and tags that already exist in the provided registries — never define new tags or edit `tags.json`; if a card needs a tag that doesn't exist yet, flag the gap in the return instead of inventing one (drifted tags — bare strings like `"location"` instead of a namespaced `namespace:value` id, or tags defined but never used by any card — are a common subagent failure mode); every card cites accepted evidence in `sourceInfo.evidenceRefs`; wide entries use `topic_or_entity` activation; keep ids stable, namespaced, and drawn from the approved titles; return valid JSON only.
 
 ## Merge protocol (main session, after each drafting wave)
 
