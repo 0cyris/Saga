@@ -6,9 +6,19 @@
  * never hand-edited.
  */
 
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { pathExists, readJsonFileOrNull, listJsonFilesRecursive, toPosixRelative } from './deck-fs.mjs';
+
+const REQUIRED_BRIEF_SECTIONS = [
+    'Fandom and source range',
+    'Continuity and canon tier',
+    'Deck split',
+    'Story-coordinate model',
+    'Spoiler philosophy',
+    'Assumptions and risks',
+];
 
 function mdEscape(value) {
     return String(value ?? '').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').trim();
@@ -22,6 +32,45 @@ function mdTable(headers, rows) {
         ...rows.map(row => `| ${row.map(mdEscape).join(' | ')} |`),
     ];
     return `${lines.join('\n')}\n`;
+}
+
+function isBriefPlaceholderLine(line) {
+    const trimmed = line.trim();
+    if (!trimmed) return true;
+    if (/^\*[^*]+\*$/.test(trimmed)) return true; // stand-alone italic description paragraph
+    if (/^-\s*(?:[^:*]+:\s*)?\*[^*]+\*\.?$/.test(trimmed)) return true; // bullet whose value is still fully italicized
+    if (/^-\s*[^:*]+:\s*$/.test(trimmed)) return true; // bare "- Label:" scaffolding with no value filled in yet
+    return false;
+}
+
+function briefSectionBodies(briefText) {
+    const bodies = new Map();
+    const headingRe = /^##\s+(.+?)\s*$/gm;
+    const matches = [...String(briefText || '').matchAll(headingRe)];
+    for (let index = 0; index < matches.length; index += 1) {
+        const name = matches[index][1].trim();
+        const start = matches[index].index + matches[index][0].length;
+        const end = index + 1 < matches.length ? matches[index + 1].index : briefText.length;
+        bodies.set(name, briefText.slice(start, end).trim());
+    }
+    return bodies;
+}
+
+function validateBriefSections(briefText) {
+    const bodies = briefSectionBodies(briefText);
+    const issues = [];
+    for (const section of REQUIRED_BRIEF_SECTIONS) {
+        const body = bodies.get(section);
+        if (body === undefined) {
+            issues.push(`Missing section: "${section}".`);
+            continue;
+        }
+        const hasContent = body.split('\n').some(line => !isBriefPlaceholderLine(line));
+        if (!hasContent) {
+            issues.push(`Section "${section}" still looks like template placeholder text — fill it in.`);
+        }
+    }
+    return issues;
 }
 
 function describeContext(context) {
@@ -48,6 +97,7 @@ async function readDeckEntries(deckDir) {
 }
 
 export function buildBriefArtifact(state, briefText) {
+    const issues = validateBriefSections(briefText);
     const lines = [
         `# Scope Brief Review: ${state.title}`,
         '',
@@ -56,19 +106,34 @@ export function buildBriefArtifact(state, briefText) {
         `- Continuity: ${state.continuity?.continuityId || '(unset)'} / tier ${state.continuity?.canonTier || '(unset)'} / adaptation ${state.continuity?.adaptation || '(unset)'}`,
         `- Decks: ${(state.decks || []).map(deck => `\`${deck.deckId}\` (${deck.role})`).join(', ')}`,
         '',
+    ];
+    if (issues.length) {
+        lines.push('## Completeness check', '');
+        for (const issue of issues) lines.push(`- ${issue}`);
+        lines.push('');
+    }
+    lines.push(
         '---',
         '',
         briefText ? briefText.trim() : '_No scope brief written yet (expected at brief/scope-brief.md)._',
         '',
-    ];
-    return lines.join('\n');
+    );
+    return { markdown: lines.join('\n'), issues };
 }
 
 export async function buildPlanArtifact(state, projectDir) {
     const lines = [`# Context & Timeline Plan Review: ${state.title}`, ''];
     const planPath = path.join(projectDir, 'plans', 'context-timeline-plan.md');
-    if (await pathExists(planPath)) {
-        lines.push(`_Prose plan: plans/context-timeline-plan.md_`, '');
+    let planText = '';
+    try {
+        planText = await readFile(planPath, 'utf8');
+    } catch (_) {
+        planText = '';
+    }
+    if (planText.trim()) {
+        lines.push('## Rationale', '', planText.trim(), '', '---', '');
+    } else {
+        lines.push('_No prose plan written yet (expected at plans/context-timeline-plan.md)._', '');
     }
     for (const deck of state.decks || []) {
         const deckDir = path.join(projectDir, 'drafts', deck.deckId);

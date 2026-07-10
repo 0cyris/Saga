@@ -39,7 +39,9 @@ export async function runReport({ positionals, flags }) {
         } catch (_) {
             briefText = '';
         }
-        await writeTextFile(outPath, buildBriefArtifact(state, briefText));
+        const { markdown, issues } = buildBriefArtifact(state, briefText);
+        await writeTextFile(outPath, markdown);
+        extra = { briefIssues: issues.length };
     } else if (stage === 'evidence') {
         const collected = await collectEvidence(projectDir, {});
         await writeTextFile(outPath, buildEvidenceArtifact(state, collected));
@@ -64,6 +66,7 @@ export async function runReport({ positionals, flags }) {
         if (extra?.duplicates) console.log(`WARNING: ${extra.duplicates} duplicate card id(s) found.`);
         if (extra?.unbacked) console.log(`WARNING: ${extra.unbacked} card(s) without accepted evidence backing.`);
         if (extra?.issues) console.log(`WARNING: ${extra.issues} evidence validation issue(s).`);
+        if (extra?.briefIssues) console.log(`WARNING: ${extra.briefIssues} scope brief completeness issue(s).`);
     }
     return 0;
 }
