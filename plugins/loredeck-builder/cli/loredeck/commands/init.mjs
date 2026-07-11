@@ -68,6 +68,21 @@ function buildSkeletonManifest(state, deck) {
     };
 }
 
+export async function scaffoldDeckFiles(state, deck, projectDir) {
+    const deckDir = path.join(projectDir, 'drafts', deck.deckId);
+    await ensureDir(path.join(deckDir, 'entries'));
+    await writeJsonFile(path.join(deckDir, 'loredeck.json'), buildSkeletonManifest(state, deck));
+    await writeJsonFile(path.join(deckDir, 'tags.json'), { schemaVersion: 1, tags: {} });
+    await writeJsonFile(path.join(deckDir, 'timeline.json'), {
+        schemaVersion: 1,
+        timelineMode: 'story_anchor',
+        defaultContextType: 'story_anchor',
+        anchors: [],
+        windows: [],
+    });
+    return deckDir;
+}
+
 const STARTER_BRIEF = `# Scope Brief
 
 ## Fandom and source range
@@ -121,17 +136,7 @@ export async function runInit({ positionals, flags }) {
     }
     await writeTextFile(path.join(projectDir, 'brief', 'scope-brief.md'), STARTER_BRIEF);
     for (const deck of state.decks) {
-        const deckDir = path.join(projectDir, 'drafts', deck.deckId);
-        await ensureDir(path.join(deckDir, 'entries'));
-        await writeJsonFile(path.join(deckDir, 'loredeck.json'), buildSkeletonManifest(state, deck));
-        await writeJsonFile(path.join(deckDir, 'tags.json'), { schemaVersion: 1, tags: {} });
-        await writeJsonFile(path.join(deckDir, 'timeline.json'), {
-            schemaVersion: 1,
-            timelineMode: 'story_anchor',
-            defaultContextType: 'story_anchor',
-            anchors: [],
-            windows: [],
-        });
+        await scaffoldDeckFiles(state, deck, projectDir);
     }
     await saveProjectState(state);
 

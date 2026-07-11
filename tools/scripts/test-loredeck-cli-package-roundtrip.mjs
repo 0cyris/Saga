@@ -143,5 +143,59 @@ const corruptVerify = cli('verify-package', corruptOut, '--json');
 assert.equal(corruptVerify.code, 1, 'verify-package must fail when entry files are missing from the archive.');
 assert.ok(JSON.parse(corruptVerify.stdout).problems.some(problem => problem.includes('missing entry file')), corruptVerify.stdout);
 
+// package --deck packages only the requested deck; the flag-omitted default still bundles every promoted deck.
+const familyProjectDir = path.join(workshopRoot, 'roundtrip-family');
+assert.equal(cli('init', 'roundtrip-family', '--title', 'Roundtrip Family', '--size', 'family', '--decks', 'rf-core:core,rf-module:era').code, 0);
+for (const deckId of ['rf-core', 'rf-module']) {
+    const familyDeckDir = path.join(familyProjectDir, 'drafts', deckId);
+    await writeFile(path.join(familyDeckDir, 'timeline.json'), JSON.stringify({
+        schemaVersion: 1,
+        timelineMode: 'story_anchor',
+        defaultContextType: 'story_anchor',
+        anchors: [
+            // Anchor ids match buildEntry()'s hardcoded rt.start/rt.end context refs.
+            { id: 'rt.start', label: 'Start', contextType: 'story_anchor', sortKey: 100, aliases: ['Start'] },
+            { id: 'rt.end', label: 'End', contextType: 'story_anchor', sortKey: 200, aliases: ['End'] },
+        ],
+        windows: [],
+    }, null, 2));
+    await writeFile(path.join(familyDeckDir, 'tags.json'), JSON.stringify({
+        schemaVersion: 1,
+        tags: { [`fandom:${deckId}`]: { label: deckId, description: 'Fixture tag.' } },
+    }, null, 2));
+    await mkdir(path.join(familyDeckDir, 'rules'), { recursive: true });
+    const familyEntry = buildEntry(`${deckId}.rule.one`);
+    familyEntry.tags = [`fandom:${deckId}`];
+    await writeFile(path.join(familyDeckDir, 'rules', 'world_rules.json'), JSON.stringify({
+        schemaVersion: 3,
+        entries: [familyEntry],
+    }, null, 2));
+    const familyManifestPath = path.join(familyDeckDir, 'loredeck.json');
+    const familyManifest = JSON.parse(await readFile(familyManifestPath, 'utf8'));
+    familyManifest.description = `${deckId} fixture deck.`;
+    familyManifest.continuity.continuityId = deckId;
+    await writeFile(familyManifestPath, JSON.stringify(familyManifest, null, 2));
+}
+const familyPromoted = cli('promote', 'roundtrip-family', '--json');
+assert.equal(familyPromoted.code, 0, familyPromoted.stdout || familyPromoted.stderr);
+
+const singleDeckPackage = cli('package', 'roundtrip-family', '--deck', 'rf-core', '--author', 'Fixture', '--json');
+assert.equal(singleDeckPackage.code, 0, singleDeckPackage.stderr);
+const singleDeckOutPath = JSON.parse(singleDeckPackage.stdout).outPath;
+assert.ok(singleDeckOutPath.includes('rf-core'), 'Per-deck package filename should include the deck id.');
+const singleDeckParsed = await parseLoredeckZipPackage(await readFile(singleDeckOutPath));
+assert.equal(singleDeckParsed.decks.length, 1, '--deck must package only the requested deck.');
+assert.equal(singleDeckParsed.decks[0].originalPackId, 'rf-core');
+
+const badDeckPackage = cli('package', 'roundtrip-family', '--deck', 'nope');
+assert.equal(badDeckPackage.code, 1, 'Unknown --deck must fail.');
+
+const fullFamilyPackage = cli('package', 'roundtrip-family', '--author', 'Fixture', '--json');
+assert.equal(fullFamilyPackage.code, 0, fullFamilyPackage.stderr);
+const fullFamilyOutPath = JSON.parse(fullFamilyPackage.stdout).outPath;
+assert.ok(!fullFamilyOutPath.includes('rf-core') && !fullFamilyOutPath.includes('rf-module'), 'Default (no --deck) filename must be unchanged.');
+const fullFamilyParsed = await parseLoredeckZipPackage(await readFile(fullFamilyOutPath));
+assert.equal(fullFamilyParsed.decks.length, 2, 'Default (no --deck) package must still bundle every promoted deck.');
+
 await rm(workshopRoot, { recursive: true, force: true });
 console.log('Loredeck CLI package roundtrip tests passed.');

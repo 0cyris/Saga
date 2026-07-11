@@ -52,9 +52,18 @@ export async function runReport({ positionals, flags }) {
         await writeTextFile(outPath, await buildTitlesArtifact(state, projectDir));
     } else if (stage === 'cards') {
         const accepted = await acceptedEvidenceKeys(projectDir);
-        const { markdown, duplicates, unbacked } = await buildCardsArtifact(state, projectDir, accepted);
+        const { markdown, duplicates, unbacked, crossDeckCitations } = await buildCardsArtifact(state, projectDir, accepted);
         await writeTextFile(outPath, markdown);
-        extra = { duplicates: duplicates.length, unbacked: unbacked.length };
+        extra = { duplicates: duplicates.length, unbacked: unbacked.length, crossDeckCitations: crossDeckCitations.length };
+        if (flags.verbose) {
+            if (flags.json) {
+                extra.unbackedCards = unbacked;
+                extra.crossDeckCitationDetail = crossDeckCitations;
+            } else {
+                extra.unbackedLines = unbacked.map(item => `  - ${item.id} (${item.location}): ${item.reason}`);
+                extra.crossDeckCitationLines = crossDeckCitations.map(item => `  - ${item.id} (${item.location}): ${item.reason}`);
+            }
+        }
     } else if (stage === 'final') {
         await writeTextFile(outPath, await buildFinalArtifact(state, projectDir));
     }
@@ -64,7 +73,14 @@ export async function runReport({ positionals, flags }) {
     } else {
         console.log(`Review artifact written: ${outPath}`);
         if (extra?.duplicates) console.log(`WARNING: ${extra.duplicates} duplicate card id(s) found.`);
-        if (extra?.unbacked) console.log(`WARNING: ${extra.unbacked} card(s) without accepted evidence backing.`);
+        if (extra?.unbacked) {
+            console.log(`WARNING: ${extra.unbacked} card(s) without accepted evidence backing.`);
+            for (const line of extra.unbackedLines || []) console.log(line);
+        }
+        if (extra?.crossDeckCitations) {
+            console.log(`WARNING: ${extra.crossDeckCitations} card(s) cite evidence belonging to a different deck.`);
+            for (const line of extra.crossDeckCitationLines || []) console.log(line);
+        }
         if (extra?.issues) console.log(`WARNING: ${extra.issues} evidence validation issue(s).`);
         if (extra?.briefIssues) console.log(`WARNING: ${extra.briefIssues} scope brief completeness issue(s).`);
     }

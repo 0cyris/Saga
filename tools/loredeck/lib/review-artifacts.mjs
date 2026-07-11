@@ -193,6 +193,7 @@ export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys
     const seenIds = new Map();
     const duplicates = [];
     const unbacked = [];
+    const crossDeckCitations = [];
     for (const deck of state.decks || []) {
         const deckDir = path.join(projectDir, 'drafts', deck.deckId);
         const { entries } = await readDeckEntries(deckDir);
@@ -222,13 +223,29 @@ export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys
             if (!refs.length || missing.length) {
                 unbacked.push({ id, location, reason: !refs.length ? 'no evidence refs' : `unaccepted refs: ${missing.join(', ')}` });
             }
+            // Only fires when the cited evidence explicitly declared a deckId that
+            // differs from the citing deck; evidence without a deckId (the common
+            // case) never contributes, so this never flags a pre-existing project.
+            const foreign = refs.filter(ref => {
+                const owner = acceptedEvidenceKeys.get(ref);
+                return owner && owner !== deck.deckId;
+            });
+            if (foreign.length) {
+                crossDeckCitations.push({
+                    id,
+                    location,
+                    reason: `cites evidence belonging to a different deck: ${foreign.map(ref => `${ref} (${acceptedEvidenceKeys.get(ref)})`).join(', ')}`,
+                });
+            }
         }
     }
     lines.push('## Duplicate card ids', '');
     lines.push(mdTable(['Card id', 'First seen', 'Duplicate'], duplicates.map(dup => [dup.id, dup.first, dup.second])));
     lines.push('## Cards without accepted evidence backing', '');
     lines.push(mdTable(['Card id', 'Location', 'Problem'], unbacked.map(item => [item.id, item.location, item.reason])));
-    return { markdown: lines.join('\n'), duplicates, unbacked };
+    lines.push('## Cross-deck evidence citations', '');
+    lines.push(mdTable(['Card id', 'Location', 'Problem'], crossDeckCitations.map(item => [item.id, item.location, item.reason])));
+    return { markdown: lines.join('\n'), duplicates, unbacked, crossDeckCitations };
 }
 
 export function buildEvidenceArtifact(state, collected) {

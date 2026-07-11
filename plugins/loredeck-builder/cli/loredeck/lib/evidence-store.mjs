@@ -36,6 +36,7 @@ export function validateEvidenceFile(json, { fileLabel = 'evidence file' } = {})
     }
     if (json.schemaVersion !== 1) issues.push(`${fileLabel}: schemaVersion must be 1.`);
     if (!isValidSlug(json.scope)) issues.push(`${fileLabel}: scope must be a lowercase slug.`);
+    if (json.deckId && !isValidSlug(json.deckId)) issues.push(`${fileLabel}: deckId must be a lowercase slug.`);
     if (!EVIDENCE_SOURCE_KINDS.includes(json.sourceKind)) {
         issues.push(`${fileLabel}: sourceKind must be one of ${EVIDENCE_SOURCE_KINDS.join(', ')}.`);
     }
@@ -105,6 +106,7 @@ export async function collectEvidence(projectDir, { scope = '' } = {}) {
             continue;
         }
         const fileScope = String(json?.scope || '');
+        const fileDeckId = String(json?.deckId || '');
         if (scope && fileScope !== scope) continue;
         const { issues, records } = validateEvidenceFile(json, { fileLabel });
         output.issues.push(...issues);
@@ -117,6 +119,7 @@ export async function collectEvidence(projectDir, { scope = '' } = {}) {
             output.records.push({
                 key,
                 scope: fileScope,
+                deckId: fileDeckId,
                 id,
                 title: String(record?.title || ''),
                 file: fileLabel,
@@ -158,7 +161,13 @@ export function countEvidence(records) {
     return counts;
 }
 
+/**
+ * Returns a Map<key, deckId> of every accepted evidence record, keyed the
+ * same way as before (so existing `.has(ref)` callers are unaffected); the
+ * value is the evidence file's declared deckId ('' if unset), letting
+ * callers additionally detect cross-deck citations without a second lookup.
+ */
 export async function acceptedEvidenceKeys(projectDir) {
     const collected = await collectEvidence(projectDir, {});
-    return new Set(collected.records.filter(record => record.status === 'accepted').map(record => record.key));
+    return new Map(collected.records.filter(record => record.status === 'accepted').map(record => [record.key, record.deckId]));
 }

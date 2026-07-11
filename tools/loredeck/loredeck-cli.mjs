@@ -9,6 +9,7 @@
  */
 
 import { runInit } from './commands/init.mjs';
+import { runDeck } from './commands/deck.mjs';
 import { runStatus } from './commands/status.mjs';
 import { runGate } from './commands/gate.mjs';
 import { runBatch } from './commands/batch.mjs';
@@ -23,16 +24,17 @@ import { runVerifyPackage } from './commands/verify-package.mjs';
 
 const COMMANDS = {
     init: { run: runInit, help: 'init <project-id> --title <title> [--size single|family] [--decks id:role,...]' },
+    deck: { run: runDeck, help: 'deck add <project-id> --deck <deck-id>:<role>' },
     status: { run: runStatus, help: 'status <project-id> [--json]' },
-    gate: { run: runGate, help: 'gate approve <project-id> [--note <note>] [--artifact <path>] | gate reopen <project-id> --stage <stage> [--note <note>]' },
+    gate: { run: runGate, help: 'gate approve <project-id> [--deck <deck-id>] [--note <note>] [--artifact <path>] | gate reopen <project-id> --stage <stage> [--deck <deck-id>] [--note <note>]' },
     batch: { run: runBatch, help: 'batch set <project-id> --deck <deck-id> --kind titles|cards --id <batch-id> --status draft|approved|rejected [--count N]' },
     evidence: { run: runEvidence, help: 'evidence validate|accept|reject <project-id> [--scope <scope>] [--ids a,b|--all] [--note <note>]' },
-    report: { run: runReport, help: 'report <project-id> --stage brief|evidence|plan|titles|cards|final' },
+    report: { run: runReport, help: 'report <project-id> --stage brief|evidence|plan|titles|cards|final [--verbose]' },
     health: { run: runHealth, help: 'health <deck-dir|project-id> [--deck <deck-id>] [--strict] [--out <dir>]' },
     conformance: { run: runConformance, help: 'conformance <deck-dir>' },
     stats: { run: runStats, help: 'stats <deck-dir> [--write]' },
     promote: { run: runPromote, help: 'promote <project-id> [--deck <deck-id>]' },
-    package: { run: runPackage, help: 'package <project-id> [--out <file.saga-loredeck.zip>] [--author <name>] [--pkg-version <semver>]' },
+    package: { run: runPackage, help: 'package <project-id> [--deck <deck-id>] [--out <file.saga-loredeck.zip>] [--author <name>] [--pkg-version <semver>]' },
     'verify-package': { run: runVerifyPackage, help: 'verify-package <zip-path>' },
 };
 

@@ -141,7 +141,36 @@ export function nextStage(stage) {
     return PROJECT_STAGES[index + 1];
 }
 
-export function approveGate(state, { note = '', artifact = '' } = {}) {
+/**
+ * Coerces a deck's stage to a PROJECT_STAGES position for per-deck gate
+ * arithmetic. Decks predate this being a real stage machine: deck.stage was
+ * only ever 'pending' (default) or 'promoted' (set by promote.mjs), neither
+ * of which is a PROJECT_STAGES value, so any unrecognized value starts a
+ * deck's per-deck walk from 'intake' rather than throwing.
+ */
+export function deckStageIndex(stage) {
+    const index = PROJECT_STAGES.indexOf(stage);
+    return index >= 0 ? index : 0;
+}
+
+export function approveGate(state, { note = '', artifact = '', deckId = '' } = {}) {
+    if (deckId) {
+        const deck = (state.decks || []).find(item => item.deckId === deckId);
+        if (!deck) throw new Error(`Unknown deck id: ${JSON.stringify(deckId)}.`);
+        const deckStage = PROJECT_STAGES[deckStageIndex(deck.stage)];
+        const gate = GATE_BY_STAGE[deckStage];
+        if (!gate) {
+            throw new Error(`Deck ${deckId} is at stage ${JSON.stringify(deckStage)}, which has no gate to approve.`);
+        }
+        const target = nextStage(deckStage);
+        if (!target) {
+            throw new Error(`Deck ${deckId} is at stage ${JSON.stringify(deckStage)} and cannot advance.`);
+        }
+        state.gates.push({ gate, stage: deckStage, approvedAt: nowIso(), artifact: String(artifact || ''), note: String(note || ''), deckId });
+        appendJournal(state, 'gate_approved', `${deckId}: ${gate} -> ${target}`);
+        deck.stage = target;
+        return state;
+    }
     const gate = GATE_BY_STAGE[state.stage];
     if (!gate) {
         throw new Error(`Stage ${JSON.stringify(state.stage)} has no gate to approve.`);
@@ -176,6 +205,19 @@ export function setDeckStage(state, deckId, stage) {
     deck.stage = String(stage || 'pending');
     appendJournal(state, 'deck_stage_set', `${deckId}: ${deck.stage}`);
     return state;
+}
+
+export function addDeckToState(state, { deckId, role }) {
+    const cleanDeckId = String(deckId || '').trim();
+    if (!isValidSlug(cleanDeckId)) throw new Error(`Invalid deck id: ${JSON.stringify(deckId)}.`);
+    if ((state.decks || []).some(deck => deck.deckId === cleanDeckId)) {
+        throw new Error(`Deck id already exists in this project: ${JSON.stringify(cleanDeckId)}.`);
+    }
+    const deck = { deckId: cleanDeckId, role: DECK_ROLES.includes(role) ? role : 'era', stage: 'pending' };
+    if (!Array.isArray(state.decks)) state.decks = [];
+    state.decks.push(deck);
+    appendJournal(state, 'deck_added_to_state', `${deck.deckId} (${deck.role})`);
+    return deck;
 }
 
 export function setBatchStatus(state, { deckId, kind, batchId, status, count = null }) {
@@ -217,6 +259,13 @@ export function summarizeProjectState(state) {
         gate: GATE_BY_STAGE[state.stage] || null,
         decks: (state.decks || []).map(deck => ({ deckId: deck.deckId, role: deck.role, stage: deck.stage })),
         gatesApproved: (state.gates || []).map(gate => gate.gate),
+        gates: (state.gates || []).map(gate => ({
+            gate: gate.gate,
+            stage: gate.stage,
+            deckId: gate.deckId || null,
+            approvedAt: gate.approvedAt,
+            note: gate.note,
+        })),
         evidence: state.evidence || {},
         batches: state.batches || {},
         counts: state.counts || {},

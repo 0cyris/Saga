@@ -286,6 +286,33 @@ my-hp-sw-crossover
 
 Saga should warn when two loaded packs share a pack ID. It should not try to silently merge them.
 
+## Deck Families
+
+A multi-deck project (a core deck plus module/era/year/season decks that build on it) links its decks with three optional top-level `loredeck.json` fields:
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `deckFamilyId` | string | Shared ID across every deck in the family. |
+| `family` | object | `{ id, title, role, recommendedCoreDeckId }`. `role` is a free-form label (`core`, `era`, `year`, `season`, ...); `recommendedCoreDeckId` names the sibling deck this one builds on and is set on non-core decks by the `loredeck` CLI's `init`/`deck add` commands. |
+| `recommendedStack` | string[] | The deck IDs a user should load together to get this deck's full context (typically the core deck plus this deck). |
+
+Example (from a module/era deck):
+
+```json
+{
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "year",
+    "recommendedCoreDeckId": "hp-core"
+  },
+  "recommendedStack": ["hp-core", "hp-year-1-philosophers-stone"]
+}
+```
+
+`family.recommendedCoreDeckId` is also consulted by Pack Health (`loredeck health`) when checking a non-core deck: tags whose `parents` resolve only inside the linked core deck's `tags.json` are treated as resolved rather than flagged as `tag_parent_missing`, so a module deck doesn't need to redeclare or re-import its core deck's tag registry just to reference it.
+
 ## Source And Update Metadata
 
 Source metadata is internal and should not create extra user-facing pack types.

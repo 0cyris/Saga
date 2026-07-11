@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "chapters",
+  "deckId": "",
   "sourceKind": "user_supplied",
   "provenance": {
     "url": "",
