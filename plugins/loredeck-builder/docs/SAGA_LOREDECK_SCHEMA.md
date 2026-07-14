@@ -503,8 +503,8 @@ Saga v3 entries are Context-native. Dates may still exist in `timeline.json` as 
 | `lorePurpose` | string | Specific lore purpose. |
 | `specificityScore` | number | 0 to 100 quality/specificity score. |
 | `injectableByDefault` | boolean | Whether the entry should be considered for injection. |
-| `truthStatus` | string | `true`, `hidden`, `rumor`, etc. |
-| `revealPolicy` | string | Reveal behavior. |
+| `truthStatus` | string | In-universe truth state of the fact. See Truth and Reveal Semantics below. |
+| `revealPolicy` | string | Governs when/whether the fact may be revealed. See Truth and Reveal Semantics below. |
 | `tags` | string[] | Search/scoring tags. |
 | `triggers` | object | Keyword, constant, probability, and recursive activation hints. |
 | `scope` | object | Characters, locations, topics, objects, spells, factions, etc. |
@@ -519,6 +519,35 @@ Saga v3 entries are Context-native. Dates may still exist in `timeline.json` as 
 | `sourceInfo` | object | Work/source metadata. |
 | `ui` | object | Display metadata. |
 | `extensions` | object | Future metadata. |
+
+### Truth and Reveal Semantics
+
+`truthStatus` and `revealPolicy` are independent axes: `truthStatus` says what's actually true in-universe; `revealPolicy` says whether/when the model is allowed to reveal it to the user. A card can be `truthStatus: hidden` with `revealPolicy: public` (a secret that's fine to reveal once retrieved), or `truthStatus: true` with `revealPolicy: do_not_reveal` (an established fact the model must never state outright, e.g. a future-canon detail used only as a constraint).
+
+**`truthStatus`** (canonical enum: `true`, `false`, `public_belief`/`public-belief`, `rumor`, `contested`, `hidden`):
+
+| Value | Meaning |
+| --- | --- |
+| `true` | Established in-universe fact. Default. |
+| `false` | Established in-universe falsehood (e.g. propaganda, a lie a character believes) — record it as canon data so the model can reference *that it's false*, not so the model states it as true. |
+| `public_belief` (or `public-belief`) | Widely believed in-universe, not necessarily verified true or false. |
+| `rumor` | Circulating, unverified, lower confidence than `public_belief`. |
+| `contested` | Sources or characters disagree; no single settled answer. |
+| `hidden` | True but concealed from most characters/the audience. |
+
+Only `hidden` currently has a mechanical effect on retrieval: it contributes a small relevance-score boost and factors into "canon secret" classification (used for suggested inclusion tier and reveal-gate categorization). The other values are not mechanically distinguished by Saga's own code today — they exist so the model has the correct in-universe framing in `content.injection`/`content.fact`, and so future retrieval logic has accurate data to build on. Set them correctly regardless of current enforcement.
+
+**`revealPolicy`** (canonical enum: `public`, `private`, `do_not_reveal`, `only_if_knower_present`, `only_if_user_reveals`):
+
+| Value | Meaning |
+| --- | --- |
+| `public` | Safe to reveal generally. Default framing for non-secret facts. |
+| `private` | Only reveal when context supports it — mechanically classified as a canon secret (affects suggested inclusion tier). |
+| `do_not_reveal` | Use as a hidden constraint only; the model should act on the fact without stating it — also mechanically classified as a canon secret. |
+| `only_if_knower_present` | Reveal only if a character who knows this is present in the scene. |
+| `only_if_user_reveals` | Never reveal unless the user introduces it first. |
+
+**Important gap to design around, not ignore:** `only_if_knower_present` and `only_if_user_reveals` are enum choices and UI labels only — Saga does not currently check scene participants or chat history to enforce either one; nothing in the retrieval/gating code branches on them differently from `public`. Treat them as **reserved semantics that will matter once enforcement lands**, not as inert values: author cards with the correct policy now (a genuinely knower-gated secret gets `only_if_knower_present`, not `private`, even though both behave identically today) so a future enforcement pass doesn't require re-auditing every deck's reveal policies to fix mislabeled cards. Do not treat the lack of current enforcement as license to default everything to `private`/`do_not_reveal`.
 
 ### Categories
 

@@ -29,6 +29,12 @@ Expected on quality decks: `kind`/`gateType`, `relevance`, `lorePurpose`, `speci
 - `sourceInfo.evidenceRefs`: array of accepted evidence keys (`<scope>/<recordId>`) — required by this workflow for every card.
 - Do NOT use legacy entry-local `date`/`validFrom`/`validTo`/`canonTiming`; calendar dates live only in `timeline.json`.
 
+## Truth and reveal
+
+`truthStatus` (`true|false|public_belief|public-belief|rumor|contested|hidden`) is what's actually true in-universe; `revealPolicy` (`public|private|do_not_reveal|only_if_knower_present|only_if_user_reveals`) is whether/when the model may reveal it — independent axes, not synonyms. A future-canon detail used only as a constraint is `truthStatus: true` + `revealPolicy: do_not_reveal`; a secret that's fine to reveal once retrieved is `truthStatus: hidden` + `revealPolicy: public`. Full semantics and per-value meaning: `$CLAUDE_PLUGIN_ROOT/docs/SAGA_LOREDECK_SCHEMA.md` § Truth and Reveal Semantics.
+
+**`only_if_knower_present` and `only_if_user_reveals` are not enforced by Saga today** — no code checks scene participants or chat history against them; they behave identically to `public` in current retrieval/gating. Set them correctly anyway. They're reserved semantics, not decorative: a knower-gated secret gets `only_if_knower_present`, not `private`, so a future enforcement pass doesn't require re-auditing every deck. Don't default everything to `private`/`do_not_reveal` just because the conditional policies aren't enforced yet — that loses the distinction the future feature needs.
+
 ## Context gating
 
 - `context.scope`: `window` for era/arc-bounded cards; `global` only for durable world rules.
