@@ -14,6 +14,7 @@ import { BASIC_EXPERIENCE_PROFILE_VERSION } from './basic-profile.js';
 
 export const DEFAULT_SETTINGS = {
     enabled: true,
+    runtimeWindowOpen: false,
     injectMemo: true,
     injectContinuity: true,
     autoExtract: false,

@@ -76,8 +76,7 @@ export async function mountSettingsPanel(ctx) {
     installExtensionsMenuButton();
 
     try {
-        const state = getState();
-        if (state?.lorePanel?.isOpen === true) {
+        if (getSettings().runtimeWindowOpen === true) {
             runRuntimeAction('runtime.show');
         }
     } catch (e) {

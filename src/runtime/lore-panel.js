@@ -1532,6 +1532,10 @@ let panelRoot = null;
 // Public runtime ------------------------------------------------------------
 
 export function showLorePanel() {
+    const settings = getSettings();
+    settings.runtimeWindowOpen = true;
+    saveSettings(settings);
+
     const state = getState();
     if (state?.lorePanel) {
         const openedAt = Date.now();
@@ -1583,6 +1587,10 @@ export function hideLorePanel() {
     closeSagaTour();
     closeRuntimeFullscreenSurfaces();
     removeLorePanel();
+    const settings = getSettings();
+    settings.runtimeWindowOpen = false;
+    saveSettings(settings);
+
     const state = getState();
     if (state?.lorePanel) {
         state.lorePanel.isOpen = false;
@@ -1609,6 +1617,11 @@ export function refreshLorePanel() {
     panelRoot = existing;
 
     const state = getState();
+    const runtimeWindowOpen = getSettings().runtimeWindowOpen === true;
+    if (state?.lorePanel && state.lorePanel.isOpen !== runtimeWindowOpen) {
+        state.lorePanel.isOpen = runtimeWindowOpen;
+        saveState(state);
+    }
     if (!state?.lorePanel?.isOpen) {
         closeSagaTour();
         removeLorePanel();
