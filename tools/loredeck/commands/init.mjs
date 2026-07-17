@@ -48,10 +48,13 @@ function buildSkeletonManifest(state, deck) {
                 },
             }
             : {}),
+        // One shared folder per project, holding every deck in it (core and
+        // era/module decks alike) -- matches every bundled reference deck
+        // family (hp-core/hp-year-*, sw-legends-*, etc.), which never give a
+        // sibling deck its own subfolder. Authors nest multiple *projects*
+        // under one umbrella fandom folder by hand later, if they want that.
         library: {
-            suggestedPath: isFamily
-                ? [state.title, deck.role === 'core' ? 'Core' : deck.deckId]
-                : [state.title],
+            suggestedPath: [state.title],
         },
         continuity: {
             continuityId: state.continuity?.continuityId || '',

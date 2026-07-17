@@ -18,7 +18,7 @@ A series with one narrative spine: book series, TV series, game trilogy.
 - Model: `content/loredecks/hp-core` + `hp-year-1..7` + `hp-epilogue-post-war`.
 - `<canon>-core`: durable world rules, stable character baselines, factions, magic/tech systems — things true across the span, written as wide entries with conservative retrieval.
 - One era deck per book/season/act: state changes, local pressure, reveals, era-gated secrets.
-- Shared tag vocabulary and continuity ids across the family; era decks set `family.role: era` and `recommendedCoreDeckId`. `init --size family` also nests each deck's `library.suggestedPath` under the project title (core deck gets `[title, "Core"]`, era decks get `[title, deckId]`) — relabel the second segment by hand for readability once you know the era names.
+- Shared tag vocabulary and continuity ids across the family; era decks set `family.role: era` and `recommendedCoreDeckId`. `init --size family` gives every deck in the project — core and each era deck alike — the same `library.suggestedPath: [title]`, so they all land in one shared Library folder rather than one folder per deck (see `references/authoring-rules.md`).
 - Research subagents optional (one per evidence scope); drafting usually stays in the main session.
 
 ## Deck family at franchise scale

@@ -36,9 +36,9 @@ const init = cli('init', 'state-canon', '--title', 'State Canon', '--size', 'fam
 assert.equal(init.code, 0, init.stderr);
 
 const coreManifest = JSON.parse(await readFile(path.join(workshopRoot, 'state-canon', 'drafts', 'state-canon-core', 'loredeck.json'), 'utf8'));
-assert.deepEqual(coreManifest.library.suggestedPath, ['State Canon', 'Core'], 'Core deck should get a nested [title, "Core"] suggestedPath.');
+assert.deepEqual(coreManifest.library.suggestedPath, ['State Canon'], 'Every deck in a project should share one suggestedPath, not get its own subfolder.');
 const eraManifest = JSON.parse(await readFile(path.join(workshopRoot, 'state-canon', 'drafts', 'state-canon-era-one', 'loredeck.json'), 'utf8'));
-assert.deepEqual(eraManifest.library.suggestedPath, ['State Canon', 'state-canon-era-one'], 'Era deck should get a nested [title, deckId] suggestedPath.');
+assert.deepEqual(eraManifest.library.suggestedPath, coreManifest.library.suggestedPath, 'Sibling decks must share the exact same suggestedPath as the core deck.');
 const reInit = cli('init', 'state-canon', '--title', 'State Canon');
 assert.equal(reInit.code, 1, 'Re-init of an existing project must fail.');
 
@@ -153,7 +153,7 @@ assert.equal(missingProjectDeckAdd.code, 1, 'deck add on an unknown project must
 
 const addedManifest = JSON.parse(await readFile(path.join(workshopRoot, 'deck-add-canon', 'drafts', 'deck-add-era', 'loredeck.json'), 'utf8'));
 assert.equal(addedManifest.family?.recommendedCoreDeckId, 'deck-add-core', 'Added deck must link to the existing core deck, same as init would.');
-assert.deepEqual(addedManifest.library.suggestedPath, ['Deck Add Canon', 'deck-add-era'], 'Scaffolded skeleton must match what init --decks would have produced directly.');
+assert.deepEqual(addedManifest.library.suggestedPath, ['Deck Add Canon'], 'A deck added later must share the same project-wide suggestedPath init would have produced directly, not get its own subfolder.');
 const addedTags = JSON.parse(await readFile(path.join(workshopRoot, 'deck-add-canon', 'drafts', 'deck-add-era', 'tags.json'), 'utf8'));
 assert.deepEqual(addedTags, { schemaVersion: 1, tags: {} });
 
