@@ -2,6 +2,8 @@
 
 This document describes the importable `.saga-loredeck.zip` package shape for Saga Loredecks. Use it when a Loredeck is authored outside Saga, especially when handing work to another LLM and expecting a package that can be imported through **Import Deck**.
 
+To build a package of this exact shape with tooling that assembles and verifies it for you, use the `loredeck-builder` skill and its `tools/loredeck/` CLI — see [LOREDECK_BUILDER_TOOLKIT.md](LOREDECK_BUILDER_TOOLKIT.md).
+
 The zip package is a data container. It must contain JSON data and passive assets only. It must not contain executable code.
 
 ## Required Archive Shape

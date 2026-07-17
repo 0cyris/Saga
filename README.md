@@ -81,6 +81,8 @@ Release-facing docs:
 - [Loredeck Zip Package Structure](docs/loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md)
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
+- [Loredeck Builder Toolkit](docs/loredecks/LOREDECK_BUILDER_TOOLKIT.md)
+- [Scripts Development Guide](docs/development/SCRIPTS_GUIDE.md): creating and maintaining 167 scripts for generation, testing, and maintenance.
 - [Saga Terminology](docs/development/SAGA_TERMINOLOGY.md)
 
 Development notes live in [docs/development](docs/development/) until promoted, rewritten, or archived as release-facing docs.
@@ -116,7 +118,7 @@ assets/                 Branding, icons, screenshots, and passive assets.
 content/presets/        Optional provider/preset data.
 docs/loredecks/         Release-facing Loredeck authoring docs.
 docs/development/       Planning, audits, runbooks, and implementation notes.
-tools/scripts/          Local tests, smoke helpers, and deck maintenance scripts.
+tools/scripts/          Local tests, smoke helpers, and deck maintenance scripts (see docs/development/SCRIPTS_GUIDE.md).
 tests/                  Visual smoke harness fixtures.
 ```
 
@@ -156,10 +158,11 @@ See [Storage And State Safety](docs/user/STORAGE_AND_STATE_SAFETY.md) for the fu
 
 ## Authoring Loredecks
 
-Saga supports two Loredeck authoring paths:
+Saga supports three Loredeck authoring paths:
 
 1. **Use the Deck Maker.** In Advanced mode, Deck Maker walks through scope, story outline, Context planning, title batches, timeline/tag planning, Lorecard drafting, review, Pack Health, and finalization. This is the in-app path for staged model-assisted authoring.
 2. **Use the docs and a bundled Loredeck as a reference.** Hand the authoring docs, schema, package structure guide, and a relevant bundled Loredeck folder to another LLM. The output target is a compatible `.saga-loredeck.zip` package that can be imported through **Import Deck** and then checked in Pack Health.
+3. **Use the `loredeck-builder` skill and CLI toolkit.** A repo-local Claude Code skill plus `tools/loredeck/` CLI drives the same staged, user-gated workflow outside the app -- from scope brief through evidence, planning, Lorecards, and strict Pack Health -- and produces an importable `.saga-loredeck.zip` package. See [Loredeck Builder Toolkit](docs/loredecks/LOREDECK_BUILDER_TOOLKIT.md).
 
 Start with these docs:
 
@@ -167,6 +170,7 @@ Start with these docs:
 - [Loredeck Zip Package Structure](docs/loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md)
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
+- [Loredeck Builder Toolkit](docs/loredecks/LOREDECK_BUILDER_TOOLKIT.md)
 
 Reference-quality decks should be data-only, Context-aware, reviewable, and clean in the Pack Health Center. Do not treat parsed JSON as finished content. A deck is ready to model future work only when it loads cleanly, retrieves at the right Context, keeps future lore gated, and has no outstanding health issues.
 

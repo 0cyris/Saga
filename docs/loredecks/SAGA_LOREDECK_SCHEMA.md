@@ -286,6 +286,33 @@ my-hp-sw-crossover
 
 Saga should warn when two loaded packs share a pack ID. It should not try to silently merge them.
 
+## Deck Families
+
+A multi-deck project (a core deck plus module/era/year/season decks that build on it) links its decks with three optional top-level `loredeck.json` fields:
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `deckFamilyId` | string | Shared ID across every deck in the family. |
+| `family` | object | `{ id, title, role, recommendedCoreDeckId }`. `role` is a free-form label (`core`, `era`, `year`, `season`, ...); `recommendedCoreDeckId` names the sibling deck this one builds on and is set on non-core decks by the `loredeck` CLI's `init`/`deck add` commands. |
+| `recommendedStack` | string[] | The deck IDs a user should load together to get this deck's full context (typically the core deck plus this deck). |
+
+Example (from a module/era deck):
+
+```json
+{
+  "deckFamilyId": "hp-golden-trio",
+  "family": {
+    "id": "hp-golden-trio",
+    "title": "Harry Potter: Golden Trio",
+    "role": "year",
+    "recommendedCoreDeckId": "hp-core"
+  },
+  "recommendedStack": ["hp-core", "hp-year-1-philosophers-stone"]
+}
+```
+
+`family.recommendedCoreDeckId` is also consulted by Pack Health (`loredeck health`) when checking a non-core deck: tags whose `parents` resolve only inside the linked core deck's `tags.json` are treated as resolved rather than flagged as `tag_parent_missing`, so a module deck doesn't need to redeclare or re-import its core deck's tag registry just to reference it.
+
 ## Source And Update Metadata
 
 Source metadata is internal and should not create extra user-facing pack types.
@@ -476,8 +503,8 @@ Saga v3 entries are Context-native. Dates may still exist in `timeline.json` as 
 | `lorePurpose` | string | Specific lore purpose. |
 | `specificityScore` | number | 0 to 100 quality/specificity score. |
 | `injectableByDefault` | boolean | Whether the entry should be considered for injection. |
-| `truthStatus` | string | `true`, `hidden`, `rumor`, etc. |
-| `revealPolicy` | string | Reveal behavior. |
+| `truthStatus` | string | In-universe truth state of the fact. See Truth and Reveal Semantics below. |
+| `revealPolicy` | string | Governs when/whether the fact may be revealed. See Truth and Reveal Semantics below. |
 | `tags` | string[] | Search/scoring tags. |
 | `triggers` | object | Keyword, constant, probability, and recursive activation hints. |
 | `scope` | object | Characters, locations, topics, objects, spells, factions, etc. |
@@ -492,6 +519,35 @@ Saga v3 entries are Context-native. Dates may still exist in `timeline.json` as 
 | `sourceInfo` | object | Work/source metadata. |
 | `ui` | object | Display metadata. |
 | `extensions` | object | Future metadata. |
+
+### Truth and Reveal Semantics
+
+`truthStatus` and `revealPolicy` are independent axes: `truthStatus` says what's actually true in-universe; `revealPolicy` says whether/when the model is allowed to reveal it to the user. A card can be `truthStatus: hidden` with `revealPolicy: public` (a secret that's fine to reveal once retrieved), or `truthStatus: true` with `revealPolicy: do_not_reveal` (an established fact the model must never state outright, e.g. a future-canon detail used only as a constraint).
+
+**`truthStatus`** (canonical enum: `true`, `false`, `public_belief`/`public-belief`, `rumor`, `contested`, `hidden`):
+
+| Value | Meaning |
+| --- | --- |
+| `true` | Established in-universe fact. Default. |
+| `false` | Established in-universe falsehood (e.g. propaganda, a lie a character believes) — record it as canon data so the model can reference *that it's false*, not so the model states it as true. |
+| `public_belief` (or `public-belief`) | Widely believed in-universe, not necessarily verified true or false. |
+| `rumor` | Circulating, unverified, lower confidence than `public_belief`. |
+| `contested` | Sources or characters disagree; no single settled answer. |
+| `hidden` | True but concealed from most characters/the audience. |
+
+Only `hidden` currently has a mechanical effect on retrieval: it contributes a small relevance-score boost and factors into "canon secret" classification (used for suggested inclusion tier and reveal-gate categorization). The other values are not mechanically distinguished by Saga's own code today — they exist so the model has the correct in-universe framing in `content.injection`/`content.fact`, and so future retrieval logic has accurate data to build on. Set them correctly regardless of current enforcement.
+
+**`revealPolicy`** (canonical enum: `public`, `private`, `do_not_reveal`, `only_if_knower_present`, `only_if_user_reveals`):
+
+| Value | Meaning |
+| --- | --- |
+| `public` | Safe to reveal generally. Default framing for non-secret facts. |
+| `private` | Only reveal when context supports it — mechanically classified as a canon secret (affects suggested inclusion tier). |
+| `do_not_reveal` | Use as a hidden constraint only; the model should act on the fact without stating it — also mechanically classified as a canon secret. |
+| `only_if_knower_present` | Reveal only if a character who knows this is present in the scene. |
+| `only_if_user_reveals` | Never reveal unless the user introduces it first. |
+
+**Important gap to design around, not ignore:** `only_if_knower_present` and `only_if_user_reveals` are enum choices and UI labels only — Saga does not currently check scene participants or chat history to enforce either one; nothing in the retrieval/gating code branches on them differently from `public`. Treat them as **reserved semantics that will matter once enforcement lands**, not as inert values: author cards with the correct policy now (a genuinely knower-gated secret gets `only_if_knower_present`, not `private`, even though both behave identically today) so a future enforcement pass doesn't require re-auditing every deck's reveal policies to fix mislabeled cards. Do not treat the lack of current enforcement as license to default everything to `private`/`do_not_reveal`.
 
 ### Categories
 
@@ -1839,7 +1895,7 @@ Current tag health behavior:
 
 ## Import And Export Packages
 
-Saga's current public Loredeck import/export format is a zip package with a `loredecks/` root inside the archive. For the release-facing package authoring checklist, see [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md). The historical development plan lives in [../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
+Saga's current public Loredeck import/export format is a zip package with a `loredecks/` root inside the archive. For the release-facing package authoring checklist, see [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md). To build such a package outside the app with a CLI that enforces this schema and Pack Health parity, see [LOREDECK_BUILDER_TOOLKIT.md](LOREDECK_BUILDER_TOOLKIT.md). The historical development plan lives in [../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
 
 Front-facing `.saga-loredeck.json` import/export was legacy interim behavior and should not appear in the Library UI. Public sharing should use `.saga-loredeck.zip` packages.
 

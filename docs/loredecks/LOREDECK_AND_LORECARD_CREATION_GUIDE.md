@@ -87,10 +87,11 @@ The authoring target is not "a lot of lore." The target is a clean, Context-awar
 
 ## Supported Authoring Paths
 
-Saga supports two release-facing authoring paths:
+Saga supports three release-facing authoring paths:
 
 1. Use the in-app **Deck Maker** for staged model-assisted authoring, review, Pack Health, and finalization.
 2. Use these docs, the schema reference, the zip package structure guide, and a bundled Loredeck folder as a handoff bundle for another LLM. The expected output is a compatible `.saga-loredeck.zip` package that imports through **Import Deck**.
+3. Use the `loredeck-builder` skill and its `tools/loredeck/` CLI to run the same staged, user-gated workflow outside the app, from scope brief through evidence, planning, cards, Pack Health, and packaging. See [LOREDECK_BUILDER_TOOLKIT.md](LOREDECK_BUILDER_TOOLKIT.md).
 
 Use [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md) when the final output needs to be an importable package with deck folders, package indexes, entry files, registries, and cover images.
 
@@ -143,6 +144,7 @@ Future deck families should get equivalent health, conformance, and Context fixt
 - [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md): detailed Loredeck, Lorecard, registry, bundle, and Pack Health schema contract.
 - [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md): importable `.saga-loredeck.zip` structure, required files, cover image rules, and package safety boundaries.
 - [LLM_LOREDECK_GENERATION_GUIDE.md](LLM_LOREDECK_GENERATION_GUIDE.md): compact LLM handoff for Saga Loredeck generation and revision.
+- [LOREDECK_BUILDER_TOOLKIT.md](LOREDECK_BUILDER_TOOLKIT.md): the `loredeck-builder` skill and `tools/loredeck/` CLI for external, staged, user-gated authoring of importable `.saga-loredeck.zip` packages.
 - [../DOCUMENTATION_INDEX.md](../DOCUMENTATION_INDEX.md): top-level documentation index.
 - [../development](../development): development notes and planning documents that have not yet been rewritten as release-facing docs.
 

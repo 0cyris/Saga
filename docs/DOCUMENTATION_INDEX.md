@@ -22,6 +22,8 @@ Saga documentation is being organized into release-facing topic folders. Older i
 - [Loredecks](loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md): Loredeck and Lorecard creation guidance, reference-deck expectations, authoring workflow, and schema links.
 - [Loredeck Zip Package Structure](loredecks/LOREDECK_ZIP_PACKAGE_STRUCTURE.md): importable `.saga-loredeck.zip` folder layout, package index requirements, deck-local cover image rules, and LLM handoff checklist.
 - [LLM Loredeck Generation](loredecks/LLM_LOREDECK_GENERATION_GUIDE.md): compact handoff for another LLM that needs to generate or revise Saga Loredecks and Lorecards.
+- [Loredeck Builder Toolkit](loredecks/LOREDECK_BUILDER_TOOLKIT.md): the `loredeck-builder` skill and `tools/loredeck/` CLI for external, LLM-driven authoring of validated `.saga-loredeck.zip` packages through a staged, user-gated workshop workflow.
+- [Scripts Development Guide](development/SCRIPTS_GUIDE.md): creating and maintaining scripts in `tools/scripts/` for loredeck generation, testing, maintenance, and utilities. Includes architectural patterns, templates, and best practices for all 167 scripts.
 
 ## Development Notes
 
