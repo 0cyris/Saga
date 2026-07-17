@@ -1,6 +1,6 @@
 # Scripts Development Guide
 
-The Saga repository includes 167 scripts in `tools/scripts/` that support loredeck generation, testing, maintenance, and utilities. This guide explains the script ecosystem, patterns, conventions, and how to create new scripts.
+The Saga repository includes 178 scripts in `tools/scripts/` at the time of this guide's current authoring pass. They support loredeck generation, testing, maintenance, and utilities. Treat the count as an inventory snapshot rather than a stable API; update it when the script inventory changes materially. This guide explains the script ecosystem, patterns, conventions, and how to create new scripts.
 
 ## 1. Overview and Purpose
 
@@ -42,6 +42,29 @@ When NOT to write a script:
 - Keep the subject concise but clear
 - Always use `.mjs` extension (ES modules, not CommonJS)
 - Place in `tools/scripts/` directory
+
+## 2.1 Loredeck Builder CLI and focused checks
+
+The external Loredeck authoring workflow lives primarily under `tools/loredeck/`, not in the general-purpose `tools/scripts/` directory. Run it with:
+
+```text
+node tools/loredeck/loredeck-cli.mjs <command> [args] [--json]
+```
+
+The CLI owns workshop project state, evidence status, review artifacts, conformance, Pack Health, promotion, packaging, and package verification. Keep `project.json` CLI-owned; authors may edit briefs, evidence, plans, draft registries, and draft card files according to the `loredeck-builder` skill contract. The packaged skill venders this CLI and its required health modules through `plugins/loredeck-builder/scripts/sync-from-repo.mjs`; do not hand-edit the generated plugin directories.
+
+The focused Loredeck Builder checks are:
+
+- `test-loredeck-workshop-state.mjs`
+- `test-loredeck-evidence-store.mjs`
+- `test-loredeck-cli-health-cross-deck-tags.mjs`
+- `test-loredeck-cli-health-parity.mjs`
+- `test-loredeck-cli-package-roundtrip.mjs`
+- `test-loredeck-cli-conformance.mjs`
+- `test-loredeck-review-artifacts.mjs`
+- `test-loredeck-plugin-bundle.mjs`
+
+The first seven exercise the authoring workflow and the last verifies the standalone `.skill` bundle. The focused CI workflow runs these checks independently; `run-alpha-gate.mjs` contains the core parity, state, evidence, conformance, package-roundtrip, and bundle checks as part of the broader repository gate.
 
 ## 3. Universal Patterns and Best Practices
 

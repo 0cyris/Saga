@@ -18,13 +18,14 @@ You are driving Saga's external Loredeck authoring workflow: a staged loop that 
 
 ## The CLI
 
-All commands: `node tools/loredeck/loredeck-cli.mjs <command>` (run from the repo root). Add `--json` for machine-readable output. Projects live in the gitignored `workshop/` directory (override with `SAGA_WORKSHOP_ROOT`).
+From a repository checkout, commands are `node tools/loredeck/loredeck-cli.mjs <command>` and projects default to the gitignored `workshop/` directory. The packaged skill uses its generated `cli/loredeck-plugin.mjs` wrapper and defaults to `<your project>/loredeck-workshop/`. Both entry points honor `SAGA_WORKSHOP_ROOT`; set it explicitly when the location matters. Add `--json` for machine-readable output.
 
 | Command | Purpose |
 | --- | --- |
 | `init <id> --title T [--size single\|family] [--decks id:role,...]` | Scaffold project + skeleton deck folders |
 | `status <id> --json` | Resume contract: stage, pending gate, counts |
-| `gate approve <id> [--note N] [--artifact P]` | Record user approval, advance stage |
+| `deck add <id> --deck D:ROLE` | Add a core/era/standalone deck to an existing project |
+| `gate approve <id> [--deck D] [--note N] [--artifact P]` | Record user approval, advance project-wide or deck-scoped stage |
 | `gate reopen <id> --stage S [--note N]` | Rewind to an earlier (or same) stage — for a family project already at `complete` gaining new decks; never advances |
 | `evidence validate\|accept\|reject <id> [--scope S] [--ids a,b\|--all]` | Evidence pipeline |
 | `batch set <id> --deck D --kind titles\|cards --id B --status S [--count N]` | Record batch review outcomes |
@@ -32,8 +33,10 @@ All commands: `node tools/loredeck/loredeck-cli.mjs <command>` (run from the rep
 | `health <deck-dir\|id> [--deck D] [--dist] [--strict]` | Full Pack Health (identical to in-app) |
 | `conformance <deck-dir>` / `stats <deck-dir> --write` | Structural checks / stats+files[] rewrite |
 | `promote <id> [--deck D]` | drafts → dist, gated on conformance + strict health |
-| `package <id> [--author A] [--pkg-version V]` | Build the `.saga-loredeck.zip` from dist/ |
+| `package <id> [--deck D] [--author A] [--pkg-version V]` | Build the `.saga-loredeck.zip` from dist/ |
 | `verify-package <zip>` | Parse + health-check the final artifact |
+
+The CLI mechanically validates project state, evidence shape, manifests, registries, statistics, Pack Health, safe package paths, and archive round-trips. It does not prove that a card's wording is actually grounded in its cited facts, that a continuity decision is correct, or that a deck deserves human-vetted quality tags. Regenerate each review artifact, resolve its findings, present it to the user, and only then record the gate approval.
 
 ## Session start: new or resume?
 

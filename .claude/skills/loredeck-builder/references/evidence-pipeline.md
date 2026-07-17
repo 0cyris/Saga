@@ -58,6 +58,8 @@ python scripts/fetch_fandom.py <wiki-subdomain> <page_title>
 
 Requires only `requests` (stdlib otherwise). Treat its output as raw material for evidence records, not evidence itself — still extract discrete, source-grounded `facts` per the shape above, and record the page URL and retrieval date in `provenance`.
 
+The Fandom helper prints at most 3,000 characters and writes a warning to stderr when it truncates a longer page. A truncation warning means the output is only a partial research view; use the provenance URL to review the complete source before accepting evidence.
+
 ### PDF sources
 
 When a source is a PDF, extract text before drafting evidence — don't transcribe from a viewer by eye.
