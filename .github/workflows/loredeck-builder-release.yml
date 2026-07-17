@@ -18,14 +18,13 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Regenerate plugin bundle from source of truth
-        run: node plugins/loredeck-builder/scripts/sync-from-repo.mjs
+      - name: Build the bundle from source of truth
+        run: |
+          node plugins/loredeck-builder/scripts/sync-from-repo.mjs
+          node plugins/loredeck-builder/scripts/build-skill-file.mjs
 
-      - name: Fail if the checked-in bundle is stale
-        run: git diff --exit-code -- plugins/loredeck-builder
-
-      - name: Build .skill file
-        run: node plugins/loredeck-builder/scripts/build-skill-file.mjs
+      - name: Verify the built bundle (self-contained, strict-clean health)
+        run: node tools/scripts/test-loredeck-plugin-bundle.mjs
 
       - name: Upload as workflow artifact
         if: github.event_name == 'workflow_dispatch'

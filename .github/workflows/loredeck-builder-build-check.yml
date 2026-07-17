@@ -1,4 +1,4 @@
-name: loredeck-builder drift check
+name: loredeck-builder build check
 
 on:
   pull_request:
@@ -23,7 +23,7 @@ on:
       - 'plugins/loredeck-builder/**'
 
 jobs:
-  check-drift:
+  build-and-verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,15 +32,10 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Regenerate plugin bundle from source of truth
-        run: node plugins/loredeck-builder/scripts/sync-from-repo.mjs
-
-      - name: Fail if the checked-in bundle is stale
-        run: git diff --exit-code -- plugins/loredeck-builder
-
-      - name: How to fix
-        if: failure()
+      - name: Build the .skill bundle from source of truth
         run: |
-          echo "plugins/loredeck-builder/ is out of sync with its source (.claude/skills/loredeck-builder, tools/loredeck, docs/loredecks, content/loredecks/hp-core, src/loredecks, src/lorecards)."
-          echo "Run: node plugins/loredeck-builder/scripts/sync-from-repo.mjs"
-          echo "Then commit the result."
+          node plugins/loredeck-builder/scripts/sync-from-repo.mjs
+          node plugins/loredeck-builder/scripts/build-skill-file.mjs
+
+      - name: Verify the built bundle (self-contained, strict-clean health)
+        run: node tools/scripts/test-loredeck-plugin-bundle.mjs

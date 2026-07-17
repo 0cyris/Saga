@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /**
- * sync-from-repo.mjs -- Saga loredeck-builder plugin
+ * sync-from-repo.mjs -- Saga loredeck-builder skill build
  *
- * Regenerates the fully-vendored plugin bundle from the Saga repo so the
- * distributable plugin never drifts from source. The repo is the source of
- * truth; this script copies and path-rewrites:
+ * Regenerates the loredeck-builder .skill bundle from the Saga repo. The repo
+ * is the only source of truth; none of this script's output is committed to
+ * git (see .gitignore) -- it's a build step, run before build-skill-file.mjs,
+ * not something that can drift from a checked-in copy. This script copies
+ * and path-rewrites:
  *   - the skill folder (.claude/skills/loredeck-builder)  -> skills/loredeck-builder
  *   - the CLI (tools/loredeck)                            -> cli/loredeck
  *   - the CLI's transitive src closure (12 modules)       -> cli/vendor (flattened)
  *   - the four authoring docs (docs/loredecks/*.md)       -> docs/
  *   - one bundled reference deck (content/loredecks/hp-core) -> reference-decks/hp-core
- *   - a plugin CLI wrapper that defaults the workshop root -> cli/loredeck-plugin.mjs
+ *   - a wrapper that defaults the workshop root           -> cli/loredeck-plugin.mjs
  *
  * Run from anywhere: `node plugins/loredeck-builder/scripts/sync-from-repo.mjs`
- * CI can run it then `git diff --exit-code plugins/` to catch drift.
+ * Then `node plugins/loredeck-builder/scripts/build-skill-file.mjs` to zip it.
  */
 
 import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';

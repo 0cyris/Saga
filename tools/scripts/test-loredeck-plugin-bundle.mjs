@@ -1,11 +1,16 @@
 /**
  * test-loredeck-plugin-bundle.mjs -- Saga
- * Guards the vendored loredeck-builder plugin bundle:
- *   1. The bundle is in sync with the repo (re-running sync-from-repo.mjs
- *      produces no diff).
- *   2. The vendored CLI resolves entirely within the plugin (no imports reach
+ * Guards the loredeck-builder .skill bundle end to end. Nothing under
+ * plugins/loredeck-builder/{skills,cli,docs,reference-decks} is committed --
+ * it's generated fresh by sync-from-repo.mjs and zipped by
+ * build-skill-file.mjs, so this test is what actually proves the pipeline
+ * still produces a working, self-contained bundle:
+ *   1. sync-from-repo.mjs regenerates the bundle from the repo without error.
+ *   2. The vendored CLI resolves entirely within the bundle (no imports reach
  *      repo src/) and runs strict-clean Pack Health on the bundled reference
  *      deck via the vendored health engine.
+ *   3. build-skill-file.mjs packages the bundle into a well-formed .skill zip
+ *      containing the expected top-level entries.
  */
 
 import assert from 'node:assert/strict';
@@ -21,18 +26,11 @@ function run(cmd, args, env = {}) {
   return spawnSync(cmd, args, { cwd: repoRoot, encoding: 'utf8', env: { ...process.env, ...env } });
 }
 
-// 1. Bundle is regenerable and in sync with the repo.
+// 1. Bundle regenerates cleanly from the repo (the only source of truth).
 const sync = run(process.execPath, [path.join(pluginRoot, 'scripts', 'sync-from-repo.mjs')]);
 assert.equal(sync.status, 0, `sync-from-repo.mjs failed: ${sync.stderr}`);
-const diff = run('git', ['diff', '--stat', '--', 'plugins/loredeck-builder']);
-assert.equal(diff.status, 0, 'git diff failed');
-assert.equal(
-  diff.stdout.trim(),
-  '',
-  `Plugin bundle is out of sync with the repo. Run:\n  node plugins/loredeck-builder/scripts/sync-from-repo.mjs\nand commit. Drift:\n${diff.stdout}`,
-);
 
-// 2. No vendored CLI file imports repo src/.
+// 2. No vendored CLI file imports repo src/ -- the bundle must be self-contained.
 function listFiles(dir) {
   const out = [];
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -59,5 +57,22 @@ const report = JSON.parse(health.stdout);
 assert.equal(report.ok, true);
 assert.equal(report.decks[0].status, 'good');
 assert.equal(report.decks[0].errors + report.decks[0].warnings + report.decks[0].suggestions, 0);
+
+// 4. The bundle packages into a well-formed, self-contained .skill zip.
+const build = run(process.execPath, [path.join(pluginRoot, 'scripts', 'build-skill-file.mjs')]);
+assert.equal(build.status, 0, `build-skill-file.mjs failed: ${build.stderr}`);
+const skillPath = path.join(pluginRoot, 'dist', 'loredeck-builder.skill');
+assert.ok(statSync(skillPath).size > 10_000, `.skill archive at ${skillPath} looks too small to be a real bundle.`);
+const listing = run('python3', ['-m', 'zipfile', '-l', skillPath]);
+assert.equal(listing.status, 0, `Failed to list .skill archive contents: ${listing.stderr}`);
+for (const expected of [
+  'loredeck-builder/SKILL.md',
+  'loredeck-builder/cli/loredeck/loredeck-cli.mjs',
+  'loredeck-builder/cli/vendor/tag-registry-health.js',
+  'loredeck-builder/docs/SAGA_LOREDECK_SCHEMA.md',
+  'loredeck-builder/reference-decks/hp-core/loredeck.json',
+]) {
+  assert.ok(listing.stdout.includes(expected), `.skill archive is missing expected entry: ${expected}`);
+}
 
 console.log('Loredeck plugin bundle tests passed.');
