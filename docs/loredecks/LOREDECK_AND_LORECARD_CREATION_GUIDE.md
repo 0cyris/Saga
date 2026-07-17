@@ -139,6 +139,8 @@ node tools\scripts\test-context-current-contract.mjs
 
 Future deck families should get equivalent health, conformance, and Context fixture checks before they are treated as reference models.
 
+For external, staged authoring, the `loredeck-builder` toolkit adds evidence validation, project-state gates, review artifacts, family-deck tag checks, package round-trip verification, and the same strict-clean Pack Health bar used by the app. See [LOREDECK_BUILDER_TOOLKIT.md](LOREDECK_BUILDER_TOOLKIT.md) for the workflow and its machine-versus-human validation boundary. The toolkit does not replace the author's judgment about canon grounding, continuity, spoiler timing, or whether a cited fact actually supports a card's wording.
+
 ## Documentation Map
 
 - [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md): detailed Loredeck, Lorecard, registry, bundle, and Pack Health schema contract.

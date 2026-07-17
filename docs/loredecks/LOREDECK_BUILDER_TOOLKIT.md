@@ -2,7 +2,7 @@
 
 This document describes the `loredeck-builder` skill and its `tools/loredeck/` CLI: the external, LLM-driven path for authoring a complete, validated Saga Loredeck outside the app and producing an importable `.saga-loredeck.zip` package.
 
-The toolkit is the third release-facing authoring path, alongside the in-app **Deck Maker** and the manual docs-plus-schema handoff bundle. Use it when you want a staged, user-gated workflow that an assistant can drive end to end in a repo checkout, with the same Pack Health bar as the app enforced at every gate. It scales from a single novel up to a large franchise deck family.
+The toolkit is the third release-facing authoring path, alongside the in-app **Deck Maker** and the manual docs-plus-schema handoff bundle. Use it when you want a staged, user-gated workflow that an assistant can drive end to end in a repo checkout, with the same Pack Health engine and final strict-clean release bar as the app. The earlier gates are human review checkpoints; the CLI records those approvals but does not independently judge canon quality or semantic grounding. It scales from a single novel up to a large franchise deck family.
 
 The skill supplies the workflow and judgment. The CLI owns project state, evidence, review artifacts, health parity, promotion, and packaging. This document is the release-facing reference for the CLI and project layout; the skill's own `SKILL.md` and `references/` hold the stage-by-stage authoring instructions.
 
@@ -21,7 +21,7 @@ Use the in-app **Deck Maker** instead when you want to draft inside Saga with li
 
 The workflow is driven by the skill, not by running CLI commands by hand.
 
-1. Open this repository in Claude Code, Cowork, or Claude Desktop.
+1. Open this repository in Claude Code, Cowork, or Claude Desktop when you want to author against the repository checkout. If you installed the standalone `.skill` bundle, open the project where you want its `loredeck-workshop/` folder to live.
 2. Invoke the `loredeck-builder` skill (or type `/loredeck-builder`) and describe the canon you want to build, the folder you want validated, or the project you want to resume.
 3. The skill drives the staged, user-gated loop. It presents a review artifact at each stage and waits for your explicit approval before advancing; nothing moves forward without your sign-off.
 
@@ -43,7 +43,8 @@ Every command accepts `--json` for machine-readable output. Run the CLI with no 
 | --- | --- | --- |
 | `init` | Scaffold a workshop project and skeleton deck folders. | `<project-id> --title <title> [--size single\|family] [--decks id:role,...]` |
 | `status` | Resume contract: current stage, pending gate, evidence and batch counts. | `<project-id> [--json]` |
-| `gate` | Record a user approval and advance exactly one stage. | `approve <project-id> [--note <note>] [--artifact <path>]` |
+| `deck` | Add a core/era deck to an existing project without hand-editing `project.json`. | `add <project-id> --deck <deck-id>:<core\|era\|standalone>` |
+| `gate` | Record a user approval and advance exactly one project-wide or deck-scoped stage. | `approve <project-id> [--deck <deck-id>] [--note <note>] [--artifact <path>]`; `reopen <project-id> --stage <stage> [--deck <deck-id>] [--note <note>]` |
 | `batch` | Record a title or card batch review outcome. | `set <project-id> --deck <deck-id> --kind titles\|cards --id <batch-id> --status draft\|approved\|rejected [--count N]` |
 | `evidence` | Validate, accept, or reject evidence records. | `validate\|accept\|reject <project-id> [--scope <scope>] [--ids a,b\|--all] [--note <note>]` |
 | `report` | Regenerate a stage's review artifact under `reviews/`. | `<project-id> --stage brief\|evidence\|plan\|titles\|cards\|final` |
@@ -51,12 +52,12 @@ Every command accepts `--json` for machine-readable output. Run the CLI with no 
 | `conformance` | Structural conformance checks on a deck folder. | `<deck-dir>` |
 | `stats` | Compute deck stats; optionally rewrite the manifest `stats`/`files`. | `<deck-dir> [--write]` |
 | `promote` | Move drafts to `dist/`, gated on conformance and strict health. | `<project-id> [--deck <deck-id>]` |
-| `package` | Build the `.saga-loredeck.zip` from `dist/`. | `<project-id> [--out <file.saga-loredeck.zip>] [--author <name>] [--pkg-version <semver>]` |
+| `package` | Build the `.saga-loredeck.zip` from `dist/`. | `<project-id> [--deck <deck-id>] [--out <file.saga-loredeck.zip>] [--author <name>] [--pkg-version <semver>]` |
 | `verify-package` | Parse and health-check a finished package archive. | `<zip-path>` |
 
 ## Workshop Project Layout
 
-Projects live under `workshop/<project>/` in the repository root. This directory is gitignored: work-in-progress canon projects are local scratch, and the only shipped output is the promoted `.saga-loredeck.zip`. Override the location with the `SAGA_WORKSHOP_ROOT` environment variable when you want projects stored elsewhere.
+The raw repository CLI stores projects under `workshop/<project>/` in the repository root by default. The packaged skill wrapper stores them under `<your project>/loredeck-workshop/<project>/` by default so the installed skill does not write into its own cache. Both entry points honor `SAGA_WORKSHOP_ROOT`; set it explicitly when you want an unambiguous location. These workshop directories are gitignored local scratch, and the only shipped output is the promoted `.saga-loredeck.zip`.
 
 A project folder holds:
 
@@ -86,6 +87,8 @@ Evidence lives at `evidence/<scope>/<slug>.json`, where a scope is a lowercase s
 
 `evidence validate` enforces these rules and regenerates `reviews/evidence.md`. The user then accepts or rejects records with `evidence accept|reject`. Only accepted records may back cards; the card-stage report flags any card that cites a rejected or unknown record, or cites nothing. Record ids become citation keys in the form `<scope>/<recordId>`.
 
+For Fandom wiki research, the bundled `fetch_fandom.py` helper requires Python `requests`, prints at most 3,000 characters, and writes a stderr warning when it truncates a longer page. Treat its output as research material, review the complete source through the recorded provenance URL, and extract discrete facts rather than copying the truncated output directly into cards.
+
 ## Promotion, Packaging, and the Release Bar
 
 The finishing pipeline is `promote` then `package` then `verify-package`:
@@ -94,19 +97,55 @@ The finishing pipeline is `promote` then `package` then `verify-package`:
 2. `package <project-id>` assembles the `.saga-loredeck.zip` from `dist/`, with package metadata, the `loredecks/` index, deck manifests, entry files, registries, and any cover assets. See [LOREDECK_ZIP_PACKAGE_STRUCTURE.md](LOREDECK_ZIP_PACKAGE_STRUCTURE.md) for the archive contract.
 3. `verify-package <zip-path>` re-parses the finished archive and health-checks it as Saga would on import.
 
-The release bar is **strict-clean Pack Health**: zero errors, zero warnings, and zero suggestions. This is the same Pack Health used inside the app, run against the same deck data through the same engine, so a package that clears the toolkit's bar imports and reports clean in Saga. `promote` and `verify-package` both enforce this bar; a warning is not something to argue past, it is something to fix.
+The release bar is **strict-clean Pack Health**: zero errors, zero warnings, and zero suggestions. This is the same Pack Health used inside the app, run against the same deck data through the same engine, so a package that clears the toolkit's bar imports and reports clean in Saga. `promote` and `verify-package` enforce this final bar; earlier gates are recorded user approvals and review-artifact checkpoints, not automatic semantic acceptance.
 
 After packaging, import the archive through **SillyTavern > Saga > Loredeck Library > Import Deck** and confirm Pack Health reports clean in-app.
 
+## What the CLI proves
+
+The toolkit separates mechanical validation from author judgment:
+
+- **The CLI proves:** project-state shape, evidence-file shape, manifest and registry references, entry-file statistics, Pack Health, safe package paths, archive parsing, and package-level health.
+- **The review artifacts expose:** missing or rejected evidence references, duplicate card ids, cross-deck citations, incomplete scope sections, title/card batches, and the current health report.
+- **The author still decides:** whether a fact is canonically grounded, whether the cited evidence actually supports the wording, how continuity and spoilers should be handled, whether a card earns a place in the deck, and whether the final quality tags truthfully claim human vetting.
+
+`gate approve` does not inspect all of those judgments itself. Follow the skill's protocol: regenerate the current artifact, resolve the issues it exposes, present it to the user, wait for explicit approval, then record the approval with the CLI.
+
+## Minimal end-to-end example
+
+From a repository checkout, a small single-deck project looks like this:
+
+```text
+node tools/loredeck/loredeck-cli.mjs init ashfall --title "Ashfall" --size single
+# Write and review brief/scope-brief.md, then:
+node tools/loredeck/loredeck-cli.mjs gate approve ashfall
+# Add evidence/<scope>/*.json, validate it, and accept the reviewed records:
+node tools/loredeck/loredeck-cli.mjs evidence validate ashfall
+node tools/loredeck/loredeck-cli.mjs evidence accept ashfall --scope chapters --all
+node tools/loredeck/loredeck-cli.mjs gate approve ashfall
+# Write the timeline, tags, titles, and cards from accepted evidence; regenerate
+# each review artifact and record the user decision at each subsequent gate.
+node tools/loredeck/loredeck-cli.mjs health ashfall --strict
+node tools/loredeck/loredeck-cli.mjs promote ashfall
+node tools/loredeck/loredeck-cli.mjs package ashfall --author "Author"
+node tools/loredeck/loredeck-cli.mjs verify-package workshop/ashfall/dist/ashfall-v0.1.0.saga-loredeck.zip
+```
+
+The example is an operational outline, not a substitute for the stage-specific evidence, timeline, title, card, and review instructions in the skill.
+
 ## Validation
 
-The toolkit and its supporting modules are covered by the alpha gate. These scripts run as part of `tools/scripts/run-alpha-gate.mjs`:
+The toolkit and its supporting modules are covered by the alpha gate and a focused builder workflow. The following seven functional checks run in the focused workflow:
 
 - `test-loredeck-cli-health-parity.mjs`: confirms the CLI's Pack Health matches the in-app health engine.
 - `test-loredeck-workshop-state.mjs`: exercises the `project.json` resume contract and stage machine.
 - `test-loredeck-evidence-store.mjs`: covers evidence validation, acceptance, and citation rules.
 - `test-loredeck-cli-conformance.mjs`: covers the conformance and stats checks.
 - `test-loredeck-cli-package-roundtrip.mjs`: promotes, packages, and verifies a deck end to end.
+- `test-loredeck-cli-health-cross-deck-tags.mjs`: covers linked core-deck tag-parent resolution for family decks.
+- `test-loredeck-review-artifacts.mjs`: covers brief completeness and plan-artifact reporting.
+
+`test-loredeck-plugin-bundle.mjs` then rebuilds the standalone skill, verifies that its vendored CLI is self-contained, and runs strict health on the bundled reference deck. The alpha gate also runs the core parity, state, evidence, conformance, package-roundtrip, and bundle checks; the focused workflow is the complete current check for the external authoring path.
 
 ## See Also
 

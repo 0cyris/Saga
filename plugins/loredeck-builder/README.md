@@ -10,7 +10,7 @@ reference deck all travel inside the `.skill` file.
 ## Install
 
 Download `loredeck-builder.skill` from the repo's
-[Releases](https://github.com/0cyris/saga/releases), then unzip it into
+[Releases](https://github.com/MentallyQuill/Saga/releases), then unzip it into
 `~/.claude/skills/` (or a project's `.claude/skills/`):
 
 ```

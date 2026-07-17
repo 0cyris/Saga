@@ -82,7 +82,7 @@ Release-facing docs:
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 - [Loredeck Builder Toolkit](docs/loredecks/LOREDECK_BUILDER_TOOLKIT.md)
-- [Scripts Development Guide](docs/development/SCRIPTS_GUIDE.md): creating and maintaining 167 scripts for generation, testing, and maintenance.
+- [Scripts Development Guide](docs/development/SCRIPTS_GUIDE.md): creating and maintaining the repository's generation, testing, and maintenance scripts.
 - [Saga Terminology](docs/development/SAGA_TERMINOLOGY.md)
 
 Development notes live in [docs/development](docs/development/) until promoted, rewritten, or archived as release-facing docs.

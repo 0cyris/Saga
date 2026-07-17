@@ -10,6 +10,7 @@ on:
       - 'src/loredecks/**'
       - 'src/lorecards/**'
       - 'plugins/loredeck-builder/**'
+      - 'tools/scripts/test-loredeck-*.mjs'
   push:
     branches:
       - main
@@ -21,6 +22,7 @@ on:
       - 'src/loredecks/**'
       - 'src/lorecards/**'
       - 'plugins/loredeck-builder/**'
+      - 'tools/scripts/test-loredeck-*.mjs'
 
 jobs:
   build-and-verify:
@@ -31,6 +33,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+
+      - name: Run the Loredeck Builder CLI test plan
+        run: |
+          node tools/scripts/test-loredeck-workshop-state.mjs
+          node tools/scripts/test-loredeck-evidence-store.mjs
+          node tools/scripts/test-loredeck-cli-health-cross-deck-tags.mjs
+          node tools/scripts/test-loredeck-cli-health-parity.mjs
+          node tools/scripts/test-loredeck-cli-package-roundtrip.mjs
+          node tools/scripts/test-loredeck-cli-conformance.mjs
+          node tools/scripts/test-loredeck-review-artifacts.mjs
 
       - name: Build the .skill bundle from source of truth
         run: |

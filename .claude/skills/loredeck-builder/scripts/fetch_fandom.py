@@ -66,6 +66,7 @@ def get_fandom_page(wiki_name, page_title):
 
 if __name__ == "__main__":
     import sys
+    MAX_OUTPUT_CHARS = 3000
     args = sys.argv[1:]
     if len(args) < 2:
         print("Usage: python fetch_fandom.py <wiki> <page_title>")
@@ -75,4 +76,10 @@ if __name__ == "__main__":
     wiki = args[0]
     title = " ".join(args[1:])
     result = get_fandom_page(wiki, title)
-    print(result[:3000] if len(result) > 3000 else result)
+    if len(result) > MAX_OUTPUT_CHARS:
+        print(
+            f"Warning: Fandom output truncated from {len(result)} to {MAX_OUTPUT_CHARS} characters.",
+            file=sys.stderr,
+        )
+        result = result[:MAX_OUTPUT_CHARS]
+    print(result)
