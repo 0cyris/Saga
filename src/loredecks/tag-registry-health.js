@@ -87,6 +87,7 @@ export function createEmptyTagRegistryHealthIndex(packId = '', tagRegistryRef = 
         definitionById: new Map(),
         sourceDefinitionById: new Map(),
         customDefinitionById: new Map(),
+        externalDefinitionById: new Map(),
     };
 }
 
@@ -98,6 +99,18 @@ export function createTagRegistryHealthIndex(options = {}) {
     const sourceDefinitionById = new Map();
     const customDefinitionById = new Map();
     const definitionById = new Map();
+    // Lookup-only: tags from a linked sibling deck (e.g. a family's core
+    // deck), used solely to resolve `parents` refs so a module deck's own
+    // tag validation (orphan/alias/namespace checks) never sees them.
+    const externalDefinitionById = new Map();
+    for (const rawExternal of Array.isArray(options.externalRegistries) ? options.externalRegistries : []) {
+        const externalRegistry = normalizeTagRegistryForHealth(rawExternal);
+        for (const def of externalRegistry.tags || []) {
+            const id = cleanTagIdForHealth(def.id);
+            if (!id || externalDefinitionById.has(id)) continue;
+            externalDefinitionById.set(id, { ...def, id });
+        }
+    }
 
     for (const def of sourceRegistry.tags || []) {
         const id = cleanTagIdForHealth(def.id);
@@ -128,6 +141,7 @@ export function createTagRegistryHealthIndex(options = {}) {
         definitionById,
         sourceDefinitionById,
         customDefinitionById,
+        externalDefinitionById,
     };
 }
 
@@ -161,7 +175,7 @@ function isBundledManifest(manifest = {}) {
     return cleanHealthString(manifest.type, 80) === 'bundled';
 }
 
-export async function loadTagRegistryForHealth(manifest = {}, baseUrl = null, health, registryRecord = null, fetchJsonDetailed = null) {
+export async function loadTagRegistryForHealth(manifest = {}, baseUrl = null, health, registryRecord = null, fetchJsonDetailed = null, externalRegistries = []) {
     const packId = cleanHealthString(manifest.id || health?.packId, 160);
     const tagRegistryRef = getTagRegistryRef(manifest);
     let sourceRegistry = isPlainObject(manifest.tagRegistry) ? manifest.tagRegistry : null;
@@ -200,13 +214,14 @@ export async function loadTagRegistryForHealth(manifest = {}, baseUrl = null, he
         sourceRegistry,
         customRegistry: registryRecord?.tagRegistry,
         hasSourceRegistry,
+        externalRegistries,
     });
     health.summary.tagRegistryTagCount = tagIndex.definitions.length;
     analyzeTagRegistryDefinitionHealth(health, tagIndex, manifest);
     return tagIndex;
 }
 
-export function createInMemoryTagRegistryHealthIndex(manifest = {}, tagRegistry = null, registryRecord = null, health) {
+export function createInMemoryTagRegistryHealthIndex(manifest = {}, tagRegistry = null, registryRecord = null, health, externalRegistries = []) {
     const packId = cleanHealthString(manifest.id || health?.packId, 160);
     const tagRegistryRef = getTagRegistryRef(manifest);
     const sourceRegistry = isPlainObject(tagRegistry)
@@ -218,6 +233,7 @@ export function createInMemoryTagRegistryHealthIndex(manifest = {}, tagRegistry 
         sourceRegistry,
         customRegistry: registryRecord?.tagRegistry,
         hasSourceRegistry: !!sourceRegistry || !!tagRegistryRef,
+        externalRegistries,
     });
     health.summary.tagRegistryTagCount = tagIndex.definitions.length;
     analyzeTagRegistryDefinitionHealth(health, tagIndex, manifest);
@@ -244,7 +260,7 @@ export function analyzeTagRegistryDefinitionHealth(health, tagIndex = {}, manife
 
         for (const parent of def.parents || []) {
             analyzeTagIdHealth(health, parent, { registryTag: true });
-            if (tagIndex.definitionById?.has(parent)) continue;
+            if (tagIndex.definitionById?.has(parent) || tagIndex.externalDefinitionById?.has(parent)) continue;
             addTagHealthIssue(health, 'warning', 'tag_parent_missing', `Tag ${def.id} references unknown parent tag ${parent}.`, {
                 tagIds: [def.id, parent],
                 parentTagId: parent,

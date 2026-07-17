@@ -6,6 +6,8 @@ Cards are drafted only from accepted evidence. Evidence gives the user a review 
 
 Plan 3–8 scopes per deck that partition the research: e.g. `chapters` (or `arcs`, `episodes`), `characters`, `factions`, `places`, `systems` (magic/tech/rules), `timeline`. Scope names are lowercase slugs; they become directory names under `evidence/`.
 
+Scopes are free-text and project-wide — evidence isn't implicitly scoped to one deck of a multi-deck project just because a scope name looks like a deck id. If you want the file's evidence to be usable only by one specific deck (and want `report --stage cards` to flag any other deck that cites it), set the optional `deckId` field described below to that deck's id.
+
 ## Evidence files
 
 Path: `evidence/<scope>/<slug>.json`, template `templates/evidence-file.json`. Shape:
@@ -14,6 +16,7 @@ Path: `evidence/<scope>/<slug>.json`, template `templates/evidence-file.json`. S
 {
   "schemaVersion": 1,
   "scope": "chapters",
+  "deckId": "",
   "sourceKind": "user_supplied | web",
   "provenance": { "url": "", "title": "", "retrievedAt": "" },
   "records": [
@@ -37,6 +40,7 @@ Rules enforced by `evidence validate`: `web` sources require `provenance.url`; `
 - `inUniverseSpan` is a coordinate label (e.g. `"Chapter 26"`), not a fact. It's for sorting/scoping evidence, not for drafting titles or cards from — a card grounded in the span instead of `facts[]` will "cite" this record while actually containing whatever the drafter remembered happening around that point in the story. See `references/authoring-rules.md` § Grounding.
 - `authoringSignals` hint what the record supports; use a consistent vocabulary: `world-rule`, `character-baseline`, `character-state gate`, `secret-knowledge gate`, `status-change gate`, `relationship`, `faction`, `place-state`, `timeline-anchor`, `anti-lore`.
 - Record ids become citation keys: cards cite `<scope>/<recordId>` in `sourceInfo.evidenceRefs`.
+- `deckId` (optional, lowercase slug) marks a file's evidence as belonging to one specific deck of a multi-deck project. When set, `report --stage cards` flags any card in a *different* deck that cites one of this file's accepted records as a cross-deck citation (a distinct, non-blocking warning class from missing/unaccepted refs). Leave it unset for evidence any deck in the project may cite — this is the common case and never produces a warning.
 
 ## Sourcing
 

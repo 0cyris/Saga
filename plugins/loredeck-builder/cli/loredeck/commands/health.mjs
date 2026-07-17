@@ -9,7 +9,7 @@
 
 import path from 'node:path';
 
-import { pathExists, resolveProjectDir, writeJsonFile, writeTextFile } from '../lib/deck-fs.mjs';
+import { pathExists, readJsonFileOrNull, resolveProjectDir, writeJsonFile, writeTextFile } from '../lib/deck-fs.mjs';
 import { loadLoredeckSourceFromDir } from '../lib/node-loredeck-io.mjs';
 import { loadProjectState } from '../lib/project-state.mjs';
 
@@ -45,8 +45,8 @@ export function evaluateHealthExit(health, strict) {
     return 0;
 }
 
-export async function runHealthOnDeckDir(deckDir, { strict = false, outDir = '', label = '' } = {}) {
-    const source = await loadLoredeckSourceFromDir(deckDir);
+export async function runHealthOnDeckDir(deckDir, { strict = false, outDir = '', label = '', externalTagRegistries = [] } = {}) {
+    const source = await loadLoredeckSourceFromDir(deckDir, { externalTagRegistries });
     const deckLabel = label || source.manifest?.id || path.basename(deckDir);
     if (outDir) {
         await writeJsonFile(path.join(outDir, `health-${deckLabel}.json`), source.health);
@@ -67,13 +67,31 @@ async function resolveTargets({ positionals, flags }) {
     const stageDir = flags.dist ? 'dist' : 'drafts';
     const decks = (state.decks || []).filter(deck => !flags.deck || deck.deckId === flags.deck);
     if (!decks.length) throw new Error(`No decks matched --deck ${flags.deck} in project ${target}.`);
-    return {
-        targets: decks.map(deck => ({
-            deckDir: path.join(projectDir, stageDir, deck.deckId),
+    const targets = [];
+    for (const deck of decks) {
+        const deckDir = path.join(projectDir, stageDir, deck.deckId);
+        targets.push({
+            deckDir,
             label: deck.deckId,
-        })),
+            externalTagRegistries: await resolveExternalTagRegistries({ state, deck, projectDir, stageDir }),
+        });
+    }
+    return {
+        targets,
         outDir: String(flags.out || path.join(projectDir, 'reviews')),
     };
+}
+
+async function resolveExternalTagRegistries({ state, deck, projectDir, stageDir }) {
+    const manifest = await readJsonFileOrNull(path.join(projectDir, stageDir, deck.deckId, 'loredeck.json'));
+    const coreDeckId = String(
+        manifest?.family?.recommendedCoreDeckId
+        || (deck.role !== 'core' ? (state.decks || []).find(sibling => sibling.role === 'core' && sibling.deckId !== deck.deckId)?.deckId : '')
+        || '',
+    );
+    if (!coreDeckId || coreDeckId === deck.deckId) return [];
+    const coreTags = await readJsonFileOrNull(path.join(projectDir, stageDir, coreDeckId, 'tags.json'));
+    return coreTags ? [coreTags] : [];
 }
 
 export async function runHealth({ positionals, flags }) {
@@ -81,7 +99,7 @@ export async function runHealth({ positionals, flags }) {
     const strict = flags.strict === true;
     const results = [];
     for (const target of targets) {
-        results.push(await runHealthOnDeckDir(target.deckDir, { strict, outDir, label: target.label }));
+        results.push(await runHealthOnDeckDir(target.deckDir, { strict, outDir, label: target.label, externalTagRegistries: target.externalTagRegistries || [] }));
     }
     const exitCode = Math.max(0, ...results.map(result => result.exitCode));
     if (flags.json) {

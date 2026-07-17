@@ -27,7 +27,7 @@ import {
 import { applyRegistryEntryOverrides } from './loredeck-normalizer.js';
 import { loadTagRegistryForHealth } from './tag-registry-health.js';
 
-export async function loadLoredeckEntryFilesForHealth(manifest = {}, baseUrl, health, registryRecord = null, readJsonDetailed) {
+export async function loadLoredeckEntryFilesForHealth(manifest = {}, baseUrl, health, registryRecord = null, readJsonDetailed, externalTagRegistries = []) {
     const files = Array.isArray(manifest.files) ? manifest.files : [];
     const entryFiles = [];
     health.summary.fileCount = files.length;
@@ -61,14 +61,14 @@ export async function loadLoredeckEntryFilesForHealth(manifest = {}, baseUrl, he
 
     const finalEntryFiles = applyRegistryEntryOverrides(entryFiles, registryRecord, manifest, health);
     const timeline = await loadTimelineRegistryForHealth(manifest, baseUrl, health, registryRecord, readJsonDetailed);
-    const tagIndex = await loadTagRegistryForHealth(manifest, baseUrl, health, registryRecord, readJsonDetailed);
+    const tagIndex = await loadTagRegistryForHealth(manifest, baseUrl, health, registryRecord, readJsonDetailed, externalTagRegistries);
     analyzeEntryContextHealth(health, finalEntryFiles, timeline);
     analyzeEntries(health, finalEntryFiles, manifest, tagIndex);
     return finalEntryFiles;
 }
 
-export async function buildLoredeckHealthForSource({ packId, manifest = {}, baseUrl, registryRecord = null, readJsonDetailed }) {
+export async function buildLoredeckHealthForSource({ packId, manifest = {}, baseUrl, registryRecord = null, readJsonDetailed, externalTagRegistries = [] }) {
     const health = createHealth(manifest.id || packId);
-    const entryFiles = await loadLoredeckEntryFilesForHealth(manifest, baseUrl, health, registryRecord, readJsonDetailed);
+    const entryFiles = await loadLoredeckEntryFilesForHealth(manifest, baseUrl, health, registryRecord, readJsonDetailed, externalTagRegistries);
     return { health: finalizeHealth(health), entryFiles };
 }

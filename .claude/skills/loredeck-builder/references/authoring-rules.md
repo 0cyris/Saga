@@ -29,6 +29,12 @@ Expected on quality decks: `kind`/`gateType`, `relevance`, `lorePurpose`, `speci
 - `sourceInfo.evidenceRefs`: array of accepted evidence keys (`<scope>/<recordId>`) — required by this workflow for every card.
 - Do NOT use legacy entry-local `date`/`validFrom`/`validTo`/`canonTiming`; calendar dates live only in `timeline.json`.
 
+## Truth and reveal
+
+`truthStatus` (`true|false|public_belief|public-belief|rumor|contested|hidden`) is what's actually true in-universe; `revealPolicy` (`public|private|do_not_reveal|only_if_knower_present|only_if_user_reveals`) is whether/when the model may reveal it — independent axes, not synonyms. A future-canon detail used only as a constraint is `truthStatus: true` + `revealPolicy: do_not_reveal`; a secret that's fine to reveal once retrieved is `truthStatus: hidden` + `revealPolicy: public`. Full semantics and per-value meaning: `docs/loredecks/SAGA_LOREDECK_SCHEMA.md` § Truth and Reveal Semantics.
+
+**`only_if_knower_present` and `only_if_user_reveals` are not enforced by Saga today** — no code checks scene participants or chat history against them; they behave identically to `public` in current retrieval/gating. Set them correctly anyway. They're reserved semantics, not decorative: a knower-gated secret gets `only_if_knower_present`, not `private`, so a future enforcement pass doesn't require re-auditing every deck. Don't default everything to `private`/`do_not_reveal` just because the conditional policies aren't enforced yet — that loses the distinction the future feature needs.
+
 ## Context gating
 
 - `context.scope`: `window` for era/arc-bounded cards; `global` only for durable world rules.
@@ -67,7 +73,9 @@ Skeleton comes from `init`. You must fill: `description`, `continuity` (`continu
 
 **`knowledge_gates/` and `knowledge/` are different things.** `knowledge/` holds static facts (durable, non-time-sensitive information). `knowledge_gates/` (or a `knowledge_gate` `kind`/`gateType`) models *who knows what, when* — reveal machinery tied to a story point, not the fact itself. Keep them in separate files even when they're about the same topic, so it's clear at a glance which cards are "this is true" versus "this becomes knowable/revealed here."
 
-**Family decks get a nested Library path.** `init --size family` gives the core deck `library.suggestedPath: [title, "Core"]` and each era deck `[title, deckId]`, mirroring the bundled reference decks' two-level convention (`['Harry Potter', 'Golden Trio']`, `['Star Wars', 'Legends']`). Hand-edit the second segment to something more readable than the raw deck id if you want (e.g. `"Golden Trio"` instead of `"hp-year-1-philosophers-stone"`) — the generated value is a deterministic placeholder, not a final label.
+**Every deck in a project shares one Library path — never give a deck its own subfolder.** `init` and `deck add` both set `library.suggestedPath: [title]` on every deck in the project, core and era/module alike. This matches every bundled reference deck family: `hp-core` and all seven `hp-year-*` decks (plus the epilogue) share the exact same `['Harry Potter', 'Golden Trio']`; all nine `sw-legends-*` decks share `['Star Wars', 'Legends']`; One Piece's arc decks split only into two saga-level folders (`'East Blue Saga'`, `'Arabasta Saga'`), never one folder per arc. A folder is a place to hold a *group* of decks, not a label for one deck — a family with N decks should produce one Library folder with N decks in it, not N folders with one deck each.
+
+If you're organizing multiple related *projects* under one shared umbrella (e.g. a `'Star Trek'` fandom folder containing separately-built TNG/DS9/Voyager season families, each its own workshop project), that's a two-level path (`[fandom, series]`) you set by hand across those projects' manifests after the fact — `init` only ever sees one project/title at a time, so it can't generate that second level for you. Don't invent per-deck segments to fake it.
 
 **Manifest `tags[]` (not the `tags.json` registry) signals deck maturity.** Every bundled reference deck carries a top-level `tags[]` array on `loredeck.json`/`manifest.json` with a quality marker: `init` seeds new decks with `quality:draft-reference` (matching JJK's still-in-progress decks), and family decks additionally get `structure:split-loredeck`. Upgrade `quality:draft-reference` to `quality:human-vetted` plus `quality:relevance-curated` at Stage 7 (Package), once every gate in the stage loop has been approved and `promote` is strict-clean — that's the same bar the HP family meets. Don't upgrade early; the tag is a claim that a human has actually reviewed the whole deck, not that it validated.
 

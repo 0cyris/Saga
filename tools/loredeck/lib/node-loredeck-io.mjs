@@ -57,8 +57,9 @@ export async function readLoredeckManifestFromDir(deckDir) {
 export async function loadLoredeckSourceFromDir(deckDir, options = {}) {
     const { manifest, manifestPath, baseUrl } = await readLoredeckManifestFromDir(deckDir);
     const registryRecord = options.registryRecord || null;
+    const externalTagRegistries = options.externalTagRegistries || [];
     const health = createHealth(manifest.id || path.basename(path.resolve(deckDir)));
-    const entryFiles = await loadLoredeckEntryFilesForHealth(manifest, baseUrl, health, registryRecord, readJsonDetailedFromFile);
+    const entryFiles = await loadLoredeckEntryFilesForHealth(manifest, baseUrl, health, registryRecord, readJsonDetailedFromFile, externalTagRegistries);
     return {
         manifest,
         manifestPath,

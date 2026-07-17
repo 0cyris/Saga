@@ -30,14 +30,16 @@ async function listPackageFiles(rootDir) {
 
 export async function runPackage({ positionals, flags }) {
     const [projectId] = positionals;
-    if (!projectId) throw new Error('Usage: package <project-id> [--out <file.saga-loredeck.zip>] [--author <name>] [--pkg-version <semver>]');
+    if (!projectId) throw new Error('Usage: package <project-id> [--deck <deck-id>] [--out <file.saga-loredeck.zip>] [--author <name>] [--pkg-version <semver>]');
     const state = await loadProjectState(projectId);
     const projectDir = resolveProjectDir(projectId);
+    const decks = (state.decks || []).filter(deck => !flags.deck || deck.deckId === flags.deck);
+    if (!decks.length) throw new Error(`No decks matched --deck ${flags.deck} in project ${projectId}.`);
 
     const packagedDecks = [];
     const files = [];
     const skipped = [];
-    for (const deck of state.decks || []) {
+    for (const deck of decks) {
         const distDir = path.join(projectDir, 'dist', deck.deckId);
         if (!(await pathExists(path.join(distDir, 'loredeck.json')))) continue;
         const manifest = await readJsonFile(path.join(distDir, 'loredeck.json'));
@@ -87,8 +89,9 @@ export async function runPackage({ positionals, flags }) {
     );
 
     const bytes = await createLoredeckZipPackage(files);
+    const defaultName = `${projectId}${flags.deck ? `-${flags.deck}` : ''}-v${packageVersion}.saga-loredeck.zip`;
     const outPath = path.resolve(String(
-        flags.out || path.join(projectDir, 'dist', `${projectId}-v${packageVersion}.saga-loredeck.zip`),
+        flags.out || path.join(projectDir, 'dist', defaultName),
     ));
     await writeFile(outPath, Buffer.from(bytes));
 
