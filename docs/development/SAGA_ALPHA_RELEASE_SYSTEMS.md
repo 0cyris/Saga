@@ -45,7 +45,7 @@ The HP reference-deck conformance check now exists at `tools/scripts/test-hp-ref
 
 ## Release Metadata And Gate
 
-The alpha manifest should stay visibly pre-1.0. Current release metadata is `0.3.0-alpha.3` with `minimum_client_version` set and `auto_update: false`. Alpha testers should update deliberately from the repository instead of receiving silent extension updates. The manifest also declares SillyTavern lifecycle hooks for install, update, delete, clean, enable, disable, and activate so Saga can create current-chat safety records, clear prompt injection, and clean direct provider key material when those extension actions run.
+The alpha manifest should stay visibly pre-1.0. Current release metadata is `0.4.0-alpha.4` (**Scribe**) with `minimum_client_version` set and `auto_update: false`. Alpha testers should update deliberately from the repository instead of receiving silent extension updates. The manifest also declares SillyTavern lifecycle hooks for install, update, delete, clean, enable, disable, and activate so Saga can create current-chat safety records, clear prompt injection, and clean direct provider key material when those extension actions run.
 
 Before tagging an alpha build, run:
 
@@ -72,6 +72,8 @@ Provider/API settings, Reasoner Provider settings, automation thresholds, theme/
 The durable data contract for Loredecks: manifests, schema v3 Lorecards, tags, timeline registry, assets, covers, source/update metadata, and validation expectations. This needs to be stable because user-created and bundled decks will depend on it.
 
 Release-facing Loredeck authoring guidance now lives in [../loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md](../loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md), with the schema reference in [../loredecks/SAGA_LOREDECK_SCHEMA.md](../loredecks/SAGA_LOREDECK_SCHEMA.md). Keep future user-facing Loredeck documentation in that folder instead of adding more broad development notes here.
+
+External authoring is documented in [../loredecks/LOREDECK_BUILDER_TOOLKIT.md](../loredecks/LOREDECK_BUILDER_TOOLKIT.md). The `loredeck-builder` skill and CLI provide a staged, user-gated workshop for evidence collection, multi-deck planning, card drafting, Pack Health, promotion, and package verification. The toolkit validates structure and release readiness, but human authors remain responsible for source interpretation, factual grounding, and approval at each gate.
 
 ### 4. Loredeck Loader
 
