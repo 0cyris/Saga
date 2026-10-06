@@ -136,6 +136,8 @@ const gateScripts = [
   'tools/scripts/test-loredeck-creator-generation-validation.mjs',
   'tools/scripts/test-loredeck-creator-generation-requests.mjs',
   'tools/scripts/test-loredeck-creator-generation-units.mjs',
+  'tools/scripts/test-loredeck-creator-planning-persistence.mjs',
+  'tools/scripts/test-loredeck-creator-planning-recovery-ui.mjs',
   'tools/scripts/test-loredeck-creator-generated-pack.mjs',
   'tools/scripts/test-loredeck-creator-generated-pack-cache.mjs',
   'tools/scripts/test-loredeck-creator-workbench-cache.mjs',

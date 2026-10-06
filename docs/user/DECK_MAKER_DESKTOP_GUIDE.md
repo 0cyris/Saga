@@ -159,10 +159,13 @@ Controls can include:
 
 - **Plan Context and Tags**
 - **Plan This Set**
+- **Re-plan This Set** / **Re-plan Context and Tags** for sets marked **Needs Re-plan**
 - **Open Context Plan**
 - **Add to Stack**
 
 Generated Context and tag proposals are reviewable. They do not become accepted registry data until you review and accept them.
+
+Use **Re-plan This Set** when a planned set has no proposals left to review and has not been accepted. This regenerates that set's proposals while preserving other sets and accepted Lorecards. Accept the regenerated proposals in Pending Review to continue drafting.
 
 ## Lorecard Drafts
 

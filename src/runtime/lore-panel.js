@@ -1200,6 +1200,7 @@ configureLoredeckCreatorPanel({
     handleLoredeckCreatorResetToStep,
     getLoredeckCreatorPlanningBatchRows,
     getLoredeckCreatorPlanningQueuedBatchIds,
+    getLoredeckCreatorPlanningPendingBatchIds,
     getLoredeckCreatorNextPlanningBatch,
     countLoredeckCreatorPlanningPendingChanges,
     getLoredeckDefinition: getLoredeckCreatorGeneratedPackDefinition,
@@ -4092,7 +4093,7 @@ async function handleLoredeckCreatorRemainingTitleBatches(button = null) {
     return result;
 }
 
-function ensureLoredeckCreatorGeneratedPack(cached = getLoredeckCreatorBriefCache()) {
+async function ensureLoredeckCreatorGeneratedPack(cached = getLoredeckCreatorBriefCache()) {
     const brief = cached.brief || {};
     if (!brief) {
         toast('Approve a Deck Maker brief before creating a Generated Loredeck shell.', 'warning');
@@ -4110,6 +4111,12 @@ function ensureLoredeckCreatorGeneratedPack(cached = getLoredeckCreatorBriefCach
     if (!existing && getLoredeckDefinition(packId)) {
         packId = getUniqueLoredeckPackId(`${packId}-generated`);
     }
+    if (existing) existing = await hydrateExternalLorepackPayloadRecord(existing);
+    const current = getLoredeckCreatorBriefCache();
+    if (cached.jobId && current.jobId !== cached.jobId) return null;
+    if (getLoredeckCreatorGeneratedPackId(current) !== getLoredeckCreatorGeneratedPackId(cached)) return null;
+    cached = current;
+    if (existing) existing = getFreshLoredeckLibraryPack(packId, existing);
     const record = buildLoredeckCreatorGeneratedPackRecord(cached, packId, existing, { createUniquePackId: getUniqueLoredeckPackId });
     const result = upsertLoredeckLibraryPack(record);
     if (!result.ok) {
@@ -4130,7 +4137,7 @@ function ensureLoredeckCreatorGeneratedPack(cached = getLoredeckCreatorBriefCach
         generatedPackCreatedAt: cached.generatedPackCreatedAt || Date.now(),
     });
     refreshLoredeckSurfaces();
-    return getLoredeckDefinition(packId) || result.pack || record;
+    return getFreshLoredeckLibraryPack(packId, result.pack || record);
 }
 
 function getLoredeckCreatorPlanningExistingTimelineIds(pack = {}) {
@@ -4419,13 +4426,13 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
     }
     await runBusyAction(button, 'Planning...', async () => {
         if (!ensureLoreProviderReadyForAction('Deck Maker', 'lore')) return;
-        const cached = getLoredeckCreatorBriefCache();
-        const brief = cached.brief || {};
+        let cached = getLoredeckCreatorBriefCache();
+        let brief = cached.brief || {};
         if (!cached.approved || !brief) {
             toast('Approve a Deck Maker brief before planning Context and Tags.', 'warning');
             return;
         }
-        const outline = getLoredeckCreatorOutline(cached);
+        let outline = getLoredeckCreatorOutline(cached);
         if (!cached.outlineApproved || !outline) {
             toast('Approve the Story Outline before planning Context and Tags.', 'warning');
             return;
@@ -4441,18 +4448,43 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
             return;
         }
         const targetBatchId = normalizeLoredeckCreatorTitleId(targetPlanningBatch.id || targetPlanningBatch.label || '', '');
-        const queuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
-        if (targetBatchId && queuedBatchIds.has(targetBatchId)) {
+        let queuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+        if (targetBatchId && getLoredeckCreatorPlanningAcceptedBatchIds(cached).has(targetBatchId)) {
+            toast('That Context and Tag set has already been accepted.', 'info');
+            return;
+        }
+        if (targetBatchId && queuedBatchIds.has(targetBatchId) && options.replan !== true) {
             toast('That Context and Tag set has already been planned.', 'info');
             return;
         }
-        const targetApprovedTitles = approvedTitles.filter(draft => normalizeLoredeckCreatorTitleId(draft.creatorTitleBatchId || 'unbatched', 'unbatched') === targetBatchId);
+        let targetApprovedTitles = approvedTitles.filter(draft => normalizeLoredeckCreatorTitleId(draft.creatorTitleBatchId || 'unbatched', 'unbatched') === targetBatchId);
         if (!targetApprovedTitles.length) {
             toast('Approve at least one title in this set before planning Context and Tags.', 'warning');
             return;
         }
-        const pack = ensureLoredeckCreatorGeneratedPack(cached);
+        const pack = await ensureLoredeckCreatorGeneratedPack(cached);
         if (!pack) return;
+        cached = getLoredeckCreatorBriefCache();
+        brief = cached.brief || {};
+        outline = getLoredeckCreatorOutline(cached);
+        targetApprovedTitles = getLoredeckCreatorApprovedTitleDrafts(cached).filter(draft => normalizeLoredeckCreatorTitleId(draft.creatorTitleBatchId || 'unbatched', 'unbatched') === targetBatchId);
+        if (!cached.approved || !cached.outlineApproved || !outline || !targetApprovedTitles.length) {
+            toast('Deck Maker approvals changed while loading. Approve the brief, outline, and titles before planning Context and Tags.', 'warning');
+            return;
+        }
+        queuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(cached, pack);
+        if (targetBatchId && getLoredeckCreatorPlanningAcceptedBatchIds(cached).has(targetBatchId)) {
+            toast('That Context and Tag set has already been accepted.', 'info');
+            return;
+        }
+        if (targetBatchId && queuedBatchIds.has(targetBatchId) && options.replan !== true) {
+            toast('That Context and Tag set has already been planned.', 'info');
+            return;
+        }
+        if (options.replan === true && getLoredeckCreatorPlanningPendingBatchIds(pack).has(targetBatchId)) {
+            toast('That Context and Tag set still has proposals in Pending Review.', 'info');
+            return;
+        }
         const targetCoverageDimensionIds = normalizeLoredeckCreatorCoverageIdList(targetPlanningBatch.coverageDimensionIds || [], 24);
         const { generation } = startLoredeckCreatorGeneration(
             'planning_batch_draft',

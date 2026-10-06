@@ -628,11 +628,15 @@ export async function hydrateExternalLorepackPayloadRecord(record = {}, options 
     const payloadFile = normalizeStoragePath(record.payloadFile || record.payloadPath || '');
     if (!payloadFile) return hydrateCachedExternalLorepackPayloadRecord(record);
     const raw = await getFileApi(options).readJsonFile(payloadFile, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
-    setPayloadCache({
-        ...raw,
-        packId: raw?.packId || packId,
-        payloadFile,
-    }, options);
+    // Another hydration or local edit may have populated cache while this read
+    // was pending. Keep that current payload instead of restoring a disk snapshot.
+    if (!payloadCache.has(packId)) {
+        setPayloadCache({
+            ...raw,
+            packId: raw?.packId || packId,
+            payloadFile,
+        }, options);
+    }
     return hydrateCachedExternalLorepackPayloadRecord(record);
 }
 

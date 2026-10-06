@@ -73,6 +73,7 @@ function acknowledgeLoredeckCreatorCoverageForFinalize() { return dep('acknowled
 function handleLoredeckCreatorResetToStep(stepId) { return dep('handleLoredeckCreatorResetToStep', async () => false)(stepId); }
 function getLoredeckCreatorPlanningBatchRows(cached) { return dep('getLoredeckCreatorPlanningBatchRows', () => [])(cached); }
 function getLoredeckCreatorPlanningQueuedBatchIds(cached) { return dep('getLoredeckCreatorPlanningQueuedBatchIds', () => new Set())(cached); }
+function getLoredeckCreatorPlanningPendingBatchIds(pack) { return dep('getLoredeckCreatorPlanningPendingBatchIds', () => new Set())(pack); }
 function getLoredeckCreatorNextPlanningBatch(cached) { return dep('getLoredeckCreatorNextPlanningBatch', () => null)(cached); }
 function countLoredeckCreatorPlanningPendingChanges(pack) { return dep('countLoredeckCreatorPlanningPendingChanges', () => 0)(pack); }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
@@ -1261,9 +1262,20 @@ function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = 
     return row;
 }
 
+function getLoredeckCreatorPlanningRecoverableBatchIds(cached = {}) {
+    const pack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
+    if (!pack?.manifestData) return new Set();
+    const queued = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+    const accepted = getLoredeckCreatorPlanningAcceptedBatchIds(cached);
+    const pending = getLoredeckCreatorPlanningPendingBatchIds(pack);
+    return new Set([...queued].filter(id => !accepted.has(id) && !pending.has(id)));
+}
+
 function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
     const rows = getLoredeckCreatorPlanningBatchRows(cached);
     const queuedIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
+    const acceptedIds = getLoredeckCreatorPlanningAcceptedBatchIds(cached);
+    const recoverableIds = getLoredeckCreatorPlanningRecoverableBatchIds(cached);
     const nextBatch = getLoredeckCreatorNextPlanningBatch(cached);
     const section = document.createElement('div');
     section.className = 'saga-loredeck-creator-title-batches saga-loredeck-creator-planning-batches';
@@ -1275,6 +1287,8 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
 
     for (const batch of rows.slice(0, 16)) {
         const queued = queuedIds.has(batch.id);
+        const accepted = acceptedIds.has(batch.id);
+        const recoverable = batch.approvedTitleCount > 0 && recoverableIds.has(batch.id);
         const isNext = !queued && batch.approvedTitleCount > 0 && nextBatch?.id === batch.id;
         const row = document.createElement('div');
         row.className = 'saga-loredeck-entry-row saga-loredeck-creator-title-batch-row';
@@ -1290,7 +1304,9 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
         main.appendChild(desc);
         const meta = document.createElement('div');
         meta.className = 'saga-loredeck-row-meta';
-        meta.appendChild(createStatusPill(queued ? 'Planned' : (isNext ? 'Next' : 'Waiting'), queued ? 'Context and tag proposals were already drafted for this title set.' : (isNext ? 'This is the next Context and Tag set Saga will plan.' : 'Approve and plan earlier title sets before this one.'), { tone: queued ? 'success' : (isNext ? 'info' : 'muted'), kind: 'status' }));
+        const status = accepted ? 'Accepted' : (recoverable ? 'Needs Re-plan' : (queued ? 'Awaiting Review' : (isNext ? 'Next' : 'Waiting')));
+        const statusHelp = accepted ? 'Context and Tag proposals for this set were accepted.' : (recoverable ? 'This set has no proposals left to review. Re-plan it to continue.' : (queued ? 'Accept this set\'s proposals in Pending Review to unlock Lorecard drafting.' : (isNext ? 'This is the next Context and Tag set Saga will plan.' : 'Approve and plan earlier title sets before this one.')));
+        meta.appendChild(createStatusPill(status, statusHelp, { tone: accepted ? 'success' : (recoverable ? 'warning' : (queued ? 'review' : (isNext ? 'info' : 'muted'))), kind: 'status' }));
         meta.appendChild(createStatusPill(`${batch.approvedTitleCount} approved title${batch.approvedTitleCount === 1 ? '' : 's'}`, 'Approved titles available to this planning batch.', { tone: batch.approvedTitleCount ? 'success' : 'muted', kind: 'count' }));
         if (batch.type) meta.appendChild(createStatusPill(humanizeScopeKey(batch.type), 'Planning batch type.', { tone: 'category', kind: 'metadata' }));
         main.appendChild(meta);
@@ -1303,15 +1319,16 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
 
         const actions = document.createElement('div');
         actions.className = 'saga-loredeck-row-actions';
-        if (isNext) {
-            const planButton = createButton('Plan This Set', 'Draft Context anchors/windows and tag proposals for this title set.', async (btn) => {
+        if (isNext || recoverable) {
+            const planButton = createButton(recoverable ? 'Re-plan This Set' : 'Plan This Set', 'Draft Context anchors/windows and tag proposals for this title set.', async (btn) => {
                 await handleLoredeckCreatorPlanningDraft({
                     targetPlanningBatch: batch,
+                    replan: recoverable,
                 }, btn);
             }, 'saga-primary-button');
             actions.appendChild(lockLoredeckCreatorGenerationButton(planButton, cached, 'context/tag plan'));
-        } else if (queued) {
-            const doneButton = createButton('Done', 'This Context and Tag set is already in Pending Review.', null, 'saga-loredeck-creator-done-button');
+        } else if (queued || accepted) {
+            const doneButton = createButton(accepted ? 'Accepted' : 'Review Pending', statusHelp, null, 'saga-loredeck-creator-done-button');
             doneButton.disabled = true;
             actions.appendChild(doneButton);
         } else {
@@ -1337,6 +1354,8 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     const queuedBatchIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
     const eligiblePlanningBatchCount = planningBatches.filter(batch => batch.approvedTitleCount > 0).length;
     const nextPlanningBatch = getLoredeckCreatorNextPlanningBatch(cached);
+    const recoverableIds = getLoredeckCreatorPlanningRecoverableBatchIds(cached);
+    const recoveryBatch = planningBatches.find(batch => batch.approvedTitleCount > 0 && recoverableIds.has(batch.id));
     const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
     const pendingPlanningCount = generatedPack ? countLoredeckCreatorPlanningPendingChanges(generatedPack) : 0;
     const wrap = document.createElement('div');
@@ -1381,16 +1400,19 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     actions.className = 'saga-primary-actions';
     markTourTarget(actions, 'loredecks.creator.planningActions');
     const draftButton = createButton(
-        nextPlanningBatch ? 'Plan Context and Tags' : (pendingPlanningCount ? 'Review Context and Tags' : 'Context Plans Complete'),
+        nextPlanningBatch ? 'Plan Context and Tags' : (recoveryBatch ? 'Re-plan Context and Tags' : (pendingPlanningCount ? 'Review Context and Tags' : 'Context Plans Complete')),
         nextPlanningBatch
             ? 'Create or reuse the Generated Loredeck shell, then draft Context and Tag proposals for the next approved title set.'
-            : (pendingPlanningCount ? 'Open the Pending Review section to accept Context and Tag proposals.' : 'Every eligible Context and Tag set has already been planned.'),
+            : (recoveryBatch ? 'Regenerate missing Context and Tag proposals for a previously planned set.' : (pendingPlanningCount ? 'Open the Pending Review section to accept Context and Tag proposals.' : 'Every eligible Context and Tag set has already been planned.')),
         async (btn) => {
             const fresh = getLoredeckCreatorBriefCache();
-            const batch = getLoredeckCreatorNextPlanningBatch(fresh);
+            const next = getLoredeckCreatorNextPlanningBatch(fresh);
+            const recoverable = getLoredeckCreatorPlanningRecoverableBatchIds(fresh);
+            const batch = next || getLoredeckCreatorPlanningBatchRows(fresh).find(row => row.approvedTitleCount > 0 && recoverable.has(row.id));
             if (batch) {
                 await handleLoredeckCreatorPlanningDraft({
                     targetPlanningBatch: batch,
+                    replan: !next,
                 }, btn);
                 return;
             }
@@ -1398,7 +1420,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
         },
         'saga-primary-button'
     );
-    draftButton.disabled = !nextPlanningBatch && !pendingPlanningCount;
+    draftButton.disabled = !nextPlanningBatch && !recoveryBatch && !pendingPlanningCount;
     actions.appendChild(markTourTarget(lockLoredeckCreatorGenerationButton(draftButton, cached, 'context/tag plan'), 'loredecks.creator.planContextTags'));
     if (generatedPack) {
         const inStack = getLoredeckStack(getState()).some(item => item.packId === generatedPack.packId && item.enabled);
