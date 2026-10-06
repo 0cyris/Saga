@@ -160,6 +160,10 @@ export function createSagaFileApi(options = {}) {
     }
 
     return {
+        // Default adapters share the current host/account session. Custom multi-account
+        // adapters should provide one stable identity per backend/account.
+        storageBackendIdentity: options.storageBackendIdentity
+            ?? `${baseUrl || globalThis.location?.origin || 'sillytavern'}:${options.accountId || 'session'}`,
         uploadBase64File,
         writeTextFile,
         writeJsonFile,

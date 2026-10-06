@@ -11,7 +11,10 @@ import { normalizeLoredeckLibraryIndex } from '../loredecks/loredeck-library-ind
 import { createSagaFileApi } from './saga-file-api.js';
 import { createSagaDomainStorage } from './saga-domain-storage.js';
 import { createSagaStorageIndexStore, SAGA_STORAGE_DOMAIN_INDEX_FILES } from './saga-storage-index.js';
-import { hydrateCachedExternalLorepackPayloadRecord } from './saga-lorepack-payload-storage.js';
+import { hydrateCachedExternalLorepackPayloadRecord, restoreSagaLorepackPayloadStorageFailures } from './saga-lorepack-payload-storage.js';
+import { createSagaStorageOperationOutcomes } from './saga-storage-operation-outcomes.js';
+import { assertSagaStorageWriteAcknowledged } from './saga-storage-coordinator.js';
+import { recoverSagaStorageTransactions, runSagaStorageTransaction } from './saga-storage-transactions.js';
 
 const EMPTY_LIBRARY_REGISTRY = Object.freeze({ schemaVersion: 1, packs: Object.freeze({}) });
 
@@ -33,6 +36,7 @@ let storageRuntimeOptions = {};
 let pendingLibraryWrite = Promise.resolve();
 let pendingLibraryWriteCount = 0;
 let lastLibraryWriteError = '';
+const libraryOutcomes = createSagaStorageOperationOutcomes();
 
 export function configureSagaLorepackLibraryStorage(options = {}) {
     storageRuntimeOptions = { ...storageRuntimeOptions, ...(options || {}) };
@@ -180,9 +184,10 @@ function shouldPersistQueuedWrites(options = {}) {
     return typeof window !== 'undefined' && typeof fetch === 'function';
 }
 
-function recordQueuedWriteError(error = {}, options = {}) {
+function recordQueuedWriteError(error = {}, options = {}, attempt) {
     const merged = resolveStorageOptions(options);
-    lastLibraryWriteError = String(error?.message || error || 'Lorepack Library external storage write failed.');
+    libraryOutcomes.fail(attempt, error);
+    lastLibraryWriteError = libraryOutcomes.getError();
     if (typeof merged.onWriteError === 'function') {
         merged.onWriteError(error);
         return;
@@ -209,19 +214,49 @@ function queueExternalLoredeckLibraryIndexWrite(library = {}, options = {}) {
     const snapshot = normalizeSagaLibraryIndex(cloneJson(library), { now });
     const staleCheck = merged.staleCheck !== false && pendingLibraryWriteCount === 0;
     const expectedRevision = staleCheck ? Math.max(1, Math.floor(Number(snapshot.revision) || 1)) : undefined;
+    const attempt = libraryOutcomes.begin(merged.storageOwnerId || 'library', merged.storageOperation || 'write_index', { index: snapshot });
     pendingLibraryWriteCount += 1;
     pendingLibraryWrite = pendingLibraryWrite
         .catch(() => {})
         .then(async () => {
             try {
-                await writeExternalLoredeckLibraryIndex(snapshot, {
-                    ...merged,
-                    staleCheck,
-                    expectedRevision,
-                });
-                lastLibraryWriteError = '';
+                const persisted = await runSagaStorageTransaction(getFileApi(merged), {
+                    domain: 'library', ownerId: attempt.ownerId, operation: attempt.operation, operationId: attempt.operationId, retryOf: attempt.retryOf,
+                    paths: [SAGA_STORAGE_DOMAIN_INDEX_FILES.library], request: attempt.request,
+                }, async () => {
+                    const durable = normalizeSagaLibraryIndex(await getDomainStorage(merged).readDomainIndex('library', { allowMissing: true }), { now });
+                    let next = durable;
+                    if (attempt.operation === 'write_layout') {
+                        if (merged.expectedLayout && Object.entries(merged.expectedLayout).some(([key, value]) => JSON.stringify(value) !== JSON.stringify(durable[key] || []))) {
+                            const error = new Error('External Library organization changed during inline migration. Both layouts were retained.');
+                            error.code = 'inline_storage_conflict'; throw error;
+                        }
+                        next = { ...durable, ...merged.storageLayout };
+                    } else if (attempt.operation === 'upsert_record') {
+                        next = { ...durable, packs: { ...durable.packs, [attempt.ownerId]: snapshot.packs[attempt.ownerId] } };
+                    } else if (attempt.operation === 'remove_record') {
+                        next = cloneJson(durable);
+                        delete next.packs[attempt.ownerId];
+                        next.deckPlacements = next.deckPlacements.filter(item => item.deckId !== attempt.ownerId && item.packId !== attempt.ownerId);
+                        next.activeStack = next.activeStack.filter(item => item.packId !== attempt.ownerId);
+                    } else if (attempt.operation === 'import_registry') {
+                        const incoming = merged.storageIncoming;
+                        next = {
+                            ...(merged.replace === true ? createSagaLibraryIndex({ now }) : durable),
+                            packs: { ...(merged.replace === true ? {} : durable.packs), ...incoming.packs },
+                            folders: [...(merged.replace === true ? [] : durable.folders), ...incoming.folders],
+                            deckPlacements: [...(merged.replace === true ? [] : durable.deckPlacements), ...incoming.deckPlacements],
+                            activeStack: incoming.activeStack.length ? incoming.activeStack : durable.activeStack,
+                        };
+                    } else next = snapshot;
+                    return writeExternalLoredeckLibraryIndex(next, { ...merged, staleCheck, expectedRevision });
+                }, merged);
+                libraryOutcomes.succeed(attempt);
+                lastLibraryWriteError = libraryOutcomes.getError();
+                return { ...persisted, pendingWrites: 0 };
             } catch (error) {
-                recordQueuedWriteError(error, merged);
+                recordQueuedWriteError(error, merged, attempt);
+                return { ok: false, persisted: false, error: lastLibraryWriteError };
             } finally {
                 pendingLibraryWriteCount = Math.max(0, pendingLibraryWriteCount - 1);
             }
@@ -357,6 +392,7 @@ export function resetSagaLorepackLibraryStorageCache() {
     pendingLibraryWrite = Promise.resolve();
     pendingLibraryWriteCount = 0;
     lastLibraryWriteError = '';
+    libraryOutcomes.reset();
 }
 
 export function getSagaLorepackLibraryStorageStatus() {
@@ -364,6 +400,7 @@ export function getSagaLorepackLibraryStorageStatus() {
         ...hydrationStatus,
         pendingWrites: pendingLibraryWriteCount,
         lastWriteError: lastLibraryWriteError,
+        failures: libraryOutcomes.getFailures(),
     };
 }
 
@@ -372,6 +409,7 @@ export async function flushSagaLorepackLibraryStorageWrites() {
     return {
         ok: !lastLibraryWriteError,
         error: lastLibraryWriteError,
+        failures: libraryOutcomes.getFailures(),
         pendingWrites: pendingLibraryWriteCount,
         library: getExternalLoredeckLibraryRegistry(),
     };
@@ -381,6 +419,10 @@ export async function hydrateSagaLorepackLibraryStorage(options = {}) {
     if (hydrationPromise && options.force !== true) return hydrationPromise;
     hydrationStatus = { ...hydrationStatus, loading: true, error: '' };
     hydrationPromise = (async () => {
+        const recovered = await recoverSagaStorageTransactions(getFileApi(options), resolveStorageOptions(options));
+        restoreSagaLorepackPayloadStorageFailures(recovered);
+        libraryOutcomes.restore(recovered.filter(item => item.domain === 'library' && !item.operation.includes('payload')));
+        lastLibraryWriteError = libraryOutcomes.getError();
         const domainStorage = getDomainStorage(options);
         const index = await domainStorage.readDomainIndex('library', { allowMissing: true });
         const hadDocumentationFixturePack = containsDocumentationFixtureLoredeckPack(index);
@@ -418,17 +460,20 @@ export async function writeExternalLoredeckLibraryIndex(library = {}, options = 
         ...library,
         updatedAt: now,
     }, { now });
+    for (const pack of Object.values(normalized.packs)) {
+        if (pack.payloadFile) await getFileApi(options).readJsonFile(pack.payloadFile);
+    }
     const staleCheck = options.staleCheck !== false;
     const expectedRevision = options.expectedRevision !== undefined
         ? Math.max(1, Math.floor(Number(options.expectedRevision) || 1))
         : (staleCheck ? Math.max(1, Math.floor(Number(normalized.revision) || 1)) : undefined);
-    const result = await domainStorage.writeDomainIndex('library', normalized, {
+    const result = assertSagaStorageWriteAcknowledged(await domainStorage.writeDomainIndex('library', normalized, {
         ...options,
         staleCheck,
         expectedRevision,
         staleMessage: 'Library storage changed. Reload the Library before changing folders.',
         bumpRevision: options.bumpRevision !== false,
-    });
+    }));
     hydratedLibraryRegistry = normalizeSagaLibraryIndex(result.index, { now });
     return {
         ok: true,
@@ -472,8 +517,8 @@ export function replaceExternalLoredeckLibraryIndexSync(library = {}, options = 
         updatedAt: now,
     }, { now });
     const external = setHydratedLibraryRegistry(next, { now });
-    queueExternalLoredeckLibraryIndexWrite(external, options);
-    return { ok: true, library: external };
+    const completion = queueExternalLoredeckLibraryIndexWrite(external, { ...options, storageOperation: 'replace_index' });
+    return { ok: true, library: external, queued: shouldPersistQueuedWrites(options), persisted: false, completion };
 }
 
 export function updateExternalLoredeckLibraryLayoutSync(layout = {}, options = {}) {
@@ -488,8 +533,9 @@ export function updateExternalLoredeckLibraryLayoutSync(layout = {}, options = {
     if (Array.isArray(layout.deckPlacements)) next.deckPlacements = layout.deckPlacements.map(item => cloneJson(item));
     if (Array.isArray(layout.activeStack)) next.activeStack = layout.activeStack.map(item => cloneJson(item));
     const external = setHydratedLibraryRegistry(next, { now });
-    queueExternalLoredeckLibraryIndexWrite(external, options);
-    return { ok: true, library: external };
+    const storageLayout = Object.fromEntries(['folders', 'deckPlacements', 'activeStack'].filter(key => Array.isArray(layout[key])).map(key => [key, cloneJson(layout[key])]));
+    const completion = queueExternalLoredeckLibraryIndexWrite(external, { ...options, storageOperation: 'write_layout', storageLayout });
+    return { ok: true, library: external, queued: shouldPersistQueuedWrites(options), persisted: false, completion };
 }
 
 export function upsertExternalLoredeckLibraryRecordSync(packRecord = {}, options = {}) {
@@ -507,10 +553,11 @@ export function upsertExternalLoredeckLibraryRecordSync(packRecord = {}, options
         updatedAt: now,
     };
     const external = setHydratedLibraryRegistry(current, { now });
-    queueExternalLoredeckLibraryIndexWrite(external, options);
+    const completion = queueExternalLoredeckLibraryIndexWrite(external, { ...options, storageOwnerId: pack.packId, storageOperation: 'upsert_record' });
     return {
         ok: true,
         pack: getExternalLoredeckLibraryRegistry().packs[pack.packId],
+        queued: shouldPersistQueuedWrites(options), persisted: false, completion,
         library: getExternalLoredeckLibraryRegistry(),
     };
 }
@@ -553,8 +600,8 @@ export function importExternalLoredeckLibraryRegistrySync(registry = {}, options
         ? incoming.activeStack
         : (current.activeStack || []);
     const external = setHydratedLibraryRegistry(current, { now });
-    queueExternalLoredeckLibraryIndexWrite(external, options);
-    return { ok: true, importedCount, skippedCount, importedPackIds, skippedPackIds, library: external };
+    const completion = queueExternalLoredeckLibraryIndexWrite(external, { ...options, storageOperation: 'import_registry', storageIncoming: incoming });
+    return { ok: true, importedCount, skippedCount, importedPackIds, skippedPackIds, library: external, queued: shouldPersistQueuedWrites(options), persisted: false, completion };
 }
 
 export function removeExternalLoredeckLibraryRecordSync(packId = '', options = {}) {
@@ -566,8 +613,8 @@ export function removeExternalLoredeckLibraryRecordSync(packId = '', options = {
     current.deckPlacements = (current.deckPlacements || []).filter(placement => placement.deckId !== id && placement.packId !== id);
     current.activeStack = (current.activeStack || []).filter(item => item.packId !== id);
     const external = setHydratedLibraryRegistry(current, { now });
-    queueExternalLoredeckLibraryIndexWrite(external, options);
-    return { ok: true, library: external };
+    const completion = queueExternalLoredeckLibraryIndexWrite(external, { ...options, storageOwnerId: id, storageOperation: 'remove_record' });
+    return { ok: true, library: external, queued: shouldPersistQueuedWrites(options), persisted: false, completion };
 }
 
 resetSagaLorepackLibraryStorageCache();

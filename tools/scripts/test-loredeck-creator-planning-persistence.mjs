@@ -8,6 +8,8 @@ import { getLoredeckDefinition } from '../../src/runtime/active-stack-panel.js';
 import { buildLoredeckCreatorGeneratedPackRecord, getLoredeckCreatorGeneratedPackId } from '../../src/loredecks/loredeck-creator-generated-pack.js';
 import { getLoredeckCreatorPlanningBatchIdentity, buildLoredeckCreatorPlanningGenerationUnitId } from '../../src/loredecks/loredeck-creator-generation-units.js';
 import { isLoredeckCreatorPlanningProposal, validateLoredeckCreatorPlanningResult, isLoredeckCreatorParsedPlanningUsable } from '../../src/loredecks/loredeck-creator-generation-validation.js';
+import { attachLoredeckCreatorGenerationCommitToChanges, getLoredeckCreatorCommittedGenerationResult, reconcileLoredeckCreatorGenerationCommit } from '../../src/loredecks/loredeck-creator-generation-commit.js';
+import { runGenerationUnits } from '../../src/generation/generation-job-runner.js';
 import { normalizeLoredeckCreatorTitleId, normalizeLoredeckCreatorTitleIdList } from '../../src/loredecks/loredeck-creator-panel.js';
 import { createLoredeckRecordPatchChange, getLoredeckPendingChanges, normalizeLoredeckPendingChanges } from '../../src/runtime/loredeck-pending-change-model.js';
 import { acceptLoredeckPendingChanges, configureLoredeckPendingChangeActions } from '../../src/runtime/loredeck-pending-change-actions.js';
@@ -156,6 +158,7 @@ const compactPack = getLoredeckDefinition(job.generatedPackId);
 resetSagaLorepackPayloadStorageCache();
 const completeReads = [];
 configureSagaLorepackPayloadStorage({ fileApi: { readJsonFile() {
+  if (completeReads.length >= 2) throw new Error('Unexpected cold payload read after the overlap fixture.');
   return new Promise(resolve => completeReads.push(resolve));
 } } });
 const backgroundHydration = hydrateExternalLorepackPayloadRecord(compactPack);
@@ -202,6 +205,8 @@ const scope = {
   getLoredeckPendingChanges, normalizeLoredeckPendingChanges, createLoredeckRecordPatchChange,
   getLoredeckCreatorPlanningBatchIdentity, buildLoredeckCreatorPlanningGenerationUnitId,
   isLoredeckCreatorPlanningProposal, validateLoredeckCreatorPlanningResult, isLoredeckCreatorParsedPlanningUsable,
+  attachLoredeckCreatorGenerationCommitToChanges,
+  getLoredeckCreatorCommittedGenerationResult,
   getLoredeckCreatorOutline: cached => cached.outline,
   getLoredeckCreatorTitleBatchRows: cached => cached.outline.titleBatches,
   getLoredeckCreatorApprovedTitleDrafts: cached => cached.titleDrafts,
@@ -339,5 +344,30 @@ await assert.rejects(ensurePack(job), /Payload unavailable/);
 assert.equal(getCachedExternalLorepackPayload(job.generatedPackId), null);
 assert.deepEqual(job.planningBatchQueuedIds, ['batch-a']);
 assert.equal(getLoredeckDefinition(job.generatedPackId).payloadFile, '/user/files/saga-pack-planning-persistence.v1.json');
+
+// The commit receipt belongs to the same durable pending-change payload as the
+// proposals, so loss of the separate completion checkpoint cannot replay work.
+seedProject();
+const durableIdentity = JSON.stringify([job.jobId, 'durable-planning', 'plan-one', 'input-v1']);
+const planningCommit = scope.commitLoredeckCreatorPlanningResult(parsed, {
+  pack: freshPack(job.generatedPackId), targetPlanningBatch: { id: 'batch-durable', label: 'Durable batch' },
+  generationCommit: { idempotencyKey: durableIdentity, stage: 'context_tag_planning' }, throwOnFailure: true,
+});
+assert.equal(planningCommit.queued, true);
+const durablePayload = JSON.parse(JSON.stringify(getCachedExternalLorepackPayload(job.generatedPackId)));
+const durableJob = JSON.parse(JSON.stringify(job));
+const savedProposal = durablePayload.pendingChanges.find(change => change.preview?.generationCommit?.idempotencyKey === durableIdentity);
+assert.equal(savedProposal.preview.generationCommit.parsedResult.summary, 'Recovered batch A');
+let resumedProviderCalls = 0;
+const checkpointReconciled = await runGenerationUnits({
+  jobId: job.jobId, runId: 'durable-planning', stage: 'context_tag_planning', units: [{ unitId: 'plan-one', inputHash: 'input-v1' }],
+  reconcileCommittedResult: context => reconcileLoredeckCreatorGenerationCommit(durableJob, context, durablePayload),
+  callUnit: async () => { resumedProviderCalls += 1; return {}; },
+  commitResult: async () => { throw new Error('A saved planning payload must not be rewritten.'); },
+});
+assert.equal(checkpointReconciled.status, 'complete');
+assert.equal(resumedProviderCalls, 0);
+assert.equal(checkpointReconciled.results[0].parsedResult.summary, 'Recovered batch A');
+assert.equal(checkpointReconciled.results[0].commitResult.planningCommit.queued, true);
 
 console.log('Deck Maker planning persistence tests passed.');

@@ -7,7 +7,8 @@
  * Higher automation levels add validated mute/remap and curation operations.
  */
 
-import { getSettings, getState, saveState } from '../state/state-manager.js';
+import { getSettings, getState, saveState, saveStateDurable } from '../state/state-manager.js';
+import { captureChatOperation, isStaleChatOperation } from '../state/chat-operation.js';
 import { normalizeLoreEntry, normalizeLoreMatrix } from '../lorecards/lore-matrix.js';
 import {
     getLoreAutomationState,
@@ -31,6 +32,19 @@ import {
 } from './canon-lore-db.js';
 
 let autoRelevanceRunning = false;
+let autoRelevanceOperation = null;
+
+async function persistAutoRelevance(state, options, syncPrompt = false) {
+    options.operation.assertCurrent();
+    if (JSON.stringify(getState()) !== options.sourceStateFingerprint) {
+        const error = new Error('The current chat state changed while Lore Automation was running.');
+        error.code = 'SAGA_AUTOMATION_STATE_CHANGED';
+        throw error;
+    }
+    const result = await saveStateDurable(state, { syncPrompt, operation: options.operation });
+    options.operation.assertCurrent();
+    if (!result.ok && result.status !== 'unverified') throw new Error(result.error || 'Lore Automation persistence failed.');
+}
 
 const LORE_AUTOMATION_MODE_RANK = Object.freeze({ off: 0, ar: 1, armp: 2, armpc: 3 });
 const LORE_AUTOMATION_STYLE_THRESHOLDS = Object.freeze({
@@ -658,7 +672,7 @@ Task:
     return { system, user: JSON.stringify(payload, null, 2) };
 }
 
-async function classifyLoreAutomationEdge(state, settings, recentText, cadence) {
+async function classifyLoreAutomationEdge(state, settings, recentText, cadence, options = {}) {
     const providerKind = selectLoreAutomationProviderKind(settings, 'armp');
     if (providerKind !== 'continuity') return { edge: 'none', confidence: 0, changed: [], reason: '', status: 'skipped' };
     const validation = validateLoreProviderConfiguration(providerKind);
@@ -668,6 +682,7 @@ async function classifyLoreAutomationEdge(state, settings, recentText, cadence) 
         providerKind,
         expectedOutput: 'json',
         maxTokens: 512,
+        signal: options.signal,
     });
     const parsed = parseJsonObject(response);
     if (!parsed) return { edge: 'none', confidence: 0, changed: [], reason: 'Malformed edge classifier JSON.', status: 'failed_parse' };
@@ -771,6 +786,7 @@ async function adjudicateCandidatesWithModel(candidates, state, settings, recent
         providerKind: 'continuity',
         expectedOutput: 'json',
         maxTokens: Math.max(512, Math.min(4096, Number(settings.autoRelevanceModelMaxTokens) || 2048)),
+        signal: options.signal,
     });
     const parsed = parseJsonObject(response);
     if (!parsed) {
@@ -1050,7 +1066,7 @@ function buildRemappingModelPrompts({ state, settings, operations, entriesById, 
     return { system, user: JSON.stringify(payload, null, 2) };
 }
 
-async function adjudicateRemappingWithModel(operations, state, settings, recentText) {
+async function adjudicateRemappingWithModel(operations, state, settings, recentText, options = {}) {
     const providerKind = selectLoreAutomationProviderKind(settings, 'armp');
     if (!providerKind) return { operations: [], status: 'local_only' };
     if (!operations.length) return { operations: [], status: 'no_candidates' };
@@ -1062,6 +1078,7 @@ async function adjudicateRemappingWithModel(operations, state, settings, recentT
         providerKind,
         expectedOutput: 'json',
         maxTokens: Math.max(512, Math.min(4096, Number(settings.autoRelevanceModelMaxTokens) || 2048)),
+        signal: options.signal,
     });
     const parsed = parseJsonObject(response);
     if (!parsed) return { operations: [], status: 'failed_parse', error: 'ARMP model returned malformed JSON.' };
@@ -1262,7 +1279,7 @@ Task:
     return { system, user: JSON.stringify(payload, null, 2) };
 }
 
-async function adjudicateCurationWithModel(candidates, retireCandidates, state, settings, recentText) {
+async function adjudicateCurationWithModel(candidates, retireCandidates, state, settings, recentText, options = {}) {
     const providerKind = selectLoreAutomationProviderKind(settings, 'armpc');
     if (!providerKind) return { selections: [], retireSelections: [], status: 'local_only' };
     if (!candidates.length && !retireCandidates.length) return { selections: [], retireSelections: [], status: 'no_candidates' };
@@ -1282,10 +1299,13 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
             providerKind,
             expectedOutput: 'json',
             maxTokens,
+            signal: options.operation?.signal,
         });
+        options.operation?.assertCurrent();
         parsed = parseJsonObject(response);
         if (!parsed) primaryError = 'ARMPC Reasoning provider returned malformed JSON.';
     } catch (error) {
+        if (options.operation && !options.operation.isCurrent()) throw error;
         primaryError = summarizeProviderError(error);
         if (!canFallbackToUtility) throw error;
     }
@@ -1305,7 +1325,9 @@ async function adjudicateCurationWithModel(candidates, retireCandidates, state, 
                 providerKind: fallbackProviderKind,
                 expectedOutput: 'json',
                 maxTokens,
+                signal: options.operation?.signal,
             });
+            options.operation?.assertCurrent();
             parsed = parseJsonObject(fallbackResponse);
             resolvedProviderKind = fallbackProviderKind;
         } catch (error) {
@@ -1550,7 +1572,8 @@ function markCuratedAcceptedEntry(entry = {}, selection = {}, runId = '') {
     });
 }
 
-async function runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, recordTimeline = true }) {
+async function runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, recordTimeline = true, operation }) {
+    operation?.assertCurrent();
     const mode = normalizeLoreAutomationMode(settings.loreAutomationMode || 'off');
     if (!supportsLoreAutomationMode(mode, 'armpc')) {
         return { status: 'skipped', curated: 0, pendingCurated: 0, providerStatus: '' };
@@ -1564,6 +1587,7 @@ async function runArmPcCuration({ state, settings, recentText, runId, beforeTime
         maxCandidates: 240,
         includeAudit: false,
     });
+    operation?.assertCurrent();
     if (preview.status !== 'preview' && !retireCandidates.length) {
         return { status: preview.status || 'empty', curated: 0, pendingCurated: 0, providerStatus: '' };
     }
@@ -1579,11 +1603,13 @@ async function runArmPcCuration({ state, settings, recentText, runId, beforeTime
 
     let adjudicated;
     try {
-        adjudicated = await adjudicateCurationWithModel(candidates, retireCandidates, state, settings, recentText);
+        adjudicated = await adjudicateCurationWithModel(candidates, retireCandidates, state, settings, recentText, { operation });
     } catch (e) {
+        operation?.assertCurrent();
         console.warn('[Saga Lore Automation] ARMPC curation adjudication failed.', e);
         adjudicated = { selections: [], retireSelections: [], status: 'model_failed', error: e?.message || String(e || '') };
     }
+    operation?.assertCurrent();
 
     let selections = adjudicated.selections || [];
     let retireSelections = adjudicated.retireSelections || [];
@@ -1877,14 +1903,24 @@ export function undoLastLoreAutomationRun() {
 }
 
 export async function runAutoRelevance(options = {}) {
-    if (autoRelevanceRunning) {
+    if (autoRelevanceRunning && autoRelevanceOperation?.isCurrent()) {
         return { status: 'skipped_running' };
     }
+    const operation = options.operation || captureChatOperation({ lane: 'auto-relevance', signal: options.signal });
+    const ownsOperation = !options.operation;
     autoRelevanceRunning = true;
+    autoRelevanceOperation = operation;
     try {
-        return await runAutoRelevanceInternal(options);
+        operation.assertCurrent();
+        const result = await runAutoRelevanceInternal({ ...options, operation });
+        return { ...result, persisted: operation.persistenceStatus === 'persisted', persistenceStatus: operation.persistenceStatus || 'not_requested' };
+    } catch (error) {
+        if (isStaleChatOperation(error)) return { status: 'cancelled' };
+        if (error?.code === 'SAGA_AUTOMATION_STATE_CHANGED') return { status: 'cancelled', reason: error.message };
+        return { status: 'failed_exception', error: error?.message || String(error) };
     } finally {
-        autoRelevanceRunning = false;
+        if (autoRelevanceOperation === operation) { autoRelevanceRunning = false; autoRelevanceOperation = null; }
+        if (ownsOperation) operation.release();
     }
 }
 
@@ -1896,14 +1932,18 @@ async function runAutoRelevanceInternal(options = {}) {
     if (loreAutomationMode === 'off' || (!options.force && (settings.autoRelevanceEnabled === false || mode === 'off'))) {
         return { status: 'disabled' };
     }
-    const state = getState();
+    // Provider waits work on a private draft; only the owning operation can publish it.
+    const sourceStateFingerprint = JSON.stringify(getState());
+    const state = JSON.parse(sourceStateFingerprint);
+    options = { ...options, sourceStateFingerprint };
     const runId = buildLoreAutomationRunId(loreAutomationMode);
     let entries = normalizeLoreMatrix(state.loreMatrix || []);
     if (options.curationOnly === true) {
         if (!supportsLoreAutomationMode(loreAutomationMode, 'armpc')) return { status: 'disabled' };
         const recentText = getRecentChatText(settings.autoRelevanceRecentMessages || 20);
         const beforeTimeline = captureLoreTimelineState(state);
-        const curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline });
+        const curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, operation: options.operation });
+        options.operation.assertCurrent();
         const status = curationResult.curated || curationResult.pendingCurated || curationResult.retired
             ? curationResult.status
             : getCurationNoChangeStatus(curationResult, 'unchanged');
@@ -1922,7 +1962,7 @@ async function runAutoRelevanceInternal(options = {}) {
             operations: curationResult.operations || [],
         }, settings);
         markLoreAutomationCadenceRun(state, { remap: false, curation: true });
-        saveState(state, { syncPrompt: !!(curationResult.curated || curationResult.retired) });
+        await persistAutoRelevance(state, options, !!(curationResult.curated || curationResult.retired));
         return {
             status,
             curated: curationResult.curated || 0,
@@ -1939,7 +1979,8 @@ async function runAutoRelevanceInternal(options = {}) {
         if (activeStackCount && supportsLoreAutomationMode(loreAutomationMode, 'armpc')) {
             const recentText = getRecentChatText(settings.autoRelevanceRecentMessages || 20);
             const beforeTimeline = captureLoreTimelineState(state);
-            const curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline });
+            const curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, operation: options.operation });
+            options.operation.assertCurrent();
             const status = curationResult.curated || curationResult.pendingCurated || curationResult.retired
                 ? curationResult.status
                 : getCurationNoChangeStatus(curationResult, 'no_accepted_lore');
@@ -1958,7 +1999,7 @@ async function runAutoRelevanceInternal(options = {}) {
                 operations: curationResult.operations || [],
             }, settings);
             markLoreAutomationCadenceRun(state, { remap: false, curation: true });
-            saveState(state, { syncPrompt: !!(curationResult.curated || curationResult.retired) });
+            await persistAutoRelevance(state, options, !!(curationResult.curated || curationResult.retired));
             return {
                 status,
                 pendingCount,
@@ -1978,7 +2019,7 @@ async function runAutoRelevanceInternal(options = {}) {
             ranAt: Date.now(),
         }, settings);
         markLoreAutomationCadenceRun(state, { remap: true, curation: false });
-        if (options.force) saveState(state, { syncPrompt: false });
+        if (options.force) await persistAutoRelevance(state, options);
         return {
             status,
             pendingCount,
@@ -1999,11 +2040,14 @@ async function runAutoRelevanceInternal(options = {}) {
         adjudicated = await adjudicateCandidatesWithModel(candidates, state, settings, recentText, {
             forceProvider: options.forceProvider === true,
             loreAutomationMode,
+            signal: options.operation.signal,
         });
     } catch (e) {
+        options.operation.assertCurrent();
         console.warn('[Saga Auto-Relevance] Model adjudication failed; using local relevance only.', e);
         adjudicated = { changes: [], status: 'model_failed', error: e?.message || String(e || '') };
     }
+    options.operation.assertCurrent();
 
     const modelById = new Map((adjudicated.changes || []).map(change => [change.item.entry.id, change]));
     const actionable = candidates
@@ -2053,11 +2097,13 @@ async function runAutoRelevanceInternal(options = {}) {
         const localRemapOperations = buildLocalRemappingCandidates(remapScored, state, settings, remapSuppressed, remapPinned, remapElevated);
         let remapAdjudicated = { operations: [], status: 'local' };
         try {
-            remapAdjudicated = await adjudicateRemappingWithModel(localRemapOperations, state, settings, recentText);
+            remapAdjudicated = await adjudicateRemappingWithModel(localRemapOperations, state, settings, recentText, { signal: options.operation.signal });
         } catch (e) {
+            options.operation.assertCurrent();
             console.warn('[Saga Lore Automation] ARMP adjudication failed; using local-safe operations only.', e);
             remapAdjudicated = { operations: [], status: 'model_failed', error: e?.message || String(e || '') };
         }
+        options.operation.assertCurrent();
         const remapSource = remapAdjudicated.operations?.length
             ? remapAdjudicated.operations
             : (remapAdjudicated.status === 'local_only' || normalizeLoreAutomationProviderRouting(settings.loreAutomationProviderRouting || 'auto') === 'local' || remapAdjudicated.status === 'unavailable'
@@ -2072,7 +2118,8 @@ async function runAutoRelevanceInternal(options = {}) {
     }
 
     if (supportsLoreAutomationMode(loreAutomationMode, 'armpc') && options.skipCuration !== true) {
-        curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, recordTimeline: false });
+        curationResult = await runArmPcCuration({ state, settings, recentText, runId, beforeTimeline, recordTimeline: false, operation: options.operation });
+        options.operation.assertCurrent();
     }
 
     state.autoRelevanceSuggestions = [];
@@ -2138,7 +2185,7 @@ async function runAutoRelevanceInternal(options = {}) {
             summary: `Lore Automation applied ${changed} relevance, ${remapResult.changed || 0} remapping, ${curationResult.curated || 0} accepted, and ${curationResult.retired || 0} retired change${totalChanged === 1 ? '' : 's'}.`,
         });
     }
-    saveState(state, { syncPrompt: totalChanged > 0 });
+    await persistAutoRelevance(state, options, totalChanged > 0);
     return {
         status: runStatus,
         changed,
@@ -2159,11 +2206,14 @@ async function runAutoRelevanceInternal(options = {}) {
     };
 }
 
-export function onGenerationEndedAutoRelevance() {
+export function onGenerationEndedAutoRelevance(options = {}) {
     const settings = getSettings();
     const loreAutomationMode = normalizeLoreAutomationMode(settings.loreAutomationMode || (settings.autoRelevanceEnabled ? 'ar' : 'off'));
     if (!isLoreAutomationBackgroundEnabled(settings)) return { status: 'manual_mode' };
     if (loreAutomationMode === 'off') return { status: 'disabled' };
+    if (settings.enabled === false) return { status: 'disabled' };
+    const operation = options.operation || captureChatOperation({ lane: 'auto-relevance-cadence' });
+    if (!operation.isCurrent()) { if (!options.operation) operation.release(); return { status: 'cancelled' }; }
     const state = getState();
     const cadence = normalizeLoreAutomationCadence(state);
     const policy = getLoreAutomationPacingPolicy(settings);
@@ -2216,7 +2266,8 @@ export function onGenerationEndedAutoRelevance() {
                 checkedAt: Date.now(),
             };
             saveState(state, { syncPrompt: false });
-            classifyLoreAutomationEdge(state, settings, recentText, cadence).then(result => {
+            const completion = classifyLoreAutomationEdge(state, settings, recentText, cadence, { signal: operation.signal }).then(async result => {
+                operation.assertCurrent();
                 const nextState = getState();
                 const nextCadence = normalizeLoreAutomationCadence(nextState);
                 nextCadence.lastEdgeClassifier = {
@@ -2229,17 +2280,20 @@ export function onGenerationEndedAutoRelevance() {
                     status: result.status || '',
                 };
                 const hardEdge = ['hard_scene_shift', 'chapter_or_arc_shift'].includes(result.edge) && (Number(result.confidence) || 0) >= 0.78;
-                if (hardEdge && !autoRelevanceRunning) {
+                if (hardEdge && (!autoRelevanceRunning || !autoRelevanceOperation?.isCurrent())) {
                     nextCadence.pendingReason = `Utility edge classifier: ${result.edge}`;
-                    saveState(nextState, { syncPrompt: false });
-                    runAutoRelevance({ skipCuration: false }).catch(e => console.error('[Saga Lore Automation] edge-triggered run failed:', e));
+                    await persistAutoRelevance(nextState, { operation });
+                    return await runAutoRelevance({ skipCuration: false, operation });
                 } else {
-                    saveState(nextState, { syncPrompt: false });
+                    await persistAutoRelevance(nextState, { operation });
                 }
-            }).catch(e => console.warn('[Saga Lore Automation] edge classifier failed.', e));
-            return { status: 'scheduled_classifier', remapDelta, curationDelta, remapWordBudget: policy.remapWordBudget, curationWordBudget: policy.curationWordBudget };
+                return { status: 'classified' };
+            }).catch(e => ({ status: isStaleChatOperation(e) ? 'cancelled' : 'failed_exception', error: e?.message || String(e) }))
+                .finally(() => { if (!options.operation) operation.release(); });
+            return { status: 'scheduled_classifier', completion, remapDelta, curationDelta, remapWordBudget: policy.remapWordBudget, curationWordBudget: policy.curationWordBudget };
         }
         cadence.pendingReason = '';
+        if (!options.operation) operation.release();
         return {
             status: 'waiting',
             remapDelta,
@@ -2249,7 +2303,7 @@ export function onGenerationEndedAutoRelevance() {
             stackPressure: stackPressure.pressure,
         };
     }
-    if (autoRelevanceRunning) return { status: 'skipped_running' };
+    if (autoRelevanceRunning && autoRelevanceOperation?.isCurrent()) { if (!options.operation) operation.release(); return { status: 'skipped_running' }; }
     const reasons = [];
     if (contextChanged) reasons.push('context_changed');
     if (deckChanged) reasons.push('active_deck_changed');
@@ -2260,12 +2314,13 @@ export function onGenerationEndedAutoRelevance() {
     if (stackPressure.pressure !== 'none') reasons.push(`stack_pressure_${stackPressure.pressure}`);
     cadence.pendingReason = reasons.join(',');
     saveState(state, { syncPrompt: false });
-    const options = curationDue && !remapDue
+    const runOptions = curationDue && !remapDue
         ? { curationOnly: true }
         : { skipCuration: !curationDue };
-    runAutoRelevance(options).catch(e => console.error('[Saga Lore Automation] failed:', e));
+    const completion = runAutoRelevance({ ...runOptions, operation }).finally(() => { if (!options.operation) operation.release(); });
     return {
         status: 'scheduled',
+        completion,
         remapDue,
         curationDue,
         remapDelta,

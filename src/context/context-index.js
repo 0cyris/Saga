@@ -25,8 +25,8 @@ export const DEFAULT_CONTEXT_INDEX = Object.freeze({
 });
 
 let contextIndexCache = null;
-let contextIndexPromise = null;
-let contextIndexSignature = '';
+let contextIndexRequest = null;
+let contextIndexEpoch = 0;
 
 function isPlainObject(value) {
     return value && typeof value === 'object' && !Array.isArray(value);
@@ -380,9 +380,9 @@ function finalizeIndex(index) {
 }
 
 export function clearContextIndexCache() {
+    contextIndexEpoch += 1;
     contextIndexCache = null;
-    contextIndexPromise = null;
-    contextIndexSignature = '';
+    contextIndexRequest = null;
 }
 
 export function getContextIndexSync() {
@@ -399,15 +399,22 @@ export async function loadContextIndex(options = {}) {
 export async function loadContextIndexForState(state = getState(), options = {}) {
     const registry = options.registry || getLoredeckLibraryRegistry(state);
     const signature = getStackSignature(state, registry);
-    if (!options.force && contextIndexCache && contextIndexSignature === signature) {
+    if (!options.force && contextIndexCache?.signature === signature) {
+        // A cached request can become current while another stack is loading.
+        if (contextIndexRequest && contextIndexRequest.signature !== signature) {
+            contextIndexEpoch += 1;
+            contextIndexRequest = null;
+        }
         return contextIndexCache;
     }
-    if (!options.force && contextIndexPromise && contextIndexSignature === signature) {
-        return contextIndexPromise;
+    if (!options.force && contextIndexRequest?.signature === signature) {
+        return contextIndexRequest.promise;
     }
 
-    contextIndexSignature = signature;
-    contextIndexPromise = (async () => {
+    const request = { signature, epoch: ++contextIndexEpoch, promise: null };
+    contextIndexRequest = request;
+    contextIndexCache = null;
+    request.promise = (async () => {
         const index = createEmptyIndex(signature);
         const sources = await loadLoredeckStackSources(state?.loredeckStack || [], {
             registry,
@@ -419,19 +426,20 @@ export async function loadContextIndexForState(state = getState(), options = {})
             index.windows.push(...result.windows);
             index.issues.push(...result.issues);
         }
-        contextIndexCache = finalizeIndex(index);
-        return contextIndexCache;
+        return finalizeIndex(index);
     })().catch(error => {
-        contextIndexCache = finalizeIndex({
+        return finalizeIndex({
             ...createEmptyIndex(signature),
             issues: [createIssue('warning', 'context_index_load_failed', error?.message || 'Context index failed to load.')],
         });
-        return contextIndexCache;
+    }).then(index => {
+        if (request.epoch === contextIndexEpoch) contextIndexCache = index;
+        return index;
     }).finally(() => {
-        contextIndexPromise = null;
+        if (contextIndexRequest === request) contextIndexRequest = null;
     });
 
-    return contextIndexPromise;
+    return request.promise;
 }
 
 function getAnchorSearchText(anchor = {}) {

@@ -18,6 +18,7 @@ import { spawnSync } from 'node:child_process';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readZipArchive } from '../../src/loredecks/loredeck-package-zip.js';
 
 const repoRoot = path.resolve(fileURLToPath(new URL('.', import.meta.url)), '..', '..');
 const pluginRoot = path.join(repoRoot, 'plugins', 'loredeck-builder');
@@ -63,8 +64,7 @@ const build = run(process.execPath, [path.join(pluginRoot, 'scripts', 'build-ski
 assert.equal(build.status, 0, `build-skill-file.mjs failed: ${build.stderr}`);
 const skillPath = path.join(pluginRoot, 'dist', 'loredeck-builder.skill');
 assert.ok(statSync(skillPath).size > 10_000, `.skill archive at ${skillPath} looks too small to be a real bundle.`);
-const listing = run('python3', ['-m', 'zipfile', '-l', skillPath]);
-assert.equal(listing.status, 0, `Failed to list .skill archive contents: ${listing.stderr}`);
+const archive = await readZipArchive(readFileSync(skillPath), { blockedExtensions: new Set() });
 for (const expected of [
   'loredeck-builder/SKILL.md',
   'loredeck-builder/cli/loredeck/loredeck-cli.mjs',
@@ -72,7 +72,8 @@ for (const expected of [
   'loredeck-builder/docs/SAGA_LOREDECK_SCHEMA.md',
   'loredeck-builder/reference-decks/hp-core/loredeck.json',
 ]) {
-  assert.ok(listing.stdout.includes(expected), `.skill archive is missing expected entry: ${expected}`);
+  assert.ok(archive.has(expected), `.skill archive is missing expected entry: ${expected}`);
+  assert.ok((await archive.readFileBytes(expected)).length, `Bundled entry is empty: ${expected}`);
 }
 
 console.log('Loredeck plugin bundle tests passed.');

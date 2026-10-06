@@ -9,13 +9,14 @@ import { pruneUnavailableLoredeckStackItems } from './active-stack-panel.js';
 import {
     cleanMissingSagaStorageIndexRecords,
     createStateBackup,
+    createStateBackupDurable,
     exportSagaState,
     getSettings,
     getSagaStorageDiagnostics,
     getState,
     getStateSafety,
-    restoreStateFromBackup,
-    restoreStateFromExport,
+    restoreStateFromBackupDurable,
+    restoreStateFromExportDurable,
     saveSettings,
     saveState,
     settleSagaStorageWrites,
@@ -230,7 +231,7 @@ function restoreSagaStateFromFile() {
         );
         if (!proceed) return;
         try {
-            const result = restoreStateFromExport(await file.text());
+            const result = await restoreStateFromExportDurable(await file.text());
             if (!result.ok) throw new Error(result.error || 'State restore failed.');
             refreshPanelBody({ preserveScroll: false });
             refreshHeader();
@@ -479,8 +480,9 @@ export function createStateSafetyCard(state = getState()) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Backup Now', 'Create a Saga state backup in this chat before testing risky alpha workflows.', () => {
-        createStateBackup('manual');
+    actions.appendChild(createButton('Backup Now', 'Create a Saga state backup in this chat before testing risky alpha workflows.', async () => {
+        const result = await createStateBackupDurable('manual');
+        if (!result.ok) { toast(result.error || 'Saga state backup failed.', 'error'); return; }
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         toast('Saga state backup created.', 'success');
     }, 'saga-primary-button'));
@@ -509,7 +511,7 @@ export function createStateSafetyCard(state = getState()) {
             `Restore backup ${latest.label || latest.reason || latest.id} from ${formatStateSafetyTimestamp(latest.createdAt)}? Saga will back up the current state first.`
         );
         if (!proceed) return;
-        const result = restoreStateFromBackup(latest.id);
+        const result = await restoreStateFromBackupDurable(latest.id);
         if (!result.ok) {
             toast(result.error || 'Saga state restore failed.', 'error');
             return;

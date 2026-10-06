@@ -63,6 +63,7 @@ import {
     unwrapImportedSagaState,
 } from './import-export.js';
 import { queuePromptInjectionSync } from './prompt-sync.js';
+import { captureChatOperation, getChatOperationIdentity } from './chat-operation.js';
 import { getSettings, saveSettings } from './settings-store.js';
 export { getSettings, saveSettings } from './settings-store.js';
 import { createThemeLibraryStore } from './theme-library-store.js';
@@ -318,6 +319,24 @@ function migrateBucket(container, bucketName = 'storage') {
 
 // ── State I/O ───────────────────────────────────────────────────────────────────
 
+const stateChatOwners = new WeakMap();
+const boundPersistenceQueues = new WeakMap();
+
+function invokeBoundPersistence(operation, invoke) {
+    let queues = boundPersistenceQueues.get(operation.metadata);
+    if (!queues) { queues = new Map(); boundPersistenceQueues.set(operation.metadata, queues); }
+    const previous = queues.get(operation.identity);
+    const guardedInvoke = () => { operation.assertCurrent(); return invoke(); };
+    const pending = previous ? previous.then(guardedInvoke) : guardedInvoke();
+    if (!pending || typeof pending.then !== 'function') return pending;
+    // The sequencing tail consumes failures; each caller observes its own result.
+    let tail;
+    const release = () => { if (queues.get(operation.identity) === tail) queues.delete(operation.identity); };
+    tail = Promise.resolve(pending).then(release, release);
+    queues.set(operation.identity, tail);
+    return pending;
+}
+
 /**
  * Reads chatMetadata.saga, migrates if needed, merges with
  * defaults, and returns the live state object. Always reacquires from
@@ -332,10 +351,18 @@ export function getState() {
     }
     const { chatMetadata } = ctx;
     let state = migrateBucket(chatMetadata, 'chatMetadata');
+    const previousOwner = stateChatOwners.get(state);
+    if (previousOwner && (previousOwner.metadata !== chatMetadata || previousOwner.identity !== getChatOperationIdentity(ctx))) {
+        // Some hosts reuse metadata objects across chats. Keep references already
+        // handed to A separate from the live state subsequently read for B.
+        state = cloneJsonForStateSafety(state, getDefaultState());
+        chatMetadata[MODULE_KEY] = state;
+    }
     if (!state || typeof state !== 'object' || Object.keys(state).length === 0) {
         state = getDefaultState();
         chatMetadata[MODULE_KEY] = state;
         migratedStateRefs.add(state);
+        stateChatOwners.set(state, { metadata: chatMetadata, identity: getChatOperationIdentity(ctx) });
         return state;
     }
 
@@ -344,6 +371,7 @@ export function getState() {
     // saveState() still sanitizes before persistence, and a new chat/state object
     // naturally misses this WeakSet and gets migrated once.
     if (migratedStateRefs.has(state)) {
+        stateChatOwners.set(state, { metadata: chatMetadata, identity: getChatOperationIdentity(ctx) });
         return state;
     }
 
@@ -371,17 +399,16 @@ export function getState() {
     if (state.lastDelta === undefined) state.lastDelta = null;
     stripRetiredStateHistoryFields(state);
     chatMetadata[MODULE_KEY] = state;
+    migratedStateRefs.add(state);
+    stateChatOwners.set(state, { metadata: chatMetadata, identity: getChatOperationIdentity(ctx) });
 
     const afterSize = safeJsonSize(state);
-    if (typeof ctx.saveMetadata === 'function' && beforeSize > 0 && (afterSize < beforeSize || beforeSize > MAX_CHAT_STATE_BYTES_BEFORE_AUTO_PERSIST)) {
-        try {
-            ctx.saveMetadata();
-        } catch (e) {
-            console.warn(`${LOG_PREFIX} Failed to persist compacted Saga state on read`, e);
-        }
+    if (beforeSize > 0 && (afterSize < beforeSize || beforeSize > MAX_CHAT_STATE_BYTES_BEFORE_AUTO_PERSIST)) {
+        const requested = saveState(state, { sanitize: false, syncPrompt: false });
+        Promise.resolve(requested.persistence || requested).then(result => {
+            if (result.status === 'failed') console.warn(`${LOG_PREFIX} Failed to persist compacted Saga state on read`, result.error);
+        }).catch(error => console.warn(`${LOG_PREFIX} Failed to persist compacted Saga state on read`, error));
     }
-
-    migratedStateRefs.add(state);
     return state;
 }
 
@@ -391,10 +418,17 @@ export function getState() {
  */
 export function saveState(state, options = {}) {
     const { syncPrompt = true, sanitize = true } = options || {};
-    const ctx = SillyTavern.getContext();
+    const operation = options.operation || captureChatOperation({ requireEnabled: false });
+    const ctx = operation.context;
+    const owner = stateChatOwners.get(state);
+    if (!operation.isCurrent() || (owner && (owner.metadata !== operation.metadata || owner.identity !== operation.identity))) {
+        if (!options.operation) operation.release();
+        return { ok: false, persisted: false, status: 'cancelled', operationId: operation.id, error: 'The originating chat is no longer current.' };
+    }
     if (!ctx || !ctx.chatMetadata) {
         console.warn(`${LOG_PREFIX} chatMetadata not available, cannot save state`);
-        return;
+        if (!options.operation) operation.release();
+        return { ok: false, persisted: false, status: 'unavailable', operationId: operation.id, error: 'Chat metadata is unavailable.' };
     }
     const { chatMetadata, saveMetadata } = ctx;
     if (!state._version) {
@@ -407,12 +441,59 @@ export function saveState(state, options = {}) {
     stripRetiredStateHistoryFields(state);
     chatMetadata[MODULE_KEY] = state;
     migratedStateRefs.add(state);
-    if (typeof saveMetadata === 'function') {
-        saveMetadata();
-    }
-    if (syncPrompt !== false) {
-        queuePromptInjectionSync();
-    }
+    stateChatOwners.set(state, { metadata: chatMetadata, identity: operation.identity });
+    const adapter = options.persistenceAdapter || ctx.sagaPersistence;
+    const originBound = adapter?.originBound === true && typeof adapter.saveState === 'function';
+    const result = { ok: false, persisted: false, status: 'pending', operationId: operation.id, state,
+        originBinding: originBound ? 'capability' : 'legacy_host_request' };
+    const settle = (error, acknowledged = false) => {
+        const current = operation.isCurrent();
+        result.ok = !error && current;
+        result.persisted = !error && acknowledged;
+        result.status = error ? 'failed' : !current ? 'cancelled' : acknowledged ? 'persisted' : 'unverified';
+        if (error) result.error = error?.message || String(error);
+        else if (!current) result.error = 'The originating chat changed before persistence completed.';
+        else if (!acknowledged) result.error = 'The host cannot verify that this chat state was persisted. Export State keeps a recoverable copy.';
+        operation.persistenceStatus = result.status;
+        if (result.ok && syncPrompt !== false) queuePromptInjectionSync({ isCurrent: () => operation.isCurrent() });
+        if (!options.operation) operation.release();
+        return { ...result, persistence: undefined };
+    };
+    const acknowledge = acknowledgement => {
+        if (acknowledgement === false || acknowledgement?.ok === false) {
+            return settle(new Error(acknowledgement?.error || 'The host refused metadata persistence.'));
+        }
+        return settle(null, originBound && acknowledgement?.ok === true && acknowledgement?.persisted === true);
+    };
+    try {
+        if (!originBound && typeof saveMetadata !== 'function') {
+            settle(new Error('The host metadata persistence API is unavailable.'));
+        } else {
+            const snapshot = originBound ? cloneJsonForStateSafety(chatMetadata, null) : null;
+            if (originBound && !snapshot) throw new Error('Chat metadata cannot be serialized for bound persistence.');
+            const pending = originBound ? invokeBoundPersistence(operation, () => adapter.saveState({
+                snapshot,
+                origin: { chatId: operation.identity, characterId: ctx.characterId ?? null, groupId: ctx.groupId ?? null,
+                    operationId: operation.id, generation: operation.generation },
+                signal: operation.signal,
+            })) : saveMetadata.call(ctx);
+            if (pending && typeof pending.then === 'function') result.persistence = Promise.resolve(pending).then(acknowledge, settle);
+            else acknowledge(pending);
+        }
+    } catch (error) { settle(error); }
+    // The compatibility API never leaves a rejected host Promise unobserved.
+    return result;
+}
+
+/** Explicit durable acknowledgement; synchronous saveState remains an optimistic API. */
+export async function saveStateDurable(state, options = {}) {
+    const result = saveState(state, options);
+    return awaitStatePersistence(result);
+}
+
+async function awaitStatePersistence(result) {
+    const settled = result.persistence ? await result.persistence : result;
+    return { ...settled, ok: settled.ok === true && settled.persisted === true };
 }
 
 // ── State migration ─────────────────────────────────────────────────────────────
@@ -956,7 +1037,9 @@ export function importState(json) {
             threads: Array.isArray(parsed.threads) ? parsed.threads : [],
             continuityFlags: Array.isArray(parsed.continuityFlags) ? parsed.continuityFlags : [],
             lastDelta: parsed.lastDelta || null,
-            _version: SCHEMA_VERSION,
+            // Keep the source version until migrateState has applied every
+            // supported version transition (including legacy manual opt-outs).
+            _version: Number(parsed._version),
 
             // Lore fields (schema v2)
             loreContext: normalizeLoreContext(parsed.loreContext || {}),
@@ -1044,8 +1127,14 @@ export function exportSagaState(state = getState()) {
 export function createStateBackup(reason = 'manual', options = {}) {
     const state = getState();
     const backup = appendStateBackupRecord(state, reason, options);
-    saveState(state, { syncPrompt: options.syncPrompt === true, sanitize: options.sanitize !== false });
-    return backup;
+    const persistence = saveState(state, { ...options, syncPrompt: options.syncPrompt === true, sanitize: options.sanitize !== false });
+    return { ...backup, persisted: persistence.persisted, persistence };
+}
+
+export async function createStateBackupDurable(reason = 'manual', options = {}) {
+    const backup = createStateBackup(reason, options);
+    const result = await awaitStatePersistence(backup.persistence);
+    return { ...result, backup: { ...backup, persisted: result.persisted } };
 }
 
 export function getStateSafety(state = getState()) {
@@ -1159,8 +1248,27 @@ export function restoreStateFromBackup(backupId) {
         fromVersion: Number(next._version) || 0,
         toVersion: SCHEMA_VERSION,
     });
-    saveState(next);
-    return { ok: true, state: next, backup };
+    const result = saveState(next);
+    return { ...result, state: next, backup };
+}
+
+export async function restoreStateFromBackupDurable(backupId) {
+    const operation = captureChatOperation({ requireEnabled: false });
+    try {
+        const current = getState();
+        const backup = normalizeStateSafety(current.stateSafety).backups.find(item => item.id === backupId);
+        if (!backup) return { ok: false, persisted: false, error: 'Backup not found.' };
+        const protectedCurrent = await createStateBackupDurable('before_backup_restore', { label: 'Before restoring a saved Saga backup.', operation });
+        if (!protectedCurrent.ok) return protectedCurrent;
+        operation.assertCurrent();
+        const next = migrateState(cloneJsonForStateSafety(backup.state, getDefaultState()));
+        next.stateSafety = normalizeStateSafety(current.stateSafety);
+        next.stateSafety.lastRestoreAt = Date.now();
+        next.stateSafety.lastRestoreSource = backup.id;
+        appendStateSafetyLog(next, { type: 'state_restore', message: `Restored Saga state backup ${backup.id}.`, toVersion: SCHEMA_VERSION });
+        return { ...await saveStateDurable(next, { operation }), backup };
+    } catch (error) { return { ok: false, persisted: false, error: error?.message || String(error) }; }
+    finally { operation.release(); }
 }
 
 export function restoreStateFromExport(json) {
@@ -1189,8 +1297,26 @@ export function restoreStateFromExport(json) {
         fromVersion: Number(next._version) || 0,
         toVersion: SCHEMA_VERSION,
     });
-    saveState(next);
-    return { ok: true, state: next };
+    const result = saveState(next);
+    return { ...result, state: next };
+}
+
+export async function restoreStateFromExportDurable(json) {
+    const operation = captureChatOperation({ requireEnabled: false });
+    try {
+        const backup = await createStateBackupDurable('before_file_restore', { label: 'Before restoring Saga state from file.', operation });
+        if (!backup.ok) return backup;
+        operation.assertCurrent();
+        const imported = importState(json);
+        if (!imported.state) return { ok: false, persisted: false, error: imported.error || 'State import failed.' };
+        const next = imported.state;
+        next.stateSafety = normalizeStateSafety(getState().stateSafety);
+        next.stateSafety.lastRestoreAt = Date.now();
+        next.stateSafety.lastRestoreSource = 'file';
+        appendStateSafetyLog(next, { type: 'state_restore', message: 'Restored Saga state from an exported JSON file.', toVersion: SCHEMA_VERSION });
+        return await saveStateDurable(next, { operation });
+    } catch (error) { return { ok: false, persisted: false, error: error?.message || String(error) }; }
+    finally { operation.release(); }
 }
 
 // ?? Utility: deep-merge defaults ????????????????????????????????????????????????

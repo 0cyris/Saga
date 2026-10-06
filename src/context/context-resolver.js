@@ -1775,7 +1775,9 @@ export function resolveContextsFromContext(context = {}, options = {}) {
 }
 
 export async function resolveAndApplyContextsFromContext(context = {}, options = {}) {
+    options.operation?.assertCurrent();
     const index = options.index || getContextIndexSync() || await loadContextIndex();
+    options.operation?.assertCurrent();
     const state = options.state || getState();
     const resolution = resolveContextsFromContext(context, {
         ...options,
@@ -1785,6 +1787,7 @@ export async function resolveAndApplyContextsFromContext(context = {}, options =
     });
     let appliedCount = 0;
     for (const result of resolution.results || []) {
+        options.operation?.assertCurrent();
         if (result.status !== 'resolved' || !result.changed || !result.patch) continue;
         setLoredeckContext(result.packId, {
             ...result.patch,
@@ -1813,7 +1816,9 @@ export function applyContextResolutionResults(results = []) {
 }
 
 export async function resolveContextsWithModel(context = {}, options = {}) {
+    options.operation?.assertCurrent();
     const index = options.index || getContextIndexSync() || await loadContextIndex();
+    options.operation?.assertCurrent();
     const state = options.state || getState();
     const local = resolveContextsFromContext(context, {
         ...options,
@@ -1899,8 +1904,9 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
             providerKind: 'lore',
             expectedOutput: 'json',
             maxTokens: options.maxTokens || 1800,
-            signal: options.signal || null,
+            signal: options.operation?.signal || options.signal || null,
         });
+        options.operation?.assertCurrent();
         model = resolveContextsFromModelResponse(responseText, context, {
             ...options,
             state,
@@ -1912,6 +1918,7 @@ export async function resolveContextsWithModel(context = {}, options = {}) {
         _contextModelResolutionRunning = false;
     }
 
+    options.operation?.assertCurrent();
     const modelAppliedCount = options.applyModel === true ? applyContextResolutionResults(model.results) : 0;
 
     const result = {

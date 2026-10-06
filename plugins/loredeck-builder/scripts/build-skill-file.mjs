@@ -15,9 +15,9 @@
  */
 
 import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createStoredZipArchive } from '../../../src/loredecks/loredeck-package-zip.js';
 
 const PLUGIN_ROOT = path.resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const SKILL_NAME = 'loredeck-builder';
@@ -43,7 +43,10 @@ function toSkillDirVar(text) {
   return text.replaceAll('$CLAUDE_PLUGIN_ROOT', '${CLAUDE_SKILL_DIR}');
 }
 
-rmSync(distDir, { recursive: true, force: true });
+if (!buildDir.startsWith(`${PLUGIN_ROOT}${path.sep}`) || path.dirname(buildDir) !== distDir) {
+  throw new Error('Refusing to clean a skill build directory outside the plugin.');
+}
+rmSync(buildDir, { recursive: true, force: true });
 mkdirSync(skillDir, { recursive: true });
 
 // 1. Skill files (SKILL.md + references + templates), with the path-var swap.
@@ -63,14 +66,13 @@ for (const dir of ['cli', 'docs', 'reference-decks']) {
 
 // 3. Zip the skill directory (top-level `loredeck-builder/`) into the .skill.
 rmSync(outFile, { force: true });
-const zip = spawnSync('zip', ['-r', '-q', outFile, SKILL_NAME], { cwd: buildDir, encoding: 'utf8' });
-if (zip.status !== 0) {
-  // fallback: python3 zipfile
-  const py = spawnSync('python3', ['-m', 'zipfile', '-c', outFile, SKILL_NAME], { cwd: buildDir, encoding: 'utf8' });
-  if (py.status !== 0) {
-    throw new Error(`Failed to create .skill archive (zip and python3 both failed): ${zip.stderr}${py.stderr}`);
-  }
-}
+// The authored bundle intentionally contains executable CLI files. Package
+// trusted local inputs with Node only, so Windows needs no zip/Python install.
+const archive = await createStoredZipArchive(listFiles(skillDir).sort().map(file => ({
+  path: path.relative(buildDir, file).split(path.sep).join('/'),
+  data: readFileSync(file),
+})), { blockedExtensions: new Set() });
+writeFileSync(outFile, archive);
 
 const bundledFileCount = listFiles(skillDir).length;
 rmSync(buildDir, { recursive: true, force: true });

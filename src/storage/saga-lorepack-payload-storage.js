@@ -8,7 +8,10 @@ import {
 } from '../state/lore-state-normalizers.js';
 import { createSagaDomainStorage, buildSagaDomainPayloadPath } from './saga-domain-storage.js';
 import { createSagaFileApi } from './saga-file-api.js';
-import { createSagaStorageIndexStore } from './saga-storage-index.js';
+import { createSagaStorageIndexStore, SAGA_STORAGE_DOMAIN_INDEX_FILES } from './saga-storage-index.js';
+import { createSagaStorageOperationOutcomes } from './saga-storage-operation-outcomes.js';
+import { assertSagaStorageWriteAcknowledged } from './saga-storage-coordinator.js';
+import { getSagaStorageRolledBackRevision, recoverSagaStorageTransactions, runSagaStorageTransaction, verifySagaStorageFiles } from './saga-storage-transactions.js';
 import {
     assertSagaUserFilesPath,
     buildSagaAssetStorageFileName,
@@ -32,6 +35,8 @@ let payloadCacheSequence = 0;
 let pendingPayloadWrite = Promise.resolve();
 let pendingPayloadWriteCount = 0;
 let lastPayloadWriteError = '';
+const payloadOutcomes = createSagaStorageOperationOutcomes();
+const payloadRetryRevisions = new Map();
 
 export function configureSagaLorepackPayloadStorage(options = {}) {
     payloadRuntimeOptions = { ...payloadRuntimeOptions, ...(options || {}) };
@@ -280,9 +285,10 @@ function shouldPersistQueuedWrites(options = {}) {
     return typeof window !== 'undefined' && typeof fetch === 'function';
 }
 
-function recordQueuedWriteError(error = {}, options = {}) {
+function recordQueuedWriteError(error = {}, options = {}, attempt) {
     const merged = resolveStorageOptions(options);
-    lastPayloadWriteError = String(error?.message || error || 'Lorepack payload external storage write failed.');
+    payloadOutcomes.fail(attempt, error);
+    lastPayloadWriteError = payloadOutcomes.getError();
     if (typeof merged.onWriteError === 'function') {
         merged.onWriteError(error);
         return;
@@ -351,7 +357,7 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
         ? { payload: normalizeExternalLorepackPayload(cloneJson(payload), merged), assetUploads: merged.assetUploads }
         : prepareExternalLorepackPayloadAssets(normalizeExternalLorepackPayload(cloneJson(payload), merged));
     const snapshot = normalizeExternalLorepackPayload(prepared.payload, merged);
-    const expectedRevision = staleCheck ? normalizeRevision(snapshot.revision, 1) : 0;
+    const expectedRevision = staleCheck ? payloadRetryRevisions.get(snapshot.packId) ?? normalizeRevision(snapshot.revision, 1) : 0;
     const payloadSnapshot = normalizeExternalLorepackPayload({
         ...snapshot,
         revision: merged.bumpRevision === false ? expectedRevision || normalizeRevision(snapshot.revision, 1) : normalizeRevision((expectedRevision || normalizeRevision(snapshot.revision, 1)) + 1, 2),
@@ -362,6 +368,7 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
         .map(normalizeAnySagaStoragePath)
         .filter(Boolean))].sort();
     const cacheSequence = nextPayloadCacheSequence();
+    const attempt = payloadOutcomes.begin(payloadSnapshot.packId, 'write_payload', { payload: payloadSnapshot, assetUploads, staleAssetDeletes });
     setPayloadCache(payloadSnapshot, merged, { sequence: cacheSequence });
     pendingPayloadWriteCount += 1;
     pendingPayloadWrite = pendingPayloadWrite
@@ -370,43 +377,56 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
             try {
                 const fileApi = getFileApi(merged);
                 const storageIndexStore = getStorageIndexStore(merged);
+                const payloadPath = buildSagaDomainPayloadPath('library', payloadSnapshot.packId);
+                const paths = [payloadPath, ...(merged.persistOwningIndex ? [SAGA_STORAGE_DOMAIN_INDEX_FILES.library] : [])];
+                const latestAssetPaths = new Set(collectPayloadAssetPaths(getCachedExternalLorepackPayload(payloadSnapshot.packId) || payloadSnapshot));
+                const transaction = await runSagaStorageTransaction(fileApi, {
+                    domain: 'library', ownerId: payloadSnapshot.packId, operation: 'write_payload', operationId: attempt.operationId, retryOf: attempt.retryOf,
+                    paths, request: { ...attempt.request, persistOwningIndex: merged.persistOwningIndex === true },
+                    gcPaths: staleAssetDeletes.filter(path => !latestAssetPaths.has(path)),
+                }, async () => {
                 await assertLorepackPayloadWriteFresh(fileApi, payloadSnapshot, expectedRevision);
                 for (const upload of assetUploads) {
-                    await fileApi.uploadBase64File(upload.fileName, upload.base64, {
+                    assertSagaStorageWriteAcknowledged(await fileApi.uploadBase64File(upload.fileName, upload.base64, {
                         allowedExtensions: SAGA_STORAGE_RASTER_ASSET_EXTENSIONS,
-                    });
+                    }));
                     if (storageIndexStore?.registerFile) {
-                        await storageIndexStore.registerFile(upload.path, {
+                        assertSagaStorageWriteAcknowledged(await storageIndexStore.registerFile(upload.path, {
                             kind: 'lorepack_asset',
                             domain: 'library',
                             ownerId: snapshot.packId,
                             mime: upload.mime,
                             deletion: 'delete_with_owner',
-                        }, merged);
+                        }, merged));
                     }
                 }
                 const domainStorage = getDomainStorage(merged);
-                await domainStorage.writePayload('library', payloadSnapshot.packId, payloadSnapshot, {
+                assertSagaStorageWriteAcknowledged(await domainStorage.writePayload('library', payloadSnapshot.packId, payloadSnapshot, {
                     ...merged,
                     staleCheck,
                     expectedRevision,
                     kind: 'lorepack_payload',
                     deletion: 'delete_with_owner',
-                });
-                setPayloadCacheIfNotNewer(payloadSnapshot, merged, { sequence: cacheSequence });
-                const latestAssetPaths = new Set(collectPayloadAssetPaths(getCachedExternalLorepackPayload(payloadSnapshot.packId) || payloadSnapshot));
-                const obsoleteAssetPaths = staleAssetDeletes.filter(path => !latestAssetPaths.has(path));
-                for (const assetPath of obsoleteAssetPaths) {
-                    try {
-                        await fileApi.deleteFile(assetPath, { allowedExtensions: SAGA_STORAGE_RASTER_ASSET_EXTENSIONS });
-                    } catch (error) {
-                        if (!isMissingStorageFileError(error)) throw error;
-                    }
-                    if (storageIndexStore?.unregisterFile) await storageIndexStore.unregisterFile(assetPath, merged);
+                }));
+                await verifySagaStorageFiles(fileApi, [payloadPath, ...assetUploads.map(upload => upload.path)]);
+                if (merged.persistOwningIndex) {
+                    const owning = await domainStorage.upsertRecord('library', createExternalLorepackLibraryRecord(payloadSnapshot, merged), {
+                        ...merged, expectedRevision: undefined,
+                    });
+                    return { ok: true, index: owning.index };
                 }
-                lastPayloadWriteError = '';
+                return { ok: true };
+                }, merged);
+                setPayloadCacheIfNotNewer(payloadSnapshot, merged, { sequence: cacheSequence });
+                payloadOutcomes.succeed(attempt);
+                payloadRetryRevisions.delete(payloadSnapshot.packId);
+                lastPayloadWriteError = payloadOutcomes.getError();
+                return { ...transaction, ok: true, persisted: true, queued: false, pendingWrites: 0 };
             } catch (error) {
-                recordQueuedWriteError(error, merged);
+                const revision = getSagaStorageRolledBackRevision(error, payloadSnapshot.payloadFile);
+                if (revision !== undefined) payloadRetryRevisions.set(payloadSnapshot.packId, revision);
+                recordQueuedWriteError(error, merged, attempt);
+                return { ok: false, persisted: false, error: lastPayloadWriteError };
             } finally {
                 pendingPayloadWriteCount = Math.max(0, pendingPayloadWriteCount - 1);
             }
@@ -417,34 +437,23 @@ function queueExternalLorepackPayloadWrite(payload = {}, options = {}) {
 function queueExternalLorepackPayloadDelete(packId = '', payloadFile = '', assetFiles = [], options = {}) {
     if (!shouldPersistQueuedWrites(options) || !payloadFile) return pendingPayloadWrite;
     const merged = resolveStorageOptions(options);
+    const attempt = payloadOutcomes.begin(packId, 'delete_payload', { packId, payloadFile, assetFiles });
     pendingPayloadWriteCount += 1;
     pendingPayloadWrite = pendingPayloadWrite
         .catch(() => {})
         .then(async () => {
             try {
                 const fileApi = getFileApi(merged);
-                for (const assetPath of assetFiles) {
-                    try {
-                        await fileApi.deleteFile(assetPath);
-                    } catch (error) {
-                        if (!isMissingStorageFileError(error)) throw error;
-                    }
-                }
-                try {
-                    await fileApi.deleteFile(payloadFile, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
-                } catch (error) {
-                    if (!isMissingStorageFileError(error)) throw error;
-                }
-                const storageIndexStore = getStorageIndexStore(merged);
-                if (storageIndexStore?.unregisterFile) {
-                    for (const assetPath of assetFiles) {
-                        await storageIndexStore.unregisterFile(assetPath, merged);
-                    }
-                    await storageIndexStore.unregisterFile(payloadFile, merged);
-                }
-                lastPayloadWriteError = '';
+                await runSagaStorageTransaction(fileApi, {
+                    domain: 'library', ownerId: packId, operation: 'delete_payload', operationId: attempt.operationId, retryOf: attempt.retryOf,
+                    paths: [SAGA_STORAGE_DOMAIN_INDEX_FILES.library], request: attempt.request, gcPaths: [...assetFiles, payloadFile],
+                }, () => getDomainStorage(merged).removeRecord('library', packId, merged), merged);
+                payloadOutcomes.succeed(attempt);
+                lastPayloadWriteError = payloadOutcomes.getError();
+                return { ok: true, persisted: true, queued: false, pendingWrites: 0 };
             } catch (error) {
-                recordQueuedWriteError(error, merged);
+                recordQueuedWriteError(error, merged, attempt);
+                return { ok: false, persisted: false, error: lastPayloadWriteError };
             } finally {
                 pendingPayloadWriteCount = Math.max(0, pendingPayloadWriteCount - 1);
             }
@@ -625,6 +634,11 @@ export async function hydrateExternalLorepackPayloadRecord(record = {}, options 
     const packId = getPackId(record);
     if (!packId) return hydrateCachedExternalLorepackPayloadRecord(record);
     if (payloadCache.has(packId)) return hydrateCachedExternalLorepackPayloadRecord(record);
+    const merged = resolveStorageOptions(options);
+    if (shouldPersistQueuedWrites(merged)) {
+        const recovered = await recoverSagaStorageTransactions(getFileApi(merged), merged);
+        restoreSagaLorepackPayloadStorageFailures(recovered);
+    }
     const payloadFile = normalizeStoragePath(record.payloadFile || record.payloadPath || '');
     if (!payloadFile) return hydrateCachedExternalLorepackPayloadRecord(record);
     const raw = await getFileApi(options).readJsonFile(payloadFile, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
@@ -640,6 +654,11 @@ export async function hydrateExternalLorepackPayloadRecord(record = {}, options 
     return hydrateCachedExternalLorepackPayloadRecord(record);
 }
 
+export function restoreSagaLorepackPayloadStorageFailures(recovered = []) {
+    payloadOutcomes.restore(recovered.filter(item => item.domain === 'library' && item.operation.includes('payload')));
+    lastPayloadWriteError = payloadOutcomes.getError();
+}
+
 export function upsertExternalLorepackPayloadSync(packRecord = {}, options = {}) {
     const normalized = normalizeExternalLorepackPayload(packRecord, options);
     const previousAssetPaths = collectPayloadAssetPaths(getCachedExternalLorepackPayload(normalized.packId) || {});
@@ -648,13 +667,16 @@ export function upsertExternalLorepackPayloadSync(packRecord = {}, options = {})
     const staleAssetDeletes = previousAssetPaths.filter(path => !nextAssetPaths.has(path));
     const payload = setPayloadCache(prepared.payload, options);
     if (!payload?.packId) return { ok: false, error: 'Lorepack payload must include a packId/id.' };
-    queueExternalLorepackPayloadWrite(payload, {
+    const completion = queueExternalLorepackPayloadWrite(payload, {
         ...options,
         assetUploads: prepared.assetUploads,
         staleAssetDeletes,
     });
     return {
         ok: true,
+        queued: shouldPersistQueuedWrites(options),
+        persisted: false,
+        completion,
         payload,
         libraryRecord: createExternalLorepackLibraryRecord(payload, options),
     };
@@ -675,8 +697,8 @@ export function removeExternalLorepackPayloadSync(packId = '', options = {}) {
         return { ok: false, notFound: true, error: 'Lorepack payload is not registered in external storage.' };
     }
     payloadCache.delete(id);
-    queueExternalLorepackPayloadDelete(id, payloadFile, assetFiles, options);
-    return { ok: true, payloadFile, assetFiles };
+    const completion = queueExternalLorepackPayloadDelete(id, payloadFile, assetFiles, options);
+    return { ok: true, payloadFile, assetFiles, completion, queued: shouldPersistQueuedWrites(options), persisted: false };
 }
 
 export async function flushSagaLorepackPayloadStorageWrites() {
@@ -684,6 +706,7 @@ export async function flushSagaLorepackPayloadStorageWrites() {
     return {
         ok: !lastPayloadWriteError,
         error: lastPayloadWriteError,
+        failures: payloadOutcomes.getFailures(),
         pendingWrites: pendingPayloadWriteCount,
     };
 }
@@ -692,6 +715,7 @@ export function getSagaLorepackPayloadStorageStatus() {
     return {
         pendingWrites: pendingPayloadWriteCount,
         lastWriteError: lastPayloadWriteError,
+        failures: payloadOutcomes.getFailures(),
         cachedPayloadCount: payloadCache.size,
     };
 }
@@ -703,6 +727,8 @@ export function resetSagaLorepackPayloadStorageCache() {
     pendingPayloadWrite = Promise.resolve();
     pendingPayloadWriteCount = 0;
     lastPayloadWriteError = '';
+    payloadOutcomes.reset();
+    payloadRetryRevisions.clear();
 }
 
 resetSagaLorepackPayloadStorageCache();

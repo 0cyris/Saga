@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { setLoreAutomationEnabled } from '../../src/lorecards/lore-automation.js';
 
 const CORE_PACK_ID = 'hp-core';
 const YEAR_6_PACK_ID = 'hp-year-6-half-blood-prince';
@@ -375,6 +376,11 @@ async function main() {
   assert.ok(findAccepted(accepted, LATER_ENTRY_ID), 'Later accepted Lorecard should be accepted.');
   forceRelevance(accepted, STALE_ENTRY_ID, 'high');
   forceRelevance(accepted, LATER_ENTRY_ID, 'low');
+  // Accepting a protected card deliberately opts it out of automation. This
+  // scenario asks automation to promote it, so explicitly opt that card back in.
+  const currentRonCard = findAccepted(accepted, LATER_ENTRY_ID);
+  assert.equal(currentRonCard.extensions?.loreAutomation?.enabled, false);
+  Object.assign(currentRonCard, setLoreAutomationEnabled(currentRonCard, true, { by: 'integration_fixture' }));
   accepted.loreSelection = { pinnedIds: [], suppressedIds: [] };
 
   const auto = await runAutoRelevance({ force: true, mode: 'apply_high_confidence' });

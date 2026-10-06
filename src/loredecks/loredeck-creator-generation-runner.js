@@ -1,6 +1,7 @@
 import {
     runGenerationUnits,
 } from '../generation/generation-job-runner.js';
+import { fingerprintLoredeckCreatorGenerationInput } from './loredeck-creator-generation-commit.js';
 
 function defaultExtractResponseText(rawResult = '') {
     if (typeof rawResult === 'string') return rawResult;
@@ -68,6 +69,7 @@ export async function runLoredeckCreatorSingleUnitGeneration(config = {}, deps =
     const jobId = getGenerationJobId(generation) || generation.jobId || generation.id;
     const requestOptions = createRequestOptions(generation, config.requestOptions || {});
     const unitId = config.unitId || buildLoredeckCreatorRunnerUnitId(generation, stage);
+    const inputHash = String(config.inputHash || '').trim() || await fingerprintLoredeckCreatorGenerationInput(config.requestContext || {});
     if (config.waitForUiPaint !== false && typeof deps.waitForUiPaint === 'function') {
         await deps.waitForUiPaint();
     }
@@ -78,7 +80,7 @@ export async function runLoredeckCreatorSingleUnitGeneration(config = {}, deps =
     };
     const runnerResult = await runGenerationUnits({
         jobId,
-        runId: generation.id,
+        runId: config.runId || generation.id,
         kind: 'loredeck_creator',
         stage,
         mode: 'single_unit',
@@ -86,7 +88,7 @@ export async function runLoredeckCreatorSingleUnitGeneration(config = {}, deps =
             unitId,
             label: unitLabel,
             stage,
-            inputHash: String(config.inputHash || '').trim(),
+            inputHash,
             meta: config.unitMeta && typeof config.unitMeta === 'object' && !Array.isArray(config.unitMeta)
                 ? config.unitMeta
                 : {},
@@ -94,16 +96,22 @@ export async function runLoredeckCreatorSingleUnitGeneration(config = {}, deps =
         }],
         signal: requestOptions.signal,
         retryAttempts: Number.isFinite(Number(config.retryAttempts)) ? Number(config.retryAttempts) : settings.retryAttempts,
+        checkpointRetryAttempts: config.checkpointRetryAttempts,
+        retryBaseDelayMs: config.retryBaseDelayMs,
+        retryMaxDelayMs: config.retryMaxDelayMs,
+        retryRandom: config.retryRandom,
+        waitForRetry: config.waitForRetry,
+        reconcileCommittedResult: config.reconcileCommittedResult || deps.reconcileCommittedResult,
         stopOnFailure: true,
         isRunCurrent: () => isGenerationCurrent(generation),
         onProgress: event => handleLoredeckCreatorRunnerProgress(generation, event, unitLabel, updateGeneration),
         checkpointRun: async ({ run }) => {
             if (!jobId || !updateGenerationRun) return;
-            updateGenerationRun(jobId, run, checkpointOptions);
+            return await updateGenerationRun(jobId, run, checkpointOptions);
         },
         checkpointUnit: async ({ unit }) => {
             if (!jobId || !unit?.unitId || !updateGenerationUnit) return;
-            updateGenerationUnit(jobId, unit.unitId, unit, checkpointOptions);
+            return await updateGenerationUnit(jobId, unit.unitId, unit, checkpointOptions);
         },
         callUnit: async ({ emitProgress }) => {
             if (typeof emitProgress === 'function') {
@@ -133,10 +141,19 @@ export async function runLoredeckCreatorSingleUnitGeneration(config = {}, deps =
                 };
             }
             : null,
-        commitResult: async ({ parsedResult }) => {
-            const customCommit = typeof config.commitParsedResult === 'function'
-                ? await config.commitParsedResult({ parsedResult, generation, unitId, stage, requestContext: config.requestContext || {} })
+        commitResult: async ({ parsedResult, idempotencyKey }) => {
+            let customCommit = typeof config.commitParsedResult === 'function'
+                ? await config.commitParsedResult({ parsedResult, generation, unitId, stage, idempotencyKey, requestContext: config.requestContext || {} })
                 : null;
+            if (customCommit?.completion) {
+                const completed = await customCommit.completion;
+                customCommit = { ...customCommit, ...completed, queued: completed?.queued === true, completion: undefined };
+            }
+            if (customCommit === false || customCommit?.ok === false || customCommit?.persisted === false || customCommit?.queued === true) {
+                const error = new Error(customCommit?.error || 'Deck Maker result could not be saved.');
+                error.code = 'commit_failed';
+                throw error;
+            }
             return {
                 ...(customCommit || {}),
                 resultRef: {
@@ -158,7 +175,7 @@ export async function runLoredeckCreatorSingleUnitGeneration(config = {}, deps =
         };
     }
     const completed = (runnerResult.results || []).find(result => result?.status === 'complete');
-    if (!completed) {
+    if (!completed || runnerResult.status === 'interrupted') {
         const failed = (runnerResult.results || []).find(result => result?.status === 'failed') || runnerResult.results?.[0] || {};
         const rawMessage = failed.error?.message || failed.unit?.error || runnerResult.error?.message || `${unitLabel} generation failed.`;
         const diagnostic = failed.unit?.diagnostic || null;
@@ -175,6 +192,7 @@ export async function runLoredeckCreatorSingleUnitGeneration(config = {}, deps =
         error.name = failed.error?.name || 'LoredeckCreatorGenerationError';
         error.code = failed.error?.code || failed.unit?.diagnostic?.errorCode || runnerResult.error?.code || '';
         error.diagnostic = diagnostic;
+        if (failed.status === 'checkpoint_pending' || runnerResult.status === 'interrupted') error.reconciliation = runnerResult;
         if (diagnostic?.rejectionSummary) error.rejectionSummary = diagnostic.rejectionSummary;
         if (Array.isArray(diagnostic?.rejectionDiagnostics)) error.rejectionDiagnostics = diagnostic.rejectionDiagnostics;
         if (Array.isArray(diagnostic?.rejectedTargetIds)) error.rejectedTargetIds = diagnostic.rejectedTargetIds;

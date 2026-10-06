@@ -14,9 +14,14 @@ import { configureRuntimeShellView } from './runtime-shell-view.js';
 import { configureRuntimeTour } from './runtime-tour.js';
 import { configureSessionBasicPanel } from './session-basic-panel.js';
 import { configureRuntimeTabRegistry } from './tab-registry.js';
+import { validateRuntimeDependencies } from './runtime-render-owner.js';
 
 export function configureRuntimeComposition(deps = {}) {
-    const getPanelRoot = typeof deps.getPanelRoot === 'function' ? deps.getPanelRoot : () => null;
+    deps = validateRuntimeDependencies('Runtime composition', deps,
+        ['getPanelRoot', 'getState', 'getSettings', 'saveState', 'saveSettings', 'showLorePanel', 'hideLorePanel',
+            'refreshPanelBody', 'refreshHeader', 'renderPanelBody', 'createRuntimeRenderErrorCard'],
+        ['refreshRuntimeRailIcons', 'applyRuntimeTheme', 'toast']);
+    const getPanelRoot = deps.getPanelRoot;
 
     configureSettingsPanel({
         refreshSettingsPanel: options => {

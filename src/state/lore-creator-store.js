@@ -24,6 +24,7 @@ import {
     removeExternalLoredeckCreatorProjectSync,
     upsertExternalLoredeckCreatorProjectSync,
 } from '../storage/saga-creator-project-storage.js';
+import { assertSagaStorageWriteAcknowledged } from '../storage/saga-storage-coordinator.js';
 
 let storeDeps = {};
 
@@ -90,14 +91,14 @@ function cleanupSettingsLoredeckCreatorJobs(settings = {}, jobIds = []) {
     return changed;
 }
 
-function saveSettingsCleanup(settings = {}) {
-    try {
-        saveSettings(settings);
-        return { ok: true };
-    } catch (error) {
-        console.warn('[Saga] Deck Maker settings cleanup failed:', error);
-        return { ok: false, error: getLoredeckCreatorPersistenceErrorMessage(error, 'Deck Maker project settings cleanup failed.') };
-    }
+function completeCreatorWrite(externalResult, jobId, stateSaveResult) {
+    return Promise.all([externalResult.completion || externalResult, stateSaveResult?.persistence || stateSaveResult]).then(async ([persisted, saved]) => {
+        assertSagaStorageWriteAcknowledged(saved);
+        if (!persisted?.ok || persisted.persisted !== true) return persisted || { ok: false, persisted: false, error: 'External storage is unavailable.' };
+        const latestSettings = JSON.parse(JSON.stringify(getSettings()));
+        if (cleanupSettingsLoredeckCreatorJob(latestSettings, jobId)) assertSagaStorageWriteAcknowledged(await saveSettings(latestSettings));
+        return { ...persisted, externalPersisted: true, metadataPersisted: saved?.persisted === true, metadataStatus: saved?.status || 'unverified' };
+    }).catch(error => failLoredeckCreatorPersistence(error));
 }
 
 function getBestAvailableCreatorJob(projectJob = null, localJob = null) {
@@ -198,6 +199,7 @@ export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
     if (!job) return { ok: false, error: 'Deck Maker job could not be normalized.' };
 
     let settings;
+    let completion;
     try {
         settings = getSettings();
         const existingExternal = getLoredeckCreatorProjectRegistry().jobs[job.jobId] || null;
@@ -211,20 +213,20 @@ export function upsertLoredeckCreatorJob(jobRecord = {}, options = {}) {
             activate: true,
         });
         if (!externalResult.ok) return externalResult;
-        if (cleanupSettingsLoredeckCreatorJob(settings, job.jobId)) saveSettingsCleanup(settings);
 
         const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
         localRegistry.jobs[job.jobId] = job;
         localRegistry.activeJobId = job.jobId;
         localRegistry.lastJobId = job.jobId;
         state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
-        saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+        completion = completeCreatorWrite(externalResult, job.jobId, saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true }));
     } catch (error) {
         return failLoredeckCreatorPersistence(error);
     }
     return {
         ok: true,
         job: state.loredeckCreator.jobs[job.jobId],
+        queued: true, persisted: false, completion,
         registry: getLoredeckCreatorRegistry(state),
         projectRegistry: getLoredeckCreatorProjectRegistry(),
     };
@@ -259,17 +261,17 @@ export function activateLoredeckCreatorJob(jobId = '', options = {}) {
         activate: true,
     });
     if (!externalResult.ok) return externalResult;
-    if (cleanupSettingsLoredeckCreatorJob(settings, job.jobId)) saveSettingsCleanup(settings);
 
     localRegistry.jobs[job.jobId] = job;
     localRegistry.activeJobId = job.jobId;
     localRegistry.lastJobId = job.jobId;
     state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
-    saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+    const completion = completeCreatorWrite(externalResult, job.jobId, saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true }));
 
     return {
         ok: true,
         job: state.loredeckCreator.jobs[job.jobId],
+        queued: true, persisted: false, completion,
         registry: getLoredeckCreatorRegistry(state),
         projectRegistry: getLoredeckCreatorProjectRegistry(),
     };
@@ -327,6 +329,7 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
     }), patch);
     if (!job) return { ok: false, error: 'Deck Maker project could not be normalized.' };
 
+    let completion;
     try {
         const externalResult = upsertExternalLoredeckCreatorProjectSync(applyLoredeckCreatorExplicitGenerationClearsForStorage(job, patch), {
             ...options,
@@ -335,15 +338,15 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
             activate: false,
         });
         if (!externalResult.ok) return externalResult;
-        if (cleanupSettingsLoredeckCreatorJob(settings, id)) saveSettingsCleanup(settings);
-
+        let stateSaveResult;
         if (localRegistry.jobs[id] || localRegistry.activeJobId === id || options.syncLocal === true) {
             localRegistry.jobs[id] = job;
             localRegistry.activeJobId = localActiveJobId;
             localRegistry.lastJobId = localLastJobId;
             state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
-            saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+            stateSaveResult = saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
         }
+        completion = completeCreatorWrite(externalResult, id, stateSaveResult);
     } catch (error) {
         return failLoredeckCreatorPersistence(error);
     }
@@ -351,6 +354,7 @@ export function updateLoredeckCreatorProject(jobId = '', patch = {}, options = {
     return {
         ok: true,
         job,
+        queued: true, persisted: false, completion,
         registry: getLoredeckCreatorRegistry(state),
         projectRegistry: getLoredeckCreatorProjectRegistry(),
     };
@@ -517,10 +521,6 @@ export function clearLoredeckCreatorJob(jobId = '', options = {}) {
     if (id && !externalRemoval.ok && externalRemoval.notFound !== true && !projectRegistry.jobs[id]) {
         return externalRemoval;
     }
-    if (cleanupSettingsLoredeckCreatorJob(settings, id) || projectRegistry.jobs[id]) {
-        settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(projectRegistry);
-        saveSettingsCleanup(settings);
-    }
 
     const localRegistry = normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator);
     if (id && localRegistry.jobs[id]) delete localRegistry.jobs[id];
@@ -532,9 +532,12 @@ export function clearLoredeckCreatorJob(jobId = '', options = {}) {
         localRegistry.lastJobId = nextLocalActive.jobId;
     }
     state.loredeckCreator = normalizeLoredeckCreatorRegistry(localRegistry);
-    saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
+    const saved = saveState(state, { syncPrompt: options.syncPrompt !== false, sanitize: true });
     return {
         ok: true,
+        queued: true,
+        persisted: false,
+        completion: completeCreatorWrite(externalRemoval, id, saved),
         registry: getLoredeckCreatorRegistry(state),
         projectRegistry: getLoredeckCreatorProjectRegistry(),
     };
@@ -544,22 +547,20 @@ export function promoteChatLoredeckCreatorToSettings(state = {}) {
     const chatRegistry = normalizeLoredeckCreatorRegistry(state?.loredeckCreator || getDefaultState().loredeckCreator);
     if (!Object.keys(chatRegistry.jobs || {}).length) return;
 
-    const settings = getSettings();
     const projectRegistry = getLoredeckCreatorProjectRegistry();
-    let changed = false;
+    const writes = [];
     for (const [jobId, job] of Object.entries(chatRegistry.jobs || {})) {
         const existing = projectRegistry.jobs[jobId];
         if (!existing || (Number(job.updatedAt) || 0) > (Number(existing.updatedAt) || 0)) {
-            upsertExternalLoredeckCreatorProjectSync(job, {
+            const result = upsertExternalLoredeckCreatorProjectSync(job, {
                 activeJobId: chatRegistry.activeJobId || projectRegistry.activeJobId,
                 lastJobId: chatRegistry.lastJobId || projectRegistry.lastJobId,
                 activate: false,
             });
-            changed = true;
+            if (!result.ok) return result;
+            writes.push(completeCreatorWrite(result, jobId));
         }
     }
-    if (cleanupSettingsLoredeckCreatorJobs(settings, Object.keys(chatRegistry.jobs || {}))) {
-        saveSettingsCleanup(settings);
-    }
-    return changed;
+    if (!writes.length) return { ok: true, persisted: true, queued: false };
+    return { ok: true, persisted: false, queued: true, completion: Promise.all(writes).then(results => results.find(result => !result.ok) || { ok: true, persisted: true, queued: false, externalPersisted: true }) };
 }

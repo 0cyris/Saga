@@ -10,6 +10,8 @@ import {
     SAGA_STORAGE_JSON_EXTENSION,
     toSagaUserFilesPath,
 } from './saga-storage-filenames.js';
+import { queueSagaStorageMutation, writeSagaStorageJsonFile } from './saga-storage-coordinator.js';
+import { assertSagaStorageRevisionFresh } from './saga-storage-stale-write.js';
 
 export const SAGA_STORAGE_INDEX_SCHEMA_VERSION = 1;
 export const SAGA_STORAGE_INDEX_KIND = 'saga_storage_index';
@@ -416,15 +418,6 @@ export function getSagaStorageDeleteCandidatesForOwner(index = {}, ownerId = '',
         .filter(record => record.deletion !== 'external_reference');
 }
 
-const storageIndexMutationQueues = new WeakMap();
-
-function queueSagaStorageIndexMutation(fileApi, action) {
-    const previous = storageIndexMutationQueues.get(fileApi) || Promise.resolve();
-    const next = previous.catch(() => {}).then(action);
-    storageIndexMutationQueues.set(fileApi, next.catch(() => {}));
-    return next;
-}
-
 export function createSagaStorageIndexStore(options = {}) {
     const fileApi = options.fileApi;
     const now = () => getClockNow({ now: options.now });
@@ -436,28 +429,49 @@ export function createSagaStorageIndexStore(options = {}) {
         return fileApi;
     }
 
-    async function readIndex(readOptions = {}) {
+    async function readIndexSnapshot(readOptions = {}) {
         const api = requireFileApi();
         try {
             const raw = await api.readJsonFile(SAGA_STORAGE_INDEX_PATH);
-            return normalizeSagaStorageIndex(raw, { now: now() });
+            return { index: normalizeSagaStorageIndex(raw, { now: now() }), exists: true };
         } catch (error) {
             if (readOptions.allowMissing && (error?.status === 404 || /missing|not found|404/i.test(String(error?.message || '')))) {
-                return createSagaStorageIndex({ now: now() });
+                return { index: createSagaStorageIndex({ now: now() }), exists: false };
             }
             throw error;
         }
     }
 
-    async function writeIndex(index = {}, writeOptions = {}) {
+    async function readIndex(readOptions = {}) {
+        return (await readIndexSnapshot(readOptions)).index;
+    }
+
+    function mutate(action) {
+        return queueSagaStorageMutation(requireFileApi(), SAGA_STORAGE_INDEX_PATH, action, options);
+    }
+
+    async function writeIndexUnlocked(index = {}, writeOptions = {}, snapshot = null) {
         const api = requireFileApi();
+        const latest = snapshot || await readIndexSnapshot({ allowMissing: true });
+        const expectedRevision = writeOptions.expectedRevision ?? latest.index.revision;
+        if (writeOptions.staleCheck !== false) {
+            assertSagaStorageRevisionFresh({ latest: latest.index, expectedRevision, domain: 'storage', path: SAGA_STORAGE_INDEX_PATH });
+        }
         const normalized = writeOptions.bumpRevision !== false
             ? touchSagaStorageIndex(index, { now: now(), bumpRevision: true })
             : normalizeSagaStorageIndex(index, { now: now() });
-        const result = await api.writeJsonFile(SAGA_STORAGE_INDEX_FILE_NAME, normalized, {
+        const result = await writeSagaStorageJsonFile(api, SAGA_STORAGE_INDEX_FILE_NAME, normalized, {
             pretty: writeOptions.pretty,
+            expectedRevision,
+            expectedMissing: !latest.exists,
+            domain: 'storage',
+            path: SAGA_STORAGE_INDEX_PATH,
         });
         return { ...result, index: normalized };
+    }
+
+    async function writeIndex(index = {}, writeOptions = {}) {
+        return mutate(() => writeIndexUnlocked(index, { ...writeOptions, expectedRevision: writeOptions.expectedRevision ?? index.revision }));
     }
 
     async function initializeIndex(initOptions = {}) {
@@ -466,26 +480,28 @@ export function createSagaStorageIndexStore(options = {}) {
     }
 
     async function registerFile(path = '', record = {}, registerOptions = {}) {
-        const api = requireFileApi();
-        return queueSagaStorageIndexMutation(api, async () => {
-            const index = await readIndex({ allowMissing: true });
+        return mutate(async () => {
+            const snapshot = await readIndexSnapshot({ allowMissing: true });
+            const index = snapshot.index;
             const next = upsertSagaStorageFile(index, path, record, { ...registerOptions, now: now() });
-            return writeIndex(next, { pretty: registerOptions.pretty, bumpRevision: false });
+            return writeIndexUnlocked(next, { ...registerOptions, expectedRevision: registerOptions.expectedMasterRevision ?? index.revision, bumpRevision: false }, snapshot);
         });
     }
 
     async function unregisterFile(path = '', unregisterOptions = {}) {
-        const api = requireFileApi();
-        return queueSagaStorageIndexMutation(api, async () => {
-            const index = await readIndex({ allowMissing: true });
+        return mutate(async () => {
+            const snapshot = await readIndexSnapshot({ allowMissing: true });
+            const index = snapshot.index;
             const next = unregisterSagaStorageFile(index, path, { ...unregisterOptions, now: now() });
-            return writeIndex(next, { pretty: unregisterOptions.pretty, bumpRevision: false });
+            return writeIndexUnlocked(next, { ...unregisterOptions, expectedRevision: unregisterOptions.expectedMasterRevision ?? index.revision, bumpRevision: false }, snapshot);
         });
     }
 
-    async function verifyIndexFiles(index = null, verifyOptions = {}) {
+    async function verifyIndexFilesUnlocked(index = null, verifyOptions = {}) {
         const api = requireFileApi();
-        const current = normalizeSagaStorageIndex(index || await readIndex({ allowMissing: true }), { now: now() });
+        const snapshot = await readIndexSnapshot({ allowMissing: true });
+        // Persist integrity metadata against the current index, never a caller's stale snapshot.
+        const current = normalizeSagaStorageIndex(verifyOptions.write ? snapshot.index : (index || snapshot.index), { now: now() });
         const paths = Object.keys(current.files);
         const result = paths.length ? await api.verifyFiles(paths) : {};
         const missingFiles = paths.filter(path => result[path] !== true).sort();
@@ -500,16 +516,21 @@ export function createSagaStorageIndexStore(options = {}) {
         };
         const normalized = touchSagaStorageIndex(next, {
             now: next.lastIntegrityCheck.checkedAt,
-            bumpRevision: verifyOptions.bumpRevision === true,
+            bumpRevision: verifyOptions.write ? verifyOptions.bumpRevision !== false : verifyOptions.bumpRevision === true,
         });
         if (verifyOptions.write) {
-            const written = await writeIndex(normalized, {
+            const written = await writeIndexUnlocked(normalized, {
                 pretty: verifyOptions.pretty,
                 bumpRevision: false,
-            });
+                expectedRevision: current.revision,
+            }, snapshot);
             return { ...written, result, missingFiles, status: normalized.lastIntegrityCheck.status };
         }
         return { index: normalized, result, missingFiles, status: normalized.lastIntegrityCheck.status };
+    }
+
+    async function verifyIndexFiles(index = null, verifyOptions = {}) {
+        return mutate(() => verifyIndexFilesUnlocked(index, verifyOptions));
     }
 
     return {

@@ -4,16 +4,20 @@
 
 import { DEFAULT_SETTINGS, LOG_PREFIX, getDefaultState } from '../state/constants.js';
 import {
-    createStateBackup,
+    createStateBackupDurable,
     getState,
+    getSettings,
     recordStateSafetyEvent,
     saveSettings,
-    saveState,
+    saveStateDurable,
 } from '../state/state-manager.js';
 import { clearStoredSecret } from '../state/secure-keyring.js';
 import { installInterceptor } from '../continuity/prompt-injector.js';
 import { runRuntimeAction } from '../runtime/runtime-actions.js';
-import { clearSagaPromptInjectionSafely, handleExtensionDisabled } from './events.js';
+import { clearSagaPromptInjectionSafely, handleExtensionDisabled, wireEvents } from './events.js';
+import { exposeGlobalBridge } from './global-bridge.js';
+import { registerSagaToolManagerTools } from './saga-tool-registry.js';
+import { setChatOperationsEnabled } from '../state/chat-operation.js';
 
 function canUseSagaContext() {
     try {
@@ -32,13 +36,15 @@ function recordLifecycleStateEvent(type, message) {
     }
 }
 
-function backupLifecycleState(reason, label) {
+async function backupLifecycleState(reason, label) {
     if (!canUseSagaContext()) return null;
     try {
-        return createStateBackup(reason, { label, syncPrompt: false });
+        const result = await createStateBackupDurable(reason, { label, syncPrompt: false });
+        if (!result.ok) console.warn(`${LOG_PREFIX} Lifecycle backup ${reason} was not verified: ${result.error || result.status}. Export State preserves a recoverable copy.`);
+        return result;
     } catch (e) {
         console.warn(`${LOG_PREFIX} Failed to create lifecycle backup "${reason}":`, e);
-        return null;
+        return { ok: false, persisted: false, error: e?.message || String(e) };
     }
 }
 
@@ -65,7 +71,8 @@ export async function sagaOnInstall() {
 }
 
 export async function sagaOnUpdate() {
-    backupLifecycleState('before_extension_update', 'Before applying a Saga extension update hook.');
+    const backup = await backupLifecycleState('before_extension_update', 'Before applying a Saga extension update hook.');
+    if (backup && !backup.ok) return backup;
     if (canUseSagaContext()) {
         try {
             getState();
@@ -76,15 +83,26 @@ export async function sagaOnUpdate() {
     recordLifecycleStateEvent('extension_update', 'Saga extension update hook completed.');
 }
 
-export async function sagaOnEnable() {
-    recordLifecycleStateEvent('extension_enable', 'Saga extension enable hook completed.');
+export function activateSagaResources(ctx = globalThis.SillyTavern?.getContext?.()) {
+    if (getSettings().enabled === false) { handleExtensionDisabled(); return { ok: false, status: 'disabled' }; }
+    setChatOperationsEnabled(true);
+    if (ctx) { wireEvents(ctx); registerSagaToolManagerTools(ctx); }
+    exposeGlobalBridge();
     try {
         installInterceptor();
         runRuntimeAction('prompt.sync');
+        return { ok: true, status: 'enabled' };
     } catch (e) {
         console.warn(`${LOG_PREFIX} Saga enable hook could not sync prompt injection:`, e);
         clearSagaPromptInjectionSafely('recovering from enable hook prompt sync failure');
+        return { ok: false, status: 'failed', error: e?.message || String(e) };
     }
+}
+
+export async function sagaOnEnable() {
+    const result = activateSagaResources();
+    if (result.ok) recordLifecycleStateEvent('extension_enable', 'Saga extension enable hook completed.');
+    return result;
 }
 
 export async function sagaOnDisable() {
@@ -94,7 +112,8 @@ export async function sagaOnDisable() {
 
 export async function sagaOnDelete() {
     handleExtensionDisabled();
-    backupLifecycleState('before_extension_delete', 'Before Saga extension delete hook.');
+    const backup = await backupLifecycleState('before_extension_delete', 'Before Saga extension delete hook.');
+    if (backup && !backup.ok) return backup;
     recordLifecycleStateEvent('extension_delete', 'Saga extension delete hook completed.');
 }
 
@@ -108,12 +127,14 @@ export async function sagaOnClean() {
             console.warn(`${LOG_PREFIX} Saga clean hook could not read current chat state:`, e);
         }
     }
-    backupLifecycleState('before_extension_clean', 'Before cleaning Saga current-chat state and settings.');
+    const backup = await backupLifecycleState('before_extension_clean', 'Before cleaning Saga current-chat state and settings.');
+    if (backup && !backup.ok) return backup;
     if (previous) {
         try {
             const next = getDefaultState();
             next.stateSafety = previous.stateSafety;
-            saveState(next, { syncPrompt: false });
+            const result = await saveStateDurable(next, { syncPrompt: false });
+            if (!result.ok) return result;
             recordStateSafetyEvent('extension_clean', 'Saga clean hook reset current-chat Saga state and preserved State Safety records.', { syncPrompt: false });
         } catch (e) {
             console.warn(`${LOG_PREFIX} Saga clean hook could not reset current chat state:`, e);

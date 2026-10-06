@@ -2,7 +2,9 @@
  * Story Maker provider pipeline.
  */
 
-import { sendLoreRequest } from '../providers/lore-llm-client.js';
+import { getLoreProviderCapabilities, sendLoreRequest } from '../providers/lore-llm-client.js';
+import { runBoundedLoreRequest, throwIfLoreRequestAborted } from '../providers/bounded-lore-request.js';
+import { fingerprintGenerationInput } from '../generation/generation-input-identity.js';
 import {
     assertLoreResponseText,
     createLoreJsonInvalidDiagnostic,
@@ -24,6 +26,8 @@ const STORY_OPENER_RETRY_BACKOFF_MS = Object.freeze([0, 600, 1800]);
 const STORY_OPENER_RETRYABLE_CODES = new Set([
     'provider_timeout',
     'provider_rate_limited',
+    'provider_server_error',
+    'provider_stream_idle_timeout',
     'provider_request_failed',
     LORE_RESPONSE_ERROR_CODES.EMPTY_CONTENT,
     LORE_RESPONSE_ERROR_CODES.REASONING_ONLY,
@@ -47,6 +51,8 @@ const STORY_OPENER_PROSE_FORMATTING_CONTRACT = `Formatting contract:
 - Do not use other Markdown formatting unless the opener text itself requires it.`;
 
 let storyOpenerSendLoreRequest = sendLoreRequest;
+const requestIdentities = new WeakMap();
+let nextRequestIdentity = 0;
 
 function cloneJson(value) {
     return JSON.parse(JSON.stringify(value ?? null));
@@ -87,61 +93,12 @@ function normalizeStoryOpenerTimeoutMs(value, fallback = STORY_OPENER_PROVIDER_U
     return Math.max(1, Math.floor(Number(fallback) || STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS));
 }
 
-function formatStoryOpenerTimeout(timeoutMs = 0) {
-    const seconds = Math.max(1, Math.ceil(Number(timeoutMs || 0) / 1000));
-    if (seconds < 60) return `${seconds} second${seconds === 1 ? '' : 's'}`;
-    const minutes = Math.ceil(seconds / 60);
-    return `${minutes} minute${minutes === 1 ? '' : 's'}`;
-}
-
-function createStoryOpenerTimeoutError(label = 'Story Maker provider request', timeoutMs = STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS) {
-    return createStoryOpenerUnitError(
-        'provider_timeout',
-        `${label || 'Story Maker provider request'} timed out after ${formatStoryOpenerTimeout(timeoutMs)}.`,
-        { timeoutMs },
-    );
-}
-
 async function runStoryOpenerTimedProviderRequest(label = '', options = {}, factory) {
     const timeoutMs = normalizeStoryOpenerTimeoutMs(options.timeoutMs, STORY_OPENER_PROVIDER_UNIT_TIMEOUT_MS);
-    const parentSignal = options.signal || null;
-    const controller = typeof AbortController === 'function' ? new AbortController() : null;
-    const requestSignal = controller?.signal || parentSignal;
-    let timeoutId = 0;
-    let parentAbort = null;
-    let timedOut = false;
-    const work = Promise.resolve().then(() => factory(requestSignal));
-    const guards = [work];
-    guards.push(new Promise((_, reject) => {
-        timeoutId = setTimeout(() => {
-            timedOut = true;
-            if (controller && !controller.signal.aborted) controller.abort();
-            reject(createStoryOpenerTimeoutError(label, timeoutMs));
-        }, timeoutMs);
-    }));
-    if (parentSignal && typeof parentSignal.addEventListener === 'function') {
-        guards.push(new Promise((_, reject) => {
-            if (parentSignal.aborted) {
-                if (controller && !controller.signal.aborted) controller.abort();
-                reject(createStoryOpenerUnitError('user_cancelled', 'Story Maker generation was cancelled.'));
-                return;
-            }
-            parentAbort = () => {
-                if (controller && !controller.signal.aborted) controller.abort();
-                reject(createStoryOpenerUnitError('user_cancelled', 'Story Maker generation was cancelled.'));
-            };
-            parentSignal.addEventListener('abort', parentAbort, { once: true });
-        }));
-    }
-    try {
-        return await Promise.race(guards);
-    } finally {
-        if (timeoutId) clearTimeout(timeoutId);
-        if (parentSignal && parentAbort && typeof parentSignal.removeEventListener === 'function') {
-            parentSignal.removeEventListener('abort', parentAbort);
-        }
-        if (timedOut) work.catch(() => {});
-    }
+    if (!requestIdentities.has(storyOpenerSendLoreRequest)) requestIdentities.set(storyOpenerSendLoreRequest, ++nextRequestIdentity);
+    // Also protect a single unit's retries when an injected/custom adapter
+    // ignores its signal. The production client supplies its shared route lease.
+    return runBoundedLoreRequest(`story:${requestIdentities.get(storyOpenerSendLoreRequest)}:${label}`, request => factory(request.signal), { signal: options.signal, timeoutMs, maxConcurrency: 1 });
 }
 
 function getStoryOpenerVariantLabel(index = 0) {
@@ -159,6 +116,7 @@ function createStoryOpenerUnitError(code = 'provider_request_failed', message = 
 
 function getStoryOpenerErrorCode(error = {}) {
     const details = isPlainObject(error.details) ? error.details : {};
+    if (error.name === 'AbortError') return 'user_cancelled';
     const existing = normalizeStoryOpenerString(error.code || error.errorCode || details.code || details.errorCode || '', 160);
     if (existing) return existing;
     const name = normalizeStoryOpenerString(error.name, 160);
@@ -250,6 +208,7 @@ function normalizeProviderFailure(error = {}, stage = '') {
         maxTokens: details.maxTokens || 0,
         details: {
             ...details,
+            ...(error.retryAfter ? { retryAfter: error.retryAfter } : {}),
             code,
         },
     });
@@ -367,18 +326,22 @@ function emitStoryOpenerProgress(onProgress, event = {}) {
 
 async function waitForStoryOpenerRetry(attempt = 1, options = {}) {
     const override = options.retryDelayMs;
-    const delay = Number.isFinite(Number(override))
+    const baseDelay = Number.isFinite(Number(override))
         ? Math.max(0, Number(override))
         : (STORY_OPENER_RETRY_BACKOFF_MS[attempt] || STORY_OPENER_RETRY_BACKOFF_MS[STORY_OPENER_RETRY_BACKOFF_MS.length - 1] || 0);
+    const retryAfter = options.previousFailure?.details?.retryAfter;
+    const retryAfterMs = Number.isFinite(Number(retryAfter)) ? Number(retryAfter) * 1000 : Math.max(0, Date.parse(retryAfter) - Date.now()) || 0;
+    const delay = Math.min(10000, Math.max(baseDelay * (0.75 + Math.random() * 0.5), retryAfterMs));
     if (!delay) return;
     await new Promise((resolve, reject) => {
         if (options.signal?.aborted) {
             reject(createStoryOpenerUnitError('user_cancelled', 'Story Maker generation was cancelled.'));
             return;
         }
-        const timer = setTimeout(resolve, delay);
+        let abort;
+        const timer = setTimeout(() => { options.signal?.removeEventListener('abort', abort); resolve(); }, delay);
         if (options.signal && typeof options.signal.addEventListener === 'function') {
-            const abort = () => {
+            abort = () => {
                 clearTimeout(timer);
                 reject(createStoryOpenerUnitError('user_cancelled', 'Story Maker generation was cancelled.'));
             };
@@ -435,6 +398,7 @@ async function runStoryOpenerProviderUnit(config = {}) {
             }, signal => storyOpenerSendLoreRequest(prompt.system, prompt.user, {
                 providerKind: STORY_OPENER_PROVIDER_KIND,
                 maxTokens,
+                timeoutMs,
                 prefill: config.prefill,
                 signal,
                 forceVisibleOutput: attempt > 1 && (
@@ -443,6 +407,7 @@ async function runStoryOpenerProviderUnit(config = {}) {
                 ),
                 expectedOutput,
                 onProgress: event => {
+                    if (signal?.aborted) return;
                     emitStoryOpenerProgress(config.onProgress, {
                         ...(event || {}),
                         stage,
@@ -534,7 +499,8 @@ async function runStoryOpenerProviderUnit(config = {}) {
                 message: `${failure.code || 'Provider failure'}: ${failure.recovery || 'Retrying.'}`,
                 attempts: attempts.slice(),
             });
-            await waitForStoryOpenerRetry(attempt, config);
+            try { await waitForStoryOpenerRetry(attempt, { ...config, previousFailure: failure }); }
+            catch (error) { return { ok: false, failure: finalizeStoryOpenerFailure(normalizeProviderFailure(error, stage), attempts, maxAttempts), attempts, attemptCount: attempts.length }; }
         }
     }
     const failure = finalizeStoryOpenerFailure(normalizeStoryOpenerFailure({
@@ -940,11 +906,11 @@ function getTargetLengthGuidance(targetLength = 'scene') {
     return 'Write a balanced opener: enough setup and character grounding for a strong first reply without turning into a full chapter.';
 }
 
-function buildOpenerPrompt(session = {}, packet = {}, brief = {}, variantIndex = 0, revisionPrompt = '') {
+function buildOpenerPrompt(session = {}, packet = {}, brief = {}, variantIndex = 0, revisionPrompt = '', revisionSourceText = null) {
     const normalized = normalizeStoryOpenerSession(session);
     const controls = normalized.controls;
     const selectedAngle = brief.variantAngles?.[variantIndex] || (variantIndex === 0 ? 'direct/default opener' : `minor variation ${variantIndex + 1}`);
-    const previous = normalizeStoryOpenerString(normalized.variants.find(variant => variant.id === normalized.selectedVariantId)?.text || normalized.variants[0]?.text || '', 12000);
+    const previous = revisionPrompt ? normalizeStoryOpenerString(revisionSourceText ?? normalized.variants.find(variant => variant.id === normalized.selectedVariantId)?.text ?? normalized.variants[0]?.text ?? '', 12000) : '';
     const system = `You are Saga's Story Maker writer.
 Write only the finished opener prose. Do not include analysis, labels, JSON, commentary, title text, markdown fences, or extra wrapper formatting.
 Use Markdown italics only where the formatting contract requires italics.
@@ -997,7 +963,7 @@ function normalizeOpenerText(text = '') {
     return clean;
 }
 
-export async function writeStoryOpenerVariant(session = {}, packet = {}, brief = {}, variantIndex = 0, options = {}) {
+async function generateStoryOpenerVariant(session = {}, packet = {}, brief = {}, variantIndex = 0, options = {}) {
     const revisionPrompt = normalizeStoryOpenerString(options.revisionPrompt, 5000);
     const variantLabel = getStoryOpenerVariantLabel(variantIndex);
     const actionLabel = `${revisionPrompt ? 'Revising' : 'Drafting'} ${variantLabel}`;
@@ -1010,11 +976,12 @@ export async function writeStoryOpenerVariant(session = {}, packet = {}, brief =
         retryLabel: revisionPrompt ? 'Revision' : variantLabel,
         expectedOutput: 'text',
         maxTokens: options.maxTokens || 4096,
+        maxAttempts: options.maxAttempts,
         signal: options.signal,
         timeoutMs: options.timeoutMs,
         retryDelayMs: options.retryDelayMs,
         onProgress: options.onProgress,
-        buildPrompt: ({ compact = false }) => buildOpenerPrompt(session, compact ? compactStoryOpenerPacketForRetry(packet) : packet, compact ? compactStoryOpenerBriefForRetry(brief) : brief, variantIndex, revisionPrompt),
+        buildPrompt: ({ compact = false }) => buildOpenerPrompt(session, compact ? compactStoryOpenerPacketForRetry(packet) : packet, compact ? compactStoryOpenerBriefForRetry(brief) : brief, variantIndex, revisionPrompt, options.revisionSourceText),
         handleText: async text => {
             const normalizedText = normalizeOpenerText(text);
             if (!normalizedText) {
@@ -1043,7 +1010,7 @@ export async function writeStoryOpenerVariant(session = {}, packet = {}, brief =
             attempts: result.attempts || [],
         };
     }
-    const { user } = buildOpenerPrompt(session, packet, brief, variantIndex, revisionPrompt);
+    const { user } = buildOpenerPrompt(session, packet, brief, variantIndex, revisionPrompt, options.revisionSourceText);
     return {
         ok: true,
         variantIndex,
@@ -1063,6 +1030,39 @@ export async function writeStoryOpenerVariant(session = {}, packet = {}, brief =
     };
 }
 
+export function buildStoryOpenerVariantIdentity(session = {}, packet = {}, brief = {}, variantIndex = 0, options = {}) {
+    const normalized = normalizeStoryOpenerSession(session);
+    const unitId = `variant_${variantIndex + 1}`;
+    const prompt = buildOpenerPrompt(normalized, packet, brief, variantIndex, normalizeStoryOpenerString(options.revisionPrompt, 5000), options.revisionSourceText);
+    const inputHash = fingerprintGenerationInput({ ...prompt, maxTokens: options.maxTokens || 4096 });
+    return { unitId, inputHash, generationKey: JSON.stringify([normalized.sessionId, 'draft_variants', unitId, inputHash]) };
+}
+
+export async function writeStoryOpenerVariant(session = {}, packet = {}, brief = {}, variantIndex = 0, options = {}) {
+    throwIfLoreRequestAborted(options.signal);
+    const identity = buildStoryOpenerVariantIdentity(session, packet, brief, variantIndex, options);
+    const saved = options.resume !== false && normalizeStoryOpenerSession(session).variants.find(variant => variant.generationKey === identity.generationKey && variant.text);
+    const result = saved
+        ? { ok: true, variantIndex, variantLabel: getStoryOpenerVariantLabel(variantIndex), variant: { ...saved }, attempts: [], reconciled: true }
+        : await generateStoryOpenerVariant(session, packet, brief, variantIndex, options);
+    if (!result.ok) return result;
+    const variant = { ...result.variant, ...identity, id: saved?.id || `variant-${identity.inputHash.slice(0, 24)}-${variantIndex + 1}`, sourceRunId: saved?.sourceRunId || options.runId || '', checkpointPending: false };
+    try {
+        throwIfLoreRequestAborted(options.signal);
+        if (typeof options.checkpointVariant === 'function' && (!saved || saved.checkpointPending)) {
+            let acknowledgement = await options.checkpointVariant(variant, { ...identity, variantIndex, attempts: result.attempts || [], reconciled: !!saved });
+            if (acknowledgement?.completion) { const completed = await acknowledgement.completion; acknowledgement = { ...acknowledgement, ...completed, queued: completed?.queued === true }; }
+            if (acknowledgement !== true && (!acknowledgement || acknowledgement.ok !== true || acknowledgement.persisted !== true || acknowledgement.queued === true || acknowledgement.ignored === true)) {
+                throw createStoryOpenerUnitError('checkpoint_failed', acknowledgement?.error || 'Completed variant could not be saved.');
+            }
+        }
+        return { ...result, variant };
+    } catch (error) {
+        variant.checkpointPending = true;
+        return { ok: false, variantIndex, variantLabel: result.variantLabel, pendingVariant: variant, failure: normalizeProviderFailure(createStoryOpenerUnitError('checkpoint_failed', error?.message || 'Completed variant could not be saved.'), 'draft_variants'), attempts: result.attempts || [] };
+    }
+}
+
 export async function writeStoryOpenerVariants(session = {}, packet = {}, brief = {}, options = {}) {
     const normalized = normalizeStoryOpenerSession(session);
     const count = normalized.controls.variantCount;
@@ -1072,7 +1072,16 @@ export async function writeStoryOpenerVariants(session = {}, packet = {}, brief 
             .filter(index => Number.isFinite(index) && index >= 0 && index < count)
         : Array.from({ length: count }, (_, index) => index);
     const targetIndexes = requestedIndexes.length ? [...new Set(requestedIndexes)] : Array.from({ length: count }, (_, index) => index);
-    const settled = await Promise.allSettled(targetIndexes.map(index => writeStoryOpenerVariant(normalized, packet, brief, index, options)));
+    const capabilities = storyOpenerSendLoreRequest === sendLoreRequest ? getLoreProviderCapabilities(STORY_OPENER_PROVIDER_KIND) : { maxConcurrency: 2 };
+    const concurrency = Math.max(1, Math.min(4, capabilities.maxConcurrency, Number(options.maxConcurrency) || capabilities.maxConcurrency));
+    const settled = new Array(targetIndexes.length); let next = 0;
+    await Promise.all(Array.from({ length: Math.min(concurrency, targetIndexes.length) }, async () => {
+        while (next < targetIndexes.length) {
+            const position = next++;
+            try { settled[position] = { status: 'fulfilled', value: await writeStoryOpenerVariant(normalized, packet, brief, targetIndexes[position], options) }; }
+            catch (reason) { settled[position] = { status: 'rejected', reason }; }
+        }
+    }));
     const results = settled.map((item, index) => {
         if (item.status === 'fulfilled') return item.value;
         const variantIndex = targetIndexes[index];
@@ -1090,8 +1099,9 @@ export async function writeStoryOpenerVariants(session = {}, packet = {}, brief 
         };
     });
     const variants = results
-        .map(result => result.ok ? ({ ...result.variant, id: `variant-${Date.now().toString(36)}-${result.variantIndex + 1}` }) : null)
+        .map(result => result.ok ? result.variant : null)
         .filter(Boolean);
+    const pendingVariants = results.map(result => result.pendingVariant).filter(Boolean);
     const failures = results
         .filter(result => !result.ok)
         .map(result => result.failure)
@@ -1112,6 +1122,7 @@ export async function writeStoryOpenerVariants(session = {}, packet = {}, brief 
         return {
             ok: false,
             variants,
+            pendingVariants,
             failures,
             failedVariantIndexes,
             failedVariantLabels,
@@ -1149,7 +1160,7 @@ export async function writeStoryOpenerVariants(session = {}, packet = {}, brief 
             },
         })
         : null;
-    return { ok: true, variants, failures, failedVariantIndexes, failedVariantLabels, partialFailure, attempts };
+    return { ok: true, variants, pendingVariants, failures, failedVariantIndexes, failedVariantLabels, partialFailure, attempts };
 }
 
 export const __storyOpenerGenerationTestHooks = Object.freeze({

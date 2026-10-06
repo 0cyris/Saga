@@ -860,7 +860,7 @@ async function openLoredeckCreatorProject(jobId = '') {
         toast(result.error || 'Deck Maker project could not be opened.', 'error');
         return false;
     }
-    const recovered = recoverLoredeckCreatorInterruptedActiveGeneration(result.job, {
+    const recovered = await recoverLoredeckCreatorInterruptedActiveGeneration(result.job, {
         toast: true,
         context: 'project_open',
     });

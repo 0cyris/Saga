@@ -136,6 +136,9 @@ assert.equal(contaminatedExternal.packs['saga-doc-health-sample'], undefined, 'E
 assert.equal(contaminatedExternal.deckPlacements.length, 0, 'External Library fixture placements must be removed.');
 assert.equal(contaminatedExternal.activeStack.length, 0, 'External Library fixture stack rows must be removed.');
 
+for (const id of ['arlong-pack', 'baratie-pack', 'cocoyasi-pack', 'arlong-park-final']) {
+  stored.set(`/user/files/saga-pack-${id}.v1.json`, JSON.stringify({ packId: id, schemaVersion: 1 }));
+}
 const writeResult = await writeExternalLoredeckLibraryIndex(normalized, { fileApi, now });
 assert.equal(writeResult.ok, true);
 assert.equal(stored.has(SAGA_STORAGE_DOMAIN_INDEX_FILES.library), true);

@@ -8,6 +8,31 @@ import { clearExtensionPrompts, uninstallInterceptor } from '../continuity/promp
 import { onGenerationEndedAutomation, resetExtractionCounter } from '../continuity/extractor.js';
 import { onGenerationEndedAutoRelevance } from '../context/auto-relevance.js';
 import { removeGlobalBridge } from './global-bridge.js';
+import { enqueueChatAutomation, revokeChatOperations, setChatOperationsEnabled } from '../state/chat-operation.js';
+import { disposeSagaToolManagerTools } from './saga-tool-registry.js';
+
+const eventOwners = new WeakMap();
+let activeEventOwner = null;
+
+function activateEventOwner(source) {
+    if (activeEventOwner && activeEventOwner.source !== source) disposeSagaEventHandlers();
+    let owner = eventOwners.get(source);
+    if (!owner) { owner = { source, active: true, subscriptions: new Map() }; eventOwners.set(source, owner); }
+    owner.active = true;
+    activeEventOwner = owner;
+    return owner;
+}
+
+export function disposeSagaEventHandlers() {
+    const owner = activeEventOwner;
+    if (!owner) return;
+    owner.active = false;
+    for (const [name, subscription] of owner.subscriptions) {
+        if (!subscription.dispose) continue;
+        try { subscription.dispose(); owner.subscriptions.delete(name); }
+        catch (error) { console.warn(`${LOG_PREFIX} Event handler disposal failed:`, error); }
+    }
+}
 
 export function clearSagaPromptInjectionSafely(reason = 'clearing prompt injection') {
     try {
@@ -27,14 +52,22 @@ export function handleBeforePromptSync() {
 }
 
 export function handleGenerationEnded() {
-    try {
-        onGenerationEndedAutomation();
-        onGenerationEndedAutoRelevance();
-        runRuntimeAction('prompt.sync');
-    } catch (e) {
-        console.error(`${LOG_PREFIX} Error in generation-ended handler:`, e);
-        clearSagaPromptInjectionSafely('recovering from generation-ended prompt sync failure');
-    }
+    return enqueueChatAutomation(async operation => {
+        try {
+            await onGenerationEndedAutomation({ operation });
+            operation.assertCurrent();
+            const relevance = onGenerationEndedAutoRelevance({ operation });
+            await relevance.completion;
+            operation.assertCurrent();
+            runRuntimeAction('prompt.sync');
+            return { status: 'complete', persisted: operation.persistenceStatus === 'persisted', persistenceStatus: operation.persistenceStatus || 'not_requested' };
+        } catch (e) {
+            if (!operation.isCurrent()) return { status: 'cancelled' };
+            console.error(`${LOG_PREFIX} Error in generation-ended handler:`, e);
+            clearSagaPromptInjectionSafely('recovering from generation-ended prompt sync failure');
+            return { status: 'failed_exception', error: e?.message || String(e) };
+        }
+    });
 }
 
 export function handleGenerationInterrupted() {
@@ -48,19 +81,25 @@ export function handleGenerationInterrupted() {
 }
 
 export function handleChatChanged() {
+    revokeChatOperations();
     try {
         resetExtractionCounter();
         clearSagaPromptInjectionSafely('clearing prompt injection after chat switch');
         runRuntimeAction('runtime.refresh');
         globalThis.Saga?.bridge?.refreshUI?.();
-        runRuntimeAction('prompt.sync');
     } catch (e) {
         console.error(`${LOG_PREFIX} Error in chat-changed handler:`, e);
         clearSagaPromptInjectionSafely('recovering from chat-changed prompt sync failure');
+    } finally {
+        handleBeforePromptSync();
     }
 }
 
 export function handleExtensionDisabled() {
+    setChatOperationsEnabled(false);
+    disposeSagaEventHandlers();
+    disposeSagaToolManagerTools();
+    resetExtractionCounter();
     clearSagaPromptInjectionSafely('disabling Saga prompt injection');
     try {
         uninstallInterceptor();
@@ -81,7 +120,14 @@ export function handleExtensionDisabled() {
 
 function registerEventHandler(source, eventName, handler) {
     if (!source || !eventName || typeof source.on !== 'function') return false;
-    source.on(eventName, handler);
+    const owner = activateEventOwner(source);
+    if (owner.subscriptions.has(eventName)) return true;
+    const wrapped = (...args) => owner.active ? handler(...args) : undefined;
+    const returned = source.on(eventName, wrapped);
+    const dispose = typeof returned === 'function' ? returned
+        : typeof source.off === 'function' ? () => source.off(eventName, wrapped)
+            : typeof source.removeListener === 'function' ? () => source.removeListener(eventName, wrapped) : null;
+    owner.subscriptions.set(eventName, { wrapped, dispose });
     return true;
 }
 
@@ -133,6 +179,7 @@ export function wireEvents(ctx) {
     }
 
     if (ctx.eventTypes) {
+        const owner = activateEventOwner(ctx.eventTypes);
         for (const [eventName, handler] of [
             ['GENERATE_BEFORE_COMBINE_PROMPTS', handleBeforePromptSync],
             ['GENERATION_STARTED', handleBeforePromptSync],
@@ -144,7 +191,13 @@ export function wireEvents(ctx) {
             ['EXTENSION_DISABLED', handleExtensionDisabled],
         ]) {
             ctx.eventTypes[eventName] = ctx.eventTypes[eventName] || [];
-            ctx.eventTypes[eventName].push(handler);
+            if (owner.subscriptions.has(eventName)) continue;
+            const wrapped = (...args) => owner.active ? handler(...args) : undefined;
+            ctx.eventTypes[eventName].push(wrapped);
+            owner.subscriptions.set(eventName, { wrapped, dispose: () => {
+                const index = ctx.eventTypes[eventName].indexOf(wrapped);
+                if (index >= 0) ctx.eventTypes[eventName].splice(index, 1);
+            } });
         }
         console.log(`${LOG_PREFIX} Events wired via eventTypes object`);
         return;

@@ -64,6 +64,7 @@ let deps = {};
 let mobileLorecardsSubtabsIntroSeen = false;
 let desktopLorecardsFlyoutOpen = false;
 let desktopLorecardsFlyoutDocumentHandlerInstalled = false;
+let desktopLorecardsFlyoutCloseTimer = null;
 
 const MOBILE_LORECARDS_SUBTAB_META = Object.freeze({
     generate: Object.freeze({
@@ -216,12 +217,24 @@ function setDesktopLorecardsFlyoutOpen(open, options = {}) {
     if (options.render !== false) dep('showRuntimePanel')();
 }
 
+export function disposeRuntimeShellView() {
+    if (desktopLorecardsFlyoutCloseTimer !== null) {
+        globalThis.clearTimeout?.(desktopLorecardsFlyoutCloseTimer);
+        desktopLorecardsFlyoutCloseTimer = null;
+    }
+    setDesktopLorecardsFlyoutOpen(false, { render: false });
+}
+
 function onDesktopLorecardsFlyoutDocumentPointerDown(event) {
     if (!desktopLorecardsFlyoutOpen) return;
     const target = event.target;
     if (target?.closest?.('.saga-desktop-lorecards-flyout, .saga-runtime-rail-tab[data-tab-id="lore"]')) return;
     const schedule = globalThis.setTimeout || (callback => callback());
-    schedule(() => setDesktopLorecardsFlyoutOpen(false), 0);
+    if (desktopLorecardsFlyoutCloseTimer !== null) globalThis.clearTimeout?.(desktopLorecardsFlyoutCloseTimer);
+    desktopLorecardsFlyoutCloseTimer = schedule(() => {
+        desktopLorecardsFlyoutCloseTimer = null;
+        setDesktopLorecardsFlyoutOpen(false);
+    }, 0);
 }
 
 function onDesktopLorecardsFlyoutDocumentKeydown(event) {

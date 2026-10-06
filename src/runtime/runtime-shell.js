@@ -24,13 +24,17 @@ let runtimeShellDeps = {};
 let isDragging = false;
 let dragOffsetX = 0;
 let dragOffsetY = 0;
+let dragRoot = null;
 let isResizing = false;
+let resizeRoot = null;
+let resizeCapture = null;
 let resizeStartX = 0;
 let resizeStartY = 0;
 let resizeStartWidth = 0;
 let resizeStartHeight = 0;
 let resizeStartDirection = 'right';
 let pendingRuntimeMobileFocusSelector = '';
+let runtimeInteractionEpoch = 0;
 
 export const BASIC_LORECARDS_STAGES = Object.freeze(['generate', 'lore']);
 export const ADVANCED_LORECARDS_STAGES = Object.freeze(['generate', 'automation', 'lore']);
@@ -113,7 +117,9 @@ function scheduleRuntimeMobileFocus(selector = '') {
     const schedule = typeof requestAnimationFrame === 'function'
         ? requestAnimationFrame
         : (fn) => setTimeout(fn, 0);
+    const epoch = runtimeInteractionEpoch;
     schedule(() => {
+        if (epoch !== runtimeInteractionEpoch) return;
         const root = getPanelRoot();
         if (!root?.classList?.contains('saga-runtime-mobile')) return;
         const focusSelector = pendingRuntimeMobileFocusSelector;
@@ -731,7 +737,9 @@ export function onRuntimeRailDragStart(event) {
     if (isRuntimeMobileShell()) return;
     if (event.target.closest('button, input, textarea, select, .saga-lore-panel-resize-handle')) return;
 
+    disposeRuntimeRailDrag();
     isDragging = true;
+    dragRoot = root;
     const rect = root.getBoundingClientRect();
     dragOffsetX = event.clientX - rect.left;
     dragOffsetY = event.clientY - rect.top;
@@ -748,7 +756,7 @@ export function onRuntimeRailDragStart(event) {
 
 function onRuntimeRailDragMove(event) {
     const root = getPanelRoot();
-    if (!isDragging || !root) return;
+    if (!isDragging || !root || root !== dragRoot) return;
     const state = getStateForShell();
     const panelState = normalizePanelLayoutState(state) || {};
     const railWidth = getRailWidth(panelState);
@@ -763,10 +771,15 @@ function onRuntimeRailDragMove(event) {
 
 function onRuntimeRailDragEnd() {
     const root = getPanelRoot();
-    if (!root) return;
+    const shouldSave = isDragging && root && root === dragRoot;
+    disposeRuntimeRailDrag();
+    if (shouldSave) saveRuntimeRailGeometry();
+}
+
+function disposeRuntimeRailDrag() {
     isDragging = false;
-    root.classList.remove('saga-runtime-dragging');
-    saveRuntimeRailGeometry();
+    dragRoot?.classList.remove('saga-runtime-dragging');
+    dragRoot = null;
     document.removeEventListener('mousemove', onRuntimeRailDragMove);
     document.removeEventListener('mouseup', onRuntimeRailDragEnd);
 }
@@ -778,7 +791,9 @@ export function onRuntimeDrawerResizeStart(event) {
     const drawer = root.querySelector('.saga-runtime-drawer');
     if (!drawer) return;
 
+    disposeRuntimeDrawerResize();
     isResizing = true;
+    resizeRoot = root;
     const rect = drawer.getBoundingClientRect();
     resizeStartX = event.clientX;
     resizeStartY = event.clientY;
@@ -790,7 +805,12 @@ export function onRuntimeDrawerResizeStart(event) {
 
     event.preventDefault();
     event.stopPropagation();
-    event.currentTarget.setPointerCapture?.(event.pointerId);
+    try {
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+        resizeCapture = { target: event.currentTarget, pointerId: event.pointerId };
+    } catch {
+        resizeCapture = null;
+    }
 
     document.addEventListener('pointermove', onRuntimeDrawerResizeMove);
     document.addEventListener('pointerup', onRuntimeDrawerResizeEnd);
@@ -799,7 +819,7 @@ export function onRuntimeDrawerResizeStart(event) {
 
 function onRuntimeDrawerResizeMove(event) {
     const root = getPanelRoot();
-    if (!isResizing || !root) return;
+    if (!isResizing || !root || root !== resizeRoot) return;
     const drawer = root.querySelector('.saga-runtime-drawer');
     if (!drawer) return;
     const state = getStateForShell();
@@ -826,14 +846,30 @@ function onRuntimeDrawerResizeMove(event) {
 
 function onRuntimeDrawerResizeEnd() {
     const root = getPanelRoot();
-    if (!isResizing || !root) return;
+    const shouldSave = isResizing && root && root === resizeRoot;
+    disposeRuntimeDrawerResize();
+    if (shouldSave) saveRuntimeDrawerGeometry();
+}
+
+function disposeRuntimeDrawerResize() {
     isResizing = false;
-    const drawer = root.querySelector('.saga-runtime-drawer');
+    const drawer = resizeRoot?.querySelector('.saga-runtime-drawer');
     drawer?.classList.remove('saga-lore-panel-resizing');
-    saveRuntimeDrawerGeometry();
+    resizeRoot = null;
+    if (resizeCapture) {
+        try { resizeCapture.target.releasePointerCapture?.(resizeCapture.pointerId); } catch { /* Already released by the host. */ }
+        resizeCapture = null;
+    }
     document.removeEventListener('pointermove', onRuntimeDrawerResizeMove);
     document.removeEventListener('pointerup', onRuntimeDrawerResizeEnd);
     document.removeEventListener('pointercancel', onRuntimeDrawerResizeEnd);
+}
+
+export function disposeRuntimeShellInteractions() {
+    runtimeInteractionEpoch += 1;
+    pendingRuntimeMobileFocusSelector = '';
+    disposeRuntimeRailDrag();
+    disposeRuntimeDrawerResize();
 }
 
 function saveRuntimeRailGeometry() {

@@ -6,9 +6,11 @@ import {
   resetSagaLorepackLibraryStorageCache,
 } from '../../src/storage/saga-lorepack-library-storage.js';
 import {
+  configureSagaLorepackPayloadStorage,
   getCachedExternalLorepackPayload,
   resetSagaLorepackPayloadStorageCache,
 } from '../../src/storage/saga-lorepack-payload-storage.js';
+import { createSagaFileApi, __sagaFileApiTestHooks } from '../../src/storage/saga-file-api.js';
 import {
   configureSagaCreatorProjectStorage,
   getCachedExternalLoredeckCreatorProject,
@@ -349,6 +351,29 @@ const titleOnlyGeneratedProject = upsertLoredeckCreatorJob({
 }, { syncPrompt: false });
 assert.equal(titleOnlyGeneratedProject.ok, true);
 
+// Removal now acknowledges the external transaction before pruning chat mirrors.
+const durableFiles = new Map();
+for (const [id, record] of Object.entries(getExternalLoredeckCreatorIndex().projects)) {
+  durableFiles.set(record.projectFile, JSON.stringify(getCachedExternalLoredeckCreatorProject(id)));
+}
+durableFiles.set('/user/files/saga-creator-index.v1.json', JSON.stringify(getExternalLoredeckCreatorIndex()));
+const durableApi = createSagaFileApi({ storageBackendIdentity: {}, fetchImpl: async (url, init = {}) => {
+  const body = init.body ? JSON.parse(init.body) : null;
+  const respond = (ok, status, contents) => ({ ok, status, async text() { return contents; } });
+  if (url === '/api/files/upload') {
+    const path = `/user/files/${body.name}`;
+    durableFiles.set(path, __sagaFileApiTestHooks.base64ToUtf8(body.data));
+    return respond(true, 200, JSON.stringify({ path }));
+  }
+  if (url === '/api/files/delete') { durableFiles.delete(body.path); return respond(true, 200, '{}'); }
+  if (url === '/api/files/verify') return respond(true, 200, JSON.stringify(Object.fromEntries(body.urls.map(path => [path, durableFiles.has(path)]))));
+  return respond(durableFiles.has(url), durableFiles.has(url) ? 200 : 404, durableFiles.get(url) || 'missing');
+} });
+const durableOptions = { fileApi: durableApi, persistWrites: true, staleCheck: false };
+configureSagaLorepackLibraryStorage(durableOptions);
+configureSagaLorepackPayloadStorage(durableOptions);
+configureSagaCreatorProjectStorage(durableOptions);
+
 const generatedPackRecord = {
   packId: generatedPackId,
   type: 'generated',
@@ -362,6 +387,7 @@ const generatedPackRecord = {
 };
 const generatedPackSaved = upsertLoredeckLibraryPack(generatedPackRecord);
 assert.equal(generatedPackSaved.ok, true);
+assert.equal((await generatedPackSaved.completion).ok, true);
 assert.equal(getExternalLoredeckLibraryRegistry().packs[generatedPackId].type, 'generated');
 assert.ok(!extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId], 'Generated Loredecks should not be embedded in settings.');
 assert.equal(getCachedExternalLorepackPayload(generatedPackId).title, 'One Piece: Arlong Park');
@@ -379,6 +405,8 @@ chatMetadata[MODULE_KEY].loredeckRegistry = {
 
 const generatedPackRemoved = removeLoredeckLibraryPack(generatedPackId, { syncPrompt: false });
 assert.equal(generatedPackRemoved.ok, true);
+const durableRemoval = await generatedPackRemoved.completion;
+assert.equal(durableRemoval.ok, true, durableRemoval.error);
 assert.deepEqual(generatedPackRemoved.clearedCreatorJobIds, ['creator_one_piece_arlong', 'creator_one_piece_arlong_title_only']);
 assert.ok(!getExternalLoredeckLibraryRegistry().packs[generatedPackId], 'Deleting a Generated Loredeck should remove the external pack record.');
 assert.equal(getCachedExternalLorepackPayload(generatedPackId), null, 'Deleting a Generated Loredeck should clear the external payload cache.');
@@ -393,6 +421,7 @@ assert.equal(getLoredeckCreatorProjectRegistry().activeJobId, 'creator_naruto_ch
 
 const cleared = clearLoredeckCreatorJob('creator_naruto_chunin', { syncPrompt: false });
 assert.equal(cleared.ok, true);
+assert.equal((await cleared.completion).ok, true);
 assert.ok(!getLoredeckCreatorProjectRegistry().jobs.creator_naruto_chunin);
 assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin);
 assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);
@@ -404,6 +433,7 @@ const externalCreatorPersistence = upsertLoredeckCreatorJob({
   scope: 'Storage failure fixture',
 }, { syncPrompt: false });
 assert.equal(externalCreatorPersistence.ok, true, 'External Creator persistence should not depend on settings writes.');
+assert.equal((await externalCreatorPersistence.completion).ok, true);
 assert.equal(getCachedExternalLoredeckCreatorProject('creator_storage_failure').scope, 'Storage failure fixture');
 assert.equal(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_storage_failure, undefined);
 
@@ -414,14 +444,17 @@ const externalLibraryPersistence = upsertLoredeckLibraryPack({
   source: { kind: 'generated' },
 });
 assert.equal(externalLibraryPersistence.ok, true);
+assert.equal((await externalLibraryPersistence.completion).ok, true);
 assert.equal(getExternalLoredeckLibraryRegistry().packs['storage-failure-pack'].title, 'Storage Failure Pack');
 assert.equal(getCachedExternalLorepackPayload('storage-failure-pack').title, 'Storage Failure Pack');
 throwSettingsSave = false;
 
 const cleanedFailureJob = clearLoredeckCreatorJob('creator_storage_failure', { syncPrompt: false });
 assert.equal(cleanedFailureJob.ok, true);
+assert.equal((await cleanedFailureJob.completion).ok, true);
 const cleanedFailurePack = removeLoredeckLibraryPack('storage-failure-pack', { clearCreatorProjects: false, syncPrompt: false });
 assert.equal(cleanedFailurePack.ok, true);
+assert.equal((await cleanedFailurePack.completion).ok, true);
 assert.equal(getExternalLoredeckLibraryRegistry().packs['storage-failure-pack'], undefined);
 assert.equal(getCachedExternalLorepackPayload('storage-failure-pack'), null);
 assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);

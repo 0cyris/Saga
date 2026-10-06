@@ -29,6 +29,7 @@ import {
     markPendingLoreStale,
     markPendingLoreReplaced,
     saveState,
+    saveStateDurable,
 } from '../state/state-manager.js';
 
 import {
@@ -47,11 +48,27 @@ import {
 import { proposeCanonLoreForContext } from '../context/canon-lore-db.js';
 import { normalizeLorePurpose, computeSpecificityScore } from './lore-relevance.js';
 import { buildContextResolutionAudit, buildResolverContextFromContextBrief, resolveAndApplyContextsFromContext, resolveContextsWithModel } from '../context/context-resolver.js';
+import { captureChatOperation, isStaleChatOperation } from '../state/chat-operation.js';
 
 // ── Guard flags ─────────────────────────────────────────────────────────────────
 
 let _detectionRunning = false;
 let _generationRunning = false;
+let _detectionOperation = null;
+let _generationOperation = null;
+
+function ownedOptions(options, operation) {
+    const progress = options.progress;
+    return { ...options, operation, signal: operation.signal,
+        progress: (...args) => { if (operation.isCurrent()) progress?.(...args); } };
+}
+
+async function persistOwnedLoreState(operation) {
+    operation.assertCurrent();
+    const result = await saveStateDurable(getState(), { operation, syncPrompt: false });
+    operation.assertCurrent();
+    if (!result.ok && result.status !== 'unverified') throw new Error(result.error || 'Lore state persistence failed.');
+}
 
 /** Cooldown window after a failed/empty automatic scan attempt. */
 const FAILED_RETRY_COOLDOWN_MS = 10 * 60 * 1000;
@@ -870,7 +887,8 @@ function buildContextBriefFromLoreContext(context = {}, options = {}) {
 }
 
 
-async function maybeProposeCanonLoreFromContext(context, progress = null) {
+async function maybeProposeCanonLoreFromContext(context, progress = null, operation) {
+    operation?.assertCurrent();
     const settings = getSettings();
     if (settings.canonLoreDatabaseEnabled === false || settings.canonLoreAutoPropose === false) {
         return null;
@@ -881,8 +899,10 @@ async function maybeProposeCanonLoreFromContext(context, progress = null) {
         return await proposeCanonLoreForContext(context, {
             progress,
             maxEntries: settings.canonLoreMaxEntries || 12,
+            operation,
         });
     } catch (e) {
+        if (isStaleChatOperation(e)) throw e;
         console.warn(`${LOG_PREFIX} Local canon lore database query failed:`, e);
         progress?.(`Canon lore database query failed: ${e.message || e}`, 100);
         return { status: 'failed', error: e.message || String(e) };
@@ -963,6 +983,7 @@ function storeContextResolutionProposals(result = null, context = {}, sourceText
 
 async function maybeResolveContextsFromContext(context, options = {}) {
     try {
+        options.operation?.assertCurrent();
         const settings = getSettings();
         const progress = typeof options.progress === 'function' ? options.progress : null;
         progress?.('Resolving Loredeck Context...', 82);
@@ -970,7 +991,9 @@ async function maybeResolveContextsFromContext(context, options = {}) {
             contextSource: options.contextSource || 'local_alias',
             sourceText: options.sourceText || '',
             minLocalConfidence: getContextConfidenceSetting(settings, 'contextLocalApplyMinConfidence', 0.78),
+            operation: options.operation,
         });
+        options.operation?.assertCurrent();
         if (local.unresolvedCount && settings.contextReasonerFallbackEnabled === false) {
             const skipped = {
                 ...local,
@@ -1002,7 +1025,9 @@ async function maybeResolveContextsFromContext(context, options = {}) {
             minLocalConfidence: getContextConfidenceSetting(settings, 'contextLocalApplyMinConfidence', 0.78),
             minConfidence: getContextConfidenceSetting(settings, 'contextReasonerProposalMinConfidence', 0.55),
             resolutionCache: getState()?.lorePanel?.contextResolutionCache || null,
+            operation: options.operation,
         });
+        options.operation?.assertCurrent();
         const merged = {
             ...model,
             local,
@@ -1012,6 +1037,7 @@ async function maybeResolveContextsFromContext(context, options = {}) {
         storeContextResolutionProposals(merged, context, options.sourceText || '');
         return merged;
     } catch (e) {
+        if (isStaleChatOperation(e)) throw e;
         console.warn(`${LOG_PREFIX} Context resolver failed:`, e);
         return { status: 'failed', error: e?.message || String(e || '') };
     }
@@ -1043,6 +1069,7 @@ function hasUsableContextBrief(brief = {}) {
 }
 
 async function saveContextBriefAndResolve(brief, messages, options = {}) {
+    options.operation?.assertCurrent();
     const progress = typeof options.progress === 'function' ? options.progress : null;
     const state = getState();
     const loreContext = buildLoreContextFromContextBrief(brief, state?.loreContext || {});
@@ -1054,8 +1081,11 @@ async function saveContextBriefAndResolve(brief, messages, options = {}) {
         contextSource: options.contextSource || 'model',
         sourceText: messages,
         progress,
+        operation: options.operation,
     });
-    const canonResult = await maybeProposeCanonLoreFromContext(savedState?.loreContext || loreContext, progress);
+    options.operation?.assertCurrent();
+    const canonResult = await maybeProposeCanonLoreFromContext(savedState?.loreContext || loreContext, progress, options.operation);
+    options.operation?.assertCurrent();
     return {
         loreContext: savedState?.loreContext || loreContext,
         contextBrief: normalizeContextBrief(brief, savedState?.loreContext || loreContext),
@@ -1084,12 +1114,26 @@ function recordContextBriefStatus(statusPatch = {}, state = getState()) {
  * @returns {Promise<Object|null>} Detected resolver context or null on failure
  */
 export async function runLoreContextDetection(options = {}) {
-    if (_detectionRunning) {
+    const operation = options.operation || captureChatOperation({ lane: 'context-detection', signal: options.signal });
+    try {
+        operation.assertCurrent();
+        const result = await runOwnedLoreContextDetection(ownedOptions(options, operation));
+        if (result) await persistOwnedLoreState(operation);
+        return result ? { ...result, persisted: operation.persistenceStatus === 'persisted', persistenceStatus: operation.persistenceStatus || 'not_requested' } : null;
+    } catch (error) {
+        if (!isStaleChatOperation(error)) console.warn(`${LOG_PREFIX} Context detection persistence failed:`, error);
+        return null;
+    } finally { if (!options.operation) operation.release(); }
+}
+
+async function runOwnedLoreContextDetection(options = {}) {
+    if (_detectionRunning && _detectionOperation?.isCurrent()) {
         console.debug(`${LOG_PREFIX} Lore context detection already running, skipping`);
         return null;
     }
 
     _detectionRunning = true;
+    _detectionOperation = options.operation;
     try {
         const signal = options.signal || null;
         throwIfAborted(signal);
@@ -1122,6 +1166,7 @@ export async function runLoreContextDetection(options = {}) {
         const userMessage = `Current state: ${stateSummary}\n\nRecent messages:\n${messages}\n\nExtract the current Context Brief. Output ONLY a valid JSON object with no markdown fences, no commentary, no explanations:`;
 
         const response = await quietPrompt(LORE_CONTEXT_DETECTION_SYSTEM_PROMPT, userMessage, { signal });
+        options.operation.assertCurrent();
         if (!response) {
             const fallbackBrief = inferContextBriefLocallyFromMessages(messages, state, {
                 updatedAt: Date.now(),
@@ -1129,6 +1174,7 @@ export async function runLoreContextDetection(options = {}) {
             });
             if (fallbackBrief) {
                 const saved = await saveContextBriefAndResolve(fallbackBrief, messages, {
+                    operation: options.operation,
                     contextSource: 'local_alias',
                     progress,
                 });
@@ -1146,6 +1192,7 @@ export async function runLoreContextDetection(options = {}) {
                     note: 'Model returned no response; legacy local fallback used current headings/state only.',
                 });
                 const saved = await saveContextBriefAndResolve(legacyBrief, messages, {
+                    operation: options.operation,
                     contextSource: 'local_alias',
                     progress,
                 });
@@ -1170,8 +1217,10 @@ export async function runLoreContextDetection(options = {}) {
                 signal,
                 updatedAt: Date.now(),
             });
+            options.operation.assertCurrent();
             if (repairedBrief) {
                 const saved = await saveContextBriefAndResolve(repairedBrief, messages, {
+                    operation: options.operation,
                     contextSource: 'model',
                     progress,
                 });
@@ -1186,6 +1235,7 @@ export async function runLoreContextDetection(options = {}) {
             });
             if (fallbackBrief) {
                 const saved = await saveContextBriefAndResolve(fallbackBrief, messages, {
+                    operation: options.operation,
                     contextSource: 'local_alias',
                     progress,
                 });
@@ -1203,6 +1253,7 @@ export async function runLoreContextDetection(options = {}) {
                     note: 'Model response could not be parsed; legacy local fallback used current headings/state only.',
                 });
                 const saved = await saveContextBriefAndResolve(legacyBrief, messages, {
+                    operation: options.operation,
                     contextSource: 'local_alias',
                     progress,
                 });
@@ -1234,6 +1285,7 @@ export async function runLoreContextDetection(options = {}) {
             return null;
         }
         const saved = await saveContextBriefAndResolve(contextBrief, messages, {
+            operation: options.operation,
             contextSource: 'model',
             progress,
         });
@@ -1248,6 +1300,7 @@ export async function runLoreContextDetection(options = {}) {
 
         return saved.resolverContext;
     } catch (e) {
+        if (!options.operation.isCurrent()) return null;
         console.error(`${LOG_PREFIX} Lore context detection failed:`, e);
         const progress = typeof options.progress === 'function' ? options.progress : null;
         if (!isAbortError(e)) {
@@ -1260,7 +1313,7 @@ export async function runLoreContextDetection(options = {}) {
         progress?.(`Context detection failed: ${e.message || e}`, 100);
         return null;
     } finally {
-        _detectionRunning = false;
+        if (_detectionOperation === options.operation) { _detectionRunning = false; _detectionOperation = null; }
     }
 }
 
@@ -1936,7 +1989,7 @@ async function runWithConcurrency(items, concurrency, worker) {
     return results;
 }
 
-async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, settings, stateSummary, loreIndex, signal }) {
+async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, settings, stateSummary, loreIndex, signal, operation }) {
     const maxAttempts = Math.max(1, Math.min(5, clampInt(settings.loreBulkRetryAttempts, 0, 4, 2) + 1));
     const systemPrompt = buildBulkCandidateSystemPrompt(settings, profile);
     const userMessage = buildBulkCandidateUserMessage({ stateSummary, loreIndex, chunk, plan, profile });
@@ -1946,6 +1999,7 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
 
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
         throwIfAborted(signal);
+        operation?.assertCurrent();
         checkpointLoreBulkChunk(chunk.chunkId, {
             batchId,
             chunkPatch: {
@@ -1968,6 +2022,7 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
             if ((!parsed || !parsed.facts.length) && settings.loreRepairOnParseFail) {
                 parsed = await repairBulkCandidateJsonResponse(rawResponse, chunk);
             }
+            operation?.assertCurrent();
             if (!parsed) {
                 const failure = getBulkCandidateParseFailure(rawResponse);
                 lastError = failure.error;
@@ -1998,12 +2053,13 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
             }, { full: false, syncPrompt: false });
             return { status: 'complete', chunk, candidates, summary: parsed.chunkSummary || '', attempts: attempt };
         } catch (e) {
-            if (isAbortError(e)) throw e;
+            if (isAbortError(e) || isStaleChatOperation(e)) throw e;
             lastError = e?.message || String(e || 'Unknown provider error');
             lastErrorCode = e?.code || e?.errorCode || '';
         }
     }
 
+    operation?.assertCurrent();
     checkpointLoreBulkChunk(chunk.chunkId, {
         batchId,
         rawResponse,
@@ -2034,16 +2090,29 @@ async function extractBulkChunkCandidates({ chunk, plan, batchId, profile, setti
  * @returns {Promise<Object>} Structured bulk scan result
  */
 export async function runBulkLoreGeneration(options = {}) {
+    const operation = options.operation || captureChatOperation({ lane: 'story-lore', signal: options.signal });
+    try {
+        operation.assertCurrent();
+        const result = await runOwnedBulkLoreGeneration(ownedOptions(options, operation));
+        if (['complete', 'partial'].includes(result?.status)) await persistOwnedLoreState(operation);
+        return { ...result, persisted: operation.persistenceStatus === 'persisted', persistenceStatus: operation.persistenceStatus || 'not_requested' };
+    } catch (error) {
+        return { status: isStaleChatOperation(error) ? 'cancelled' : 'failed_exception', error: error?.message || String(error) };
+    } finally { if (!options.operation) operation.release(); }
+}
+
+async function runOwnedBulkLoreGeneration(options = {}) {
     const { force = true, signal = null } = options;
     const progress = typeof options.progress === 'function' ? options.progress : null;
     const source = options.source || (force ? 'manual' : 'auto');
     const automationSafe = !!options.automationSafe || source === 'auto' || !force;
 
-    if (_generationRunning) {
+    if (_generationRunning && _generationOperation?.isCurrent()) {
         return { status: 'skipped_running' };
     }
 
     _generationRunning = true;
+    _generationOperation = options.operation;
     try {
         throwIfAborted(signal);
         let state = getState();
@@ -2059,7 +2128,8 @@ export async function runBulkLoreGeneration(options = {}) {
         if (!state.loreContext?.lastDetectedAt) {
             if (force) {
                 progress?.('Detecting context before lore scan...', 4);
-                const detected = await runLoreContextDetection({ progress, signal });
+                const detected = await runLoreContextDetection({ progress, signal, operation: options.operation });
+                options.operation.assertCurrent();
                 if (!detected) {
                     progress?.('No context could be detected. Lore scan cancelled.', 100);
                     return { status: 'no_context_detected' };
@@ -2240,6 +2310,7 @@ export async function runBulkLoreGeneration(options = {}) {
         }
 
         async function flushConsolidationWindow(forceFlush = false) {
+            options.operation.assertCurrent();
             const factsWaiting = queuedFactCount();
             if (!pendingCandidateRecords.length) return { changed: false, entryCount: 0, duplicateDrops: 0 };
             if (!forceFlush && pendingCandidateRecords.length < consolidationChunkWindow && factsWaiting < consolidationFactWindow) {
@@ -2323,6 +2394,7 @@ export async function runBulkLoreGeneration(options = {}) {
         }
 
         function maybeFullCheckpoint(forceFlush = false) {
+            options.operation.assertCurrent();
             const now = Date.now();
             if (!forceFlush && dirtyChunksSinceFullCheckpoint < fullCheckpointEveryChunks && now - lastFullCheckpointAt < fullCheckpointEveryMs) {
                 return;
@@ -2337,7 +2409,8 @@ export async function runBulkLoreGeneration(options = {}) {
         const results = await runWithConcurrency(queuedChunks, concurrency, async (chunk) => {
             throwIfAborted(signal);
             progress?.(`Story lore scan running: ${completed + failed}/${queuedChunks.length} chunks complete, ${Math.min(concurrency, queuedChunks.length - completed - failed)} active.`, Math.min(95, 8 + Math.round(((completed + failed) / queuedChunks.length) * 85)));
-            const result = await extractBulkChunkCandidates({ chunk, plan, batchId, profile, settings, stateSummary, loreIndex, signal });
+            const result = await extractBulkChunkCandidates({ chunk, plan, batchId, profile, settings, stateSummary, loreIndex, signal, operation: options.operation });
+            options.operation.assertCurrent();
 
             if (result.status === 'complete') {
                 candidateCount += result.candidates.length;
@@ -2360,6 +2433,7 @@ export async function runBulkLoreGeneration(options = {}) {
 
         await consolidationChain;
         await scheduleConsolidation(true);
+        options.operation.assertCurrent();
 
         const rejected = results.filter(r => r.status === 'rejected').length;
         const totalFailed = failed + rejected;
@@ -2416,6 +2490,7 @@ export async function runBulkLoreGeneration(options = {}) {
             routedSimilarCount,
         };
     } catch (e) {
+        if (!options.operation.isCurrent()) return { status: 'cancelled' };
         const batchId = getState()?.loreBulkGeneration?.activeBatchId || '';
         if (batchId) flushLoreBulkFullCheckpoint(batchId, { status: isAbortError(e) ? 'cancelled' : 'failed', error: e?.message || String(e || '') });
         if (isAbortError(e)) {
@@ -2426,7 +2501,7 @@ export async function runBulkLoreGeneration(options = {}) {
         progress?.(`Story lore scan failed: ${e.message || e}`, 100);
         return { status: 'failed_exception', error: e.message || String(e || '') };
     } finally {
-        _generationRunning = false;
+        if (_generationOperation === options.operation) { _generationRunning = false; _generationOperation = null; }
     }
 }
 

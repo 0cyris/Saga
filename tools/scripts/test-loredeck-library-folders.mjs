@@ -563,11 +563,11 @@ globalThis.SillyTavern = {
 };
 const { getSettings } = await import('../../src/state/state-manager.js');
 const importedZipSettings = getSettings();
-assert.deepEqual(importedZipSettings.loredeckLibrary.packs, {});
-assert.deepEqual(importedZipSettings.loredeckLibrary.folders, []);
-assert.deepEqual(importedZipSettings.loredeckLibrary.deckPlacements, []);
-assert.deepEqual(importedZipSettings.loredeckLibrary.activeStack, []);
-assert.deepEqual(extensionSettings[MODULE_KEY].loredeckLibrary.packs, {});
+assert(importedZipSettings.loredeckLibrary.packs['imported-zip-deck'], 'Inline imported data stays available until external migration is acknowledged.');
+assert(importedZipSettings.loredeckLibrary.folders.length > 0);
+assert(importedZipSettings.loredeckLibrary.deckPlacements.length > 0);
+assert(extensionSettings[MODULE_KEY].loredeckLibrary.packs['local-deck']);
+assert.equal(extensionSettings[MODULE_KEY].sagaInlineRecovery.status, 'pending');
 
 const normalizedExternalLibrary = normalizeSagaLibraryIndex(legacySettingsLibrary, { now: 1 });
 const importedZipDeck = normalizedExternalLibrary.packs['imported-zip-deck'];

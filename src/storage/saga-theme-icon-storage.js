@@ -13,8 +13,10 @@ import {
     SAGA_STORAGE_RASTER_ASSET_EXTENSIONS,
 } from './saga-storage-filenames.js';
 import { createSagaFileApi } from './saga-file-api.js';
-import { createSagaDomainStorage } from './saga-domain-storage.js';
-import { createSagaStorageIndexStore, getSagaStorageDeleteCandidatesForOwner } from './saga-storage-index.js';
+import { createSagaDomainStorage, buildSagaDomainPayloadPath } from './saga-domain-storage.js';
+import { createSagaStorageIndexStore, getSagaStorageDeleteCandidatesForOwner, SAGA_STORAGE_DOMAIN_INDEX_FILES } from './saga-storage-index.js';
+import { recoverSagaStorageTransactions, runSagaStorageTransaction, verifySagaStorageFiles } from './saga-storage-transactions.js';
+import { assertSagaStorageWriteAcknowledged } from './saga-storage-coordinator.js';
 import {
     assertSafeZipEntryPath,
     readZipArchive,
@@ -523,6 +525,7 @@ export async function hydrateSagaThemeIconStorage(options = {}) {
     if (hydrationPromise && options.force !== true) return hydrationPromise;
     hydrationStatus = { ...hydrationStatus, loading: true, error: '' };
     hydrationPromise = (async () => {
+        const recovered = await recoverSagaStorageTransactions(getFileApi(options), options);
         const domainStorage = getDomainStorage(options);
         const themePacks = {};
         const iconSets = {};
@@ -557,7 +560,8 @@ export async function hydrateSagaThemeIconStorage(options = {}) {
             loaded: true,
             loading: false,
             loadedAt: getClockNow(options),
-            error: '',
+            error: recovered.filter(item => ['themes', 'iconSets'].includes(item.domain)).map(item => item.error).join('; '),
+            failures: recovered.filter(item => ['themes', 'iconSets'].includes(item.domain)),
         };
         return {
             ok: true,
@@ -588,24 +592,29 @@ export async function importExternalThemePack(packRecord = {}, options = {}) {
     }
     let payloadResult = null;
     try {
+        await runSagaStorageTransaction(getFileApi(options), {
+            domain: 'themes', ownerId: normalized.themeId, operation: 'install',
+            paths: [buildSagaDomainPayloadPath('themes', normalized.themeId), SAGA_STORAGE_DOMAIN_INDEX_FILES.themes], request: { payload: normalized.pack },
+        }, async () => {
         payloadResult = await domainStorage.writePayload('themes', normalized.themeId, normalized.pack, {
             ...options,
             kind: 'theme_pack_payload',
             deletion: 'delete_with_owner',
         });
+        await verifySagaStorageFiles(getFileApi(options), [payloadResult.path]);
         const indexRecord = buildThemeIndexRecord(normalized.pack, payloadResult.path);
         await domainStorage.upsertRecord('themes', indexRecord, options);
+        return { ok: true };
+        }, options);
         setCachedThemePack({ ...normalized.pack, payloadFile: payloadResult.path });
         return {
             ok: true,
+            persisted: true, queued: false,
             pack: { ...normalized.pack, payloadFile: payloadResult.path },
             payloadFile: payloadResult.path,
             library: getExternalThemePackLibraryRegistry(),
         };
     } catch (error) {
-        if (!hadExistingRecord) {
-            await cleanupFailedExternalInstall('themes', normalized.themeId, options);
-        }
         throw error;
     }
 }
@@ -675,24 +684,30 @@ export async function importExternalIconSet(iconSetRecord = {}, options = {}) {
     };
     let payloadResult = null;
     try {
+        await runSagaStorageTransaction(getFileApi(options), {
+            domain: 'iconSets', ownerId: normalized.iconSetId, operation: 'install',
+            paths: [buildSagaDomainPayloadPath('iconSets', normalized.iconSetId), SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets], request: { payload: iconSet, sourcePayload: iconSetRecord },
+            rollbackGcPaths: Object.keys(iconSet.assets || {}).filter(path => !(existingIndex.iconSets?.[normalized.iconSetId]?.assetFiles || []).includes(path)),
+        }, async () => {
         payloadResult = await domainStorage.writePayload('iconSets', normalized.iconSetId, iconSet, {
             ...options,
             kind: 'iconset_payload',
             deletion: 'delete_with_owner',
         });
+        await verifySagaStorageFiles(getFileApi(options), [payloadResult.path, ...Object.keys(iconSet.assets || {})]);
         const indexRecord = buildIconSetIndexRecord(iconSet, payloadResult.path);
         await domainStorage.upsertRecord('iconSets', indexRecord, options);
+        return { ok: true };
+        }, options);
         setCachedIconSet({ ...iconSet, payloadFile: payloadResult.path });
         return {
             ok: true,
+            persisted: true, queued: false,
             iconSet: { ...iconSet, payloadFile: payloadResult.path },
             payloadFile: payloadResult.path,
             library: getExternalThemeIconSetLibraryRegistry(),
         };
     } catch (error) {
-        if (!hadExistingRecord) {
-            await cleanupFailedExternalInstall('iconSets', normalized.iconSetId, options);
-        }
         throw error;
     }
 }
@@ -840,15 +855,17 @@ export async function removeExternalThemePack(themeId = '', options = {}) {
         return { ok: false, notFound: true, error: 'Theme Pack is not installed in external storage.' };
     }
     const record = index.packs[id];
-    const deletedFiles = await deleteKnownOwnerFiles(id, options);
-    const explicitFiles = [
+    const master = await getStorageIndexStore(options).readIndex({ allowMissing: true });
+    const deletedFiles = [...new Set([
+        ...getSagaStorageDeleteCandidatesForOwner(master, id).filter(item => item.domain === 'themes').map(item => item.path),
         record.payloadFile,
         ...(Array.isArray(record.assetFiles) ? record.assetFiles : []),
-    ].filter(path => path && !deletedFiles.includes(path));
-    deletedFiles.push(...await deleteExplicitStorageFiles(explicitFiles, options));
-    await domainStorage.removeRecord('themes', id, options);
+    ].filter(Boolean))];
+    await runSagaStorageTransaction(getFileApi(options), {
+        domain: 'themes', ownerId: id, operation: 'delete', paths: [SAGA_STORAGE_DOMAIN_INDEX_FILES.themes], request: { id }, gcPaths: deletedFiles,
+    }, () => domainStorage.removeRecord('themes', id, options), options);
     removeCachedThemePack(id);
-    return { ok: true, deletedFiles, library: getExternalThemePackLibraryRegistry() };
+    return { ok: true, persisted: true, queued: false, deletedFiles, library: getExternalThemePackLibraryRegistry() };
 }
 
 export async function removeExternalIconSet(iconSetId = '', options = {}) {
@@ -862,13 +879,15 @@ export async function removeExternalIconSet(iconSetId = '', options = {}) {
         return { ok: false, notFound: true, error: 'Icon Set is not installed in external storage.' };
     }
     const record = index.iconSets[id];
-    const deletedFiles = await deleteKnownOwnerFiles(id, options);
-    const explicitFiles = [
+    const master = await getStorageIndexStore(options).readIndex({ allowMissing: true });
+    const deletedFiles = [...new Set([
+        ...getSagaStorageDeleteCandidatesForOwner(master, id).filter(item => item.domain === 'iconSets').map(item => item.path),
         record.payloadFile,
         ...(Array.isArray(record.assetFiles) ? record.assetFiles : []),
-    ].filter(path => path && !deletedFiles.includes(path));
-    deletedFiles.push(...await deleteExplicitStorageFiles(explicitFiles, options));
-    await domainStorage.removeRecord('iconSets', id, options);
+    ].filter(Boolean))];
+    await runSagaStorageTransaction(getFileApi(options), {
+        domain: 'iconSets', ownerId: id, operation: 'delete', paths: [SAGA_STORAGE_DOMAIN_INDEX_FILES.iconSets], request: { id }, gcPaths: deletedFiles,
+    }, () => domainStorage.removeRecord('iconSets', id, options), options);
     removeCachedIconSet(id);
     return { ok: true, deletedFiles, library: getExternalThemeIconSetLibraryRegistry() };
 }

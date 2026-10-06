@@ -45,6 +45,15 @@ import {
 import {
     createLoredeckCreatorGenerationController,
 } from '../loredecks/loredeck-creator-generation-controller.js';
+import { runGenerationUnits } from '../generation/generation-job-runner.js';
+import {
+    buildLoredeckCreatorGenerationCommitPatch,
+    attachLoredeckCreatorGenerationCommitToChanges,
+    reconcileLoredeckCreatorGenerationCommit,
+    findLoredeckCreatorPendingGenerationCommit,
+    fingerprintLoredeckCreatorGenerationInput,
+    getLoredeckCreatorCommittedGenerationResult,
+} from '../loredecks/loredeck-creator-generation-commit.js';
 import {
     createLoredeckCreatorGenerationSessionController,
 } from '../loredecks/loredeck-creator-generation-session.js';
@@ -104,6 +113,7 @@ import {
 import { applyExperienceModeSettings } from './runtime-experience-mode.js';
 import { hasSelectedLoredeckContext } from './runtime-basic-readiness.js';
 import { configureRuntimeComposition } from './runtime-composition.js';
+import { createRuntimeRenderOwner } from './runtime-render-owner.js';
 import { configureContextComposition } from './context-composition.js';
 import { configureLoredeckEditorComposition } from './loredeck-editor-composition.js';
 import { configureLoredeckWorkflowComposition } from './loredeck-workflow-composition.js';
@@ -521,6 +531,7 @@ import {
 } from './runtime-navigation.js';
 import {
     applyRuntimeShellGeometry,
+    disposeRuntimeShellInteractions,
     clampRuntimeShellToViewport,
     clampNumber,
     getActiveNestedScrollElement,
@@ -540,6 +551,7 @@ import {
 import {
     refreshRuntimeHeader,
     refreshRuntimeRailIcons as refreshRuntimeRailIconImages,
+    disposeRuntimeShellView,
     renderPanelFallbackShell,
     renderPanelShell,
 } from './runtime-shell-view.js';
@@ -791,8 +803,8 @@ const loredeckCreatorGenerationController = createLoredeckCreatorGenerationContr
     waitForUiPaint: () => waitForLoredeckCreatorUiPaint(),
     isGenerationCurrent: generation => isLoredeckCreatorGenerationCurrent(generation),
     updateGeneration: (generation, event, options) => updateLoredeckCreatorGeneration(generation, event, options),
-    updateGenerationRun: (jobId, run, options) => updateLoredeckCreatorGenerationRun(jobId, run, options),
-    updateGenerationUnit: (jobId, unitId, unit, options) => updateLoredeckCreatorGenerationUnit(jobId, unitId, unit, options),
+    updateGenerationRun: async (jobId, run, options) => acknowledgeLoredeckCreatorGenerationWrite(await updateLoredeckCreatorGenerationRun(jobId, run, options)),
+    updateGenerationUnit: async (jobId, unitId, unit, options) => acknowledgeLoredeckCreatorGenerationWrite(await updateLoredeckCreatorGenerationUnit(jobId, unitId, unit, options)),
     extractResponseText: raw => extractLoredeckAssistantResponseText(raw),
     buildFailureDiagnostic: (payload, unitConfig, requestOptions) => buildLoredeckCreatorGenerationFailureDiagnostic(payload, unitConfig, requestOptions, { redactDiagnostic: redactDiagnosticValue }),
     formatFailureMessage: (error, fallback, label) => formatLoredeckCreatorGenerationFailureMessage(error, fallback, label),
@@ -1530,6 +1542,34 @@ function resetCanonPreviewUiState(options = {}) {
 
 let panelRoot = null;
 
+const runtimeRenderer = createRuntimeRenderOwner({
+    createRoot: state => {
+        const root = document.createElement('div');
+        root.id = PANEL_ID;
+        root.className = 'saga-lore-panel saga-runtime-shell';
+        applyRuntimeShellGeometry(root, state?.lorePanel || getDefaultState().lorePanel);
+        return root;
+    },
+    renderShell: renderPanelShell,
+    renderFallback: renderPanelFallbackShell,
+    commitRoot: (nextRoot, previousRoot) => {
+        // Mount first: a failed append must leave the previous view attached.
+        document.body.appendChild(nextRoot);
+        disposeRuntimeShellInteractions();
+        if (previousRoot && previousRoot !== nextRoot) previousRoot.remove();
+        panelRoot = nextRoot;
+    },
+    reportError: (error, phase) => console.error(`[Saga] Runtime ${phase} failed:`, error),
+    afterCommit: root => {
+        if (typeof requestAnimationFrame !== 'function') return;
+        requestAnimationFrame(() => {
+            if (panelRoot !== root) return;
+            clampRuntimeShellToViewport();
+            updateAcceptedLoreScrollRegionHeight();
+        });
+    },
+});
+
 // Public runtime ------------------------------------------------------------
 
 export function showLorePanel() {
@@ -1550,38 +1590,8 @@ export function showLorePanel() {
 
     const freshState = getState();
     normalizePanelLayoutState(freshState, { persistLegacyOpenState: true });
-    const panelState = freshState?.lorePanel || getDefaultState().lorePanel;
-
     const previousRoot = panelRoot || document.getElementById(PANEL_ID);
-    const nextRoot = document.createElement('div');
-    nextRoot.id = PANEL_ID;
-    nextRoot.className = 'saga-lore-panel saga-runtime-shell';
-    applyRuntimeShellGeometry(nextRoot, panelState);
-
-    try {
-        renderPanelShell(nextRoot, freshState);
-    } catch (e) {
-        console.error('[Saga] Runtime panel failed to render:', e);
-        try {
-            renderPanelFallbackShell(nextRoot, freshState, e);
-        } catch (fallbackError) {
-            console.error('[Saga] Runtime fallback panel failed to render:', fallbackError);
-            if (previousRoot) {
-                panelRoot = previousRoot;
-                return;
-            }
-            throw fallbackError;
-        }
-    }
-
-    if (previousRoot && previousRoot !== nextRoot) previousRoot.remove();
-    panelRoot = nextRoot;
-    document.body.appendChild(panelRoot);
-
-    requestAnimationFrame(() => {
-        clampRuntimeShellToViewport();
-        updateAcceptedLoreScrollRegionHeight();
-    });
+    return runtimeRenderer.replace(previousRoot, freshState);
 }
 
 export function hideLorePanel() {
@@ -1629,28 +1639,27 @@ export function refreshLorePanel() {
         return;
     }
 
-    normalizePanelLayoutState(state);
-    applyRuntimeTheme(existing, getSettings());
-    if (existing.classList.contains('saga-runtime-mobile') || isRuntimeMobileShell()) {
-        renderPanelShell(existing, state);
-        return;
-    }
-    const hasDrawer = !!existing.querySelector('.saga-runtime-drawer');
-    const drawerOpen = state.lorePanel.drawerOpen === true;
-    const railMode = normalizeRailMode(state.lorePanel.railMode);
-    const drawerDirection = drawerOpen ? resolveDrawerDirection(state.lorePanel) : 'right';
-    const shellFrameChanged = existing.dataset.railMode !== railMode
-        || existing.dataset.drawerDirection !== drawerDirection
-        || drawerOpen !== hasDrawer;
+    return runtimeRenderer.refresh(existing, state, () => {
+        normalizePanelLayoutState(state);
+        applyRuntimeTheme(existing, getSettings());
+        if (existing.classList.contains('saga-runtime-mobile') || isRuntimeMobileShell()) {
+            return runtimeRenderer.replace(existing, state);
+        }
+        const hasDrawer = !!existing.querySelector('.saga-runtime-drawer');
+        const drawerOpen = state.lorePanel.drawerOpen === true;
+        const railMode = normalizeRailMode(state.lorePanel.railMode);
+        const drawerDirection = drawerOpen ? resolveDrawerDirection(state.lorePanel) : 'right';
+        const shellFrameChanged = existing.dataset.railMode !== railMode
+            || existing.dataset.drawerDirection !== drawerDirection
+            || drawerOpen !== hasDrawer;
 
-    if (shellFrameChanged) {
-        renderPanelShell(existing, state);
+        if (shellFrameChanged) {
+            return runtimeRenderer.replace(existing, state);
+        }
         syncRuntimeShellFrame(existing, state.lorePanel, drawerDirection);
-        return;
-    }
-    syncRuntimeShellFrame(existing, state.lorePanel, drawerDirection);
-    refreshPanelBody({ preserveScroll: true });
-    refreshHeader();
+        refreshPanelBody({ preserveScroll: true });
+        refreshHeader();
+    });
 }
 
 function syncRuntimeShellFrame(root, panelState, drawerDirection = resolveDrawerDirection(panelState)) {
@@ -1676,6 +1685,8 @@ function syncRuntimeShellFrame(root, panelState, drawerDirection = resolveDrawer
 }
 
 function removeLorePanel() {
+    disposeRuntimeShellView();
+    disposeRuntimeShellInteractions();
     if (panelRoot) {
         panelRoot.remove();
         panelRoot = null;
@@ -1700,8 +1711,11 @@ function recoverLoredeckCreatorInterruptedActiveGeneration(job = {}, options = {
     return recoverLoredeckCreatorInterruptedActiveGenerationWithDeps(job, options, {
         startGenerationTicker: startLoredeckCreatorGenerationTicker,
         stopGenerationTicker: stopLoredeckCreatorGenerationTicker,
-        updateCreatorProject: updateLoredeckCreatorProject,
-        setCurrentJobLocal: recoveredJob => loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(recoveredJob),
+        updateCreatorProject: async (jobId, patch, updateOptions) => acknowledgeLoredeckCreatorGenerationWrite(await updateLoredeckCreatorProject(jobId, patch, updateOptions)),
+        setCurrentJobLocal: recoveredJob => {
+            loredeckCreatorWorkbenchCacheController.setCurrentJobLocal(recoveredJob);
+            queueLoredeckCreatorWorkbenchRefresh();
+        },
         toast,
     });
 }
@@ -1758,7 +1772,62 @@ function createLoredeckCreatorRequestOptions(generation = null, options = {}) {
 }
 
 async function runLoredeckCreatorSingleUnitGeneration(config = {}) {
-    return await loredeckCreatorGenerationController.runSingleUnitGeneration(config);
+    const commitParsedResult = config.commitParsedResult;
+    const inputHash = config.inputHash || await fingerprintLoredeckCreatorGenerationInput(config.requestContext || {});
+    const unitId = config.unitId || `${config.generation?.id}:${config.stage}`;
+    const jobBeforeRun = getLoredeckCreatorBriefCache();
+    const packBeforeRun = jobBeforeRun.generatedPackId ? await hydrateExternalLorepackPayloadRecord(getLoredeckDefinition(jobBeforeRun.generatedPackId) || {}) : {};
+    const pending = findLoredeckCreatorPendingGenerationCommit(jobBeforeRun, unitId, inputHash, packBeforeRun);
+    return await loredeckCreatorGenerationController.runSingleUnitGeneration({
+        ...config,
+        unitId,
+        inputHash,
+        ...(pending ? { runId: JSON.parse(pending.idempotencyKey)[1] } : {}),
+        reconcileCommittedResult: async context => {
+            const job = getLoredeckCreatorBriefCache();
+            const pack = job.generatedPackId ? await hydrateExternalLorepackPayloadRecord(getLoredeckDefinition(job.generatedPackId) || {}) : {};
+            const committed = reconcileLoredeckCreatorGenerationCommit(job, context, pack);
+            if (committed) await acknowledgeLoredeckCreatorGenerationWrite({ ok: true });
+            return committed;
+        },
+        commitParsedResult: async context => {
+            const result = commitParsedResult ? await commitParsedResult(context) : null;
+            await acknowledgeLoredeckCreatorGenerationWrite({ ok: true });
+            return result;
+        },
+    });
+}
+
+function commitLoredeckCreatorArtifactResult(parsedResult = {}, stage = '', idempotencyKey = '') {
+    const job = getLoredeckCreatorBriefCache();
+    const committed = getLoredeckCreatorCommittedGenerationResult(job, { idempotencyKey, stage });
+    if (committed) return committed.commitResult;
+    const resultRef = { type: stage, summary: parsedResult.summary || '' };
+    const artifactPatch = stage === 'scope_brief'
+        ? { summary: parsedResult.summary, questions: parsedResult.clarifyingQuestions, brief: parsedResult.brief || null, approved: false }
+        : { outlineSummary: parsedResult.summary, outlineQuestions: parsedResult.clarifyingQuestions, outline: parsedResult.outline || null, outlineApproved: false };
+    setLoredeckCreatorBriefCache({
+        ...job, ...artifactPatch,
+        ...buildLoredeckCreatorGenerationCommitPatch(job, { idempotencyKey, stage }, resultRef),
+    }, { throwOnFailure: true });
+    return { resultRef };
+}
+
+async function acknowledgeLoredeckCreatorGenerationWrite(update = {}) {
+    if (update?.completion) {
+        const completed = await update.completion;
+        update = { ...update, ...completed, queued: completed?.queued === true, completion: undefined };
+    }
+    if (update?.ok === false || update?.ignored === true) return update;
+    for (const flush of [flushSagaCreatorProjectStorageWrites, flushSagaLorepackPayloadStorageWrites, flushSagaLorepackLibraryStorageWrites]) {
+        const result = await flush();
+        if (result?.ok !== true || result?.pendingWrites > 0) {
+            const error = new Error(result?.error || 'Deck Maker generation write was not persisted.');
+            error.code = 'checkpoint_failed';
+            throw error;
+        }
+    }
+    return { ...update, ok: true, queued: false, persisted: true };
 }
 
 function finishLoredeckCreatorGeneration(generation = null, status = 'success', message = '', details = {}) {
@@ -1853,6 +1922,8 @@ async function retryLoredeckCreatorRecoverableUnit(unit = {}, options = {}, butt
         toast('A Deck Maker generation is already running.', 'warning');
         return { status: 'blocked' };
     }
+    const committed = await reconcileLoredeckCreatorPendingCheckpoint(unit, cached);
+    if (committed) return committed;
     if (!ensureLoreProviderReadyForAction('Deck Maker', 'lore')) return { status: 'not_ready' };
 
     const meta = getLoredeckCreatorUnitMeta(unit);
@@ -1930,6 +2001,25 @@ async function retryLoredeckCreatorRecoverableUnit(unit = {}, options = {}, butt
         markLoredeckCreatorRecoveryUnitSuperseded(unit, unitIdOverride);
     }
     return result || { status: 'started' };
+}
+
+async function reconcileLoredeckCreatorPendingCheckpoint(unit = {}, job = {}) {
+    const pack = job.generatedPackId ? await hydrateExternalLorepackPayloadRecord(getLoredeckDefinition(job.generatedPackId) || {}) : {};
+    const runId = unit.runId || job.activeGeneration?.runId || job.activeGeneration?.id;
+    const context = { run: { jobId: job.jobId, runId, stage: unit.stage }, unit,
+        idempotencyKey: JSON.stringify([job.jobId || '', runId || '', unit.unitId || '', unit.inputHash || '']) };
+    const committed = reconcileLoredeckCreatorGenerationCommit(job, context, pack);
+    if (!committed) return null;
+    const result = await runGenerationUnits({
+        ...context.run, units: [unit],
+        callUnit: async () => { throw new Error('A saved generation result must be reconciled without provider work.'); },
+        reconcileCommittedResult: () => committed,
+        checkpointRun: async ({ run }) => acknowledgeLoredeckCreatorGenerationWrite(await updateLoredeckCreatorGenerationRun(job.jobId, run, { syncPrompt: false, activate: false })),
+        checkpointUnit: async ({ unit: completedUnit }) => acknowledgeLoredeckCreatorGenerationWrite(await updateLoredeckCreatorGenerationUnit(job.jobId, unit.unitId, completedUnit, { syncPrompt: false, activate: false })),
+    });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    toast(result.status === 'complete' ? 'Saved Deck Maker batch recovered.' : 'The batch is saved, but its generation status still needs to be saved.', result.status === 'complete' ? 'success' : 'warning');
+    return result;
 }
 
 function appendLoredeckCreatorRecoveryActionButtons(actions, cached = getLoredeckCreatorBriefCache()) {
@@ -2880,6 +2970,11 @@ function setLoredeckCreatorBriefCache(next = {}, options = {}) {
         return localJob;
     }
     console.warn('[Saga] Deck Maker job persistence failed:', result.error);
+    if (options.throwOnFailure === true) {
+        const error = new Error(result.error || 'Deck Maker result could not be saved.');
+        error.code = 'commit_failed';
+        throw error;
+    }
     const active = normalized.activeGeneration?.status === 'running'
         ? rememberLoredeckCreatorLiveGeneration(normalized.jobId || current?.jobId || '', normalized.activeGeneration)
         : null;
@@ -3041,7 +3136,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
             const result = await runLoredeckCreatorSingleUnitGeneration({
                 generation,
                 stage: 'scope_brief',
-                unitId: options.unitIdOverride || undefined,
+                unitId: options.unitIdOverride || `creator_scope_brief:${actionId}`,
                 unitLabel: options.revisionInstruction ? 'Scope Brief revision' : 'Scope Brief draft',
                 currentStage: 'intake',
                 unitMeta: {
@@ -3061,6 +3156,7 @@ async function handleLoredeckCreatorBriefDraft(options = {}, button = null) {
                 repairWarning: 'Deck Maker brief response was normalized into Saga scope-brief format.',
                 isRepairUsable: repaired => isLoredeckCreatorParsedArtifactUsable(repaired, 'brief'),
                 resultRefType: 'creator_scope_brief',
+                commitParsedResult: ({ parsedResult, idempotencyKey }) => commitLoredeckCreatorArtifactResult(parsedResult, 'scope_brief', idempotencyKey),
             });
             if (result?.aborted || ignoreStaleLoredeckCreatorGeneration(generation, 'scope brief')) return;
             responseText = result.responseText;
@@ -3229,7 +3325,7 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
             const result = await runLoredeckCreatorSingleUnitGeneration({
                 generation,
                 stage: 'story_outline',
-                unitId: options.unitIdOverride || undefined,
+                unitId: options.unitIdOverride || `creator_story_outline:${actionId}`,
                 unitLabel: revisionInstruction ? 'Story Outline revision' : 'Story Outline draft',
                 currentStage: 'outline_drafting',
                 unitMeta: {
@@ -3245,6 +3341,7 @@ async function handleLoredeckCreatorOutlineDraft(options = {}, button = null) {
                 repairWarning: 'Deck Maker Story Outline response was normalized into Saga outline format.',
                 isRepairUsable: repaired => isLoredeckCreatorParsedArtifactUsable(repaired, 'outline'),
                 resultRefType: 'creator_story_outline',
+                commitParsedResult: ({ parsedResult, idempotencyKey }) => commitLoredeckCreatorArtifactResult(parsedResult, 'story_outline', idempotencyKey),
             });
             if (result?.aborted || ignoreStaleLoredeckCreatorGeneration(generation, 'story outline')) return;
             responseText = result.responseText;
@@ -3373,7 +3470,7 @@ function getLoredeckCreatorApprovedTitleIds(cached = {}) {
     return new Set(normalizeLoredeckCreatorTitleIdList(cached?.approvedTitleDraftIds || []).filter(id => validIds.has(id)));
 }
 
-function updateLoredeckCreatorTitleCache(mutator = null) {
+function updateLoredeckCreatorTitleCache(mutator = null, options = {}) {
     if (typeof mutator !== 'function') return getLoredeckCreatorBriefCache();
     const current = getLoredeckCreatorBriefCache();
     const next = mutator({
@@ -3393,7 +3490,7 @@ function updateLoredeckCreatorTitleCache(mutator = null) {
         titleDrafts,
         selectedTitleDraftIds,
         approvedTitleDraftIds,
-    });
+    }, options);
 }
 
 function setLoredeckCreatorTitleSelection(titleId = '', selected = false, options = {}) {
@@ -3456,6 +3553,11 @@ function attachLoredeckCreatorTitleBatch(drafts = [], batch = {}) {
 }
 
 function commitLoredeckCreatorTitleDraftResult(parsed = {}, options = {}) {
+    const committed = getLoredeckCreatorCommittedGenerationResult(getLoredeckCreatorBriefCache(), options.generationCommit);
+    if (committed) return committed.commitResult.titleCommit || {
+        draftCount: committed.resultRef?.titleIds?.length || 0, titleIds: committed.resultRef?.titleIds || [],
+        batchId: committed.resultRef?.batchId || '', batchLabel: committed.resultRef?.batchLabel || '',
+    };
     const titleDrafts = Array.isArray(parsed.titleDrafts) ? parsed.titleDrafts : [];
     if (!titleDrafts.length) {
         return {
@@ -3517,6 +3619,9 @@ function commitLoredeckCreatorTitleDraftResult(parsed = {}, options = {}) {
             if (targetBatchId) draftedBatchIds.add(targetBatchId);
             return {
                 ...current,
+                ...buildLoredeckCreatorGenerationCommitPatch(current, options.generationCommit, {
+                    batchId: normalizedBatch.id, batchLabel: normalizedBatch.label, titleIds: committedTitleIds,
+                }),
                 titlePassSummary: parsed.summary,
                 titlePassQuestions: parsed.clarifyingQuestions,
                 titlePassWarnings: [],
@@ -3559,6 +3664,9 @@ function commitLoredeckCreatorTitleDraftResult(parsed = {}, options = {}) {
         }
         return {
             ...current,
+            ...buildLoredeckCreatorGenerationCommitPatch(current, options.generationCommit, {
+                batchId: normalizedBatch.id, batchLabel: normalizedBatch.label, titleIds: committedTitleIds,
+            }),
             titlePassSummary: parsed.summary || current.titlePassSummary || '',
             titlePassQuestions: parsed.clarifyingQuestions,
             titlePassWarnings: [],
@@ -3574,7 +3682,7 @@ function commitLoredeckCreatorTitleDraftResult(parsed = {}, options = {}) {
             titleRevisedAt: Date.now(),
             updatedAt: Date.now(),
         };
-    });
+    }, { throwOnFailure: !!options.generationCommit });
     return {
         revisedMode,
         draftCount: titleDrafts.length,
@@ -3844,7 +3952,7 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                 repairWarning: 'Deck Maker Title Pass response was normalized into Saga title-draft format.',
                 isRepairUsable: isLoredeckCreatorParsedTitlePassUsable,
                 resultRefType: revisionInstruction ? 'creator_title_revision' : 'creator_title_batch',
-                commitParsedResult: async ({ parsedResult }) => {
+                commitParsedResult: async ({ parsedResult, idempotencyKey }) => {
                     if (!parsedResult?.titleDrafts?.length) {
                         return {
                             resultRef: {
@@ -3856,6 +3964,7 @@ async function performLoredeckCreatorTitleDraft(options = {}) {
                         };
                     }
                     const commit = commitLoredeckCreatorTitleDraftResult(parsedResult, {
+                        generationCommit: { idempotencyKey, stage: revisionInstruction ? 'title_revision' : 'title_batch' },
                         revisionInstruction,
                         selectedTitleDrafts,
                         targetTitleBatch,
@@ -4354,6 +4463,8 @@ function upsertLoredeckCreatorPlanningPendingChanges(pack = {}, changes = [], ta
 
 function commitLoredeckCreatorPlanningResult(parsed = {}, options = {}) {
     const pack = options.pack;
+    const committed = getLoredeckCreatorCommittedGenerationResult(getLoredeckCreatorBriefCache(), options.generationCommit, getFreshLoredeckLibraryPack(pack?.packId, pack) || {});
+    if (committed) return committed.commitResult.planningCommit;
     const targetPlanningBatch = options.targetPlanningBatch || {};
     const targetBatchId = normalizeLoredeckCreatorTitleId(options.targetBatchId || targetPlanningBatch.id || targetPlanningBatch.label || '', '');
     if (!pack?.packId) {
@@ -4374,7 +4485,8 @@ function commitLoredeckCreatorPlanningResult(parsed = {}, options = {}) {
             warnings,
         };
     }
-    const queueResult = upsertLoredeckCreatorPlanningPendingChanges(pack, changes, targetPlanningBatch, '', {
+    const committedChanges = attachLoredeckCreatorGenerationCommitToChanges(changes, options.generationCommit, parsed);
+    const queueResult = upsertLoredeckCreatorPlanningPendingChanges(pack, committedChanges, targetPlanningBatch, '', {
         throwOnFailure: options.throwOnFailure === true,
     });
     if (!queueResult.queued) {
@@ -4558,8 +4670,9 @@ async function handleLoredeckCreatorPlanningDraft(options = {}, button = null) {
                 repairWarning: 'Deck Maker Context and Tag plan was normalized into Saga proposal format.',
                 isRepairUsable: isLoredeckCreatorParsedPlanningUsable,
                 resultRefType: 'creator_context_tag_plan',
-                commitParsedResult: async ({ parsedResult }) => {
+                commitParsedResult: async ({ parsedResult, idempotencyKey }) => {
                     const commit = commitLoredeckCreatorPlanningResult(parsedResult, {
+                        generationCommit: { idempotencyKey, stage: 'context_tag_planning' },
                         pack,
                         targetPlanningBatch,
                         targetBatchId,
@@ -5309,6 +5422,8 @@ function upsertLoredeckCreatorEntryDraftChanges(pack = {}, changes = [], context
 
 function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
     const pack = options.pack;
+    const committed = getLoredeckCreatorCommittedGenerationResult(getLoredeckCreatorBriefCache(), options.generationCommit);
+    if (committed) return committed.commitResult.entryCommit;
     const rows = Array.isArray(options.rows) ? options.rows : [];
     const targetTitles = Array.isArray(options.targetTitles) ? options.targetTitles : [];
     const targetPlanningBatch = options.targetPlanningBatch || {};
@@ -5357,7 +5472,8 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
             warnings,
         };
     }
-    const draftResult = upsertLoredeckCreatorEntryDraftChanges(pack, changes, {
+    const committedChanges = attachLoredeckCreatorGenerationCommitToChanges(changes, options.generationCommit, parsed);
+    const draftResult = upsertLoredeckCreatorEntryDraftChanges(pack, committedChanges, {
         unitId,
         summary: parsed.summary,
         questions: parsed.clarifyingQuestions,
@@ -5381,6 +5497,9 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
     const allDrafts = getLoredeckAssistantDraftChanges(getLoredeckCreatorDraftCacheForPack(pack.packId));
     setLoredeckCreatorBriefCache({
         ...freshCache,
+        ...buildLoredeckCreatorGenerationCommitPatch(freshCache, options.generationCommit, {
+            unitId, batchId: targetPlanningBatch?.id || '', draftChangeIds: draftResult.draftChangeIds,
+        }),
         ...preflightCachePatch,
         draftChanges: allDrafts,
         entryDraftSummary: parsed.summary,
@@ -5401,7 +5520,7 @@ function commitLoredeckCreatorEntryDraftResult(parsed = {}, options = {}) {
         generatedPackId: pack.packId,
         generatedPackTitle: pack.title || pack.packId,
         status: 'draft',
-    });
+    }, { throwOnFailure: !!options.generationCommit });
     return {
         ...draftResult,
         ignoredCount,
@@ -5536,8 +5655,9 @@ async function draftLoredeckCreatorEntryBatch(cached = {}, pack = {}, planning =
             repairWarning: 'Deck Maker Lorecard batch was normalized into Saga proposal format.',
             isRepairUsable: isLoredeckCreatorParsedEntryDraftUsable,
             resultRefType: 'creator_entry_micro_batch',
-            commitParsedResult: async ({ parsedResult }) => {
+            commitParsedResult: async ({ parsedResult, idempotencyKey }) => {
                 const commit = commitLoredeckCreatorEntryDraftResult(parsedResult, {
+                    generationCommit: { idempotencyKey, stage: 'entry_micro_batch' },
                     pack,
                     rows,
                     targetTitles: entryDraftTargetTitles,
@@ -12503,6 +12623,11 @@ export function resetLorePanelLayout(options = {}) {
 }
 
 function refreshPanelBody(options = {}) {
+    if (!panelRoot) return;
+    return runtimeRenderer.refresh(panelRoot, getState(), () => refreshPanelBodyUnsafe(options));
+}
+
+function refreshPanelBodyUnsafe(options = {}) {
     if (!panelRoot) return;
     const stateForShell = getState();
     normalizePanelLayoutState(stateForShell);

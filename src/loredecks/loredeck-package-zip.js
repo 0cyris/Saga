@@ -190,12 +190,29 @@ function findEndOfCentralDirectory(bytes) {
   return -1;
 }
 
-async function inflateRawZipBytes(bytes) {
+async function inflateRawZipBytes(bytes, maxOutputBytes) {
   if (typeof DecompressionStream !== 'function') {
     throw new Error('This runtime cannot inflate compressed zip entries.');
   }
   const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
-  return new Uint8Array(await new Response(stream).arrayBuffer());
+  const reader = stream.getReader();
+  const chunks = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > maxOutputBytes) throw new Error('Zip entry expands beyond its declared size or configured safety limit.');
+      chunks.push(value);
+    }
+    return concatBytes(chunks);
+  } catch (error) {
+    await reader.cancel(error).catch(() => {});
+    throw error;
+  } finally {
+    reader.releaseLock();
+  }
 }
 
 function createZipEntryRecord(archive, raw = {}) {
@@ -221,6 +238,13 @@ function createZipEntryRecord(archive, raw = {}) {
 
 export async function readZipArchive(input, options = {}) {
   const limits = { ...DEFAULT_ZIP_LIMITS, ...(options.limits || {}) };
+  for (const [name, value] of Object.entries(limits)) {
+    if (!Number.isSafeInteger(value) || value < 0) throw new Error(`Invalid zip safety limit: ${name}.`);
+  }
+  const knownSize = input?.byteLength ?? input?.size;
+  if (Number.isFinite(knownSize) && knownSize > limits.maxCompressedBytes) {
+    throw new Error(`Zip package is too large (${knownSize} bytes).`);
+  }
   const bytes = await toUint8Array(input);
   if (bytes.length > limits.maxCompressedBytes) {
     throw new Error(`Zip package is too large (${bytes.length} bytes).`);
@@ -234,17 +258,22 @@ export async function readZipArchive(input, options = {}) {
 
   const diskNumber = readUint16(view, eocdOffset + 4);
   const centralDirectoryDisk = readUint16(view, eocdOffset + 6);
+  const diskEntryCount = readUint16(view, eocdOffset + 8);
   const entryCount = readUint16(view, eocdOffset + 10);
   const centralDirectorySize = readUint32(view, eocdOffset + 12);
   const centralDirectoryOffset = readUint32(view, eocdOffset + 16);
-  if (diskNumber !== 0 || centralDirectoryDisk !== 0) {
+  if (diskNumber !== 0 || centralDirectoryDisk !== 0 || diskEntryCount !== entryCount) {
     throw new Error('Multi-disk zip packages are not supported.');
   }
   if (entryCount > limits.maxFileCount) {
     throw new Error(`Zip package contains too many files (${entryCount}).`);
   }
-  if (centralDirectoryOffset + centralDirectorySize > bytes.length) {
+  const centralEnd = centralDirectoryOffset + centralDirectorySize;
+  if (centralEnd > eocdOffset) {
     throw new Error('Zip package central directory points outside the archive.');
+  }
+  if (eocdOffset + 22 + readUint16(view, eocdOffset + 20) !== bytes.length) {
+    throw new Error('Zip package has a truncated or invalid central directory trailer.');
   }
 
   const records = [];
@@ -252,6 +281,7 @@ export async function readZipArchive(input, options = {}) {
   let totalUncompressed = 0;
   let offset = centralDirectoryOffset;
   for (let index = 0; index < entryCount; index += 1) {
+    if (offset + 46 > centralEnd) throw new Error('Zip package contains a truncated central directory header.');
     if (readUint32(view, offset) !== ZIP_CENTRAL_DIRECTORY_HEADER) {
       throw new Error('Zip package central directory contains an invalid file header.');
     }
@@ -267,7 +297,8 @@ export async function readZipArchive(input, options = {}) {
     const localHeaderOffset = readUint32(view, offset + 42);
     const nameStart = offset + 46;
     const nameEnd = nameStart + fileNameLength;
-    if (nameEnd > bytes.length) throw new Error('Zip package contains a truncated file name.');
+    const recordEnd = nameEnd + extraLength + commentLength;
+    if (recordEnd > centralEnd) throw new Error('Zip package contains a truncated central directory record.');
     const rawPath = textDecoder.decode(bytes.slice(nameStart, nameEnd));
     const normalized = assertSafeZipEntryPath(rawPath, options);
     const isDirectory = normalized.endsWith('/') || rawPath.endsWith('/');
@@ -288,7 +319,7 @@ export async function readZipArchive(input, options = {}) {
     if (totalUncompressed > limits.maxUncompressedBytes) {
       throw new Error('Zip package expands beyond the configured safety limit.');
     }
-    if (localHeaderOffset >= bytes.length) {
+    if (localHeaderOffset + 30 > centralDirectoryOffset) {
       throw new Error(`Zip entry points outside the archive: ${normalized}`);
     }
     if (byPath.has(normalized)) {
@@ -307,8 +338,9 @@ export async function readZipArchive(input, options = {}) {
     };
     records.push(record);
     byPath.set(normalized, record);
-    offset = nameEnd + extraLength + commentLength;
+    offset = recordEnd;
   }
+  if (offset !== centralEnd) throw new Error('Zip package central directory size does not match its records.');
 
   const archive = {
     entries: [],
@@ -333,11 +365,20 @@ export async function readZipArchive(input, options = {}) {
       const localExtraLength = readUint16(view, localOffset + 28);
       const dataStart = localOffset + 30 + localNameLength + localExtraLength;
       const dataEnd = dataStart + record.compressedSize;
-      if (dataEnd > bytes.length) throw new Error(`Zip entry data is truncated: ${normalized}`);
-      const compressed = bytes.slice(dataStart, dataEnd);
+      if (dataEnd > centralDirectoryOffset) throw new Error(`Zip entry data is truncated: ${normalized}`);
+      if (readUint16(view, localOffset + 8) !== record.compressionMethod
+        || readUint16(view, localOffset + 6) !== record.flags
+        || assertSafeZipEntryPath(textDecoder.decode(bytes.subarray(localOffset + 30, localOffset + 30 + localNameLength)), options) !== normalized) {
+        throw new Error(`Zip entry local header does not match its central directory: ${normalized}`);
+      }
+      const maxOutputBytes = Math.min(record.uncompressedSize, limits.maxSingleFileBytes, limits.maxUncompressedBytes);
+      if (record.compressionMethod === ZIP_METHOD_STORE && record.compressedSize > maxOutputBytes) {
+        throw new Error(`Zip entry expands beyond its declared size or configured safety limit: ${normalized}`);
+      }
+      const compressed = bytes.subarray(dataStart, dataEnd);
       const output = record.compressionMethod === ZIP_METHOD_STORE
-        ? compressed
-        : await inflateRawZipBytes(compressed);
+        ? compressed.slice()
+        : await inflateRawZipBytes(compressed, maxOutputBytes);
       if (output.length !== record.uncompressedSize) {
         throw new Error(`Zip entry size mismatch after extraction: ${normalized}`);
       }

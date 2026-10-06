@@ -37,6 +37,14 @@ plugins/loredeck-builder/dist/
 *.secret
 *.secrets
 secrets/
+# Bundled spoiler/reveal Lorecards are authored content needed by each manifest.
+# Keep other files in these folders ignored, including private credentials.
+!content/loredecks/star-trek-*/secrets/
+content/loredecks/star-trek-*/secrets/*
+!content/loredecks/star-trek-*/secrets/reveal-and-future-guards.json
+!content/loredecks/star-trek-*/secrets/season-[1-7]-reveal-and-future-guards-[ab].json
+!content/loredecks/star-trek-*/secrets/season-[1-7]-reveal-gates.json
+!content/loredecks/star-trek-*/secrets/season-[1-7]-future-guards.json
 dev-secrets*.json
 api-keys*.json
 openai-key*.txt

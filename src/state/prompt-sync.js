@@ -4,13 +4,14 @@
 
 import { LOG_PREFIX } from './constants.js';
 
-export function queuePromptInjectionSync() {
+export function queuePromptInjectionSync(options = {}) {
     try {
         const syncPromptInjection = typeof globalThis.Saga?.promptInjection?.sync === 'function'
             ? globalThis.Saga.promptInjection.sync
             : null;
         if (typeof syncPromptInjection === 'function') {
             queueMicrotask(() => {
+                if (options.isCurrent && !options.isCurrent()) return;
                 try {
                     syncPromptInjection();
                 } catch (e) {

@@ -14,8 +14,23 @@ import {
     searchAcceptedLorecards,
 } from '../lorecards/retrieval-audit.js';
 import { normalizeLoreCategory, normalizeLoreRelevance } from '../lorecards/lore-relevance.js';
+import { areChatOperationsEnabled } from '../state/chat-operation.js';
 
-const REGISTERED_TOOL_NAMES = new Set();
+const managerOwners = new WeakMap();
+let activeToolOwner = null;
+
+export function disposeSagaToolManagerTools() {
+    const owner = activeToolOwner;
+    if (!owner) return;
+    owner.active = false;
+    const unregister = owner.manager.unregisterFunctionTool || owner.manager.removeFunctionTool;
+    if (typeof unregister === 'function') {
+        for (const name of owner.names) {
+            try { unregister.call(owner.manager, name); owner.names.delete(name); }
+            catch (error) { console.warn(`${LOG_PREFIX} Tool disposal failed:`, error); }
+        }
+    }
+}
 
 function getToolManager(ctx = null) {
     return ctx?.ToolManager
@@ -54,7 +69,8 @@ function normalizeToolArgs(args = {}) {
 }
 
 function buildToolDefinition(name, description, parameters, handler) {
-    const run = async (args = {}) => safeJson(await handler(normalizeToolArgs(args)));
+    const run = async (args = {}) => safeJson(areChatOperationsEnabled()
+        ? await handler(normalizeToolArgs(args)) : { ok: false, error: 'Saga disabled.' });
     return {
         name,
         displayName: name.replace(/^Saga_/, 'Saga '),
@@ -68,9 +84,13 @@ function buildToolDefinition(name, description, parameters, handler) {
 
 function registerTool(toolManager, definition) {
     if (!toolManager || typeof toolManager.registerFunctionTool !== 'function') return false;
-    if (REGISTERED_TOOL_NAMES.has(definition.name)) return true;
+    const owner = managerOwners.get(toolManager);
+    if (owner.names.has(definition.name)) return true;
+    const run = definition.execute;
+    const guarded = async (...args) => owner.active ? await run(...args) : safeJson({ ok: false, error: 'Saga tool registration was disposed.' });
+    definition.action = definition.execute = definition.handler = guarded;
     toolManager.registerFunctionTool(definition);
-    REGISTERED_TOOL_NAMES.add(definition.name);
+    owner.names.add(definition.name);
     return true;
 }
 
@@ -95,6 +115,7 @@ async function handleGetLoreAudit() {
 }
 
 async function handleProposeLorecard(args = {}) {
+    if (!areChatOperationsEnabled()) return { ok: false, error: 'Saga disabled.' };
     const title = cleanText(args.title, 180);
     const fact = cleanText(args.content || args.fact || args.lore, 1200);
     if (!title || !fact) {
@@ -163,6 +184,14 @@ export function registerSagaToolManagerTools(ctx = null) {
         if (settings.debugMode) console.info(`${LOG_PREFIX} ToolManager unavailable; Saga tools not registered.`);
         return { ok: false, reason: 'ToolManager unavailable.' };
     }
+    if (activeToolOwner && activeToolOwner.manager !== toolManager) disposeSagaToolManagerTools();
+    let owner = managerOwners.get(toolManager);
+    if (!owner || !owner.names.size) {
+        owner = { manager: toolManager, names: new Set(), active: true };
+        managerOwners.set(toolManager, owner);
+    }
+    owner.active = true;
+    activeToolOwner = owner;
 
     const tools = [
         buildToolDefinition(

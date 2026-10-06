@@ -11,6 +11,7 @@
 
 import { getSettings } from '../state/state-manager.js';
 import { loadNamedApiKey } from '../state/secure-keyring.js';
+import { assertLoreOutputSize, consumeBoundedLoreResponse, createProviderResourceError, getLoreRequestLimits, readBoundedLoreResponseText, runBoundedLoreRequest, throwIfLoreRequestAborted } from './bounded-lore-request.js';
 import {
     LORE_RESPONSE_ERROR_CODES,
     collectLoreResponseFinishReasons as collectFinishReasons,
@@ -88,6 +89,7 @@ function normalizeOpenAIBaseUrl(baseUrl) {
 }
 
 function emitLoreRequestProgress(options = {}, event = {}) {
+    if (options.signal?.aborted) return;
     if (typeof options.onProgress !== 'function') return;
     try {
         options.onProgress({
@@ -511,14 +513,14 @@ async function readOpenAICompatibleStream(response, cfg, options = {}) {
             message: `${cfg.title} endpoint did not expose a readable stream; waiting for final response.`,
             streamSupported: false,
         });
-        const text = await response.text().catch(() => '');
+        const text = await readBoundedLoreResponseText(response, options);
         let json = null;
         try { json = text ? JSON.parse(text) : null; } catch (_) {}
         return { text, json, content: extractChatCompletionText(json), reasoningPreview: extractChatCompletionReasoning(json), streamed: false };
     }
 
-    const reader = response.body.getReader();
     const decoder = new TextDecoder();
+    const limits = getLoreRequestLimits(options);
     let buffer = '';
     let content = '';
     let reasoningPreview = '';
@@ -539,8 +541,9 @@ async function readOpenAICompatibleStream(response, cfg, options = {}) {
         const payload = trimmed.slice(5).trim();
         if (!payload || payload === '[DONE]') return;
 
+        if (new TextEncoder().encode(line).byteLength > limits.maxSseBufferBytes) throw createProviderResourceError('provider_response_too_large', 'Provider SSE event exceeded its buffer limit.');
         let json = null;
-        try { json = JSON.parse(payload); } catch (_) { return; }
+        try { json = JSON.parse(payload); } catch (_) { throw createProviderResourceError('provider_stream_malformed', 'Provider stream contained malformed JSON.'); }
 
         const reason = collectFinishReasons(json).find(Boolean);
         if (reason) finishReasons.push(reason);
@@ -568,6 +571,7 @@ async function readOpenAICompatibleStream(response, cfg, options = {}) {
 
         visibleStarted = true;
         content += textDelta;
+        assertLoreOutputSize(content, options);
         const now = Date.now();
         if (now - lastDeltaAt > 150 || textDelta.includes('\n')) {
             lastDeltaAt = now;
@@ -583,15 +587,13 @@ async function readOpenAICompatibleStream(response, cfg, options = {}) {
         }
     }
 
-    while (true) {
-        if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
-        const { value, done } = await reader.read();
-        if (done) break;
+    await consumeBoundedLoreResponse(response, options, value => {
         buffer += decoder.decode(value, { stream: true });
         const lines = buffer.split(/\r?\n/);
         buffer = lines.pop() || '';
         for (const line of lines) consumeSseLine(line);
-    }
+        if (new TextEncoder().encode(buffer).byteLength > limits.maxSseBufferBytes) throw createProviderResourceError('provider_response_too_large', 'Provider SSE buffer exceeded its byte limit.');
+    });
     buffer += decoder.decode();
     if (buffer) {
         for (const line of buffer.split(/\r?\n/)) consumeSseLine(line);
@@ -658,7 +660,7 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
             const streamed = await readOpenAICompatibleStream(response, cfg, options);
             return { response, text: streamed.text, json: streamed.json, content: streamed.content, reasoningPreview: streamed.reasoningPreview, streamed: streamed.streamed };
         }
-        const text = await response.text().catch(() => '');
+        const text = await readBoundedLoreResponseText(response, options);
         let json = null;
         try { json = text ? JSON.parse(text) : null; } catch (_) {}
         return { response, text, json };
@@ -666,19 +668,28 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
 
     let attempt = await post(requestBody);
 
-    if (!attempt.response.ok && /max_tokens/i.test(attempt.text)) {
+    const isCompatibilityError = result => [400, 422].includes(result.response.status);
+    function throwHttpError(result) {
+        const status = result.response.status;
+        const code = [401, 403].includes(status) ? 'provider_auth_failed' : status === 429 ? 'provider_rate_limited' : status >= 500 ? 'provider_server_error' : 'provider_request_rejected';
+        const error = createProviderResourceError(code, `${cfg.title} OpenAI request failed (${status}): ${result.text.slice(0, 500)}`, { status });
+        error.status = status; error.retryAfter = result.response.headers?.get?.('retry-after') || '';
+        throw error;
+    }
+
+    if (isCompatibilityError(attempt) && /max_tokens/i.test(attempt.text)) {
         requestBody.max_completion_tokens = requestBody.max_tokens;
         delete requestBody.max_tokens;
         attempt = await post(requestBody);
     }
 
-    if (!attempt.response.ok && /temperature|top_p/i.test(attempt.text)) {
+    if (isCompatibilityError(attempt) && /temperature|top_p/i.test(attempt.text)) {
         delete requestBody.temperature;
         delete requestBody.top_p;
         attempt = await post(requestBody);
     }
 
-    if (!attempt.response.ok && requestBody.stream && /stream/i.test(attempt.text)) {
+    if (isCompatibilityError(attempt) && requestBody.stream && /stream/i.test(attempt.text)) {
         emitLoreRequestProgress(options, {
             type: 'phase',
             phase: 'fallback',
@@ -690,8 +701,7 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
     }
 
     if (!attempt.response.ok) {
-        if (attempt.response.status === 401) throw new Error(`${cfg.title} OpenAI-compatible endpoint returned 401. Check API key.`);
-        throw new Error(`${cfg.title} OpenAI request failed (${attempt.response.status}): ${attempt.text.slice(0, 500)}`);
+        throwHttpError(attempt);
     }
 
     assertNotTokenLimitedResponse(cfg, attempt.json, options);
@@ -720,10 +730,11 @@ async function sendViaOpenAICompatible(cfg, systemPrompt, userPrompt, options = 
             else retryBody.max_tokens = Math.min(8192, expandedMax);
 
             let retry = await post(retryBody);
-            if (!retry.response.ok && /reasoning_effort/i.test(retry.text)) {
+            if (isCompatibilityError(retry) && /reasoning_effort/i.test(retry.text)) {
                 delete retryBody.reasoning_effort;
                 retry = await post(retryBody);
             }
+            if (!retry.response.ok) throwHttpError(retry);
             if (retry.response.ok) {
                 assertNotTokenLimitedResponse(cfg, retry.json, { ...options, maxTokens: Number(retryBody.max_tokens || retryBody.max_completion_tokens || options.maxTokens || cfg.maxTokens || 8192) });
                 content = extractChatCompletionText(retry.json);
@@ -767,10 +778,13 @@ async function sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options = {}
             responseLength: Math.max(128, Math.min(8192, Math.ceil(Number(responseLength || 8192) * lengthMultiplier))),
             bypassAll: true,
         });
+        throwIfLoreRequestAborted(options.signal);
+        assertLoreOutputSize(typeof result === 'string' ? result : JSON.stringify(result), options);
         if (result && typeof result === 'object') {
             assertNotTokenLimitedResponse(cfg, result, { ...options, maxTokens: Math.max(128, Math.min(8192, Math.ceil(Number(responseLength || 8192) * lengthMultiplier))) });
         }
         const content = typeof result === 'string' ? result : extractChatCompletionText(result);
+        assertLoreOutputSize(content, options);
         if (content && content.trim()) {
             emitLoreRequestProgress(options, {
                 type: 'complete',
@@ -814,8 +828,11 @@ async function sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options = {}
             streamSupported: false,
         });
         let result = await ctx.generateQuietPrompt({ quietPrompt });
+        throwIfLoreRequestAborted(options.signal);
+        assertLoreOutputSize(typeof result === 'string' ? result : JSON.stringify(result), options);
         if (result && typeof result === 'object') assertNotTokenLimitedResponse(cfg, result, options);
         lastResult = typeof result === 'string' ? result : extractChatCompletionText(result);
+        assertLoreOutputSize(lastResult, options);
         if (lastResult && lastResult.trim()) {
             emitLoreRequestProgress(options, {
                 type: 'complete',
@@ -830,8 +847,11 @@ async function sendViaSillyTavernRaw(cfg, systemPrompt, userPrompt, options = {}
 
         // Older SillyTavern builds accept a raw string instead of an object.
         result = await ctx.generateQuietPrompt(quietPrompt);
+        throwIfLoreRequestAborted(options.signal);
+        assertLoreOutputSize(typeof result === 'string' ? result : JSON.stringify(result), options);
         if (result && typeof result === 'object') assertNotTokenLimitedResponse(cfg, result, options);
         lastResult = typeof result === 'string' ? result : extractChatCompletionText(result);
+        assertLoreOutputSize(lastResult, options);
         if (lastResult && lastResult.trim()) {
             emitLoreRequestProgress(options, {
                 type: 'complete',
@@ -881,6 +901,7 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
             messages,
             Math.max(128, Math.min(8192, Math.ceil(Number(options.maxTokens || cfg.maxTokens || 8192) * lengthMultiplier))),
             {
+                signal: options.signal,
                 stream: false,
                 extractData: true,
                 includePreset: true,
@@ -899,8 +920,10 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
 
     let raw = await send(messages, 1);
     if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
+    assertLoreOutputSize(typeof raw === 'string' ? raw : JSON.stringify(raw), options);
     if (raw && typeof raw === 'object') assertNotTokenLimitedResponse(cfg, raw, options);
     let content = typeof raw === 'string' ? raw : extractChatCompletionText(raw);
+    assertLoreOutputSize(content, options);
     if (content && content.trim()) {
         emitLoreRequestProgress(options, {
             type: 'complete',
@@ -927,6 +950,7 @@ async function sendViaConnectionProfile(cfg, systemPrompt, userPrompt, options =
             { role: 'user', content: retryPrompts.user },
         ], 2);
         if (options.signal?.aborted) throw new DOMException('Request aborted', 'AbortError');
+        assertLoreOutputSize(typeof raw === 'string' ? raw : JSON.stringify(raw), options);
         if (raw && typeof raw === 'object') assertNotTokenLimitedResponse(cfg, raw, { ...options, maxTokens: Math.max(128, Math.min(8192, Math.ceil(Number(options.maxTokens || cfg.maxTokens || 8192) * 2))) });
         content = typeof raw === 'string' ? raw : extractChatCompletionText(raw);
         if (content && content.trim()) {
@@ -990,22 +1014,37 @@ function fetchSTModel() {
     return [{ id: modelName, name: modelName }];
 }
 
+export function getLoreProviderCapabilities(kind = 'lore') {
+    const cfg = getProviderSettings(kind);
+    // Verified release host contract: generateRaw/QuietPrompt have no signal
+    // parameter; ConnectionManagerRequestService forwards custom.signal.
+    if (cfg.provider === 'openai_compatible') return { provider: cfg.provider, cancellation: 'signal', maxConcurrency: 2, routeKey: `openai:${cfg.openAIBaseUrl ? normalizeOpenAIChatEndpoint(cfg.openAIBaseUrl) : 'unconfigured'}:${cfg.openAIModel}` };
+    if (cfg.provider === 'profile') return { provider: cfg.provider, cancellation: 'signal', maxConcurrency: 1, routeKey: `st:profile:${cfg.profileId}` };
+    return { provider: 'st', cancellation: 'unsupported', maxConcurrency: 1, routeKey: 'st:raw-quiet' };
+}
+
 export async function sendLoreRequest(systemPrompt, userPrompt, options = {}) {
     const cfg = getProviderSettings(options.providerKind || 'lore');
-    const validation = await validateLoreProviderConfigurationAsync(cfg.kind);
-    if (!validation.ok) throw new Error(validation.message);
-    const prompts = prepareLoreRequestPrompts(systemPrompt, userPrompt, options);
-    emitLoreRequestProgress(options, {
-        type: 'start',
-        phase: 'starting',
-        message: `Contacting ${cfg.title} Provider...`,
-        provider: cfg.provider,
-        providerKind: cfg.kind,
-        streamRequested: options.stream === true,
-        streamSupported: cfg.provider === 'openai_compatible' && wantsStreamingResponse(options),
+    const capabilities = getLoreProviderCapabilities(cfg.kind);
+    return runBoundedLoreRequest(capabilities.routeKey, async requestOptions => {
+        const validation = await validateLoreProviderConfigurationAsync(cfg.kind);
+        if (!validation.ok) throw createProviderResourceError('provider_missing_config', validation.message);
+        throwIfLoreRequestAborted(requestOptions.signal);
+        const prompts = prepareLoreRequestPrompts(systemPrompt, userPrompt, requestOptions);
+        emitLoreRequestProgress(requestOptions, {
+            type: 'start', phase: 'starting', message: `Contacting ${cfg.title} Provider...`,
+            provider: cfg.provider, providerKind: cfg.kind, cancellation: capabilities.cancellation,
+            streamRequested: requestOptions.stream === true,
+            streamSupported: cfg.provider === 'openai_compatible' && wantsStreamingResponse(requestOptions),
+        });
+        let content;
+        if (cfg.provider === 'openai_compatible') content = await sendViaOpenAICompatible(cfg, prompts.system, prompts.user, requestOptions);
+        else if (cfg.provider === 'profile') content = await sendViaConnectionProfile(cfg, prompts.system, prompts.user, requestOptions);
+        else content = await sendViaSillyTavernRaw(cfg, prompts.system, prompts.user, requestOptions);
+        throwIfLoreRequestAborted(requestOptions.signal); assertLoreOutputSize(content, requestOptions);
+        return content;
+    }, {
+        ...options,
+        maxConcurrency: Math.min(capabilities.maxConcurrency, Math.max(1, Number(options.maxConcurrency) || capabilities.maxConcurrency)),
     });
-
-    if (cfg.provider === 'openai_compatible') return await sendViaOpenAICompatible(cfg, prompts.system, prompts.user, options);
-    if (cfg.provider === 'profile') return await sendViaConnectionProfile(cfg, prompts.system, prompts.user, options);
-    return await sendViaSillyTavernRaw(cfg, prompts.system, prompts.user, options);
 }

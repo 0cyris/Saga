@@ -113,28 +113,28 @@ function serializedStoredSettings() {
   return JSON.stringify(extensionSettings[MODULE_KEY]);
 }
 
-function assertStoredSettingsCompact(label) {
+function assertStoredSettingsRetained(label) {
   const stored = extensionSettings[MODULE_KEY];
-  assert.equal(stored.sagaStorage.storageVersion, 'external-files-v1', `${label}: storage version should survive compaction.`);
-  assert.deepEqual(stored.loredeckLibrary.packs, {}, `${label}: Loredeck Library rows should stay external.`);
-  assert.deepEqual(stored.loredeckLibrary.folders, [], `${label}: Library folders should stay external.`);
-  assert.deepEqual(stored.loredeckLibrary.deckPlacements, [], `${label}: Library placements should stay external.`);
-  assert.deepEqual(stored.loredeckCreatorProjects.jobs, {}, `${label}: Deck Maker jobs should stay external.`);
-  assert.deepEqual(stored.themePackLibrary.packs, {}, `${label}: Theme Pack rows should stay external.`);
-  assert.deepEqual(stored.themeIconSetLibrary.iconSets, {}, `${label}: Icon Set rows should stay external.`);
-  for (const marker of heavyMarkers) {
-    assert.equal(serializedStoredSettings().includes(marker), false, `${label}: settings should not include ${marker}.`);
-  }
+    assert.equal(stored.sagaStorage.storageVersion, 'external-files-v1', `${label}: storage version survives normalization.`);
+    assert(stored.loredeckLibrary.packs.polluting, `${label}: Library source remains until external durability.`);
+    assert.equal(stored.loredeckLibrary.folders.length, 1);
+    assert.equal(stored.loredeckLibrary.deckPlacements.length, 1);
+    assert(stored.loredeckCreatorProjects.jobs.polluting_creator);
+    assert(stored.themePackLibrary.packs['external-theme']);
+    assert(stored.themeIconSetLibrary.iconSets['external-icons']);
+    for (const marker of [heavyMarkers[0], heavyMarkers[2], heavyMarkers[3]]) assert(serializedStoredSettings().includes(marker), `${label}: retained source includes ${marker}.`);
+    assert.equal(stored.sagaInlineRecovery.status, 'pending');
+    assert.equal(stored.sagaInlineRecovery.registries.loredeckLibrary.packs.polluting.entryOverrides.nami.content.fact, heavyMarkers[0]);
 }
 
 const settings = getSettings();
-assert.equal(settings.loredeckLibrary.packs.polluting, undefined, 'Settings reads should ignore unsupported settings-backed Lorepack payload rows.');
-assert.equal(settings.loredeckCreatorProjects.jobs.polluting_creator, undefined, 'Settings reads should ignore unsupported settings-backed Deck Maker project payloads.');
-assert.equal(settings.themePackLibrary.packs['external-theme'], undefined, 'Settings reads should ignore unsupported settings-backed Theme Pack payloads.');
-assert.equal(settings.themeIconSetLibrary.iconSets['external-icons'], undefined, 'Settings reads should ignore unsupported settings-backed Icon Set payloads.');
+assert(settings.loredeckLibrary.packs.polluting, 'Settings reads retain supported inline payload rows.');
+assert(settings.loredeckCreatorProjects.jobs.polluting_creator);
+assert(settings.themePackLibrary.packs['external-theme']);
+assert(settings.themeIconSetLibrary.iconSets['external-icons']);
 assert.equal(settings.themePackId, 'external-theme', 'Active Theme Pack ID remains compact control-plane state.');
 assert.equal(settings.themeIconSetId, 'external-icons', 'Active Icon Set ID remains compact control-plane state.');
-assertStoredSettingsCompact('getSettings');
+assertStoredSettingsRetained('getSettings');
 
 settings.debugMode = true;
 settings.loredeckLibrary.packs.accidental = {
@@ -168,6 +168,7 @@ settings.themeIconSetLibrary.iconSets.accidental_icons = {
 saveSettings(settings);
 assert.equal(saveSettingsCount, 1);
 assert.equal(extensionSettings[MODULE_KEY].debugMode, true, 'Ordinary compact preferences should still save.');
-assertStoredSettingsCompact('saveSettings');
+assertStoredSettingsRetained('saveSettings');
+assert(serializedStoredSettings().includes(heavyMarkers[1]), 'An unrelated save cannot erase newly supplied inline data.');
 
-console.log('Saga settings compaction tests passed.');
+console.log('Saga settings preservation before acknowledged compaction tests passed.');

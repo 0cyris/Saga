@@ -120,6 +120,8 @@ function asFirstLooseString(...values) {
 }
 
 function asOptionalNumber(value) {
+    if (typeof value !== 'number' && typeof value !== 'string') return null;
+    if (typeof value === 'string' && !value.trim()) return null;
     const number = Number(value);
     return Number.isFinite(number) ? number : null;
 }
@@ -279,9 +281,14 @@ function normalizeCanonTiming(input) {
 
 export function normalizeLoreEntryContext(input = {}) {
     const raw = asPlainObject(input.context);
+    const invalidNumericBounds = raw.invalidNumericBounds === true
+        || ['sortKeyFrom', 'fromSortKey', 'sortKeyStart', 'sortKeyTo', 'toSortKey', 'sortKeyEnd']
+            .some(field => raw[field] !== null && raw[field] !== undefined && raw[field] !== ''
+                && asOptionalNumber(raw[field]) === null);
     const sortKeyFrom = asOptionalNumber(raw.sortKeyFrom ?? raw.fromSortKey ?? raw.sortKeyStart);
     const sortKeyTo = asOptionalNumber(raw.sortKeyTo ?? raw.toSortKey ?? raw.sortKeyEnd);
     return {
+        ...(invalidNumericBounds ? { invalidNumericBounds: true } : {}),
         scope: asFirstLooseString(raw.scope),
         anchorId: asFirstLooseString(raw.anchorId, raw.anchor, raw.id),
         validFromAnchor: asFirstLooseString(raw.validFromAnchor, raw.anchorFrom, raw.fromAnchor, raw.from, input.validFromAnchor),

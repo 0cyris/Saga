@@ -1687,6 +1687,7 @@ export async function addCanonLorePreviewEntriesToPending(entryIds = [], context
 }
 
 export async function proposeCanonLoreForContext(context = null, options = {}) {
+    options.operation?.assertCurrent();
     const settings = getSettings();
     if (settings.canonLoreDatabaseEnabled === false) {
         return { status: 'disabled', entries: [], proposedCount: 0 };
@@ -1695,6 +1696,7 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
     const progress = typeof options.progress === 'function' ? options.progress : null;
     const state = getState();
     const query = await queryCanonLoreDatabase(context, options);
+    options.operation?.assertCurrent();
     const dbState = state.canonLoreDatabase || {};
 
     dbState.lastQueriedAt = Date.now();
@@ -1712,7 +1714,7 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
                     ? 'No canon database query: no active Context.'
                     : 'No matching canon database entries for this Context.';
         state.canonLoreDatabase = dbState;
-        saveState(state);
+        saveState(state, { operation: options.operation });
         return { ...query, proposedCount: 0 };
     }
 
@@ -1729,7 +1731,7 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
         state.canonLoreDatabase = dbState;
         // getState() sanitizes oversized legacy canon payloads before we reach this point,
         // so saving here persists the repair instead of serializing the old heavy data.
-        saveState(state);
+        saveState(state, { operation: options.operation });
         return { ...query, status: 'duplicates_only', proposedCount: 0, dropped: filtered.dropped };
     }
 
@@ -1750,7 +1752,7 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
     dbState.lastProposedCount = entries.length;
     dbState.lastStatus = `Matched ${query.matchedCount} canon entries; proposed ${entries.length} new Pending Review entries.`;
     state.canonLoreDatabase = dbState;
-    saveState(state);
+    saveState(state, { operation: options.operation });
 
     progress?.(`Canon database proposed ${entries.length} Pending Review entries.`, 100);
     return { ...query, status: 'proposed', entries, proposedCount: entries.length, dropped: filtered.dropped };

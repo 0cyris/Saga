@@ -10,7 +10,7 @@ import { LOG_PREFIX } from '../state/constants.js';
 import {
     getSettings,
     getState,
-    saveState,
+    saveStateDurable,
     applyDelta,
     validateDelta,
 } from '../state/state-manager.js';
@@ -19,6 +19,15 @@ import {
     extractLoreResponseText,
     LORE_PARSE_ERROR_CODES,
 } from '../providers/lore-response-normalizer.js';
+import { captureChatOperation, isStaleChatOperation } from '../state/chat-operation.js';
+
+const batchOperations = new Map();
+
+function batchOperation(batchId) {
+    const operation = batchOperations.get(batchId);
+    operation?.assertCurrent();
+    return operation;
+}
 
 const ACTIVE_CONTINUITY_SECTIONS = ['canon', 'scene', 'characters', 'inventory', 'objectives', 'threads'];
 const RETIRED_CONTINUITY_SECTIONS = ['knowledge', 'secrets', 'relationships', 'storyMilestones', 'continuityFlags', 'flags'];
@@ -356,9 +365,12 @@ function compactObservation(raw = {}, chunk = {}) {
     };
 }
 
-function saveContinuityLedger(state, { full = false, syncPrompt = false } = {}) {
+async function saveContinuityLedger(state, { full = false, syncPrompt = false, operation } = {}) {
+    operation?.assertCurrent();
     compactContinuityLedger(state, { full });
-    saveState(state, { syncPrompt, sanitize: !!full });
+    const result = await saveStateDurable(state, { syncPrompt, sanitize: !!full, operation });
+    operation?.assertCurrent();
+    if (!result.ok && result.status !== 'unverified') throw new Error(result.error || 'Continuity checkpoint persistence failed.');
 }
 
 function compactContinuityLedger(state = getState(), options = {}) {
@@ -384,7 +396,8 @@ function compactContinuityLedger(state = getState(), options = {}) {
     return ledger;
 }
 
-function checkpointContinuityChunk(chunkId, payload = {}, options = {}) {
+async function checkpointContinuityChunk(chunkId, payload = {}, options = {}) {
+    const operation = batchOperation(payload.batchId);
     const state = getState();
     const ledger = ensureContinuityLedger(state);
     const id = String(chunkId || payload.chunkId || '');
@@ -418,11 +431,13 @@ function checkpointContinuityChunk(chunkId, payload = {}, options = {}) {
             if (ledger.activeBatchId === batchId) ledger.activeBatchId = '';
         }
     }
-    saveContinuityLedger(state, { full: !!options.full, syncPrompt: false });
+    await saveContinuityLedger(state, { full: !!options.full, syncPrompt: false, operation });
     return state;
 }
 
-function startContinuityBatch(batch = {}) {
+async function startContinuityBatch(batch = {}, operation) {
+    operation?.assertCurrent();
+    if (operation) batchOperations.set(batch.id, operation);
     const state = getState();
     const ledger = ensureContinuityLedger(state);
     const id = String(batch.id || `continuity_scan_${Date.now()}`);
@@ -438,11 +453,12 @@ function startContinuityBatch(batch = {}) {
     };
     ledger.activeBatchId = id;
     ledger.lastBatchId = id;
-    saveContinuityLedger(state, { full: true, syncPrompt: false });
+    await saveContinuityLedger(state, { full: true, syncPrompt: false, operation });
     return state;
 }
 
-function flushContinuityFullCheckpoint(batchId, patch = {}) {
+async function flushContinuityFullCheckpoint(batchId, patch = {}) {
+    const operation = batchOperation(batchId);
     const state = getState();
     const ledger = ensureContinuityLedger(state);
     const id = String(batchId || ledger.activeBatchId || ledger.lastBatchId || '');
@@ -458,11 +474,12 @@ function flushContinuityFullCheckpoint(batchId, patch = {}) {
     if (patch.status && !['running', 'queued'].includes(String(patch.status))) {
         if (ledger.activeBatchId === id) ledger.activeBatchId = '';
     }
-    saveContinuityLedger(state, { full: true, syncPrompt: false });
+    await saveContinuityLedger(state, { full: true, syncPrompt: false, operation });
     return state;
 }
 
-function markContinuityPlanChunksComplete(batchId, plan = {}, status = 'complete') {
+async function markContinuityPlanChunksComplete(batchId, plan = {}, status = 'complete') {
+    const operation = batchOperation(batchId);
     const state = getState();
     const ledger = ensureContinuityLedger(state);
     const now = Date.now();
@@ -486,11 +503,12 @@ function markContinuityPlanChunksComplete(batchId, plan = {}, status = 'complete
             error: '',
         };
     }
-    saveContinuityLedger(state, { full: false, syncPrompt: false });
+    await saveContinuityLedger(state, { full: false, syncPrompt: false, operation });
     return state;
 }
 
-function markInterruptedContinuityChunks(staleMs) {
+async function markInterruptedContinuityChunks(staleMs, operation) {
+    operation?.assertCurrent();
     const state = getState();
     const ledger = ensureContinuityLedger(state);
     const cutoff = Date.now() - Math.max(1000, Number(staleMs) || 600000);
@@ -503,7 +521,7 @@ function markInterruptedContinuityChunks(staleMs) {
             changed = true;
         }
     }
-    if (changed) saveContinuityLedger(state, { full: false, syncPrompt: false });
+    if (changed) await saveContinuityLedger(state, { full: false, syncPrompt: false, operation });
     return state;
 }
 
@@ -825,7 +843,8 @@ async function extractChunkObservations({ chunk, plan, batchId, settings, stateP
     let rawResponse = '';
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
         if (signal?.aborted) throw new Error('Continuity scan aborted');
-        checkpointContinuityChunk(chunk.chunkId, {
+        batchOperation(batchId);
+        await checkpointContinuityChunk(chunk.chunkId, {
             batchId,
             chunk,
             chunkPatch: {
@@ -853,7 +872,8 @@ async function extractChunkObservations({ chunk, plan, batchId, settings, stateP
                 continue;
             }
             const parsed = parseObservationResponse(rawResponse, chunk);
-            checkpointContinuityChunk(chunk.chunkId, {
+            batchOperation(batchId);
+            await checkpointContinuityChunk(chunk.chunkId, {
                 batchId,
                 chunk,
                 observations: parsed.observations,
@@ -874,10 +894,11 @@ async function extractChunkObservations({ chunk, plan, batchId, settings, stateP
             });
             return { status: 'complete', chunk, observations: parsed.observations, summary: parsed.summary };
         } catch (e) {
+            if (isStaleChatOperation(e)) throw e;
             lastError = e?.message || String(e || 'Continuity observation extraction failed.');
         }
     }
-    checkpointContinuityChunk(chunk.chunkId, {
+    await checkpointContinuityChunk(chunk.chunkId, {
         batchId,
         chunk,
         rawResponse,
@@ -1078,6 +1099,7 @@ async function requestContinuityDelta(systemPrompt, userPrompt, settings, option
     const maxAttempts = Math.max(1, Math.min(4, clampInt(settings.continuityScanRetryAttempts, 0, 3, 1) + 1));
     let lastError = '';
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        options.operation?.assertCurrent();
         if (options.signal?.aborted) throw new Error('Continuity scan aborted');
         try {
             const response = await sendLoreRequest(systemPrompt, userPrompt, {
@@ -1087,20 +1109,23 @@ async function requestContinuityDelta(systemPrompt, userPrompt, settings, option
                 signal: options.signal,
                 expectedOutput: 'json',
             });
+            options.operation?.assertCurrent();
             const delta = parseDeltaResponse(response);
             if (delta) return delta;
             lastError = 'Model returned no valid continuity delta.';
         } catch (e) {
+            if (isStaleChatOperation(e)) throw e;
             lastError = e?.message || String(e || 'Continuity delta request failed.');
         }
     }
     throw new Error(lastError || 'Continuity delta request failed.');
 }
 
-function finalizeContinuityScanDelta({ batchId, delta, plan, settings, options = {}, progress, scanStatus = 'complete', meta = {} }) {
+async function finalizeContinuityScanDelta({ batchId, delta, plan, settings, options = {}, progress, scanStatus = 'complete', meta = {} }) {
+    options.operation?.assertCurrent();
     const hasChanges = !!delta && Object.keys(delta.changes || {}).length > 0;
-    if (meta.markChunksComplete !== false) markContinuityPlanChunksComplete(batchId, plan, scanStatus === 'failed' ? 'failed' : 'complete');
-    flushContinuityFullCheckpoint(batchId, {
+    if (meta.markChunksComplete !== false) await markContinuityPlanChunksComplete(batchId, plan, scanStatus === 'failed' ? 'failed' : 'complete');
+    await flushContinuityFullCheckpoint(batchId, {
         status: scanStatus,
         completedAt: Date.now(),
         strategy: meta.strategy || '',
@@ -1119,19 +1144,19 @@ function finalizeContinuityScanDelta({ batchId, delta, plan, settings, options =
     if (options.applyImmediately || settings.autoApplyDelta) {
         const next = applyDelta(currentState, delta);
         next.lastDelta = null;
-        saveState(next, { syncPrompt: true });
+        await saveContinuityLedger(next, { full: true, syncPrompt: true, operation: options.operation });
         progress?.(`Continuity scan applied: ${Object.keys(delta.changes || {}).join(', ') || 'changes'}.`, 100);
         return { status: 'applied', batchId, delta, summary: delta.summary || '', changeKeys: Object.keys(delta.changes || {}), strategy: meta.strategy || '', sectionDecisions: delta.sectionDecisions || null };
     }
 
     currentState.lastDelta = delta;
-    saveState(currentState, { syncPrompt: true });
+    await saveContinuityLedger(currentState, { full: true, syncPrompt: true, operation: options.operation });
     progress?.('Continuity scan stored changes for review.', 100);
     return { status: 'pending_review', batchId, delta, summary: delta.summary || '', changeKeys: Object.keys(delta.changes || {}), strategy: meta.strategy || '', sectionDecisions: delta.sectionDecisions || null };
 }
 
-function buildSyntheticBatchId(strategy, plan) {
-    return `continuity_${strategy}_${Date.now()}_${stableStringHash(`${plan.contextKey}|${plan.startIndex}|${plan.endIndex}|${plan.sourceMessageCount}`)}`;
+function buildSyntheticBatchId(strategy, plan, operation) {
+    return `continuity_${strategy}_${Date.now()}_${stableStringHash(`${plan.contextKey}|${plan.startIndex}|${plan.endIndex}|${plan.sourceMessageCount}`)}_${operation.id}`;
 }
 
 function hasQueuedContinuityWork(plan, settings) {
@@ -1141,9 +1166,9 @@ function hasQueuedContinuityWork(plan, settings) {
 
 async function runFastContinuityDeltaScan({ settings, plan, options, stateAtStart }) {
     const { queuedChunks, skippedChunks } = hasQueuedContinuityWork(plan, settings);
-    const batchId = buildSyntheticBatchId('fast', plan);
+    const batchId = buildSyntheticBatchId('fast', plan, options.operation);
     const progress = typeof options.progress === 'function' ? options.progress : null;
-    startContinuityBatch({
+    await startContinuityBatch({
         id: batchId,
         status: queuedChunks.length ? 'running' : 'complete',
         strategy: 'fast',
@@ -1156,7 +1181,7 @@ async function runFastContinuityDeltaScan({ settings, plan, options, stateAtStar
         queuedChunks: queuedChunks.length,
         skippedChunks,
         modelCallCount: 1,
-    });
+    }, options.operation);
     if (!queuedChunks.length) return { status: 'skipped_unchanged', batchId, plan, skippedChunks, strategy: 'fast' };
 
     const enabledSections = deriveEnabledSections(stateAtStart, options.automationSafe ? 'essentials' : 'all');
@@ -1175,10 +1200,11 @@ async function runFastContinuityDeltaScan({ settings, plan, options, stateAtStar
     try {
         delta = await requestContinuityDelta(systemPrompt, userPrompt, settings, options, 'fast');
     } catch (e) {
+        if (isStaleChatOperation(e)) throw e;
         delta = inferFallbackDeltaFromPlan(plan, getState());
         if (!delta) {
             heartbeat.stop();
-            flushContinuityFullCheckpoint(batchId, { status: 'failed', strategy: 'fast', error: e?.message || String(e || ''), failedAt: Date.now() });
+            await flushContinuityFullCheckpoint(batchId, { status: 'failed', strategy: 'fast', error: e?.message || String(e || ''), failedAt: Date.now() });
             return { status: 'failed_exception', batchId, strategy: 'fast', error: e?.message || String(e || '') };
         }
     } finally {
@@ -1200,10 +1226,10 @@ function getHybridDeltaGroups(stateAtStart = getState()) {
 
 async function runHybridContinuityDeltaScan({ settings, plan, options, stateAtStart }) {
     const { queuedChunks, skippedChunks } = hasQueuedContinuityWork(plan, settings);
-    const batchId = buildSyntheticBatchId('hybrid', plan);
+    const batchId = buildSyntheticBatchId('hybrid', plan, options.operation);
     const progress = typeof options.progress === 'function' ? options.progress : null;
     const groups = getHybridDeltaGroups(stateAtStart);
-    startContinuityBatch({
+    await startContinuityBatch({
         id: batchId,
         status: queuedChunks.length ? 'running' : 'complete',
         strategy: 'hybrid',
@@ -1216,7 +1242,7 @@ async function runHybridContinuityDeltaScan({ settings, plan, options, stateAtSt
         queuedChunks: queuedChunks.length,
         skippedChunks,
         modelCallCount: groups.length,
-    });
+    }, options.operation);
     if (!queuedChunks.length) return { status: 'skipped_unchanged', batchId, plan, skippedChunks, strategy: 'hybrid' };
 
     const prepass = buildLocalContinuityPrepass(plan);
@@ -1262,22 +1288,40 @@ async function runHybridContinuityDeltaScan({ settings, plan, options, stateAtSt
         }
     });
     heartbeat.stop();
+    options.operation?.assertCurrent();
     let delta = mergeReducerDeltas(results);
     if (!delta || !Object.keys(delta.changes || {}).length) delta = inferFallbackDeltaFromPlan(plan, getState()) || delta;
     const failures = results.filter(r => String(r?.status || '').startsWith('failed')).length;
     const scanStatus = failures === groups.length ? 'failed' : failures > 0 ? 'partial' : 'complete';
     if ((!delta || !Object.keys(delta.changes || {}).length) && scanStatus === 'failed') {
-        flushContinuityFullCheckpoint(batchId, { status: 'failed', strategy: 'hybrid', reducerFailures: failures, failedAt: Date.now() });
+        await flushContinuityFullCheckpoint(batchId, { status: 'failed', strategy: 'hybrid', reducerFailures: failures, failedAt: Date.now() });
         return { status: 'failed_no_valid_delta', batchId, strategy: 'hybrid', reducerFailures: failures };
     }
     return finalizeContinuityScanDelta({ batchId, delta, plan, settings, options, progress, scanStatus, meta: { strategy: 'hybrid', modelCallCount: groups.length, reducerFailures: failures, prepass } });
 }
 
 export async function runContinuityScan(options = {}) {
+    const ownsOperation = !options.operation;
+    const operation = options.operation || captureChatOperation({ lane: 'continuity', signal: options.signal });
+    const progress = options.progress;
+    options = { ...options, operation, signal: operation.signal, progress: (...args) => { if (operation.isCurrent()) progress?.(...args); } };
+    try {
+        operation.assertCurrent();
+        const result = await runOwnedContinuityScan(options);
+        return { ...result, persisted: operation.persistenceStatus === 'persisted', persistenceStatus: operation.persistenceStatus || 'not_requested' };
+    } catch (error) {
+        return { status: isStaleChatOperation(error) ? 'cancelled' : 'failed_exception', error: error?.message || String(error) };
+    } finally {
+        for (const [id, owner] of batchOperations) if (owner === operation) batchOperations.delete(id);
+        if (ownsOperation) operation.release();
+    }
+}
+
+async function runOwnedContinuityScan(options = {}) {
     const settings = buildEffectiveContinuitySettings(getSettings(), options);
     const validation = validateLoreProviderConfiguration('continuity');
     if (!validation.ok) return { status: 'api_not_configured', error: validation.message };
-    markInterruptedContinuityChunks(settings.continuityScanRunningCheckpointStaleMs || 10 * 60 * 1000);
+    await markInterruptedContinuityChunks(settings.continuityScanRunningCheckpointStaleMs || 10 * 60 * 1000, options.operation);
 
     const stateAtStart = getState();
     const plan = buildContinuityScanPlan(settings, stateAtStart);
@@ -1293,7 +1337,7 @@ async function runBulkContinuityScan(options = {}) {
     const settings = buildEffectiveContinuitySettings(getSettings(), options);
     const validation = validateLoreProviderConfiguration('continuity');
     if (!validation.ok) return { status: 'api_not_configured', error: validation.message };
-    markInterruptedContinuityChunks(settings.continuityScanRunningCheckpointStaleMs || 10 * 60 * 1000);
+    await markInterruptedContinuityChunks(settings.continuityScanRunningCheckpointStaleMs || 10 * 60 * 1000, options.operation);
 
     const stateAtStart = getState();
     const plan = buildContinuityScanPlan(settings, stateAtStart);
@@ -1301,7 +1345,7 @@ async function runBulkContinuityScan(options = {}) {
 
     const queuedChunks = plan.chunks.filter(chunk => shouldQueueChunk(chunk, settings));
     const skippedChunks = plan.chunks.length - queuedChunks.length;
-    const batchId = `continuity_${Date.now()}_${stableStringHash(`${plan.contextKey}|${plan.startIndex}|${plan.endIndex}|${plan.chunkSize}|${plan.overlap}`)}`;
+    const batchId = `continuity_${Date.now()}_${stableStringHash(`${plan.contextKey}|${plan.startIndex}|${plan.endIndex}|${plan.chunkSize}|${plan.overlap}`)}_${options.operation.id}`;
     const stateProjection = buildContinuityProjection(stateAtStart);
     const extractionProjection = buildContinuityScanHeaderProjection(stateAtStart);
     const concurrency = clampInt(settings.continuityScanConcurrency, 1, 8, 3);
@@ -1309,7 +1353,7 @@ async function runBulkContinuityScan(options = {}) {
     const fullEvery = clampInt(settings.continuityScanFullCheckpointEveryChunks, 1, 25, 5);
     const progress = typeof options.progress === 'function' ? options.progress : null;
 
-    startContinuityBatch({
+    await startContinuityBatch({
         id: batchId,
         status: queuedChunks.length ? 'running' : 'complete',
         mode: options.automationSafe ? 'auto-recent' : 'manual',
@@ -1325,7 +1369,7 @@ async function runBulkContinuityScan(options = {}) {
         concurrency,
         reducerConcurrency,
         contextKey: plan.contextKey,
-    });
+    }, options.operation);
 
     if (!queuedChunks.length) {
         progress?.('Continuity scan skipped unchanged chunks.', 100);
@@ -1366,14 +1410,14 @@ async function runBulkContinuityScan(options = {}) {
             }
             dirtySinceFull++;
             if (dirtySinceFull >= fullEvery) {
-                flushContinuityFullCheckpoint(batchId, { completedChunks: completed, failedChunks: failed, observationCount, lastCheckpointReason: 'chunk_window' });
+                await flushContinuityFullCheckpoint(batchId, { completedChunks: completed, failedChunks: failed, observationCount, lastCheckpointReason: 'chunk_window' });
                 dirtySinceFull = 0;
             }
             return result;
         });
         observationHeartbeat.stop();
 
-        flushContinuityFullCheckpoint(batchId, { completedChunks: completed, failedChunks: failed, observationCount, summaries: summaries.slice(-20), stage: 'reducing' });
+        await flushContinuityFullCheckpoint(batchId, { completedChunks: completed, failedChunks: failed, observationCount, summaries: summaries.slice(-20), stage: 'reducing' });
         progress?.(`Continuity reducers running on ${observationCount} observations.`, 84);
 
         const enabledGroups = SECTION_GROUPS.filter(group => group.enabled(stateAtStart));
@@ -1405,7 +1449,7 @@ async function runBulkContinuityScan(options = {}) {
         const reducerFailures = reducerResults.filter(r => String(r?.status || '').startsWith('failed')).length;
         const status = failed === queuedChunks.length ? 'failed' : failed > 0 || reducerFailures > 0 ? 'partial' : 'complete';
         const hasChanges = !!delta && Object.keys(delta.changes || {}).length > 0;
-        flushContinuityFullCheckpoint(batchId, {
+        await flushContinuityFullCheckpoint(batchId, {
             status,
             completedAt: Date.now(),
             completedChunks: completed,
@@ -1425,17 +1469,18 @@ async function runBulkContinuityScan(options = {}) {
         if (options.applyImmediately || settings.autoApplyDelta) {
             const next = applyDelta(currentState, delta);
             next.lastDelta = null;
-            saveState(next, { syncPrompt: true });
+            await saveContinuityLedger(next, { full: true, syncPrompt: true, operation: options.operation });
             progress?.(`Continuity scan applied: ${Object.keys(delta.changes || {}).join(', ') || 'changes'}.`, 100);
             return { status: 'applied', batchId, delta, summary: delta.summary || '', changeKeys: Object.keys(delta.changes || {}), completedChunkCount: completed, failedChunkCount: failed, observationCount, reducerFailures, scanStatus: status };
         }
 
         currentState.lastDelta = delta;
-        saveState(currentState, { syncPrompt: true });
+        await saveContinuityLedger(currentState, { full: true, syncPrompt: true, operation: options.operation });
         progress?.('Continuity scan stored changes for review.', 100);
         return { status: 'pending_review', batchId, delta, summary: delta.summary || '', changeKeys: Object.keys(delta.changes || {}), completedChunkCount: completed, failedChunkCount: failed, observationCount, reducerFailures, scanStatus: status };
     } catch (e) {
-        flushContinuityFullCheckpoint(batchId, { status: 'failed', error: e?.message || String(e || ''), failedAt: Date.now(), completedChunks: completed, failedChunks: failed });
+        if (isStaleChatOperation(e)) throw e;
+        await flushContinuityFullCheckpoint(batchId, { status: 'failed', error: e?.message || String(e || ''), failedAt: Date.now(), completedChunks: completed, failedChunks: failed });
         console.error(`${LOG_PREFIX} Checkpointed continuity scan failed:`, e);
         progress?.(`Continuity scan failed: ${e?.message || e}`, 100);
         return { status: 'failed_exception', batchId, error: e?.message || String(e || '') };

@@ -123,24 +123,38 @@ export function recoverLoredeckCreatorInterruptedActiveGeneration(job = {}, opti
         updatedAt: now,
     };
     const updateCreatorProject = typeof deps.updateCreatorProject === 'function' ? deps.updateCreatorProject : () => ({ ok: false });
-    const update = updateCreatorProject(job.jobId, patch, { syncPrompt: false, syncLocal: true }) || { ok: false };
-    const deleteGenerationController = typeof deps.deleteGenerationController === 'function'
-        ? deps.deleteGenerationController
-        : deleteLoredeckCreatorGenerationController;
-    const forgetLiveGeneration = typeof deps.forgetLiveGeneration === 'function' ? deps.forgetLiveGeneration : forgetLoredeckCreatorLiveGeneration;
-    const stopGenerationTicker = typeof deps.stopGenerationTicker === 'function' ? deps.stopGenerationTicker : () => null;
-    deleteGenerationController(active.id);
-    forgetLiveGeneration(active);
-    stopGenerationTicker();
-    const recoveredJob = update.ok && update.job ? update.job : {
-        ...job,
-        ...patch,
+    const finishRecovery = update => {
+        if (update?.ok !== true || update?.persisted === false || update?.queued === true || update?.ignored === true) {
+            return { job, recovered: false, live: false, pending: true, result: interruptedResult, update: update || { ok: false }, error: update?.error || 'Interrupted generation recovery was not acknowledged.' };
+        }
+        const deleteGenerationController = typeof deps.deleteGenerationController === 'function'
+            ? deps.deleteGenerationController
+            : deleteLoredeckCreatorGenerationController;
+        const forgetLiveGeneration = typeof deps.forgetLiveGeneration === 'function' ? deps.forgetLiveGeneration : forgetLoredeckCreatorLiveGeneration;
+        const stopGenerationTicker = typeof deps.stopGenerationTicker === 'function' ? deps.stopGenerationTicker : () => null;
+        deleteGenerationController(active.id);
+        forgetLiveGeneration(active);
+        stopGenerationTicker();
+        const recoveredJob = update.job ? update.job : { ...job, ...patch };
+        if (typeof deps.setCurrentJobLocal === 'function') deps.setCurrentJobLocal(recoveredJob);
+        if (options.toast && typeof deps.toast === 'function') {
+            deps.toast(`${active.label || 'Deck Maker generation'} was interrupted. Saved batches are preserved; rerun the current stage when ready.`, 'warning');
+        }
+        return { job: recoveredJob, recovered: true, live: false, result: interruptedResult, update };
     };
-    if (typeof deps.setCurrentJobLocal === 'function') deps.setCurrentJobLocal(recoveredJob);
-    if (options.toast && typeof deps.toast === 'function') {
-        deps.toast(`${active.label || 'Deck Maker generation'} was interrupted. Saved batches are preserved; rerun the current stage when ready.`, 'warning');
+    const failedRecovery = error => finishRecovery({ ok: false, error: String(error?.message || error || 'Interrupted generation recovery failed.') });
+    try {
+        const update = updateCreatorProject(job.jobId, patch, { syncPrompt: false, syncLocal: true });
+        // Preserve the synchronous public API for synchronous stores, while
+        // waiting for async stores before destroying controller/recovery evidence.
+        if (update?.completion) return Promise.resolve(update.completion)
+            .then(completed => finishRecovery({ ...update, ...completed, queued: completed?.queued === true, completion: undefined }), failedRecovery);
+        return update && typeof update.then === 'function'
+            ? Promise.resolve(update).then(finishRecovery, failedRecovery)
+            : finishRecovery(update);
+    } catch (error) {
+        return failedRecovery(error);
     }
-    return { job: recoveredJob, recovered: true, live: false, result: interruptedResult, update };
 }
 
 export function getLoredeckCreatorUnitMeta(unit = {}) {

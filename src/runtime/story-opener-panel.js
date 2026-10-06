@@ -18,6 +18,7 @@ import {
     getCachedExternalStoryOpenerSession,
     getExternalStoryOpenerIndex,
     getStoryOpenerStorageStatus,
+    flushSagaStoryOpenerStorageWrites,
     hydrateExternalStoryOpenerSessionRecord,
     hydrateSagaStoryOpenerStorage,
     removeExternalStoryOpenerSessionSync,
@@ -319,6 +320,20 @@ function saveStoryOpenerSession(session = {}, options = {}) {
         return null;
     }
     return result.session || result.payload || session;
+}
+
+async function saveStoryOpenerSessionDurably(session = {}, options = {}) {
+    const accepted = upsertExternalStoryOpenerSessionSync(session, {
+        activate: options.activate !== false, activeSessionId: session.sessionId, lastSessionId: session.sessionId,
+    });
+    let acknowledgement = accepted;
+    if (accepted.completion) { const completed = await accepted.completion; acknowledgement = { ...accepted, ...completed, queued: completed?.queued === true }; }
+    if (acknowledgement.ok !== true || acknowledgement.persisted !== true || acknowledgement.queued === true || acknowledgement.ignored === true) {
+        throw Object.assign(new Error(acknowledgement.error || 'Story Maker session could not be saved.'), { code: 'checkpoint_failed' });
+    }
+    const flushed = await flushSagaStoryOpenerStorageWrites();
+    if (flushed.ok !== true || Number(flushed.pendingWrites) > 0) throw Object.assign(new Error(flushed.error || 'Story Maker session write is still pending.'), { code: 'checkpoint_failed' });
+    return { ok: true, persisted: true, queued: false, session: getCachedExternalStoryOpenerSession(session.sessionId) || accepted.session || session };
 }
 
 function createField(labelText = '', helpText = '', input) {
@@ -916,6 +931,11 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         : [];
     const replacingDrafts = !retryIndexes.length;
     const previous = getStoryOpenerSelectedVariant(working);
+    const resuming = options.resume === true || (options.resume !== false && (retryIndexes.length > 0 || working.activeGeneration?.stage === 'draft_variants' || (working.lastGenerationResult?.stage === 'draft_variants' && working.lastGenerationResult?.status !== 'complete')));
+    const savedRequest = resuming ? working.snapshots?.draftGeneration || {} : {};
+    const revisionPrompt = options.revisionPrompt || savedRequest.revisionPrompt || '';
+    const revisionSourceText = savedRequest.revisionSourceText ?? (revisionPrompt ? previous?.text || '' : '');
+    const revisionSourceVariantId = savedRequest.revisionSourceVariantId || previous?.id || '';
     const cancelRestoreSnapshot = {
         variants: cloneJson(working.variants || []),
         selectedVariantId: working.selectedVariantId || '',
@@ -930,32 +950,64 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         retryIndexes.length
             ? `Retrying ${requestedVariantCount} failed variant${requestedVariantCount === 1 ? '' : 's'}`
             : variantCount === 1
-            ? `${options.revisionPrompt ? 'Revising' : 'Drafting'} Variant A`
-            : `${options.revisionPrompt ? 'Revising' : 'Drafting'} ${variantCount} variants`,
+            ? `${revisionPrompt ? 'Revising' : 'Drafting'} Variant A`
+            : `${revisionPrompt ? 'Revising' : 'Drafting'} ${variantCount} variants`,
         retryIndexes.length
             ? `Retrying ${requestedVariantCount} failed opener variant${requestedVariantCount === 1 ? '' : 's'}.`
             : `Starting ${variantCount} opener variant${variantCount === 1 ? '' : 's'}.`,
         options,
     );
-    if (replacingDrafts) {
+    if (replacingDrafts && !resuming) {
         working = clearStoryOpenerDraftVariantsForRun(working);
     }
-    saveStoryOpenerSession(working);
-    refresh(options);
+    working = normalizeStoryOpenerSession({ ...working, snapshots: { ...working.snapshots, draftGeneration: { revisionPrompt, revisionSourceText, revisionSourceVariantId } } });
     const run = working.activeGeneration;
     const signal = getStoryOpenerRunSignal(run, options);
+    try { await saveStoryOpenerSessionDurably(working); }
+    catch (error) {
+        const failure = normalizeStoryOpenerFailure({ code: 'checkpoint_failed', stage: 'draft_variants', message: error.message, recovery: 'Retry saving this Story Maker session.' });
+        working = failRun(working, run, failure);
+        try { await saveStoryOpenerSessionDurably(working); } catch (saveError) { failure.details = { checkpointError: saveError.message }; }
+        refresh(options);
+        return { ok: false, session: working, failure };
+    }
+    refresh(options);
     const result = await writeStoryOpenerVariants(generationSession, packet, brief, {
-        revisionPrompt: options.revisionPrompt || '',
+        revisionPrompt,
+        revisionSourceText,
         variantIndexes: options.retryVariantIndexes,
+        runId: run.id,
+        resume: resuming,
+        timeoutMs: options.timeoutMs,
+        maxTokens: options.maxTokens,
+        maxAttempts: options.maxAttempts,
+        maxConcurrency: options.maxConcurrency,
+        retryDelayMs: options.retryDelayMs,
         signal,
+        checkpointVariant: async variant => {
+            const current = getCachedExternalStoryOpenerSession(working.sessionId) || working;
+            if (current.activeGeneration?.id !== run.id || signal?.aborted) throw new Error('Story Maker generation is no longer current.');
+            working = normalizeStoryOpenerSession({
+                ...current,
+                variants: [...current.variants.filter(saved => saved.generationKey !== variant.generationKey && saved.variantIndex !== variant.variantIndex), variant],
+                currentStage: 'draft_variants',
+            });
+            const acknowledgement = await saveStoryOpenerSessionDurably(working);
+            working = getCachedExternalStoryOpenerSession(working.sessionId) || acknowledgement.session;
+            refresh(options);
+            return acknowledgement;
+        },
         onProgress: event => {
             working = updateActiveStoryOpenerRunProgress(working, run, event, options);
         },
     });
-    if (!result.ok || isStoryOpenerSignalAborted(signal)) {
+    if (result.pendingVariants?.length) {
+        working = normalizeStoryOpenerSession({ ...working, variants: [...working.variants.filter(saved => !result.pendingVariants.some(pending => pending.variantIndex === saved.variantIndex)), ...result.pendingVariants] });
+    }
+    if (!result.ok || result.pendingVariants?.length || isStoryOpenerSignalAborted(signal)) {
         const failure = isStoryOpenerSignalAborted(signal) || isStoryOpenerCancellationFailure(result.failure)
             ? createStoryOpenerCancellationFailure('draft_variants')
-            : result.failure;
+            : result.failure || normalizeStoryOpenerFailure({ code: 'checkpoint_failed', stage: 'draft_variants', message: 'Completed Story Maker variants still need to be saved.', recovery: 'Retry Draft Variants to save the completed results.' });
         const runPatch = {
             ...run,
             attempts: result.attempts || [],
@@ -964,19 +1016,19 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
             failedUnitCount: result.failedVariantIndexes?.length || 0,
         };
         working = isStoryOpenerCancellationFailure(failure)
-            ? cancelRun(working, runPatch, failure, { restoreSnapshot: cancelRestoreSnapshot })
+            ? cancelRun(working, runPatch, failure, { restoreSnapshot: { ...cancelRestoreSnapshot, variants: working.variants.length ? working.variants : cancelRestoreSnapshot.variants, selectedVariantId: working.selectedVariantId || cancelRestoreSnapshot.selectedVariantId } })
             : failRun(working, runPatch, failure);
-        saveStoryOpenerSession(working);
+        try { await saveStoryOpenerSessionDurably(working); } catch (error) { failure.details = { ...(failure.details || {}), checkpointError: error.message }; }
         refresh(options);
         return { ok: false, session: working, failure };
     }
     const history = [...(working.revisionHistory || [])];
-    if (options.revisionPrompt && previous?.text) {
+    if (revisionPrompt && revisionSourceText) {
         history.push({
             id: `revision-${Date.now().toString(36)}`,
-            text: previous.text,
-            instruction: options.revisionPrompt,
-            variantId: previous.id,
+            text: revisionSourceText,
+            instruction: revisionPrompt,
+            variantId: revisionSourceVariantId,
             createdAt: Date.now(),
             sourceRunId: run?.id || '',
         });
@@ -984,10 +1036,10 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
     const existingVariants = retryIndexes.length
         ? working.variants.filter(variant => !retryIndexes.includes(Number(variant.variantIndex)))
         : [];
-    const variants = [...existingVariants, ...result.variants]
+    const variants = [...existingVariants, ...result.variants, ...(result.pendingVariants || [])]
         .map((variant, index) => ({
             ...variant,
-            sourceRunId: run?.id || '',
+            sourceRunId: variant.sourceRunId || run?.id || '',
             status: index === 0 ? 'selected' : 'draft',
         }))
         .sort((left, right) => (Number(left.variantIndex) || 0) - (Number(right.variantIndex) || 0));
@@ -1009,8 +1061,8 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         ? `Created ${formatCount(variants.length, 'variant')} with ${formatCount(result.failures.length, 'provider failure')}.`
         : `Created ${formatCount(variants.length, 'variant')}.`;
     const finishLabel = variants.length === 1
-        ? `${options.revisionPrompt ? 'Revised' : 'Drafted'} Variant A`
-        : `${options.revisionPrompt ? 'Revised' : 'Drafted'} ${variants.length} variants`;
+        ? `${revisionPrompt ? 'Revised' : 'Drafted'} Variant A`
+        : `${revisionPrompt ? 'Revised' : 'Drafted'} ${variants.length} variants`;
     working = finishRun(working, run, {
         label: finishLabel,
         message,
@@ -1022,7 +1074,14 @@ async function runDraftStage(session = {}, state = {}, options = {}) {
         partial: !!result.failures?.length,
         ...(result.partialFailure ? { failure: result.partialFailure } : {}),
     });
-    saveStoryOpenerSession(working);
+    try { await saveStoryOpenerSessionDurably(working); }
+    catch (error) {
+        const failure = normalizeStoryOpenerFailure({ code: 'checkpoint_failed', stage: 'draft_variants', message: error.message, recovery: 'Retry saving the completed Story Maker variants.' });
+        working = failRun(working, run, failure);
+        try { await saveStoryOpenerSessionDurably(working); } catch (saveError) { failure.details = { checkpointError: saveError.message }; }
+        refresh(options);
+        return { ok: false, session: working, variants, failure };
+    }
     refresh(options);
     return { ok: true, session: working, variants };
 }

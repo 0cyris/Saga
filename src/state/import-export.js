@@ -29,7 +29,7 @@ export function getImportedStateSchemaError(parsed) {
         return `Imported Saga state is missing _version. Restore from a current Saga export or reset Saga state before importing.`;
     }
     const version = Number(rawVersion);
-    if (!Number.isFinite(version) || version <= 0) {
+    if (!Number.isSafeInteger(version) || version <= 0) {
         return `Imported Saga state has unsupported schema version "${rawVersion}". Restore from a current Saga export or reset Saga state before importing.`;
     }
     if (version < MIN_SUPPORTED_IMPORT_STATE_SCHEMA_VERSION) {

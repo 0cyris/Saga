@@ -25,7 +25,8 @@ function canonical(value) {
 }
 
 function hasFiniteNumber(value) {
-    return value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
+    return (typeof value === 'number' || (typeof value === 'string' && value.trim() !== ''))
+        && Number.isFinite(Number(value));
 }
 
 function parseStardateValue(value) {
@@ -121,19 +122,22 @@ function getContextAnchor(index = null, context = {}, packId = '') {
 }
 
 function getContextSortKey(index = null, context = {}, packId = '') {
-    const direct = Number(context?.sortKey ?? context?.contextSortKey);
-    if (Number.isFinite(direct)) return direct;
+    const direct = context?.sortKey ?? context?.contextSortKey;
+    if (hasFiniteNumber(direct)) return Number(direct);
     const anchor = getContextAnchor(index, context, packId);
-    if (anchor && Number.isFinite(Number(anchor.sortKey))) return Number(anchor.sortKey);
+    if (anchor && hasFiniteNumber(anchor.sortKey)) return Number(anchor.sortKey);
     return null;
 }
 
 function getAnchorSortKey(index = null, packId = '', anchorId = '') {
     const anchor = findAnchor(index, packId, anchorId);
-    return anchor && Number.isFinite(Number(anchor.sortKey)) ? Number(anchor.sortKey) : null;
+    return anchor && hasFiniteNumber(anchor.sortKey) ? Number(anchor.sortKey) : null;
 }
 
 function getContextSortRange(index = null, context = {}, packId = '') {
+    if (['contextSortKeyFrom', 'sortKeyFrom', 'contextSortKeyTo', 'sortKeyTo']
+        .some(field => context[field] !== null && context[field] !== undefined && context[field] !== ''
+            && !hasFiniteNumber(context[field]))) return { invalid: true };
     const point = getContextSortKey(index, context, packId);
     let from = hasFiniteNumber(context?.contextSortKeyFrom ?? context?.sortKeyFrom)
         ? Number(context.contextSortKeyFrom ?? context.sortKeyFrom)
@@ -147,17 +151,19 @@ function getContextSortRange(index = null, context = {}, packId = '') {
     const matchingWindow = findWindow(index, packId, contextFrom, contextTo);
     if (from === null) from = getAnchorSortKey(index, packId, contextFrom);
     if (to === null) to = getAnchorSortKey(index, packId, contextTo);
-    if (from === null && Number.isFinite(Number(matchingWindow?.sortKeyFrom))) from = Number(matchingWindow.sortKeyFrom);
-    if (to === null && Number.isFinite(Number(matchingWindow?.sortKeyTo))) to = Number(matchingWindow.sortKeyTo);
+    if (from === null && hasFiniteNumber(matchingWindow?.sortKeyFrom)) from = Number(matchingWindow.sortKeyFrom);
+    if (to === null && hasFiniteNumber(matchingWindow?.sortKeyTo)) to = Number(matchingWindow.sortKeyTo);
+
+    const unresolved = (contextFrom && from === null) || (contextTo && to === null);
 
     if (from === null && to === null && point !== null) {
         from = point;
         to = point;
     }
     if (from !== null && to !== null && from > to) {
-        return { from: to, to: from, point };
+        return { from, to, point, invalid: true };
     }
-    return { from, to, point };
+    return { from, to, point, unresolved };
 }
 
 function anchorMatches(contextGate = {}, context = {}, index = null, packId = '') {
@@ -171,7 +177,8 @@ function anchorMatches(contextGate = {}, context = {}, index = null, packId = ''
 
     const required = findAnchor(index, packId, requiredAnchor);
     const current = findAnchor(index, packId, contextAnchor);
-    if (required && current && Number(required.sortKey) === Number(current.sortKey)) return { ok: true };
+    if (required && current && hasFiniteNumber(required.sortKey) && hasFiniteNumber(current.sortKey)
+        && Number(required.sortKey) === Number(current.sortKey)) return { ok: true };
     return { ok: false, reason: `Entry requires anchor ${requiredAnchor}; current anchor is ${contextAnchor}.` };
 }
 
@@ -187,18 +194,21 @@ function windowMatches(contextGate = {}, context = {}, index = null, packId = ''
     const toAnchor = findAnchor(index, packId, toAnchorId);
     const matchingWindow = findWindow(index, packId, fromAnchorId, toAnchorId);
 
-    if (fromSort === null && fromAnchor && Number.isFinite(Number(fromAnchor.sortKey))) fromSort = Number(fromAnchor.sortKey);
-    if (toSort === null && toAnchor && Number.isFinite(Number(toAnchor.sortKey))) toSort = Number(toAnchor.sortKey);
-    if (fromSort === null && Number.isFinite(Number(matchingWindow?.sortKeyFrom))) fromSort = Number(matchingWindow.sortKeyFrom);
-    if (toSort === null && Number.isFinite(Number(matchingWindow?.sortKeyTo))) toSort = Number(matchingWindow.sortKeyTo);
+    if (fromSort === null && fromAnchor && hasFiniteNumber(fromAnchor.sortKey)) fromSort = Number(fromAnchor.sortKey);
+    if (toSort === null && toAnchor && hasFiniteNumber(toAnchor.sortKey)) toSort = Number(toAnchor.sortKey);
+    if (fromSort === null && hasFiniteNumber(matchingWindow?.sortKeyFrom)) fromSort = Number(matchingWindow.sortKeyFrom);
+    if (toSort === null && hasFiniteNumber(matchingWindow?.sortKeyTo)) toSort = Number(matchingWindow.sortKeyTo);
+    if ((fromAnchorId && fromSort === null) || (toAnchorId && toSort === null)) {
+        return { ok: false, unresolved: true, reason: 'Entry requires a Context boundary that has no comparable sort key.' };
+    }
+    if (fromSort !== null && toSort !== null && fromSort > toSort) {
+        return { ok: false, reason: 'Entry has a reversed Context window.' };
+    }
 
     const contextRange = getContextSortRange(index, context, packId);
+    if (contextRange.invalid) return { ok: false, reason: 'Current Context has a reversed window.' };
+    if (contextRange.unresolved) return { ok: false, unresolved: true, reason: 'Current Context has an unresolved required boundary.' };
     if (contextRange.from === null && contextRange.to === null && contextRange.point === null) {
-        const contextFrom = cleanString(context?.anchorFrom);
-        const contextTo = cleanString(context?.anchorTo);
-        if ((fromAnchorId && contextFrom === fromAnchorId) || (toAnchorId && contextTo === toAnchorId)) {
-            return { ok: true };
-        }
         return { ok: false, unresolved: true, reason: 'Entry has a Context window, but this Loredeck Context has no comparable anchor or sort key.' };
     }
 
@@ -211,12 +221,24 @@ function windowMatches(contextGate = {}, context = {}, index = null, packId = ''
     return { ok: true };
 }
 
+function canonicalMediaIdentifier(value, label) {
+    const text = canonical(value).replace(/\s+/g, ' ');
+    // Numeric axes accept their explicit field prefix and leading zeroes only.
+    // Free-text axes remain exact identifiers; substring matching admits other eras.
+    if (['phase', 'season', 'episode', 'chapter', 'issue', 'game stage'].includes(label)) {
+        const prefix = label === 'game stage' ? '(?:game stage|stage)' : label;
+        const match = text.match(new RegExp(`^(?:${prefix}\\s*#?\\s*)?(\\d+)$`));
+        if (match) return match[1].replace(/^0+(?=\d)/, '');
+    }
+    return text;
+}
+
 function textFieldMatches(entryValue, contextValue, label) {
-    const entryText = canonical(entryValue);
+    const entryText = canonicalMediaIdentifier(entryValue, label);
     if (!entryText) return { ok: true };
-    const contextText = canonical(contextValue);
+    const contextText = canonicalMediaIdentifier(contextValue, label);
     if (!contextText) return { ok: false, unresolved: true, reason: `Entry requires ${label} ${entryValue}, but this Loredeck Context has no ${label}.` };
-    if (entryText === contextText || contextText.includes(entryText) || entryText.includes(contextText)) return { ok: true };
+    if (entryText === contextText) return { ok: true };
     return { ok: false, reason: `Entry requires ${label} ${entryValue}; current ${label} is ${contextValue}.` };
 }
 
@@ -283,6 +305,18 @@ export function evaluateEntryContextGate(entryInput = {}, state = {}, options = 
     const entry = normalizeLoreEntry(entryInput);
     const contextGate = entry.context || {};
     const coordinates = Array.isArray(entry.coordinates) ? entry.coordinates : [];
+
+    // Normalization intentionally drops invalid numeric values. At the eligibility
+    // boundary, dropping a supplied constraint must not turn it into an open gate.
+    const rawContext = isPlainObject(entryInput.context) ? entryInput.context : {};
+    const malformedBound = rawContext.invalidNumericBounds === true
+        || ['sortKeyFrom', 'fromSortKey', 'sortKeyStart', 'sortKeyTo', 'toSortKey', 'sortKeyEnd']
+        .some(field => rawContext[field] !== null && rawContext[field] !== undefined && rawContext[field] !== ''
+            && !hasFiniteNumber(rawContext[field]));
+    if (malformedBound) {
+        return { status: CONTEXT_GATE_STATUSES.MISMATCH, eligible: false, hasGate: true,
+            reason: 'Entry has a malformed numeric Context boundary.', packId: getEntryPackId(entry), entry };
+    }
 
     if (!hasAnyContextGate(contextGate, coordinates)) {
         return {

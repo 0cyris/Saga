@@ -23,6 +23,7 @@ import {
     normalizeSagaStorageFallback,
     normalizeSagaStorageSettings,
 } from '../storage/saga-storage-index.js';
+import { assertSagaStorageWriteAcknowledged } from '../storage/saga-storage-coordinator.js';
 
 const EMPTY_EXTERNALIZED_LOREDECK_LIBRARY = Object.freeze({
     schemaVersion: 1,
@@ -98,10 +99,12 @@ function cloneJson(value) {
 }
 
 function compactExternalizedStorageSettings(settings = {}) {
-    settings.loredeckLibrary = cloneJson(EMPTY_EXTERNALIZED_LOREDECK_LIBRARY);
-    settings.loredeckCreatorProjects = cloneJson(EMPTY_EXTERNALIZED_CREATOR_PROJECTS);
-    settings.themePackLibrary = cloneJson(EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY);
-    settings.themeIconSetLibrary = cloneJson(EMPTY_EXTERNALIZED_ICON_SET_LIBRARY);
+    // Inline registries remain a recoverable supported input until migration
+    // explicitly acknowledges all external files and stores a durable backup.
+    settings.loredeckLibrary ??= cloneJson(EMPTY_EXTERNALIZED_LOREDECK_LIBRARY);
+    settings.loredeckCreatorProjects ??= cloneJson(EMPTY_EXTERNALIZED_CREATOR_PROJECTS);
+    settings.themePackLibrary ??= cloneJson(EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY);
+    settings.themeIconSetLibrary ??= cloneJson(EMPTY_EXTERNALIZED_ICON_SET_LIBRARY);
     return settings;
 }
 
@@ -118,6 +121,14 @@ export function getSettings() {
     const { extensionSettings } = ctx;
     const stored = migrateSettingsBucket(extensionSettings) || {};
     const merged = { ...DEFAULT_SETTINGS, ...stored };
+    if (!stored.sagaInlineRecovery && [
+        ['loredeckLibrary', 'packs'], ['loredeckCreatorProjects', 'jobs'], ['themePackLibrary', 'packs'], ['themeIconSetLibrary', 'iconSets'],
+    ].some(([key, collection]) => Object.keys(stored[key]?.[collection] || {}).length > 0)) {
+        merged.sagaInlineRecovery = {
+            schemaVersion: 1, status: 'pending',
+            registries: cloneJson(Object.fromEntries(['loredeckLibrary', 'loredeckCreatorProjects', 'themePackLibrary', 'themeIconSetLibrary'].map(key => [key, stored[key] || {}]))),
+        };
+    }
     merged.collapsedSections = {
         ...(DEFAULT_SETTINGS.collapsedSections || {}),
         ...(stored.collapsedSections || {}),
@@ -129,19 +140,19 @@ export function getSettings() {
     merged.sagaStorage = normalizeSagaStorageSettings(stored.sagaStorage || DEFAULT_SETTINGS.sagaStorage);
     merged.sagaStorageFallback = normalizeSagaStorageFallback(stored.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
     merged.loredeckLibrary = normalizeLoredeckRegistry(
-        EMPTY_EXTERNALIZED_LOREDECK_LIBRARY,
+        stored.loredeckLibrary || EMPTY_EXTERNALIZED_LOREDECK_LIBRARY,
         EMPTY_EXTERNALIZED_LOREDECK_LIBRARY
     );
     merged.themePackLibrary = normalizeThemePackRegistry(
-        EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY,
+        stored.themePackLibrary || EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY,
         EMPTY_EXTERNALIZED_THEME_PACK_LIBRARY
     );
     merged.themeIconSetLibrary = normalizeThemeIconSetRegistry(
-        EMPTY_EXTERNALIZED_ICON_SET_LIBRARY,
+        stored.themeIconSetLibrary || EMPTY_EXTERNALIZED_ICON_SET_LIBRARY,
         EMPTY_EXTERNALIZED_ICON_SET_LIBRARY
     );
     merged.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(
-        EMPTY_EXTERNALIZED_CREATOR_PROJECTS
+        stored.loredeckCreatorProjects || EMPTY_EXTERNALIZED_CREATOR_PROJECTS
     );
 
     const hasStoredSettings = hasStoredSagaSettings(stored);
@@ -351,9 +362,19 @@ export function saveSettings(settings) {
         settings.sagaStorageFallback = normalizeSagaStorageFallback(settings.sagaStorageFallback || DEFAULT_SETTINGS.sagaStorageFallback);
         compactExternalizedStorageSettings(settings);
     }
+    const previous = extensionSettings[MODULE_KEY];
     extensionSettings[MODULE_KEY] = settings;
+    const restore = error => {
+        if (extensionSettings[MODULE_KEY] === settings) extensionSettings[MODULE_KEY] = previous;
+        throw error;
+    };
     if (typeof saveSettingsDebounced === 'function') {
-        saveSettingsDebounced();
+        try {
+            const result = saveSettingsDebounced();
+            queuePromptInjectionSync();
+            if (result && typeof result.then === 'function') return Promise.resolve(result).then(assertSagaStorageWriteAcknowledged).catch(restore);
+            return assertSagaStorageWriteAcknowledged(result);
+        } catch (error) { return restore(error); }
     }
     queuePromptInjectionSync();
 }

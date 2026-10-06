@@ -36,6 +36,7 @@ export const GENERATION_ERROR_CODES = Object.freeze({
     STAGE_CONTRACT_FAILED: 'creator_stage_contract_failed',
     JSON_INVALID: 'json_invalid',
     COMMIT_FAILED: 'commit_failed',
+    CHECKPOINT_FAILED: 'checkpoint_failed',
 });
 
 const RUN_STATUS_SET = new Set(GENERATION_RUN_STATUSES);
@@ -241,12 +242,80 @@ function emitProgress(options = {}, event = {}) {
 
 async function checkpointRun(options = {}, run = {}, event = {}) {
     emitProgress(options, { type: event.type || 'run_checkpoint', run, ...event });
-    await callOptional(options.checkpointRun, { run, event }, null);
+    await resolveAcknowledgement(await callOptional(options.checkpointRun, { run, event }, null), GENERATION_ERROR_CODES.CHECKPOINT_FAILED);
 }
 
 async function checkpointUnit(options = {}, run = {}, unit = {}, event = {}) {
     emitProgress(options, { type: event.type || 'unit_checkpoint', run, unit, ...event });
-    await callOptional(options.checkpointUnit, { run, unit, event }, null);
+    await resolveAcknowledgement(await callOptional(options.checkpointUnit, { run, unit, event }, null), GENERATION_ERROR_CODES.CHECKPOINT_FAILED);
+}
+
+async function resolveAcknowledgement(result, code) {
+    if (result?.completion) {
+        const completed = await result.completion;
+        result = { ...result, ...completed, queued: completed?.queued === true, completion: undefined };
+    }
+    assertAcknowledged(result, code);
+    return result;
+}
+
+function assertAcknowledged(result, code) {
+    if (result !== false && result?.ok !== false && result?.ignored !== true && result?.persisted !== false && result?.queued !== true) return;
+    const error = new Error(cleanString(result?.error || result?.reason || 'Generation update was not acknowledged.', 1000));
+    error.code = code;
+    throw error;
+}
+
+// Persist this exact identity with the domain result, not only its completion
+// checkpoint. A sink can then reconcile an acknowledged commit after reload.
+export function buildGenerationUnitIdempotencyKey(run = {}, unit = {}) {
+    return JSON.stringify([run.jobId || '', run.runId || '', unit.unitId || '', unit.inputHash || '']);
+}
+
+function retryStatus(error = {}) {
+    const status = Number(error.status || error.statusCode || error.httpStatus || error.response?.status);
+    if (Number.isFinite(status) && status > 0) return status;
+    return Number(String(error.message || '').match(/\b(?:HTTP\s*)?(4\d\d|5\d\d)\b/i)?.[1]) || 0;
+}
+
+function permanentRequestFailure(error) {
+    const status = retryStatus(error);
+    if (status >= 400 && status < 500 && ![408, 425, 429].includes(status)) return true;
+    return /(?:auth|unauthori|forbidden|invalid[_ -]?(?:api[_ -]?key|config)|not[_ -]?configured|missing[_ -]?(?:api|provider|config)|unsupported[_ -]?(?:provider|model)|configuration)/i
+        .test(`${error?.code || error?.errorCode || ''} ${error?.message || ''}`);
+}
+
+function retryDelay(error, attempt, options) {
+    const base = clampInteger(options.retryBaseDelayMs, 1, 60000, 250);
+    const cap = clampInteger(options.retryMaxDelayMs, base, 120000, Math.max(base, 10000));
+    const exponential = Math.min(cap, base * (2 ** Math.max(0, attempt - 1)));
+    const random = typeof options.retryRandom === 'function' ? options.retryRandom() : Math.random();
+    const jittered = exponential * (0.5 + Math.max(0, Math.min(1, Number(random) || 0)) * 0.5);
+    const headers = error?.headers || error?.response?.headers;
+    const hint = error?.retryAfter ?? headers?.get?.('retry-after') ?? headers?.['retry-after'] ?? headers?.['Retry-After'];
+    let retryAfterMs = Number(error?.retryAfterMs);
+    if (!Number.isFinite(retryAfterMs)) {
+        const seconds = Number(hint);
+        retryAfterMs = hint !== undefined && Number.isFinite(seconds) ? Math.max(0, seconds * 1000) : Math.max(0, Date.parse(hint) - now()) || 0;
+    }
+    return Math.round(Math.min(cap, Math.max(jittered, retryAfterMs)));
+}
+
+async function waitForRetry(error, attempt, options = {}, context = {}) {
+    throwIfGenerationAborted(options.signal);
+    const delayMs = retryDelay(error, attempt, options);
+    if (typeof options.waitForRetry === 'function') {
+        await options.waitForRetry({ ...context, delayMs, signal: options.signal });
+    } else {
+        await new Promise((resolve, reject) => {
+            const cleanup = () => options.signal?.removeEventListener('abort', abort);
+            const timer = setTimeout(() => { cleanup(); resolve(); }, delayMs);
+            const abort = () => { clearTimeout(timer); cleanup(); reject(createAbortError()); };
+            options.signal?.addEventListener('abort', abort, { once: true });
+            if (options.signal?.aborted) abort();
+        });
+    }
+    throwIfGenerationAborted(options.signal);
 }
 
 async function assertUsableParsedResult(result, context, options = {}) {
@@ -319,10 +388,18 @@ async function repairAndParseUnitResult(rawResult, error, context, options = {})
 
 async function isRetryable(error, context, options = {}) {
     if (isGenerationAbortError(error)) return false;
+    if (context.phase === 'commit' || context.phase === 'checkpoint') return false;
+    if (permanentRequestFailure(error)) return false;
     if (typeof options.isRetryableError === 'function') {
-        return await options.isRetryableError(error, context) !== false;
+        // Explicit stage-specific retry/repair policies may intentionally reduce
+        // invalid output. They cannot override auth/config or commit boundaries.
+        return await options.isRetryableError(error, context) === true;
     }
-    return true;
+    if (context.phase !== 'request') return false;
+    const status = retryStatus(error);
+    return [408, 425, 429].includes(status) || status >= 500
+        || /^(?:ETIMEDOUT|ECONNRESET|ECONNREFUSED|EAI_AGAIN|ENETUNREACH|provider_(?:timeout|network_error|rate_limited|server_error))$/i.test(error?.code || '')
+        || /network|fetch failed|failed to fetch|temporary|temporarily|timeout|timed out|rate limit/i.test(error?.message || '');
 }
 
 async function isRunCurrent(options = {}, context = {}) {
@@ -338,17 +415,90 @@ async function maybeSkipUnit(options = {}, context = {}) {
 async function commitUnitResult(options = {}, context = {}) {
     if (typeof options.commitResult !== 'function') return null;
     try {
-        return await options.commitResult(context);
+        return await resolveAcknowledgement(await options.commitResult(context), GENERATION_ERROR_CODES.COMMIT_FAILED);
     } catch (error) {
         throw annotateGenerationError(error, GENERATION_ERROR_CODES.COMMIT_FAILED, 'Generation result could not be saved.');
     }
+}
+
+async function finishCommittedUnit(options, run, unit, context, committed) {
+    const committedAt = committed.committedAt || now();
+    const complete = unitPatch(unit, {
+        status: 'complete', completedAt: committedAt,
+        outputHash: cleanString(committed.outputHash || committed.commitResult?.outputHash || committed.commitResult?.hash || '', 160),
+        resultRef: committed.resultRef || committed.commitResult?.resultRef || null,
+        error: '', diagnostic: null,
+        meta: {
+            ...(unit.meta || {}), idempotencyKey: context.idempotencyKey, checkpointPending: false,
+            generationCommit: {
+                idempotencyKey: context.idempotencyKey, committedAt,
+                outputHash: committed.outputHash || committed.commitResult?.outputHash || '',
+                resultRef: committed.resultRef || committed.commitResult?.resultRef || null,
+            },
+        },
+    });
+    const retries = clampInteger(options.checkpointRetryAttempts, 0, 10, 2);
+    let checkpointError;
+    for (let checkpointAttempt = 1; checkpointAttempt <= retries + 1; checkpointAttempt += 1) {
+        try {
+            await checkpointUnit(options, run, complete, {
+                type: 'unit_completed', attempt: unit.attempts,
+                checkpointAttempt, idempotencyKey: context.idempotencyKey, commitResult: committed.commitResult,
+            });
+            return { ...committed, status: 'complete', unit: complete, stop: false, reconciled: committed.reconciled === true };
+        } catch (error) {
+            checkpointError = annotateGenerationError(error, GENERATION_ERROR_CODES.CHECKPOINT_FAILED);
+            if (checkpointAttempt > retries || options.signal?.aborted) break;
+            try { await waitForRetry(checkpointError, checkpointAttempt, options, { ...context, phase: 'checkpoint' }); }
+            catch (_) { break; }
+        }
+    }
+    const pending = unitPatch(complete, {
+        status: 'interrupted', error: normalizeError(checkpointError).message,
+        meta: { ...complete.meta, checkpointPending: true },
+    });
+    // Best effort saves the reconciliation reference even if completion metadata
+    // is refused. The domain sink must also retain the identity with its result.
+    try { await checkpointUnit(options, run, pending, { type: 'unit_checkpoint_pending', idempotencyKey: context.idempotencyKey }); }
+    catch (_) {}
+    return { ...committed, status: 'checkpoint_pending', unit: pending, error: normalizeError(checkpointError), stop: true };
+}
+
+async function finishRunCheckpoint(options, run, event) {
+    const retries = clampInteger(options.checkpointRetryAttempts, 0, 10, 2);
+    let error;
+    for (let attempt = 1; attempt <= retries + 1; attempt += 1) {
+        try {
+            await checkpointRun(options, run, { ...event, checkpointAttempt: attempt });
+            return { run };
+        } catch (caught) {
+            error = annotateGenerationError(caught, GENERATION_ERROR_CODES.CHECKPOINT_FAILED);
+            if (attempt > retries || options.signal?.aborted) break;
+            try { await waitForRetry(error, attempt, options, { run, phase: 'checkpoint' }); }
+            catch (_) { break; }
+        }
+    }
+    return {
+        run: runPatch(run, { status: 'interrupted', error: normalizeError(error).message, meta: { ...(run.meta || {}), checkpointPending: true } }),
+        error: normalizeError(error),
+    };
 }
 
 async function runSingleUnit(options, run, unit, runState) {
     const retryAttempts = clampInteger(options.retryAttempts, 0, 10, 0);
     const maxAttempts = retryAttempts + 1;
     const stopOnFailure = options.stopOnFailure !== false;
-    const contextBase = { run, unit, signal: options.signal };
+    const idempotencyKey = buildGenerationUnitIdempotencyKey(run, unit);
+    const contextBase = { run, unit, signal: options.signal, idempotencyKey };
+
+    const recorded = unit.meta?.generationCommit;
+    const reconciled = await callOptional(options.reconcileCommittedResult, contextBase, null);
+    if (reconciled?.committed === true && reconciled.idempotencyKey !== idempotencyKey) {
+        throw new Error('Generation commit reconciliation returned a different identity.');
+    }
+    const committed = reconciled?.committed === true ? reconciled
+        : (recorded?.idempotencyKey === idempotencyKey && recorded.committedAt ? recorded : null);
+    if (committed) return await finishCommittedUnit(options, run, unit, contextBase, { ...committed, reconciled: true });
 
     if (await maybeSkipUnit(options, contextBase)) {
         const skipped = unitPatch(unit, { status: 'skipped' });
@@ -360,6 +510,8 @@ async function runSingleUnit(options, run, unit, runState) {
     let lastError = null;
     let lastDiagnostic = null;
     let repairAttempted = false;
+    let parsedResult;
+    let failedUnit = unit;
 
     for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
         throwIfGenerationAborted(options.signal);
@@ -369,6 +521,7 @@ async function runSingleUnit(options, run, unit, runState) {
             startedAt: unit.startedAt || now(),
             error: '',
             diagnostic: null,
+            meta: { ...(unit.meta || {}), idempotencyKey },
         });
         await checkpointUnit(options, run, running, {
             type: attempt === 1 ? 'unit_started' : 'unit_retrying',
@@ -388,7 +541,6 @@ async function runSingleUnit(options, run, unit, runState) {
                 return { status: 'superseded', unit: superseded, stop: true };
             }
 
-            let parsedResult;
             failurePhase = 'parse';
             try {
                 parsedResult = await parseUnitResult(rawResult, attemptContext, options);
@@ -421,27 +573,11 @@ async function runSingleUnit(options, run, unit, runState) {
                 rawResult,
                 parsedResult,
             });
-            const complete = unitPatch(running, {
-                status: 'complete',
-                completedAt: now(),
-                outputHash: cleanString(commitResult?.outputHash || commitResult?.hash || running.outputHash || '', 160),
-                resultRef: commitResult?.resultRef || running.resultRef || null,
-                error: '',
-                diagnostic: null,
-            });
-            await checkpointUnit(options, run, complete, {
-                type: 'unit_completed',
-                attempt,
-                commitResult,
-            });
-            return {
-                status: 'complete',
-                unit: complete,
+            return await finishCommittedUnit(options, run, running, attemptContext, {
                 rawResult,
                 parsedResult,
                 commitResult,
-                stop: false,
-            };
+            });
         } catch (error) {
             if (isGenerationAbortError(error)) throw error;
             lastError = error;
@@ -457,25 +593,29 @@ async function runSingleUnit(options, run, unit, runState) {
                 normalizedError,
                 repairAttempted,
             });
-            const retry = attempt < maxAttempts && await isRetryable(error, { ...contextBase, unit: running, attempt, rawResult }, options);
-            await checkpointUnit(options, run, unitPatch(running, {
+            const retry = attempt < maxAttempts && await isRetryable(error, { ...contextBase, unit: running, attempt, rawResult, phase: failurePhase }, options);
+            failedUnit = unitPatch(running, {
                 status: retry ? 'retrying' : 'failed',
                 error: normalizedError.message,
                 diagnostic: lastDiagnostic || null,
                 failedAt: retry ? 0 : now(),
-            }), {
+            });
+            await checkpointUnit(options, run, failedUnit, {
                 type: retry ? 'unit_retry_scheduled' : 'unit_failed',
                 attempt,
                 error: normalizedError,
                 diagnostic: lastDiagnostic || null,
             });
-            if (retry) continue;
+            if (retry) {
+                await waitForRetry(error, attempt, options, { ...contextBase, unit: running, attempt, phase: failurePhase });
+                continue;
+            }
+            break;
         }
     }
 
-    const failed = unitPatch(unit, {
+    const failed = unitPatch(failedUnit, {
         status: 'failed',
-        attempts: maxAttempts,
         error: normalizeError(lastError).message || 'Generation unit failed.',
         diagnostic: lastDiagnostic || null,
         failedAt: now(),
@@ -484,6 +624,8 @@ async function runSingleUnit(options, run, unit, runState) {
         status: 'failed',
         unit: failed,
         error: normalizeError(lastError),
+        rawResult,
+        parsedResult,
         stop: stopOnFailure,
     };
 }
@@ -519,10 +661,10 @@ export async function runGenerationUnits(options = {}) {
 
     if (!units.length) {
         const emptyRun = runPatch(run, { status: 'complete', completedAt: now() });
-        await checkpointRun(options, emptyRun, { type: 'run_completed' });
+        const checkpoint = await finishRunCheckpoint(options, emptyRun, { type: 'run_completed' });
         return {
-            status: 'complete',
-            run: emptyRun,
+            ...checkpoint,
+            status: checkpoint.run.status,
             units: [],
             results,
             completedUnits: 0,
@@ -558,7 +700,8 @@ export async function runGenerationUnits(options = {}) {
             else if (result.status === 'failed') runState.failed += 1;
 
             if (result.stop) {
-                const status = result.status === 'superseded' ? 'superseded' : (result.status === 'failed' ? 'failed' : 'partial');
+                const status = result.status === 'checkpoint_pending' ? 'interrupted'
+                    : result.status === 'superseded' ? 'superseded' : (result.status === 'failed' ? 'failed' : 'partial');
                 currentRun = runPatch(currentRun, {
                     status,
                     completedUnits: runState.completed,
@@ -568,10 +711,10 @@ export async function runGenerationUnits(options = {}) {
                     completedAt: now(),
                     error: result.error?.message || result.unit?.error || '',
                 });
-                await checkpointRun(options, currentRun, { type: `run_${status}`, result });
+                const checkpoint = await finishRunCheckpoint(options, currentRun, { type: `run_${status}`, result });
                 return {
-                    status,
-                    run: currentRun,
+                    ...checkpoint,
+                    status: checkpoint.run.status,
                     units,
                     results,
                     completedUnits: runState.completed,
@@ -593,16 +736,16 @@ export async function runGenerationUnits(options = {}) {
             completedAt: now(),
             error: normalizeError(error).message,
         });
-        await checkpointRun(options, currentRun, {
+        const checkpoint = await finishRunCheckpoint(options, currentRun, {
             type: status === 'cancelled' ? 'run_cancelled' : 'run_failed',
             error: normalizeError(error),
         });
         return {
-            status,
-            run: currentRun,
+            ...checkpoint,
+            status: checkpoint.run.status,
             units,
             results,
-            error: normalizeError(error),
+            error: checkpoint.error || normalizeError(error),
             completedUnits: runState.completed,
             failedUnits: runState.failed,
             skippedUnits: runState.skipped,
@@ -622,11 +765,11 @@ export async function runGenerationUnits(options = {}) {
         completedAt: now(),
         currentUnitId: '',
     });
-    await checkpointRun(options, currentRun, { type: `run_${finalStatus}` });
+    const checkpoint = await finishRunCheckpoint(options, currentRun, { type: `run_${finalStatus}` });
 
     return {
-        status: finalStatus,
-        run: currentRun,
+        ...checkpoint,
+        status: checkpoint.run.status,
         units,
         results,
         completedUnits: runState.completed,

@@ -13,6 +13,9 @@ import {
 } from '../story-openers/story-opener-state.js';
 import { createSagaDomainStorage, buildSagaDomainPayloadPath } from './saga-domain-storage.js';
 import { createSagaFileApi } from './saga-file-api.js';
+import { createSagaStorageOperationOutcomes } from './saga-storage-operation-outcomes.js';
+import { assertSagaStorageWriteAcknowledged, writeSagaStorageJsonFile } from './saga-storage-coordinator.js';
+import { getSagaStorageRolledBackRevision, recoverSagaStorageTransactions, runSagaStorageTransaction, verifySagaStorageFiles } from './saga-storage-transactions.js';
 import { createSagaStorageIndexStore, SAGA_STORAGE_DOMAIN_INDEX_FILES } from './saga-storage-index.js';
 import {
     assertSagaUserFilesPath,
@@ -38,6 +41,9 @@ let hydrationPromise = null;
 let pendingOpenerWrite = Promise.resolve();
 let pendingOpenerWriteCount = 0;
 let lastOpenerWriteError = '';
+const openerOutcomes = createSagaStorageOperationOutcomes();
+const openerRetryRevisions = new Map();
+let durableOpenerIndexRevision = 1;
 
 export function configureSagaStoryOpenerStorage(options = {}) {
     openerRuntimeOptions = { ...openerRuntimeOptions, ...(options || {}) };
@@ -121,9 +127,10 @@ function shouldPersistQueuedWrites(options = {}) {
     return typeof window !== 'undefined' && typeof fetch === 'function';
 }
 
-function recordQueuedWriteError(error = {}, options = {}) {
+function recordQueuedWriteError(error = {}, options = {}, attempt) {
     const merged = resolveStorageOptions(options);
-    lastOpenerWriteError = String(error?.message || error || 'Story Maker external storage write failed.');
+    openerOutcomes.fail(attempt, error);
+    lastOpenerWriteError = openerOutcomes.getError();
     if (typeof merged.onWriteError === 'function') {
         merged.onWriteError(error);
         return;
@@ -246,6 +253,7 @@ export function getStoryOpenerStorageStatus() {
         ...hydrationStatus,
         pendingWriteCount: pendingOpenerWriteCount,
         lastWriteError: lastOpenerWriteError,
+        failures: openerOutcomes.getFailures(),
     };
 }
 
@@ -401,8 +409,11 @@ function queueExternalStoryOpenerSessionWrite(payload = {}, index = hydratedOpen
     const merged = resolveStorageOptions(options);
     const payloadWriteSnapshot = normalizeExternalStoryOpenerSessionPayload(payload, merged);
     const indexSnapshot = normalizeSagaStoryOpenerIndex(index, merged);
-    const expectedPayloadRevision = normalizeExpectedRevision(expectations.expectedPayloadRevision);
-    const expectedIndexRevision = normalizeExpectedRevision(expectations.expectedIndexRevision);
+    const retryRevision = openerRetryRevisions.get(payloadWriteSnapshot.sessionId);
+    const staleCheck = merged.staleCheck !== false && pendingOpenerWriteCount === 0;
+    const expectedPayloadRevision = staleCheck ? retryRevision ?? normalizeExpectedRevision(expectations.expectedPayloadRevision) : 0;
+    const expectedIndexRevision = staleCheck ? retryRevision !== undefined ? durableOpenerIndexRevision : normalizeExpectedRevision(expectations.expectedIndexRevision) : 0;
+    const attempt = openerOutcomes.begin(payloadWriteSnapshot.sessionId, 'write_session', { payload: payloadWriteSnapshot, index: indexSnapshot });
     pendingOpenerWriteCount += 1;
     pendingOpenerWrite = pendingOpenerWrite
         .catch(() => {})
@@ -410,29 +421,57 @@ function queueExternalStoryOpenerSessionWrite(payload = {}, index = hydratedOpen
             try {
                 const domainStorage = getDomainStorage(merged);
                 const fileApi = getFileApi(merged);
+                await runSagaStorageTransaction(fileApi, {
+                    domain: 'storyOpeners', ownerId: payloadWriteSnapshot.sessionId, operation: 'write_session', operationId: attempt.operationId, retryOf: attempt.retryOf,
+                    paths: [payloadWriteSnapshot.sessionFile, SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners], request: attempt.request,
+                }, async () => {
                 await assertStoryOpenerPayloadFresh(fileApi, payloadWriteSnapshot, expectedPayloadRevision);
                 await assertStoryOpenerIndexFresh(fileApi, expectedIndexRevision);
-                await domainStorage.writePayload(STORY_OPENER_STORAGE_DOMAIN, payloadWriteSnapshot.sessionId, payloadWriteSnapshot, {
+                assertSagaStorageWriteAcknowledged(await domainStorage.writePayload(STORY_OPENER_STORAGE_DOMAIN, payloadWriteSnapshot.sessionId, payloadWriteSnapshot, {
                     ...merged,
                     staleCheck: !!expectedPayloadRevision,
                     expectedRevision: expectedPayloadRevision,
                     kind: STORY_OPENER_PAYLOAD_RECORD_KIND,
                     deletion: 'delete_with_owner',
-                });
+                }));
                 setOpenerPayloadCache(payloadWriteSnapshot, merged);
-                await writeExternalStoryOpenerIndex(indexSnapshot, {
+                await verifySagaStorageFiles(fileApi, [payloadWriteSnapshot.sessionFile]);
+                const latestIndex = normalizeSagaStoryOpenerIndex(await readStoryIndexForMutation(fileApi), merged);
+                const mergedIndex = normalizeSagaStoryOpenerIndex({
+                    ...latestIndex, activeSessionId: indexSnapshot.activeSessionId, lastSessionId: indexSnapshot.lastSessionId,
+                    revision: latestIndex.revision + 1,
+                    sessions: { ...latestIndex.sessions, [payloadWriteSnapshot.sessionId]: indexSnapshot.sessions[payloadWriteSnapshot.sessionId] },
+                }, merged);
+                assertSagaStorageWriteAcknowledged(await writeExternalStoryOpenerIndex(mergedIndex, {
                     ...merged,
                     staleCheck: !!expectedIndexRevision,
                     expectedRevision: expectedIndexRevision,
-                });
-                lastOpenerWriteError = '';
+                }));
+                return { ok: true };
+                }, merged);
+                openerOutcomes.succeed(attempt);
+                openerRetryRevisions.delete(payloadWriteSnapshot.sessionId);
+                lastOpenerWriteError = openerOutcomes.getError();
+                return { ok: true, persisted: true, queued: false, pendingWrites: 0 };
             } catch (error) {
-                recordQueuedWriteError(error, merged);
+                const revision = getSagaStorageRolledBackRevision(error, payloadWriteSnapshot.sessionFile);
+                if (revision !== undefined) openerRetryRevisions.set(payloadWriteSnapshot.sessionId, revision);
+                durableOpenerIndexRevision = getSagaStorageRolledBackRevision(error, SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners) ?? durableOpenerIndexRevision;
+                recordQueuedWriteError(error, merged, attempt);
+                return { ok: false, persisted: false, error: lastOpenerWriteError };
             } finally {
                 pendingOpenerWriteCount = Math.max(0, pendingOpenerWriteCount - 1);
             }
         });
     return pendingOpenerWrite;
+}
+
+async function readStoryIndexForMutation(fileApi) {
+    try { return await fileApi.readJsonFile(SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners); }
+    catch (error) {
+        if (error?.status === 404 || /missing|not found|404/i.test(String(error?.message || ''))) return createSagaStoryOpenerIndex();
+        throw error;
+    }
 }
 
 function queueExternalStoryOpenerSessionDelete(sessionId = '', sessionFile = '', index = hydratedOpenerIndex, options = {}) {
@@ -441,21 +480,26 @@ function queueExternalStoryOpenerSessionDelete(sessionId = '', sessionFile = '',
     const id = normalizeStoryOpenerId(sessionId, '');
     const file = normalizeStoragePath(sessionFile || '');
     const indexSnapshot = normalizeSagaStoryOpenerIndex(index, merged);
+    const attempt = openerOutcomes.begin(id, 'delete_session', { sessionId: id, sessionFile: file, index: indexSnapshot });
     pendingOpenerWriteCount += 1;
     pendingOpenerWrite = pendingOpenerWrite
         .catch(() => {})
         .then(async () => {
             try {
                 const fileApi = getFileApi(merged);
-                const storageIndexStore = getStorageIndexStore(merged);
-                if (file) {
-                    await fileApi.deleteFile(file, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
-                    if (storageIndexStore?.unregisterFile) await storageIndexStore.unregisterFile(file, merged);
-                }
-                await writeExternalStoryOpenerIndex(indexSnapshot, merged);
-                lastOpenerWriteError = '';
+                await runSagaStorageTransaction(fileApi, {
+                    domain: STORY_OPENER_STORAGE_DOMAIN, ownerId: id, operation: 'delete_session', operationId: attempt.operationId, retryOf: attempt.retryOf,
+                    paths: [SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners], request: attempt.request, gcPaths: file ? [file] : [],
+                }, async () => {
+                    const latest = removeOpenerIndexRecord(await readStoryIndexForMutation(fileApi), id, merged);
+                    return writeExternalStoryOpenerIndex(latest, merged);
+                }, merged);
+                openerOutcomes.succeed(attempt);
+                lastOpenerWriteError = openerOutcomes.getError();
+                return { ok: true, persisted: true, queued: false, pendingWrites: 0 };
             } catch (error) {
-                recordQueuedWriteError(error, merged);
+                recordQueuedWriteError(error, merged, attempt);
+                return { ok: false, persisted: false, error: lastOpenerWriteError };
             } finally {
                 pendingOpenerWriteCount = Math.max(0, pendingOpenerWriteCount - 1);
             }
@@ -478,13 +522,16 @@ export function upsertExternalStoryOpenerSessionSync(sessionRecord = {}, options
     if (!payload?.sessionId) return { ok: false, error: 'Story Maker session must include a sessionId/id.' };
     const index = updateOpenerIndexRecord(hydratedOpenerIndex, createExternalStoryOpenerIndexRecord(payload, options), options);
     const external = setHydratedOpenerIndex(index, options);
-    queueExternalStoryOpenerSessionWrite(payload, external, {
+    const completion = queueExternalStoryOpenerSessionWrite(payload, external, {
         expectedPayloadRevision: existing?.revision || 0,
         expectedIndexRevision: previousIndex.revision || 0,
     }, options);
     return {
         ok: true,
         session: getCachedExternalStoryOpenerSession(payload.sessionId),
+        queued: shouldPersistQueuedWrites(options),
+        persisted: false,
+        completion,
         record: external.sessions[payload.sessionId],
         payload,
         index: external,
@@ -503,10 +550,11 @@ export function removeExternalStoryOpenerSessionSync(sessionId = '', options = {
     openerPayloadCache.delete(id);
     const index = removeOpenerIndexRecord(hydratedOpenerIndex, id, options);
     const external = setHydratedOpenerIndex(index, options);
-    queueExternalStoryOpenerSessionDelete(id, sessionFile, external, options);
+    const completion = queueExternalStoryOpenerSessionDelete(id, sessionFile, external, options);
     return {
         ok: true,
         sessionFile,
+        completion, queued: shouldPersistQueuedWrites(options), persisted: false,
         index: external,
     };
 }
@@ -521,20 +569,23 @@ export async function writeExternalStoryOpenerIndex(index = {}, options = {}) {
     if (options.staleCheck !== false && options.expectedRevision !== undefined) {
         await assertStoryOpenerIndexFresh(fileApi, Math.max(1, Math.floor(Number(options.expectedRevision) || 1)));
     }
-    const result = await fileApi.writeJsonFile(getSagaUserFilesFileName(SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners), normalized, {
+    const result = await writeSagaStorageJsonFile(fileApi, getSagaUserFilesFileName(SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners), normalized, {
         pretty: options.pretty,
+        domain: STORY_OPENER_STORAGE_DOMAIN, path: SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners,
+        expectedRevision: options.expectedRevision,
     });
     const storageIndexStore = getStorageIndexStore(options);
     if (storageIndexStore?.registerFile) {
-        await storageIndexStore.registerFile(SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners, {
+        assertSagaStorageWriteAcknowledged(await storageIndexStore.registerFile(SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners, {
             kind: STORY_OPENER_INDEX_RECORD_KIND,
             domain: STORY_OPENER_STORAGE_DOMAIN,
             ownerId: STORY_OPENER_STORAGE_DOMAIN,
             mime: 'application/json',
             deletion: 'managed',
-        }, options);
+        }, options));
     }
     hydratedOpenerIndex = normalizeSagaStoryOpenerIndex(normalized, { now });
+    durableOpenerIndexRevision = hydratedOpenerIndex.revision;
     return {
         ...result,
         ok: true,
@@ -548,6 +599,9 @@ export async function hydrateSagaStoryOpenerStorage(options = {}) {
     hydrationStatus = { ...hydrationStatus, loading: true, error: '' };
     hydrationPromise = (async () => {
         const fileApi = getFileApi(options);
+        const recovered = await recoverSagaStorageTransactions(fileApi, resolveStorageOptions(options));
+        openerOutcomes.restore(recovered.filter(item => item.domain === STORY_OPENER_STORAGE_DOMAIN));
+        lastOpenerWriteError = openerOutcomes.getError();
         let index;
         try {
             index = await fileApi.readJsonFile(SAGA_STORAGE_DOMAIN_INDEX_FILES.storyOpeners, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
@@ -559,6 +613,7 @@ export async function hydrateSagaStoryOpenerStorage(options = {}) {
             }
         }
         hydratedOpenerIndex = normalizeSagaStoryOpenerIndex(index, { now: getClockNow(options) });
+        durableOpenerIndexRevision = hydratedOpenerIndex.revision;
         hydrationStatus = {
             loaded: true,
             loading: false,
@@ -582,7 +637,7 @@ export async function hydrateSagaStoryOpenerStorage(options = {}) {
 export async function flushSagaStoryOpenerStorageWrites() {
     try {
         await pendingOpenerWrite;
-        return { ok: !lastOpenerWriteError, error: lastOpenerWriteError };
+        return { ok: !lastOpenerWriteError, error: lastOpenerWriteError, failures: openerOutcomes.getFailures(), pendingWrites: pendingOpenerWriteCount };
     } catch (error) {
         const message = error?.message || String(error || 'Story Maker storage write failed.');
         return { ok: false, error: message };
@@ -602,6 +657,9 @@ export function resetSagaStoryOpenerStorageCache() {
     pendingOpenerWrite = Promise.resolve();
     pendingOpenerWriteCount = 0;
     lastOpenerWriteError = '';
+    openerOutcomes.reset();
+    openerRetryRevisions.clear();
+    durableOpenerIndexRevision = 1;
 }
 
 resetSagaStoryOpenerStorageCache();

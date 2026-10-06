@@ -19,6 +19,12 @@ import {
     assertSagaStorageRevisionFresh,
     formatSagaStorageChangedMessage,
 } from './saga-storage-stale-write.js';
+import {
+    assertSagaStorageWriteAcknowledged,
+    queueSagaStorageMutation,
+    verifySagaStorageSnapshot,
+    writeSagaStorageJsonFile,
+} from './saga-storage-coordinator.js';
 
 export const SAGA_DOMAIN_STORAGE_SCHEMA_VERSION = 1;
 
@@ -274,16 +280,49 @@ export function createSagaDomainStorage(options = {}) {
 
     async function registerInMaster(path = '', record = {}, registerOptions = {}) {
         if (registerOptions.registerInMaster === false || !storageIndexStore) return null;
-        return storageIndexStore.registerFile(path, record, registerOptions);
+        return assertSagaStorageWriteAcknowledged(await storageIndexStore.registerFile(path, record, registerOptions));
     }
 
-    async function cleanupUploadedFile(path = '') {
-        if (!path) return;
+    async function readPreviousFile(path) {
+        const api = requireFileApi();
         try {
-            await requireFileApi().deleteFile(path);
+            if (typeof api.readTextFile === 'function') {
+                const text = await api.readTextFile(path);
+                let value = null;
+                try { value = JSON.parse(text); } catch { /* Preserve corrupt prior bytes too. */ }
+                return { exists: true, text, value };
+            }
+            return { exists: true, value: cloneJson(await api.readJsonFile(path)) };
         } catch (error) {
-            console.warn('[Saga] Domain payload cleanup failed after master-index registration error:', path, error);
+            if (error?.status === 404 || /missing|not found|404/i.test(String(error?.message || ''))) return { exists: false, value: null };
+            throw error;
         }
+    }
+
+    async function rollbackFile(path, previous, originalError) {
+        const api = requireFileApi();
+        try {
+            if (previous.exists) {
+                const fileName = getSagaUserFilesFileName(path);
+                const restored = previous.text !== undefined && typeof api.writeTextFile === 'function'
+                    ? await api.writeTextFile(fileName, previous.text)
+                    : await api.writeJsonFile(fileName, previous.value);
+                assertSagaStorageWriteAcknowledged(restored);
+                await verifySagaStorageSnapshot(api, path, previous);
+            } else {
+                assertSagaStorageWriteAcknowledged(await api.deleteFile(path));
+                await verifySagaStorageSnapshot(api, path, previous);
+            }
+        } catch (rollbackError) {
+            // Keep the recovery bytes on the surfaced error if restoration itself fails.
+            originalError.rollbackError = rollbackError;
+            originalError.recovery = { path, ...previous };
+            originalError.message += ` Rollback failed: ${rollbackError?.message || rollbackError}`;
+        }
+    }
+
+    function mutate(path, action) {
+        return queueSagaStorageMutation(requireFileApi(), path, action, options);
     }
 
     async function readDomainIndex(domain = '', readOptions = {}) {
@@ -300,11 +339,12 @@ export function createSagaDomainStorage(options = {}) {
         }
     }
 
-    async function writeDomainIndex(domain = '', index = {}, writeOptions = {}) {
+    async function writeDomainIndexUnlocked(domain = '', index = {}, writeOptions = {}) {
         const api = requireFileApi();
         const config = getSagaDomainStorageConfig(domain);
+        const previous = await readPreviousFile(config.indexFile);
         if (writeOptions.staleCheck !== false && writeOptions.expectedRevision !== undefined) {
-            const latest = await readDomainIndex(config.domain, { allowMissing: true });
+            const latest = previous.value || createSagaDomainIndex(config.domain, { now: now() });
             assertSagaStorageRevisionFresh({
                 latest,
                 expectedRevision: writeOptions.expectedRevision,
@@ -322,32 +362,46 @@ export function createSagaDomainStorage(options = {}) {
         if (writeOptions.bumpRevision !== false) {
             normalized.revision = normalizeRevision(normalized.revision + 1, 2);
         }
-        const result = await api.writeJsonFile(getSagaDomainIndexFileName(config.domain), normalized, {
+        const result = await writeSagaStorageJsonFile(api, getSagaDomainIndexFileName(config.domain), normalized, {
             pretty: writeOptions.pretty,
-        });
-        await registerInMaster(config.indexFile, {
-            kind: config.indexRecordKind,
+            expectedRevision: previous.value?.revision || 1,
+            expectedMissing: !previous.exists,
             domain: config.domain,
-            ownerId: config.domain,
-            mime: 'application/json',
-            deletion: 'managed',
-        }, writeOptions);
+            path: config.indexFile,
+            staleMessage: writeOptions.staleMessage || formatSagaStorageChangedMessage(config.domain),
+        });
+        try {
+            await registerInMaster(config.indexFile, {
+                kind: config.indexRecordKind,
+                domain: config.domain,
+                ownerId: config.domain,
+                mime: 'application/json',
+                deletion: 'managed',
+            }, writeOptions);
+        } catch (error) {
+            if (writeOptions.rollbackOnMasterRegisterFailure !== false) await rollbackFile(config.indexFile, previous, error);
+            throw error;
+        }
         return { ...result, index: normalized };
     }
 
-    async function writePayload(domain = '', ownerId = '', payload = {}, writeOptions = {}) {
+    async function writeDomainIndex(domain = '', index = {}, writeOptions = {}) {
+        const config = getSagaDomainStorageConfig(domain);
+        return mutate(config.indexFile, () => writeDomainIndexUnlocked(config.domain, index, writeOptions));
+    }
+
+    async function writePayloadUnlocked(domain = '', ownerId = '', payload = {}, writeOptions = {}) {
         const api = requireFileApi();
         const config = getSagaDomainStorageConfig(domain);
         const cleanOwnerId = normalizeSagaStorageId(ownerId || payload?.id || payload?.[config.idKey], config.domain, 160);
         const payloadPath = buildSagaDomainPayloadPath(config.domain, cleanOwnerId, writeOptions);
+        const previous = await readPreviousFile(payloadPath);
+        if (writeOptions.expectedMissing === true && previous.exists) {
+            const error = new Error('External payload appeared during migration. Both copies were retained; reload before retrying.');
+            error.code = 'storage_changed'; throw error;
+        }
         if (writeOptions.staleCheck !== false && writeOptions.expectedRevision !== undefined) {
-            let latest = null;
-            try {
-                latest = await api.readJsonFile(payloadPath, { allowedExtensions: [SAGA_STORAGE_JSON_EXTENSION] });
-            } catch (error) {
-                if (!(error?.status === 404 || /missing|not found|404/i.test(String(error?.message || '')))) throw error;
-                latest = { revision: 1 };
-            }
+            const latest = previous.value || { revision: 1 };
             assertSagaStorageRevisionFresh({
                 latest,
                 expectedRevision: writeOptions.expectedRevision,
@@ -357,8 +411,13 @@ export function createSagaDomainStorage(options = {}) {
             });
         }
         const fileName = buildSagaDomainPayloadFileName(config.domain, cleanOwnerId, writeOptions);
-        const result = await api.writeJsonFile(fileName, payload, {
+        const result = await writeSagaStorageJsonFile(api, fileName, payload, {
             pretty: writeOptions.pretty,
+            expectedRevision: previous.value?.revision || 1,
+            expectedMissing: !previous.exists,
+            domain: config.domain,
+            path: payloadPath,
+            staleMessage: writeOptions.staleMessage || formatSagaStorageChangedMessage(config.domain),
         });
         try {
             await registerInMaster(result.path, {
@@ -372,40 +431,50 @@ export function createSagaDomainStorage(options = {}) {
             }, writeOptions);
         } catch (error) {
             if (writeOptions.rollbackOnMasterRegisterFailure !== false) {
-                await cleanupUploadedFile(result.path);
+                await rollbackFile(payloadPath, previous, error);
             }
             throw error;
         }
         return { ...result, ownerId: cleanOwnerId };
     }
 
+    async function writePayload(domain = '', ownerId = '', payload = {}, writeOptions = {}) {
+        const config = getSagaDomainStorageConfig(domain);
+        const id = normalizeSagaStorageId(ownerId || payload?.id || payload?.[config.idKey], config.domain, 160);
+        return mutate(buildSagaDomainPayloadPath(config.domain, id, writeOptions), () => writePayloadUnlocked(config.domain, id, payload, writeOptions));
+    }
+
     async function upsertRecord(domain = '', record = {}, upsertOptions = {}) {
         const config = getSagaDomainStorageConfig(domain);
-        const index = await readDomainIndex(config.domain, { allowMissing: true });
-        const next = upsertSagaDomainIndexRecord(config.domain, index, record, {
-            ...upsertOptions,
-            now: now(),
-        });
-        return writeDomainIndex(config.domain, next, {
-            ...upsertOptions,
-            staleCheck: upsertOptions.staleCheck !== false,
-            expectedRevision: upsertOptions.expectedRevision ?? index.revision,
-            bumpRevision: false,
+        return mutate(config.indexFile, async () => {
+            const index = await readDomainIndex(config.domain, { allowMissing: true });
+            const next = upsertSagaDomainIndexRecord(config.domain, index, record, {
+                ...upsertOptions,
+                now: now(),
+            });
+            return writeDomainIndexUnlocked(config.domain, next, {
+                ...upsertOptions,
+                staleCheck: upsertOptions.staleCheck !== false,
+                expectedRevision: upsertOptions.expectedRevision ?? index.revision,
+                bumpRevision: false,
+            });
         });
     }
 
     async function removeRecord(domain = '', id = '', removeOptions = {}) {
         const config = getSagaDomainStorageConfig(domain);
-        const index = await readDomainIndex(config.domain, { allowMissing: true });
-        const next = removeSagaDomainIndexRecord(config.domain, index, id, {
-            ...removeOptions,
-            now: now(),
-        });
-        return writeDomainIndex(config.domain, next, {
-            ...removeOptions,
-            staleCheck: removeOptions.staleCheck !== false,
-            expectedRevision: removeOptions.expectedRevision ?? index.revision,
-            bumpRevision: false,
+        return mutate(config.indexFile, async () => {
+            const index = await readDomainIndex(config.domain, { allowMissing: true });
+            const next = removeSagaDomainIndexRecord(config.domain, index, id, {
+                ...removeOptions,
+                now: now(),
+            });
+            return writeDomainIndexUnlocked(config.domain, next, {
+                ...removeOptions,
+                staleCheck: removeOptions.staleCheck !== false,
+                expectedRevision: removeOptions.expectedRevision ?? index.revision,
+                bumpRevision: false,
+            });
         });
     }
 

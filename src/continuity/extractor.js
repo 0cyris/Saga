@@ -15,16 +15,19 @@ import { validateLoreProviderConfiguration } from '../providers/lore-llm-client.
 import { buildContextResolutionAudit, buildResolverContextFromState } from '../context/context-resolver.js';
 import { resolveLoredeckStackItems } from '../loredecks/loredeck-library-index.js';
 import { getSagaNamespaceSection } from '../saga-namespace.js';
+import { captureChatOperation, isStaleChatOperation } from '../state/chat-operation.js';
 
 /** Guard flag to prevent concurrent continuity scans. */
 let _extractionRunning = false;
+let _extractionOperation = null;
 let _continuityProgressResetTimer = null;
 
 function refreshSagaUi() {
     globalThis.Saga?.bridge?.refreshUI?.();
 }
 
-function setContinuityProgressState(message, percent = 0) {
+function setContinuityProgressState(message, percent = 0, operation) {
+    if (operation && !operation.isCurrent()) return;
     const state = getState();
     if (!state?.lorePanel) return;
     const safePercent = Math.max(0, Math.min(100, Number(percent) || 0));
@@ -34,11 +37,12 @@ function setContinuityProgressState(message, percent = 0) {
     }
     state.lorePanel.continuityStatus = message;
     state.lorePanel.continuityProgress = safePercent;
-    saveState(state, { syncPrompt: false, sanitize: false });
+    saveState(state, { syncPrompt: false, sanitize: false, operation });
     refreshSagaUi();
     if (safePercent >= 100 && globalThis.setTimeout) {
         if (_continuityProgressResetTimer && globalThis.clearTimeout) globalThis.clearTimeout(_continuityProgressResetTimer);
         _continuityProgressResetTimer = globalThis.setTimeout(() => {
+            if (operation && !operation.isCurrent()) { _continuityProgressResetTimer = null; return; }
             const fresh = getState();
             if (fresh?.lorePanel) {
                 fresh.lorePanel.continuityStatus = 'Idle.';
@@ -63,7 +67,7 @@ function setContinuityProgressState(message, percent = 0) {
 export async function onExtractionTriggered(options = {}) {
     const { force = false, applyImmediately = false } = options;
 
-    if (_extractionRunning) {
+    if (_extractionRunning && _extractionOperation?.isCurrent()) {
         const settings = getSettings();
         if (settings.debugMode) console.log(`${LOG_PREFIX} Continuity scan already running, skipping`);
         return { status: 'skipped_running' };
@@ -86,11 +90,13 @@ export async function onExtractionTriggered(options = {}) {
     const validation = validateLoreProviderConfiguration('continuity');
     if (!validation.ok) return { status: 'api_not_configured', error: validation.message };
 
+    const operation = options.operation || captureChatOperation({ lane: 'continuity', signal: options.signal });
     _extractionRunning = true;
+    _extractionOperation = operation;
     try {
         const progress = typeof options.progress === 'function'
             ? options.progress
-            : (message, percent) => setContinuityProgressState(message, percent);
+            : (message, percent) => setContinuityProgressState(message, percent, operation);
         const result = await runContinuityScan({
             ...options,
             force,
@@ -98,15 +104,17 @@ export async function onExtractionTriggered(options = {}) {
             automationSafe: !force,
             applyImmediately: !!applyImmediately,
             progress,
+            operation,
         });
 
-        refreshSagaUi();
+        if (operation.isCurrent()) refreshSagaUi();
         return result;
     } catch (e) {
         console.error(`${LOG_PREFIX} Continuity scan failed:`, e);
         return { status: 'failed_exception', error: e?.message || String(e) };
     } finally {
-        _extractionRunning = false;
+        if (_extractionOperation === operation) { _extractionRunning = false; _extractionOperation = null; }
+        if (!options.operation) operation.release();
     }
 }
 
@@ -257,17 +265,28 @@ function shouldRunLoreGenerationAutomation(settings = getSettings()) {
     return false;
 }
 
-export async function onGenerationEndedAutomation() {
+export async function onGenerationEndedAutomation(options = {}) {
     const settings = getSettings();
     if (!settings.enabled) return { status: 'disabled' };
+    const operation = options.operation || captureChatOperation({ lane: 'turn-automation' });
+    try {
+        return await runGenerationEndedAutomation(settings, operation);
+    } catch (error) {
+        return { status: isStaleChatOperation(error) ? 'cancelled' : 'failed_exception', error: error?.message || String(error) };
+    } finally { if (!options.operation) operation.release(); }
+}
+
+async function runGenerationEndedAutomation(settings, operation) {
+    operation.assertCurrent();
 
     const results = {};
 
     try {
-        results.continuity = await onExtractionTriggered({ force: false });
+        results.continuity = await onExtractionTriggered({ force: false, operation });
     } catch (e) {
         results.continuity = { status: 'failed_exception', error: e?.message || String(e) };
     }
+    operation.assertCurrent();
 
     const contextMode = settings.contextDetectionMode || 'manual';
     if (contextMode !== 'assisted' && contextMode !== 'automatic') {
@@ -314,7 +333,7 @@ export async function onGenerationEndedAutomation() {
                         results.context = { status: 'skipped', reason: 'context_provider_not_configured', error: validation.message, cadence, audit };
                     } else {
                         clearContextAutomationAuditRunningSkip();
-                        results.context = await runLoreContextDetection({ force: false, contextAutomationMode: contextMode });
+                        results.context = await runLoreContextDetection({ force: false, contextAutomationMode: contextMode, operation, signal: operation.signal });
                     }
                 } catch (e) {
                     results.context = { status: 'failed_exception', error: e?.message || String(e) };
@@ -323,24 +342,26 @@ export async function onGenerationEndedAutomation() {
         }
     }
 
+    operation.assertCurrent();
     if ((settings.loreGenerationMode || 'manual') === 'automatic'
         && shouldRunLoreGenerationAutomation(settings)) {
         try {
             const validation = validateLoreProviderConfiguration('lore');
             if (!validation.ok) results.lore = { status: 'api_not_configured', error: validation.message };
-            else results.lore = await runStoryLoreScan({ force: false, source: 'auto', automationSafe: true });
+            else results.lore = await runStoryLoreScan({ force: false, source: 'auto', automationSafe: true, operation, signal: operation.signal });
         } catch (e) {
             results.lore = { status: 'failed_exception', error: e?.message || String(e) };
         }
     }
 
+    operation.assertCurrent();
     refreshSagaUi();
-    return { status: 'complete', results };
+    return { status: 'complete', results, persisted: operation.persistenceStatus === 'persisted', persistenceStatus: operation.persistenceStatus || 'not_requested' };
 }
 
 /** Returns whether a continuity scan is currently running. */
 export function isExtractionRunning() {
-    return _extractionRunning;
+    return _extractionRunning && !!_extractionOperation?.isCurrent();
 }
 
 function exposeContinuityDebugBridge() {
@@ -354,6 +375,8 @@ exposeContinuityDebugBridge();
 
 /** Resets the automatic continuity throttle counter. Called on chat change. */
 export function resetExtractionCounter() {
+    if (_continuityProgressResetTimer && globalThis.clearTimeout) globalThis.clearTimeout(_continuityProgressResetTimer);
+    _continuityProgressResetTimer = null;
     onExtractionTriggered._counter = 0;
     onGenerationEndedAutomation._contextDetectionCounter = 0;
     onGenerationEndedAutomation._contextDetectionCharBaseline = undefined;

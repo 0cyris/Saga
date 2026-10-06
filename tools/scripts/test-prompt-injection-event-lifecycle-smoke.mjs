@@ -38,6 +38,9 @@ const ctx = {
       list.push(handler);
       handlers.set(eventName, list);
     },
+    off(eventName, handler) {
+      handlers.set(eventName, (handlers.get(eventName) || []).filter(item => item !== handler));
+    },
   },
   extension_prompt_types: {
     IN_PROMPT: 0,
@@ -120,13 +123,23 @@ for (const eventName of ['GENERATION_STOPPED', 'GENERATION_FAILED', 'GENERATION_
   assertPromptClearPrefix(eventName);
 }
 
+const staleBeforePrompt = getHandler('GENERATE_BEFORE_COMBINE_PROMPTS');
 promptWrites.length = 0;
 getHandler('EXTENSION_DISABLED')();
 assertPromptClearPrefix('EXTENSION_DISABLED');
+assert([...handlers.values()].every(list => list.length === 0), 'Disable must remove host listeners.');
+const latestPrompts = new Map(promptWrites.map(write => [write.key, write.value]));
+assert(PROMPT_KEYS.every(key => latestPrompts.get(key) === ''), 'Disable must leave every Saga prompt key empty.');
 
 extensionSettings.saga.enabled = false;
 promptWrites.length = 0;
-getHandler('GENERATE_BEFORE_COMBINE_PROMPTS')();
-assertPromptClearPrefix('disabled injection before prompt sync');
+staleBeforePrompt();
+assert.equal(promptWrites.length, 0, 'A disposed event callback must remain inert.');
+
+extensionSettings.saga.enabled = true;
+const { sagaOnEnable } = await import('../../src/extension/lifecycle.js');
+await sagaOnEnable();
+getHandler('GENERATE_BEFORE_COMBINE_PROMPTS');
+assert.equal(typeof globalThis.Saga.bridge.refreshUI, 'function', 'Enable must restore the UI bridge.');
 
 console.log('Prompt injection event lifecycle smoke passed.');
