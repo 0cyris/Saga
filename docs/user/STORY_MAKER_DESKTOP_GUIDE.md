@@ -35,6 +35,8 @@ The section header shows the feature name and purpose. Open the section to see:
 
 Story Maker stores opener sessions in external Saga storage. The shelf shows **Saved openers (N)** with one row per saved opener.
 
+Saga saves each completed variant as its own durable result while sibling variants are still running. If a run is interrupted, acknowledged variants survive reload; resume or retry works on the unfinished variants instead of regenerating saved ones.
+
 Each opener row shows:
 
 - opener title

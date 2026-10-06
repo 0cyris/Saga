@@ -42,6 +42,18 @@ The Deck Maker stores heavy in-progress project data in Deck Maker project paylo
 
 Deck Maker index keeps the shelf summary and active project pointer compact. The current chat state can still point to the active Deck Maker project, but it should not carry the full staged project payload.
 
+## Settings Migration And Recovery
+
+On startup, Saga checks for supported Library, Deck Maker, Theme Pack, and Icon Set registries still stored inline in `settings.json`. For supported unversioned and schema-1 data, Saga first writes and verifies an exact-source recovery copy at `/user/files/saga-inline-settings-backup.v1.json`. It then writes and verifies the external payloads and their indexes before compacting the inline registries.
+
+If the backup or an external write cannot be verified, the source data stays available and migration stops with a reportable error. Saga also refuses to overwrite an existing payload or external layout that conflicts with the inline source. Leave the recovery file in place until you have verified the migrated content. Unsupported settings schemas are preserved for recovery rather than guessed at or migrated partially.
+
+The backup and external files can be verified with **Settings > Advanced > State Safety > Verify Storage**. A host that reports only that it scheduled a settings save cannot confirm whether the compacted settings reached disk; Saga records that result as unverified and keeps the verified backup.
+
+Saga commits related payload and index changes through a recoverable journal. A refused write keeps the previous verified data and leaves the failed operation visible for retry; an unrelated successful write does not clear that failure. If Saga restarts mid-transaction, startup recovery restores the prior data or finishes a committed cleanup before normal use.
+
+Separate browsers, devices, or other clients can still update the same files at the same time when the SillyTavern storage service provides neither cross-tab locking nor server-side conditional writes. Saga detects many stale revisions, but cannot promise conflict-free writes against an uncoordinated external client.
+
 ## State Safety
 
 Open **Settings**, switch to **Advanced**, then open **State Safety**.
@@ -70,7 +82,7 @@ Global actions are destructive:
 - **Remove Custom Loredecks** deletes custom, imported, and generated Loredeck Library records, payload files, cover/passive assets, and Pack Health repair sessions for those Loredecks. Bundled Loredecks remain available. Deck Maker projects are kept because they are drafts, not installed Loredecks.
 - **Total Saga Cleanup** requires typing `DELETE Saga`. Its confirmation preview includes tracked Saga files, known index files, referenced Saga files discovered from domain records and payloads, externalized custom content, and Health repair sessions. It deletes tracked Saga-owned custom storage files, known Saga index files, referenced Saga files, custom/imported/generated Loredecks, Deck Maker projects, custom Theme Packs, custom Icon Sets, stored Saga API keys, Saga settings, active-chat Saga state, and State Safety backups. Bundled extension content remains because it ships with Saga.
 
-Saga does not support migrating old settings-backed payloads in this pre-alpha line. If stale settings payloads are present from an older local build, use **Total Saga Cleanup** or reinstall the extension with a clean Saga state.
+Supported legacy inline registries migrate on startup as described in [Settings Migration And Recovery](#settings-migration-and-recovery). Keep the verified recovery file until you have confirmed the external payloads and indexes. Do not use **Total Saga Cleanup** or reinstall solely because an older supported registry is still in `settings.json`.
 
 After Total Saga Cleanup, Saga should still open without reinstalling. New imports, Deck Maker saves, Theme Pack imports, and Icon Set imports recreate the needed storage index files. If Total Saga Cleanup partially fails, Saga still clears prior State Safety backups, but writes one compact State Safety warning so the retry reason remains visible after the reset. If you are in Basic, switch to Advanced and open State Safety before retrying.
 
@@ -95,7 +107,9 @@ If Total Saga Cleanup cannot delete a tracked non-index file, Saga keeps the mas
 
 | Problem | First check |
 | --- | --- |
-| `settings.json` is growing quickly | Run **Verify Storage**. If stale Saga payloads still live in settings, use **Total Saga Cleanup** or reinstall with a clean Saga state. |
+| `settings.json` is growing quickly | Let Saga migrate supported inline registries on startup, then run **Verify Storage**. Check the reported migration status and keep `saga-inline-settings-backup.v1.json` until the external records are verified. |
+| Startup reports an inline storage conflict | Keep both the inline settings and recovery file. Saga stopped before replacing the conflicting external data; inspect the migration error and export or resolve the records before retrying. |
+| Storage reports a failed write | Keep the previous files and retry the failed operation through the originating Saga workflow. A successful unrelated save does not acknowledge the failure. |
 | A Loredeck appears in Library but fails Pack Health after reload | Run **Verify Storage**, then reopen the Loredeck and run Pack Health again. |
 | A write seems stuck or a recent import does not appear after reload | Run **Settle Storage Writes**, then **Verify Storage**. |
 | Storage reports missing files | Confirm whether the file was manually deleted. Use **Clean Missing Records** only when stale records should be removed from Saga's storage index. |

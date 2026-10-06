@@ -4,6 +4,7 @@ Saga documentation is being organized into release-facing topic folders. Older i
 
 ## Release Notes
 
+- [Saga Reliability Patches - October 6, 2026](release/2026-10-06-reliability-patches.md): post-alpha reliability and data-preservation fixes; the `0.4.0-alpha.4` release identifier remains unchanged.
 - [Saga 0.4.0-alpha.4 - Scribe](release/0.4.0-alpha.4.md): current alpha with the external Loredeck Builder toolkit, multi-deck authoring support, evidence-grounded workflow documentation, and release-gate coverage for the authoring path.
 - [Saga 0.3.0-alpha.3 - Voyages](release/0.3.0-alpha.3.md): previous alpha with bundled One Piece and Star Trek Lorepack expansion, Story Maker reliability hardening, Deck Maker generation cleanup, and expanded alpha-gate coverage.
 - [Saga 0.2.0-alpha.2 - The Big Mobile Update](release/0.2.0-alpha.2.md): previous alpha with phone-width mobile UI, Story Maker, Deck Maker polish, mobile docs, and release-gate notes.
@@ -29,6 +30,10 @@ Saga documentation is being organized into release-facing topic folders. Older i
 ## Development Notes
 
 - [development](development/): active planning, audits, implementation notes, and pre-release engineering records. These files are not yet organized as end-user documentation.
+- [Saga Reliability Implementation Ledger](development/SAGA_RELIABILITY_IMPLEMENTATION_2026-10-06.md): implementation map, local verification evidence, supported storage migration policy, and remaining host-dependent limits.
+- [Saga Storage Coordination Contract](development/SAGA_STORAGE_COORDINATION_CONTRACT.md): storage acknowledgments, recovery journal, concurrency boundary, and inline migration details.
+- [Saga Chat Persistence Contract](development/SAGA_CHAT_PERSISTENCE_CONTRACT.md): chat-bound operations, save acknowledgments, legacy host limitations, and recovery guidance.
+- [Saga Reliability Review](development/SAGA_RELIABILITY_REVIEW_2026-10-06.md): the original prioritized reliability findings addressed by the patch set.
 - [Basic And Advanced Experience Modes Plan](development/SAGA_EXPERIENCE_MODES_PLAN.md): product and implementation plan for revising Saga's guided Basic workflow and full Advanced workflow.
 - [Basic Experience Implementation Plan](development/SAGA_BASIC_EXPERIENCE_IMPLEMENTATION_PLAN.md): historical feature plan for hiding Injection in Basic mode and shaping the guided Basic workflow that now appears as Session Readiness and Basic Walkthrough cards.
 - [Basic Checklist Mini-Tours](development/SAGA_BASIC_CHECKLIST_GUIDED_TASKS.md): historical implementation note for checklist-launched mini-tours before the current Session Readiness wording.

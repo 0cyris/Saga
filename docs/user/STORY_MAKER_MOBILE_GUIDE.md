@@ -58,6 +58,8 @@ At the top of Story Maker you can:
 
 Saved openers are stored as Story Maker sessions. Deleting one does not remove Loredecks, Lorecards, Context, or chat messages.
 
+Saga saves each completed variant separately while the rest of the run continues. After an interruption, saved variants remain available when you reopen the opener; retry applies to the variants that did not finish saving.
+
 ## Inputs On Mobile
 
 The **Inputs** card contains the same functional controls as desktop, arranged for scrolling:

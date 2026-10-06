@@ -62,6 +62,7 @@ For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [
 
 Release Notes:
 
+- [Saga Reliability Patches - October 6, 2026](docs/release/2026-10-06-reliability-patches.md): post-alpha patches for chat ownership, recoverable storage, checkpoint retries, Context safety, Story Maker resume, and bounded resources.
 - [Saga 0.4.0-alpha.4 - Scribe](docs/release/0.4.0-alpha.4.md)
 - [Saga 0.3.0-alpha.3 - Voyages](docs/release/0.3.0-alpha.3.md)
 - [Saga 0.2.0-alpha.2 - The Big Mobile Update](docs/release/0.2.0-alpha.2.md)
@@ -143,6 +144,8 @@ Important runtime modules:
 ## Storage
 
 Saga keeps large custom content out of `settings.json` wherever SillyTavern's files API is available. `settings.json` should stay compact: preferences, provider selections, storage pointers, encrypted or obfuscated direct-key material when used, and lightweight diagnostics.
+
+On startup, supported legacy inline registries are copied to a verified recovery file before their payloads and indexes are externalized. If migration detects a conflict or cannot verify a write, Saga retains the source data and stops; see [Storage And State Safety](docs/user/STORAGE_AND_STATE_SAFETY.md) for recovery steps.
 
 Saga-owned payloads live under SillyTavern `/user/files` as flat, tracked files:
 
