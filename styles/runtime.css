@@ -4562,6 +4562,16 @@
     overflow: hidden;
 }
 
+.saga-loredeck-library-hierarchy-list > .saga-loredeck-library-deck-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 140px;
+}
+
+.saga-loredeck-library-hierarchy-list > .saga-loredeck-library-inline-folder-row {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 80px;
+}
+
 .saga-loredeck-library-folder-cover-strip {
     position: relative;
     min-width: 0;

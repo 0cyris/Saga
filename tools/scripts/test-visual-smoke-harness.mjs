@@ -954,7 +954,6 @@ assert(
 assert(
     libraryPanel.includes("mobileBody: '.saga-loredeck-library-mobile-body'")
         && libraryPanel.includes('export function refreshLoredeckLibraryAfterStackMutation()')
-        && libraryPanel.includes('if (!isRuntimeMobileShell()) scheduleLoredeckLibraryOverlayRefresh();')
         && runtimeActiveStackPanel.includes('refreshLoredeckLibraryAfterStackMutation();')
         && !/refreshLoredeckLibrarySelectionSurfaces\(\);\s*scheduleLoredeckLibraryOverlayRefresh\(\);/.test(runtimeActiveStackPanel),
     'Mobile Loredeck Library active-stack taps must refresh in place instead of rebuilding the overlay and jumping to the top.'

@@ -40,6 +40,7 @@ import {
     resolveLoredeckStackItems,
 } from './loredeck-library-index.js';
 import { resolveLoredeckLibraryDragFeedback } from './loredeck-library-drag.js';
+import { cancelLoredeckLibraryRowRender, LOREDECK_LIBRARY_ROW_BATCH_SIZE, renderLoredeckLibraryRows, restoreLoredeckLibraryRowScroll } from './loredeck-library-render-scheduler.js';
 import { sortLoredeckLibraryFolderPacks, sortLoredeckLibraryFolderTreeByTitle, sortLoredeckLibraryPacks } from './loredeck-library-view.js';
 import {
     applyLoredeckLibraryFolderRemovalPlan,
@@ -54,7 +55,6 @@ import {
     reorderLoredeckLibraryPlacements,
 } from './loredeck-library-service.js';
 import {
-    buildLoredeckHealthReport,
     countLoredeckManifestFiles,
     formatRelativeHealthTime,
     getCachedLoredeckHealthRecord,
@@ -64,7 +64,25 @@ import {
 } from './loredeck-health-panel.js';
 
 let libraryPanelDeps = {};
+let loredeckLibraryRenderSnapshot = null;
 const LOREDECK_LIBRARY_LONG_PRESS_MS = 520;
+
+// Cache only for one synchronous refresh. Edits, scans and storage hydration
+// always enter a fresh snapshot; no revision tracking or stale global cache.
+function withLoredeckLibraryRenderSnapshot(render) {
+    if (loredeckLibraryRenderSnapshot) return render();
+    loredeckLibraryRenderSnapshot = {
+        state: getState(),
+        settings: getSettings(),
+        healthByPack: new Map(),
+        statsByPack: new Map(),
+    };
+    try {
+        return render();
+    } finally {
+        loredeckLibraryRenderSnapshot = null;
+    }
+}
 
 export function configureLoredeckLibraryPanel(deps = {}) {
     libraryPanelDeps = { ...libraryPanelDeps, ...(deps || {}) };
@@ -77,9 +95,9 @@ function dep(name, fallback = null) {
     throw new Error(`Saga Loredeck Library dependency is not configured: ${name}`);
 }
 
-function getState() { return dep('getState', () => ({}))(); }
+function getState() { return loredeckLibraryRenderSnapshot?.state || dep('getState', () => ({}))(); }
 function saveState(...args) { return dep('saveState', () => {})(...args); }
-function getSettings() { return dep('getSettings', () => ({}))(); }
+function getSettings() { return loredeckLibraryRenderSnapshot?.settings || dep('getSettings', () => ({}))(); }
 function isBasicExperienceMode() { return dep('isBasicExperience', settings => String(settings?.experienceMode || '').toLowerCase() === 'basic')(getSettings()) === true; }
 function isRuntimeMobileShell() { return dep('isRuntimeMobileShell', () => false)() === true; }
 function saveSettings(...args) { return dep('saveSettings', () => {})(...args); }
@@ -94,9 +112,15 @@ function refreshPanelBody(options) { return dep('refreshPanelBody', () => {})(op
 function refreshHeader() { return dep('refreshHeader', () => {})(); }
 function clampNumber(value, min, max, fallback) { return dep('clampNumber', (_value, _min, _max, _fallback) => { const number = Number(_value); return Number.isFinite(number) ? Math.min(_max, Math.max(_min, number)) : _fallback; })(value, min, max, fallback); }
 function formatCategoryCounts(counts) { return dep('formatCategoryCounts', () => '')(counts); }
-function getLoredeckStack(state) { return dep('getLoredeckStack', () => [])(state); }
-function getLoredeckLibrary(state) { return dep('getLoredeckLibrary', () => [])(state); }
-function getLoredeckLibraryRegistry(state) { return dep('getLoredeckLibraryRegistry', () => ({ packs: {}, folders: [] }))(state); }
+function readLoredeckLibrarySnapshot(name, state, fallback) {
+    const snapshot = loredeckLibraryRenderSnapshot;
+    if (!snapshot || state !== snapshot.state) return dep(name, fallback)(state);
+    if (!Object.prototype.hasOwnProperty.call(snapshot, name)) snapshot[name] = dep(name, fallback)(state);
+    return snapshot[name];
+}
+function getLoredeckStack(state) { return readLoredeckLibrarySnapshot('getLoredeckStack', state, () => []); }
+function getLoredeckLibrary(state) { return readLoredeckLibrarySnapshot('getLoredeckLibrary', state, () => []); }
+function getLoredeckLibraryRegistry(state) { return readLoredeckLibrarySnapshot('getLoredeckLibraryRegistry', state, () => ({ packs: {}, folders: [] })); }
 function persistLoredeckLibraryLayout(registry, options) { return dep('persistLoredeckLibraryLayout', () => ({ ok: false, error: 'Loredeck Library storage is unavailable.' }))(registry, options); }
 function normalizeLoredeckLibraryPack(raw) { return dep('normalizeLoredeckLibraryPack', raw => raw || {})(raw); }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
@@ -261,7 +285,9 @@ export function closeLoredeckLibraryWindow() {
     loredeckLibraryMobileDetailPackId = '';
     loredeckLibraryMobileDetailFolderId = '';
     loredeckLibraryMobileReorderOpen = false;
-    document.querySelector('.saga-loredeck-library-overlay')?.remove();
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
+    cancelLoredeckLibraryRowRender(overlay?.querySelector('.saga-loredeck-library-hierarchy-list'));
+    overlay?.remove();
 }
 
 function createLoredeckLibraryRenderErrorCard(error) {
@@ -348,8 +374,7 @@ function restoreLoredeckLibraryScrollState(snapshot = null) {
         const selector = LOREDECK_LIBRARY_SCROLL_SELECTORS[key];
         const element = selector ? overlay.querySelector(selector) : null;
         if (!element || !value) continue;
-        element.scrollTop = Number(value.top) || 0;
-        element.scrollLeft = Number(value.left) || 0;
+        restoreLoredeckLibraryRowScroll(element, Number(value.top) || 0, Number(value.left) || 0);
     }
 }
 
@@ -431,6 +456,10 @@ function scheduleLoredeckLibraryProgressiveHydration(options = {}) {
 }
 
 export function renderLoredeckLibraryOverlay(options = {}) {
+    return withLoredeckLibraryRenderSnapshot(() => renderLoredeckLibraryOverlayBody(options));
+}
+
+function renderLoredeckLibraryOverlayBody(options = {}) {
     if (loredeckLibraryOverlayRefreshFrame && typeof cancelAnimationFrame === 'function') {
         cancelAnimationFrame(loredeckLibraryOverlayRefreshFrame);
     }
@@ -440,7 +469,9 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
     }
     loredeckLibraryHierarchyRefreshFrame = 0;
-    document.querySelector('.saga-loredeck-library-overlay')?.remove();
+    const previousOverlay = document.querySelector('.saga-loredeck-library-overlay');
+    cancelLoredeckLibraryRowRender(previousOverlay?.querySelector('.saga-loredeck-library-hierarchy-list'));
+    previousOverlay?.remove();
     if (!loredeckLibraryOpen) return;
 
     if (options.progressiveOpen === true) {
@@ -533,10 +564,12 @@ export function renderLoredeckLibraryOverlay(options = {}) {
                     ? 'Export selected Loredecks as one .saga-loredeck.zip package.'
                     : 'Select one or more Loredecks before exporting.',
                 async (btn) => {
-                    await exportSelectedLoredeckBundles(selectedPacks, btn);
+                    const current = withLoredeckLibraryRenderSnapshot(() => getLoredeckLibraryOverlayContext().selectedPacks);
+                    await exportSelectedLoredeckBundles(current, btn);
                 }
             );
             exportSelected.disabled = !selectedPacks.length;
+            exportSelected.classList.add('saga-loredeck-library-export-selected');
             markTourTarget(exportSelected, 'loredecks.library.export');
             actions.appendChild(exportSelected);
             actions.appendChild(createButton('Create Deck', 'Open the staged Deck Maker wizard.', () => {
@@ -611,8 +644,8 @@ export function scheduleLoredeckLibraryOverlayRefresh(options = {}) {
 
 export function refreshLoredeckLibraryAfterStackMutation() {
     if (!loredeckLibraryOpen) return;
-    refreshLoredeckLibrarySelectionSurfaces();
-    if (!isRuntimeMobileShell()) scheduleLoredeckLibraryOverlayRefresh();
+    refreshLoredeckLibrarySelectionSurfaces({ stackChanged: true });
+    if (!isRuntimeMobileShell()) scheduleLoredeckLibraryHierarchyRefresh();
 }
 
 function getLoredeckLibraryOverlayContext() {
@@ -648,7 +681,11 @@ function getLoredeckLibraryOverlayContext() {
     };
 }
 
-export function refreshLoredeckLibrarySelectionSurfaces() {
+export function refreshLoredeckLibrarySelectionSurfaces(options = {}) {
+    return withLoredeckLibraryRenderSnapshot(() => refreshLoredeckLibrarySelectionSurfacesBody(options));
+}
+
+function refreshLoredeckLibrarySelectionSurfacesBody(options = {}) {
     if (!loredeckLibraryOpen) return;
     const overlay = document.querySelector('.saga-loredeck-library-overlay');
     if (!overlay) return;
@@ -680,7 +717,7 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
     }
 
     const mobileStrip = overlay.querySelector('.saga-loredeck-library-mobile-selected-strip');
-    mobileStrip?.replaceWith(createLoredeckLibraryMobileSelectedStrip(context.stack, context.library));
+    if (options.stackChanged) mobileStrip?.replaceWith(createLoredeckLibraryMobileSelectedStrip(context.stack, context.library));
 
     for (const card of overlay.querySelectorAll('.saga-loredeck-library-stack-card[data-pack-id]')) {
         const packId = String(card.dataset.packId || '').trim();
@@ -703,6 +740,7 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
 
     const titleMeta = overlay.querySelector('.saga-loredeck-library-title-meta');
     titleMeta?.replaceWith(createLoredeckLibraryHeaderMeta(context.stack, context.library, context.canonDb, context.health));
+    refreshLoredeckLibraryExportSelection(overlay, context.selectedPacks);
 
     const selectionToolbar = overlay.querySelector('.saga-loredeck-library-selection-toolbar');
     selectionToolbar?.replaceWith(createLoredeckLibrarySelectionToolbar(context.filteredPacks, context.libraryIndex));
@@ -719,7 +757,7 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
     ));
 
     const stackPane = overlay.querySelector('.saga-loredeck-library-pane-stack');
-    stackPane?.replaceWith(createLoredeckActiveStackPane(
+    if (options.stackChanged) stackPane?.replaceWith(createLoredeckActiveStackPane(
         context.stack,
         context.library,
         context.canonDb,
@@ -727,8 +765,22 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
         context.libraryIndex,
     ));
 
+    refreshLoredeckLibrarySelectedDetails(overlay, context, options);
+}
+
+function refreshLoredeckLibraryExportSelection(overlay, selectedPacks) {
+    const button = overlay.querySelector('.saga-loredeck-library-export-selected');
+    if (!button) return;
+    const count = selectedPacks.length;
+    button.textContent = count > 1 ? `Export Selected (${count})` : 'Export Selected';
+    button.disabled = count === 0;
+    addTooltip(button, count ? 'Export selected Loredecks as one .saga-loredeck.zip package.' : 'Select one or more Loredecks before exporting.');
+}
+
+function refreshLoredeckLibrarySelectedDetails(overlay, context, options = {}) {
     const details = overlay.querySelector('.saga-loredeck-library-details');
-    details?.replaceWith(createLoredeckLibraryDetailsPanel(
+    const detailsKey = `${context.selectedPack?.packId || ''}|${context.selectedFolderDetails?.id || ''}|${loredeckLibraryDetailsTab}`;
+    if (options.stackChanged || details?.dataset.selectionKey !== detailsKey) details?.replaceWith(createLoredeckLibraryDetailsPanel(
         context.selectedPack,
         context.stack,
         context.canonDb,
@@ -740,6 +792,10 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
 }
 
 function refreshLoredeckLibraryVisibleSurfaces() {
+    return withLoredeckLibraryRenderSnapshot(() => refreshLoredeckLibraryVisibleSurfacesBody());
+}
+
+function refreshLoredeckLibraryVisibleSurfacesBody() {
     if (!loredeckLibraryOpen) return false;
     const overlay = document.querySelector('.saga-loredeck-library-overlay');
     if (!overlay) return false;
@@ -749,6 +805,7 @@ function refreshLoredeckLibraryVisibleSurfaces() {
 
     const titleMeta = overlay.querySelector('.saga-loredeck-library-title-meta');
     titleMeta?.replaceWith(createLoredeckLibraryHeaderMeta(context.stack, context.library, context.canonDb, context.health));
+    refreshLoredeckLibraryExportSelection(overlay, context.selectedPacks);
 
     const selectionToolbar = overlay.querySelector('.saga-loredeck-library-selection-toolbar');
     selectionToolbar?.replaceWith(createLoredeckLibrarySelectionToolbar(context.filteredPacks, context.libraryIndex));
@@ -769,9 +826,9 @@ function refreshLoredeckLibraryVisibleSurfaces() {
             context.registry,
             { mobileTouch },
         );
+        cancelLoredeckLibraryRowRender(currentList);
         currentList.replaceWith(nextList);
-        nextList.scrollTop = top;
-        nextList.scrollLeft = left;
+        restoreLoredeckLibraryRowScroll(nextList, top, left);
     }
 
     const transferPane = overlay.querySelector('.saga-loredeck-library-transfer-pane');
@@ -785,25 +842,10 @@ function refreshLoredeckLibraryVisibleSurfaces() {
         context.library,
     ));
 
-    const stackPane = overlay.querySelector('.saga-loredeck-library-pane-stack');
-    stackPane?.replaceWith(createLoredeckActiveStackPane(
-        context.stack,
-        context.library,
-        context.canonDb,
-        context.health,
-        context.libraryIndex,
-    ));
-
-    const details = overlay.querySelector('.saga-loredeck-library-details');
-    details?.replaceWith(createLoredeckLibraryDetailsPanel(
-        context.selectedPack,
-        context.stack,
-        context.canonDb,
-        context.health,
-        context.selectedFolderDetails,
-        context.libraryIndex,
-        context.library,
-    ));
+    // Search, view and sort changes affect the list and transfer actions only.
+    // Keep stack controls and the selected editor mounted.
+    refreshLoredeckLibrarySelectionHighlights();
+    refreshLoredeckLibrarySelectedDetails(overlay, context);
 
     return true;
 }
@@ -943,7 +985,10 @@ function findLoredeckLibraryFolderInTree(folderId = '', folders = []) {
 
 function refreshLoredeckLibraryHierarchyCardIndexes(list) {
     if (!list) return;
-    [...list.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]')]
+    const cards = [...list.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]')];
+    const packs = getLoredeckLibraryPackMap(list.__sagaLoredeckLibraryRenderContext?.library || []);
+    list.__sagaLoredeckLibraryVisibleOrder = cards.map(card => packs[card.dataset.packId]).filter(Boolean);
+    cards
         .forEach((card, index) => {
             card.dataset.libraryIndex = String(index);
         });
@@ -956,7 +1001,7 @@ function refreshLoredeckLibraryFolderSubtree(folderId = '', wasCollapsed = false
     const list = overlay?.querySelector('.saga-loredeck-library-hierarchy-list');
     const row = [...(list?.querySelectorAll('.saga-loredeck-library-inline-folder-row[data-folder-id]') || [])]
         .find(item => String(item.dataset.folderId || '').trim() === id);
-    if (!list || !row) return false;
+    if (!list || !row || list.hasAttribute('aria-busy')) return false;
 
     removeLoredeckLibraryFolderDescendantElements(row);
     if (!wasCollapsed) {
@@ -983,21 +1028,31 @@ function refreshLoredeckLibraryFolderSubtree(folderId = '', wasCollapsed = false
     const folders = sortLoredeckLibraryFolderTreeByTitle(buildFolderTree(renderContext.libraryIndex));
     const folder = findLoredeckLibraryFolderInTree(id, folders);
     if (!folder) return false;
-
     const fragment = document.createDocumentFragment();
+    const subtreeContext = { ...renderContext, rowTarget: fragment, rowFactories: [] };
     appendLoredeckLibraryFolderContents(
         fragment,
         folder,
         getLoredeckLibraryHierarchyElementDepth(row) + 1,
-        renderContext,
+        subtreeContext,
         [],
     );
+    // Count both folders and decks before constructing any DOM. Large branches
+    // use the same bounded renderer as opening and filtering.
+    if (subtreeContext.rowFactories.length > LOREDECK_LIBRARY_ROW_BATCH_SIZE) return false;
+    withLoredeckLibraryRenderSnapshot(() => {
+        for (const createRow of subtreeContext.rowFactories) fragment.appendChild(createRow());
+    });
     if (fragment.childNodes.length) list.insertBefore(fragment, row.nextElementSibling);
     refreshLoredeckLibraryHierarchyCardIndexes(list);
     return true;
 }
 
 function refreshLoredeckLibraryHierarchyList() {
+    return withLoredeckLibraryRenderSnapshot(() => refreshLoredeckLibraryHierarchyListBody());
+}
+
+function refreshLoredeckLibraryHierarchyListBody() {
     loredeckLibraryHierarchyRefreshFrame = 0;
     if (!loredeckLibraryOpen) return false;
     const overlay = document.querySelector('.saga-loredeck-library-overlay');
@@ -1016,10 +1071,11 @@ function refreshLoredeckLibraryHierarchyList() {
         context.library,
         context.scopedLibrary,
         context.registry,
+        { mobileTouch: currentList.classList.contains('saga-loredeck-library-mobile-list') },
     );
+    cancelLoredeckLibraryRowRender(currentList);
     currentList.replaceWith(nextList);
-    nextList.scrollTop = top;
-    nextList.scrollLeft = left;
+    restoreLoredeckLibraryRowScroll(nextList, top, left);
     return true;
 }
 
@@ -1245,7 +1301,11 @@ export function getLoredeckLibraryPackMap(library = []) {
 }
 
 export function getLoredeckLibraryIndexForPacks(state = getState(), library = getLoredeckLibrary(state), registry = getLoredeckLibraryRegistry(state)) {
-    return normalizeLoredeckLibraryIndex(registry, { packs: getLoredeckLibraryPackMap(library) });
+    const snapshot = loredeckLibraryRenderSnapshot;
+    if (snapshot?.index?.library === library && snapshot.index.registry === registry) return snapshot.index.value;
+    const value = normalizeLoredeckLibraryIndex(registry, { packs: getLoredeckLibraryPackMap(library) });
+    if (snapshot) snapshot.index = { library, registry, value };
+    return value;
 }
 
 function isLoredeckLibrarySpecialFolderId(folderId = '') {
@@ -2233,18 +2293,31 @@ function createLoredeckLibraryHierarchyRenderContext(visiblePacks = [], stack = 
     };
 }
 
-function createLoredeckLibraryHierarchyDeckCard(pack, depth = 0, renderContext = {}, visibleOrder = []) {
-    const index = visibleOrder.length;
-    visibleOrder.push(pack);
-    const card = createLoredeckLibraryDeckCard(pack, renderContext.stack, renderContext.canonDb, renderContext.health, visibleOrder, index, {
+function createLoredeckLibraryHierarchyDeckCard(pack, depth = 0, renderContext = {}, visibleOrder = [], visibleIndex = null) {
+    const index = visibleIndex === null ? visibleOrder.length : visibleIndex;
+    if (visibleIndex === null) visibleOrder.push(pack);
+    const stack = getLoredeckStack(getState());
+    const card = createLoredeckLibraryDeckCard(pack, stack, renderContext.canonDb, renderContext.health, visibleOrder, index, {
         mobileTouch: renderContext.mobileTouch === true,
-        mobileOrder: renderContext.mobileOrderMap?.get?.(pack.packId) || 0,
+        mobileOrder: renderContext.mobileTouch ? (getLoredeckLibraryMobileOrderMap(stack).get(pack.packId) || 0) : 0,
     });
     const normalizedDepth = Math.max(0, Number(depth) || 0);
     card.classList.add('saga-loredeck-library-deck-card-nested');
     card.style.setProperty('--saga-folder-depth', String(normalizedDepth));
     card.dataset.folderDepth = String(normalizedDepth);
     return card;
+}
+
+function appendLoredeckLibraryHierarchyRow(target, createRow, renderContext) {
+    if (target === renderContext.rowTarget) renderContext.rowFactories.push(createRow);
+    else target.appendChild(createRow());
+}
+
+function appendLoredeckLibraryHierarchyDeckCard(target, pack, depth, renderContext, visibleOrder) {
+    const index = visibleOrder.length;
+    visibleOrder.push(pack);
+    appendLoredeckLibraryHierarchyRow(target,
+        () => createLoredeckLibraryHierarchyDeckCard(pack, depth, renderContext, visibleOrder, index), renderContext);
 }
 
 function appendLoredeckLibraryFolderBranch(target, folder = {}, depth = 0, renderContext = {}, visibleOrder = []) {
@@ -2259,7 +2332,7 @@ function appendLoredeckLibraryFolderBranch(target, folder = {}, depth = 0, rende
     const folderAllPacks = renderContext.renderModel?.getFolderPacks?.(folderId) || [];
     const stats = renderContext.renderModel?.getStats?.(folderId) || {};
     const collapsed = getLoredeckLibraryFolderCollapsedStateFromRenderModel(folder, renderContext.renderModel, { query: renderContext.query });
-    const row = createLoredeckLibraryInlineFolderRow(folder, {
+    const rowOptions = {
         depth: normalizedDepth,
         collapsed,
         stats,
@@ -2268,8 +2341,8 @@ function appendLoredeckLibraryFolderBranch(target, folder = {}, depth = 0, rende
         mobileTouch: renderContext.mobileTouch === true,
         coverPacks: renderContext.renderModel?.getCoverPacks?.(folderId) || [],
         totalCoverableCount: folderAllPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
-    });
-    target.appendChild(row);
+    };
+    appendLoredeckLibraryHierarchyRow(target, () => createLoredeckLibraryInlineFolderRow(folder, rowOptions), renderContext);
 
     if (collapsed) return;
     appendLoredeckLibraryFolderContents(target, folder, normalizedDepth + 1, renderContext, visibleOrder, visibleDirect);
@@ -2282,7 +2355,7 @@ function appendLoredeckLibraryFolderContents(target, folder = {}, depth = 0, ren
     const visibleDirect = Array.isArray(visibleDirectOverride)
         ? visibleDirectOverride
         : sortLoredeckLibraryFolderPacks(renderContext.visibleByFolder?.get(folderId) || [], { registry: renderContext.registry });
-    for (const pack of visibleDirect) target.appendChild(createLoredeckLibraryHierarchyDeckCard(pack, depth, renderContext, visibleOrder));
+    for (const pack of visibleDirect) appendLoredeckLibraryHierarchyDeckCard(target, pack, depth, renderContext, visibleOrder);
 }
 
 function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = [], scopedLibrary = library, registry = getLoredeckLibraryRegistry(getState()), options = {}) {
@@ -2293,6 +2366,9 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
     loredeckLibraryHierarchyRenderCache = renderContext;
     list.__sagaLoredeckLibraryRenderContext = renderContext;
     const visibleOrder = [];
+    renderContext.rowTarget = list;
+    renderContext.rowFactories = [];
+    list.__sagaLoredeckLibraryVisibleOrder = visibleOrder;
 
     const folders = sortLoredeckLibraryFolderTreeByTitle(buildFolderTree(libraryIndex));
     for (const folder of folders) appendLoredeckLibraryFolderBranch(list, folder, 0, renderContext, visibleOrder);
@@ -2301,9 +2377,13 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
         renderContext.unfiledPacks.length ? renderContext.unfiledPacks : (renderContext.showEmptyFolders ? renderContext.renderModel.unfiledPacks : []),
         { sortMode: 'name', registry: renderContext.registry }
     );
-    for (const pack of unfiledVisible) list.appendChild(createLoredeckLibraryHierarchyDeckCard(pack, 0, renderContext, visibleOrder));
+    for (const pack of unfiledVisible) appendLoredeckLibraryHierarchyDeckCard(list, pack, 0, renderContext, visibleOrder);
 
-    if (!list.children.length) {
+    const rows = renderContext.rowFactories;
+    delete renderContext.rowTarget;
+    delete renderContext.rowFactories;
+    renderLoredeckLibraryRows(list, rows, withLoredeckLibraryRenderSnapshot);
+    if (!rows.length) {
         list.appendChild(createEmptyMessage('No Loredecks match the current Library view or search.'));
     }
     return list;
@@ -3155,6 +3235,7 @@ function getLoredeckLibraryVisiblePacksFromHierarchyDom(anchor = null, fallbackP
     const list = anchor?.closest?.('.saga-loredeck-library-hierarchy-list')
         || document.querySelector('.saga-loredeck-library-hierarchy-list');
     if (!list) return fallbackPacks || [];
+    if (Array.isArray(list.__sagaLoredeckLibraryVisibleOrder)) return list.__sagaLoredeckLibraryVisibleOrder;
     const fallbackById = new Map((fallbackPacks || []).map(pack => [String(pack?.packId || '').trim(), pack]).filter(([id]) => !!id));
     const packMap = getLoredeckLibraryPackMap(getLoredeckLibrary(getState()));
     return [...list.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]')]
@@ -4396,6 +4477,12 @@ function getLoredeckLibrarySelectedFolderDetails(libraryIndex = {}) {
 }
 
 function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = null, health = null, selectedFolder = null, libraryIndex = getLoredeckLibraryIndexForPacks(), library = getLoredeckLibrary(getState())) {
+    const panel = createLoredeckLibraryDetailsPanelBody(pack, stack, canonDb, health, selectedFolder, libraryIndex, library);
+    panel.dataset.selectionKey = `${pack?.packId || ''}|${selectedFolder?.id || ''}|${loredeckLibraryDetailsTab}`;
+    return panel;
+}
+
+function createLoredeckLibraryDetailsPanelBody(pack = null, stack = [], canonDb = null, health = null, selectedFolder = null, libraryIndex = {}, library = []) {
     if (selectedFolder) {
         return createLoredeckLibraryFolderDetailsPanel(selectedFolder, stack, canonDb, health, libraryIndex, library);
     }
@@ -5273,10 +5360,23 @@ export function getLoredeckPackSummaryCounts(pack = {}, cached = {}, loadedMeta 
 }
 
 function getLoredeckLibraryPackHealthInfo(pack = {}, canonDb = null, stackHealth = null) {
+    const memo = loredeckLibraryRenderSnapshot?.healthByPack;
+    const previous = memo?.get(pack);
+    if (previous?.canonDb === canonDb && previous.stackHealth === stackHealth) return previous.value;
     const cached = getCachedLoredeckHealthRecord(pack.packId);
     const loadedMeta = (canonDb?.loredecks || []).find(item => item.id === pack.packId) || null;
     const health = cached.health || buildLoredeckPackScopedHealth(pack, loadedMeta, loadedMeta ? stackHealth : null);
-    const report = buildLoredeckHealthReport(getState(), null, health);
+    // Row badges need only this deck's cached report, never a stack-wide scan.
+    const report = {
+        schemaVersion: 1,
+        generatedAt: health?.generatedAt || cached.loadedAt || 0,
+        scanned: !!health,
+        status: health?.status || 'unknown',
+        summary: health?.summary || {},
+        errors: Array.isArray(health?.errors) ? health.errors : [],
+        warnings: Array.isArray(health?.warnings) ? health.warnings : [],
+        suggestions: Array.isArray(health?.suggestions) ? health.suggestions : [],
+    };
     const counts = getLoredeckPackSummaryCounts(pack, cached, loadedMeta, health, report);
     report.packs = [buildLoredeckHealthPackSummary(pack, cached, health)];
     report.enabledPackIds = loadedMeta ? [pack.packId] : [];
@@ -5290,7 +5390,7 @@ function getLoredeckLibraryPackHealthInfo(pack = {}, canonDb = null, stackHealth
     };
     const status = getLoredeckHealthStatusDescriptor(report, health);
     const summary = report.summary || {};
-    return {
+    const value = {
         cached,
         loadedMeta,
         health,
@@ -5301,6 +5401,8 @@ function getLoredeckLibraryPackHealthInfo(pack = {}, canonDb = null, stackHealth
         suggestionCount: Number(summary.suggestionCount) || 0,
         issueCount: (Number(summary.errorCount) || 0) + (Number(summary.warningCount) || 0) + (Number(summary.suggestionCount) || 0),
     };
+    memo?.set(pack, { canonDb, stackHealth, value });
+    return value;
 }
 
 function isUnscannedBundledLoredeckDisplay(pack = {}, healthInfo = null) {
@@ -5322,13 +5424,16 @@ function getLoredeckLibraryDisplayIssueCount(pack = {}, healthInfo = null) {
 
 function getLoredeckLibraryDeckStats(pack = {}, canonDb = null, healthInfo = null) {
     const info = healthInfo || getLoredeckLibraryPackHealthInfo(pack, canonDb, canonDb?.health || null);
+    const memo = loredeckLibraryRenderSnapshot?.statsByPack;
+    const previous = memo?.get(pack);
+    if (previous?.canonDb === canonDb && previous.info === info) return previous.value;
     const loadedMeta = info.loadedMeta || (canonDb?.loredecks || []).find(item => item.id === pack.packId) || null;
     const counts = getLoredeckPackSummaryCounts(pack, info.cached || {}, loadedMeta, info.health, info.report);
     const categoryCounts = counts.categoryCounts || {};
     const tagCount = getLoredeckTagRegistryCount(pack.tagRegistry) || (Array.isArray(pack.tags) ? pack.tags.length : 0);
     const timelineCount = getLoredeckTimelineRegistryCount(pack.timelineRegistry);
     const updatedAt = Number(pack.updatedAt) || Number(pack.installedAt) || 0;
-    return {
+    const value = {
         entryCount: counts.entryCount,
         fileCount: counts.fileCount,
         tagCount,
@@ -5337,6 +5442,8 @@ function getLoredeckLibraryDeckStats(pack = {}, canonDb = null, healthInfo = nul
         updatedAt,
         updatedLabel: updatedAt ? `Updated ${formatRelativeHealthTime(updatedAt)}` : 'Not updated',
     };
+    memo?.set(pack, { canonDb, info, value });
+    return value;
 }
 
 function getLoredeckMonogram(pack = {}) {

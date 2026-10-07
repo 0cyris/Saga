@@ -498,7 +498,7 @@ export function buildLoredeckHealthPackSummary(pack = {}, cached = {}, health = 
         packId: pack.packId,
         title: pack.title || pack.packId,
         type: pack.type || 'custom',
-        typeLabel: getLoredeckTypeLabel(pack.packId),
+        typeLabel: ({ bundled: 'Bundled', generated: 'Generated', custom: 'Custom' })[pack.type] || getLoredeckTypeLabel(pack.packId),
         description: pack.description || '',
         manifest: pack.manifest || '',
         derivedFrom: pack.derivedFrom?.packId || '',
