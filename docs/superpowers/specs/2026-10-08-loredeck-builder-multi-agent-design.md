@@ -1,7 +1,7 @@
 # Loredeck Builder: Multi-Agent Verification and Delegation Spec
 
 Date: 2026-10-08
-Status: Proposed
+Status: Approved (O1, O2 decided 2026-10-08)
 Scope: `.claude/skills/loredeck-builder/`, `tools/loredeck/`, `plugins/loredeck-builder/`
 
 ## 1. Summary
@@ -45,7 +45,7 @@ Proposal: add **one deterministic CLI layer** (rendered briefs, fact-level groun
 
 - Title batch entries and cards gain fact-level support pointers: `support: ["<scope>/<recordId>#<factIndex>", ...]`.
   - Titles: a new field in `templates/title-batch.json`.
-  - Cards: a workshop sidecar `drafts/<deck>/.grounding/<file>.json` mapping card id → support. It's kept out of the shipped deck so no schema change is needed. *Open question O1: put it in `sourceInfo` instead.*
+  - Cards: `sourceInfo.evidenceFacts`, shipped in the deck. It's additive and verified backward compatible (see O1). Document it in `SAGA_LOREDECK_SCHEMA.md` as optional authoring provenance.
 - `loredeck ground check <id> [--deck D] [--stage titles|cards]` fails on:
   - a missing support pointer
   - a pointer to an unaccepted record or an out-of-range fact index
@@ -150,7 +150,7 @@ Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/
 ## 7. Implementation order
 
 1. Return contract + `brief` command + `agents/*.md` templates (research, draft). Update playbook. *(Small. Removes known drift.)*
-2. `support` pointers in title batch template, `.grounding` sidecar, `ground check`, report side-by-side view, tests.
+2. `support` pointers in title batch template, `sourceInfo.evidenceFacts` on cards plus schema-doc entry, `ground check`, report side-by-side view, tests.
 3. Grounding verifier role (template + `.claude/agents` file), wired into Stages 4–5 and `report`.
 4. Evidence auditor role, wired into Stage 2.
 5. Eval fixtures + script. Plugin sync copies `agents/` templates and `.claude/agents` files. Bundle test asserts their presence.
@@ -162,8 +162,8 @@ Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/
   - `conformance`: no new findings
   - `promote`, `package`, `verify-package`: all clean, with the field preserved in the zip
 
-  The runtime normalizer (`normalizeSourceBlock` in `src/lorecards/lore-matrix.js`) rebuilds `sourceInfo` from known keys only, so older and current app versions ignore the field. The same already happens to `evidenceRefs`. Additive, no breaking change. The caveat: the field is inert in-app, and surfacing it there needs a separate runtime change. Recommendation: ship it in `sourceInfo` (drop the sidecar) and document it in the schema doc as optional authoring provenance.
-- **O2:** Should verifier `unsupported` findings block `gate approve` (CLI-enforced), or only be surfaced? Recommendation: surface in v1, block in v2 once false-positive rate is known.
+  The runtime normalizer (`normalizeSourceBlock` in `src/lorecards/lore-matrix.js`) rebuilds `sourceInfo` from known keys only, so older and current app versions ignore the field. The same already happens to `evidenceRefs`. Additive, no breaking change. The caveat: the field is inert in-app, and surfacing it there needs a separate runtime change. **Decision: ship it in `sourceInfo.evidenceFacts`; no sidecar.**
+- **O2:** Should verifier `unsupported` findings block `gate approve` (CLI-enforced), or only be surfaced? **Decision: surface only in v1** (findings shown in the gate artifact, not CLI-enforced). Revisit blocking once the eval (§5) gives a false-positive rate.
 - **O3:** Should verifiers use a different model than the drafter for diversity? Default to `inherit`, and revisit with eval data.
 
 ## Sources
