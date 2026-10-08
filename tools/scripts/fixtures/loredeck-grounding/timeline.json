@@ -3,7 +3,7 @@
   "timelineMode": "anchor",
   "defaultContextType": "story_anchor",
   "sortKeyScale": "pack_local",
-  "summary": "Founding Trilogy Book 1 anchors for the grounding eval fixture (invented canon).",
+  "summary": "Founding Trilogy Book 1 anchors.",
   "anchors": [
     {
       "id": "fdt.book1.opening",

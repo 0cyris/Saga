@@ -2,7 +2,7 @@
 
 ## Fandom and source range
 
-The Founding Trilogy, Book 1 (an invented canon used only by the grounding eval). Coverage runs from Mara Venn's arrival at Ravenhold Keep to the fall of Ravenhold at the end of Book 1.
+The Founding Trilogy, Book 1. Coverage runs from Mara Venn's arrival at Ravenhold Keep to the fall of Ravenhold at the end of Book 1.
 
 ## Continuity and canon tier
 
@@ -10,7 +10,7 @@ Primary canon: the Book 1 text only. Books 2 and 3, adaptations, and fan materia
 
 ## Deck split
 
-A single deck, `grounding-eval`.
+A single deck, `founding-trilogy`.
 
 ## Story-coordinate model
 
@@ -22,4 +22,4 @@ Sethe's oath to the Ashen Pact stays gated until his pact-mark is exposed. Death
 
 ## Assumptions and risks
 
-None: the canon is fixed by the fixture evidence file.
+None: the canon is fixed by the accepted evidence file.

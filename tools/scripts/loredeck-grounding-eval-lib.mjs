@@ -13,6 +13,7 @@
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { copyFile, cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,6 +22,25 @@ import { GROUNDING_VERDICTS } from '../loredeck/lib/briefs.mjs';
 export const REPO_ROOT = path.resolve(fileURLToPath(new URL('.', import.meta.url)), '..', '..');
 export const FIXTURE_DIR = path.join(REPO_ROOT, 'tools', 'scripts', 'fixtures', 'loredeck-grounding');
 export const CLI_PATH = path.join(REPO_ROOT, 'tools', 'loredeck', 'loredeck-cli.mjs');
+
+/**
+ * Where the model layer builds its workshop and briefs: outside the repo, so a
+ * checker browsing the project cannot walk up to cases.json. Override with
+ * LOREDECK_GROUNDING_EVAL_DIR. The manifest (handle -> case id) and the score
+ * files live in the sibling `<dir>-results`, never inside the workshop tree.
+ */
+export function modelLayerDirs(env = process.env) {
+    const dir = path.resolve(env.LOREDECK_GROUNDING_EVAL_DIR || path.join(os.tmpdir(), 'loredeck-grounding-eval'));
+    return {
+        dir,
+        workshopRoot: path.join(dir, 'workshop'),
+        briefsDir: path.join(dir, 'briefs'),
+        resultsDir: `${dir}-results`,
+    };
+}
+
+/** Neutral project title: nothing a checker reads may say this is a test. */
+export const PROJECT_TITLE = 'The Founding Trilogy';
 
 /** Ship targets (spec §5, O2): catch rate on seeded semantic cases, false-alarm rate on controls. */
 export const EVAL_TARGETS = { catchRate: 0.85, falseAlarmRate: 0.10 };
@@ -44,12 +64,19 @@ export function caseHandle(caseId) {
 
 /** Entry-file stem for a case, relative to drafts/<deck>/ (the ground-check `batch` and the brief's --file). */
 export function caseBatch(caseId) {
-    return `eval/${caseHandle(caseId)}`;
+    return `entries/${caseHandle(caseId)}`;
 }
 
 /** Default findings path for a case (spec §9: grounding.<deck>.cards.<batch with / as .>.json). */
 export function caseFindingsRel(deckId, caseId) {
     return `reviews/audit/grounding.${deckId}.cards.${caseBatch(caseId).replaceAll('/', '.')}.json`;
+}
+
+/** Verdicts that count as exact for a case: `acceptVerdicts`, defaulting to `[expectVerdict]`. */
+export function acceptedVerdicts(testCase) {
+    return Array.isArray(testCase.acceptVerdicts) && testCase.acceptVerdicts.length
+        ? testCase.acceptVerdicts
+        : [testCase.expectVerdict];
 }
 
 /** Cases the model layer runs: every case that passes `ground check`. */
@@ -79,7 +106,7 @@ function mustSucceed(result, what) {
  * Builds a fresh workshop project from the fixtures, through the CLI: init,
  * copy evidence in and accept the listed records (the pending one stays
  * pending), copy the timeline, tags and scope brief, write each case's card
- * to drafts/<deck>/eval/<case-id>.json, and run `stats --write`.
+ * to drafts/<deck>/entries/<handle>.json, and run `stats --write`.
  * Returns `{ cli, projectId, deckId, projectDir, deckDir, cases }`.
  */
 export async function buildEvalProject(workshopRoot) {
@@ -90,7 +117,7 @@ export async function buildEvalProject(workshopRoot) {
     const deckDir = path.join(projectDir, 'drafts', deckId);
 
     await rm(workshopRoot, { recursive: true, force: true });
-    mustSucceed(cli('init', projectId, '--title', 'Founding Trilogy grounding eval'), 'init');
+    mustSucceed(cli('init', projectId, '--title', PROJECT_TITLE), 'init');
     await cp(path.join(FIXTURE_DIR, 'evidence'), path.join(projectDir, 'evidence'), { recursive: true });
     mustSucceed(cli('evidence', 'validate', projectId), 'evidence validate');
     const byScope = new Map();
@@ -182,7 +209,7 @@ function ratio(numerator, denominator) {
  * loadCaseFindings (or any Map<caseId, { status, verdict? }>).
  *
  * - catch rate: seeded semantic cases with verdict != entailed / seeded semantic cases that ran
- * - exact-verdict accuracy: verdict === expectVerdict / cases that ran
+ * - exact-verdict accuracy: verdict in acceptVerdicts (default [expectVerdict]) / cases that ran
  * - false-alarm rate: controls with verdict != entailed / controls that ran
  *
  * "not run" and "invalid" cases leave the denominators and make the result
@@ -199,10 +226,11 @@ export function scoreGroundingEval(cases, findings, { targets = EVAL_TARGETS } =
             label: testCase.label,
             errorClass: testCase.errorClass,
             expectVerdict: testCase.expectVerdict,
+            acceptVerdicts: acceptedVerdicts(testCase),
             status: finding.status,
             verdict: ran ? finding.verdict : null,
             flagged: ran ? finding.verdict !== 'entailed' : null,
-            exact: ran ? finding.verdict === testCase.expectVerdict : null,
+            exact: ran ? acceptedVerdicts(testCase).includes(finding.verdict) : null,
             ...(finding.detail ? { detail: finding.detail } : {}),
         };
     });
@@ -252,19 +280,19 @@ export function formatScoreTable(score, { variant = '' } = {}) {
     const lines = [];
     lines.push(`Grounding eval score${variant ? ` (variant ${variant})` : ''}: ${score.result.toUpperCase()}`);
     lines.push('');
-    lines.push('| Case | Label | Error class | Expected | Verdict | Flagged | Exact |');
+    lines.push('| Case | Label | Error class | Accepted | Verdict | Flagged | Exact |');
     lines.push('| --- | --- | --- | --- | --- | --- | --- |');
     for (const row of score.rows) {
         const verdict = row.status === 'ran' ? row.verdict : (row.status === 'not-run' ? 'not run' : `invalid: ${row.detail || ''}`);
         const yn = value => (value === null ? '-' : (value ? 'yes' : 'no'));
-        lines.push(`| ${row.id} | ${row.label} | ${row.errorClass} | ${row.expectVerdict} | ${verdict} | ${yn(row.flagged)} | ${yn(row.exact)} |`);
+        lines.push(`| ${row.id} | ${row.label} | ${row.errorClass} | ${row.acceptVerdicts.join(' / ')} | ${verdict} | ${yn(row.flagged)} | ${yn(row.exact)} |`);
     }
     lines.push('');
     lines.push('| Metric | Value | Target | Check |');
     lines.push('| --- | --- | --- | --- |');
     lines.push(`| Catch rate (seeded semantic, verdict != entailed) | ${score.catchRate.caught}/${score.catchRate.ran} = ${pct(score.catchRate.rate)} | >= ${pct(score.targets.catchRate)} | ${score.checks.catchRate} |`);
     lines.push(`| False-alarm rate (controls, verdict != entailed) | ${score.falseAlarm.alarms}/${score.falseAlarm.ran} = ${pct(score.falseAlarm.rate)} | <= ${pct(score.targets.falseAlarmRate)} | ${score.checks.falseAlarmRate} |`);
-    lines.push(`| Exact-verdict accuracy | ${score.exactVerdict.correct}/${score.exactVerdict.ran} = ${pct(score.exactVerdict.rate)} | (reported) | - |`);
+    lines.push(`| Exact-verdict accuracy (verdict in accepted set) | ${score.exactVerdict.correct}/${score.exactVerdict.ran} = ${pct(score.exactVerdict.rate)} | (reported) | - |`);
     if (score.notRun.length) lines.push('', `Not run (${score.notRun.length}): ${score.notRun.join(', ')}`);
     if (score.invalid.length) lines.push('', `Invalid findings (${score.invalid.length}): ${score.invalid.join(', ')}`);
     return `${lines.join('\n')}\n`;

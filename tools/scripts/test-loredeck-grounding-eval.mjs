@@ -2,7 +2,7 @@
  * test-loredeck-grounding-eval.mjs -- Saga
  * Deterministic layer of the grounding eval (spec 2026-10-08 §5). Builds a
  * workshop project from the labelled fixtures in fixtures/loredeck-grounding/
- * through the CLI (one card per entry file under drafts/<deck>/eval/), runs
+ * through the CLI (one card per entry file under drafts/<deck>/entries/), runs
  * `ground check --stage cards --json`, and asserts that every case expected
  * to pass has no issue and every structural case gets exactly its expected
  * problem code. Also checks the fixture set's labelling and the scorer used
@@ -11,12 +11,14 @@
  */
 
 import assert from 'node:assert/strict';
-import { mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 
 import { GROUNDING_PROBLEMS } from '../loredeck/lib/grounding.mjs';
 import { GROUNDING_VERDICTS } from '../loredeck/lib/briefs.mjs';
 import {
+    acceptedVerdicts,
     buildEvalProject,
     CASE_KINDS,
     CASE_LABELS,
@@ -24,11 +26,14 @@ import {
     caseHandle,
     caseFindingsRel,
     EVAL_TARGETS,
+    FIXTURE_DIR,
     formatScoreTable,
     groundCheckCards,
     loadCaseFindings,
     loadEvalCases,
     modelEligible,
+    modelLayerDirs,
+    PROJECT_TITLE,
     REPO_ROOT,
     scoreGroundingEval,
 } from './loredeck-grounding-eval-lib.mjs';
@@ -36,7 +41,7 @@ import {
 const workshopRoot = path.join(REPO_ROOT, '.tmp', 'test-loredeck-grounding-eval');
 
 // --- The fixture set is labelled consistently ---
-const { cases } = await loadEvalCases();
+const { deckId: fixtureDeckId, cases } = await loadEvalCases();
 const problemCodes = Object.values(GROUNDING_PROBLEMS);
 assert.ok(cases.length >= 18 && cases.length <= 24, `expected about 20 cases, got ${cases.length}`);
 assert.equal(new Set(cases.map(testCase => testCase.id)).size, cases.length, 'case ids are unique');
@@ -47,6 +52,14 @@ for (const testCase of cases) {
     assert.ok(CASE_LABELS.includes(testCase.label), `${where}: label`);
     assert.ok(CASE_KINDS.includes(testCase.kind), `${where}: kind`);
     assert.ok(GROUNDING_VERDICTS.includes(testCase.expectVerdict), `${where}: expectVerdict`);
+    if (testCase.acceptVerdicts !== undefined) {
+        assert.ok(Array.isArray(testCase.acceptVerdicts) && testCase.acceptVerdicts.length, `${where}: acceptVerdicts is a non-empty array`);
+        assert.equal(new Set(testCase.acceptVerdicts).size, testCase.acceptVerdicts.length, `${where}: acceptVerdicts has no duplicates`);
+        for (const verdict of testCase.acceptVerdicts) assert.ok(GROUNDING_VERDICTS.includes(verdict), `${where}: acceptVerdicts ${verdict}`);
+        assert.ok(testCase.acceptVerdicts.includes(testCase.expectVerdict), `${where}: acceptVerdicts includes expectVerdict`);
+        assert.equal(testCase.label, 'seeded', `${where}: only seeded cases widen acceptVerdicts`);
+        assert.ok(!testCase.acceptVerdicts.includes('entailed'), `${where}: a seeded case never accepts entailed`);
+    }
     assert.ok(typeof testCase.errorClass === 'string' && testCase.errorClass, `${where}: errorClass`);
     assert.ok(typeof testCase.note === 'string' && testCase.note, `${where}: note`);
     assert.equal(testCase.card.schemaVersion, 3, `${where}: card is a v3 card`);
@@ -62,6 +75,7 @@ for (const testCase of cases) {
     if (testCase.label === 'control') {
         assert.equal(testCase.errorClass, 'none', `${where}: controls plant no error`);
         assert.equal(testCase.expectVerdict, 'entailed', `${where}: controls are entailed`);
+        assert.deepEqual(acceptedVerdicts(testCase), ['entailed'], `${where}: controls accept only entailed`);
     } else if (testCase.kind === 'semantic') {
         assert.notEqual(testCase.expectVerdict, 'entailed', `${where}: seeded semantic cases are not entailed`);
     }
@@ -73,9 +87,37 @@ assert.ok(count(testCase => testCase.label === 'seeded' && testCase.kind === 'se
 for (const errorClass of ['in-universe-span', 'wrong-timing-gate', 'wrong-record', 'unsupported-fact']) {
     assert.ok(count(testCase => testCase.errorClass === errorClass) >= 2, `at least 2 ${errorClass} cases`);
 }
+const byId = Object.fromEntries(cases.map(testCase => [testCase.id, testCase]));
+for (const id of ['unsupported-sethe-daughter', 'wrong-record-brask-death']) {
+    assert.deepEqual(byId[id].acceptVerdicts, ['unsupported', 'partial'], `${id}: accepts unsupported or partial`);
+}
+
+// --- Nothing a checker reads says this is a test ---
+const neutralFiles = ['scope-brief.md', 'timeline.json', 'tags.json', path.join('evidence', 'chapters', 'book-1.json')];
+for (const rel of neutralFiles) {
+    const text = await readFile(path.join(FIXTURE_DIR, rel), 'utf8');
+    assert.doesNotMatch(text, /\beval|\btest|fixture/i, `${rel} must not say eval, test or fixture`);
+}
+assert.doesNotMatch(`${PROJECT_TITLE} ${fixtureDeckId}`, /eval|test/i, 'project title and deck id are neutral');
+for (const testCase of cases) {
+    assert.doesNotMatch(JSON.stringify(testCase.card), /\beval|\btest|fixture/i, `${testCase.id}: card must not say eval, test or fixture`);
+}
+
+// --- The model layer works outside the repo, with results beside the workshop tree ---
+const defaultDirs = modelLayerDirs({});
+assert.equal(defaultDirs.dir, path.join(os.tmpdir(), 'loredeck-grounding-eval'));
+assert.equal(defaultDirs.resultsDir, `${defaultDirs.dir}-results`);
+const relToRepo = path.relative(REPO_ROOT, defaultDirs.dir);
+assert.ok(relToRepo.startsWith('..') || path.isAbsolute(relToRepo), `default dir ${defaultDirs.dir} is outside the repo`);
+const overridden = modelLayerDirs({ LOREDECK_GROUNDING_EVAL_DIR: path.join(os.tmpdir(), 'elsewhere') });
+assert.equal(overridden.workshopRoot, path.join(os.tmpdir(), 'elsewhere', 'workshop'));
+assert.equal(overridden.briefsDir, path.join(os.tmpdir(), 'elsewhere', 'briefs'));
+assert.equal(overridden.resultsDir, path.join(os.tmpdir(), 'elsewhere-results'));
 
 // --- Automated layer: ground check flags exactly the structural cases ---
 const { cli, projectId, deckId, projectDir } = await buildEvalProject(workshopRoot);
+assert.equal(deckId, 'founding-trilogy');
+assert.equal(projectId, 'founding-trilogy');
 const { code, report } = groundCheckCards(cli, projectId);
 assert.equal(code, 1, 'ground check exits 1 because the structural cases are planted');
 assert.equal(report.checked, cases.length, 'every case card is checked');
@@ -111,21 +153,31 @@ const synth = [
     { id: 's3', label: 'seeded', kind: 'semantic', errorClass: 'unsupported-fact', expectGroundCheck: 'pass', expectVerdict: 'unsupported', card: { id: 'card.s3' } },
     { id: 's4', label: 'seeded', kind: 'semantic', errorClass: 'unsupported-fact', expectGroundCheck: 'pass', expectVerdict: 'unsupported', card: { id: 'card.s4' } },
     { id: 's5', label: 'seeded', kind: 'semantic', errorClass: 'in-universe-span', expectGroundCheck: 'pass', expectVerdict: 'partial', card: { id: 'card.s5' } },
+    { id: 's6', label: 'seeded', kind: 'semantic', errorClass: 'wrong-record', expectGroundCheck: 'pass', expectVerdict: 'unsupported', acceptVerdicts: ['unsupported', 'partial'], card: { id: 'card.s6' } },
     { id: 'x1', label: 'seeded', kind: 'structural', errorClass: 'missing-support', expectGroundCheck: 'missing-support', expectVerdict: 'unsupported', card: { id: 'card.x1' } },
 ];
-assert.deepEqual(modelEligible(synth).map(testCase => testCase.id), ['c1', 'c2', 'c3', 'c4', 's1', 's2', 's3', 's4', 's5'], 'structural cases are not model-scored');
+assert.deepEqual(modelEligible(synth).map(testCase => testCase.id), ['c1', 'c2', 'c3', 'c4', 's1', 's2', 's3', 's4', 's5', 's6'], 'structural cases are not model-scored');
 const ran = verdict => ({ status: 'ran', verdict });
 const full = new Map([
     ['c1', ran('entailed')], ['c2', ran('entailed')], ['c3', ran('entailed')], ['c4', ran('partial')],
-    ['s1', ran('timing-mismatch')], ['s2', ran('partial')], ['s3', ran('unsupported')], ['s4', ran('entailed')], ['s5', ran('partial')],
+    ['s1', ran('timing-mismatch')], ['s2', ran('partial')], ['s3', ran('unsupported')], ['s4', ran('entailed')], ['s5', ran('partial')], ['s6', ran('partial')],
     ['x1', ran('entailed')],
 ]);
 const score = scoreGroundingEval(synth, full);
-assert.deepEqual([score.catchRate.caught, score.catchRate.ran], [4, 5]);
-assert.equal(score.catchRate.rate, 0.8);
+assert.deepEqual([score.catchRate.caught, score.catchRate.ran], [5, 6]);
+assert.equal(score.catchRate.rate, 5 / 6);
 assert.deepEqual([score.falseAlarm.alarms, score.falseAlarm.ran], [1, 4]);
 assert.equal(score.falseAlarm.rate, 0.25);
-assert.deepEqual([score.exactVerdict.correct, score.exactVerdict.ran], [6, 9]);
+// s6 answered partial, which its acceptVerdicts allow: exact.
+assert.deepEqual([score.exactVerdict.correct, score.exactVerdict.ran], [7, 10]);
+assert.deepEqual(score.rows.find(row => row.id === 's6').acceptVerdicts, ['unsupported', 'partial']);
+assert.equal(score.rows.find(row => row.id === 's6').exact, true);
+assert.deepEqual(score.rows.find(row => row.id === 's5').acceptVerdicts, ['partial'], 'acceptVerdicts defaults to [expectVerdict]');
+assert.deepEqual(score.byErrorClass['wrong-record'], { total: 1, ran: 1, flagged: 1, exact: 1 });
+// A verdict outside acceptVerdicts is still not exact, and catch rate ignores acceptVerdicts.
+const s6Entailed = scoreGroundingEval(synth, new Map([...full, ['s6', ran('timing-mismatch')]]));
+assert.equal(s6Entailed.rows.find(row => row.id === 's6').exact, false);
+assert.equal(s6Entailed.catchRate.caught, 5);
 assert.equal(score.checks.catchRate, 'fail');
 assert.equal(score.checks.falseAlarmRate, 'fail');
 assert.equal(score.result, 'fail');
@@ -143,9 +195,9 @@ assert.deepEqual(EVAL_TARGETS, { catchRate: 0.85, falseAlarmRate: 0.10 });
 // Missing findings are "not run": out of the denominators, never failures.
 const partial = new Map([['c1', ran('entailed')], ['s1', ran('timing-mismatch')], ['s3', { status: 'invalid', detail: 'not valid JSON' }]]);
 const partialScore = scoreGroundingEval(synth, partial);
-assert.deepEqual([partialScore.catchRate.caught, partialScore.catchRate.ran, partialScore.catchRate.total], [1, 1, 5]);
+assert.deepEqual([partialScore.catchRate.caught, partialScore.catchRate.ran, partialScore.catchRate.total], [1, 1, 6]);
 assert.deepEqual([partialScore.falseAlarm.alarms, partialScore.falseAlarm.ran], [0, 1]);
-assert.deepEqual(partialScore.notRun, ['c2', 'c3', 'c4', 's2', 's4', 's5']);
+assert.deepEqual(partialScore.notRun, ['c2', 'c3', 'c4', 's2', 's4', 's5', 's6']);
 assert.deepEqual(partialScore.invalid, ['s3']);
 assert.equal(partialScore.result, 'incomplete');
 const noneScore = scoreGroundingEval(synth, new Map());
@@ -153,8 +205,9 @@ assert.equal(noneScore.result, 'not-run');
 assert.equal(noneScore.catchRate.rate, null);
 assert.equal(noneScore.checks.catchRate, 'not-run');
 const table = formatScoreTable(score, { variant: 'a' });
-assert.ok(table.includes('variant a') && table.includes('4/5 = 80.0%') && table.includes('1/4 = 25.0%') && table.includes('6/9 = 66.7%'), table);
-assert.ok(formatScoreTable(partialScore).includes('Not run (6): c2, c3, c4, s2, s4, s5'));
+assert.ok(table.includes('variant a') && table.includes('5/6 = 83.3%') && table.includes('1/4 = 25.0%') && table.includes('7/10 = 70.0%'), table);
+assert.ok(table.includes('| Accepted |') && table.includes('| s6 | seeded | wrong-record | unsupported / partial | partial | yes | yes |'), table);
+assert.ok(formatScoreTable(partialScore).includes('Not run (7): c2, c3, c4, s2, s4, s5, s6'));
 
 // --- Findings loader: reads the per-case files the checkers write ---
 const eligible = modelEligible(cases);
@@ -170,7 +223,7 @@ const findingsFile = (testCase, verdict) => ({
     target: `drafts/${deckId}/${caseBatch(testCase.id)}.json`,
     findings: [{ ref: testCase.card.id, verdict, note: '' }],
 });
-assert.equal(caseFindingsRel(deckId, first.id), `reviews/audit/grounding.${deckId}.cards.eval.${caseHandle(first.id)}.json`);
+assert.equal(caseFindingsRel(deckId, first.id), `reviews/audit/grounding.${deckId}.cards.entries.${caseHandle(first.id)}.json`);
 // Case ids name the planted error, so no file name a checker sees may contain one.
 for (const testCase of cases) {
     assert.ok(!caseBatch(testCase.id).includes(testCase.id), `${testCase.id}: entry file name must not reveal the case id.`);
