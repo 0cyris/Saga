@@ -158,6 +158,27 @@ await rm(path.dirname(brokenFile), { recursive: true, force: true });
 assert.equal(cli('stats', deckDir, '--write').code, 0);
 assert.equal(groundCheck().code, 0);
 
+// --- An entry file on disk but not yet in files[] is flagged, not skipped ---
+const unlistedFile = path.join(deckDir, 'secrets', 'unlisted.json');
+await mkdir(path.dirname(unlistedFile), { recursive: true });
+await writeFile(unlistedFile, JSON.stringify({ entries: [{ id: 'canon.secret.unlisted', title: 'Unlisted' }] }));
+const unlisted = groundCheck();
+assert.equal(unlisted.code, 1, 'An unlisted entry file must not pass silently.');
+assert.deepEqual(unlisted.report.issues.map(issue => [issue.batch, issue.problem]), [['secrets/unlisted', 'invalid-batch-file']]);
+assert.match(unlisted.report.issues[0].detail, /not listed in the manifest's files\[\]; run stats --write/);
+await rm(path.dirname(unlistedFile), { recursive: true, force: true });
+
+// --- A bare-array entry file is read like Pack Health reads it ---
+const arrayFile = path.join(deckDir, 'secrets', 'array.json');
+await mkdir(path.dirname(arrayFile), { recursive: true });
+await writeFile(arrayFile, JSON.stringify([{ id: 'canon.secret.array', title: 'Array card' }]));
+assert.equal(cli('stats', deckDir, '--write').code, 0);
+const arrayRun = groundCheck();
+assert.deepEqual(arrayRun.report.issues.map(issue => [issue.itemId, issue.problem]), [['canon.secret.array', 'missing-support']]);
+await rm(path.dirname(arrayFile), { recursive: true, force: true });
+assert.equal(cli('stats', deckDir, '--write').code, 0);
+assert.equal(groundCheck().code, 0);
+
 // --- report --stage cards shows each claim next to its pointed-at facts, and never blocks ---
 const reportCards = cleanCards();
 reportCards[0].sourceInfo.evidenceFacts = ['chapters/canon-ch-01#0', 'chapters/canon-ch-01#1'];

@@ -30,9 +30,12 @@ export async function collectEntryFilePaths(deckDir) {
 /**
  * Reads a deck's entries the way review artifacts and `ground check` see them:
  * every file listed in the manifest's files[] (root-level registry JSON is
- * never an entry file). Returns `{ manifest, entries: [{ file, entry }],
- * fileIssues: [{ file, detail }] }`; fileIssues lists listed files that are
- * missing, unparseable, or have no entries array.
+ * never an entry file). An entry file is `{ entries: [...] }` or, as Pack
+ * Health also accepts, a bare array. Returns `{ manifest, entries: [{ file,
+ * entry }], fileIssues: [{ file, detail }] }`; fileIssues lists a missing or
+ * unparseable manifest, listed files that are missing, unparseable, or hold
+ * no entries, and entry files on disk that files[] does not list yet (so a
+ * gate can't pass by skipping cards `stats --write` hasn't picked up).
  */
 export async function readDeckEntries(deckDir) {
     const manifest = await readJsonFileOrNull(path.join(deckDir, 'loredeck.json'))
@@ -40,6 +43,10 @@ export async function readDeckEntries(deckDir) {
     const files = Array.isArray(manifest?.files) ? manifest.files : [];
     const entries = [];
     const fileIssues = [];
+    const deckExists = await pathExists(deckDir);
+    if (deckExists && !manifest) {
+        fileIssues.push({ file: 'loredeck.json', detail: 'deck manifest is missing or unparseable, so no entry files can be read' });
+    }
     for (const file of files) {
         const filePath = path.join(deckDir, String(file));
         if (path.dirname(filePath) === path.resolve(deckDir)) continue;
@@ -50,12 +57,21 @@ export async function readDeckEntries(deckDir) {
             fileIssues.push({ file, detail: `failed to read JSON. ${e?.message || ''}`.trim() });
             continue;
         }
-        if (!Array.isArray(json?.entries)) {
+        const list = Array.isArray(json) ? json : json?.entries;
+        if (!Array.isArray(list)) {
             fileIssues.push({ file, detail: `${file} has no entries array` });
             continue;
         }
-        for (const entry of json.entries) {
+        for (const entry of list) {
             entries.push({ file, entry });
+        }
+    }
+    if (deckExists) {
+        const listed = new Set(files.map(String));
+        for (const file of await collectEntryFilePaths(deckDir)) {
+            if (!listed.has(file)) {
+                fileIssues.push({ file, detail: `${file} is on disk but not listed in the manifest's files[]; run stats --write` });
+            }
         }
     }
     return { manifest, entries, fileIssues };

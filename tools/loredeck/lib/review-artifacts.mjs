@@ -246,12 +246,12 @@ export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys
         lines.push(mdTable(
             ['Card id', 'Title', 'Category', 'Context', 'Tags', 'Evidence refs'],
             entries.map(({ entry }) => [
-                entry.id,
-                entry.title,
-                entry.category,
-                describeContext(entry.context),
-                (entry.tags || []).join(', '),
-                (entry.sourceInfo?.evidenceRefs || []).join(', '),
+                entry?.id,
+                entry?.title,
+                entry?.category,
+                describeContext(entry?.context),
+                (entry?.tags || []).join(', '),
+                (entry?.sourceInfo?.evidenceRefs || []).join(', '),
             ]),
         ));
         const deckGroundItems = groundItems.filter(item => item.ref?.deck === deck.deckId);
