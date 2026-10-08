@@ -329,7 +329,7 @@ export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys
  * or '' when the checker has not run, so the evidence artifact stays unchanged.
  */
 export async function buildEvidenceFindingsSummary(projectDir) {
-    return summarizeFindings(await loadFindingsFiles(projectDir, { prefix: 'evidence-audit.', role: 'evidence-audit' }), {
+    return summarizeFindings(await loadFindingsFiles(projectDir, { prefix: 'evidence-audit.', role: 'evidence-audit', checkTargets: true }), {
         title: 'Evidence checker findings',
         okVerdicts: ['supported'],
     });

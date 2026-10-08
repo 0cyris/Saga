@@ -165,6 +165,21 @@ assert.ok(withFindings.endsWith(baseline.slice('# Evidence Review: Audit Canon\n
 assert.equal(cli('report', 'audit-canon', '--stage', 'evidence').code, 0);
 assert.equal(await readFile(evidenceMd, 'utf8'), withFindings, 'report --stage evidence renders the same summary.');
 
+// A findings file whose target evidence file is gone is listed as stale and not counted.
+await writeFile(path.join(auditDir, 'evidence-audit.ghosts.json'), JSON.stringify({
+    schemaVersion: 1,
+    role: 'evidence-audit',
+    target: 'evidence/ghosts/ghosts.json',
+    findings: [{ ref: 'ghosts/gone#0', verdict: 'unsupported', note: 'The file was deleted.' }],
+}, null, 2));
+assert.equal(cli('report', 'audit-canon', '--stage', 'evidence').code, 0);
+const withStale = await readFile(evidenceMd, 'utf8');
+assert.ok(withStale.includes('1 verified, 2 flagged across 1 findings file(s).'), 'Stale findings stay out of the counts.');
+assert.ok(withStale.includes('Stale findings files'), withStale.slice(0, 800));
+assert.ok(withStale.includes('- `reviews/audit/evidence-audit.ghosts.json`: target `evidence/ghosts/ghosts.json` is missing'));
+assert.ok(!withStale.includes('| ghosts/gone#0 |'), 'Stale findings are not listed as flagged.');
+await rm(path.join(auditDir, 'evidence-audit.ghosts.json'));
+
 // Removing the findings restores the byte-identical page.
 await rm(path.join(auditDir, 'evidence-audit.chapters.json'));
 assert.equal(cli('report', 'audit-canon', '--stage', 'evidence').code, 0);

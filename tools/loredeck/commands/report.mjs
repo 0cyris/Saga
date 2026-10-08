@@ -32,7 +32,7 @@ const STAGES = ['brief', 'evidence', 'plan', 'titles', 'cards', 'final'];
 async function buildGroundingFindingsSummary(state, projectDir, stage) {
     const findings = [];
     for (const deck of state.decks || []) {
-        findings.push(...await loadFindingsFiles(projectDir, { prefix: `grounding.${deck.deckId}.${stage}.`, role: 'grounding-verify' }));
+        findings.push(...await loadFindingsFiles(projectDir, { prefix: `grounding.${deck.deckId}.${stage}.`, role: 'grounding-verify', checkTargets: true }));
     }
     const uniqueFindings = [...new Map(findings.map(entry => [entry.file, entry])).values()]
         .sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
