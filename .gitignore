@@ -25,6 +25,7 @@ plugins/loredeck-builder/cli/
 plugins/loredeck-builder/docs/
 plugins/loredeck-builder/reference-decks/
 plugins/loredeck-builder/dist/
+plugins/loredeck-builder/agents/
 
 # Local developer secrets and scratch config.
 # Keep the extension keyring/client files tracked; these patterns are only for

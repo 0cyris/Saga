@@ -13,6 +13,7 @@
  *   - the four authoring docs (docs/loredecks/*.md)       -> docs/
  *   - one bundled reference deck (content/loredecks/hp-core) -> reference-decks/hp-core
  *   - a wrapper that defaults the workshop root           -> cli/loredeck-plugin.mjs
+ *   - Claude Code subagent files (.claude/agents/loredeck-*.md) -> agents/
  *
  * Run from anywhere: `node plugins/loredeck-builder/scripts/sync-from-repo.mjs`
  * Then `node plugins/loredeck-builder/scripts/build-skill-file.mjs` to zip it.
@@ -180,12 +181,27 @@ await import('./loredeck/loredeck-cli.mjs');
   writeFileSync(P('cli', 'loredeck-plugin.mjs'), wrapper);
 }
 
+/* ---- 7. Claude Code subagent definitions (plugin agents/ convention) ---- */
+function syncAgents() {
+  const dest = P('agents');
+  resetDir(dest);
+  let names = [];
+  try {
+    names = readdirSync(R('.claude', 'agents')).filter(name => /^loredeck-.*\.md$/.test(name)).sort();
+  } catch (_) {
+    names = [];
+  }
+  for (const name of names) cpSync(R('.claude', 'agents', name), path.join(dest, name));
+  return names.length;
+}
+
 syncSkill();
 syncCli();
 syncVendor();
 syncDocs();
 syncReferenceDeck();
 writeWrapper();
+const agentCount = syncAgents();
 
 const counts = {
   skill: listFiles(P('skills')).length,
@@ -193,6 +209,7 @@ const counts = {
   vendor: VENDOR_MODULES.length,
   docs: AUTHORING_DOCS.length,
   referenceDeck: listFiles(P('reference-decks')).length,
+  agents: agentCount,
 };
 console.log('Synced loredeck-builder plugin bundle from repo:');
 for (const [k, v] of Object.entries(counts)) console.log(`  ${k}: ${v} files`);
