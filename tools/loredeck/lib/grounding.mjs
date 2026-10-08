@@ -24,11 +24,15 @@ export const GROUNDING_PROBLEMS = {
     unknownRecord: 'unknown-record',
     unacceptedRecord: 'unaccepted-record',
     factOutOfRange: 'fact-out-of-range',
+    emptyFact: 'empty-fact',
+    duplicatePointer: 'duplicate-pointer',
     notInEvidenceRefs: 'not-in-evidence-refs',
     invalidBatchFile: 'invalid-batch-file',
 };
 
-const FACT_POINTER_RE = /^([a-z0-9][a-z0-9-]*)\/([^/#\s]+)#(0|[1-9]\d*)$/;
+// Scope is a slug, so the first '/' ends it; the index is anchored to the last
+// '#'. Record ids may therefore themselves contain '/' or '#'.
+const FACT_POINTER_RE = /^([a-z0-9][a-z0-9-]*)\/(\S(?:.*\S)?)#(0|[1-9]\d*)$/;
 
 /**
  * Parses `<scope>/<recordId>#<factIndex>`. Returns
@@ -77,9 +81,16 @@ export function resolveFactPointer(pointer, evidenceLookup) {
     }
     const facts = Array.isArray(record.facts) ? record.facts : [];
     if (parsed.factIndex >= facts.length) {
-        return { ok: false, pointer: label, key: parsed.key, problem: GROUNDING_PROBLEMS.factOutOfRange, detail: `${parsed.key} has ${facts.length} fact(s); valid indexes are 0-${Math.max(facts.length - 1, 0)}` };
+        const detail = facts.length
+            ? `${parsed.key} has ${facts.length} fact(s); valid indexes are 0-${facts.length - 1}`
+            : `${parsed.key} has no facts`;
+        return { ok: false, pointer: label, key: parsed.key, problem: GROUNDING_PROBLEMS.factOutOfRange, detail };
     }
-    return { ok: true, pointer: label, key: parsed.key, factIndex: parsed.factIndex, fact: facts[parsed.factIndex] };
+    const fact = facts[parsed.factIndex];
+    if (typeof fact !== 'string' || !fact.trim()) {
+        return { ok: false, pointer: label, key: parsed.key, problem: GROUNDING_PROBLEMS.emptyFact, detail: `${label} points at an empty fact` };
+    }
+    return { ok: true, pointer: label, key: parsed.key, factIndex: parsed.factIndex, fact };
 }
 
 /**
@@ -93,11 +104,20 @@ export function checkGroundedItem({ support, evidenceRefs }, evidenceLookup) {
     const issues = [];
     const pointers = Array.isArray(support) ? support : [];
     if (!pointers.length) {
-        issues.push({ pointer: null, problem: GROUNDING_PROBLEMS.missingSupport, detail: Array.isArray(support) ? 'support is empty' : 'support is missing' });
+        const detail = support === undefined || support === null
+            ? 'support is missing'
+            : (Array.isArray(support) ? 'support is empty' : 'support must be an array of pointers');
+        issues.push({ pointer: null, problem: GROUNDING_PROBLEMS.missingSupport, detail });
         return { resolved, issues };
     }
     const refs = new Set(Array.isArray(evidenceRefs) ? evidenceRefs.map(String) : []);
+    const seen = new Set();
     for (const pointer of pointers) {
+        if (typeof pointer === 'string' && seen.has(pointer)) {
+            issues.push({ pointer, problem: GROUNDING_PROBLEMS.duplicatePointer, detail: `${pointer} is listed more than once` });
+            continue;
+        }
+        seen.add(pointer);
         const result = resolveFactPointer(pointer, evidenceLookup);
         resolved.push(result);
         if (!result.ok) {
@@ -113,7 +133,7 @@ export function checkGroundedItem({ support, evidenceRefs }, evidenceLookup) {
 
 /**
  * Titles collector: one item per title in plans/title-batches/<deck>/*.json.
- * Items carry `ref` (fields copied onto every issue), the raw `entry`, the
+ * Items carry `ref` (`{ deck, kind, itemId, batch }`, copied onto every issue), the raw `entry`, the
  * claim text, and the support/evidenceRefs to check. Items are emitted in deck,
  * then batch-file, then title order. Unreadable batch files become `fileIssues`.
  */
@@ -130,18 +150,18 @@ async function collectTitleItems(state, projectDir, { deckId = '' } = {}) {
             try {
                 batch = await readJsonFile(batchFile);
             } catch (e) {
-                fileIssues.push({ deck: deck.deckId, titleId: null, batch: file, pointer: null, problem: GROUNDING_PROBLEMS.invalidBatchFile, detail: `failed to parse JSON. ${e?.message || ''}`.trim() });
+                fileIssues.push({ deck: deck.deckId, kind: 'title', itemId: null, batch: file, pointer: null, problem: GROUNDING_PROBLEMS.invalidBatchFile, detail: `failed to parse JSON. ${e?.message || ''}`.trim() });
                 continue;
             }
             const batchId = String(batch?.batchId || path.basename(batchFile, '.json'));
             if (!Array.isArray(batch?.titles)) {
-                fileIssues.push({ deck: deck.deckId, titleId: null, batch: batchId, pointer: null, problem: GROUNDING_PROBLEMS.invalidBatchFile, detail: `${file} has no titles array` });
+                fileIssues.push({ deck: deck.deckId, kind: 'title', itemId: null, batch: batchId, pointer: null, problem: GROUNDING_PROBLEMS.invalidBatchFile, detail: `${file} has no titles array` });
                 continue;
             }
             groups.push({ deck: deck.deckId, batch: batchId, file, count: batch.titles.length });
             for (const title of batch.titles) {
                 items.push({
-                    ref: { deck: deck.deckId, titleId: String(title?.id || ''), batch: batchId },
+                    ref: { deck: deck.deckId, kind: 'title', itemId: String(title?.id || ''), batch: batchId },
                     entry: title,
                     claim: String(title?.gateIntent ?? ''),
                     support: title?.support,

@@ -23,15 +23,17 @@ One card = one job: a fact, state, constraint, reveal, relationship, rule, event
 
 | Code | Meaning |
 | --- | --- |
-| `missing-support` | `support` is missing or empty |
+| `missing-support` | `support` is missing, empty, or not an array |
 | `malformed-pointer` | not `<scope>/<recordId>#<factIndex>` with a non-negative integer index |
 | `unknown-record` | no evidence record with that `<scope>/<recordId>` |
 | `unaccepted-record` | the record exists but is pending or rejected |
 | `fact-out-of-range` | the index is past the end of the record's `facts[]` |
+| `empty-fact` | the pointed-to fact is blank or not a string |
+| `duplicate-pointer` | the same pointer appears twice in one `support` list |
 | `not-in-evidence-refs` | the pointer's record isn't listed in the title's `evidenceRefs` |
 | `invalid-batch-file` | a title-batch file couldn't be parsed or has no `titles` array |
 
-`--json` prints `{ ok, stage, deck, checked, issues: [{ deck, titleId, batch, pointer, problem, detail }] }`. A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent` next to the fact strings its pointers resolve to.
+`--json` prints `{ ok, stage, deck, checked, issues: [{ deck, kind, itemId, batch, pointer, problem, detail }] }`. A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent` next to the fact strings its pointers resolve to.
 
 Spot-check before every titles/cards gate: for titles, run `ground check` first, then read each claim against its resolved facts in the titles artifact; for cards, re-open the cited evidence records and confirm each claim in the batch actually traces to a specific fact — not just that the referenced id exists.
 

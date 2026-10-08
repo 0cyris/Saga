@@ -106,7 +106,7 @@ const cleanText = cli('ground', 'check', projectId, '--stage', 'titles');
 assert.equal(cleanText.code, 0, cleanText.stderr);
 assert.ok(cleanText.stdout.includes('0 issue(s)'));
 
-// --- Each failure class is flagged, with titleId, batch, pointer and problem ---
+// --- Each failure class is flagged, with itemId, batch, pointer and problem ---
 const cases = [
     { name: 'missing support', mutate: (t) => { delete t.support; }, pointer: null, problem: 'missing-support' },
     { name: 'empty support', mutate: (t) => { t.support = []; }, pointer: null, problem: 'missing-support' },
@@ -114,6 +114,8 @@ const cases = [
     { name: 'unaccepted record', mutate: (t) => { t.support = ['chapters/canon-ch-20#0']; t.evidenceRefs = ['chapters/canon-ch-20']; }, pointer: 'chapters/canon-ch-20#0', problem: 'unaccepted-record' },
     { name: 'out-of-range fact index', mutate: (t) => { t.support = ['chapters/canon-ch-01#2']; }, pointer: 'chapters/canon-ch-01#2', problem: 'fact-out-of-range' },
     { name: 'malformed pointer', mutate: (t) => { t.support = ['chapters/canon-ch-01:0']; }, pointer: 'chapters/canon-ch-01:0', problem: 'malformed-pointer' },
+    { name: 'non-array support', mutate: (t) => { t.support = 'chapters/canon-ch-01#0'; }, pointer: null, problem: 'missing-support' },
+    { name: 'duplicate pointer', mutate: (t) => { t.support = [t.support[0], t.support[0]]; }, pointer: null, problem: 'duplicate-pointer' },
     { name: 'pointer outside evidenceRefs', mutate: (t) => { t.support = ['chapters/canon-ch-14#0']; }, pointer: 'chapters/canon-ch-14#0', problem: 'not-in-evidence-refs' },
 ];
 for (const testCase of cases) {
@@ -125,9 +127,9 @@ for (const testCase of cases) {
     assert.equal(report.ok, false, `${testCase.name}: ok should be false.`);
     assert.equal(report.issues.length, 1, `${testCase.name}: expected exactly one issue, got ${JSON.stringify(report.issues)}`);
     const [issue] = report.issues;
-    assert.equal(issue.titleId, 'canon.character.mara-venn', `${testCase.name}: titleId`);
+    assert.equal(issue.itemId, 'canon.character.mara-venn', `${testCase.name}: itemId`);
     assert.equal(issue.batch, 'batch-1', `${testCase.name}: batch`);
-    assert.equal(issue.pointer, testCase.pointer, `${testCase.name}: pointer`);
+    if (testCase.problem !== 'duplicate-pointer') assert.equal(issue.pointer, testCase.pointer, `${testCase.name}: pointer`);
     assert.equal(issue.problem, testCase.problem, `${testCase.name}: problem`);
 }
 

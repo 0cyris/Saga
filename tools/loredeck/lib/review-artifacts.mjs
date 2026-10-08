@@ -216,7 +216,7 @@ export function buildTitlesArtifact(state, groundCheck) {
         lines.push('## Grounding issues', '');
         lines.push(mdTable(
             ['Deck', 'Batch', 'Title id', 'Pointer', 'Problem', 'Detail'],
-            issues.map(issue => [issue.deck, issue.batch, issue.titleId || '', issue.pointer || '', issue.problem, issue.detail]),
+            issues.map(issue => [issue.deck, issue.batch, issue.itemId || '', issue.pointer || '', issue.problem, issue.detail]),
         ));
     }
     return { markdown: lines.join('\n'), issues };

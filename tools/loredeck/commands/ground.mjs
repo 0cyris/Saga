@@ -28,7 +28,7 @@ export async function runGround({ positionals, flags }) {
     } else {
         console.log(`Ground check (${stage}${deckId ? `, deck ${deckId}` : ''}): ${items.length} item(s) checked, ${issues.length} issue(s).`);
         for (const issue of issues) {
-            const where = [issue.deck, issue.batch, issue.titleId].filter(Boolean).join('/');
+            const where = [issue.deck, issue.batch, issue.itemId].filter(Boolean).join('/');
             console.log(`  - [${issue.problem}] ${where}${issue.pointer ? ` ${issue.pointer}` : ''}: ${issue.detail}`);
         }
     }
