@@ -152,6 +152,179 @@ async function buildResearchContext({ state, deck, projectDir, skillDir, selecto
     };
 }
 
+/* ---- Role: draft ---- */
+const DRAFT_FILE_PART_RE = /^[a-z0-9][a-z0-9_-]*$/;
+const BATCH_NUMBERED_STEM_RE = /^(batch|entries)[-_]?\d+$/;
+const BATCH_ID_RE = /^[A-Za-z0-9][A-Za-z0-9_.-]*$/;
+
+/** Validates --file <category>/<topic-stem> and returns it without a .json suffix. */
+function parseDraftFileSelector(value) {
+    const fileStem = String(value || '').replace(/\.json$/, '');
+    const parts = fileStem.split('/');
+    if (parts.length !== 2 || !parts.every(part => DRAFT_FILE_PART_RE.test(part))) {
+        throw new Error(`Invalid --file ${JSON.stringify(value)}: use <category>/<topic-stem> in lowercase, such as "characters/core_cast".`);
+    }
+    if (BATCH_NUMBERED_STEM_RE.test(parts[1])) {
+        throw new Error(`Invalid --file ${JSON.stringify(value)}: name entry files by topic, not by batch, such as "characters/core_cast" or "secrets/major_reveals" (references/authoring-rules.md, Deck manifest).`);
+    }
+    return fileStem;
+}
+
+/**
+ * Finds plans/title-batches/<deck>/<batchId>.json, or else the one batch file
+ * there whose `batchId` is batchId. Returns `{ fullPath, rel, file, text, json }`
+ * (`file` = `rel`, the project-relative path; `text` is the raw file, for
+ * verbatim inclusion). Shared by the draft and grounding-verify roles.
+ */
+async function findTitleBatch(projectDir, deckId, batchId) {
+    const batchDir = path.join(projectDir, 'plans', 'title-batches', deckId);
+    const readBatch = async (fullPath) => {
+        const rel = toPosixRelative(projectDir, fullPath);
+        const text = await readFile(fullPath, 'utf8');
+        let json = null;
+        try {
+            json = JSON.parse(text);
+        } catch (e) {
+            throw new Error(`${rel} is not valid JSON. ${e?.message || ''}`.trim());
+        }
+        if (!json || !Array.isArray(json.titles)) {
+            throw new Error(`${rel} is not a readable title batch (it needs a "titles" array). Fix it, then render the brief again.`);
+        }
+        return { fullPath, rel, file: rel, text: text.trimEnd(), json };
+    };
+    const direct = path.join(batchDir, `${batchId}.json`);
+    if (await pathExists(direct)) return readBatch(direct);
+
+    const matches = [];
+    const known = new Set();
+    for (const file of (await listJsonFilesRecursive(batchDir)).sort()) {
+        let json = null;
+        try {
+            json = await readJsonFile(file);
+        } catch (_) {
+            continue;
+        }
+        known.add(String(json?.batchId || path.basename(file, '.json')));
+        if (String(json?.batchId ?? '') === batchId) matches.push(toPosixRelative(projectDir, file));
+    }
+    if (matches.length > 1) {
+        throw new Error(`More than one title batch in plans/title-batches/${deckId}/ has batchId ${JSON.stringify(batchId)}: ${matches.join(', ')}.`);
+    }
+    if (!matches.length) {
+        const list = [...known].sort();
+        throw new Error(`Unknown title batch ${JSON.stringify(batchId)} for deck ${deckId}. ${list.length ? `Batches under plans/title-batches/${deckId}/: ${list.join(', ')}.` : `No title batches found under plans/title-batches/${deckId}/.`}`);
+    }
+    return readBatch(path.join(projectDir, ...matches[0].split('/')));
+}
+
+/** Sorted evidence keys (<scope>/<recordId>) a batch cites in evidenceRefs or support. */
+function citedEvidenceKeys(titles, batchId) {
+    const keys = new Set();
+    const malformed = [];
+    for (const title of titles) {
+        for (const ref of Array.isArray(title?.evidenceRefs) ? title.evidenceRefs : []) {
+            if (typeof ref === 'string' && ref.trim()) keys.add(ref.trim());
+        }
+        for (const pointer of Array.isArray(title?.support) ? title.support : []) {
+            const parsed = parseFactPointer(pointer);
+            if (parsed.ok) keys.add(parsed.key);
+            else malformed.push(JSON.stringify(pointer));
+        }
+    }
+    if (malformed.length) {
+        throw new Error(`Batch ${batchId} has malformed support pointers (${malformed.join(', ')}). Run \`ground check --stage titles\` and fix the batch before drafting.`);
+    }
+    return [...keys].sort();
+}
+
+async function buildDraftContext({ state, deck, projectDir, skillDir, selectors }) {
+    const batchId = selectors.batch;
+    if (!BATCH_ID_RE.test(batchId)) {
+        throw new Error(`Invalid --batch ${JSON.stringify(batchId)}: use the batch id, such as "batch-1".`);
+    }
+    const fileStem = parseDraftFileSelector(selectors.file);
+    const deckDirRel = `drafts/${deck.deckId}`;
+    const outputFileRel = `${deckDirRel}/${fileStem}.json`;
+    const absolute = relPath => path.join(projectDir, ...relPath.split('/'));
+
+    const batch = await findTitleBatch(projectDir, deck.deckId, batchId);
+    const batchRecord = (state.batches?.[deck.deckId]?.titles || []).find(item => item.id === batchId);
+    const batchStatus = batchRecord?.status || 'none recorded';
+    if (batchStatus !== 'approved') {
+        throw new Error(`batch ${batchId} is not approved (status: ${batchStatus}); approve its titles gate before drafting.`);
+    }
+    const titles = Array.isArray(batch.json?.titles) ? batch.json.titles : [];
+    if (!titles.length) {
+        throw new Error(`${batch.file} has no titles to draft.`);
+    }
+
+    const timelineRel = `${deckDirRel}/timeline.json`;
+    const tagsRel = `${deckDirRel}/tags.json`;
+    for (const registryRel of [timelineRel, tagsRel]) {
+        if (!(await pathExists(absolute(registryRel)))) {
+            throw new Error(`No ${registryRel}. Approve the deck's context plan (timeline and tags) before drafting.`);
+        }
+    }
+
+    // Every evidence file holding a record the batch cites, by evidenceRefs
+    // or by a support pointer. Unknown records stop the render: the subagent
+    // could not ground a card on them.
+    const citedKeys = citedEvidenceKeys(titles, batchId);
+    if (!citedKeys.length) {
+        throw new Error(`Batch ${batchId} cites no evidence records. Every title needs evidenceRefs and support before drafting.`);
+    }
+    const collected = await collectEvidence(projectDir, {});
+    const filesByKey = new Map();
+    for (const record of collected.records) {
+        if (!filesByKey.has(record.key)) filesByKey.set(record.key, new Set());
+        filesByKey.get(record.key).add(record.file);
+    }
+    const unknownKeys = citedKeys.filter(key => !filesByKey.has(key));
+    if (unknownKeys.length) {
+        throw new Error(`Batch ${batchId} cites evidence records that no evidence file holds: ${unknownKeys.join(', ')}. Run \`ground check --stage titles\` and fix the batch before drafting.`);
+    }
+    const evidenceFiles = [...new Set(citedKeys.flatMap(key => [...filesByKey.get(key)]))].sort();
+    const citedRecordLines = citedKeys.map(key => `\`${key}\` in \`${[...filesByKey.get(key)].sort().join('`, `')}\``);
+
+    let existingFileNote = 'The file does not exist yet, so create it.';
+    if (await pathExists(absolute(outputFileRel))) {
+        const existing = await readJsonFile(absolute(outputFileRel)).catch(() => null);
+        const count = Array.isArray(existing?.entries) ? existing.entries.length : null;
+        const held = count === null ? '' : ` with ${count} ${count === 1 ? 'entry' : 'entries'}`;
+        existingFileNote = `The file already exists${held}. Read it first, keep its existing entries exactly as they are, and add your cards to its \`entries\` array.`;
+    }
+
+    const authoringRules = (await readFile(path.join(skillDir, 'references', 'authoring-rules.md'), 'utf8')).trim();
+    return {
+        output: outputFileRel,
+        context: {
+            projectId: state.projectId,
+            projectTitle: state.title,
+            deckId: deck.deckId,
+            deckRole: deck.role,
+            batchId,
+            batchFileRel: batch.file,
+            batchJson: batch.text,
+            titleCount: titles.length,
+            projectDir,
+            timelineFile: absolute(timelineRel),
+            timelineFileRel: timelineRel,
+            tagsFile: absolute(tagsRel),
+            tagsFileRel: tagsRel,
+            evidenceFiles: bulletList(evidenceFiles.map(absolute), { code: true }),
+            citedRecords: bulletList(citedRecordLines),
+            outputFile: absolute(outputFileRel),
+            outputFileRel,
+            existingFileNote,
+            authoringRules,
+            returnWroteExample: outputFileRel,
+            returnCountsExample: `{"cards":${titles.length}}`,
+            returnCountsNote: '`cards` is the number of cards you added to the file you wrote.',
+            returnFlagsNote: '`missing-tag:<namespace:value>` for a tag a card needs that tags.json does not define, `missing-anchor:<anchor-id>` for a timeline anchor a card needs that timeline.json does not define, and `ungrounded:<title-id>` for a title whose cited facts do not support a card.',
+        },
+    };
+}
+
 /* ---- Role: evidence-audit ---- */
 export const EVIDENCE_AUDIT_VERDICTS = ['supported', 'unsupported', 'contested', 'out-of-scope'];
 
@@ -237,43 +410,9 @@ async function buildEvidenceAuditContext({ state, deck, projectDir, selectors })
 // rationale. --batch selects a title batch; --file (an entry-file stem) is
 // reserved for card batches.
 export const GROUNDING_VERDICTS = ['entailed', 'partial', 'unsupported', 'timing-mismatch'];
-const BATCH_ID_RE = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
-
-/**
- * Finds plans/title-batches/<deck>/<batchId>.json, or else the one file there
- * whose `batchId` is batchId. Returns { fullPath, rel, json }.
- */
-async function resolveTitleBatch(projectDir, deckId, batchId) {
-    const batchDir = path.join(projectDir, 'plans', 'title-batches', deckId);
-    const files = (await listJsonFilesRecursive(batchDir)).sort();
-    const loaded = [];
-    for (const file of files) {
-        let json = null;
-        try {
-            json = await readJsonFile(file);
-        } catch (_) {
-            json = null;
-        }
-        loaded.push({ fullPath: file, rel: toPosixRelative(projectDir, file), json });
-    }
-    const byName = loaded.find(item => item.rel === `plans/title-batches/${deckId}/${batchId}.json`);
-    const byId = loaded.filter(item => String(item.json?.batchId || '') === batchId);
-    const match = byName || (byId.length === 1 ? byId[0] : null);
-    if (!match && byId.length > 1) {
-        throw new Error(`More than one title batch in plans/title-batches/${deckId}/ has batchId ${JSON.stringify(batchId)}: ${byId.map(item => item.rel).join(', ')}.`);
-    }
-    if (!match) {
-        const known = [...new Set(loaded.map(item => String(item.json?.batchId || path.basename(item.fullPath, '.json'))))].sort();
-        throw new Error(`Unknown title batch ${JSON.stringify(batchId)} for deck ${deckId}. ${known.length ? `Batches under plans/title-batches/${deckId}/: ${known.join(', ')}.` : `No title batches found under plans/title-batches/${deckId}/.`}`);
-    }
-    if (!match.json || !Array.isArray(match.json.titles)) {
-        throw new Error(`${match.rel} is not a readable title batch (it needs a "titles" array). Fix it, then render the brief again.`);
-    }
-    return match;
-}
 
 async function buildTitlesGroundingContext({ state, deck, projectDir, batchId }) {
-    const batch = await resolveTitleBatch(projectDir, deck.deckId, batchId);
+    const batch = await findTitleBatch(projectDir, deck.deckId, batchId);
     const titles = batch.json.titles;
 
     // Every record a title cites, through support pointers or evidenceRefs.
@@ -356,6 +495,12 @@ async function buildGroundingVerifyContext({ state, deck, projectDir, selectors 
 }
 
 export const BRIEF_ROLES = {
+    draft: {
+        template: 'draft.md',
+        requires: ['batch', 'file'],
+        accepts: ['batch', 'file'],
+        buildContext: buildDraftContext,
+    },
     research: {
         template: 'research.md',
         requires: ['scope'],

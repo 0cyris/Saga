@@ -85,17 +85,32 @@ Every subagent ends with exactly one JSON object and nothing else (`agents/_retu
 
 ## Drafting subagents
 
-Only after the planning gate (timeline + tags approved) and title gate for the batch. Prompt contents: the approved title batch JSON; the deck's approved `timeline.json` and **`tags.json` as read-only reference material**; `references/authoring-rules.md` in full; the output path for the entry file(s).
+Only after the planning gate (timeline + tags approved) and the title gate for the batch. **Dispatch every drafting subagent with the prompt `brief` renders — never hand-write it.**
 
-**If the tool-call budget allows it (see Sizing above), give the subagent the evidence file *paths* the batch cites and instruct it to read each one directly before drafting — don't paste the records.** Reading the actual `facts[]` array removes the orchestrator's paste step as a place drift can creep in (a paraphrase or an accidentally-dropped record in the paste is exactly how a card ends up "citing" evidence it doesn't really match). Only fall back to pasting the records verbatim (not paraphrased) if the runtime's budget is too tight for a few extra reads per subagent.
+```
+node tools/loredeck/loredeck-cli.mjs brief <id> --role draft --deck D --batch B --file <category>/<topic-stem> [--out P]
+```
 
-Hard rules to include in the prompt: **ground every claim in the evidence file(s) you read — never in memory, genre knowledge, or a record's `inUniverseSpan` label; if a fact you need isn't in the cited evidence, flag the gap in your return instead of drafting it anyway**; use ONLY schema-supported fields; use ONLY anchors and tags that already exist in the provided registries — never define new tags or edit `tags.json`; if a card needs a tag that doesn't exist yet, flag the gap in the return instead of inventing one (drifted tags — bare strings like `"location"` instead of a namespaced `namespace:value` id, or tags defined but never used by any card — are a common subagent failure mode); every card cites accepted evidence in `sourceInfo.evidenceRefs` and names the backing facts in `sourceInfo.evidenceFacts` (`<scope>/<recordId>#<factIndex>`); wide entries use `topic_or_entity` activation; keep ids stable, namespaced, and drawn from the approved titles; return valid JSON only.
+Pass the output through unchanged; add at most a short task note after it. The rendered prompt contains: the approved title batch (`plans/title-batches/<deck>/<B>.json`, or the file whose `batchId` is B) verbatim; the deck's `timeline.json` and `tags.json` paths, stated as read-only; the absolute path of every evidence file holding a record the batch cites in any title's `evidenceRefs` or `support` (deduplicated, sorted), with the instruction to read each one directly before drafting; `references/authoring-rules.md` in full; the output path `drafts/<deck>/<file>.json`; the grounding rules (every card carries `sourceInfo.evidenceRefs` and `sourceInfo.evidenceFacts`); and the return contract with `counts` as `{"cards": N}`. It is deterministic for a given project state.
 
-Until `brief` has a drafting role, append `agents/_return-contract.md` verbatim to every drafting prompt (with `counts` as `{"cards": N}`) so drafting subagents end with the same return object.
+- `--file` names the one entry file the subagent writes, by topic: `characters/core_cast`, `secrets/major_reveals`. `brief` rejects batch-numbered stems (`batch-1`, `entries_2`); see authoring-rules § Deck manifest. If the file already exists, the prompt tells the subagent to keep its entries and append.
+- `brief` refuses to render unless the batch's titles status is `approved` (`batch set ... --kind titles --status approved`), the deck's registries exist, and every cited record is in an evidence file. Run `ground check --stage titles` first.
+- Missing tags and anchors come back as return `flags` (`missing-tag:<namespace:value>`, `missing-anchor:<anchor-id>`), and titles the cited facts can't support as `ungrounded:<title-id>` plus a `gaps` entry. The subagent never edits the registries.
+
+The prompt has the subagent read evidence files itself rather than taking a paste. This assumes a tool-call budget of roughly (cited evidence files + a couple); see Sizing above. If the runtime's budget is too tight, add the cited records verbatim (not paraphrased) in the task note.
+
+### Why the drafting prompt reads like this (orchestrator-only rationale)
+
+This history is for you, not for subagents — don't paste it into a brief.
+
+- **Pasted evidence drifts.** A paraphrase or an accidentally-dropped record in an orchestrator paste is exactly how a card ends up "citing" evidence it doesn't really match. Reading the actual `facts[]` arrays removes that step.
+- **Drafting from labels or memory.** Cards drafted from a record's `inUniverseSpan` label, genre knowledge, or memory of the source still validate, because the evidenceRef resolves. `sourceInfo.evidenceFacts` makes the subagent name the specific facts each card rests on, so `ground check --stage cards` can check the pointers and you can read each claim next to its facts.
+- **Drifted tags.** Subagents that could define tags produced bare strings like `"location"` instead of namespaced `namespace:value` ids, and tags defined but never used by any card. The registries are read-only to the subagent, and missing tags come back as flags you resolve in the merge protocol.
+- **Batch-numbered files.** Entry files named after generation batches are a maintenance dead end; `--file` forces a topic name.
 
 ## Merge protocol (main session, after each drafting wave)
 
-1. Place returned entry files under `drafts/<deck>/<category>/`.
+1. Confirm each returned entry file is at the `drafts/<deck>/<category>/` path its brief named, and discard anything else the subagent touched.
 2. `stats <draft-dir> --write`, then `health <project> --strict` — fix every issue.
 3. `report --stage cards` — resolve duplicate ids and unbacked cards it flags.
 4. Reconcile tag usage: if a subagent flagged a missing tag, add it to `tags.json` deliberately (and to the family vocabulary) — this is the only place new tags get added; a subagent's own output should never contain a `tags.json` edit or an undefined tag.
