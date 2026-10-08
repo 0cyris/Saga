@@ -157,7 +157,12 @@ Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/
 
 ## 8. Open questions
 
-- **O1:** Should the grounding sidecar go in `sourceInfo.evidenceFacts` instead, so support survives into shipped decks and in-app review? This needs a schema-doc addition and a check that health ignores it.
+- **O1:** Should the grounding sidecar go in `sourceInfo.evidenceFacts` instead, so support ships in the deck? **Verified backward compatible (2026-10-08):** adding `sourceInfo.evidenceFacts` to all 80 hp-core entries left the following unchanged:
+  - `health --strict`: still good, with 0/0/0
+  - `conformance`: no new findings
+  - `promote`, `package`, `verify-package`: all clean, with the field preserved in the zip
+
+  The runtime normalizer (`normalizeSourceBlock` in `src/lorecards/lore-matrix.js`) rebuilds `sourceInfo` from known keys only, so older and current app versions ignore the field. The same already happens to `evidenceRefs`. Additive, no breaking change. The caveat: the field is inert in-app, and surfacing it there needs a separate runtime change. Recommendation: ship it in `sourceInfo` (drop the sidecar) and document it in the schema doc as optional authoring provenance.
 - **O2:** Should verifier `unsupported` findings block `gate approve` (CLI-enforced), or only be surfaced? Recommendation: surface in v1, block in v2 once false-positive rate is known.
 - **O3:** Should verifiers use a different model than the drafter for diversity? Default to `inherit`, and revisit with eval data.
 
