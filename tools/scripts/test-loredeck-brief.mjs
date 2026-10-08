@@ -7,8 +7,9 @@
  * / unknown-deck errors are clear. The draft role renders the approved title
  * batch verbatim, read-only registry paths, every cited evidence file (sorted,
  * deduplicated, support-only records included), authoring-rules.md in full,
- * and the output path; unknown and unapproved batches and batch-numbered
- * --file stems are rejected.
+ * and the output path; unknown and unapproved batches, batch-numbered
+ * --file stems, unaccepted cited records, malformed existing output files,
+ * and batches whose file name and batchId disagree are rejected.
  */
 
 import assert from 'node:assert/strict';
@@ -254,7 +255,7 @@ for (const bad of ['core_cast', 'Characters/core_cast', 'characters/core/cast', 
     assert.equal(result.code, 1, `--file ${bad} should be rejected.`);
     assert.match(result.stderr, /<category>\/<topic-stem>/, `${bad}: ${result.stderr}`);
 }
-for (const numbered of ['entries/batch-1', 'characters/batch_2', 'characters/entries3']) {
+for (const numbered of ['entries/batch-1', 'characters/batch_2', 'characters/entries3', 'characters/cards-3', 'characters/part_2', 'characters/chunk1', 'characters/batch-2-extra', 'characters/part2b']) {
     const result = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-1', '--file', numbered);
     assert.equal(result.code, 1, `--file ${numbered} should be rejected.`);
     assert.match(result.stderr, /name entry files by topic/, `${numbered}: ${result.stderr}`);
@@ -262,6 +263,15 @@ for (const numbered of ['entries/batch-1', 'characters/batch_2', 'characters/ent
 const withAssignment = cli(...draftArgs, '--assignment', 'x');
 assert.equal(withAssignment.code, 1);
 assert.match(withAssignment.stderr, /does not take --assignment/);
+
+// Cited records that are not accepted stop the render.
+const unaccepted = cli(...draftArgs);
+assert.equal(unaccepted.code, 1);
+assert.match(unaccepted.stderr, /Batch batch-1 cites evidence records that are not accepted: chapters\/bc-ch-01 \(pending\), characters\/bc-char-mara \(pending\), places\/bc-place-keep \(pending\)\. Run `ground check --stage titles`/);
+assert.equal(cli('evidence', 'accept', 'brief-canon', '--all').code, 0);
+
+// A topic stem that merely starts like a batch word is allowed.
+assert.equal(cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-1', '--file', 'characters/partners').code, 0);
 
 // Rendering: the draft brief is self-contained.
 const drafted = cli(...draftArgs);
@@ -299,6 +309,11 @@ assert.ok(draftPrompt.includes('{"status":"ok","wrote":["drafts/brief-core/chara
 assert.ok(!/\{\{\s*[A-Za-z]/.test(draftPrompt.replaceAll('{{notAPlaceholder}}', '')), 'No unresolved placeholders should remain.');
 assert.ok(!draftPrompt.includes('<!--'), 'Maintainer comments should be stripped.');
 assert.ok(draftPrompt.includes('The file does not exist yet'), 'A new output file should be noted as new.');
+assert.ok(draftPrompt.includes(`\`${path.join(repoRoot, 'docs', 'loredecks', 'SAGA_LOREDECK_SCHEMA.md')}\``), 'The schema doc should be given by absolute path.');
+assert.match(draftPrompt, /Every card in it also carries `"schemaVersion": 3`/, 'Cards should be told to carry schemaVersion 3.');
+assert.ok(draftPrompt.indexOf('These rules also describe the orchestrator\'s duties') < draftPrompt.indexOf('<authoring-rules>'),
+    'The scope note should come before the inlined authoring rules.');
+assert.ok(draftPrompt.includes('`evidenceRefs` or `support`'), 'Cards may draw on records cited by evidenceRefs or support.');
 
 // Determinism and --json.
 assert.equal(cli(...draftArgs).stdout, draftPrompt, 'Draft output should be byte-identical for identical project state.');
@@ -317,13 +332,59 @@ assert.ok(byId.stdout.includes('plans/title-batches/brief-core/secrets.json'), '
 // An existing output file is extended, not replaced.
 await mkdir(path.join(projectDir, 'drafts', 'brief-core', 'characters'), { recursive: true });
 await writeFile(path.join(projectDir, 'drafts', 'brief-core', 'characters', 'core_cast.json'), JSON.stringify({ schemaVersion: 3, entries: [{ id: 'a' }] }));
-assert.match(cli(...draftArgs).stdout, /The file already exists with 1 entry\. Read it first/);
+const existingNote = cli(...draftArgs).stdout;
+assert.match(existingNote, /The file already exists with 1 entry\. Read it first/);
+assert.match(existingNote, /A card whose `id` is already in the file replaces that entry in place/);
+// An existing output file that is not an { entries: [...] } object stops the render.
+const coreCast = path.join(projectDir, 'drafts', 'brief-core', 'characters', 'core_cast.json');
+for (const [content, why] of [['[{"id":"a"}]', /it is a bare array/], ['{"entries":', /it is not valid JSON/], ['{"cards":[]}', /it has no `entries` array/]]) {
+    await writeFile(coreCast, content);
+    const bad = cli(...draftArgs);
+    assert.equal(bad.code, 1, `${content} should be rejected.`);
+    assert.match(bad.stderr, /drafts\/brief-core\/characters\/core_cast\.json already exists, but/);
+    assert.match(bad.stderr, why);
+    assert.match(bad.stderr, /Fix or move it/);
+}
+await rm(coreCast);
+
+// Batch identity: a file found by name must carry that batchId.
+const byName = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'secrets', '--file', 'secrets/major_reveals');
+assert.equal(byName.code, 1);
+assert.match(byName.stderr, /plans\/title-batches\/brief-core\/secrets\.json has batchId batch-2; pass --batch batch-2 \(file names and batchIds must agree\)/);
+// A name that matches one file by name and another by batchId is ambiguous.
+await writeFile(path.join(batchDir, 'batch-3.json'), JSON.stringify({ batchId: 'batch-3', titles: [] }));
+await writeFile(path.join(batchDir, 'extra.json'), JSON.stringify({ batchId: 'batch-3', titles: [] }));
+const ambiguous = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-3', '--file', 'secrets/major_reveals');
+assert.equal(ambiguous.code, 1);
+assert.match(ambiguous.stderr, /Title batch "batch-3" is ambiguous/);
+assert.match(ambiguous.stderr, /plans\/title-batches\/brief-core\/extra\.json has batchId "batch-3"/);
+await rm(path.join(batchDir, 'batch-3.json'));
+await rm(path.join(batchDir, 'extra.json'));
+// A file with no batchId is keyed by its file name.
+await writeFile(path.join(batchDir, 'batch-4.json'), JSON.stringify({ titles: [{ id: 'bc.x', title: 'X', category: 'lore', gateIntent: 'Always.', evidenceRefs: ['places/bc-place-keep'], support: ['places/bc-place-keep#0'] }] }));
+assert.match(cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-4', '--file', 'lore/misc').stderr, /batch batch-4 is not approved/);
+assert.equal(cli('batch', 'set', 'brief-canon', '--deck', 'brief-core', '--kind', 'titles', '--id', 'batch-4', '--status', 'approved').code, 0);
+assert.equal(cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-4', '--file', 'lore/misc').code, 0);
+await rm(path.join(batchDir, 'batch-4.json'));
+// Unreadable batch files are listed by file name.
+await writeFile(path.join(batchDir, 'broken.json'), '{ not json');
+const listed = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-9', '--file', 'characters/core_cast');
+assert.equal(listed.code, 1);
+assert.match(listed.stderr, /Batches under plans\/title-batches\/brief-core\/: batch-1, batch-2, broken\.json \(unreadable\)\./);
+await rm(path.join(batchDir, 'broken.json'));
 
 // A cited record no evidence file holds stops the render.
 await writeFile(path.join(batchDir, 'batch-1.json'), batchText.replace('"chapters/bc-ch-01#0"', '"chapters/bc-ch-99#0"'));
 const unknownRecord = cli(...draftArgs);
 assert.equal(unknownRecord.code, 1);
 assert.match(unknownRecord.stderr, /no evidence file holds: chapters\/bc-ch-99/);
+
+// A rejected record, cited by a support pointer only, stops the render.
+await writeFile(path.join(batchDir, 'batch-1.json'), batchText);
+assert.equal(cli('evidence', 'reject', 'brief-canon', '--scope', 'places', '--ids', 'bc-place-keep').code, 0);
+const rejected = cli(...draftArgs);
+assert.equal(rejected.code, 1);
+assert.match(rejected.stderr, /not accepted: places\/bc-place-keep \(rejected\)\. Run `ground check --stage titles`/);
 
 // --- Template renderer: unresolved placeholders fail ---
 assert.equal(renderTemplate('a {{x}} b', { x: '{{y}}' }), 'a {{y}} b', 'Substituted values are not re-scanned.');

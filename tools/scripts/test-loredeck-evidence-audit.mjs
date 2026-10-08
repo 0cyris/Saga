@@ -3,7 +3,8 @@
  * Exercises the evidence checker (ticket #10): `brief --role evidence-audit`
  * renders a self-contained prompt for one evidence file (path, scope brief,
  * provenance-based source instruction, findings shape, verdicts, read-only
- * rule, return contract), refuses a missing evidence file, and the evidence
+ * rule, return contract), refuses a missing evidence file and one whose JSON
+ * scope differs from --scope, and the evidence
  * review artifact summarizes reviews/audit/evidence-audit.*.json findings when
  * present and is byte-identical to the plain artifact when they are absent.
  */
@@ -78,6 +79,10 @@ assert.ok(prompt.includes('{"status":"ok","wrote":["reviews/audit/evidence-audit
 assert.ok(!/\{\{\s*[A-Za-z]/.test(prompt), 'No unresolved placeholders should remain.');
 assert.ok(!prompt.includes('<!--'), 'Maintainer comments should be stripped.');
 assert.equal(cli('brief', 'audit-canon', '--role', 'evidence-audit', '--deck', 'audit-core', '--scope', 'chapters').stdout, prompt, 'Output should be deterministic.');
+assert.ok(prompt.includes('If the findings file already exists, read it first, then replace it entirely.'), 'An existing findings file should be replaced, not merged.');
+assert.match(prompt, /`out-of-scope`: [^\n]*breaks the scope brief's spoiler philosophy\. The note says which boundary\./, 'out-of-scope should cover the spoiler philosophy.');
+const auditorAgent = await readFile(path.join(repoRoot, '.claude', 'agents', 'loredeck-evidence-auditor.md'), 'utf8');
+assert.match(auditorAgent, /\nmaxTurns: 60\n/);
 
 // --- --file: a differently named file gets its own findings file ---
 await writeFile(path.join(projectDir, 'evidence', 'chapters', 'chapters-06-10.json'), JSON.stringify({
@@ -107,6 +112,12 @@ assert.match(missingScope.stderr, /No evidence file at evidence\/places\/places\
 const noScope = cli('brief', 'audit-canon', '--role', 'evidence-audit', '--deck', 'audit-core');
 assert.equal(noScope.code, 1);
 assert.match(noScope.stderr, /requires --scope/);
+// A file whose JSON scope differs from its folder is refused.
+await writeFile(path.join(projectDir, 'evidence', 'chapters', 'misfiled.json'), JSON.stringify({ ...evidence, scope: 'places' }, null, 2));
+const misfiled = cli('brief', 'audit-canon', '--role', 'evidence-audit', '--deck', 'audit-core', '--scope', 'chapters', '--file', 'misfiled');
+assert.equal(misfiled.code, 1);
+assert.match(misfiled.stderr, /evidence\/chapters\/misfiled\.json declares scope places; its records are cited as places\/<id>\. Move the file or fix its scope\./);
+await rm(path.join(projectDir, 'evidence', 'chapters', 'misfiled.json'));
 const noAssignment = cli('brief', 'audit-canon', '--role', 'evidence-audit', '--deck', 'audit-core', '--scope', 'chapters', '--assignment', 'x');
 assert.equal(noAssignment.code, 1);
 assert.match(noAssignment.stderr, /does not take --assignment/);
