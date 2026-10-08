@@ -168,8 +168,14 @@ function describeSupport(item) {
  * result so each gateIntent sits next to the fact strings its support
  * pointers resolve to.
  */
-export function buildTitlesArtifact(state, groundCheck) {
+/**
+ * `findingsSummary` is the grounding verifier's summary (summarizeFindings);
+ * it goes right under the heading, and an empty string leaves the artifact
+ * exactly as it is without findings.
+ */
+export function buildTitlesArtifact(state, groundCheck, { findingsSummary = '' } = {}) {
     const lines = [`# Title Batches Review: ${state.title}`, ''];
+    if (findingsSummary) lines.push(findingsSummary);
     const { items = [], groups = [], issues = [] } = groundCheck || {};
     if (issues.length) {
         lines.push(`> Ground check: ${issues.length} issue(s) across ${items.length} title(s). See "Grounding issues" below.`, '');

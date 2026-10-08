@@ -47,6 +47,7 @@ jobs:
           node tools/scripts/test-loredeck-ground-check-cards.mjs
           node tools/scripts/test-loredeck-brief.mjs
           node tools/scripts/test-loredeck-evidence-audit.mjs
+          node tools/scripts/test-loredeck-grounding-verify.mjs
 
       - name: Build the .skill bundle from source of truth
         run: |

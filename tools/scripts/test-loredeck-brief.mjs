@@ -153,6 +153,8 @@ const noRole = cli('brief', 'brief-canon', '--deck', 'brief-core', '--scope', 'c
 assert.equal(noRole.code, 1);
 assert.match(noRole.stderr, /--role is required\. Available roles: [a-z, -]*\bresearch\b/);
 assert.match(noRole.stderr, /\bevidence-audit\b/);
+assert.match(noRole.stderr, /--role is required\. Available roles: [^\n]*\bresearch\b/);
+assert.match(noRole.stderr, /Available roles: [^\n]*\bgrounding-verify\b/);
 
 const unknownDeck = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'nope', '--scope', 'chapters');
 assert.equal(unknownDeck.code, 1);

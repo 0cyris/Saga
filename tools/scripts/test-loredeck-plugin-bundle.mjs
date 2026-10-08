@@ -84,10 +84,20 @@ for (const expected of [
   'loredeck-builder/agents/_return-contract.md',
   'loredeck-builder/agents/evidence-audit.md',
   'loredeck-builder/claude-code-agents/loredeck-evidence-auditor.md',
+  'loredeck-builder/agents/grounding-verify.md',
+  'loredeck-builder/claude-code-agents/loredeck-grounding-verifier.md',
   'loredeck-builder/templates/evidence-file.json',
 ]) {
   assert.ok(archive.has(expected), `.skill archive is missing expected entry: ${expected}`);
   assert.ok((await archive.readFileBytes(expected)).length, `Bundled entry is empty: ${expected}`);
+}
+
+// 4b. Claude Code agent files ship in the plugin's agents/ dir (and, above,
+// in the .skill under claude-code-agents/).
+for (const name of ['loredeck-grounding-verifier.md']) {
+  const bundled = path.join(pluginRoot, 'agents', name);
+  assert.ok(statSync(bundled).isFile(), `plugin agents/ is missing ${name}`);
+  assert.equal(readFileSync(bundled, 'utf8'), readFileSync(path.join(repoRoot, '.claude', 'agents', name), 'utf8'), `plugin agents/${name} should match .claude/agents/${name}`);
 }
 
 // 5. `brief` resolves its role templates in both packaged layouts.

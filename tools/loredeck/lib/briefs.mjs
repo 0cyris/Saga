@@ -14,8 +14,10 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { isValidSlug, pathExists, resolveProjectDir } from './deck-fs.mjs';
+import { AUDIT_DIR_REL } from './audit-findings.mjs';
+import { isValidSlug, listJsonFilesRecursive, pathExists, readJsonFile, resolveProjectDir, toPosixRelative } from './deck-fs.mjs';
 import { collectEvidence, EVIDENCE_AUTHORING_SIGNALS } from './evidence-store.mjs';
+import { parseFactPointer } from './grounding.mjs';
 import { loadProjectState } from './project-state.mjs';
 import { validateBriefSections } from './review-artifacts.mjs';
 
@@ -229,6 +231,130 @@ async function buildEvidenceAuditContext({ state, deck, projectDir, selectors })
     };
 }
 
+/* ---- Role: grounding-verify ---- */
+// A clean-context check: the prompt carries only file paths, the verdict
+// rules and the findings shape -- never orchestrator commentary or drafting
+// rationale. --batch selects a title batch; --file (an entry-file stem) is
+// reserved for card batches.
+export const GROUNDING_VERDICTS = ['entailed', 'partial', 'unsupported', 'timing-mismatch'];
+const BATCH_ID_RE = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
+
+/**
+ * Finds plans/title-batches/<deck>/<batchId>.json, or else the one file there
+ * whose `batchId` is batchId. Returns { fullPath, rel, json }.
+ */
+async function resolveTitleBatch(projectDir, deckId, batchId) {
+    const batchDir = path.join(projectDir, 'plans', 'title-batches', deckId);
+    const files = (await listJsonFilesRecursive(batchDir)).sort();
+    const loaded = [];
+    for (const file of files) {
+        let json = null;
+        try {
+            json = await readJsonFile(file);
+        } catch (_) {
+            json = null;
+        }
+        loaded.push({ fullPath: file, rel: toPosixRelative(projectDir, file), json });
+    }
+    const byName = loaded.find(item => item.rel === `plans/title-batches/${deckId}/${batchId}.json`);
+    const byId = loaded.filter(item => String(item.json?.batchId || '') === batchId);
+    const match = byName || (byId.length === 1 ? byId[0] : null);
+    if (!match && byId.length > 1) {
+        throw new Error(`More than one title batch in plans/title-batches/${deckId}/ has batchId ${JSON.stringify(batchId)}: ${byId.map(item => item.rel).join(', ')}.`);
+    }
+    if (!match) {
+        const known = [...new Set(loaded.map(item => String(item.json?.batchId || path.basename(item.fullPath, '.json'))))].sort();
+        throw new Error(`Unknown title batch ${JSON.stringify(batchId)} for deck ${deckId}. ${known.length ? `Batches under plans/title-batches/${deckId}/: ${known.join(', ')}.` : `No title batches found under plans/title-batches/${deckId}/.`}`);
+    }
+    if (!match.json || !Array.isArray(match.json.titles)) {
+        throw new Error(`${match.rel} is not a readable title batch (it needs a "titles" array). Fix it, then render the brief again.`);
+    }
+    return match;
+}
+
+async function buildTitlesGroundingContext({ state, deck, projectDir, batchId }) {
+    const batch = await resolveTitleBatch(projectDir, deck.deckId, batchId);
+    const titles = batch.json.titles;
+
+    // Every record a title cites, through support pointers or evidenceRefs.
+    const citedKeys = new Set();
+    for (const title of titles) {
+        for (const pointer of Array.isArray(title?.support) ? title.support : []) {
+            const parsed = parseFactPointer(pointer);
+            if (parsed.ok) citedKeys.add(parsed.key);
+        }
+        for (const ref of Array.isArray(title?.evidenceRefs) ? title.evidenceRefs : []) {
+            if (typeof ref === 'string' && ref.trim()) citedKeys.add(ref.trim());
+        }
+    }
+    const collected = await collectEvidence(projectDir, {});
+    const evidenceFiles = new Set();
+    const foundKeys = new Set();
+    for (const record of collected.records) {
+        if (!citedKeys.has(record.key)) continue;
+        foundKeys.add(record.key);
+        evidenceFiles.add(record.file);
+    }
+    const missingKeys = [...citedKeys].filter(key => !foundKeys.has(key)).sort();
+    const evidencePaths = [...evidenceFiles].sort().map(rel => path.join(projectDir, ...rel.split('/')));
+
+    const outputFileRel = `${AUDIT_DIR_REL}/${deck.deckId}-titles-${batchId}.json`;
+    const findingsExample = JSON.stringify({
+        schemaVersion: 1,
+        role: 'grounding-verify',
+        target: batch.rel,
+        findings: [
+            { ref: '<title id>', verdict: 'entailed', note: '' },
+            { ref: '<title id>', verdict: 'timing-mismatch', note: 'chapters/example-ch-14#0 says "<quoted fact text>", which places this in chapter 14, not chapter 12.' },
+        ],
+    }, null, 2);
+    const titleIds = titles.map(title => String(title?.id || '').trim() || '(a title with no id: use its `title` text as the ref)');
+
+    return {
+        output: outputFileRel,
+        context: {
+            projectId: state.projectId,
+            deckId: deck.deckId,
+            batchId,
+            batchFile: batch.fullPath,
+            batchFileRel: batch.rel,
+            projectDir,
+            titleCount: titles.length,
+            titleIds: titleIds.length ? bulletList(titleIds, { code: true }) : '- (the batch has no titles)',
+            evidenceFiles: evidencePaths.length ? bulletList(evidencePaths, { code: true }) : '- (no cited record was found in any evidence file)',
+            missingRecords: missingKeys.length
+                ? `These cited records are not in any evidence file, so no fact backs a claim that relies on them:\n\n${bulletList(missingKeys, { code: true })}`
+                : 'Every record the batch cites is in one of the files above.',
+            outputFile: path.join(projectDir, ...outputFileRel.split('/')),
+            outputFileRel,
+            findingsExample,
+            returnWroteExample: outputFileRel,
+            returnCountsExample: `{"titles":${titles.length},"flagged":0}`,
+            returnCountsNote: '`titles` is the number of findings you wrote (one per title); `flagged` is how many of them are not `entailed`.',
+            returnFlagsNote: '`unreadable-file:<path>` for a listed file you could not read.',
+        },
+    };
+}
+
+async function buildGroundingVerifyContext({ state, deck, projectDir, selectors }) {
+    if (selectors.batch && selectors.file) {
+        throw new Error('Role grounding-verify takes either --batch <title-batch-id> or --file <entry-file stem>, not both.');
+    }
+    const kind = selectors.batch ? 'titles' : (selectors.file ? 'cards' : '');
+    switch (kind) {
+    case 'titles': {
+        if (!BATCH_ID_RE.test(selectors.batch)) {
+            throw new Error(`Invalid --batch ${JSON.stringify(selectors.batch)}: use the batch id, such as "batch-1".`);
+        }
+        return buildTitlesGroundingContext({ state, deck, projectDir, batchId: selectors.batch });
+    }
+    case 'cards':
+        throw new Error('grounding-verify for card batches (--file <entry-file stem>) is not yet supported. Use --batch <title-batch-id> to check a title batch.');
+    default:
+        throw new Error('Role grounding-verify requires --batch <title-batch-id>.');
+    }
+}
+
 export const BRIEF_ROLES = {
     research: {
         template: 'research.md',
@@ -241,6 +367,12 @@ export const BRIEF_ROLES = {
         requires: ['scope'],
         accepts: ['scope', 'file'],
         buildContext: buildEvidenceAuditContext,
+    },
+    'grounding-verify': {
+        template: 'grounding-verify.md',
+        requires: [],
+        accepts: ['batch', 'file'],
+        buildContext: buildGroundingVerifyContext,
     },
 };
 
