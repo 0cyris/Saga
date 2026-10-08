@@ -12,6 +12,12 @@
  * findings name), rejects --batch with --file, neither, and an unknown entry
  * file, lists malformed evidenceFacts pointers, and `report --stage cards`
  * summarizes only card findings, staying byte-identical when none exist.
+ * Also: --file takes any entry file inside the deck (nested, any case,
+ * batch-numbered) while the draft role stays strict; an entry file missing
+ * from files[] warns on stderr and asks for an unlisted-entry-file flag; the
+ * timeline comes from registries.timeline and a missing one gets its own
+ * step 3; items with no id are listed as plain text; and findings files
+ * whose target is gone are listed as stale and left out of the counts.
  */
 
 import assert from 'node:assert/strict';
@@ -227,7 +233,11 @@ assert.ok(cardsPrompt.includes('`ghosts/missing-card-record`'), 'A cited record 
 assert.ok(cardsPrompt.includes('- `chapters/canon-ch-14` in `canon.secret.sethe-ashen-pact`: names no fact'), 'A malformed evidenceFacts pointer should be listed.');
 assert.ok(cardsPrompt.includes('These `sourceInfo.evidenceFacts` pointers are not of the form'), 'Malformed card pointers should be named by their field.');
 assert.ok(cardsPrompt.includes('`canon.character.mara-venn`') && cardsPrompt.includes('`canon.secret.sethe-ashen-pact`') && cardsPrompt.includes('`canon.character.no-facts`'), 'Card ids should be listed.');
-assert.ok(cardsPrompt.includes('- `ref`: the card\'s `id`.'), 'The finding ref should be the card id.');
+assert.ok(cardsPrompt.includes('- `ref`: the card\'s `id`, or its `title` when it has no `id`.'), 'The finding ref should be the card id, or its title.');
+assert.ok(cardsPrompt.includes(`3. Resolve \`context.validFromAnchor\` and \`context.validToAnchor\` to their anchor labels in the deck's timeline file (\`drafts/${deckId}/timeline.json\`)`), 'With a timeline, step 3 resolves anchors in it.');
+// core_cast.json is not in the manifest's files[] yet: the brief renders, warns, and asks for a flag.
+assert.match(cardsRendered.stderr, new RegExp(`WARNING: drafts/${deckId}/characters/core_cast\\.json is not listed in the deck manifest's files\\[\\][^\\n]*stats [^\\n]* --write`));
+assert.ok(cardsPrompt.includes(`\`unlisted-entry-file:drafts/${deckId}/characters/core_cast.json\``), 'The flags note should ask for unlisted-entry-file.');
 assert.ok(cardsPrompt.includes('`content.fact` and `content.injection`'), 'The claim fields should be named.');
 assert.ok(cardsPrompt.includes('0-based index') && cardsPrompt.includes('The factIndex is the digits after the last `#`; a recordId may itself contain `#`.'));
 for (const verdict of GROUNDING_VERDICTS) {
@@ -265,6 +275,12 @@ const traversalFile = cli('brief', projectId, '--role', 'grounding-verify', '--d
 assert.equal(traversalFile.code, 1);
 assert.match(traversalFile.stderr, /Invalid --file/);
 
+// The other deck's batch and entry file, so its findings below have live targets.
+await writeJson(path.join(projectDir, 'plans', 'title-batches', 'verify-era', 'era-batch.json'), {
+    batchId: 'era-1', deckId: 'verify-era', titles: [],
+});
+await writeJson(path.join(projectDir, 'drafts', 'verify-era', 'lore', 'rules.json'), { entries: [] });
+
 // The cards page before any checker runs, for the byte-identical check below.
 const cardsArtifact = path.join(projectDir, 'reviews', 'cards.md');
 assert.equal(cli('report', projectId, '--stage', 'cards').code, 0);
@@ -278,7 +294,7 @@ assert.match(unknownBatch.stderr, /Unknown title batch "batch-9" for deck verify
 
 const otherDeck = cli('brief', projectId, '--role', 'grounding-verify', '--deck', 'verify-era', '--batch', 'batch-1');
 assert.equal(otherDeck.code, 1);
-assert.match(otherDeck.stderr, /No title batches found under plans\/title-batches\/verify-era\//);
+assert.match(otherDeck.stderr, /Unknown title batch "batch-1" for deck verify-era\. Batches under plans\/title-batches\/verify-era\/: era-1\./);
 
 const neither = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId);
 assert.equal(neither.code, 1);
@@ -335,7 +351,7 @@ await writeJson(path.join(auditDir, `grounding.${deckId}.titles.batch-1.json`), 
 await writeJson(path.join(auditDir, 'grounding.verify-era.titles.batch-1.json'), {
     schemaVersion: 1,
     role: 'grounding-verify',
-    target: 'plans/title-batches/verify-era/batch-1.json',
+    target: 'plans/title-batches/verify-era/era-batch.json',
     findings: [{ ref: 'era.title', verdict: 'timing-mismatch', note: 'Fact places it in chapter 3.' }],
 });
 const withFindings = cli('report', projectId, '--stage', 'titles');
@@ -387,6 +403,128 @@ assert.equal(cli('report', projectId, '--stage', 'titles').code, 0);
 const titlesAfter = await readFile(titlesArtifact, 'utf8');
 assert.ok(!titlesAfter.includes('sethe-ashen-pact | timing-mismatch') && !titlesAfter.includes('era.card'), 'Card findings stay out of the titles page.');
 assert.ok(titlesAfter.includes('1 verified, 2 flagged across 2 findings file(s).'));
+
+// --- Stale findings: a findings file whose target is gone is listed, not counted ---
+await writeJson(path.join(auditDir, `grounding.${deckId}.titles.gone.json`), {
+    schemaVersion: 1,
+    role: 'grounding-verify',
+    target: `plans/title-batches/${deckId}/gone.json`,
+    findings: [{ ref: 'canon.gone', verdict: 'unsupported', note: 'The batch was deleted.' }],
+});
+await writeJson(path.join(auditDir, `grounding.${deckId}.cards.characters.renamed_away.json`), {
+    schemaVersion: 1,
+    role: 'grounding-verify',
+    target: `drafts/${deckId}/characters/renamed_away.json`,
+    findings: [{ ref: 'canon.renamed', verdict: 'partial', note: 'The file was renamed.' }],
+});
+assert.equal(cli('report', projectId, '--stage', 'titles').code, 0);
+const titlesStale = await readFile(titlesArtifact, 'utf8');
+assert.ok(titlesStale.includes('1 verified, 2 flagged across 2 findings file(s).'), 'A stale titles findings file stays out of the counts.');
+assert.ok(titlesStale.includes('Stale findings files'));
+assert.ok(titlesStale.includes(`- \`reviews/audit/grounding.${deckId}.titles.gone.json\`: target \`plans/title-batches/${deckId}/gone.json\` is missing`));
+assert.ok(!titlesStale.includes('| canon.gone |'), 'Stale findings are not listed as flagged.');
+assert.equal(cli('report', projectId, '--stage', 'cards').code, 0);
+const cardsStale = await readFile(cardsArtifact, 'utf8');
+assert.ok(cardsStale.includes('1 verified, 3 flagged across 2 findings file(s).'), 'A stale cards findings file stays out of the counts.');
+assert.ok(cardsStale.includes(`- \`reviews/audit/grounding.${deckId}.cards.characters.renamed_away.json\`: target \`drafts/${deckId}/characters/renamed_away.json\` is missing`));
+assert.ok(!cardsStale.includes('| canon.renamed |'));
+// With every live findings file gone too, the stale files still show, and nothing is counted.
+await rm(auditDir, { recursive: true, force: true });
+await writeJson(path.join(auditDir, `grounding.${deckId}.titles.gone.json`), {
+    schemaVersion: 1, role: 'grounding-verify', target: `plans/title-batches/${deckId}/gone.json`, findings: [],
+});
+assert.equal(cli('report', projectId, '--stage', 'titles').code, 0);
+const onlyStale = await readFile(titlesArtifact, 'utf8');
+assert.ok(onlyStale.includes('0 verified, 0 flagged across 0 findings file(s).') && onlyStale.includes('Stale findings files'));
+await rm(auditDir, { recursive: true, force: true });
+assert.equal(cli('report', projectId, '--stage', 'titles').code, 0);
+assert.equal(await readFile(titlesArtifact, 'utf8'), baseline, 'With no findings files the titles page is byte-identical again.');
+
+// --- Items with no id: plain-text fallback, no nested backticks ---
+await writeJson(path.join(draftsDir, 'characters', 'unnamed.json'), {
+    entries: [card('', 'A card with no id.', { title: 'The `Nameless` One', sourceInfo: { evidenceFacts: ['chapters/canon-ch-01#0'] } })],
+});
+const noIdCards = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/unnamed');
+assert.equal(noIdCards.code, 0, noIdCards.stderr);
+assert.ok(noIdCards.stdout.includes('- (a card with no id: use its title, "The `Nameless` One", as the ref)'), 'A card with no id is listed as plain text.');
+assert.ok(!noIdCards.stdout.includes('`(a card'), 'The no-id fallback is not wrapped in backticks.');
+assert.ok(noIdCards.stdout.includes('with each `ref` matching a card\'s `id` (or its `title` when it has no `id`)'), 'Before you return names the title fallback.');
+assert.ok(noIdCards.stdout.includes('for a card with no `id`, the `ref` is its `title`'));
+await writeJson(path.join(batchDir, 'batch-4.json'), {
+    batchId: 'batch-4',
+    deckId,
+    titles: [{ title: 'Untitled claim', gateIntent: 'Always eligible.', support: ['chapters/canon-ch-01#0'] }],
+});
+const noIdTitles = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-4');
+assert.equal(noIdTitles.code, 0, noIdTitles.stderr);
+assert.ok(noIdTitles.stdout.includes('- (a title with no id: use its title, "Untitled claim", as the ref)'), 'A title with no id is listed as plain text.');
+assert.ok(noIdTitles.stdout.includes('- `ref`: the title\'s `id`, or its `title` when it has no `id`.'));
+assert.ok(noIdTitles.stdout.includes('with each `ref` matching a title\'s `id` (or its `title` when it has no `id`)'));
+await rm(path.join(batchDir, 'batch-4.json'));
+
+// --- --file accepts any entry file health, stats and ground check read ---
+const nestedCards = [card('canon.character.year-one', 'Mara Venn is a 17-year-old conscript.', { sourceInfo: { evidenceFacts: ['chapters/canon-ch-01#0'] } })];
+await writeJson(path.join(draftsDir, 'characters', 'students', 'Year_One.json'), { entries: nestedCards });
+await writeJson(path.join(draftsDir, 'Lore', 'batch-01.json'), { entries: nestedCards });
+const nested = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/students/Year_One', '--json');
+assert.equal(nested.code, 0, nested.stderr);
+assert.equal(JSON.parse(nested.stdout).output, `reviews/audit/grounding.${deckId}.cards.characters.students.Year_One.json`, 'Nested paths gain more dots.');
+const numbered = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'Lore/batch-01.json', '--json');
+assert.equal(numbered.code, 0, numbered.stderr);
+assert.equal(JSON.parse(numbered.stdout).output, `reviews/audit/grounding.${deckId}.cards.Lore.batch-01.json`);
+assert.ok(JSON.parse(numbered.stdout).prompt.includes(`"target": "drafts/${deckId}/Lore/batch-01.json"`));
+for (const [bad, pattern] of [
+    ['../verify-era/lore/rules', /Invalid --file "\.\.\/verify-era\/lore\/rules": [^\n]*"\.\."/],
+    ['characters/../../verify-era/lore/rules', /Invalid --file/],
+    [path.join(draftsDir, 'characters', 'core_cast.json'), /Invalid --file [^\n]*a relative path/],
+    ['timeline', /Invalid --file "timeline": [^\n]*root-level files there are the manifest and registries/],
+    ['loredeck.json', /Invalid --file "loredeck\.json": [^\n]*root-level/],
+    ['characters//core_cast', /Invalid --file/],
+    ['assets/cover', /assets\/ holds no entry files/],
+]) {
+    const rejected = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', bad);
+    assert.equal(rejected.code, 1, `--file ${bad} should be rejected.`);
+    assert.match(rejected.stderr, pattern);
+}
+// The draft role keeps the strict topic-naming rules.
+const draftNumbered = cli('brief', projectId, '--role', 'draft', '--deck', deckId, '--batch', 'batch-1', '--file', 'lore/batch-01');
+assert.equal(draftNumbered.code, 1);
+assert.match(draftNumbered.stderr, /name entry files by topic, not by batch/);
+const draftNested = cli('brief', projectId, '--role', 'draft', '--deck', deckId, '--batch', 'batch-1', '--file', 'characters/students/year_one');
+assert.equal(draftNested.code, 1);
+assert.match(draftNested.stderr, /use <category>\/<topic-stem> in lowercase/);
+
+// --- Listed entry files: no warning and no flag hint once stats --write runs ---
+const deckDir = path.join(projectDir, 'drafts', deckId);
+const stats = cli('stats', deckDir, '--write');
+assert.equal(stats.code, 0, stats.stderr);
+const listedBrief = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/students/Year_One');
+assert.equal(listedBrief.code, 0, listedBrief.stderr);
+assert.ok(!listedBrief.stderr.includes('WARNING'), listedBrief.stderr);
+assert.ok(!listedBrief.stdout.includes('unlisted-entry-file'), 'A listed entry file gets no unlisted-entry-file hint.');
+assert.ok(listedBrief.stdout.includes('for example `unreadable-file:<path>` for a listed file you could not read. Use'));
+
+// --- Timeline: from registries.timeline, and worded for a missing file ---
+const manifestPath = path.join(deckDir, 'loredeck.json');
+const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+await writeJson(manifestPath, { ...manifest, registries: { ...manifest.registries, timeline: 'story-arc.json' } });
+const missingTimeline = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/students/Year_One');
+assert.equal(missingTimeline.code, 0, missingTimeline.stderr);
+const storyArcRel = `drafts/${deckId}/story-arc.json`;
+assert.ok(missingTimeline.stdout.includes(`3. The deck's timeline file (\`${storyArcRel}\`) does not exist, so no anchor id resolves to a label. Read the window from \`context.label\` and the anchor ids as written`), 'A missing timeline gets its own step 3.');
+assert.ok(missingTimeline.stdout.includes(`(project-relative: \`${storyArcRel}\`)`), 'The timeline path comes from registries.timeline.');
+assert.ok(!missingTimeline.stdout.includes('to their anchor labels'), 'A missing timeline is never to be read for anchor labels.');
+assert.ok(!missingTimeline.stdout.includes('timeline.json'), 'The brief does not point at timeline.json when the manifest names another file.');
+await writeJson(path.join(deckDir, 'story-arc.json'), { schemaVersion: 1, anchors: [] });
+const presentTimeline = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/students/Year_One');
+assert.ok(presentTimeline.stdout.includes(`to their anchor labels in the deck's timeline file (\`${storyArcRel}\`)`));
+// An escaping registries.timeline falls back to timeline.json; a missing timeline.json is worded as missing.
+await writeJson(manifestPath, { ...manifest, registries: { ...manifest.registries, timeline: '../verify-era/timeline.json' } });
+await rm(path.join(deckDir, 'timeline.json'));
+const fallback = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/students/Year_One');
+assert.equal(fallback.code, 0, fallback.stderr);
+assert.ok(fallback.stdout.includes(`3. The deck's timeline file (\`drafts/${deckId}/timeline.json\`) does not exist`), 'An escaping registry falls back to timeline.json.');
+assert.ok(!fallback.stdout.includes('to their anchor labels'));
 
 await rm(workshopRoot, { recursive: true, force: true });
 console.log('Loredeck grounding-verify tests passed.');

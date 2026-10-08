@@ -23,6 +23,9 @@ export async function runBrief({ positionals, flags }) {
         flags,
     });
 
+    // Warnings go to stderr so stdout stays the prompt (or the --json object).
+    for (const warning of brief.warnings || []) console.error(`WARNING: ${warning}`);
+
     let outPath = null;
     if (flags.out !== undefined) {
         if (typeof flags.out !== 'string' || !flags.out.trim()) throw new Error('--out needs a file path.');

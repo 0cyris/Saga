@@ -15,7 +15,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { AUDIT_DIR_REL } from './audit-findings.mjs';
-import { isValidSlug, listJsonFilesRecursive, pathExists, readJsonFile, resolveProjectDir, toPosixRelative } from './deck-fs.mjs';
+import { isValidSlug, listJsonFilesRecursive, pathExists, readJsonFile, readJsonFileOrNull, resolveProjectDir, toPosixRelative } from './deck-fs.mjs';
 import { collectEvidence, EVIDENCE_AUTHORING_SIGNALS } from './evidence-store.mjs';
 import { parseFactPointer } from './grounding.mjs';
 import { loadProjectState } from './project-state.mjs';
@@ -479,7 +479,7 @@ const GROUNDING_KINDS = {
         pointerField: '`support`',
         batchIntro: 'A title batch proposes Lorecards to draft. Each title states a `gateIntent`: a claim about what the card covers and when in the story it may appear. Each title also cites the evidence facts that are meant to back that claim.',
         itemFields: [
-            '- `id`: the title\'s id. It is the `ref` of your finding.',
+            '- `id`: the title\'s id. It is the `ref` of your finding; for a title with no `id`, the `ref` is its `title`.',
             '- `gateIntent`: the claim you are checking.',
             '- `support`: the fact pointers that back the claim.',
             '- `evidenceRefs`: the records (`<scope>/<recordId>`) the title draws on.',
@@ -506,18 +506,19 @@ const GROUNDING_KINDS = {
         pointerField: '`sourceInfo.evidenceFacts`',
         batchIntro: 'A card batch is one entry file of drafted Lorecards. Each card states a claim in `content.fact` and `content.injection`, and a timing in its `context` window and `revealPolicy`: when in the story the card may be used, and what it may reveal. Each card also cites the evidence facts that are meant to back that claim and that timing.',
         itemFields: [
-            '- `id`: the card\'s id. It is the `ref` of your finding.',
+            '- `id`: the card\'s id. It is the `ref` of your finding; for a card with no `id`, the `ref` is its `title`.',
             '- `content.fact` and `content.injection`: the claim you are checking. Both must be backed.',
-            '- `context`: the card\'s story window. `validFromAnchor` and `validToAnchor` are anchor ids in the deck\'s `timeline.json`; `label`, `sortKeyFrom` and `sortKeyTo` describe the same window.',
+            '- `context`: the card\'s story window. `validFromAnchor` and `validToAnchor` are anchor ids in the deck\'s timeline; `label`, `sortKeyFrom` and `sortKeyTo` describe the same window.',
             '- `revealPolicy`: what the card lets the story reveal, and when (`public`, `private`, `do_not_reveal`, `only_if_knower_present`, `only_if_user_reveals`).',
             '- `sourceInfo.evidenceFacts`: the fact pointers that back the claim.',
             '- `sourceInfo.evidenceRefs`: the records (`<scope>/<recordId>`) the card draws on.',
         ].join('\n'),
         judgeFieldsRule: 'Judge only `id`, `content.fact`, `content.injection`, `context`, `revealPolicy`, `sourceInfo.evidenceFacts` and `sourceInfo.evidenceRefs`; ignore any other entry fields.',
-        checkSteps: [
+        // The anchor step depends on whether the deck's timeline file exists (see timelineStep).
+        checkSteps: ({ timelineStep }) => [
             '1. Resolve each `sourceInfo.evidenceFacts` pointer and read the fact it names, word for word.',
             '2. Decide whether those facts, taken together, entail `content.fact` and `content.injection`: every person, event, relationship, and status either one asserts is stated in them.',
-            '3. Resolve `context.validFromAnchor` and `context.validToAnchor` to their anchor labels in `timeline.json`, and decide whether the window matches the timing the facts describe: the window opens no earlier than the story point where the facts place the thing.',
+            timelineStep,
             '4. Decide whether the `revealPolicy` matches that timing: when the facts place a reveal later than the window opens, the card keeps that reveal behind `private`, `do_not_reveal`, `only_if_knower_present` or `only_if_user_reveals`, and a `public` card states only what the facts place inside its window.',
             '5. Give exactly one verdict.',
         ].join('\n'),
@@ -530,6 +531,18 @@ const GROUNDING_KINDS = {
         noteExample: 'chapters/example-ch-14#0 says "<quoted fact text>", which places this in chapter 14, but the window opens at anchor example.ch_12 ("Chapter 12").',
     },
 };
+
+/**
+ * Step 3 of the cards check: resolve the window's anchors. When the deck's
+ * timeline file exists the checker reads it; when it is missing, the step
+ * says so and has the checker judge from `context.label` and the anchor ids.
+ */
+function timelineStep({ timelineRel, timelineExists }) {
+    const match = 'decide whether the window matches the timing the facts describe: the window opens no earlier than the story point where the facts place the thing.';
+    return timelineExists
+        ? `3. Resolve \`context.validFromAnchor\` and \`context.validToAnchor\` to their anchor labels in the deck's timeline file (\`${timelineRel}\`), and ${match}`
+        : `3. The deck's timeline file (\`${timelineRel}\`) does not exist, so no anchor id resolves to a label. Read the window from \`context.label\` and the anchor ids as written, and ${match}`;
+}
 
 /**
  * Collects the evidence a list of items cites through fact pointers
@@ -568,7 +581,7 @@ async function collectCitedEvidence(projectDir, items, { pointersOf, refsOf }) {
 }
 
 /** Context shared by both kinds, from a kind spec, the batch, its items and its cited evidence. */
-function groundingContext({ kind, state, deck, projectDir, batchId, batchFile, batchFileRel, items, cited, outputFileRel, extraFiles = '' }) {
+function groundingContext({ kind, state, deck, projectDir, batchId, batchFile, batchFileRel, items, cited, outputFileRel, extraFiles = '', stepContext = {}, extraFlags = [] }) {
     const spec = GROUNDING_KINDS[kind];
     const findingsExample = JSON.stringify({
         schemaVersion: 1,
@@ -579,7 +592,14 @@ function groundingContext({ kind, state, deck, projectDir, batchId, batchFile, b
             { ref: `<${spec.itemNoun} id>`, verdict: 'timing-mismatch', note: spec.noteExample },
         ],
     }, null, 2);
-    const itemIds = items.map(item => String(item?.id || '').trim() || `(a ${spec.itemNoun} with no id: use its \`title\` text as the ref)`);
+    // Ids are code spans; an item with no id is plain text, so no backticks nest.
+    const itemIds = items.map((item) => {
+        const id = String(item?.id || '').trim();
+        if (id) return `- \`${id}\``;
+        const title = String(item?.title || '').trim();
+        return `- (a ${spec.itemNoun} with no id: use its title${title ? `, ${JSON.stringify(title)},` : ''} as the ref)`;
+    });
+    const flagsNotes = ['`unreadable-file:<path>` for a listed file you could not read', ...extraFlags];
     return {
         projectId: state.projectId,
         deckId: deck.deckId,
@@ -590,13 +610,13 @@ function groundingContext({ kind, state, deck, projectDir, batchId, batchFile, b
         itemNounPlural: spec.itemNounPlural,
         itemFields: spec.itemFields,
         judgeFieldsRule: spec.judgeFieldsRule,
-        checkSteps: spec.checkSteps,
+        checkSteps: typeof spec.checkSteps === 'function' ? spec.checkSteps(stepContext) : spec.checkSteps,
         verdictRules: spec.verdictRules,
         batchFile,
         batchFileRel,
         projectDir,
         itemCount: items.length,
-        itemIds: itemIds.length ? bulletList(itemIds, { code: true }) : `- (the batch has no ${spec.itemNounPlural})`,
+        itemIds: itemIds.length ? itemIds.join('\n') : `- (the batch has no ${spec.itemNounPlural})`,
         evidenceFiles: cited.evidencePaths.length ? bulletList(cited.evidencePaths, { code: true }) : '- (no cited record was found in any evidence file)',
         missingRecords: describeMissingRecords(cited.missingKeys, cited.malformedPointers, spec),
         extraFiles,
@@ -606,7 +626,7 @@ function groundingContext({ kind, state, deck, projectDir, batchId, batchFile, b
         returnWroteExample: outputFileRel,
         returnCountsExample: `{"${spec.itemNounPlural}":${items.length},"flagged":0}`,
         returnCountsNote: `\`${spec.itemNounPlural}\` is the number of findings you wrote (one per ${spec.itemNoun}); \`flagged\` is how many of them are not \`entailed\`.`,
-        returnFlagsNote: '`unreadable-file:<path>` for a listed file you could not read.',
+        returnFlagsNote: `${flagsNotes.join(', and ')}.`,
     };
 }
 
@@ -641,14 +661,62 @@ export function cardGroundingOutputRel(deckId, fileStem) {
     return `${AUDIT_DIR_REL}/grounding.${deckId}.cards.${fileStem.split('/').join('.')}.json`;
 }
 
+/**
+ * Validates the grounding-verify --file selector: any entry file path under
+ * drafts/<deck>/ that health, stats and ground check would read (nested
+ * folders, any case, batch-numbered names), as long as it stays inside the
+ * deck folder. Rejects absolute paths, `.`/`..` segments, root-level files
+ * (the manifest and registries) and assets/. Returns it without a .json
+ * suffix. The strict topic-naming rules apply to the draft role only.
+ */
+function parseEntryFileSelector(value, deckDirRel) {
+    const raw = String(value || '').trim();
+    const fileStem = raw.replace(/\.json$/, '');
+    const parts = fileStem.split('/');
+    const invalid = reason => new Error(`Invalid --file ${JSON.stringify(value)}: use <category>/<topic-stem>, the entry file's path under ${deckDirRel}/ (${reason}).`);
+    if (!fileStem || fileStem.includes('\\') || path.posix.isAbsolute(fileStem) || path.win32.isAbsolute(fileStem)) {
+        throw invalid('a relative path with / separators');
+    }
+    if (parts.some(part => !part || part === '.' || part === '..')) {
+        throw invalid('no empty, "." or ".." segments');
+    }
+    if (parts.length < 2) {
+        throw invalid('root-level files there are the manifest and registries, not entry files');
+    }
+    if (parts[0] === 'assets') {
+        throw invalid('assets/ holds no entry files');
+    }
+    return fileStem;
+}
+
+/**
+ * The deck timeline's project-relative path: the manifest's
+ * `registries.timeline` when it names a file inside the deck folder, else
+ * timeline.json (the init default).
+ */
+function deckTimelineRel(deckDirRel, manifest) {
+    const ref = typeof manifest?.registries?.timeline === 'string' ? manifest.registries.timeline.trim() : '';
+    const normalized = ref ? path.posix.normalize(ref.replace(/\\/g, '/')) : '';
+    const inside = Boolean(normalized)
+        && !path.posix.isAbsolute(normalized)
+        && !path.win32.isAbsolute(ref)
+        && !normalized.split('/').some(part => !part || part === '.' || part === '..');
+    return `${deckDirRel}/${inside ? normalized : 'timeline.json'}`;
+}
+
 async function buildCardsGroundingContext({ state, deck, projectDir, file }) {
-    const fileStem = parseDraftFileSelector(file);
     const deckDirRel = `drafts/${deck.deckId}`;
+    const fileStem = parseEntryFileSelector(file, deckDirRel);
     const entryFileRel = `${deckDirRel}/${fileStem}.json`;
     const absolute = relPath => path.join(projectDir, ...relPath.split('/'));
+    const deckDir = absolute(deckDirRel);
     const entryFile = absolute(entryFileRel);
+    const inDeck = path.relative(deckDir, entryFile);
+    if (!inDeck || inDeck.startsWith('..') || path.isAbsolute(inDeck)) {
+        throw new Error(`Invalid --file ${JSON.stringify(file)}: the entry file must be inside ${deckDirRel}/.`);
+    }
     if (!await pathExists(entryFile)) {
-        throw new Error(`No entry file at ${entryFileRel}. The grounding checker reads an existing card batch: pass --file with the <category>/<topic-stem> of an entry file in ${deckDirRel}/.`);
+        throw new Error(`No entry file at ${entryFileRel}. The grounding checker reads an existing card batch: pass --file with the path of an entry file under ${deckDirRel}/, such as <category>/<topic-stem>.`);
     }
     let json = null;
     try {
@@ -666,15 +734,28 @@ async function buildCardsGroundingContext({ state, deck, projectDir, file }) {
         refsOf: card => card?.sourceInfo?.evidenceRefs,
     });
 
-    const timelineRel = `${deckDirRel}/timeline.json`;
+    // The same manifest readDeckEntries reads.
+    const manifest = await readJsonFileOrNull(path.join(deckDir, 'loredeck.json'))
+        || await readJsonFileOrNull(path.join(deckDir, 'manifest.json'));
+    const listed = new Set((Array.isArray(manifest?.files) ? manifest.files : []).map(String));
+    const warnings = [];
+    const extraFlags = [];
+    if (!listed.has(`${fileStem}.json`)) {
+        warnings.push(`${entryFileRel} is not listed in the deck manifest's files[], so ground check skips it. Run \`stats ${deckDir} --write\` so ground check covers it.`);
+        extraFlags.push(`\`unlisted-entry-file:${entryFileRel}\` (always include this one, as written: the entry file is not listed in the deck manifest's \`files[]\`)`);
+    }
+
+    const timelineRel = deckTimelineRel(deckDirRel, manifest);
+    const timelineExists = await pathExists(absolute(timelineRel));
     const timelineLine = `- \`${absolute(timelineRel)}\` (project-relative: \`${timelineRel}\`)`;
-    const extraFiles = await pathExists(absolute(timelineRel))
+    const extraFiles = timelineExists
         ? `The deck's timeline, read-only, to resolve each card's \`context.validFromAnchor\` and \`context.validToAnchor\` to an anchor label:\n\n${timelineLine}\n\n`
         : `The deck's timeline belongs at the path below, and that file does not exist yet, so no anchor id resolves to a label. Judge each window from its \`context.label\` and the anchor ids as written:\n\n${timelineLine}\n\n`;
 
     const outputFileRel = cardGroundingOutputRel(deck.deckId, fileStem);
     return {
         output: outputFileRel,
+        warnings,
         context: groundingContext({
             kind: 'cards', state, deck, projectDir,
             batchId: fileStem,
@@ -684,6 +765,8 @@ async function buildCardsGroundingContext({ state, deck, projectDir, file }) {
             cited,
             outputFileRel,
             extraFiles,
+            stepContext: { timelineStep: timelineStep({ timelineRel, timelineExists }) },
+            extraFlags,
         }),
     };
 }
@@ -760,7 +843,8 @@ function readSelector(flags, name) {
 
 /**
  * Builds the rendered brief for one subagent dispatch.
- * Returns { role, projectId, deckId, scope, batch, file, output, prompt }.
+ * Returns { role, projectId, deckId, scope, batch, file, output, warnings, prompt },
+ * where `warnings` are lines for stderr that never fail the render.
  */
 export async function buildBrief({ projectId, role, deckId, flags = {} }) {
     const roleNames = listBriefRoles();
@@ -801,7 +885,7 @@ export async function buildBrief({ projectId, role, deckId, flags = {} }) {
     const projectDir = resolveProjectDir(projectId);
     const skillDir = await resolveSkillDir();
 
-    const { context, output } = await spec.buildContext({ state, deck, projectDir, skillDir, selectors });
+    const { context, output, warnings = [] } = await spec.buildContext({ state, deck, projectDir, skillDir, selectors });
     const roleTemplate = stripTemplateHeader(await readFile(path.join(skillDir, 'agents', spec.template), 'utf8'));
     const contractTemplate = stripTemplateHeader(await readFile(path.join(skillDir, 'agents', RETURN_CONTRACT_TEMPLATE), 'utf8'));
     const body = renderTemplate(roleTemplate, context, { label: `agents/${spec.template}` }).trimEnd();
@@ -815,6 +899,7 @@ export async function buildBrief({ projectId, role, deckId, flags = {} }) {
         batch: selectors.batch || null,
         file: selectors.file || null,
         output,
+        warnings,
         prompt: `${body}\n\n${contract}\n`,
     };
 }

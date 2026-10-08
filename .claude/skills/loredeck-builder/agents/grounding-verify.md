@@ -2,7 +2,7 @@
 Role template: grounding-verify. Rendered by
 `loredeck brief <id> --role grounding-verify --deck D --batch B` (a title batch) or
 `loredeck brief <id> --role grounding-verify --deck D --file <category>/<topic-stem>` (a card batch:
-one entry file in drafts/<D>/).
+one entry file in drafts/<D>/, at any depth below the deck folder).
 This comment is stripped before rendering. Placeholders use {{name}}; rendering fails on any
 placeholder the grounding-verify context builder (lib/briefs.mjs) does not supply. The per-kind
 wording (item noun, fields, check steps, verdict meanings) is filled in by that builder, so this
@@ -78,7 +78,7 @@ It has exactly this shape:
 - `role`: the string `"grounding-verify"`.
 - `target`: the string `"{{batchFileRel}}"`.
 - `findings`: one object per {{itemNoun}}, in the batch's order, {{itemCount}} in all:
-  - `ref`: the {{itemNoun}}'s `id`.
+  - `ref`: the {{itemNoun}}'s `id`, or its `title` when it has no `id`.
   - `verdict`: one of the verdicts above, spelled exactly.
   - `note`: for `entailed`, an empty string or a short remark. For every other verdict, the note is required: quote the fact text you relied on, with its pointer, and say what in the claim it does not back or where its timing differs.
 
@@ -90,4 +90,4 @@ It has exactly this shape:
 
 ## Before you return
 
-Re-read your findings file once. Check that it parses as JSON, that it has one finding per {{itemNoun}} with each `ref` matching a {{itemNoun}} `id`, that every `verdict` is one of the four values, and that every finding whose verdict is not `entailed` has a note quoting fact text.
+Re-read your findings file once. Check that it parses as JSON, that it has one finding per {{itemNoun}} with each `ref` matching a {{itemNoun}}'s `id` (or its `title` when it has no `id`), that every `verdict` is one of the four values, and that every finding whose verdict is not `entailed` has a note quoting fact text.
