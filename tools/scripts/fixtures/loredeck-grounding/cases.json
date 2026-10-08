@@ -1059,8 +1059,8 @@
       "note": "Same claim as the control, but gated from the opening; ch-14#2 places the exposure in Chapter 14, mid-siege.",
       "card": {
         "schemaVersion": 3,
-        "id": "fdt.secret.sethe-exposed-early",
-        "title": "Sethe's pact exposed (early gate)",
+        "id": "fdt.secret.sethe-pact-exposed",
+        "title": "Sethe's pact exposed",
         "kind": "knowledge_gate",
         "category": "secret",
         "relevance": "normal",
@@ -1149,8 +1149,8 @@
       "note": "Brask's death is gated from the first patrol; ch-22#1 places it during the fall.",
       "card": {
         "schemaVersion": 3,
-        "id": "fdt.status.brask-dead",
-        "title": "Sergeant Brask is dead",
+        "id": "fdt.status.brask-fate",
+        "title": "Sergeant Brask's fate",
         "kind": "character_state",
         "category": "character",
         "relevance": "normal",
@@ -1748,7 +1748,7 @@
       "note": "content.fact matches ch-01#0, but content.injection adds that she is a natural sword prodigy, which no cited fact states.",
       "card": {
         "schemaVersion": 3,
-        "id": "fdt.character.mara-venn-prodigy",
+        "id": "fdt.character.mara-venn-arrival",
         "title": "Mara Venn on arrival",
         "kind": "character_state",
         "category": "character",

@@ -11,6 +11,7 @@
  */
 
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { copyFile, cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,9 +33,18 @@ export async function loadEvalCases() {
     return { deckId: json.deckId, acceptedEvidence: json.acceptedEvidence, cases: json.cases };
 }
 
+/**
+ * Opaque, deterministic handle for a case. Case ids name the planted error
+ * ("timing-...", "control-..."), so they must never reach a checker: file
+ * names, brief names and findings names all use this handle instead.
+ */
+export function caseHandle(caseId) {
+    return `card-${createHash('sha256').update(String(caseId)).digest('hex').slice(0, 8)}`;
+}
+
 /** Entry-file stem for a case, relative to drafts/<deck>/ (the ground-check `batch` and the brief's --file). */
 export function caseBatch(caseId) {
-    return `eval/${caseId}`;
+    return `eval/${caseHandle(caseId)}`;
 }
 
 /** Default findings path for a case (spec §9: grounding.<deck>.cards.<batch with / as .>.json). */

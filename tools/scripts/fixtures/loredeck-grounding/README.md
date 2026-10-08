@@ -34,7 +34,7 @@ Each case in `cases.json` is:
 - **Structural** cases (`kind: structural`) each break one pointer rule: missing `evidenceFacts`, an out-of-range index, a pointer outside `evidenceRefs`, an unaccepted record, or a malformed pointer. `ground check` must report exactly `expectGroundCheck` for them. The model layer skips them.
 - **Semantic** cases (`label: seeded`, `kind: semantic`) pass `ground check` but are wrong in meaning. They cover a detail taken from a record's `inUniverseSpan`, a `context` gate that opens at the wrong anchor, a pointer to a fact from a different record, an invented fact, and an embellished `content.injection`.
 
-Each case's card is written to its own entry file, `drafts/grounding-eval/eval/<case-id>.json`. So every ground-check issue (`batch: eval/<case-id>`) and every findings file maps to exactly one case.
+Each case's card is written to its own entry file, `drafts/grounding-eval/eval/<handle>.json`, where `<handle>` is an opaque `card-<8 hex>` derived from the case id (`caseHandle` in `tools/scripts/loredeck-grounding-eval-lib.mjs`). Case ids name the planted error, so they must never reach a checker: entry files, briefs and findings files all use the handle. Every ground-check issue (`batch: eval/<handle>`) and every findings file still maps to exactly one case; `.tmp/loredeck-grounding-eval/manifest.json` records the mapping. Card ids and titles are neutral for the same reason.
 
 When you add a case, keep one planted error per card, write the `note`, and run `node tools/scripts/test-loredeck-grounding-eval.mjs`. That test also checks the labelling rules above.
 
@@ -65,7 +65,7 @@ Run it whenever `agents/grounding-verify.md`, the checker's agent file, or the m
 
    Card-batch briefs (`--file`) come from ticket #13. On a CLI without it, `--prepare` stops with a message saying so.
 
-2. **Dispatch.** For each brief, start one fresh grounding checker and pass the brief text through unchanged. Use the `loredeck-grounding-verifier` agent in Claude Code, or any subagent with Read and Write. Give it nothing else: no case labels, no notes, and nothing from `cases.json`. Each checker writes `reviews/audit/grounding.grounding-eval.cards.eval.<case-id>.json` in the project. The checkers are independent, so you can run them in parallel.
+2. **Dispatch.** For each brief, start one fresh grounding checker and pass the brief text through unchanged. Use the `loredeck-grounding-verifier` agent in Claude Code, or any subagent with Read and Write. Give it nothing else: no case labels, no notes, and nothing from `cases.json`. Each checker writes `reviews/audit/grounding.grounding-eval.cards.eval.<handle>.json` in the project. The checkers are independent, so you can run them in parallel.
 
 3. **Score.**
 

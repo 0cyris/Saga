@@ -21,6 +21,7 @@ import {
     CASE_KINDS,
     CASE_LABELS,
     caseBatch,
+    caseHandle,
     caseFindingsRel,
     EVAL_TARGETS,
     formatScoreTable,
@@ -169,7 +170,13 @@ const findingsFile = (testCase, verdict) => ({
     target: `drafts/${deckId}/${caseBatch(testCase.id)}.json`,
     findings: [{ ref: testCase.card.id, verdict, note: '' }],
 });
-assert.equal(caseFindingsRel(deckId, first.id), `reviews/audit/grounding.${deckId}.cards.eval.${first.id}.json`);
+assert.equal(caseFindingsRel(deckId, first.id), `reviews/audit/grounding.${deckId}.cards.eval.${caseHandle(first.id)}.json`);
+// Case ids name the planted error, so no file name a checker sees may contain one.
+for (const testCase of cases) {
+    assert.ok(!caseBatch(testCase.id).includes(testCase.id), `${testCase.id}: entry file name must not reveal the case id.`);
+    assert.match(caseHandle(testCase.id), /^card-[0-9a-f]{8}$/);
+}
+assert.equal(new Set(cases.map(testCase => caseHandle(testCase.id))).size, cases.length, 'Case handles must be unique.');
 await writeFindings(first, findingsFile(first, first.expectVerdict));
 await writeFindings(second, '{ not json');
 await writeFindings(third, findingsFile(third, 'maybe'));

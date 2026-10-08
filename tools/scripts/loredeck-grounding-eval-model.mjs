@@ -8,15 +8,16 @@
  *   node tools/scripts/loredeck-grounding-eval-model.mjs --prepare [--variant a|b]
  *     Builds the eval project under .tmp/loredeck-grounding-eval/workshop and,
  *     for every case that passes `ground check`, renders
- *     `brief <id> --role grounding-verify --deck <deck> --file eval/<case-id>`
- *     to .tmp/loredeck-grounding-eval/briefs/<case-id>.md. Variant a is the
+ *     `brief <id> --role grounding-verify --deck <deck> --file eval/<handle>`
+ *     to .tmp/loredeck-grounding-eval/briefs/<handle>.md (an opaque per-case handle,
+ *     so nothing a checker sees names the planted error). Variant a is the
  *     current agents/grounding-verify.md; variant b appends
  *     fixtures/loredeck-grounding/variant-b-addendum.md (a "common mistakes"
  *     list naming the anti-patterns) to each rendered brief.
  *
  *   node tools/scripts/loredeck-grounding-eval-model.mjs --score [--json]
  *     Reads the findings files the dispatched checkers wrote
- *     (reviews/audit/grounding.<deck>.cards.eval.<case-id>.json), prints a
+ *     (reviews/audit/grounding.<deck>.cards.eval.<handle>.json), prints a
  *     table and the score JSON, and saves it to
  *     .tmp/loredeck-grounding-eval/score.<variant>.json. --json prints only
  *     the JSON. Missing findings files count as "not run".
@@ -31,6 +32,7 @@ import path from 'node:path';
 import {
     buildEvalProject,
     caseBatch,
+    caseHandle,
     caseFindingsRel,
     FIXTURE_DIR,
     formatScoreTable,
@@ -100,7 +102,7 @@ async function prepare({ variant }) {
         }
         const brief = JSON.parse(result.stdout);
         const prompt = addendum ? `${brief.prompt.trimEnd()}\n\n${addendum}\n` : brief.prompt;
-        const briefFile = path.join(BRIEFS_DIR, `${testCase.id}.md`);
+        const briefFile = path.join(BRIEFS_DIR, `${caseHandle(testCase.id)}.md`);
         await writeFile(briefFile, prompt);
         const findingsRel = brief.output || caseFindingsRel(deckId, testCase.id);
         manifestCases.push({ id: testCase.id, brief: briefFile, findings: path.join(projectDir, ...findingsRel.split('/')) });
