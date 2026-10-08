@@ -147,7 +147,7 @@ Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/
 - `tools/scripts/test-loredeck-grounding-eval.mjs` is the CI layer.
 - `tools/scripts/loredeck-grounding-eval-model.mjs` is the model layer. Run `--prepare [--variant a|b]`, then `--score`.
 - Variant `a` is the current `agents/grounding-verify.md`. Variant `b` appends a "common mistakes" list that names the anti-patterns (`variant-b-addendum.md`).
-- The model layer builds its project (`founding-trilogy`) and briefs outside the repo, under `$LOREDECK_GROUNDING_EVAL_DIR` (default `<os.tmpdir()>/loredeck-grounding-eval`). The manifest and score files go in the sibling `<dir>-results`, so a checker browsing the workshop never reaches the case labels.
+- The model layer builds its project (`founding-trilogy`) and briefs outside the repo, under `$LOREDECK_GROUNDING_EVAL_DIR` (default `<os.tmpdir()>/founding-trilogy-workshop`). The manifest and score files go in the sibling `<dir>-results`, so a checker browsing the workshop never reaches the case labels.
 - A case may list `acceptVerdicts` when two verdicts are defensible. Exact-verdict accuracy counts any of them; catch rate is unchanged.
 - The fixture README describes the manual loop and the report format. A missing findings file counts as "not run" and is not scored as a failure.
 

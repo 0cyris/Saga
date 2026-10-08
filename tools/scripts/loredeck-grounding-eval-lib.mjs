@@ -30,7 +30,7 @@ export const CLI_PATH = path.join(REPO_ROOT, 'tools', 'loredeck', 'loredeck-cli.
  * files live in the sibling `<dir>-results`, never inside the workshop tree.
  */
 export function modelLayerDirs(env = process.env) {
-    const dir = path.resolve(env.LOREDECK_GROUNDING_EVAL_DIR || path.join(os.tmpdir(), 'loredeck-grounding-eval'));
+    const dir = path.resolve(env.LOREDECK_GROUNDING_EVAL_DIR || path.join(os.tmpdir(), 'founding-trilogy-workshop'));
     return {
         dir,
         workshopRoot: path.join(dir, 'workshop'),

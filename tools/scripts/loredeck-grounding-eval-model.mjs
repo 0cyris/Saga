@@ -7,7 +7,7 @@
  *
  * Everything is built outside the repo, so a checker browsing the project
  * cannot reach cases.json: <dir> is $LOREDECK_GROUNDING_EVAL_DIR, or
- * <os.tmpdir()>/loredeck-grounding-eval. The manifest (handle -> case id) and
+ * <os.tmpdir()>/founding-trilogy-workshop. The manifest (handle -> case id) and
  * the score files go in the sibling <dir>-results, outside the workshop tree.
  *
  *   node tools/scripts/loredeck-grounding-eval-model.mjs --prepare [--variant a|b]

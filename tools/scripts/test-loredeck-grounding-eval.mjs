@@ -105,7 +105,7 @@ for (const testCase of cases) {
 
 // --- The model layer works outside the repo, with results beside the workshop tree ---
 const defaultDirs = modelLayerDirs({});
-assert.equal(defaultDirs.dir, path.join(os.tmpdir(), 'loredeck-grounding-eval'));
+assert.equal(defaultDirs.dir, path.join(os.tmpdir(), 'founding-trilogy-workshop'));
 assert.equal(defaultDirs.resultsDir, `${defaultDirs.dir}-results`);
 const relToRepo = path.relative(REPO_ROOT, defaultDirs.dir);
 assert.ok(relToRepo.startsWith('..') || path.isAbsolute(relToRepo), `default dir ${defaultDirs.dir} is outside the repo`);
