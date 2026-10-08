@@ -15,6 +15,7 @@ import {
     buildBriefArtifact,
     buildCardsArtifact,
     buildEvidenceArtifact,
+    buildEvidenceFindingsSummary,
     buildFinalArtifact,
     buildPlanArtifact,
     buildTitlesArtifact,
@@ -45,7 +46,8 @@ export async function runReport({ positionals, flags }) {
         extra = { briefIssues: issues.length };
     } else if (stage === 'evidence') {
         const collected = await collectEvidence(projectDir, {});
-        await writeTextFile(outPath, buildEvidenceArtifact(state, collected));
+        const findingsSummary = await buildEvidenceFindingsSummary(projectDir);
+        await writeTextFile(outPath, buildEvidenceArtifact(state, collected, { findingsSummary }));
         extra = { issues: collected.issues.length };
     } else if (stage === 'plan') {
         await writeTextFile(outPath, await buildPlanArtifact(state, projectDir));

@@ -10,7 +10,7 @@ import path from 'node:path';
 import { resolveProjectDir, writeTextFile } from '../lib/deck-fs.mjs';
 import { collectEvidence, countEvidence, setEvidenceStatus } from '../lib/evidence-store.mjs';
 import { appendJournal, loadProjectState, saveProjectState } from '../lib/project-state.mjs';
-import { buildEvidenceArtifact } from '../lib/review-artifacts.mjs';
+import { buildEvidenceArtifact, buildEvidenceFindingsSummary } from '../lib/review-artifacts.mjs';
 
 async function refreshProjectEvidence(state, projectDir) {
     const collected = await collectEvidence(projectDir, {});
@@ -21,7 +21,8 @@ async function refreshProjectEvidence(state, projectDir) {
         pendingCount: counts.pending,
         rejectedCount: counts.rejected,
     };
-    await writeTextFile(path.join(projectDir, 'reviews', 'evidence.md'), buildEvidenceArtifact(state, collected));
+    const findingsSummary = await buildEvidenceFindingsSummary(projectDir);
+    await writeTextFile(path.join(projectDir, 'reviews', 'evidence.md'), buildEvidenceArtifact(state, collected, { findingsSummary }));
     return { collected, counts };
 }
 

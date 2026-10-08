@@ -9,6 +9,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { loadFindingsFiles, summarizeFindings } from './audit-findings.mjs';
 import { pathExists, readJsonFileOrNull } from './deck-fs.mjs';
 
 const REQUIRED_BRIEF_SECTIONS = [
@@ -282,8 +283,20 @@ export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys
     return { markdown: lines.join('\n'), duplicates, unbacked, crossDeckCitations };
 }
 
-export function buildEvidenceArtifact(state, collected) {
+/**
+ * Summary of the evidence checker's findings files (reviews/audit/evidence-*.json),
+ * or '' when the checker has not run, so the evidence artifact stays unchanged.
+ */
+export async function buildEvidenceFindingsSummary(projectDir) {
+    return summarizeFindings(await loadFindingsFiles(projectDir, { prefix: 'evidence-' }), {
+        title: 'Evidence checker findings',
+        okVerdicts: ['supported'],
+    });
+}
+
+export function buildEvidenceArtifact(state, collected, { findingsSummary = '' } = {}) {
     const lines = [`# Evidence Review: ${state.title}`, ''];
+    if (findingsSummary) lines.push(findingsSummary);
     lines.push('## Files', '');
     lines.push(mdTable(
         ['File', 'Scope', 'Valid', 'Records'],

@@ -33,6 +33,13 @@ function run(cmd, args, env = {}) {
 const sync = run(process.execPath, [path.join(pluginRoot, 'scripts', 'sync-from-repo.mjs')]);
 assert.equal(sync.status, 0, `sync-from-repo.mjs failed: ${sync.stderr}`);
 
+// The plugin ships the Claude Code subagent files under agents/.
+for (const agentFile of ['loredeck-evidence-auditor.md']) {
+  const bundled = path.join(pluginRoot, 'agents', agentFile);
+  assert.ok(statSync(bundled).isFile(), `plugin agents/ is missing ${agentFile}`);
+  assert.equal(readFileSync(bundled, 'utf8'), readFileSync(path.join(repoRoot, '.claude', 'agents', agentFile), 'utf8'), `plugin agents/${agentFile} is stale`);
+}
+
 // 2. No vendored CLI file imports repo src/ -- the bundle must be self-contained.
 function listFiles(dir) {
   const out = [];
@@ -75,6 +82,8 @@ for (const expected of [
   'loredeck-builder/reference-decks/hp-core/loredeck.json',
   'loredeck-builder/agents/research.md',
   'loredeck-builder/agents/_return-contract.md',
+  'loredeck-builder/agents/evidence-audit.md',
+  'loredeck-builder/claude-code-agents/loredeck-evidence-auditor.md',
   'loredeck-builder/templates/evidence-file.json',
 ]) {
   assert.ok(archive.has(expected), `.skill archive is missing expected entry: ${expected}`);
