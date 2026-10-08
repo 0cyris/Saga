@@ -4,7 +4,11 @@
  * prompt (scope brief, verbatim evidence template, authoringSignals
  * vocabulary, output path, source policy, return contract), output is
  * deterministic for identical project state, and missing-scope / unknown-role
- * / unknown-deck errors are clear.
+ * / unknown-deck errors are clear. The draft role renders the approved title
+ * batch verbatim, read-only registry paths, every cited evidence file (sorted,
+ * deduplicated, support-only records included), authoring-rules.md in full,
+ * and the output path; unknown and unapproved batches and batch-numbered
+ * --file stems are rejected.
  */
 
 import assert from 'node:assert/strict';
@@ -151,7 +155,7 @@ assert.ok(narrowed.stdout.includes('Research chapters 6 to 10 of book 1.'), 'A n
 
 const noRole = cli('brief', 'brief-canon', '--deck', 'brief-core', '--scope', 'chapters');
 assert.equal(noRole.code, 1);
-assert.match(noRole.stderr, /--role is required\. Available roles: research\./);
+assert.match(noRole.stderr, /--role is required\. Available roles: draft, research\./);
 
 const unknownDeck = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'nope', '--scope', 'chapters');
 assert.equal(unknownDeck.code, 1);
@@ -170,6 +174,156 @@ await rm(path.join(projectDir, 'brief', 'scope-brief.md'));
 const noBrief = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'brief-core', '--scope', 'chapters');
 assert.equal(noBrief.code, 1);
 assert.match(noBrief.stderr, /No scope brief found/);
+
+// --- Draft role ---
+const writeEvidence = async (scope, file, records) => {
+    await mkdir(path.join(projectDir, 'evidence', scope), { recursive: true });
+    await writeFile(path.join(projectDir, 'evidence', scope, file), JSON.stringify({
+        schemaVersion: 1,
+        scope,
+        deckId: '',
+        sourceKind: 'user_supplied',
+        provenance: { url: '', title: 'Notes', retrievedAt: '2026-10-01' },
+        records,
+        failures: [],
+    }, null, 2));
+};
+await writeEvidence('characters', 'cast.json', [{ id: 'bc-char-mara', title: 'Mara', facts: ['Mara is a recruit.'] }]);
+await writeEvidence('places', 'keep.json', [{ id: 'bc-place-keep', title: 'Keep', facts: ['The keep is a garrison.'] }]);
+await writeEvidence('lore', 'unrelated.json', [{ id: 'bc-lore-x', title: 'Unrelated', facts: ['Not cited.'] }]);
+// Chapter records live in the file written by the research tests above.
+
+const batchDir = path.join(projectDir, 'plans', 'title-batches', 'brief-core');
+await mkdir(batchDir, { recursive: true });
+const batchText = `{
+  "batchId": "batch-1",
+  "deckId": "brief-core",
+  "titles": [
+    {
+      "id": "bc.character.mara",
+      "title": "Mara - recruit {{notAPlaceholder}}",
+      "category": "character",
+      "gateIntent": "Eligible from chapter 1.",
+      "evidenceRefs": ["chapters/bc-ch-01", "characters/bc-char-mara"],
+      "support": ["characters/bc-char-mara#0", "chapters/bc-ch-01#0"]
+    },
+    {
+      "id": "bc.location.keep",
+      "title": "The keep",
+      "category": "location",
+      "gateIntent": "Eligible whenever the keep is in scene.",
+      "evidenceRefs": ["chapters/bc-ch-01"],
+      "support": ["places/bc-place-keep#0"]
+    }
+  ]
+}
+`;
+await writeFile(path.join(batchDir, 'batch-1.json'), batchText);
+await writeFile(path.join(batchDir, 'secrets.json'), JSON.stringify({
+    batchId: 'batch-2',
+    deckId: 'brief-core',
+    titles: [{ id: 'bc.secret.x', title: 'X', category: 'secret', gateIntent: 'Later.', evidenceRefs: ['chapters/bc-ch-02'], support: ['chapters/bc-ch-02#0'] }],
+}, null, 2));
+
+const draftArgs = ['brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-1', '--file', 'characters/core_cast'];
+
+// Unapproved: no recorded status, then a draft status.
+const noStatus = cli(...draftArgs);
+assert.equal(noStatus.code, 1);
+assert.match(noStatus.stderr, /batch batch-1 is not approved \(status: none recorded\); approve its titles gate before drafting/);
+assert.equal(cli('batch', 'set', 'brief-canon', '--deck', 'brief-core', '--kind', 'titles', '--id', 'batch-1', '--status', 'draft').code, 0);
+const draftStatus = cli(...draftArgs);
+assert.equal(draftStatus.code, 1);
+assert.match(draftStatus.stderr, /batch batch-1 is not approved \(status: draft\)/);
+assert.equal(cli('batch', 'set', 'brief-canon', '--deck', 'brief-core', '--kind', 'titles', '--id', 'batch-1', '--status', 'approved').code, 0);
+
+// Unknown batch.
+const unknownBatch = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-9', '--file', 'characters/core_cast');
+assert.equal(unknownBatch.code, 1);
+assert.match(unknownBatch.stderr, /Unknown batch "batch-9" for deck brief-core/);
+
+// Selector validation.
+const noFile = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-1');
+assert.equal(noFile.code, 1);
+assert.match(noFile.stderr, /requires --file/);
+const noBatch = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--file', 'characters/core_cast');
+assert.equal(noBatch.code, 1);
+assert.match(noBatch.stderr, /requires --batch/);
+for (const bad of ['core_cast', 'Characters/core_cast', 'characters/core/cast', '../characters/core_cast']) {
+    const result = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-1', '--file', bad);
+    assert.equal(result.code, 1, `--file ${bad} should be rejected.`);
+    assert.match(result.stderr, /<category>\/<topic-stem>/, `${bad}: ${result.stderr}`);
+}
+for (const numbered of ['entries/batch-1', 'characters/batch_2', 'characters/entries3']) {
+    const result = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-1', '--file', numbered);
+    assert.equal(result.code, 1, `--file ${numbered} should be rejected.`);
+    assert.match(result.stderr, /name entry files by topic/, `${numbered}: ${result.stderr}`);
+}
+const withAssignment = cli(...draftArgs, '--assignment', 'x');
+assert.equal(withAssignment.code, 1);
+assert.match(withAssignment.stderr, /does not take --assignment/);
+
+// Rendering: the draft brief is self-contained.
+const drafted = cli(...draftArgs);
+assert.equal(drafted.code, 0, drafted.stderr);
+const draftPrompt = drafted.stdout;
+assert.ok(draftPrompt.includes(batchText.trimEnd()), 'The title batch should appear verbatim.');
+assert.ok(draftPrompt.includes(path.join(projectDir, 'drafts', 'brief-core', 'timeline.json')), 'timeline.json path should be given.');
+assert.ok(draftPrompt.includes(path.join(projectDir, 'drafts', 'brief-core', 'tags.json')), 'tags.json path should be given.');
+assert.match(draftPrompt, /read-only/, 'Registries should be marked read-only.');
+const citedFiles = [
+    path.join(projectDir, 'evidence', 'chapters', 'chapters-01-05.json'),
+    path.join(projectDir, 'evidence', 'characters', 'cast.json'),
+    path.join(projectDir, 'evidence', 'places', 'keep.json'),
+];
+let lastIndex = -1;
+for (const file of citedFiles) {
+    const marker = `- \`${file}\``;
+    const index = draftPrompt.indexOf(marker);
+    assert.ok(index > lastIndex, `${file} should be listed once, in sorted order.`);
+    assert.equal(draftPrompt.indexOf(marker, index + 1), -1, `${file} should be listed once.`);
+    lastIndex = index;
+}
+assert.ok(draftPrompt.includes('`places/bc-place-keep`'), 'A record cited only by a support pointer should be listed.');
+assert.ok(!draftPrompt.includes('unrelated.json'), 'Uncited evidence files should not be listed.');
+assert.ok(!draftPrompt.includes('chapters-06-10'), 'Evidence files holding no cited record should not be listed.');
+const authoringRules = (await readFile(path.join(skillDir, 'references', 'authoring-rules.md'), 'utf8')).trim();
+assert.ok(draftPrompt.includes(authoringRules), 'references/authoring-rules.md should be inlined in full.');
+assert.ok(draftPrompt.includes(path.join(projectDir, 'drafts', 'brief-core', 'characters', 'core_cast.json')), 'Absolute output path should be given.');
+assert.ok(draftPrompt.includes('`drafts/brief-core/characters/core_cast.json`'), 'Project-relative output path should be given.');
+assert.ok(draftPrompt.includes('sourceInfo.evidenceFacts'), 'Cards should be told to carry fact pointers.');
+assert.ok(draftPrompt.includes('missing-tag:<namespace:value>'), 'Missing tags should come back as flags.');
+assert.ok(draftPrompt.includes('## Return format'), 'Return contract should be appended.');
+assert.ok(draftPrompt.includes('{"status":"ok","wrote":["drafts/brief-core/characters/core_cast.json"],"counts":{"cards":2},"gaps":[],"flags":[]}'),
+    'Return contract example should carry the card count and output path.');
+assert.ok(!/\{\{\s*[A-Za-z]/.test(draftPrompt.replaceAll('{{notAPlaceholder}}', '')), 'No unresolved placeholders should remain.');
+assert.ok(!draftPrompt.includes('<!--'), 'Maintainer comments should be stripped.');
+assert.ok(draftPrompt.includes('The file does not exist yet'), 'A new output file should be noted as new.');
+
+// Determinism and --json.
+assert.equal(cli(...draftArgs).stdout, draftPrompt, 'Draft output should be byte-identical for identical project state.');
+const draftJson = JSON.parse(cli(...draftArgs, '--json').stdout);
+assert.equal(draftJson.role, 'draft');
+assert.equal(draftJson.batch, 'batch-1');
+assert.equal(draftJson.output, 'drafts/brief-core/characters/core_cast.json');
+assert.equal(draftJson.prompt, draftPrompt);
+
+// Lookup by batchId when the file name differs.
+assert.equal(cli('batch', 'set', 'brief-canon', '--deck', 'brief-core', '--kind', 'titles', '--id', 'batch-2', '--status', 'approved').code, 0);
+const byId = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--batch', 'batch-2', '--file', 'secrets/major_reveals');
+assert.equal(byId.code, 0, byId.stderr);
+assert.ok(byId.stdout.includes('plans/title-batches/brief-core/secrets.json'), 'A batch should be found by its batchId.');
+
+// An existing output file is extended, not replaced.
+await mkdir(path.join(projectDir, 'drafts', 'brief-core', 'characters'), { recursive: true });
+await writeFile(path.join(projectDir, 'drafts', 'brief-core', 'characters', 'core_cast.json'), JSON.stringify({ schemaVersion: 3, entries: [{ id: 'a' }] }));
+assert.match(cli(...draftArgs).stdout, /The file already exists with 1 entry\. Read it first/);
+
+// A cited record no evidence file holds stops the render.
+await writeFile(path.join(batchDir, 'batch-1.json'), batchText.replace('"chapters/bc-ch-01#0"', '"chapters/bc-ch-99#0"'));
+const unknownRecord = cli(...draftArgs);
+assert.equal(unknownRecord.code, 1);
+assert.match(unknownRecord.stderr, /no evidence file holds: chapters\/bc-ch-99/);
 
 // --- Template renderer: unresolved placeholders fail ---
 assert.equal(renderTemplate('a {{x}} b', { x: '{{y}}' }), 'a {{y}} b', 'Substituted values are not re-scanned.');
