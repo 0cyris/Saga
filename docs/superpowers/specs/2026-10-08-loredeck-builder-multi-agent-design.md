@@ -175,3 +175,25 @@ Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/
 - The Hallucination Snowball (arXiv 2608.14588) — https://arxiv.org/abs/2608.14588
 - Structure for Reading, Prose for Writing (arXiv 2608.20786) — https://arxiv.org/abs/2608.20786
 - Claude Code subagents docs — https://code.claude.com/docs/en/sub-agents
+
+## 9. Implementation conventions (shared across tickets #7–#15)
+
+These decisions are fixed so that tickets built in parallel stay consistent. Change them here first, never in only one ticket.
+
+- **Role templates:** `.claude/skills/loredeck-builder/agents/<role>.md`. The roles are `research`, `draft`, `evidence-audit` and `grounding-verify`.
+  - Placeholders use `{{name}}`. Rendering fails on any unresolved placeholder.
+  - Shared return-contract text lives in `.claude/skills/loredeck-builder/agents/_return-contract.md`, and `brief` appends it to every role.
+  - Templates state required shapes positively. Anti-example names stay out of templates.
+- **`brief` command:** `tools/loredeck/commands/brief.mjs`, with rendering logic in `tools/loredeck/lib/briefs.mjs`.
+  - Usage: `brief <project-id> --role <role> --deck <deck-id> [--scope S] [--batch B] [--file F] [--out FILE] [--json]`.
+  - Output is deterministic: no timestamps, and files are listed in sorted order.
+- **Return contract:** the subagent's final message is exactly one JSON object, `{"status":"ok|partial|failed","wrote":[...],"counts":{...},"gaps":[...],"flags":[...]}`.
+- **Fact pointer format:** `<scope>/<recordId>#<factIndex>`, where `factIndex` is a 0-based index into the record's `facts[]`.
+  - Titles: `support: [...]` on each title.
+  - Cards: `sourceInfo.evidenceFacts: [...]`.
+  - Parsing and checking live in `tools/loredeck/lib/grounding.mjs`. The command is `tools/loredeck/commands/ground.mjs`, used as `ground check <project-id> --stage titles|cards [--deck D] [--json]`. It exits 1 on any issue.
+- **Findings files:** `reviews/audit/`. Evidence checks go to `evidence-<scope>.json`. Grounding checks go to `<deck>-<titles|cards>-<batch>.json`, where `<batch>` is the batch id for titles and the entry-file stem for cards.
+  - Shape: `{"schemaVersion":1,"role":"...","target":"...","findings":[{"ref":"...","verdict":"...","note":"..."}]}`.
+  - The `report` command summarizes findings when they exist, puts the summary at the top of the stage artifact, and never blocks.
+- **Claude Code agent files:** `.claude/agents/loredeck-evidence-auditor.md` and `.claude/agents/loredeck-grounding-verifier.md`. Their bodies point at the same role templates, so there is one source of truth. `sync-from-repo.mjs` copies them into the bundle under `agents/`.
+- **Tests:** new `tools/scripts/test-loredeck-*.mjs` scripts follow the pattern in `test-loredeck-review-artifacts.mjs`: spawn the CLI with `SAGA_WORKSHOP_ROOT` set to `.tmp/<test-name>`. Each new test is added to the CLI test plan in `.github/workflows/loredeck-builder-build-check.yml`.
