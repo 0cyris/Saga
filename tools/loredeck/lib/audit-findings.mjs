@@ -43,11 +43,11 @@ export function validateFindingsFile(json) {
 }
 
 /**
- * Loads findings files whose name (without .json) starts with `prefix`, in
- * sorted order. Each result is `{ file, role, target, findings, issues }`;
+ * Loads findings files whose name (without .json) starts with `prefix` (and,
+ * when `role` is given, whose `role` matches), in sorted order. Each result is `{ file, role, target, findings, issues }`;
  * unreadable or malformed files come back with `issues` set and no findings.
  */
-export async function loadFindingsFiles(projectDir, { prefix = '' } = {}) {
+export async function loadFindingsFiles(projectDir, { prefix = '', role = '' } = {}) {
     const dir = auditDir(projectDir);
     const files = (await listJsonFilesRecursive(dir))
         .filter(file => path.basename(file, '.json').startsWith(prefix))
@@ -63,6 +63,7 @@ export async function loadFindingsFiles(projectDir, { prefix = '' } = {}) {
             continue;
         }
         const issues = validateFindingsFile(json);
+        if (role && !issues.length && json.role !== role) continue;
         results.push({
             file: rel,
             role: String(json?.role || ''),

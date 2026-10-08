@@ -79,7 +79,7 @@ When a source is a PDF, extract text before drafting evidence — don't transcri
 
 After `evidence validate` passes and before the evidence gate, run the read-only evidence checker once per evidence file, dispatched with `brief <id> --role evidence-audit --deck D --scope S --file F` (`--file` is the stem of an existing file in `evidence/<S>/`; it defaults to the scope name). It re-reads the file's source — `provenance.url` for `web` files, or for `user_supplied` files the source text you put in the task note — and writes one findings file:
 
-- `reviews/audit/evidence-<scope>.json` when the file stem is the scope name, otherwise `reviews/audit/evidence-<scope>-<file>.json`, so each checker writes its own file.
+- `reviews/audit/evidence-audit.<scope>.json` when the file stem is the scope name, otherwise `reviews/audit/evidence-audit.<scope>.<file>.json`, so each checker writes its own file.
 
 ```json
 {

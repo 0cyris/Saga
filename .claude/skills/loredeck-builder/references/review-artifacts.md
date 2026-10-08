@@ -7,14 +7,14 @@ Every gate is reviewed against a regenerated artifact in `workshop/<project>/rev
 | scope_brief | `reviews/brief.md` | `report --stage brief` | Project summary + completeness check (flags sections still left as template placeholder text) + full scope brief |
 | evidence | `reviews/evidence.md` | `evidence validate` / `report --stage evidence` | File validity table, validation issues, record table with statuses |
 | planning | `reviews/plan.md` | `report --stage plan` | Rationale prose (inlined from `plans/context-timeline-plan.md`, not just linked) + per-deck anchor table, window table, tag table |
-| titles | `reviews/titles.md` | `report --stage titles` | Grounding checker findings summary (only when `reviews/audit/<deck>-titles-*.json` exist: "N verified, M flagged" plus a table of every non-`entailed` finding), ground-check summary line, per-batch title tables with each gate intent next to the fact strings its `support` pointers resolve to (unresolvable pointers show their problem code) + evidence refs, and a grounding-issues table |
+| titles | `reviews/titles.md` | `report --stage titles` | Grounding checker findings summary (only when `reviews/audit/grounding.<deck>.titles.*.json` exist: "N verified, M flagged" plus a table of every non-`entailed` finding), ground-check summary line, per-batch title tables with each gate intent next to the fact strings its `support` pointers resolve to (unresolvable pointers show their problem code) + evidence refs, and a grounding-issues table |
 | cards | `reviews/cards.md` | `report --stage cards` | Ground-check summary line, per-deck card tables (context, tags, evidence), per-deck claims table with each card's `content.fact` + `content.injection` next to the fact strings its `sourceInfo.evidenceFacts` pointers resolve to, duplicate-id report, unbacked-card report, cross-deck citation report, and a grounding-issues table |
 | health | `reviews/health-<deck>.md/.json` | `health` / `promote` | Status, counts, every issue by severity |
 | package | `reviews/final.md` | `report --stage final` | Gate history, per-deck entry/category counts, last health status |
 
 ## Checker findings files
 
-Read-only checker subagents write findings to `reviews/audit/`. The grounding checker writes one file per title batch, `reviews/audit/<deck>-titles-<batch>.json` (rendered with `brief --role grounding-verify`). Every findings file has this shape:
+Read-only checker subagents write findings to `reviews/audit/`. The grounding checker writes one file per title batch, `reviews/audit/grounding.<deck>.titles.<batch>.json` (rendered with `brief --role grounding-verify`). Every findings file has this shape:
 
 ```json
 {

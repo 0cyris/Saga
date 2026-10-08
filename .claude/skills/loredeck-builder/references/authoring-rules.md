@@ -37,7 +37,7 @@ One card = one job: a fact, state, constraint, reveal, relationship, rule, event
 
 `--json` prints `{ ok, stage, deck, checked, issues: [{ deck, kind, itemId, batch, pointer, problem, detail }] }` (`kind` is `title` or `card`). A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent`, and `report --stage cards` each card's `content.fact` and `content.injection`, next to the fact strings its pointers resolve to.
 
-**The grounding checker** makes that judgment call for titles. It is a read-only subagent with a clean context: it sees the batch file and the evidence files it cites, never the drafting history. Render its prompt with `brief <id> --role grounding-verify --deck D --batch B` (on Claude Code, dispatch it as the `loredeck-grounding-verifier` agent). For each title it decides whether the `support` facts entail the `gateIntent` and whether the gate timing matches the timing those facts describe, and writes one finding per title to `reviews/audit/<deck>-titles-<batch>.json`:
+**The grounding checker** makes that judgment call for titles. It is a read-only subagent with a clean context: it sees the batch file and the evidence files it cites, never the drafting history. Render its prompt with `brief <id> --role grounding-verify --deck D --batch B` (on Claude Code, dispatch it as the `loredeck-grounding-verifier` agent). For each title it decides whether the `support` facts entail the `gateIntent` and whether the gate timing matches the timing those facts describe, and writes one finding per title to `reviews/audit/grounding.<deck>.titles.<batch>.json`:
 
 | Verdict | Meaning |
 | --- | --- |

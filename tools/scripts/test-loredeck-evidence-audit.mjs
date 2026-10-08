@@ -4,7 +4,7 @@
  * renders a self-contained prompt for one evidence file (path, scope brief,
  * provenance-based source instruction, findings shape, verdicts, read-only
  * rule, return contract), refuses a missing evidence file, and the evidence
- * review artifact summarizes reviews/audit/evidence-*.json findings when
+ * review artifact summarizes reviews/audit/evidence-audit.*.json findings when
  * present and is byte-identical to the plain artifact when they are absent.
  */
 
@@ -62,8 +62,8 @@ assert.ok(prompt.includes('`evidence/chapters/chapters.json`'), 'The project-rel
 assert.ok(prompt.includes(scopeBrief.trim()), 'The scope brief should be inlined in full.');
 assert.ok(prompt.includes('<https://example.fandom.com/wiki/Chapter_1>'), 'The provenance URL should be named as the source to re-read.');
 assert.ok(prompt.includes('2 record(s) holding 3 fact(s)'), 'The record and fact counts should render.');
-assert.ok(prompt.includes('reviews/audit/evidence-chapters.json'), 'Findings default to reviews/audit/evidence-<scope>.json.');
-assert.ok(prompt.includes(path.join(projectDir, 'reviews', 'audit', 'evidence-chapters.json')), 'The absolute findings path should be given.');
+assert.ok(prompt.includes('reviews/audit/evidence-audit.chapters.json'), 'Findings default to reviews/audit/evidence-<scope>.json.');
+assert.ok(prompt.includes(path.join(projectDir, 'reviews', 'audit', 'evidence-audit.chapters.json')), 'The absolute findings path should be given.');
 assert.ok(prompt.includes('"role": "evidence-audit"') && prompt.includes('"target": "evidence/chapters/chapters.json"'), 'The findings shape should render with role and target.');
 assert.ok(prompt.includes('chapters/<recordId>#<factIndex>'), 'Finding refs use <scope>/<recordId>#<factIndex>.');
 for (const verdict of EVIDENCE_AUDIT_VERDICTS) {
@@ -73,7 +73,7 @@ assert.ok(/A note is required for every verdict other than `supported`/.test(pro
 assert.ok(prompt.includes('## Read-only rule') && prompt.includes('The findings file is the only file you write.'), 'The read-only rule should render.');
 assert.ok(prompt.includes('truncated-source:<url>') && prompt.includes('noisy-extraction:evidence/chapters/chapters.json'), 'Truncation and extraction-noise flags should render.');
 assert.ok(prompt.includes('## Return format'), 'The return contract should be appended.');
-assert.ok(prompt.includes('{"status":"ok","wrote":["reviews/audit/evidence-chapters.json"],"counts":{"facts":12,"flagged":2},"gaps":[],"flags":[]}'),
+assert.ok(prompt.includes('{"status":"ok","wrote":["reviews/audit/evidence-audit.chapters.json"],"counts":{"facts":12,"flagged":2},"gaps":[],"flags":[]}'),
     'The return contract example should carry the findings path and audit counts.');
 assert.ok(!/\{\{\s*[A-Za-z]/.test(prompt), 'No unresolved placeholders should remain.');
 assert.ok(!prompt.includes('<!--'), 'Maintainer comments should be stripped.');
@@ -89,8 +89,11 @@ await writeFile(path.join(projectDir, 'evidence', 'chapters', 'chapters-06-10.js
 const split = cli('brief', 'audit-canon', '--role', 'evidence-audit', '--deck', 'audit-core', '--scope', 'chapters', '--file', 'chapters-06-10', '--json');
 assert.equal(split.code, 0, split.stderr);
 const splitJson = JSON.parse(split.stdout);
-assert.equal(splitJson.output, 'reviews/audit/evidence-chapters-chapters-06-10.json');
-assert.equal(evidenceAuditOutputRel('chapters', 'chapters'), 'reviews/audit/evidence-chapters.json');
+assert.equal(splitJson.output, 'reviews/audit/evidence-audit.chapters.chapters-06-10.json');
+assert.equal(evidenceAuditOutputRel('chapters', 'chapters'), 'reviews/audit/evidence-audit.chapters.json');
+// Slugs can't contain '.', so scope/file pairs never share a findings path.
+assert.notEqual(evidenceAuditOutputRel('a', 'b-c'), evidenceAuditOutputRel('a-b', 'c'));
+assert.notEqual(evidenceAuditOutputRel('a', 'b'), evidenceAuditOutputRel('a-b', 'a-b'));
 assert.ok(splitJson.prompt.includes('`"user_supplied"` (source: User notes, chapters 6-10)'), 'user_supplied files should point at the task note for source text.');
 assert.ok(splitJson.prompt.includes('task note'), 'user_supplied source instruction should mention the task note.');
 
@@ -121,7 +124,7 @@ assert.equal(await readFile(evidenceMd, 'utf8'), baseline, 'report --stage evide
 // A non-evidence findings file (e.g. a grounding verifier's) does not change the evidence page.
 const auditDir = path.join(projectDir, 'reviews', 'audit');
 await mkdir(auditDir, { recursive: true });
-await writeFile(path.join(auditDir, 'audit-core-titles-batch-1.json'), JSON.stringify({
+await writeFile(path.join(auditDir, 'grounding.audit-core.titles.batch-1.json'), JSON.stringify({
     schemaVersion: 1, role: 'grounding-verify', target: 'plans/title-batches/audit-core/batch-1.json',
     findings: [{ ref: 'audit-core.title-1', verdict: 'unsupported', note: 'x' }],
 }));
@@ -129,7 +132,7 @@ assert.equal(cli('report', 'audit-canon', '--stage', 'evidence').code, 0);
 assert.equal(await readFile(evidenceMd, 'utf8'), baseline, 'Grounding findings should not reach the evidence page.');
 
 // --- Present findings are summarized at the top ---
-await writeFile(path.join(auditDir, 'evidence-chapters.json'), JSON.stringify({
+await writeFile(path.join(auditDir, 'evidence-audit.chapters.json'), JSON.stringify({
     schemaVersion: 1,
     role: 'evidence-audit',
     target: 'evidence/chapters/chapters.json',
@@ -144,7 +147,7 @@ assert.equal(validateAfter.code, 0, 'Findings never block evidence validate.');
 const withFindings = await readFile(evidenceMd, 'utf8');
 assert.ok(withFindings.startsWith('# Evidence Review: Audit Canon\n\n## Evidence checker findings\n'), 'The summary should sit at the top of the page.');
 assert.ok(withFindings.includes('1 verified, 2 flagged across 1 findings file(s).'));
-assert.ok(withFindings.includes('| chapters/ac-ch-01#1 | unsupported | The source has Ava meet the warden in chapter 3. | reviews/audit/evidence-chapters.json |'));
+assert.ok(withFindings.includes('| chapters/ac-ch-01#1 | unsupported | The source has Ava meet the warden in chapter 3. | reviews/audit/evidence-audit.chapters.json |'));
 assert.ok(withFindings.includes('| chapters/ac-ch-02#0 | out-of-scope |'));
 assert.ok(!withFindings.includes('chapters/ac-ch-01#0 |'), 'Supported findings are counted, not listed.');
 assert.ok(withFindings.endsWith(baseline.slice('# Evidence Review: Audit Canon\n\n'.length)), 'The rest of the page is unchanged.');
@@ -152,7 +155,7 @@ assert.equal(cli('report', 'audit-canon', '--stage', 'evidence').code, 0);
 assert.equal(await readFile(evidenceMd, 'utf8'), withFindings, 'report --stage evidence renders the same summary.');
 
 // Removing the findings restores the byte-identical page.
-await rm(path.join(auditDir, 'evidence-chapters.json'));
+await rm(path.join(auditDir, 'evidence-audit.chapters.json'));
 assert.equal(cli('report', 'audit-canon', '--stage', 'evidence').code, 0);
 assert.equal(await readFile(evidenceMd, 'utf8'), baseline, 'Without evidence findings the artifact is byte-identical.');
 

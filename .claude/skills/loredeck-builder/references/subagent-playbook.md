@@ -52,7 +52,7 @@ node tools/loredeck/loredeck-cli.mjs brief <id> --role evidence-audit --deck D -
 
 `--file` is the stem of an existing file in `evidence/<S>/` (default: the scope name); `brief` errors if it doesn't exist. On Claude Code, dispatch the `loredeck-evidence-auditor` agent (`.claude/agents/loredeck-evidence-auditor.md`, shipped in the plugin's `agents/`; the `.skill` bundle carries it under `claude-code-agents/`) with the rendered brief as its task — the agent file holds no instructions of its own. Other runtimes pass the brief to a generic subagent. For a `user_supplied` file, put the source text (or slice) the file was written from in the task note; for `web` files the checker re-reads `provenance.url`.
 
-The checker is read-only: it writes only `reviews/audit/evidence-<scope>[-<file>].json` and returns `counts` as `{"facts": N, "flagged": M}`. Discard anything else it touched. Its `flags[]` carry `truncated-source:<url>` (re-research from the full page) and `noisy-extraction:<file>` (re-extract the PDF per `references/evidence-pipeline.md` § PDF sources). Findings are advisory: you decide each fix, then the summary at the top of `reviews/evidence.md` shows the user what was flagged.
+The checker is read-only: it writes only `reviews/audit/evidence-audit.<scope>[.<file>].json` and returns `counts` as `{"facts": N, "flagged": M}`. Discard anything else it touched. Its `flags[]` carry `truncated-source:<url>` (re-research from the full page) and `noisy-extraction:<file>` (re-extract the PDF per `references/evidence-pipeline.md` § PDF sources). Findings are advisory: you decide each fix, then the summary at the top of `reviews/evidence.md` shows the user what was flagged.
 
 ## Grounding checker (titles)
 
@@ -65,7 +65,7 @@ node tools/loredeck/loredeck-cli.mjs brief <id> --role grounding-verify --deck D
 `B` is the batch file name or its `batchId`. On Claude Code, dispatch it as the `loredeck-grounding-verifier` agent (`.claude/agents/`, bundled in the plugin's `agents/` and in the `.skill` under `claude-code-agents/`), whose tools are limited to reading plus writing its one findings file; elsewhere use a generic subagent. Either way the rendered brief is the whole prompt (`agents/grounding-verify.md` is the single source of truth).
 
 - **Keep its context clean.** Pass the brief through unchanged: no task note, no drafting rationale, no summary of what you meant. A checker that shares the drafter's context tends to share its mistakes; it sees only the batch and the evidence files it cites.
-- **On return:** open `reviews/audit/<deck>-titles-<batch>.json` (from `wrote[]`). For each non-`entailed` finding, fix the title (claim, gate, or `support`) or keep it and note why for the user. Re-run `ground check`, re-dispatch the checker if you changed the batch, then `report --stage titles` (its summary shows "N verified, M flagged") and spot-check a sample yourself.
+- **On return:** open `reviews/audit/grounding.<deck>.titles.<batch>.json` (from `wrote[]`). For each non-`entailed` finding, fix the title (claim, gate, or `support`) or keep it and note why for the user. Re-run `ground check`, re-dispatch the checker if you changed the batch, then `report --stage titles` (its summary shows "N verified, M flagged") and spot-check a sample yourself.
 - Findings are advisory in v1 and never block a gate; the user sees them in the titles artifact.
 - Card batches (`--file`) are not supported yet.
 

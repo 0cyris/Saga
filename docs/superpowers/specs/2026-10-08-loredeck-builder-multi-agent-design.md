@@ -76,7 +76,7 @@ Both roles are read-only. Neither may edit files. Each returns a findings file t
   - Contested items are marked as contested.
   - Nothing falls outside the continuity boundary.
   - The file doesn't reveal truncation (`fetch_fandom.py` 3,000-char cap) or PDF extraction noise.
-- Output: `reviews/audit/evidence-<scope>.json`, a list of `{recordId, factIndex, verdict: supported|unsupported|contested|out-of-scope, note}`.
+- Output: `reviews/audit/evidence-audit.<scope>.json`, a list of `{recordId, factIndex, verdict: supported|unsupported|contested|out-of-scope, note}`.
 - Placement: this is the S1→S2 boundary, where the Snowball data says most errors are still catchable.
 
 **B. Grounding verifier** (Stage 4, per title batch; Stage 5, per card batch)
@@ -192,7 +192,7 @@ These decisions are fixed so that tickets built in parallel stay consistent. Cha
   - Titles: `support: [...]` on each title.
   - Cards: `sourceInfo.evidenceFacts: [...]`.
   - Parsing and checking live in `tools/loredeck/lib/grounding.mjs`. The command is `tools/loredeck/commands/ground.mjs`, used as `ground check <project-id> --stage titles|cards [--deck D] [--json]`. It exits 1 on any issue.
-- **Findings files:** `reviews/audit/`. Evidence checks go to `evidence-<scope>.json`. Grounding checks go to `<deck>-<titles|cards>-<batch>.json`, where `<batch>` is the batch id for titles. For cards it is the entry-file path relative to `drafts/<deck>/`, minus `.json`, with `/` replaced by `.`, so files in different category folders never collide. For example, `characters/core_students.json` gives `<deck>-cards-characters.core_students.json`. Ground-check issues keep the slash form, `characters/core_students`.
+- **Findings files:** `reviews/audit/`. Evidence checks go to `evidence-audit.<scope>.json`. Grounding checks go to `grounding.<deck>.<titles|cards>.<batch>.json`, where `<batch>` is the batch id for titles. For cards it is the entry-file path relative to `drafts/<deck>/`, minus `.json`, with `/` replaced by `.`, so files in different category folders never collide. For example, `characters/core_students.json` gives `grounding.<deck>.cards.characters.core_students.json`. Ground-check issues keep the slash form, `characters/core_students`.
   - Shape: `{"schemaVersion":1,"role":"...","target":"...","findings":[{"ref":"...","verdict":"...","note":"..."}]}`.
   - The `report` command summarizes findings when they exist, puts the summary at the top of the stage artifact, and never blocks.
 - **Claude Code agent files:** `.claude/agents/loredeck-evidence-auditor.md` and `.claude/agents/loredeck-grounding-verifier.md`. Their bodies point at the same role templates, so there is one source of truth. `sync-from-repo.mjs` copies them into the bundle under `agents/`.

@@ -54,11 +54,11 @@ export async function runReport({ positionals, flags }) {
         await writeTextFile(outPath, await buildPlanArtifact(state, projectDir));
     } else if (stage === 'titles') {
         const groundCheck = await runGroundCheck({ stage: 'titles', state, projectDir });
-        // Grounding-verifier findings (reviews/audit/<deck>-titles-<batch>.json),
+        // Grounding-verifier findings (reviews/audit/grounding.<deck>.titles.<batch>.json),
         // across every deck. Advisory only; '' when no findings file exists.
         const findings = [];
         for (const deck of state.decks || []) {
-            findings.push(...await loadFindingsFiles(projectDir, { prefix: `${deck.deckId}-titles-` }));
+            findings.push(...await loadFindingsFiles(projectDir, { prefix: `grounding.${deck.deckId}.titles.`, role: 'grounding-verify' }));
         }
         const uniqueFindings = [...new Map(findings.map(entry => [entry.file, entry])).values()]
             .sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));

@@ -329,12 +329,12 @@ async function buildDraftContext({ state, deck, projectDir, skillDir, selectors 
 export const EVIDENCE_AUDIT_VERDICTS = ['supported', 'unsupported', 'contested', 'out-of-scope'];
 
 /**
- * Findings path for one audited evidence file: reviews/audit/evidence-<scope>.json,
- * or evidence-<scope>-<file>.json when the file stem differs from the scope,
+ * Findings path for one audited evidence file: reviews/audit/evidence-audit.<scope>.json,
+ * or evidence-audit.<scope>.<file>.json when the file stem differs from the scope,
  * so each auditor writes its own file.
  */
 export function evidenceAuditOutputRel(scope, fileStem) {
-    return `reviews/audit/evidence-${scope}${fileStem && fileStem !== scope ? `-${fileStem}` : ''}.json`;
+    return `${AUDIT_DIR_REL}/evidence-audit.${scope}${fileStem && fileStem !== scope ? `.${fileStem}` : ''}.json`;
 }
 
 function describeEvidenceSource(evidence) {
@@ -437,7 +437,7 @@ async function buildTitlesGroundingContext({ state, deck, projectDir, batchId })
     const missingKeys = [...citedKeys].filter(key => !foundKeys.has(key)).sort();
     const evidencePaths = [...evidenceFiles].sort().map(rel => path.join(projectDir, ...rel.split('/')));
 
-    const outputFileRel = `${AUDIT_DIR_REL}/${deck.deckId}-titles-${batchId}.json`;
+    const outputFileRel = `${AUDIT_DIR_REL}/grounding.${deck.deckId}.titles.${batchId}.json`;
     const findingsExample = JSON.stringify({
         schemaVersion: 1,
         role: 'grounding-verify',

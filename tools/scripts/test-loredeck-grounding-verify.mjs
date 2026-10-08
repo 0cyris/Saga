@@ -119,8 +119,8 @@ assert.ok(prompt.includes('0-based index'), 'The prompt should explain how to re
 for (const verdict of GROUNDING_VERDICTS) {
     assert.ok(prompt.includes(`\`${verdict}\``), `The prompt should define verdict ${verdict}.`);
 }
-assert.ok(prompt.includes(path.join(auditDir, `${deckId}-titles-batch-1.json`)), 'The findings file path should be given.');
-assert.ok(prompt.includes(`reviews/audit/${deckId}-titles-batch-1.json`), 'The project-relative findings path should be given.');
+assert.ok(prompt.includes(path.join(auditDir, `grounding.${deckId}.titles.batch-1.json`)), 'The findings file path should be given.');
+assert.ok(prompt.includes(`reviews/audit/grounding.${deckId}.titles.batch-1.json`), 'The project-relative findings path should be given.');
 assert.ok(prompt.includes('"role": "grounding-verify"') && prompt.includes(`"target": "plans/title-batches/${deckId}/batch-1.json"`),
     'The findings file shape should be shown.');
 assert.ok(prompt.includes('`canon.character.mara-venn`') && prompt.includes('`canon.location.ravenhold-keep`'), 'Title ids should be listed.');
@@ -128,7 +128,7 @@ assert.ok(/note[^\n]*required[^\n]*quote/i.test(prompt), 'A note quoting fact te
 assert.ok(/read-only/i.test(prompt), 'The prompt should say the checker is read-only.');
 assert.ok(/nothing you know or remember/i.test(prompt), 'The prompt should forbid judging from memory.');
 assert.ok(prompt.includes('## Return format'), 'The return contract should be appended.');
-assert.ok(prompt.includes(`{"status":"ok","wrote":["reviews/audit/${deckId}-titles-batch-1.json"],"counts":{"titles":2,"flagged":0},"gaps":[],"flags":[]}`),
+assert.ok(prompt.includes(`{"status":"ok","wrote":["reviews/audit/grounding.${deckId}.titles.batch-1.json"],"counts":{"titles":2,"flagged":0},"gaps":[],"flags":[]}`),
     'The return contract example should carry the findings path and counts.');
 assert.ok(!prompt.includes(DRAFTING_NOTE) && !prompt.includes('ORCHESTRATOR-ONLY'), 'No drafting commentary may reach the checker.');
 assert.ok(!/\{\{\s*[A-Za-z]/.test(prompt), 'No unresolved placeholders should remain.');
@@ -140,13 +140,13 @@ assert.equal(again.stdout, prompt, 'Output should be byte-identical for identica
 const asJson = JSON.parse(cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-1', '--json').stdout);
 assert.equal(asJson.role, 'grounding-verify');
 assert.equal(asJson.batch, 'batch-1');
-assert.equal(asJson.output, `reviews/audit/${deckId}-titles-batch-1.json`);
+assert.equal(asJson.output, `reviews/audit/grounding.${deckId}.titles.batch-1.json`);
 
 // A batch can be named by its batchId when the file name differs.
 const byId = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-2');
 assert.equal(byId.code, 0, byId.stderr);
 assert.ok(byId.stdout.includes(path.join(batchDir, 'second.json')), 'batchId lookup should find second.json.');
-assert.ok(byId.stdout.includes(`reviews/audit/${deckId}-titles-batch-2.json`));
+assert.ok(byId.stdout.includes(`reviews/audit/grounding.${deckId}.titles.batch-2.json`));
 assert.ok(byId.stdout.includes('Every record the batch cites is in one of the files above.'));
 
 // --- Errors ---
@@ -192,13 +192,13 @@ await mkdir(auditDir, { recursive: true });
 await writeJson(path.join(auditDir, 'evidence-chapters.json'), {
     schemaVersion: 1, role: 'evidence-audit', target: 'evidence/chapters/chapters.json', findings: [{ ref: 'chapters/canon-ch-01#0', verdict: 'unsupported', note: 'x' }],
 });
-await writeJson(path.join(auditDir, `${deckId}-cards-characters.json`), {
+await writeJson(path.join(auditDir, `grounding.${deckId}.cards.characters.json`), {
     schemaVersion: 1, role: 'grounding-verify', target: 'drafts/x.json', findings: [{ ref: 'c', verdict: 'unsupported', note: 'x' }],
 });
 assert.equal(cli('report', projectId, '--stage', 'titles').code, 0);
 assert.equal(await readFile(titlesArtifact, 'utf8'), baseline, 'Without titles findings the artifact must be byte-identical.');
 
-await writeJson(path.join(auditDir, `${deckId}-titles-batch-1.json`), {
+await writeJson(path.join(auditDir, `grounding.${deckId}.titles.batch-1.json`), {
     schemaVersion: 1,
     role: 'grounding-verify',
     target: `plans/title-batches/${deckId}/batch-1.json`,
@@ -207,7 +207,7 @@ await writeJson(path.join(auditDir, `${deckId}-titles-batch-1.json`), {
         { ref: 'canon.location.ravenhold-keep', verdict: 'partial', note: 'places/canon-place-ravenhold#0 says "Ravenhold Keep is a mountain garrison." Nothing backs ghosts/missing-record.' },
     ],
 });
-await writeJson(path.join(auditDir, 'verify-era-titles-batch-1.json'), {
+await writeJson(path.join(auditDir, 'grounding.verify-era.titles.batch-1.json'), {
     schemaVersion: 1,
     role: 'grounding-verify',
     target: 'plans/title-batches/verify-era/batch-1.json',
