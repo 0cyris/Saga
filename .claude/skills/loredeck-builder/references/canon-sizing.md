@@ -9,7 +9,7 @@ One novel, film, game, or tightly-bounded arc. One era, one continuity, ≤ ~150
 - Example: Starship Troopers (the Heinlein novel).
 - 3–6 evidence scopes (chapters/phases, characters, factions/organizations, systems/tech, places).
 - Timeline: one axis of story anchors; windows for the major phases.
-- No subagents required; batches of ~20 titles / ~10 cards.
+- No research or drafting subagents; the evidence and grounding checkers still run (see Agents per deck size). Batches of ~20 titles / ~10 cards.
 
 ## Core + era decks (`--size family`)
 
@@ -35,9 +35,9 @@ Multi-era, multi-faction canons (Warhammer 40k, Star Wars, long-running comics).
 
 | Size | Research agents | Drafting agents | Evidence checker | Grounding checker |
 | --- | --- | --- | --- | --- |
-| Single deck (≤ ~150 cards) | 0 (you research) | 0 (you draft) | 1 per evidence file (or 1 per scope) | 1 per title batch and 1 per card entry file |
-| Core + eras | 1 per scope (optional) | 0–1 per deck | 1 per evidence file | 1 per batch |
-| Franchise | 1 per scope per deck | 1 per batch | 1 per evidence file | 1 per batch, dispatched in parallel with the next drafting wave |
+| Single deck (`--size single`, ≤ ~150 cards) | 0 (you research) | 0 (you draft) | 1 per evidence file (or 1 per scope) | 1 per title batch and 1 per card entry file |
+| Core + era decks (`--size family`) | 1 per scope (optional) | 0–1 per deck | 1 per evidence file | 1 per batch |
+| Deck family at franchise scale (`--size family`) | 1 per scope per deck | 1 per batch | 1 per evidence file | 1 per batch, dispatched in parallel with the next drafting wave |
 
 The checkers run at every size, even when you research and draft yourself. Grounding is the most frequent failure class, and a clean-context check costs far less than a user re-reviewing a batch. Fan-out applies to research and drafting only; every agent writes exactly one file, and you stay the only writer of registries, project state and merged decks.
 
