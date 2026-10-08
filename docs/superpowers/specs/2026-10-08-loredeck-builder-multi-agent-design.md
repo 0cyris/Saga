@@ -141,6 +141,30 @@ Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/
 - Model part (manual / opt-in): the verifier brief is run against the fixtures. Report catch rate and false-positive rate. Ship target: ≥85% catch, ≤10% false positives on controls.
 - Re-run on brief template changes. This also tests the "don't name anti-examples" hypothesis (§2) by A/B-ing two template variants.
 
+**As built (ticket #15):**
+
+- `tools/scripts/fixtures/loredeck-grounding/` holds the set: an invented evidence fixture, its timeline and tags, and 21 labelled cases in `cases.json`. The cases are 5 controls, 5 structural cases, and 11 seeded semantic cases. Each case's card goes in its own entry file.
+- `tools/scripts/test-loredeck-grounding-eval.mjs` is the CI layer.
+- `tools/scripts/loredeck-grounding-eval-model.mjs` is the model layer. Run `--prepare [--variant a|b]`, then `--score`.
+- Variant `a` is the current `agents/grounding-verify.md`. Variant `b` appends a "common mistakes" list that names the anti-patterns (`variant-b-addendum.md`).
+- The fixture README describes the manual loop and the report format. A missing findings file counts as "not run" and is not scored as a failure.
+
+### 5.1 Baseline results
+
+> **NOT YET RUN.** The model layer has not been run. Card-batch briefs (`brief --role grounding-verify --file`, ticket #13) must exist before `--prepare` can render them. Until this section has numbers, O2 stays at "surface only".
+
+For each run, record the date, the commit, the checker model, and the variant. Use the numbers that `--score` prints.
+
+| Date | Commit | Model | Variant | Catch rate (≥85%) | False-alarm rate (≤10%) | Exact verdict | Not run / invalid | Result |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| — | — | — | a (current template) | not yet run | not yet run | not yet run | — | — |
+| — | — | — | b (names anti-examples) | not yet run | not yet run | not yet run | — | — |
+
+Reading the result:
+
+- There are only 5 controls, so a single false alarm is 20%. That alone fails the ≤10% target. Run each variant at least twice before revisiting O2.
+- The A/B result shows whether naming anti-examples helps the checker. Compare catch rate within each error class. Also check whether variant b's misses cluster on the named patterns, which is the §2 hypothesis.
+
 ## 6. Non-goals
 
 - No parallel writers to the same deck, and no agent-to-agent negotiation. Writes stay with the orchestrator (Cognition/LangChain).

@@ -1,0 +1,1825 @@
+{
+  "schemaVersion": 1,
+  "description": "Labelled grounding eval cases for the Loredeck Builder (spec 2026-10-08 §5). One card per case; each seeded case plants exactly one error. See README.md.",
+  "deckId": "grounding-eval",
+  "acceptedEvidence": [
+    "chapters/canon-ch-01",
+    "chapters/canon-ch-07",
+    "chapters/canon-ch-14",
+    "chapters/canon-ch-22"
+  ],
+  "cases": [
+    {
+      "id": "control-mara-conscript",
+      "label": "control",
+      "kind": "semantic",
+      "errorClass": "none",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "entailed",
+      "note": "Clean card: every part of fact and injection is in canon-ch-01#0, and the gate opens at the opening, where the fact introduces her.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.character.mara-venn-conscript",
+        "title": "Mara Venn, untrained conscript",
+        "kind": "character_state",
+        "category": "character",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "behavior_constraint",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.opening",
+          "sortKeyFrom": 1000,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara arrives at Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "conscripts"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn"
+            ],
+            "topicsAny": [
+              "conscripts"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Mara Venn is a 17-year-old conscript with no prior combat training.",
+          "injection": "From her arrival at Ravenhold, treat Mara Venn as a 17-year-old conscript who has never trained for combat.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-01#0"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "control-ravenhold-order",
+      "label": "control",
+      "kind": "semantic",
+      "errorClass": "none",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "entailed",
+      "note": "Clean card across two records: ch-01#1 gives the Order's control at the start, ch-22#0 closes the window at the fall.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.place.ravenhold-under-the-order",
+        "title": "Ravenhold under the Warden's Order",
+        "kind": "place_fact",
+        "category": "location",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "location_state",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.opening",
+          "validToAnchor": "fdt.book1.fall_of_ravenhold",
+          "sortKeyFrom": 1000,
+          "sortKeyTo": 2800,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "Book 1: Mara arrives at Ravenhold to Book 1: The fall of Ravenhold"
+        },
+        "scope": {
+          "characters": [],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [
+            "the Warden's Order"
+          ],
+          "topics": [
+            "garrison"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "faction:wardens-order",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "topicsAny": [
+              "garrison",
+              "Ravenhold Keep",
+              "the Warden's Order"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Ravenhold Keep is a mountain garrison controlled by the Warden's Order until it falls to the Ashen Pact on the final night of the siege.",
+          "injection": "Until the fall, treat Ravenhold Keep as a mountain garrison held by the Warden's Order.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01",
+            "chapters/canon-ch-22"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-01#1",
+            "chapters/canon-ch-22#0"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "control-brask-patrol",
+      "label": "control",
+      "kind": "semantic",
+      "errorClass": "none",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "entailed",
+      "note": "Clean card: ch-07#0 places the assignment at the first patrol, ch-07#1 gives the spear training.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.relationship.mara-and-brask",
+        "title": "Mara serves under Sergeant Brask",
+        "kind": "character_state",
+        "category": "relationship",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "relationship_state",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.first_patrol",
+          "validToAnchor": "fdt.book1.fall_of_ravenhold",
+          "sortKeyFrom": 1300,
+          "sortKeyTo": 2800,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "Book 1: Mara's first patrol to Book 1: The fall of Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn",
+            "Odo Brask"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "eastern wall",
+            "short spear"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "character:odo-brask",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn",
+              "Odo Brask"
+            ],
+            "topicsAny": [
+              "eastern wall",
+              "short spear"
+            ]
+          }
+        },
+        "content": {
+          "fact": "From her first patrol, Mara serves on the eastern wall under Sergeant Odo Brask, who teaches her to fight with a short spear.",
+          "injection": "Treat Sergeant Odo Brask as Mara's patrol sergeant on the eastern wall; she fights with the short spear he taught her rather than a sword.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-07"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-07#0",
+            "chapters/canon-ch-07#1"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "control-sethe-pact-reveal",
+      "label": "control",
+      "kind": "semantic",
+      "errorClass": "none",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "entailed",
+      "note": "Clean secret-reveal card: ch-14#0 gives the oath, ch-14#2 places the reveal at the Chapter 14 pact-mark exposure, which is the gate.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.secret.sethe-ashen-pact",
+        "title": "Sethe's oath to the Ashen Pact is exposed",
+        "kind": "knowledge_gate",
+        "category": "secret",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "knowledge_gate",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "private",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.pact_reveal",
+          "sortKeyFrom": 2400,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Sethe's pact-mark is exposed"
+        },
+        "scope": {
+          "characters": [
+            "Warden Sethe"
+          ],
+          "locations": [],
+          "factions": [
+            "the Ashen Pact"
+          ],
+          "topics": [
+            "pact-mark",
+            "betrayal"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:warden-sethe",
+          "faction:ashen-pact",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Warden Sethe"
+            ],
+            "topicsAny": [
+              "pact-mark",
+              "betrayal",
+              "the Ashen Pact"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Warden Sethe secretly swore to the Ashen Pact before Book 1; the oath is revealed when his pact-mark is exposed during the siege.",
+          "injection": "Once his pact-mark has been exposed during the siege, treat Warden Sethe as a known oath-sworn agent of the Ashen Pact.",
+          "constraints": [
+            "Before the pact-mark is exposed, nobody at Ravenhold knows of the oath."
+          ],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-14"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-14#0",
+            "chapters/canon-ch-14#2"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "control-fall-escape",
+      "label": "control",
+      "kind": "semantic",
+      "errorClass": "none",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "entailed",
+      "note": "Clean event card: ch-22#1 and #2 state both halves, and the gate opens at the fall, where they place them.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.event.fall-of-ravenhold-escape",
+        "title": "Brask holds the gate; Mara leads the escape",
+        "kind": "event_anchor",
+        "category": "event",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "status_change",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.fall_of_ravenhold",
+          "sortKeyFrom": 2800,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: The fall of Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Odo Brask",
+            "Mara Venn"
+          ],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [],
+          "topics": [
+            "cistern tunnels",
+            "eastern gate"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "character:odo-brask",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Odo Brask",
+              "Mara Venn"
+            ],
+            "topicsAny": [
+              "cistern tunnels",
+              "eastern gate",
+              "Ravenhold Keep"
+            ]
+          }
+        },
+        "content": {
+          "fact": "During the fall of Ravenhold, Sergeant Brask dies holding the eastern gate, and Mara leads the surviving recruits out through the cistern tunnels.",
+          "injection": "After the fall of Ravenhold, treat Odo Brask as dead, killed holding the eastern gate, and Mara as the one who led the surviving recruits out through the cistern tunnels.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-22"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-22#1",
+            "chapters/canon-ch-22#2"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "structural-missing-evidence-facts",
+      "label": "seeded",
+      "kind": "structural",
+      "errorClass": "missing-support",
+      "expectGroundCheck": "missing-support",
+      "expectVerdict": "unsupported",
+      "note": "sourceInfo.evidenceFacts removed from an otherwise clean card.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.character.sethe-commander",
+        "title": "Warden Sethe commands Ravenhold",
+        "kind": "character_state",
+        "category": "character",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "behavior_constraint",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.opening",
+          "sortKeyFrom": 1000,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara arrives at Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Warden Sethe"
+          ],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [],
+          "topics": [
+            "command"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:warden-sethe",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Warden Sethe"
+            ],
+            "topicsAny": [
+              "command",
+              "Ravenhold Keep"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Warden Sethe is the commander of Ravenhold Keep and Mara's first authority figure.",
+          "injection": "Treat Warden Sethe as Ravenhold's commander and the first authority Mara answers to.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "structural-fact-out-of-range",
+      "label": "seeded",
+      "kind": "structural",
+      "errorClass": "fact-out-of-range",
+      "expectGroundCheck": "fact-out-of-range",
+      "expectVerdict": "unsupported",
+      "note": "canon-ch-01 has 3 facts; #3 names none.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.place.ravenhold-garrison",
+        "title": "Ravenhold is a mountain garrison",
+        "kind": "place_fact",
+        "category": "location",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "location_state",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.opening",
+          "sortKeyFrom": 1000,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara arrives at Ravenhold"
+        },
+        "scope": {
+          "characters": [],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [],
+          "topics": [
+            "garrison"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "topicsAny": [
+              "garrison",
+              "Ravenhold Keep"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Ravenhold Keep is a mountain garrison.",
+          "injection": "Treat Ravenhold Keep as a mountain garrison.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-01#3"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "structural-not-in-evidence-refs",
+      "label": "seeded",
+      "kind": "structural",
+      "errorClass": "not-in-evidence-refs",
+      "expectGroundCheck": "not-in-evidence-refs",
+      "expectVerdict": "entailed",
+      "note": "The claim is correct and the pointer resolves, but canon-ch-07 is missing from evidenceRefs. A meaning check would pass it; only ground check catches it.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.lore.ash-marked-tracks",
+        "title": "Ash-marked tracks toward the Greyfen",
+        "kind": "knowledge_gate",
+        "category": "knowledge",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "event_anchor",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.first_patrol",
+          "sortKeyFrom": 1300,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara's first patrol"
+        },
+        "scope": {
+          "characters": [],
+          "locations": [],
+          "factions": [
+            "the Ashen Pact"
+          ],
+          "topics": [
+            "Greyfen marsh",
+            "ash-marked tracks"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "faction:ashen-pact",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "topicsAny": [
+              "Greyfen marsh",
+              "ash-marked tracks",
+              "the Ashen Pact"
+            ]
+          }
+        },
+        "content": {
+          "fact": "On their first patrol the recruits find ash-marked tracks leading toward the Greyfen marsh.",
+          "injection": "From the first patrol on, the recruits know of ash-marked tracks leading toward the Greyfen marsh.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-07#2"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "structural-unaccepted-record",
+      "label": "seeded",
+      "kind": "structural",
+      "errorClass": "unaccepted-record",
+      "expectGroundCheck": "unaccepted-record",
+      "expectVerdict": "unsupported",
+      "note": "canon-ch-30 is in the evidence file but never accepted.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.relationship.mara-free-companies",
+        "title": "Mara swears to the Free Companies",
+        "kind": "character_state",
+        "category": "relationship",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "relationship_state",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.end",
+          "sortKeyFrom": 3000,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: End"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "Free Companies"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn"
+            ],
+            "topicsAny": [
+              "Free Companies"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Mara swears her own oath to the Free Companies.",
+          "injection": "Treat Mara as oath-sworn to the Free Companies.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-30"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-30#0"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "structural-malformed-pointer",
+      "label": "seeded",
+      "kind": "structural",
+      "errorClass": "malformed-pointer",
+      "expectGroundCheck": "malformed-pointer",
+      "expectVerdict": "unsupported",
+      "note": "Pointer uses \":\" instead of \"#\" before the fact index.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.lore.mara-apprentice",
+        "title": "Mara was taken on at the Pact's orders",
+        "kind": "knowledge_gate",
+        "category": "secret",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "knowledge_gate",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "private",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.pact_reveal",
+          "sortKeyFrom": 2400,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Sethe's pact-mark is exposed"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn",
+            "Warden Sethe"
+          ],
+          "locations": [],
+          "factions": [
+            "the Ashen Pact"
+          ],
+          "topics": [
+            "apprentice"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "character:warden-sethe",
+          "faction:ashen-pact",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn",
+              "Warden Sethe"
+            ],
+            "topicsAny": [
+              "apprentice",
+              "the Ashen Pact"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Sethe admits that Mara was taken on as his apprentice on the Ashen Pact's orders.",
+          "injection": "After Sethe's exposure, Mara knows she was taken on as an apprentice on the Pact's orders.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-14"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-14:1"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "span-first-winter",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "in-universe-span",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "partial",
+      "note": "The patrol assignment is in ch-07#0; \"in the depths of her first winter\" comes only from the record's inUniverseSpan, which is not a fact.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.event.first-patrol-winter",
+        "title": "Mara's first patrol in deep winter",
+        "kind": "event_anchor",
+        "category": "event",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "event_anchor",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.first_patrol",
+          "sortKeyFrom": 1300,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara's first patrol"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn",
+            "Odo Brask"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "first patrol",
+            "winter"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "character:odo-brask",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn",
+              "Odo Brask"
+            ],
+            "topicsAny": [
+              "first patrol",
+              "winter"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Mara goes on her first patrol, on the eastern wall under Sergeant Odo Brask, in the depths of her first winter at Ravenhold.",
+          "injection": "Mara's first patrol, under Sergeant Brask on the eastern wall, takes place in the depths of her first winter at Ravenhold.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-07"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-07#0"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "span-forty-one-nights",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "in-universe-span",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "partial",
+      "note": "ch-22#0 says the keep falls on the final night; \"forty-one nights\" is only in the inUniverseSpan.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.event.siege-length",
+        "title": "The siege lasts forty-one nights",
+        "kind": "event_anchor",
+        "category": "event",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "status_change",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.fall_of_ravenhold",
+          "sortKeyFrom": 2800,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: The fall of Ravenhold"
+        },
+        "scope": {
+          "characters": [],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [
+            "the Ashen Pact"
+          ],
+          "topics": [
+            "siege"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "faction:ashen-pact",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "topicsAny": [
+              "siege",
+              "Ravenhold Keep",
+              "the Ashen Pact"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Ravenhold Keep falls to the Ashen Pact on the forty-first and final night of the siege.",
+          "injection": "The siege of Ravenhold lasted forty-one nights before the keep fell to the Ashen Pact.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-22"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-22#0"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "timing-pact-known-from-opening",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "wrong-timing-gate",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "timing-mismatch",
+      "note": "Same claim as the control, but gated from the opening; ch-14#2 places the exposure in Chapter 14, mid-siege.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.secret.sethe-exposed-early",
+        "title": "Sethe's pact exposed (early gate)",
+        "kind": "knowledge_gate",
+        "category": "secret",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "knowledge_gate",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "private",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.opening",
+          "sortKeyFrom": 1000,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara arrives at Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Warden Sethe"
+          ],
+          "locations": [],
+          "factions": [
+            "the Ashen Pact"
+          ],
+          "topics": [
+            "pact-mark",
+            "betrayal"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:warden-sethe",
+          "faction:ashen-pact",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Warden Sethe"
+            ],
+            "topicsAny": [
+              "pact-mark",
+              "betrayal",
+              "the Ashen Pact"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Warden Sethe's secret oath to the Ashen Pact is exposed when his pact-mark is revealed.",
+          "injection": "Treat Warden Sethe as an exposed agent of the Ashen Pact whose oath the garrison knows about.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-14"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-14#0",
+            "chapters/canon-ch-14#2"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "timing-brask-dead-from-patrol",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "wrong-timing-gate",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "timing-mismatch",
+      "note": "Brask's death is gated from the first patrol; ch-22#1 places it during the fall.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.status.brask-dead",
+        "title": "Sergeant Brask is dead",
+        "kind": "character_state",
+        "category": "character",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "status_change",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.first_patrol",
+          "sortKeyFrom": 1300,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara's first patrol"
+        },
+        "scope": {
+          "characters": [
+            "Odo Brask"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "eastern gate"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:odo-brask",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Odo Brask"
+            ],
+            "topicsAny": [
+              "eastern gate"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Sergeant Odo Brask dies holding the eastern gate so the garrison can escape.",
+          "injection": "Treat Odo Brask as dead, killed holding the eastern gate so the garrison could escape.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-22"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-22#1"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "timing-pact-holds-from-siege-start",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "wrong-timing-gate",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "timing-mismatch",
+      "note": "Pact control of Ravenhold is gated from the start of the siege; ch-22#0 places the fall on its final night.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.place.ravenhold-under-the-pact",
+        "title": "Ravenhold held by the Ashen Pact",
+        "kind": "place_fact",
+        "category": "location",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "location_state",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.siege_begins",
+          "sortKeyFrom": 2000,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: The siege of Ravenhold begins"
+        },
+        "scope": {
+          "characters": [],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [
+            "the Ashen Pact"
+          ],
+          "topics": [
+            "occupation"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "faction:ashen-pact",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "topicsAny": [
+              "occupation",
+              "Ravenhold Keep",
+              "the Ashen Pact"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Ravenhold Keep has fallen to the Ashen Pact.",
+          "injection": "Treat Ravenhold Keep as held by the Ashen Pact.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-22"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-22#0"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "wrong-record-brask-death",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "wrong-record",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "unsupported",
+      "note": "The claim is in ch-22#1, but the card cites ch-07#0 (Brask as patrol sergeant), which says nothing about his death.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.status.brask-holds-the-gate",
+        "title": "Brask dies at the eastern gate",
+        "kind": "character_state",
+        "category": "character",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "status_change",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.fall_of_ravenhold",
+          "sortKeyFrom": 2800,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: The fall of Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Odo Brask"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "eastern gate"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:odo-brask",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Odo Brask"
+            ],
+            "topicsAny": [
+              "eastern gate"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Sergeant Odo Brask dies holding the eastern gate so the garrison can escape.",
+          "injection": "After the fall, treat Odo Brask as dead, killed holding the eastern gate.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-07"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-07#0"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "wrong-record-pact-mark",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "wrong-record",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "unsupported",
+      "note": "The claim is in ch-14#2, but the card cites ch-01#2 (Sethe as commander).",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.secret.sethe-pact-mark",
+        "title": "Sethe's pact-mark",
+        "kind": "knowledge_gate",
+        "category": "secret",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "knowledge_gate",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "private",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.pact_reveal",
+          "sortKeyFrom": 2400,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Sethe's pact-mark is exposed"
+        },
+        "scope": {
+          "characters": [
+            "Warden Sethe"
+          ],
+          "locations": [],
+          "factions": [
+            "the Ashen Pact"
+          ],
+          "topics": [
+            "pact-mark"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:warden-sethe",
+          "faction:ashen-pact",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Warden Sethe"
+            ],
+            "topicsAny": [
+              "pact-mark",
+              "the Ashen Pact"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Warden Sethe's pact-mark is exposed during the siege, revealing his oath to the Ashen Pact.",
+          "injection": "Once the pact-mark is exposed, the garrison knows Sethe is sworn to the Ashen Pact.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-01#2"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "wrong-record-cistern-escape",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "wrong-record",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "unsupported",
+      "note": "The claim is in ch-22#2, but the card cites ch-14#1 (Mara taken on at the Pact's orders).",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.event.cistern-escape",
+        "title": "Mara leads the cistern escape",
+        "kind": "event_anchor",
+        "category": "event",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "status_change",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.fall_of_ravenhold",
+          "sortKeyFrom": 2800,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: The fall of Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn"
+          ],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [],
+          "topics": [
+            "cistern tunnels"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn"
+            ],
+            "topicsAny": [
+              "cistern tunnels",
+              "Ravenhold Keep"
+            ]
+          }
+        },
+        "content": {
+          "fact": "As Ravenhold falls, Mara leads the surviving recruits out through the cistern tunnels.",
+          "injection": "After the fall, Mara is known as the recruit who led the survivors out through the cistern tunnels.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-14"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-14#1"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "unsupported-sethe-daughter",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "unsupported-fact",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "unsupported",
+      "note": "Invented relationship. ch-14#1 says Mara was taken on as an apprentice on the Pact's orders, nothing about parentage.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.secret.mara-sethe-daughter",
+        "title": "Mara is Sethe's daughter",
+        "kind": "knowledge_gate",
+        "category": "secret",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "knowledge_gate",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "private",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.pact_reveal",
+          "sortKeyFrom": 2400,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Sethe's pact-mark is exposed"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn",
+            "Warden Sethe"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "parentage"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "character:warden-sethe",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn",
+              "Warden Sethe"
+            ],
+            "topicsAny": [
+              "parentage"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Mara Venn is Warden Sethe's secret daughter, which is why he took her on as an apprentice.",
+          "injection": "After the reveal, treat Mara as Warden Sethe's secret daughter.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-14"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-14#1"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "unsupported-never-taken",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "unsupported-fact",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "partial",
+      "note": "ch-01#1 backs the garrison and the Order's control; \"has never been taken by siege\" is invented.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.place.ravenhold-never-taken",
+        "title": "Ravenhold has never been taken",
+        "kind": "place_fact",
+        "category": "location",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "location_state",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.opening",
+          "validToAnchor": "fdt.book1.siege_begins",
+          "sortKeyFrom": 1000,
+          "sortKeyTo": 2000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "Book 1: Mara arrives at Ravenhold to Book 1: The siege of Ravenhold begins"
+        },
+        "scope": {
+          "characters": [],
+          "locations": [
+            "Ravenhold Keep"
+          ],
+          "factions": [
+            "the Warden's Order"
+          ],
+          "topics": [
+            "garrison",
+            "history"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "faction:wardens-order",
+          "fandom:founding-trilogy",
+          "place:ravenhold-keep"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "topicsAny": [
+              "garrison",
+              "history",
+              "Ravenhold Keep",
+              "the Warden's Order"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Ravenhold Keep is a mountain garrison controlled by the Warden's Order that has never been taken by siege.",
+          "injection": "Treat Ravenhold Keep as the Warden's Order's mountain garrison, a fortress no siege has ever taken.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-01#1"
+          ]
+        },
+        "extensions": {}
+      }
+    },
+    {
+      "id": "embellished-injection-sword-prodigy",
+      "label": "seeded",
+      "kind": "semantic",
+      "errorClass": "embellished-injection",
+      "expectGroundCheck": "pass",
+      "expectVerdict": "partial",
+      "note": "content.fact matches ch-01#0, but content.injection adds that she is a natural sword prodigy, which no cited fact states.",
+      "card": {
+        "schemaVersion": 3,
+        "id": "fdt.character.mara-venn-prodigy",
+        "title": "Mara Venn on arrival",
+        "kind": "character_state",
+        "category": "character",
+        "relevance": "normal",
+        "canon": "canon",
+        "canonStatus": "canon",
+        "lorePurpose": "behavior_constraint",
+        "specificityScore": 80,
+        "injectableByDefault": true,
+        "truthStatus": "true",
+        "revealPolicy": "public",
+        "priority": 75,
+        "status": "active",
+        "context": {
+          "scope": "window",
+          "validFromAnchor": "fdt.book1.opening",
+          "sortKeyFrom": 1000,
+          "sortKeyTo": 3000,
+          "precision": "anchor_window",
+          "windowKind": "bounded",
+          "label": "From Book 1: Mara arrives at Ravenhold"
+        },
+        "scope": {
+          "characters": [
+            "Mara Venn"
+          ],
+          "locations": [],
+          "factions": [],
+          "topics": [
+            "conscripts"
+          ]
+        },
+        "tags": [
+          "book:book-1",
+          "character:mara-venn",
+          "fandom:founding-trilogy"
+        ],
+        "retrieval": {
+          "activation": "topic_or_entity",
+          "frequency": "normal",
+          "contextBoost": "medium",
+          "triggers": {
+            "charactersAny": [
+              "Mara Venn"
+            ],
+            "topicsAny": [
+              "conscripts"
+            ]
+          }
+        },
+        "content": {
+          "fact": "Mara Venn is a 17-year-old conscript with no prior combat training.",
+          "injection": "Treat Mara Venn as an untrained 17-year-old conscript who is nonetheless a natural sword prodigy, quickly outfighting the older recruits.",
+          "constraints": [],
+          "antiLore": [],
+          "notes": ""
+        },
+        "sourceInfo": {
+          "work": "The Founding Trilogy",
+          "sourceType": "book",
+          "title": "The Founding Trilogy, Book 1",
+          "confidence": 0.9,
+          "evidenceRefs": [
+            "chapters/canon-ch-01"
+          ],
+          "evidenceFacts": [
+            "chapters/canon-ch-01#0"
+          ]
+        },
+        "extensions": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "fandom:founding-trilogy": {
+      "label": "Founding Trilogy",
+      "description": "Founding Trilogy eval fixture fandom tag."
+    },
+    "book:book-1": {
+      "label": "Book 1",
+      "description": "Founding Trilogy eval fixture book tag."
+    },
+    "character:mara-venn": {
+      "label": "Mara Venn",
+      "description": "Founding Trilogy eval fixture character tag."
+    },
+    "character:warden-sethe": {
+      "label": "Warden Sethe",
+      "description": "Founding Trilogy eval fixture character tag."
+    },
+    "character:odo-brask": {
+      "label": "Odo Brask",
+      "description": "Founding Trilogy eval fixture character tag."
+    },
+    "place:ravenhold-keep": {
+      "label": "Ravenhold Keep",
+      "description": "Founding Trilogy eval fixture place tag."
+    },
+    "faction:ashen-pact": {
+      "label": "The Ashen Pact",
+      "description": "Founding Trilogy eval fixture faction tag."
+    },
+    "faction:wardens-order": {
+      "label": "The Warden's Order",
+      "description": "Founding Trilogy eval fixture faction tag."
+    }
+  }
+}
