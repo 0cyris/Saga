@@ -7,19 +7,37 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { loadFindingsFiles, summarizeFindings } from '../lib/audit-findings.mjs';
 import { resolveProjectDir, writeTextFile } from '../lib/deck-fs.mjs';
 import { acceptedEvidenceKeys, collectEvidence } from '../lib/evidence-store.mjs';
+import { runGroundCheck } from '../lib/grounding.mjs';
 import { loadProjectState } from '../lib/project-state.mjs';
 import {
     buildBriefArtifact,
     buildCardsArtifact,
     buildEvidenceArtifact,
+    buildEvidenceFindingsSummary,
     buildFinalArtifact,
     buildPlanArtifact,
     buildTitlesArtifact,
 } from '../lib/review-artifacts.mjs';
 
 const STAGES = ['brief', 'evidence', 'plan', 'titles', 'cards', 'final'];
+
+/**
+ * Summary of the grounding checker's findings for one stage (titles|cards),
+ * from reviews/audit/grounding.<deck>.<stage>.*.json across every deck, or ''
+ * when none exist, so the artifact stays unchanged until the checker runs.
+ */
+async function buildGroundingFindingsSummary(state, projectDir, stage) {
+    const findings = [];
+    for (const deck of state.decks || []) {
+        findings.push(...await loadFindingsFiles(projectDir, { prefix: `grounding.${deck.deckId}.${stage}.`, role: 'grounding-verify', checkTargets: true }));
+    }
+    const uniqueFindings = [...new Map(findings.map(entry => [entry.file, entry])).values()]
+        .sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
+    return summarizeFindings(uniqueFindings, { title: 'Grounding checker findings', okVerdicts: ['entailed'] });
+}
 
 export async function runReport({ positionals, flags }) {
     const [projectId] = positionals;
@@ -44,17 +62,28 @@ export async function runReport({ positionals, flags }) {
         extra = { briefIssues: issues.length };
     } else if (stage === 'evidence') {
         const collected = await collectEvidence(projectDir, {});
-        await writeTextFile(outPath, buildEvidenceArtifact(state, collected));
+        const findingsSummary = await buildEvidenceFindingsSummary(projectDir);
+        await writeTextFile(outPath, buildEvidenceArtifact(state, collected, { findingsSummary }));
         extra = { issues: collected.issues.length };
     } else if (stage === 'plan') {
         await writeTextFile(outPath, await buildPlanArtifact(state, projectDir));
     } else if (stage === 'titles') {
-        await writeTextFile(outPath, await buildTitlesArtifact(state, projectDir));
+        const groundCheck = await runGroundCheck({ stage: 'titles', state, projectDir });
+        // Grounding-verifier findings (reviews/audit/grounding.<deck>.titles.<batch>.json),
+        // across every deck. Advisory only; '' when no findings file exists.
+        const findingsSummary = await buildGroundingFindingsSummary(state, projectDir, 'titles');
+        const { markdown, issues } = buildTitlesArtifact(state, groundCheck, { findingsSummary });
+        await writeTextFile(outPath, markdown);
+        extra = { groundingIssues: issues.length };
     } else if (stage === 'cards') {
         const accepted = await acceptedEvidenceKeys(projectDir);
-        const { markdown, duplicates, unbacked, crossDeckCitations } = await buildCardsArtifact(state, projectDir, accepted);
+        const groundCheck = await runGroundCheck({ stage: 'cards', state, projectDir });
+        // Grounding-verifier findings (reviews/audit/grounding.<deck>.cards.<file>.json),
+        // across every deck. Advisory only; '' when no findings file exists.
+        const findingsSummary = await buildGroundingFindingsSummary(state, projectDir, 'cards');
+        const { markdown, duplicates, unbacked, crossDeckCitations, groundingIssues } = await buildCardsArtifact(state, projectDir, accepted, groundCheck, { findingsSummary });
         await writeTextFile(outPath, markdown);
-        extra = { duplicates: duplicates.length, unbacked: unbacked.length, crossDeckCitations: crossDeckCitations.length };
+        extra = { duplicates: duplicates.length, unbacked: unbacked.length, crossDeckCitations: crossDeckCitations.length, groundingIssues: groundingIssues.length };
         if (flags.verbose) {
             if (flags.json) {
                 extra.unbackedCards = unbacked;
@@ -82,6 +111,7 @@ export async function runReport({ positionals, flags }) {
             for (const line of extra.crossDeckCitationLines || []) console.log(line);
         }
         if (extra?.issues) console.log(`WARNING: ${extra.issues} evidence validation issue(s).`);
+        if (extra?.groundingIssues) console.log(`WARNING: ${extra.groundingIssues} grounding issue(s); run \`ground check --stage ${stage}\` for details.`);
         if (extra?.briefIssues) console.log(`WARNING: ${extra.briefIssues} scope brief completeness issue(s).`);
     }
     return 0;

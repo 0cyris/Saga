@@ -9,7 +9,9 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
-import { pathExists, readJsonFileOrNull, listJsonFilesRecursive, toPosixRelative } from './deck-fs.mjs';
+import { loadFindingsFiles, summarizeFindings } from './audit-findings.mjs';
+import { pathExists, readJsonFileOrNull } from './deck-fs.mjs';
+import { readDeckEntries } from './manifest-stats.mjs';
 
 const REQUIRED_BRIEF_SECTIONS = [
     'Fandom and source range',
@@ -56,7 +58,7 @@ function briefSectionBodies(briefText) {
     return bodies;
 }
 
-function validateBriefSections(briefText) {
+export function validateBriefSections(briefText) {
     const bodies = briefSectionBodies(briefText);
     const issues = [];
     for (const section of REQUIRED_BRIEF_SECTIONS) {
@@ -80,20 +82,6 @@ function describeContext(context) {
     const scope = context.scope || '';
     if (!from && !to) return scope || '(none)';
     return `${scope ? `${scope}: ` : ''}${from || '?'} -> ${to || '?'}`;
-}
-
-async function readDeckEntries(deckDir) {
-    const manifest = await readJsonFileOrNull(path.join(deckDir, 'loredeck.json'))
-        || await readJsonFileOrNull(path.join(deckDir, 'manifest.json'));
-    const files = Array.isArray(manifest?.files) ? manifest.files : [];
-    const entries = [];
-    for (const file of files) {
-        const json = await readJsonFileOrNull(path.join(deckDir, file));
-        for (const entry of Array.isArray(json?.entries) ? json.entries : []) {
-            entries.push({ file, entry });
-        }
-    }
-    return { manifest, entries };
 }
 
 export function buildBriefArtifact(state, briefText) {
@@ -166,30 +154,97 @@ export async function buildPlanArtifact(state, projectDir) {
     return lines.join('\n');
 }
 
-export async function buildTitlesArtifact(state, projectDir) {
-    const lines = [`# Title Batches Review: ${state.title}`, ''];
-    for (const deck of state.decks || []) {
-        const batchDir = path.join(projectDir, 'plans', 'title-batches', deck.deckId);
-        const batchFiles = await listJsonFilesRecursive(batchDir);
-        if (!batchFiles.length) continue;
-        lines.push(`## Deck \`${deck.deckId}\``, '');
-        for (const batchFile of batchFiles) {
-            const batch = await readJsonFileOrNull(batchFile);
-            const titles = Array.isArray(batch?.titles) ? batch.titles : [];
-            const status = (state.batches?.[deck.deckId]?.titles || []).find(item => item.id === batch?.batchId)?.status || 'draft';
-            lines.push(`### Batch \`${batch?.batchId || toPosixRelative(projectDir, batchFile)}\` (${titles.length} titles, status: ${status})`, '');
-            lines.push(mdTable(
-                ['Card id', 'Title', 'Category', 'Gate intent', 'Evidence refs'],
-                titles.map(title => [title.id, title.title, title.category, title.gateIntent, (title.evidenceRefs || []).join(', ')]),
-            ));
-        }
-    }
-    if (lines.length === 2) lines.push('_No title batches found under plans/title-batches/._', '');
-    return lines.join('\n');
+function describeSupport(item) {
+    if (!item.resolved.length) return '_(no support)_';
+    return item.resolved
+        .map(result => (result.ok
+            ? `\`${result.pointer}\` ${result.fact}`
+            : `\`${result.pointer}\` **(${result.problem})**`))
+        .join('<br>');
 }
 
-export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys) {
+/**
+ * Titles artifact, rendered from a `runGroundCheck({ stage: 'titles' })`
+ * result so each gateIntent sits next to the fact strings its support
+ * pointers resolve to.
+ */
+/**
+ * `findingsSummary` is the grounding verifier's summary (summarizeFindings);
+ * it goes right under the heading, and an empty string leaves the artifact
+ * exactly as it is without findings.
+ */
+export function buildTitlesArtifact(state, groundCheck, { findingsSummary = '' } = {}) {
+    const lines = [`# Title Batches Review: ${state.title}`, ''];
+    if (findingsSummary) lines.push(findingsSummary);
+    const { items = [], groups = [], issues = [] } = groundCheck || {};
+    if (issues.length) {
+        lines.push(`> Ground check: ${issues.length} issue(s) across ${items.length} title(s). See "Grounding issues" below.`, '');
+    } else if (items.length) {
+        lines.push(`> Ground check: all ${items.length} title(s) point at accepted evidence facts.`, '');
+    }
+    let cursor = 0;
+    let currentDeck = null;
+    for (const group of groups) {
+        if (group.deck !== currentDeck) {
+            currentDeck = group.deck;
+            lines.push(`## Deck \`${group.deck}\``, '');
+        }
+        const batchItems = items.slice(cursor, cursor + group.count);
+        cursor += group.count;
+        const status = (state.batches?.[group.deck]?.titles || []).find(item => item.id === group.batch)?.status || 'draft';
+        lines.push(`### Batch \`${group.batch}\` (${group.count} titles, status: ${status})`, '');
+        lines.push(mdTable(
+            ['Card id', 'Title', 'Category', 'Gate intent', 'Supporting facts', 'Evidence refs'],
+            batchItems.map(item => [
+                item.entry?.id,
+                item.entry?.title,
+                item.entry?.category,
+                item.claim,
+                describeSupport(item),
+                (Array.isArray(item.evidenceRefs) ? item.evidenceRefs : []).join(', '),
+            ]),
+        ));
+    }
+    if (!groups.length && !issues.length) lines.push('_No title batches found under plans/title-batches/._', '');
+    if (issues.length) {
+        lines.push('## Grounding issues', '');
+        lines.push(mdTable(
+            ['Deck', 'Batch', 'Title id', 'Pointer', 'Problem', 'Detail'],
+            issues.map(issue => [issue.deck, issue.batch, issue.itemId || '', issue.pointer || '', issue.problem, issue.detail]),
+        ));
+    }
+    return { markdown: lines.join('\n'), issues };
+}
+
+function describeCardClaim(entry) {
+    const fact = String(entry?.content?.fact ?? '').trim();
+    const injection = String(entry?.content?.injection ?? '').trim();
+    const parts = [fact ? `**Fact:** ${fact}` : '**Fact:** _(none)_'];
+    if (injection) parts.push(`**Injection:** ${injection}`);
+    return parts.join('<br>');
+}
+
+/**
+ * Cards artifact. Per deck: the card table, then (when a
+ * `runGroundCheck({ stage: 'cards' })` result is passed) a grounding table
+ * with each card's claim (`content.fact` + `content.injection`) next to the
+ * fact strings its `sourceInfo.evidenceFacts` pointers resolve to. The
+ * duplicate-id, unbacked and cross-deck checks are independent of grounding.
+ * `findingsSummary` is the grounding verifier's summary for card batches
+ * (summarizeFindings); it goes right under the heading, and an empty string
+ * leaves the artifact exactly as it is without findings.
+ */
+export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys, groundCheck = null, { findingsSummary = '' } = {}) {
     const lines = [`# Card Batches Review: ${state.title}`, ''];
+    if (findingsSummary) lines.push(findingsSummary);
+    const { items: groundItems = [], issues: groundIssues = [] } = groundCheck || {};
+    if (groundCheck) {
+        if (groundIssues.length) {
+            lines.push(`> Ground check: ${groundIssues.length} issue(s) across ${groundItems.length} card(s). See "Grounding issues" below.`, '');
+        } else if (groundItems.length) {
+            lines.push(`> Ground check: all ${groundItems.length} card(s) point at accepted evidence facts.`, '');
+        }
+    }
     const seenIds = new Map();
     const duplicates = [];
     const unbacked = [];
@@ -202,14 +257,28 @@ export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys
         lines.push(mdTable(
             ['Card id', 'Title', 'Category', 'Context', 'Tags', 'Evidence refs'],
             entries.map(({ entry }) => [
-                entry.id,
-                entry.title,
-                entry.category,
-                describeContext(entry.context),
-                (entry.tags || []).join(', '),
-                (entry.sourceInfo?.evidenceRefs || []).join(', '),
+                entry?.id,
+                entry?.title,
+                entry?.category,
+                describeContext(entry?.context),
+                (entry?.tags || []).join(', '),
+                (entry?.sourceInfo?.evidenceRefs || []).join(', '),
             ]),
         ));
+        const deckGroundItems = groundItems.filter(item => item.ref?.deck === deck.deckId);
+        if (deckGroundItems.length) {
+            lines.push('### Claims and supporting facts', '');
+            lines.push(mdTable(
+                ['Card id', 'Entry file', 'Claim', 'Supporting facts', 'Evidence refs'],
+                deckGroundItems.map(item => [
+                    item.ref.itemId,
+                    item.ref.batch,
+                    describeCardClaim(item.entry),
+                    describeSupport(item),
+                    (Array.isArray(item.evidenceRefs) ? item.evidenceRefs : []).join(', '),
+                ]),
+            ));
+        }
         for (const { file, entry } of entries) {
             const id = String(entry?.id || '');
             const location = `${deck.deckId}/${file}`;
@@ -245,11 +314,30 @@ export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys
     lines.push(mdTable(['Card id', 'Location', 'Problem'], unbacked.map(item => [item.id, item.location, item.reason])));
     lines.push('## Cross-deck evidence citations', '');
     lines.push(mdTable(['Card id', 'Location', 'Problem'], crossDeckCitations.map(item => [item.id, item.location, item.reason])));
-    return { markdown: lines.join('\n'), duplicates, unbacked, crossDeckCitations };
+    if (groundCheck) {
+        lines.push('## Grounding issues', '');
+        lines.push(mdTable(
+            ['Deck', 'Entry file', 'Card id', 'Pointer', 'Problem', 'Detail'],
+            groundIssues.map(issue => [issue.deck, issue.batch, issue.itemId || '', issue.pointer || '', issue.problem, issue.detail]),
+        ));
+    }
+    return { markdown: lines.join('\n'), duplicates, unbacked, crossDeckCitations, groundingIssues: groundIssues };
 }
 
-export function buildEvidenceArtifact(state, collected) {
+/**
+ * Summary of the evidence checker's findings files (reviews/audit/evidence-*.json),
+ * or '' when the checker has not run, so the evidence artifact stays unchanged.
+ */
+export async function buildEvidenceFindingsSummary(projectDir) {
+    return summarizeFindings(await loadFindingsFiles(projectDir, { prefix: 'evidence-audit.', role: 'evidence-audit', checkTargets: true }), {
+        title: 'Evidence checker findings',
+        okVerdicts: ['supported'],
+    });
+}
+
+export function buildEvidenceArtifact(state, collected, { findingsSummary = '' } = {}) {
     const lines = [`# Evidence Review: ${state.title}`, ''];
+    if (findingsSummary) lines.push(findingsSummary);
     lines.push('## Files', '');
     lines.push(mdTable(
         ['File', 'Scope', 'Valid', 'Records'],

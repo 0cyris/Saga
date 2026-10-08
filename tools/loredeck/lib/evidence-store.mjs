@@ -21,6 +21,21 @@ import {
 export const EVIDENCE_SOURCE_KINDS = ['user_supplied', 'web'];
 export const EVIDENCE_STATUSES = ['pending', 'accepted', 'rejected'];
 
+// The record-level authoringSignals vocabulary. Rendered into research briefs
+// by lib/briefs.mjs; references/evidence-pipeline.md lists the same values.
+export const EVIDENCE_AUTHORING_SIGNALS = [
+    'world-rule',
+    'character-baseline',
+    'character-state gate',
+    'secret-knowledge gate',
+    'status-change gate',
+    'relationship',
+    'faction',
+    'place-state',
+    'timeline-anchor',
+    'anti-lore',
+];
+
 export function evidenceDir(projectDir) {
     return path.join(projectDir, 'evidence');
 }
@@ -126,6 +141,7 @@ export async function collectEvidence(projectDir, { scope = '' } = {}) {
                 status: EVIDENCE_STATUSES.includes(review.status) ? review.status : 'pending',
                 note: String(review.note || ''),
                 factCount: Array.isArray(record?.facts) ? record.facts.length : 0,
+                facts: Array.isArray(record?.facts) ? record.facts.map(fact => String(fact ?? '')) : [],
                 keyEntities: Array.isArray(record?.keyEntities) ? record.keyEntities : [],
                 authoringSignals: Array.isArray(record?.authoringSignals) ? record.authoringSignals : [],
             });

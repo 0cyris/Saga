@@ -7,14 +7,35 @@ Every gate is reviewed against a regenerated artifact in `workshop/<project>/rev
 | scope_brief | `reviews/brief.md` | `report --stage brief` | Project summary + completeness check (flags sections still left as template placeholder text) + full scope brief |
 | evidence | `reviews/evidence.md` | `evidence validate` / `report --stage evidence` | File validity table, validation issues, record table with statuses |
 | planning | `reviews/plan.md` | `report --stage plan` | Rationale prose (inlined from `plans/context-timeline-plan.md`, not just linked) + per-deck anchor table, window table, tag table |
-| titles | `reviews/titles.md` | `report --stage titles` | Per-batch title tables with gate intent + evidence refs |
-| cards | `reviews/cards.md` | `report --stage cards` | Per-deck card tables (context, tags, evidence), duplicate-id report, unbacked-card report |
+| titles | `reviews/titles.md` | `report --stage titles` | Grounding checker findings summary (only when `reviews/audit/grounding.<deck>.titles.*.json` exist: "N verified, M flagged" plus a table of every non-`entailed` finding), ground-check summary line, per-batch title tables with each gate intent next to the fact strings its `support` pointers resolve to (unresolvable pointers show their problem code) + evidence refs, and a grounding-issues table |
+| cards | `reviews/cards.md` | `report --stage cards` | Grounding checker findings summary (only when `reviews/audit/grounding.<deck>.cards.*.json` exist: "N verified, M flagged" plus a table of every non-`entailed` finding), ground-check summary line, per-deck card tables (context, tags, evidence), per-deck claims table with each card's `content.fact` + `content.injection` next to the fact strings its `sourceInfo.evidenceFacts` pointers resolve to, duplicate-id report, unbacked-card report, cross-deck citation report, and a grounding-issues table |
 | health | `reviews/health-<deck>.md/.json` | `health` / `promote` | Status, counts, every issue by severity |
 | package | `reviews/final.md` | `report --stage final` | Gate history, per-deck entry/category counts, last health status |
 
+## Checker findings files
+
+Read-only checker subagents write findings to `reviews/audit/`. The grounding checker (rendered with `brief --role grounding-verify`) writes one file per title batch, `reviews/audit/grounding.<deck>.titles.<batch>.json`, and one per card entry file, `reviews/audit/grounding.<deck>.cards.<category>.<topic-stem>.json` (the entry file's path under `drafts/<deck>/`, minus `.json`, with `/` replaced by `.`; its `target` is `drafts/<deck>/<category>/<topic-stem>.json`). Every findings file has this shape:
+
+```json
+{
+  "schemaVersion": 1,
+  "role": "grounding-verify",
+  "target": "plans/title-batches/<deck>/<batch>.json",
+  "findings": [
+    { "ref": "<title id>", "verdict": "entailed", "note": "" },
+    { "ref": "<title id>", "verdict": "timing-mismatch", "note": "<pointer> says \"<quoted fact>\" ..." }
+  ]
+}
+```
+
+- `role`: the brief role that wrote it. `target`: the project-relative file it checked.
+- `findings`: one per checked item. For titles, `ref` is the title id and `verdict` is `entailed|partial|unsupported|timing-mismatch`; `note` is required for every verdict except `entailed` and quotes the fact text relied on. For cards, `ref` is the card id and the verdicts are the same; `timing-mismatch` means the card's context window opens before the story point its facts describe, or its reveal policy exposes something the facts place later.
+
+`report` summarizes the files for its stage at the top of the artifact ("N verified, M flagged", with flagged findings in a table and any malformed findings file listed): `report --stage titles` reads only `grounding.<deck>.titles.*` files and `report --stage cards` only `grounding.<deck>.cards.*` files, across every deck. With no findings files the artifact is exactly what it was without a checker. Findings never block a gate in v1. Re-run the checker after fixing a batch so the file reflects the current titles or cards.
+
 ## Presenting a gate
 
-1. Regenerate the artifact; resolve anything it flags (duplicates, unbacked cards, validation issues, incomplete brief sections) before showing it.
+1. Regenerate the artifact; resolve anything it flags (duplicates, unbacked cards, grounding issues, validation issues, incomplete brief sections) before showing it.
 2. Give the user the artifact path plus a short chat summary: what's in the batch, judgment calls made, open questions.
 3. Ask for an explicit decision (approve / revise-with-changes / reject). Only after approval run `gate approve --artifact <path> --note <summary>` (or `batch set` for per-batch decisions).
 4. On revision requests: change the files, regenerate, re-present. The loop ends when the user approves, not when the artifact looks done.

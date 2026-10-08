@@ -3,7 +3,9 @@
  * Drives a scripted mini-project through the promotion pipeline: draft deck
  * -> promote (stats + conformance + strict health) -> package -> verify.
  * Also proves promote refuses unhealthy decks and verify-package rejects a
- * package with a broken deck.
+ * package with a broken deck. Fixture cards carry `sourceInfo.evidenceRefs`
+ * and `sourceInfo.evidenceFacts` (authoring provenance), which must stay
+ * strict-clean and survive into the zip unchanged.
  */
 
 import assert from 'node:assert/strict';
@@ -65,7 +67,12 @@ function buildEntry(id, { activation = 'topic_or_entity' } = {}) {
             triggers: { topicsAny: ['roundtrip'] },
         },
         content: { fact: `Fact for ${id}.`, injection: `Injection for ${id}.` },
-        sourceInfo: { work: 'Roundtrip Canon', sourceType: 'book' },
+        sourceInfo: {
+            work: 'Roundtrip Canon',
+            sourceType: 'book',
+            evidenceRefs: ['chapters/rt-ch-01'],
+            evidenceFacts: ['chapters/rt-ch-01#0', 'chapters/rt-ch-01#1'],
+        },
         tags: ['fandom:roundtrip-canon'],
     };
 }
@@ -111,7 +118,9 @@ assert.ok(!(await readFile(path.join(projectDir, 'dist', 'roundtrip-canon', 'lor
 await rm(path.join(deckDir, 'rules', 'broken.json'));
 const promoted = cli('promote', 'roundtrip-canon', '--json');
 assert.equal(promoted.code, 0, promoted.stdout || promoted.stderr);
-assert.equal(JSON.parse(promoted.stdout).results[0].health.status, 'good');
+const promotedHealth = JSON.parse(promoted.stdout).results[0].health;
+assert.equal(promotedHealth.status, 'good');
+assert.deepEqual([promotedHealth.errors, promotedHealth.warnings, promotedHealth.suggestions], [0, 0, 0], 'sourceInfo.evidenceFacts must not add health findings.');
 
 // Package and verify.
 const packed = cli('package', 'roundtrip-canon', '--author', 'Fixture', '--json');
@@ -123,6 +132,7 @@ assert.equal(verified.code, 0, verified.stdout);
 const verifyReport = JSON.parse(verified.stdout);
 assert.equal(verifyReport.deckCount, 1);
 assert.equal(verifyReport.decks[0].status, 'good');
+assert.deepEqual(verifyReport.problems, [], 'A deck carrying sourceInfo.evidenceFacts must verify strict-clean.');
 
 // The archive parses with the extension's parser and resolves every ref.
 const parsed = await parseLoredeckZipPackage(await readFile(outPath));
@@ -132,6 +142,15 @@ assert.equal(parsed.decks[0].originalPackId, 'roundtrip-canon');
 assert.equal(parsed.decks[0].missingFiles.length, 0);
 assert.equal(parsed.packageMeta.packageType, 'saga_loredeck_package');
 assert.equal(parsed.decks[0].manifest.stats.entryCount, 2);
+
+// sourceInfo.evidenceFacts survives promote + package byte-for-byte.
+const zippedEntryRef = parsed.decks[0].fileRefs.find(ref => ref.endsWith('rules/world_rules.json'));
+assert.ok(zippedEntryRef, `Entry file missing from zip: ${JSON.stringify(parsed.decks[0].fileRefs)}`);
+const zippedEntries = await parsed.archive.readJson(zippedEntryRef);
+for (const entry of zippedEntries.entries) {
+    assert.deepEqual(entry.sourceInfo.evidenceFacts, ['chapters/rt-ch-01#0', 'chapters/rt-ch-01#1'], `${entry.id} lost sourceInfo.evidenceFacts in the zip.`);
+    assert.deepEqual(entry.sourceInfo.evidenceRefs, ['chapters/rt-ch-01']);
+}
 
 // verify-package flags a corrupted package.
 const corruptDir = path.join(projectDir, 'dist', 'roundtrip-canon');

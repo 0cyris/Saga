@@ -11,13 +11,15 @@
  *      deck via the vendored health engine.
  *   3. build-skill-file.mjs packages the bundle into a well-formed .skill zip
  *      containing the expected top-level entries.
+ *   4. `brief` finds its role templates (and the draft role its schema doc)
+ *      from both the plugin layout and the unpacked .skill layout.
  */
 
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readZipArchive } from '../../src/loredecks/loredeck-package-zip.js';
 
 const repoRoot = path.resolve(fileURLToPath(new URL('.', import.meta.url)), '..', '..');
@@ -30,6 +32,13 @@ function run(cmd, args, env = {}) {
 // 1. Bundle regenerates cleanly from the repo (the only source of truth).
 const sync = run(process.execPath, [path.join(pluginRoot, 'scripts', 'sync-from-repo.mjs')]);
 assert.equal(sync.status, 0, `sync-from-repo.mjs failed: ${sync.stderr}`);
+
+// The plugin ships the Claude Code subagent files under agents/.
+for (const agentFile of ['loredeck-evidence-auditor.md']) {
+  const bundled = path.join(pluginRoot, 'agents', agentFile);
+  assert.ok(statSync(bundled).isFile(), `plugin agents/ is missing ${agentFile}`);
+  assert.equal(readFileSync(bundled, 'utf8'), readFileSync(path.join(repoRoot, '.claude', 'agents', agentFile), 'utf8'), `plugin agents/${agentFile} is stale`);
+}
 
 // 2. No vendored CLI file imports repo src/ -- the bundle must be self-contained.
 function listFiles(dir) {
@@ -71,9 +80,58 @@ for (const expected of [
   'loredeck-builder/cli/vendor/tag-registry-health.js',
   'loredeck-builder/docs/SAGA_LOREDECK_SCHEMA.md',
   'loredeck-builder/reference-decks/hp-core/loredeck.json',
+  'loredeck-builder/agents/research.md',
+  'loredeck-builder/agents/_return-contract.md',
+  'loredeck-builder/agents/evidence-audit.md',
+  'loredeck-builder/claude-code-agents/loredeck-evidence-auditor.md',
+  'loredeck-builder/agents/grounding-verify.md',
+  'loredeck-builder/claude-code-agents/loredeck-grounding-verifier.md',
+  'loredeck-builder/templates/evidence-file.json',
 ]) {
   assert.ok(archive.has(expected), `.skill archive is missing expected entry: ${expected}`);
   assert.ok((await archive.readFileBytes(expected)).length, `Bundled entry is empty: ${expected}`);
 }
+
+// 4b. Claude Code agent files ship in the plugin's agents/ dir (and, above,
+// in the .skill under claude-code-agents/).
+for (const name of ['loredeck-grounding-verifier.md']) {
+  const bundled = path.join(pluginRoot, 'agents', name);
+  assert.ok(statSync(bundled).isFile(), `plugin agents/ is missing ${name}`);
+  assert.equal(readFileSync(bundled, 'utf8'), readFileSync(path.join(repoRoot, '.claude', 'agents', name), 'utf8'), `plugin agents/${name} should match .claude/agents/${name}`);
+}
+
+// 5. `brief` resolves its role templates in both packaged layouts.
+function assertBriefRenders(wrapperPath, label) {
+  const workshop = path.join(repoRoot, '.tmp', `plugin-bundle-brief-${label}`);
+  rmSync(workshop, { recursive: true, force: true });
+  const env = { SAGA_WORKSHOP_ROOT: workshop };
+  const init = run(process.execPath, [wrapperPath, 'init', 'bundle-canon', '--title', 'Bundle Canon'], env);
+  assert.equal(init.status, 0, `${label}: init failed: ${init.stderr}`);
+  // brief refuses a placeholder scope brief, so write a complete one first.
+  const sections = ['Fandom and source range', 'Continuity and canon tier', 'Deck split', 'Story-coordinate model', 'Spoiler philosophy', 'Assumptions and risks'];
+  writeFileSync(path.join(workshop, 'bundle-canon', 'brief', 'scope-brief.md'),
+    `# Scope Brief: Bundle Canon\n\n${sections.map(name => `## ${name}\n\nFilled in for the bundle test.\n`).join('\n')}`);
+  const brief = run(process.execPath, [wrapperPath, 'brief', 'bundle-canon', '--role', 'research', '--deck', 'bundle-canon', '--scope', 'chapters'], env);
+  assert.equal(brief.status, 0, `${label}: brief failed: ${brief.stderr}`);
+  assert.ok(brief.stdout.includes('## Return format') && brief.stdout.includes('"records"'), `${label}: brief output is incomplete.`);
+  // The draft brief names the schema doc by absolute path: docs/ next to cli/.
+  const briefsModule = path.join(path.dirname(wrapperPath), 'loredeck', 'lib', 'briefs.mjs');
+  const schemaDoc = run(process.execPath, ['--input-type=module', '-e',
+    `const m = await import(${JSON.stringify(pathToFileURL(briefsModule).href)}); console.log(await m.resolveSchemaDoc());`]);
+  assert.equal(schemaDoc.status, 0, `${label}: resolveSchemaDoc failed: ${schemaDoc.stderr}`);
+  assert.equal(schemaDoc.stdout.trim(), path.resolve(path.dirname(wrapperPath), '..', 'docs', 'SAGA_LOREDECK_SCHEMA.md'),
+    `${label}: the schema doc should resolve to the bundle's docs/.`);
+  rmSync(workshop, { recursive: true, force: true });
+}
+assertBriefRenders(path.join(pluginRoot, 'cli', 'loredeck-plugin.mjs'), 'plugin');
+const unpacked = path.join(repoRoot, '.tmp', 'plugin-bundle-skill-unpacked');
+rmSync(unpacked, { recursive: true, force: true });
+for (const entry of archive.entries) {
+  const target = path.join(unpacked, ...entry.path.split('/'));
+  mkdirSync(path.dirname(target), { recursive: true });
+  writeFileSync(target, await archive.readFileBytes(entry.path));
+}
+assertBriefRenders(path.join(unpacked, 'loredeck-builder', 'cli', 'loredeck-plugin.mjs'), 'skill');
+rmSync(unpacked, { recursive: true, force: true });
 
 console.log('Loredeck plugin bundle tests passed.');

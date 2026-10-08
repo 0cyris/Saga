@@ -63,6 +63,12 @@ for (const file of listFiles(srcSkill)) {
 for (const dir of ['cli', 'docs', 'reference-decks']) {
   cpSync(path.join(PLUGIN_ROOT, dir), path.join(skillDir, dir), { recursive: true });
 }
+// Claude Code subagent definitions ride along under claude-code-agents/ (the
+// skill's own agents/ folder holds the brief role templates). Copy them into
+// ~/.claude/agents/ to use them; other runtimes use `brief` instead.
+if (readdirSync(path.join(PLUGIN_ROOT, 'agents'), { withFileTypes: true }).length) {
+  cpSync(path.join(PLUGIN_ROOT, 'agents'), path.join(skillDir, 'claude-code-agents'), { recursive: true });
+}
 
 // 3. Zip the skill directory (top-level `loredeck-builder/`) into the .skill.
 rmSync(outFile, { force: true });

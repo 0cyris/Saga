@@ -1,0 +1,234 @@
+# Loredeck Builder: Multi-Agent Verification and Delegation Spec
+
+Date: 2026-10-08
+Status: Approved (O1, O2 decided 2026-10-08)
+Scope: `.claude/skills/loredeck-builder/`, `tools/loredeck/`, `plugins/loredeck-builder/`
+
+## 1. Summary
+
+The skill's core design (orchestrator with single-threaded writes, file-based handoff, CLI-owned state, user gates, strict Pack Health) already follows current multi-agent practice. Two gaps remain, and the commit history shows both causing real failures:
+
+1. **Grounding is checked only by the agent that wrote the claim.** Commits `14efe44` and `a43a5c3` added rules like "spot-check every claim against its cited facts". The orchestrator that drafted or merged a card is the one asked to check it, and the CLI cannot tell a cited claim from a grounded one (`report --stage cards` checks only that `evidenceRefs` resolve).
+2. **Subagent briefs are written by hand, each time, by the orchestrator.** Commit `9c9d527` shows the results: abbreviated schemas produced `encounters[]` instead of `records[]`, a subagent wrote to `tags.json`, and a multi-file task returned null. The current fixes are prose rules ("paste verbatim, in full, every prompt"), which depend on the orchestrator following them.
+
+Proposal: add **one deterministic CLI layer** (rendered briefs, fact-level grounding check, return contract) and **two read-only verifier roles** (evidence auditor, grounding verifier). Each verifier runs in a clean context at a stage boundary. The user-gated loop is unchanged. Gates get a verifier report attached.
+
+## 2. Research basis
+
+| Finding | Source | Implication here |
+| --- | --- | --- |
+| Hallucinations change form at each pipeline stage (fact → derived → narrative → invisible). Per-boundary escape rates were 24.6% → 48.3% → 89.3%. Boundary gates cut survival from 58.4% to 16.2%. Checking only at the end improved on no checking by 2.3 pp. | *The Hallucination Snowball*, arXiv 2608.14588 | Evidence → titles → cards is the same chain. The cheapest catch point is evidence → titles. Pack Health at the end can't catch grounding errors. |
+| Generator/verifier loops work best when "the coding and review agents do not share any context beforehand". Writes stay single-threaded and extra agents add analysis. | Cognition, *Multi-Agents: What's Actually Working* (2026) | Verifiers must be fresh-context and read-only. The orchestrator stays the only writer, as today. |
+| A dedicated CitationAgent attributes claims after drafting. Subagents write to storage and return lightweight references. Delegation needs an objective, an output format, tools, and boundaries. Effort scaling must be explicit. Start evals with ~20 real cases. | Anthropic, *How we built our multi-agent research system* | Add a grounding pass and a fixed return contract. Render briefs from templates. Seed a small eval set. |
+| Read-heavy multi-agent systems are easier than write-heavy ones. | LangChain, *How and when to build multi-agent systems* | Research and verification fan out. Drafting fan-out stays narrow and merged by one writer. |
+| Structure helps where the model reads. Prose helps where it writes. Naming a forbidden construction in the prompt concentrated defects: 96% of surviving defects were the two named forms. | *Structure for Reading, Prose for Writing*, arXiv 2608.20786 | Briefs should state the positive shape (the verbatim template) and avoid naming anti-examples like `encounters[]` to subagents. Keep the anti-examples in orchestrator docs. This is a single study, so treat it as a hypothesis to test in evals. |
+| Subagents support `tools` allowlists, `model`, `maxTurns`, and `skills` preload. Plugins ship agents in `agents/`. | Claude Code subagents docs | Verifier roles can be tool-restricted (Read/Grep, no Write). The `.skill` bundle can't install agents, so the portable path is CLI-rendered briefs. |
+
+## 3. Changes
+
+### 3.1 CLI: `brief` — rendered subagent prompts (process + tooling)
+
+`loredeck brief <id> --role research|draft|evidence-audit|grounding-verify --deck D [--scope S | --batch B] [--out FILE]`
+
+- Renders a complete, self-contained prompt from templates in `.claude/skills/loredeck-builder/agents/<role>.md`, filling in values from project state:
+  - scope brief excerpt
+  - verbatim `templates/evidence-file.json` or title batch
+  - registry paths
+  - output path
+  - return contract (§3.3)
+- Output is deterministic for a given project state. The orchestrator passes it through unchanged, optionally adding a short task note.
+- The orchestrator no longer re-types schemas or rules, so the `9c9d527` drift becomes impossible to reproduce by construction.
+- Templates state required shapes positively. Anti-pattern lists stay in `references/` for the orchestrator only (§2, last-but-one row).
+- Portable: works in Claude Code, Cowork, and non-Claude runtimes (the DeepSeek sessions in `9c9d527`), because it's just text.
+
+### 3.2 Fact-level grounding anchors + `ground check` (structural)
+
+- Title batch entries and cards gain fact-level support pointers: `support: ["<scope>/<recordId>#<factIndex>", ...]`.
+  - Titles: a new field in `templates/title-batch.json`.
+  - Cards: `sourceInfo.evidenceFacts`, shipped in the deck. It's additive and verified backward compatible (see O1). Document it in `SAGA_LOREDECK_SCHEMA.md` as optional authoring provenance.
+- `loredeck ground check <id> [--deck D] [--stage titles|cards]` fails on:
+  - a missing support pointer
+  - a pointer to an unaccepted record or an out-of-range fact index
+  - a support record not listed in `evidenceRefs`
+- `report --stage titles|cards` inlines each claim next to the fact strings it points to. Reviewers (user and verifier) then compare text side by side instead of opening evidence files.
+- This turns "did you cite a fact?" into a mechanical check. "Does the fact entail the claim?" stays a judgment call, and §3.4 handles it.
+
+### 3.3 Return contract (process)
+
+Every subagent's final message is one JSON object and nothing else:
+
+```json
+{ "status": "ok|partial|failed", "wrote": ["path"], "counts": { "records": 0 }, "gaps": ["..."], "flags": ["missing-tag:character:x"] }
+```
+
+- The orchestrator reads files from disk and never re-ingests drafted content from chat. This is the Anthropic "lightweight reference" pattern, and it keeps the orchestrator's context small on large families.
+- `partial`/`failed` plus `gaps` replace today's silent null returns. With one file per subagent, a `failed` return means re-dispatching just that one file.
+
+### 3.4 New roles (structural)
+
+Both roles are read-only. Neither may edit project files; each writes only its own findings file. Each returns a findings file through the contract above, and the orchestrator decides what to fix.
+
+**A. Evidence auditor** (Stage 2, after `evidence validate`, before the evidence gate)
+
+- Input: one evidence file, plus the source slice or provenance URL it came from.
+- Checks:
+  - Each fact is supported by the source text.
+  - Contested items are marked as contested.
+  - Nothing falls outside the continuity boundary.
+  - The file doesn't reveal truncation (`fetch_fandom.py` 3,000-char cap) or PDF extraction noise.
+- Output: `reviews/audit/evidence-audit.<scope>.json`, a list of `{recordId, factIndex, verdict: supported|unsupported|contested|out-of-scope, note}`.
+- Placement: this is the S1→S2 boundary, where the Snowball data says most errors are still catchable.
+
+**B. Grounding verifier** (Stage 4, per title batch; Stage 5, per card batch)
+
+- Input: the batch file and the evidence files it cites. It gets no drafting history and no orchestrator summary.
+- Check: does each `gateIntent`, `content.fact`, or `content.injection` follow from its `support` facts, and do the context/reveal gates match the timing those facts describe?
+- Output: `reviews/audit/<deck>-<kind>-<batch>.json`. Verdicts are `entailed|partial|unsupported|timing-mismatch`.
+- `report` summarizes verifier findings at the top of the gate artifact. The user sees "N claims verified, M flagged (fixed / open)".
+
+Both roles run on **Claude Code** through `.claude/agents/loredeck-evidence-auditor.md` and `.claude/agents/loredeck-grounding-verifier.md`:
+
+- `tools: Read, Grep, Glob, Write` (evidence auditor also gets `WebFetch`). `Write` is for the one findings file only. The write restriction is by instruction (the agent file and the brief), not by the tool allowlist, which cannot limit `Write` to one path.
+- `model: inherit`
+- `maxTurns` sized to file count (60 for the evidence auditor, 40 for the grounding verifier)
+
+Other runtimes use `brief --role ...` with a generic subagent. The plugin build copies the agent files when it's built as a plugin. The `.skill` bundle relies on `brief`.
+
+### 3.5 Effort scaling table (process)
+
+Replace the prose in `canon-sizing.md` / `subagent-playbook.md` with an explicit table:
+
+| Size | Research agents | Drafting agents | Evidence audit | Grounding verify |
+| --- | --- | --- | --- | --- |
+| Single (≤150 cards) | 0 (orchestrator) | 0 | 1 per evidence file, or 1 combined | 1 per titles gate + 1 per card batch |
+| Core + eras | 1 per scope (optional) | 0–1 per deck | 1 per evidence file | 1 per batch |
+| Franchise | 1 per scope per deck | 1 per batch | 1 per evidence file | 1 per batch, run in parallel with next drafting wave |
+
+The verifier always runs, even for single decks. Grounding is the most frequent failure class, and the check is cheap relative to a user re-review.
+
+### 3.6 Orchestrator rule changes (SKILL.md)
+
+- Rule 2 gains: "A claim is ready when `ground check` passes and the grounding verifier has no open `unsupported`/`timing-mismatch` findings."
+- Stage 2/4/5 text replaces "spot-check yourself" with "run the auditor/verifier; resolve findings; then spot-check a sample".
+- Subagent playbook: replace the hand-written prompt guidance with "use `brief`". Keep the failure-mode history as orchestrator-only rationale.
+
+## 4. Expected impact (estimates — no baseline is measured today)
+
+| Metric | Today | Expected | Basis |
+| --- | --- | --- | --- |
+| Subagent structural drift (wrong top-level keys, tag registry writes) | Recurring (`9c9d527`) | ~0 | Rendered briefs + read-only registries + validate on return. Deterministic. |
+| Silent null subagent returns | Recurring | Replaced by explicit `partial/failed` + targeted retry | Return contract |
+| Ungrounded claims reaching the user gate | Unknown. Recurring enough to warrant two commits. | **−50 to −70%** | Snowball boundary-gating result (58→16% survival), discounted for the user gate that already exists and for verifier misses |
+| Claims missing fact-level support | Undetectable | 0 at gate (mechanical) | `ground check` |
+| User review time per titles/cards gate | Full manual comparison | Lower: side-by-side claim/fact view + pre-triaged flags | §3.2 report change. Not quantified. |
+| Token cost per deck | Baseline | **+20 to +35%** | One verifier read per batch ≈ batch + cited evidence. Auditor ≈ one evidence file + source slice. |
+| Orchestrator context use on families | Grows with pasted content | Lower | Return contract; no re-ingest |
+
+Overall: a **moderate-to-large quality improvement** on the most frequent failure class (grounding), for about a quarter more tokens. Workflow shape and user gates don't change. The biggest single lever is §3.4B plus §3.2. §3.1 and §3.3 are cheap reliability fixes.
+
+## 5. Measurement
+
+Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/scripts/fixtures/loredeck-grounding/`:
+
+- A ~20-case seeded set (per the Anthropic guidance), built from an accepted evidence fixture and a clean card batch.
+- Cases mutate one claim each:
+  - unsupported fact
+  - claim drawn from `inUniverseSpan`
+  - wrong timing gate
+  - fact from a different record
+  - a correct control
+- Deterministic part (CI): `ground check` must flag every structural case.
+- Model part (manual / opt-in): the verifier brief is run against the fixtures. Report catch rate and false-positive rate. Ship target: ≥85% catch, ≤10% false positives on controls.
+- Re-run on brief template changes. This also tests the "don't name anti-examples" hypothesis (§2) by A/B-ing two template variants.
+
+**As built (ticket #15):**
+
+- `tools/scripts/fixtures/loredeck-grounding/` holds the set: an invented evidence fixture, its timeline and tags, and 21 labelled cases in `cases.json`. The cases are 5 controls, 5 structural cases, and 11 seeded semantic cases. Each case's card goes in its own entry file.
+- `tools/scripts/test-loredeck-grounding-eval.mjs` is the CI layer.
+- `tools/scripts/loredeck-grounding-eval-model.mjs` is the model layer. Run `--prepare [--variant a|b]`, then `--score`.
+- Variant `a` is the current `agents/grounding-verify.md`. Variant `b` appends a "common mistakes" list that names the anti-patterns (`variant-b-addendum.md`).
+- The model layer builds its project (`founding-trilogy`) and briefs outside the repo, under `$LOREDECK_GROUNDING_EVAL_DIR` (default `<os.tmpdir()>/founding-trilogy-workshop`). The manifest and score files go in the sibling `<dir>-results`, so a checker browsing the workshop never reaches the case labels.
+- A case may list `acceptVerdicts` when two verdicts are defensible. Exact-verdict accuracy counts any of them; catch rate is unchanged.
+- The fixture README describes the manual loop and the report format. A missing findings file counts as "not run" and is not scored as a failure.
+
+### 5.1 Baseline results
+
+Record every run with the numbers `--score` prints, and note the commit and checker model for each run below the table.
+
+**Runs**
+
+| Variant | Date | Catch (≥85%) | False-alarm (≤10%) | Exact |
+| --- | --- | --- | --- | --- |
+| a (pre-fix fixtures) | 2026-10-08 | 11/11 = 100% | 1/5 = 20% | 15/16 = 93.8% |
+| a | 2026-10-08 | 11/11 = 100% | 0/5 = 0% | 16/16 = 100% |
+| b | 2026-10-08 | 11/11 = 100% | 0/5 = 0% | 16/16 = 100% |
+
+All three runs dispatched one fresh `loredeck-grounding-verifier` subagent per brief (16 per run), with the model inherited from the session, and passed each brief through unchanged. Each checker used about 15k tokens and 6–8 tool calls, and took 10–17 seconds. The fixture-fixed runs use commit `4e4f3b5`.
+
+- **Pre-fix run.** Its one "false alarm" was a real fixture bug. Control `control-ravenhold-order` stated the keep's later fall in a `public` card whose window opened at the story's start, and the checker returned `timing-mismatch` with an exact quote. The independent label audit had marked the same card `entailed`, and it flagged a different control (`control-mara-conscript`) that the checker passed. Both controls were fixed before the later runs. This is the generator/verifier effect from §2 at small scale: two independent checks caught different defects.
+- **A/B.** Both variants scored at the ceiling, so this fixture cannot separate them, and the §2 hypothesis is untested. Variant b did not hurt. Its checkers raised slightly more incidental `flags` (for example, a first name in an injection backed only by an uncited record), but no verdicts changed.
+- **Incidental signal.** In every run, checkers flagged the same thing on several cards: a bounded window whose `sortKeyTo` is set without a `validToAnchor`. That is a cheap deterministic rule for `ground check` or Pack Health to own (follow-up).
+- **O2.** Two clean runs on 5 controls is not enough evidence to make findings blocking. Keep them advisory. Grow the fixture first, with more controls and harder seeded cases (multi-fact cards, near-miss timing, partial overlaps), so the A/B can show a difference.
+
+Reading the result:
+
+- There are only 5 controls, so a single false alarm is 20%. That alone fails the ≤10% target. Run each variant at least twice before revisiting O2.
+- Variant b tests naming the anti-patterns, not new rules: its addendum restates the existing verdict rules with generic examples and changes no verdict definition.
+- The A/B result shows whether naming anti-examples helps the checker. Compare catch rate within each error class. Also check whether variant b's misses cluster on the named patterns, which is the §2 hypothesis.
+
+## 6. Non-goals
+
+- No parallel writers to the same deck, and no agent-to-agent negotiation. Writes stay with the orchestrator (Cognition/LangChain).
+- No change to user gates, `project.json` ownership, or strict-Pack-Health release bar.
+- No LLM grounding check inside the CLI. The CLI stays deterministic and offline.
+
+## 7. Implementation order
+
+1. Return contract + `brief` command + `agents/*.md` templates (research, draft). Update playbook. *(Small. Removes known drift.)*
+2. `support` pointers in title batch template, `sourceInfo.evidenceFacts` on cards plus schema-doc entry, `ground check`, report side-by-side view, tests.
+3. Grounding verifier role (template + `.claude/agents` file), wired into Stages 4–5 and `report`.
+4. Evidence auditor role, wired into Stage 2.
+5. Eval fixtures + script. Plugin sync copies `agents/` templates and `.claude/agents` files. Bundle test asserts their presence.
+
+## 8. Open questions
+
+- **O1:** Should the grounding sidecar go in `sourceInfo.evidenceFacts` instead, so support ships in the deck? **Verified backward compatible (2026-10-08):** adding `sourceInfo.evidenceFacts` to all 80 hp-core entries left the following unchanged:
+  - `health --strict`: still good, with 0/0/0
+  - `conformance`: no new findings
+  - `promote`, `package`, `verify-package`: all clean, with the field preserved in the zip
+
+  The runtime normalizer (`normalizeSourceBlock` in `src/lorecards/lore-matrix.js`) rebuilds `sourceInfo` from known keys only, so older and current app versions ignore the field. The same already happens to `evidenceRefs`. Additive, no breaking change. The caveat: the field is inert in-app, and surfacing it there needs a separate runtime change. **Decision: ship it in `sourceInfo.evidenceFacts`; no sidecar.**
+- **O2:** Should verifier `unsupported` findings block `gate approve` (CLI-enforced), or only be surfaced? **Decision: surface only in v1** (findings shown in the gate artifact, not CLI-enforced). Revisit blocking once the eval (§5) gives a false-positive rate.
+- **O3:** Should verifiers use a different model than the drafter for diversity? Default to `inherit`, and revisit with eval data.
+
+## Sources
+
+- Anthropic, How we built our multi-agent research system — https://www.anthropic.com/engineering/multi-agent-research-system
+- Cognition, Multi-Agents: What's Actually Working — https://cognition.com/blog/multi-agents-working
+- Cognition, Don't Build Multi-Agents — https://cognition.com/blog/dont-build-multi-agents
+- LangChain, How and when to build multi-agent systems — https://blog.langchain.com/how-and-when-to-build-multi-agent-systems
+- The Hallucination Snowball (arXiv 2608.14588) — https://arxiv.org/abs/2608.14588
+- Structure for Reading, Prose for Writing (arXiv 2608.20786) — https://arxiv.org/abs/2608.20786
+- Claude Code subagents docs — https://code.claude.com/docs/en/sub-agents
+
+## 9. Implementation conventions (shared across tickets #7–#15)
+
+These decisions are fixed so that tickets built in parallel stay consistent. Change them here first, never in only one ticket.
+
+- **Role templates:** `.claude/skills/loredeck-builder/agents/<role>.md`. The roles are `research`, `draft`, `evidence-audit` and `grounding-verify`.
+  - Placeholders use `{{name}}`. Rendering fails on any unresolved placeholder.
+  - Shared return-contract text lives in `.claude/skills/loredeck-builder/agents/_return-contract.md`, and `brief` appends it to every role.
+  - Templates state required shapes positively. Anti-example names stay out of templates.
+- **`brief` command:** `tools/loredeck/commands/brief.mjs`, with rendering logic in `tools/loredeck/lib/briefs.mjs`.
+  - Usage: `brief <project-id> --role <role> --deck <deck-id> [--scope S] [--batch B] [--file F] [--out FILE] [--json]`.
+  - Output is deterministic: no timestamps, and files are listed in sorted order.
+- **Return contract:** the subagent's final message is exactly one JSON object, `{"status":"ok|partial|failed","wrote":[...],"counts":{...},"gaps":[...],"flags":[...]}`.
+- **Fact pointer format:** `<scope>/<recordId>#<factIndex>`, where `factIndex` is a 0-based index into the record's `facts[]`.
+  - Titles: `support: [...]` on each title.
+  - Cards: `sourceInfo.evidenceFacts: [...]`.
+  - Parsing and checking live in `tools/loredeck/lib/grounding.mjs`. The command is `tools/loredeck/commands/ground.mjs`, used as `ground check <project-id> --stage titles|cards [--deck D] [--json]`. It exits 1 on any issue.
+- **Findings files:** `reviews/audit/`. Evidence checks go to `evidence-audit.<scope>.json`. Grounding checks go to `grounding.<deck>.<titles|cards>.<batch>.json`, where `<batch>` is the batch id for titles. For cards it is the entry-file path relative to `drafts/<deck>/`, minus `.json`, with `/` replaced by `.`, so files in different category folders never collide. For example, `characters/core_students.json` gives `grounding.<deck>.cards.characters.core_students.json`. Ground-check issues keep the slash form, `characters/core_students`.
+  - Shape: `{"schemaVersion":1,"role":"...","target":"...","findings":[{"ref":"...","verdict":"...","note":"..."}]}`.
+  - The `report` command summarizes findings when they exist, puts the summary at the top of the stage artifact, and never blocks.
+- **Claude Code agent files:** `.claude/agents/loredeck-evidence-auditor.md` and `.claude/agents/loredeck-grounding-verifier.md`. Their bodies point at the same role templates, so there is one source of truth. `sync-from-repo.mjs` copies them into the bundle under `agents/`.
+- **Tests:** new `tools/scripts/test-loredeck-*.mjs` scripts follow the pattern in `test-loredeck-review-artifacts.mjs`: spawn the CLI with `SAGA_WORKSHOP_ROOT` set to `.tmp/<test-name>`. Each new test is added to the CLI test plan in `.github/workflows/loredeck-builder-build-check.yml`.

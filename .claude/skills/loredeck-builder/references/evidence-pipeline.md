@@ -73,4 +73,31 @@ When a source is a PDF, extract text before drafting evidence — don't transcri
 
 ## Review
 
-`evidence validate <id>` regenerates `reviews/evidence.md` (file table + record table with statuses). The user accepts or rejects records — `evidence accept|reject <id> --scope S --ids a,b|--all [--note]`. Only accepted records may back cards; `report --stage cards` flags any card citing rejected/unknown records or citing nothing.
+`evidence validate <id>` regenerates `reviews/evidence.md` (file table + record table with statuses).
+
+### Evidence checker
+
+After `evidence validate` passes and before the evidence gate, run the read-only evidence checker once per evidence file, dispatched with `brief <id> --role evidence-audit --deck D --scope S --file F` (`--file` is the stem of an existing file in `evidence/<S>/`; it defaults to the scope name). It re-reads the file's source — `provenance.url` for `web` files, or for `user_supplied` files the source text you put in the task note — and writes one findings file:
+
+- `reviews/audit/evidence-audit.<scope>.json` when the file stem is the scope name, otherwise `reviews/audit/evidence-audit.<scope>.<file>.json`, so each checker writes its own file.
+
+```json
+{
+  "schemaVersion": 1,
+  "role": "evidence-audit",
+  "target": "evidence/chapters/chapters.json",
+  "findings": [
+    { "ref": "chapters/ch-01#0", "verdict": "supported", "note": "" },
+    { "ref": "chapters/ch-01#1", "verdict": "unsupported", "note": "The source places this in chapter 3." }
+  ]
+}
+```
+
+- One finding per fact. `ref` is `<scope>/<recordId>#<factIndex>`, with `factIndex` 0-based into the record's `facts[]`.
+- `verdict` is one of `supported` (the source states it), `unsupported` (the source doesn't state it, says something else, or couldn't be read), `contested` (sources disagree and the fact presents one side as settled), or `out-of-scope` (outside the scope brief's source range or continuity boundary).
+- `note` is required for every verdict other than `supported`.
+- Fetch truncation (the `fetch_fandom.py` 3,000-character cap) and PDF extraction noise come back in the note and as return flags `truncated-source:<url>` / `noisy-extraction:<file>`.
+
+`evidence validate` and `report --stage evidence` put a summary of every `reviews/audit/evidence-*.json` at the top of `reviews/evidence.md` (verified count, then a table of flagged facts). The findings are advisory and never block validation or the gate; when no findings files exist the artifact is unchanged. Resolve the findings yourself (the checker never edits evidence), re-run `evidence validate`, and spot-check a sample before presenting. The summary shows the findings as last written, so after substantial fixes re-run the checker on that file (same brief) so the page reflects the current evidence.
+
+The user accepts or rejects records — `evidence accept|reject <id> --scope S --ids a,b|--all [--note]`. Only accepted records may back cards; `report --stage cards` flags any card citing rejected/unknown records or citing nothing.

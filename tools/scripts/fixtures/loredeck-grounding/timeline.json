@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "anchor",
+  "defaultContextType": "story_anchor",
+  "sortKeyScale": "pack_local",
+  "summary": "Founding Trilogy Book 1 anchors.",
+  "anchors": [
+    {
+      "id": "fdt.book1.opening",
+      "label": "Book 1: Mara arrives at Ravenhold",
+      "contextType": "story_anchor",
+      "sortKey": 1000,
+      "aliases": [],
+      "tags": [
+        "fandom:founding-trilogy",
+        "book:book-1"
+      ]
+    },
+    {
+      "id": "fdt.book1.first_patrol",
+      "label": "Book 1: Mara's first patrol",
+      "contextType": "story_anchor",
+      "sortKey": 1300,
+      "aliases": [],
+      "tags": [
+        "fandom:founding-trilogy",
+        "book:book-1"
+      ]
+    },
+    {
+      "id": "fdt.book1.siege_begins",
+      "label": "Book 1: The siege of Ravenhold begins",
+      "contextType": "story_anchor",
+      "sortKey": 2000,
+      "aliases": [],
+      "tags": [
+        "fandom:founding-trilogy",
+        "book:book-1"
+      ]
+    },
+    {
+      "id": "fdt.book1.pact_reveal",
+      "label": "Book 1: Sethe's pact-mark is exposed",
+      "contextType": "story_anchor",
+      "sortKey": 2400,
+      "aliases": [],
+      "tags": [
+        "fandom:founding-trilogy",
+        "book:book-1"
+      ]
+    },
+    {
+      "id": "fdt.book1.fall_of_ravenhold",
+      "label": "Book 1: The fall of Ravenhold",
+      "contextType": "story_anchor",
+      "sortKey": 2800,
+      "aliases": [],
+      "tags": [
+        "fandom:founding-trilogy",
+        "book:book-1"
+      ]
+    },
+    {
+      "id": "fdt.book1.end",
+      "label": "Book 1: End",
+      "contextType": "story_anchor",
+      "sortKey": 3000,
+      "aliases": [],
+      "tags": [
+        "fandom:founding-trilogy",
+        "book:book-1"
+      ]
+    }
+  ],
+  "windows": []
+}

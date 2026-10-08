@@ -13,6 +13,7 @@ import {
     listJsonFilesRecursive,
     pathExists,
     readJsonFile,
+    readJsonFileOrNull,
     toPosixRelative,
     writeJsonFile,
 } from './deck-fs.mjs';
@@ -24,6 +25,56 @@ export async function collectEntryFilePaths(deckDir) {
         .filter(file => !toPosixRelative(deckDir, file).startsWith('assets/'))
         .map(file => toPosixRelative(deckDir, file))
         .sort();
+}
+
+/**
+ * Reads a deck's entries the way review artifacts and `ground check` see them:
+ * every file listed in the manifest's files[] (root-level registry JSON is
+ * never an entry file). An entry file is `{ entries: [...] }` or, as Pack
+ * Health also accepts, a bare array. Returns `{ manifest, entries: [{ file,
+ * entry }], fileIssues: [{ file, detail }] }`; fileIssues lists a missing or
+ * unparseable manifest, listed files that are missing, unparseable, or hold
+ * no entries, and entry files on disk that files[] does not list yet (so a
+ * gate can't pass by skipping cards `stats --write` hasn't picked up).
+ */
+export async function readDeckEntries(deckDir) {
+    const manifest = await readJsonFileOrNull(path.join(deckDir, 'loredeck.json'))
+        || await readJsonFileOrNull(path.join(deckDir, 'manifest.json'));
+    const files = Array.isArray(manifest?.files) ? manifest.files : [];
+    const entries = [];
+    const fileIssues = [];
+    const deckExists = await pathExists(deckDir);
+    if (deckExists && !manifest) {
+        fileIssues.push({ file: 'loredeck.json', detail: 'deck manifest is missing or unparseable, so no entry files can be read' });
+    }
+    for (const file of files) {
+        const filePath = path.join(deckDir, String(file));
+        if (path.dirname(filePath) === path.resolve(deckDir)) continue;
+        let json = null;
+        try {
+            json = await readJsonFile(filePath);
+        } catch (e) {
+            fileIssues.push({ file, detail: `failed to read JSON. ${e?.message || ''}`.trim() });
+            continue;
+        }
+        const list = Array.isArray(json) ? json : json?.entries;
+        if (!Array.isArray(list)) {
+            fileIssues.push({ file, detail: `${file} has no entries array` });
+            continue;
+        }
+        for (const entry of list) {
+            entries.push({ file, entry });
+        }
+    }
+    if (deckExists) {
+        const listed = new Set(files.map(String));
+        for (const file of await collectEntryFilePaths(deckDir)) {
+            if (!listed.has(file)) {
+                fileIssues.push({ file, detail: `${file} is on disk but not listed in the manifest's files[]; run stats --write` });
+            }
+        }
+    }
+    return { manifest, entries, fileIssues };
 }
 
 export async function readDeckTimelineForStats(deckDir, manifest) {
