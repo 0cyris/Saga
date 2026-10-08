@@ -1,5 +1,5 @@
 <!--
-Role template: research. Rendered by `loredeck brief <id> --role research --deck D --scope S [--file F]`.
+Role template: research. Rendered by `loredeck brief <id> --role research --deck D --scope S [--file F] [--assignment TEXT]`.
 This comment is stripped before rendering. Placeholders use {{name}}; rendering fails on any
 placeholder the research context builder (lib/briefs.mjs) does not supply. The shared return
 contract (_return-contract.md) is appended after this template.
@@ -11,6 +11,10 @@ which only the orchestrator reads.
 # Research brief: `{{scope}}` evidence for {{projectTitle}}
 
 You are a research subagent for the Saga Loredeck workshop project `{{projectId}}`. You are gathering evidence for the deck `{{deckId}}` (role: {{deckRole}}), within the evidence scope `{{scope}}`. Evidence records are the only material that Lorecards may later be drafted from, so accuracy and provenance matter more than coverage.
+
+## Your assignment
+
+Research {{assignment}}. Cover that and nothing outside it; other subagents cover the rest of the scope.
 
 ## Your deliverable
 
@@ -42,7 +46,7 @@ Field by field:
 
 - `schemaVersion`: the number `1`.
 - `scope`: the string `"{{scope}}"`.
-- `deckId`: the string `""`. The orchestrator's task note may give a deck id to use instead.
+- `deckId`: the string `""`. Evidence is shared project-wide by default, so leave it empty even though you are researching for `{{deckId}}`; the orchestrator's task note may give a deck id to use instead.
 - `sourceKind`: `"web"` when your facts come from web pages, or `"user_supplied"` when they come from material the orchestrator gave you.
 - `provenance`: `url` is the page you researched (required for `"web"`), `title` names the source (required for `"user_supplied"`), and `retrievedAt` is the date you read it, as `YYYY-MM-DD`.
 - `records`: one object per discrete topic (a chapter, character, place, rule, or event):

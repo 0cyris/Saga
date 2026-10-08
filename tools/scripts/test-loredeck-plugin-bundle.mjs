@@ -88,6 +88,10 @@ function assertBriefRenders(wrapperPath, label) {
   const env = { SAGA_WORKSHOP_ROOT: workshop };
   const init = run(process.execPath, [wrapperPath, 'init', 'bundle-canon', '--title', 'Bundle Canon'], env);
   assert.equal(init.status, 0, `${label}: init failed: ${init.stderr}`);
+  // brief refuses a placeholder scope brief, so write a complete one first.
+  const sections = ['Fandom and source range', 'Continuity and canon tier', 'Deck split', 'Story-coordinate model', 'Spoiler philosophy', 'Assumptions and risks'];
+  writeFileSync(path.join(workshop, 'bundle-canon', 'brief', 'scope-brief.md'),
+    `# Scope Brief: Bundle Canon\n\n${sections.map(name => `## ${name}\n\nFilled in for the bundle test.\n`).join('\n')}`);
   const brief = run(process.execPath, [wrapperPath, 'brief', 'bundle-canon', '--role', 'research', '--deck', 'bundle-canon', '--scope', 'chapters'], env);
   assert.equal(brief.status, 0, `${label}: brief failed: ${brief.stderr}`);
   assert.ok(brief.stdout.includes('## Return format') && brief.stdout.includes('"records"'), `${label}: brief output is incomplete.`);

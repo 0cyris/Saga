@@ -56,7 +56,7 @@ function briefSectionBodies(briefText) {
     return bodies;
 }
 
-function validateBriefSections(briefText) {
+export function validateBriefSections(briefText) {
     const bodies = briefSectionBodies(briefText);
     const issues = [];
     for (const section of REQUIRED_BRIEF_SECTIONS) {

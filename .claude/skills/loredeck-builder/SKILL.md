@@ -31,7 +31,7 @@ From a repository checkout, commands are `node tools/loredeck/loredeck-cli.mjs <
 | `batch set <id> --deck D --kind titles\|cards --id B --status S [--count N]` | Record batch review outcomes |
 | `report <id> --stage brief\|evidence\|plan\|titles\|cards\|final` | Regenerate the stage review artifact in `reviews/` |
 | `ground check <id> --stage titles [--deck D]` | Check every title's `support` fact pointers resolve to accepted facts in its `evidenceRefs`; exits 1 on any issue |
-| `brief <id> --role research --deck D --scope S [--file F] [--out P]` | Render a complete subagent prompt (pass it through unchanged) |
+| `brief <id> --role research --deck D --scope S [--file F] [--assignment TEXT] [--out P]` | Render a complete subagent prompt (pass it through unchanged) |
 | `health <deck-dir\|id> [--deck D] [--dist] [--strict]` | Full Pack Health (identical to in-app) |
 | `conformance <deck-dir>` / `stats <deck-dir> --write` | Structural checks / stats+files[] rewrite |
 | `promote <id> [--deck D]` | drafts → dist, gated on conformance + strict health |

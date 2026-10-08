@@ -43,6 +43,22 @@ Covers the Brief Canon novels, books 1-2. Template braces like {{notAPlaceholder
 ## Continuity and canon tier
 
 Continuity id: brief-novels. Primary canon only.
+
+## Deck split
+
+Family: brief-core (core) and brief-book1 (era).
+
+## Story-coordinate model
+
+Book and chapter, in reading order.
+
+## Spoiler philosophy
+
+Gate every reveal to the chapter that confirms it.
+
+## Assumptions and risks
+
+None yet.
 `;
 await mkdir(path.join(projectDir, 'brief'), { recursive: true });
 await writeFile(path.join(projectDir, 'brief', 'scope-brief.md'), scopeBrief);
@@ -63,7 +79,7 @@ assert.ok(prompt.includes(path.join(projectDir, 'evidence', 'chapters', 'chapter
 assert.ok(prompt.includes('## Source policy'), 'Source policy section should render.');
 assert.ok(prompt.includes('brief-core'), 'Deck id should render.');
 assert.ok(prompt.includes('## Return format'), 'Return contract should be appended.');
-assert.ok(prompt.includes('{"status":"ok","wrote":["evidence/chapters/chapters.json"],"counts":{"records":0},"gaps":[],"flags":[]}'),
+assert.ok(prompt.includes('{"status":"ok","wrote":["evidence/chapters/chapters.json"],"counts":{"records":12},"gaps":[],"flags":[]}'),
     'Return contract example should carry the research counts and output path.');
 assert.ok(!/\{\{\s*[A-Za-z]/.test(prompt.replace('{{notAPlaceholder}}', '')), 'No unresolved placeholders should remain.');
 assert.ok(!prompt.includes('<!--'), 'Maintainer comments should be stripped.');
@@ -118,9 +134,20 @@ const noScope = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'bri
 assert.equal(noScope.code, 1);
 assert.match(noScope.stderr, /requires --scope/);
 
-const unknownRole = cli('brief', 'brief-canon', '--role', 'draft', '--deck', 'brief-core', '--scope', 'chapters');
+const unknownRole = cli('brief', 'brief-canon', '--role', 'bogus', '--deck', 'brief-core', '--scope', 'chapters');
 assert.equal(unknownRole.code, 1);
-assert.match(unknownRole.stderr, /Unknown role "draft"\. Available roles: research\./);
+assert.match(unknownRole.stderr, /Unknown role "bogus"\. Available roles: /);
+for (const inherited of ['toString', 'constructor', '__proto__']) {
+    const result = cli('brief', 'brief-canon', '--role', inherited, '--deck', 'brief-core', '--scope', 'chapters');
+    assert.equal(result.code, 1, `${inherited} should be an unknown role.`);
+    assert.match(result.stderr, /Unknown role/, `${inherited}: ${result.stderr}`);
+}
+
+// --- Assignment: defaults to the whole scope; --assignment narrows it ---
+assert.ok(prompt.includes('Research the whole `chapters` scope, as the scope brief defines it.'), 'Default assignment should cover the whole scope.');
+const narrowed = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'brief-core', '--scope', 'chapters', '--file', 'chapters-06-10', '--assignment', 'chapters 6 to 10 of book 1');
+assert.equal(narrowed.code, 0, narrowed.stderr);
+assert.ok(narrowed.stdout.includes('Research chapters 6 to 10 of book 1.'), 'A narrowed assignment should be rendered verbatim.');
 
 const noRole = cli('brief', 'brief-canon', '--deck', 'brief-core', '--scope', 'chapters');
 assert.equal(noRole.code, 1);
@@ -133,6 +160,11 @@ assert.match(unknownDeck.stderr, /Unknown deck id "nope"/);
 const wrongSelector = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'brief-core', '--scope', 'chapters', '--batch', 'batch-1');
 assert.equal(wrongSelector.code, 1);
 assert.match(wrongSelector.stderr, /does not take --batch/);
+
+await writeFile(path.join(projectDir, 'brief', 'scope-brief.md'), '# Scope Brief\n\n## Fandom and source range\n\n*What canon is covered.*\n');
+const placeholderBrief = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'brief-core', '--scope', 'chapters');
+assert.equal(placeholderBrief.code, 1);
+assert.match(placeholderBrief.stderr, /scope-brief\.md is not complete/);
 
 await rm(path.join(projectDir, 'brief', 'scope-brief.md'));
 const noBrief = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'brief-core', '--scope', 'chapters');

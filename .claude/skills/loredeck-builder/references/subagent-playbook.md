@@ -21,10 +21,10 @@ If your runtime has a task-tracking tool, use it to track every spawned subagent
 **Dispatch every research subagent with the prompt `brief` renders — never hand-write it.**
 
 ```
-node tools/loredeck/loredeck-cli.mjs brief <id> --role research --deck D --scope S [--file F] [--out P]
+node tools/loredeck/loredeck-cli.mjs brief <id> --role research --deck D --scope S [--file F] [--assignment TEXT] [--out P]
 ```
 
-Pass the output through unchanged; add at most a short task note after it (the source slice or URL list for this subagent, or a `deckId` to set). The rendered prompt already contains everything the subagent needs: the approved scope brief, `templates/evidence-file.json` verbatim, the authoringSignals vocabulary, the output path (`evidence/<scope>/<file>.json`, default file name = the scope), record ids already used in the scope, the source policy, the grounding rules, and the return contract below. The prompt is deterministic for a given project state, so re-rendering it for a retry gives the subagent the same instructions. Use `--file` to split one scope across several subagents (one file each, e.g. `--file chapters-01-05`).
+Pass the output through unchanged; add at most a short task note after it (the source slice or URL list for this subagent, or a `deckId` to set). The rendered prompt already contains everything the subagent needs: the approved scope brief, `templates/evidence-file.json` verbatim, the authoringSignals vocabulary, the output path (`evidence/<scope>/<file>.json`, default file name = the scope), record ids already used in the scope, the source policy, the grounding rules, and the return contract below. The prompt is deterministic for a given project state, so re-rendering it for a retry gives the subagent the same instructions. Use `--file` to split one scope across several subagents (one file each, e.g. `--file chapters-01-05`), and always pair it with `--assignment` (e.g. `--assignment "chapters 1 to 5"`) so the prompt itself states the subagent's slice; without it the prompt assigns the whole scope. `brief` refuses to render while `brief/scope-brief.md` still has placeholder sections.
 
 Role templates live in `agents/` (`research.md` plus the shared `_return-contract.md`). They state the required shapes positively and on purpose say nothing about past failures; keep it that way when editing them.
 

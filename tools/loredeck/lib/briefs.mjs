@@ -17,10 +17,11 @@ import { fileURLToPath } from 'node:url';
 import { isValidSlug, pathExists, resolveProjectDir } from './deck-fs.mjs';
 import { collectEvidence, EVIDENCE_AUTHORING_SIGNALS } from './evidence-store.mjs';
 import { loadProjectState } from './project-state.mjs';
+import { validateBriefSections } from './review-artifacts.mjs';
 
 const LIB_DIR = fileURLToPath(new URL('.', import.meta.url));
 const RETURN_CONTRACT_TEMPLATE = '_return-contract.md';
-const SELECTOR_FLAGS = ['scope', 'batch', 'file'];
+const SELECTOR_FLAGS = ['scope', 'batch', 'file', 'assignment'];
 const PLACEHOLDER_RE = /\{\{\s*([A-Za-z][A-Za-z0-9_]*)\s*\}\}/g;
 
 /**
@@ -95,6 +96,10 @@ async function buildResearchContext({ state, deck, projectDir, skillDir, selecto
         'brief/scope-brief.md',
         `No scope brief found at ${path.join(projectDir, 'brief', 'scope-brief.md')}. Write and approve brief/scope-brief.md (Stage 1) before dispatching research.`,
     );
+    const briefIssues = validateBriefSections(scopeBrief);
+    if (briefIssues.length) {
+        throw new Error(`brief/scope-brief.md is not complete, so it can't bound a research subagent yet: ${briefIssues.join(' ')}`);
+    }
     const evidenceTemplate = (await readFile(path.join(skillDir, 'templates', 'evidence-file.json'), 'utf8')).trimEnd();
 
     // Citation keys are <scope>/<recordId>, so new ids must not collide with
@@ -115,6 +120,9 @@ async function buildResearchContext({ state, deck, projectDir, skillDir, selecto
             deckId: deck.deckId,
             deckRole: deck.role,
             scope,
+            assignment: selectors.assignment
+                ? selectors.assignment
+                : `the whole \`${scope}\` scope, as the scope brief defines it`,
             continuityId: continuityId ? `\`${continuityId}\`` : 'the continuity named in the scope brief',
             projectDir,
             outputFile: path.join(projectDir, ...outputFileRel.split('/')),
@@ -126,7 +134,7 @@ async function buildResearchContext({ state, deck, projectDir, skillDir, selecto
                 ? `Other files in scope \`${scope}\` already use these record ids, so pick different ones:\n\n${bulletList(usedIds, { code: true })}`
                 : `No other file in scope \`${scope}\` has records yet, so any unique ids work.`,
             returnWroteExample: outputFileRel,
-            returnCountsExample: '{"records":0}',
+            returnCountsExample: '{"records":12}',
             returnCountsNote: '`records` is the number of records in the file you wrote.',
             returnFlagsNote: '`contested:<recordId>` for a record holding a contested fact, and `truncated-source:<url>` for a source you could read only in part.',
         },
@@ -137,7 +145,7 @@ export const BRIEF_ROLES = {
     research: {
         template: 'research.md',
         requires: ['scope'],
-        accepts: ['scope', 'file'],
+        accepts: ['scope', 'file', 'assignment'],
         buildContext: buildResearchContext,
     },
 };
@@ -164,7 +172,7 @@ export async function buildBrief({ projectId, role, deckId, flags = {} }) {
     if (!role || typeof role !== 'string') {
         throw new Error(`--role is required. Available roles: ${roleNames.join(', ')}.`);
     }
-    const spec = BRIEF_ROLES[role];
+    const spec = Object.hasOwn(BRIEF_ROLES, role) ? BRIEF_ROLES[role] : undefined;
     if (!spec) {
         throw new Error(`Unknown role ${JSON.stringify(role)}. Available roles: ${roleNames.join(', ')}.`);
     }
