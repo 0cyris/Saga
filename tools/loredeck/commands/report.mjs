@@ -7,6 +7,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { loadFindingsFiles, summarizeFindings } from '../lib/audit-findings.mjs';
 import { resolveProjectDir, writeTextFile } from '../lib/deck-fs.mjs';
 import { acceptedEvidenceKeys, collectEvidence } from '../lib/evidence-store.mjs';
 import { runGroundCheck } from '../lib/grounding.mjs';
@@ -51,7 +52,16 @@ export async function runReport({ positionals, flags }) {
         await writeTextFile(outPath, await buildPlanArtifact(state, projectDir));
     } else if (stage === 'titles') {
         const groundCheck = await runGroundCheck({ stage: 'titles', state, projectDir });
-        const { markdown, issues } = buildTitlesArtifact(state, groundCheck);
+        // Grounding-verifier findings (reviews/audit/<deck>-titles-<batch>.json),
+        // across every deck. Advisory only; '' when no findings file exists.
+        const findings = [];
+        for (const deck of state.decks || []) {
+            findings.push(...await loadFindingsFiles(projectDir, { prefix: `${deck.deckId}-titles-` }));
+        }
+        const uniqueFindings = [...new Map(findings.map(entry => [entry.file, entry])).values()]
+            .sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
+        const findingsSummary = summarizeFindings(uniqueFindings, { title: 'Grounding checker findings', okVerdicts: ['entailed'] });
+        const { markdown, issues } = buildTitlesArtifact(state, groundCheck, { findingsSummary });
         await writeTextFile(outPath, markdown);
         extra = { groundingIssues: issues.length };
     } else if (stage === 'cards') {

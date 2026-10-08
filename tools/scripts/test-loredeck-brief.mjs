@@ -151,7 +151,8 @@ assert.ok(narrowed.stdout.includes('Research chapters 6 to 10 of book 1.'), 'A n
 
 const noRole = cli('brief', 'brief-canon', '--deck', 'brief-core', '--scope', 'chapters');
 assert.equal(noRole.code, 1);
-assert.match(noRole.stderr, /--role is required\. Available roles: research\./);
+assert.match(noRole.stderr, /--role is required\. Available roles: [^\n]*\bresearch\b/);
+assert.match(noRole.stderr, /Available roles: [^\n]*\bgrounding-verify\b/);
 
 const unknownDeck = cli('brief', 'brief-canon', '--role', 'research', '--deck', 'nope', '--scope', 'chapters');
 assert.equal(unknownDeck.code, 1);

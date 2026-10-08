@@ -7,10 +7,31 @@ Every gate is reviewed against a regenerated artifact in `workshop/<project>/rev
 | scope_brief | `reviews/brief.md` | `report --stage brief` | Project summary + completeness check (flags sections still left as template placeholder text) + full scope brief |
 | evidence | `reviews/evidence.md` | `evidence validate` / `report --stage evidence` | File validity table, validation issues, record table with statuses |
 | planning | `reviews/plan.md` | `report --stage plan` | Rationale prose (inlined from `plans/context-timeline-plan.md`, not just linked) + per-deck anchor table, window table, tag table |
-| titles | `reviews/titles.md` | `report --stage titles` | Ground-check summary line, per-batch title tables with each gate intent next to the fact strings its `support` pointers resolve to (unresolvable pointers show their problem code) + evidence refs, and a grounding-issues table |
+| titles | `reviews/titles.md` | `report --stage titles` | Grounding checker findings summary (only when `reviews/audit/<deck>-titles-*.json` exist: "N verified, M flagged" plus a table of every non-`entailed` finding), ground-check summary line, per-batch title tables with each gate intent next to the fact strings its `support` pointers resolve to (unresolvable pointers show their problem code) + evidence refs, and a grounding-issues table |
 | cards | `reviews/cards.md` | `report --stage cards` | Per-deck card tables (context, tags, evidence), duplicate-id report, unbacked-card report |
 | health | `reviews/health-<deck>.md/.json` | `health` / `promote` | Status, counts, every issue by severity |
 | package | `reviews/final.md` | `report --stage final` | Gate history, per-deck entry/category counts, last health status |
+
+## Checker findings files
+
+Read-only checker subagents write findings to `reviews/audit/`. The grounding checker writes one file per title batch, `reviews/audit/<deck>-titles-<batch>.json` (rendered with `brief --role grounding-verify`). Every findings file has this shape:
+
+```json
+{
+  "schemaVersion": 1,
+  "role": "grounding-verify",
+  "target": "plans/title-batches/<deck>/<batch>.json",
+  "findings": [
+    { "ref": "<title id>", "verdict": "entailed", "note": "" },
+    { "ref": "<title id>", "verdict": "timing-mismatch", "note": "<pointer> says \"<quoted fact>\" ..." }
+  ]
+}
+```
+
+- `role`: the brief role that wrote it. `target`: the project-relative file it checked.
+- `findings`: one per checked item. For titles, `ref` is the title id and `verdict` is `entailed|partial|unsupported|timing-mismatch`; `note` is required for every verdict except `entailed` and quotes the fact text relied on.
+
+`report` summarizes the files for its stage at the top of the artifact ("N verified, M flagged", with flagged findings in a table and any malformed findings file listed). With no findings files the artifact is exactly what it was without a checker. Findings never block a gate in v1. Re-run the checker after fixing a batch so the file reflects the current titles.
 
 ## Presenting a gate
 

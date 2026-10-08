@@ -35,7 +35,18 @@ One card = one job: a fact, state, constraint, reveal, relationship, rule, event
 
 `--json` prints `{ ok, stage, deck, checked, issues: [{ deck, kind, itemId, batch, pointer, problem, detail }] }`. A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent` next to the fact strings its pointers resolve to.
 
-Spot-check before every titles/cards gate: for titles, run `ground check` first, then read each claim against its resolved facts in the titles artifact; for cards, re-open the cited evidence records and confirm each claim in the batch actually traces to a specific fact — not just that the referenced id exists.
+**The grounding checker** makes that judgment call for titles. It is a read-only subagent with a clean context: it sees the batch file and the evidence files it cites, never the drafting history. Render its prompt with `brief <id> --role grounding-verify --deck D --batch B` (on Claude Code, dispatch it as the `loredeck-grounding-verifier` agent). For each title it decides whether the `support` facts entail the `gateIntent` and whether the gate timing matches the timing those facts describe, and writes one finding per title to `reviews/audit/<deck>-titles-<batch>.json`:
+
+| Verdict | Meaning |
+| --- | --- |
+| `entailed` | the cited facts state everything the claim asserts, at the timing it gives |
+| `partial` | the facts back part of the claim; the rest is not in them |
+| `unsupported` | the facts do not back the claim (including pointers that name no fact) |
+| `timing-mismatch` | the facts back the claim but place it at a different story point than the gate |
+
+Every non-`entailed` finding carries a `note` quoting the fact text it relied on. Findings are advisory in v1: they never block `gate approve`, but resolve each one (fix the title, or keep it and say why) before presenting.
+
+Spot-check before every titles/cards gate: for titles, run `ground check` first, then the grounding checker, resolve its findings, and then read a sample of claims against their resolved facts in the titles artifact; for cards, re-open the cited evidence records and confirm each claim in the batch actually traces to a specific fact — not just that the referenced id exists.
 
 ## Required and expected entry fields (schema v3)
 

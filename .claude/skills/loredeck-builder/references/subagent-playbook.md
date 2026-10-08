@@ -42,6 +42,21 @@ This history is for you, not for subagents — don't paste it into a brief. Nami
 
 On return: read the return object (below), run `evidence validate`, spot-check records against provenance, fix or regenerate weak files before presenting the evidence gate.
 
+## Grounding checker (titles)
+
+After drafting a title batch and getting `ground check` clean, dispatch one read-only checker per batch with the prompt from:
+
+```
+node tools/loredeck/loredeck-cli.mjs brief <id> --role grounding-verify --deck D --batch B [--out P]
+```
+
+`B` is the batch file name or its `batchId`. On Claude Code, dispatch it as the `loredeck-grounding-verifier` agent (`.claude/agents/`, bundled in the plugin's `agents/` and in the `.skill` under `claude-code-agents/`), whose tools are limited to reading plus writing its one findings file; elsewhere use a generic subagent. Either way the rendered brief is the whole prompt (`agents/grounding-verify.md` is the single source of truth).
+
+- **Keep its context clean.** Pass the brief through unchanged: no task note, no drafting rationale, no summary of what you meant. A checker that shares the drafter's context tends to share its mistakes; it sees only the batch and the evidence files it cites.
+- **On return:** open `reviews/audit/<deck>-titles-<batch>.json` (from `wrote[]`). For each non-`entailed` finding, fix the title (claim, gate, or `support`) or keep it and note why for the user. Re-run `ground check`, re-dispatch the checker if you changed the batch, then `report --stage titles` (its summary shows "N verified, M flagged") and spot-check a sample yourself.
+- Findings are advisory in v1 and never block a gate; the user sees them in the titles artifact.
+- Card batches (`--file`) are not supported yet.
+
 ## Return contract
 
 Every subagent ends with exactly one JSON object and nothing else (`agents/_return-contract.md` is the text `brief` appends to every role):
