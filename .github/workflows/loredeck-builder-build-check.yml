@@ -43,6 +43,7 @@ jobs:
           node tools/scripts/test-loredeck-cli-package-roundtrip.mjs
           node tools/scripts/test-loredeck-cli-conformance.mjs
           node tools/scripts/test-loredeck-review-artifacts.mjs
+          node tools/scripts/test-loredeck-ground-check.mjs
 
       - name: Build the .skill bundle from source of truth
         run: |

@@ -126,6 +126,7 @@ export async function collectEvidence(projectDir, { scope = '' } = {}) {
                 status: EVIDENCE_STATUSES.includes(review.status) ? review.status : 'pending',
                 note: String(review.note || ''),
                 factCount: Array.isArray(record?.facts) ? record.facts.length : 0,
+                facts: Array.isArray(record?.facts) ? record.facts.map(fact => String(fact ?? '')) : [],
                 keyEntities: Array.isArray(record?.keyEntities) ? record.keyEntities : [],
                 authoringSignals: Array.isArray(record?.authoringSignals) ? record.authoringSignals : [],
             });

@@ -9,6 +9,7 @@ import path from 'node:path';
 
 import { resolveProjectDir, writeTextFile } from '../lib/deck-fs.mjs';
 import { acceptedEvidenceKeys, collectEvidence } from '../lib/evidence-store.mjs';
+import { runGroundCheck } from '../lib/grounding.mjs';
 import { loadProjectState } from '../lib/project-state.mjs';
 import {
     buildBriefArtifact,
@@ -49,7 +50,10 @@ export async function runReport({ positionals, flags }) {
     } else if (stage === 'plan') {
         await writeTextFile(outPath, await buildPlanArtifact(state, projectDir));
     } else if (stage === 'titles') {
-        await writeTextFile(outPath, await buildTitlesArtifact(state, projectDir));
+        const groundCheck = await runGroundCheck({ stage: 'titles', state, projectDir });
+        const { markdown, issues } = buildTitlesArtifact(state, groundCheck);
+        await writeTextFile(outPath, markdown);
+        extra = { groundingIssues: issues.length };
     } else if (stage === 'cards') {
         const accepted = await acceptedEvidenceKeys(projectDir);
         const { markdown, duplicates, unbacked, crossDeckCitations } = await buildCardsArtifact(state, projectDir, accepted);
@@ -82,6 +86,7 @@ export async function runReport({ positionals, flags }) {
             for (const line of extra.crossDeckCitationLines || []) console.log(line);
         }
         if (extra?.issues) console.log(`WARNING: ${extra.issues} evidence validation issue(s).`);
+        if (extra?.groundingIssues) console.log(`WARNING: ${extra.groundingIssues} grounding issue(s); run \`ground check --stage titles\` for details.`);
         if (extra?.briefIssues) console.log(`WARNING: ${extra.briefIssues} scope brief completeness issue(s).`);
     }
     return 0;

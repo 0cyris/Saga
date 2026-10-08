@@ -15,6 +15,7 @@ import { runGate } from './commands/gate.mjs';
 import { runBatch } from './commands/batch.mjs';
 import { runEvidence } from './commands/evidence.mjs';
 import { runReport } from './commands/report.mjs';
+import { runGround } from './commands/ground.mjs';
 import { runHealth } from './commands/health.mjs';
 import { runConformance } from './commands/conformance.mjs';
 import { runStats } from './commands/stats.mjs';
@@ -30,6 +31,7 @@ const COMMANDS = {
     batch: { run: runBatch, help: 'batch set <project-id> --deck <deck-id> --kind titles|cards --id <batch-id> --status draft|approved|rejected [--count N]' },
     evidence: { run: runEvidence, help: 'evidence validate|accept|reject <project-id> [--scope <scope>] [--ids a,b|--all] [--note <note>]' },
     report: { run: runReport, help: 'report <project-id> --stage brief|evidence|plan|titles|cards|final [--verbose]' },
+    ground: { run: runGround, help: 'ground check <project-id> --stage titles|cards [--deck <deck-id>] [--json]' },
     health: { run: runHealth, help: 'health <deck-dir|project-id> [--deck <deck-id>] [--strict] [--out <dir>]' },
     conformance: { run: runConformance, help: 'conformance <deck-dir>' },
     stats: { run: runStats, help: 'stats <deck-dir> [--write]' },

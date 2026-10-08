@@ -17,7 +17,23 @@ One card = one job: a fact, state, constraint, reveal, relationship, rule, event
 
 `inUniverseSpan` (a short coordinate label like `"Chapter 26"`) is not evidence — it's a position, not a fact. Drafting from it (or from memory of "what happens around there") instead of the record's `facts[]` is the single most common way continuity errors slip past citation checks, because the schema has no way to detect it: the evidenceRef still resolves, the card still looks complete.
 
-Spot-check before every titles/cards gate: re-open the cited evidence records and confirm each claim in the batch actually traces to a specific fact — not just that the referenced id exists.
+**Titles carry fact pointers.** Every title in a title batch has `support: ["<scope>/<recordId>#<factIndex>", ...]`, naming the specific fact(s) that back its `gateIntent`. `factIndex` is 0-based into the record's `facts[]`, so `chapters/canon-ch-14#0` is the first fact of evidence record `chapters/canon-ch-14`. Every pointer's `<scope>/<recordId>` must also appear in the title's `evidenceRefs`; `evidenceRefs` says which records a title draws on, `support` says which facts in them carry the claim. Point at as few facts as fully support the claim; if no fact does, the claim isn't ready.
+
+**`ground check <id> --stage titles [--deck D] [--json]`** checks the pointers mechanically and exits 1 on any issue. Problem codes:
+
+| Code | Meaning |
+| --- | --- |
+| `missing-support` | `support` is missing or empty |
+| `malformed-pointer` | not `<scope>/<recordId>#<factIndex>` with a non-negative integer index |
+| `unknown-record` | no evidence record with that `<scope>/<recordId>` |
+| `unaccepted-record` | the record exists but is pending or rejected |
+| `fact-out-of-range` | the index is past the end of the record's `facts[]` |
+| `not-in-evidence-refs` | the pointer's record isn't listed in the title's `evidenceRefs` |
+| `invalid-batch-file` | a title-batch file couldn't be parsed or has no `titles` array |
+
+`--json` prints `{ ok, stage, deck, checked, issues: [{ deck, titleId, batch, pointer, problem, detail }] }`. A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent` next to the fact strings its pointers resolve to.
+
+Spot-check before every titles/cards gate: for titles, run `ground check` first, then read each claim against its resolved facts in the titles artifact; for cards, re-open the cited evidence records and confirm each claim in the batch actually traces to a specific fact — not just that the referenced id exists.
 
 ## Required and expected entry fields (schema v3)
 

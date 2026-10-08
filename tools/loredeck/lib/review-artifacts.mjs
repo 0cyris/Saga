@@ -9,7 +9,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
-import { pathExists, readJsonFileOrNull, listJsonFilesRecursive, toPosixRelative } from './deck-fs.mjs';
+import { pathExists, readJsonFileOrNull } from './deck-fs.mjs';
 
 const REQUIRED_BRIEF_SECTIONS = [
     'Fandom and source range',
@@ -166,26 +166,60 @@ export async function buildPlanArtifact(state, projectDir) {
     return lines.join('\n');
 }
 
-export async function buildTitlesArtifact(state, projectDir) {
+function describeSupport(item) {
+    if (!item.resolved.length) return '_(no support)_';
+    return item.resolved
+        .map(result => (result.ok
+            ? `\`${result.pointer}\` ${result.fact}`
+            : `\`${result.pointer}\` **(${result.problem})**`))
+        .join('<br>');
+}
+
+/**
+ * Titles artifact, rendered from a `runGroundCheck({ stage: 'titles' })`
+ * result so each gateIntent sits next to the fact strings its support
+ * pointers resolve to.
+ */
+export function buildTitlesArtifact(state, groundCheck) {
     const lines = [`# Title Batches Review: ${state.title}`, ''];
-    for (const deck of state.decks || []) {
-        const batchDir = path.join(projectDir, 'plans', 'title-batches', deck.deckId);
-        const batchFiles = await listJsonFilesRecursive(batchDir);
-        if (!batchFiles.length) continue;
-        lines.push(`## Deck \`${deck.deckId}\``, '');
-        for (const batchFile of batchFiles) {
-            const batch = await readJsonFileOrNull(batchFile);
-            const titles = Array.isArray(batch?.titles) ? batch.titles : [];
-            const status = (state.batches?.[deck.deckId]?.titles || []).find(item => item.id === batch?.batchId)?.status || 'draft';
-            lines.push(`### Batch \`${batch?.batchId || toPosixRelative(projectDir, batchFile)}\` (${titles.length} titles, status: ${status})`, '');
-            lines.push(mdTable(
-                ['Card id', 'Title', 'Category', 'Gate intent', 'Evidence refs'],
-                titles.map(title => [title.id, title.title, title.category, title.gateIntent, (title.evidenceRefs || []).join(', ')]),
-            ));
-        }
+    const { items = [], groups = [], issues = [] } = groundCheck || {};
+    if (issues.length) {
+        lines.push(`> Ground check: ${issues.length} issue(s) across ${items.length} title(s). See "Grounding issues" below.`, '');
+    } else if (items.length) {
+        lines.push(`> Ground check: all ${items.length} title(s) point at accepted evidence facts.`, '');
     }
-    if (lines.length === 2) lines.push('_No title batches found under plans/title-batches/._', '');
-    return lines.join('\n');
+    let cursor = 0;
+    let currentDeck = null;
+    for (const group of groups) {
+        if (group.deck !== currentDeck) {
+            currentDeck = group.deck;
+            lines.push(`## Deck \`${group.deck}\``, '');
+        }
+        const batchItems = items.slice(cursor, cursor + group.count);
+        cursor += group.count;
+        const status = (state.batches?.[group.deck]?.titles || []).find(item => item.id === group.batch)?.status || 'draft';
+        lines.push(`### Batch \`${group.batch}\` (${group.count} titles, status: ${status})`, '');
+        lines.push(mdTable(
+            ['Card id', 'Title', 'Category', 'Gate intent', 'Supporting facts', 'Evidence refs'],
+            batchItems.map(item => [
+                item.entry?.id,
+                item.entry?.title,
+                item.entry?.category,
+                item.claim,
+                describeSupport(item),
+                (Array.isArray(item.evidenceRefs) ? item.evidenceRefs : []).join(', '),
+            ]),
+        ));
+    }
+    if (!groups.length && !issues.length) lines.push('_No title batches found under plans/title-batches/._', '');
+    if (issues.length) {
+        lines.push('## Grounding issues', '');
+        lines.push(mdTable(
+            ['Deck', 'Batch', 'Title id', 'Pointer', 'Problem', 'Detail'],
+            issues.map(issue => [issue.deck, issue.batch, issue.titleId || '', issue.pointer || '', issue.problem, issue.detail]),
+        ));
+    }
+    return { markdown: lines.join('\n'), issues };
 }
 
 export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys) {
