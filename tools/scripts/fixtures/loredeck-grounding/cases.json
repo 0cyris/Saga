@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "description": "Labelled grounding eval cases for the Loredeck Builder (spec 2026-10-08 §5). One card per case; each seeded case plants exactly one error. See README.md.",
-  "deckId": "grounding-eval",
+  "deckId": "founding-trilogy",
   "acceptedEvidence": [
     "chapters/canon-ch-01",
     "chapters/canon-ch-07",
@@ -16,11 +16,11 @@
       "errorClass": "none",
       "expectGroundCheck": "pass",
       "expectVerdict": "entailed",
-      "note": "Clean card: every part of fact and injection is in canon-ch-01#0, and the gate opens at the opening, where the fact introduces her.",
+      "note": "Clean card: fact and injection both restate canon-ch-01#0. The window opens at the opening, where that fact introduces her, and closes at the first patrol, so it does not run past the month of training ch-07#0 describes.",
       "card": {
         "schemaVersion": 3,
         "id": "fdt.character.mara-venn-conscript",
-        "title": "Mara Venn, untrained conscript",
+        "title": "Mara Venn, new conscript",
         "kind": "character_state",
         "category": "character",
         "relevance": "normal",
@@ -36,11 +36,12 @@
         "context": {
           "scope": "window",
           "validFromAnchor": "fdt.book1.opening",
+          "validToAnchor": "fdt.book1.first_patrol",
           "sortKeyFrom": 1000,
-          "sortKeyTo": 3000,
+          "sortKeyTo": 1300,
           "precision": "anchor_window",
           "windowKind": "bounded",
-          "label": "From Book 1: Mara arrives at Ravenhold"
+          "label": "Book 1: Mara arrives at Ravenhold to Book 1: Mara's first patrol"
         },
         "scope": {
           "characters": [
@@ -72,7 +73,7 @@
         },
         "content": {
           "fact": "Mara Venn is a 17-year-old conscript with no prior combat training.",
-          "injection": "From her arrival at Ravenhold, treat Mara Venn as a 17-year-old conscript who has never trained for combat.",
+          "injection": "Treat Mara Venn as a 17-year-old conscript with no prior combat training.",
           "constraints": [],
           "antiLore": [],
           "notes": ""
@@ -99,7 +100,7 @@
       "errorClass": "none",
       "expectGroundCheck": "pass",
       "expectVerdict": "entailed",
-      "note": "Clean card across two records: ch-01#1 gives the Order's control at the start, ch-22#0 closes the window at the fall.",
+      "note": "Clean public card: ch-01#1 states the garrison and the Order's control at the story's start, and the window opens at the opening. The window closes at the fall, but neither fact nor injection mentions the fall, so the card reveals nothing later than its window opens.",
       "card": {
         "schemaVersion": 3,
         "id": "fdt.place.ravenhold-under-the-order",
@@ -157,8 +158,8 @@
           }
         },
         "content": {
-          "fact": "Ravenhold Keep is a mountain garrison controlled by the Warden's Order until it falls to the Ashen Pact on the final night of the siege.",
-          "injection": "Until the fall, treat Ravenhold Keep as a mountain garrison held by the Warden's Order.",
+          "fact": "Ravenhold Keep is a mountain garrison controlled by the Warden's Order.",
+          "injection": "Treat Ravenhold Keep as a mountain garrison controlled by the Warden's Order.",
           "constraints": [],
           "antiLore": [],
           "notes": ""
@@ -169,12 +170,10 @@
           "title": "The Founding Trilogy, Book 1",
           "confidence": 0.9,
           "evidenceRefs": [
-            "chapters/canon-ch-01",
-            "chapters/canon-ch-22"
+            "chapters/canon-ch-01"
           ],
           "evidenceFacts": [
-            "chapters/canon-ch-01#1",
-            "chapters/canon-ch-22#0"
+            "chapters/canon-ch-01#1"
           ]
         },
         "extensions": {}
@@ -187,11 +186,11 @@
       "errorClass": "none",
       "expectGroundCheck": "pass",
       "expectVerdict": "entailed",
-      "note": "Clean card: ch-07#0 places the assignment at the first patrol, ch-07#1 gives the spear training.",
+      "note": "Clean card: ch-07#0 states the first-patrol assignment to the eastern wall under Brask, ch-07#1 states the short-spear teaching. The window opens at the first patrol and closes at the start of the siege, so it does not imply service through the fall.",
       "card": {
         "schemaVersion": 3,
         "id": "fdt.relationship.mara-and-brask",
-        "title": "Mara serves under Sergeant Brask",
+        "title": "Mara's first patrol under Sergeant Brask",
         "kind": "character_state",
         "category": "relationship",
         "relevance": "normal",
@@ -207,12 +206,12 @@
         "context": {
           "scope": "window",
           "validFromAnchor": "fdt.book1.first_patrol",
-          "validToAnchor": "fdt.book1.fall_of_ravenhold",
+          "validToAnchor": "fdt.book1.siege_begins",
           "sortKeyFrom": 1300,
-          "sortKeyTo": 2800,
+          "sortKeyTo": 2000,
           "precision": "anchor_window",
           "windowKind": "bounded",
-          "label": "Book 1: Mara's first patrol to Book 1: The fall of Ravenhold"
+          "label": "Book 1: Mara's first patrol to Book 1: The siege of Ravenhold begins"
         },
         "scope": {
           "characters": [
@@ -248,8 +247,8 @@
           }
         },
         "content": {
-          "fact": "From her first patrol, Mara serves on the eastern wall under Sergeant Odo Brask, who teaches her to fight with a short spear.",
-          "injection": "Treat Sergeant Odo Brask as Mara's patrol sergeant on the eastern wall; she fights with the short spear he taught her rather than a sword.",
+          "fact": "Mara is assigned to her first patrol on the eastern wall under Sergeant Odo Brask, who teaches her to fight with a short spear rather than a sword.",
+          "injection": "Treat Sergeant Odo Brask as the sergeant Mara is assigned under for her first patrol on the eastern wall, where he teaches her to fight with a short spear rather than a sword.",
           "constraints": [],
           "antiLore": [],
           "notes": ""
@@ -277,7 +276,7 @@
       "errorClass": "none",
       "expectGroundCheck": "pass",
       "expectVerdict": "entailed",
-      "note": "Clean secret-reveal card: ch-14#0 gives the oath, ch-14#2 places the reveal at the Chapter 14 pact-mark exposure, which is the gate.",
+      "note": "Clean secret-reveal card: ch-14#0 gives the oath and when it was sworn, ch-14#2 places the reveal at the Chapter 14 pact-mark exposure, which is the gate. The card is private.",
       "card": {
         "schemaVersion": 3,
         "id": "fdt.secret.sethe-ashen-pact",
@@ -339,10 +338,8 @@
         },
         "content": {
           "fact": "Warden Sethe secretly swore to the Ashen Pact before Book 1; the oath is revealed when his pact-mark is exposed during the siege.",
-          "injection": "Once his pact-mark has been exposed during the siege, treat Warden Sethe as a known oath-sworn agent of the Ashen Pact.",
-          "constraints": [
-            "Before the pact-mark is exposed, nobody at Ravenhold knows of the oath."
-          ],
+          "injection": "Once his pact-mark has been exposed during the siege, treat Warden Sethe as known to have secretly sworn to the Ashen Pact before Book 1.",
+          "constraints": [],
           "antiLore": [],
           "notes": ""
         },
@@ -369,7 +366,7 @@
       "errorClass": "none",
       "expectGroundCheck": "pass",
       "expectVerdict": "entailed",
-      "note": "Clean event card: ch-22#1 and #2 state both halves, and the gate opens at the fall, where they place them.",
+      "note": "Clean event card: ch-22#0 names the fall of Ravenhold Keep, ch-22#1 and #2 state both halves of the claim, and the gate opens at the fall, where they place them.",
       "card": {
         "schemaVersion": 3,
         "id": "fdt.event.fall-of-ravenhold-escape",
@@ -448,6 +445,7 @@
             "chapters/canon-ch-22"
           ],
           "evidenceFacts": [
+            "chapters/canon-ch-22#0",
             "chapters/canon-ch-22#1",
             "chapters/canon-ch-22#2"
           ]
@@ -1314,6 +1312,10 @@
       "errorClass": "wrong-record",
       "expectGroundCheck": "pass",
       "expectVerdict": "unsupported",
+      "acceptVerdicts": [
+        "unsupported",
+        "partial"
+      ],
       "note": "The claim is in ch-22#1, but the card cites ch-07#0 (Brask as patrol sergeant), which says nothing about his death.",
       "card": {
         "schemaVersion": 3,
@@ -1571,6 +1573,10 @@
       "errorClass": "unsupported-fact",
       "expectGroundCheck": "pass",
       "expectVerdict": "unsupported",
+      "acceptVerdicts": [
+        "unsupported",
+        "partial"
+      ],
       "note": "Invented relationship. ch-14#1 says Mara was taken on as an apprentice on the Pact's orders, nothing about parentage.",
       "card": {
         "schemaVersion": 3,
@@ -1745,7 +1751,7 @@
       "errorClass": "embellished-injection",
       "expectGroundCheck": "pass",
       "expectVerdict": "partial",
-      "note": "content.fact matches ch-01#0, but content.injection adds that she is a natural sword prodigy, which no cited fact states.",
+      "note": "content.fact matches ch-01#0 and the window matches control-mara-conscript, but content.injection adds that she is a natural sword prodigy, which no cited fact states.",
       "card": {
         "schemaVersion": 3,
         "id": "fdt.character.mara-venn-arrival",
@@ -1765,11 +1771,12 @@
         "context": {
           "scope": "window",
           "validFromAnchor": "fdt.book1.opening",
+          "validToAnchor": "fdt.book1.first_patrol",
           "sortKeyFrom": 1000,
-          "sortKeyTo": 3000,
+          "sortKeyTo": 1300,
           "precision": "anchor_window",
           "windowKind": "bounded",
-          "label": "From Book 1: Mara arrives at Ravenhold"
+          "label": "Book 1: Mara arrives at Ravenhold to Book 1: Mara's first patrol"
         },
         "scope": {
           "characters": [
@@ -1801,7 +1808,7 @@
         },
         "content": {
           "fact": "Mara Venn is a 17-year-old conscript with no prior combat training.",
-          "injection": "Treat Mara Venn as an untrained 17-year-old conscript who is nonetheless a natural sword prodigy, quickly outfighting the older recruits.",
+          "injection": "Treat Mara Venn as a 17-year-old conscript with no prior combat training who is nonetheless a natural sword prodigy, quickly outfighting the older recruits.",
           "constraints": [],
           "antiLore": [],
           "notes": ""

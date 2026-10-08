@@ -147,22 +147,23 @@ Add `tools/scripts/test-loredeck-grounding-eval.mjs` with fixtures under `tools/
 - `tools/scripts/test-loredeck-grounding-eval.mjs` is the CI layer.
 - `tools/scripts/loredeck-grounding-eval-model.mjs` is the model layer. Run `--prepare [--variant a|b]`, then `--score`.
 - Variant `a` is the current `agents/grounding-verify.md`. Variant `b` appends a "common mistakes" list that names the anti-patterns (`variant-b-addendum.md`).
+- The model layer builds its project (`founding-trilogy`) and briefs outside the repo, under `$LOREDECK_GROUNDING_EVAL_DIR` (default `<os.tmpdir()>/loredeck-grounding-eval`). The manifest and score files go in the sibling `<dir>-results`, so a checker browsing the workshop never reaches the case labels.
+- A case may list `acceptVerdicts` when two verdicts are defensible. Exact-verdict accuracy counts any of them; catch rate is unchanged.
 - The fixture README describes the manual loop and the report format. A missing findings file counts as "not run" and is not scored as a failure.
 
 ### 5.1 Baseline results
 
-> **NOT YET RUN.** The model layer has not been run. Card-batch briefs (`brief --role grounding-verify --file`, ticket #13) must exist before `--prepare` can render them. Until this section has numbers, O2 stays at "surface only".
+Record every run with the numbers `--score` prints, and note the commit and checker model for each run below the table.
 
-For each run, record the date, the commit, the checker model, and the variant. Use the numbers that `--score` prints.
+**Runs**
 
-| Date | Commit | Model | Variant | Catch rate (≥85%) | False-alarm rate (≤10%) | Exact verdict | Not run / invalid | Result |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| — | — | — | a (current template) | not yet run | not yet run | not yet run | — | — |
-| — | — | — | b (names anti-examples) | not yet run | not yet run | not yet run | — | — |
+| Variant | Date | Catch (≥85%) | False-alarm (≤10%) | Exact |
+| --- | --- | --- | --- | --- |
 
 Reading the result:
 
 - There are only 5 controls, so a single false alarm is 20%. That alone fails the ≤10% target. Run each variant at least twice before revisiting O2.
+- Variant b tests naming the anti-patterns, not new rules: its addendum restates the existing verdict rules with generic examples and changes no verdict definition.
 - The A/B result shows whether naming anti-examples helps the checker. Compare catch rate within each error class. Also check whether variant b's misses cluster on the named patterns, which is the §2 hypothesis.
 
 ## 6. Non-goals
