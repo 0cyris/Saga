@@ -24,6 +24,21 @@ import {
 
 const STAGES = ['brief', 'evidence', 'plan', 'titles', 'cards', 'final'];
 
+/**
+ * Summary of the grounding checker's findings for one stage (titles|cards),
+ * from reviews/audit/grounding.<deck>.<stage>.*.json across every deck, or ''
+ * when none exist, so the artifact stays unchanged until the checker runs.
+ */
+async function buildGroundingFindingsSummary(state, projectDir, stage) {
+    const findings = [];
+    for (const deck of state.decks || []) {
+        findings.push(...await loadFindingsFiles(projectDir, { prefix: `grounding.${deck.deckId}.${stage}.`, role: 'grounding-verify' }));
+    }
+    const uniqueFindings = [...new Map(findings.map(entry => [entry.file, entry])).values()]
+        .sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
+    return summarizeFindings(uniqueFindings, { title: 'Grounding checker findings', okVerdicts: ['entailed'] });
+}
+
 export async function runReport({ positionals, flags }) {
     const [projectId] = positionals;
     const stage = String(flags.stage || '');
@@ -56,20 +71,17 @@ export async function runReport({ positionals, flags }) {
         const groundCheck = await runGroundCheck({ stage: 'titles', state, projectDir });
         // Grounding-verifier findings (reviews/audit/grounding.<deck>.titles.<batch>.json),
         // across every deck. Advisory only; '' when no findings file exists.
-        const findings = [];
-        for (const deck of state.decks || []) {
-            findings.push(...await loadFindingsFiles(projectDir, { prefix: `grounding.${deck.deckId}.titles.`, role: 'grounding-verify' }));
-        }
-        const uniqueFindings = [...new Map(findings.map(entry => [entry.file, entry])).values()]
-            .sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
-        const findingsSummary = summarizeFindings(uniqueFindings, { title: 'Grounding checker findings', okVerdicts: ['entailed'] });
+        const findingsSummary = await buildGroundingFindingsSummary(state, projectDir, 'titles');
         const { markdown, issues } = buildTitlesArtifact(state, groundCheck, { findingsSummary });
         await writeTextFile(outPath, markdown);
         extra = { groundingIssues: issues.length };
     } else if (stage === 'cards') {
         const accepted = await acceptedEvidenceKeys(projectDir);
         const groundCheck = await runGroundCheck({ stage: 'cards', state, projectDir });
-        const { markdown, duplicates, unbacked, crossDeckCitations, groundingIssues } = await buildCardsArtifact(state, projectDir, accepted, groundCheck);
+        // Grounding-verifier findings (reviews/audit/grounding.<deck>.cards.<file>.json),
+        // across every deck. Advisory only; '' when no findings file exists.
+        const findingsSummary = await buildGroundingFindingsSummary(state, projectDir, 'cards');
+        const { markdown, duplicates, unbacked, crossDeckCitations, groundingIssues } = await buildCardsArtifact(state, projectDir, accepted, groundCheck, { findingsSummary });
         await writeTextFile(outPath, markdown);
         extra = { duplicates: duplicates.length, unbacked: unbacked.length, crossDeckCitations: crossDeckCitations.length, groundingIssues: groundingIssues.length };
         if (flags.verbose) {

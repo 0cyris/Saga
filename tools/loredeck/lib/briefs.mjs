@@ -466,27 +466,89 @@ async function buildEvidenceAuditContext({ state, deck, projectDir, selectors })
 /* ---- Role: grounding-verify ---- */
 // A clean-context check: the prompt carries only file paths, the verdict
 // rules and the findings shape -- never orchestrator commentary or drafting
-// rationale. --batch selects a title batch; --file (an entry-file stem) is
-// reserved for card batches.
+// rationale. --batch selects a title batch; --file <category>/<topic-stem>
+// selects a card batch (one entry file in drafts/<deck>/). One template
+// serves both kinds; the per-kind wording below fills its placeholders.
 export const GROUNDING_VERDICTS = ['entailed', 'partial', 'unsupported', 'timing-mismatch'];
 
-async function buildTitlesGroundingContext({ state, deck, projectDir, batchId: requestedId }) {
-    const batch = await findTitleBatch(projectDir, deck.deckId, requestedId);
-    // Findings are named by the canonical id, the key report --stage titles uses.
-    const batchId = batch.batchId;
-    const titles = batch.json.titles;
+const GROUNDING_KINDS = {
+    titles: {
+        batchLabel: 'title batch',
+        itemNoun: 'title',
+        itemNounPlural: 'titles',
+        pointerField: '`support`',
+        batchIntro: 'A title batch proposes Lorecards to draft. Each title states a `gateIntent`: a claim about what the card covers and when in the story it may appear. Each title also cites the evidence facts that are meant to back that claim.',
+        itemFields: [
+            '- `id`: the title\'s id. It is the `ref` of your finding.',
+            '- `gateIntent`: the claim you are checking.',
+            '- `support`: the fact pointers that back the claim.',
+            '- `evidenceRefs`: the records (`<scope>/<recordId>`) the title draws on.',
+        ].join('\n'),
+        judgeFieldsRule: 'Judge only `id`, `gateIntent`, `support` and `evidenceRefs`; ignore any other batch fields.',
+        checkSteps: [
+            '1. Resolve each `support` pointer and read the fact it names, word for word.',
+            '2. Decide whether those facts, taken together, entail the `gateIntent` claim: every person, event, relationship, and status the claim asserts is stated in them.',
+            '3. Decide whether the timing matches. When the `gateIntent` says when the card becomes eligible (from the opening, after a given chapter, during an arc, before a reveal), the facts must place the thing at that same point in the story.',
+            '4. Give exactly one verdict.',
+        ].join('\n'),
+        verdictRules: [
+            '- `entailed`: the cited facts state everything the claim asserts, and any timing in the claim matches the timing they describe.',
+            '- `partial`: the cited facts back part of the claim, and some other part of it is not stated in them.',
+            '- `unsupported`: the cited facts do not back the claim. This includes a pointer that names no fact (an unknown record, or an index past the end of `facts[]`) and a title with no `support`.',
+            '- `timing-mismatch`: the cited facts back what the claim describes, and they place it at a different point in the story than the claim\'s gate does.',
+        ].join('\n'),
+        noteExample: 'chapters/example-ch-14#0 says "<quoted fact text>", which places this in chapter 14, not chapter 12.',
+    },
+    cards: {
+        batchLabel: 'card batch',
+        itemNoun: 'card',
+        itemNounPlural: 'cards',
+        pointerField: '`sourceInfo.evidenceFacts`',
+        batchIntro: 'A card batch is one entry file of drafted Lorecards. Each card states a claim in `content.fact` and `content.injection`, and a timing in its `context` window and `revealPolicy`: when in the story the card may be used, and what it may reveal. Each card also cites the evidence facts that are meant to back that claim and that timing.',
+        itemFields: [
+            '- `id`: the card\'s id. It is the `ref` of your finding.',
+            '- `content.fact` and `content.injection`: the claim you are checking. Both must be backed.',
+            '- `context`: the card\'s story window. `validFromAnchor` and `validToAnchor` are anchor ids in the deck\'s `timeline.json`; `label`, `sortKeyFrom` and `sortKeyTo` describe the same window.',
+            '- `revealPolicy`: what the card lets the story reveal, and when (`public`, `private`, `do_not_reveal`, `only_if_knower_present`, `only_if_user_reveals`).',
+            '- `sourceInfo.evidenceFacts`: the fact pointers that back the claim.',
+            '- `sourceInfo.evidenceRefs`: the records (`<scope>/<recordId>`) the card draws on.',
+        ].join('\n'),
+        judgeFieldsRule: 'Judge only `id`, `content.fact`, `content.injection`, `context`, `revealPolicy`, `sourceInfo.evidenceFacts` and `sourceInfo.evidenceRefs`; ignore any other entry fields.',
+        checkSteps: [
+            '1. Resolve each `sourceInfo.evidenceFacts` pointer and read the fact it names, word for word.',
+            '2. Decide whether those facts, taken together, entail `content.fact` and `content.injection`: every person, event, relationship, and status either one asserts is stated in them.',
+            '3. Resolve `context.validFromAnchor` and `context.validToAnchor` to their anchor labels in `timeline.json`, and decide whether the window matches the timing the facts describe: the window opens no earlier than the story point where the facts place the thing.',
+            '4. Decide whether the `revealPolicy` matches that timing: when the facts place a reveal later than the window opens, the card keeps that reveal behind `private`, `do_not_reveal`, `only_if_knower_present` or `only_if_user_reveals`, and a `public` card states only what the facts place inside its window.',
+            '5. Give exactly one verdict.',
+        ].join('\n'),
+        verdictRules: [
+            '- `entailed`: the cited facts state everything `content.fact` and `content.injection` assert, and the context window and reveal policy match the timing those facts describe.',
+            '- `partial`: the cited facts back part of `content.fact` or `content.injection`, and some other part of either one is not stated in them.',
+            '- `unsupported`: the cited facts do not back the claim. This includes a pointer that names no fact (an unknown record, or an index past the end of `facts[]`) and a card with no `sourceInfo.evidenceFacts`.',
+            '- `timing-mismatch`: the cited facts back what the card says, and the context window opens before the story point those facts describe, or the reveal policy exposes something the facts place later than the window.',
+        ].join('\n'),
+        noteExample: 'chapters/example-ch-14#0 says "<quoted fact text>", which places this in chapter 14, but the window opens at anchor example.ch_12 ("Chapter 12").',
+    },
+};
 
-    // Every record a title cites, through support pointers or evidenceRefs.
-    // Malformed pointers are listed for the checker rather than dropped.
+/**
+ * Collects the evidence a list of items cites through fact pointers
+ * (`pointersOf`) and record refs (`refsOf`). Malformed pointers are kept for
+ * the checker rather than dropped. Returns sorted absolute evidence paths,
+ * the cited keys no evidence file holds, and the malformed pointers.
+ */
+async function collectCitedEvidence(projectDir, items, { pointersOf, refsOf }) {
     const citedKeys = new Set();
     const malformedPointers = [];
-    for (const title of titles) {
-        for (const pointer of Array.isArray(title?.support) ? title.support : []) {
+    for (const item of items) {
+        const pointers = pointersOf(item);
+        for (const pointer of Array.isArray(pointers) ? pointers : []) {
             const parsed = parseFactPointer(pointer);
             if (parsed.ok) citedKeys.add(parsed.key);
-            else malformedPointers.push({ pointer: typeof pointer === 'string' ? pointer : JSON.stringify(pointer), titleId: String(title?.id || '').trim() });
+            else malformedPointers.push({ pointer: typeof pointer === 'string' ? pointer : JSON.stringify(pointer), itemId: String(item?.id || '').trim() });
         }
-        for (const ref of Array.isArray(title?.evidenceRefs) ? title.evidenceRefs : []) {
+        const refs = refsOf(item);
+        for (const ref of Array.isArray(refs) ? refs : []) {
             if (typeof ref === 'string' && ref.trim()) citedKeys.add(ref.trim());
         }
     }
@@ -498,59 +560,148 @@ async function buildTitlesGroundingContext({ state, deck, projectDir, batchId: r
         foundKeys.add(record.key);
         evidenceFiles.add(record.file);
     }
-    const missingKeys = [...citedKeys].filter(key => !foundKeys.has(key)).sort();
-    const evidencePaths = [...evidenceFiles].sort().map(rel => path.join(projectDir, ...rel.split('/')));
-
-    const outputFileRel = `${AUDIT_DIR_REL}/grounding.${deck.deckId}.titles.${batchId}.json`;
-    const findingsExample = JSON.stringify({
-        schemaVersion: 1,
-        role: 'grounding-verify',
-        target: batch.rel,
-        findings: [
-            { ref: '<title id>', verdict: 'entailed', note: '' },
-            { ref: '<title id>', verdict: 'timing-mismatch', note: 'chapters/example-ch-14#0 says "<quoted fact text>", which places this in chapter 14, not chapter 12.' },
-        ],
-    }, null, 2);
-    const titleIds = titles.map(title => String(title?.id || '').trim() || '(a title with no id: use its `title` text as the ref)');
-
     return {
-        output: outputFileRel,
-        context: {
-            projectId: state.projectId,
-            deckId: deck.deckId,
-            batchId,
-            batchFile: batch.fullPath,
-            batchFileRel: batch.rel,
-            projectDir,
-            titleCount: titles.length,
-            titleIds: titleIds.length ? bulletList(titleIds, { code: true }) : '- (the batch has no titles)',
-            evidenceFiles: evidencePaths.length ? bulletList(evidencePaths, { code: true }) : '- (no cited record was found in any evidence file)',
-            missingRecords: describeMissingRecords(missingKeys, malformedPointers),
-            outputFile: path.join(projectDir, ...outputFileRel.split('/')),
-            outputFileRel,
-            findingsExample,
-            returnWroteExample: outputFileRel,
-            returnCountsExample: `{"titles":${titles.length},"flagged":0}`,
-            returnCountsNote: '`titles` is the number of findings you wrote (one per title); `flagged` is how many of them are not `entailed`.',
-            returnFlagsNote: '`unreadable-file:<path>` for a listed file you could not read.',
-        },
+        evidencePaths: [...evidenceFiles].sort().map(rel => path.join(projectDir, ...rel.split('/'))),
+        missingKeys: [...citedKeys].filter(key => !foundKeys.has(key)).sort(),
+        malformedPointers,
     };
 }
 
-function describeMissingRecords(missingKeys, malformedPointers) {
+/** Context shared by both kinds, from a kind spec, the batch, its items and its cited evidence. */
+function groundingContext({ kind, state, deck, projectDir, batchId, batchFile, batchFileRel, items, cited, outputFileRel, extraFiles = '' }) {
+    const spec = GROUNDING_KINDS[kind];
+    const findingsExample = JSON.stringify({
+        schemaVersion: 1,
+        role: 'grounding-verify',
+        target: batchFileRel,
+        findings: [
+            { ref: `<${spec.itemNoun} id>`, verdict: 'entailed', note: '' },
+            { ref: `<${spec.itemNoun} id>`, verdict: 'timing-mismatch', note: spec.noteExample },
+        ],
+    }, null, 2);
+    const itemIds = items.map(item => String(item?.id || '').trim() || `(a ${spec.itemNoun} with no id: use its \`title\` text as the ref)`);
+    return {
+        projectId: state.projectId,
+        deckId: deck.deckId,
+        batchId,
+        batchLabel: spec.batchLabel,
+        batchIntro: spec.batchIntro,
+        itemNoun: spec.itemNoun,
+        itemNounPlural: spec.itemNounPlural,
+        itemFields: spec.itemFields,
+        judgeFieldsRule: spec.judgeFieldsRule,
+        checkSteps: spec.checkSteps,
+        verdictRules: spec.verdictRules,
+        batchFile,
+        batchFileRel,
+        projectDir,
+        itemCount: items.length,
+        itemIds: itemIds.length ? bulletList(itemIds, { code: true }) : `- (the batch has no ${spec.itemNounPlural})`,
+        evidenceFiles: cited.evidencePaths.length ? bulletList(cited.evidencePaths, { code: true }) : '- (no cited record was found in any evidence file)',
+        missingRecords: describeMissingRecords(cited.missingKeys, cited.malformedPointers, spec),
+        extraFiles,
+        outputFile: path.join(projectDir, ...outputFileRel.split('/')),
+        outputFileRel,
+        findingsExample,
+        returnWroteExample: outputFileRel,
+        returnCountsExample: `{"${spec.itemNounPlural}":${items.length},"flagged":0}`,
+        returnCountsNote: `\`${spec.itemNounPlural}\` is the number of findings you wrote (one per ${spec.itemNoun}); \`flagged\` is how many of them are not \`entailed\`.`,
+        returnFlagsNote: '`unreadable-file:<path>` for a listed file you could not read.',
+    };
+}
+
+async function buildTitlesGroundingContext({ state, deck, projectDir, batchId: requestedId }) {
+    const batch = await findTitleBatch(projectDir, deck.deckId, requestedId);
+    // Findings are named by the canonical id, the key report --stage titles uses.
+    const batchId = batch.batchId;
+    const titles = batch.json.titles;
+    const cited = await collectCitedEvidence(projectDir, titles, {
+        pointersOf: title => title?.support,
+        refsOf: title => title?.evidenceRefs,
+    });
+    const outputFileRel = `${AUDIT_DIR_REL}/grounding.${deck.deckId}.titles.${batchId}.json`;
+    return {
+        output: outputFileRel,
+        context: groundingContext({
+            kind: 'titles', state, deck, projectDir, batchId,
+            batchFile: batch.fullPath,
+            batchFileRel: batch.rel,
+            items: titles,
+            cited,
+            outputFileRel,
+        }),
+    };
+}
+
+/**
+ * Findings path for one card batch: the entry file's path under drafts/<deck>/,
+ * minus .json, with / replaced by . (spec §9), so category folders never collide.
+ */
+export function cardGroundingOutputRel(deckId, fileStem) {
+    return `${AUDIT_DIR_REL}/grounding.${deckId}.cards.${fileStem.split('/').join('.')}.json`;
+}
+
+async function buildCardsGroundingContext({ state, deck, projectDir, file }) {
+    const fileStem = parseDraftFileSelector(file);
+    const deckDirRel = `drafts/${deck.deckId}`;
+    const entryFileRel = `${deckDirRel}/${fileStem}.json`;
+    const absolute = relPath => path.join(projectDir, ...relPath.split('/'));
+    const entryFile = absolute(entryFileRel);
+    if (!await pathExists(entryFile)) {
+        throw new Error(`No entry file at ${entryFileRel}. The grounding checker reads an existing card batch: pass --file with the <category>/<topic-stem> of an entry file in ${deckDirRel}/.`);
+    }
+    let json = null;
+    try {
+        json = JSON.parse(await readFile(entryFile, 'utf8'));
+    } catch (error) {
+        throw new Error(`${entryFileRel} is not valid JSON (${error?.message || error}). Fix it, then render the brief again.`);
+    }
+    // The same shapes collectCardItems/readDeckEntries accept.
+    const cards = Array.isArray(json) ? json : json?.entries;
+    if (!Array.isArray(cards)) {
+        throw new Error(`${entryFileRel} has no entries array. Fix it, then render the brief again.`);
+    }
+    const cited = await collectCitedEvidence(projectDir, cards, {
+        pointersOf: card => card?.sourceInfo?.evidenceFacts,
+        refsOf: card => card?.sourceInfo?.evidenceRefs,
+    });
+
+    const timelineRel = `${deckDirRel}/timeline.json`;
+    const timelineLine = `- \`${absolute(timelineRel)}\` (project-relative: \`${timelineRel}\`)`;
+    const extraFiles = await pathExists(absolute(timelineRel))
+        ? `The deck's timeline, read-only, to resolve each card's \`context.validFromAnchor\` and \`context.validToAnchor\` to an anchor label:\n\n${timelineLine}\n\n`
+        : `The deck's timeline belongs at the path below, and that file does not exist yet, so no anchor id resolves to a label. Judge each window from its \`context.label\` and the anchor ids as written:\n\n${timelineLine}\n\n`;
+
+    const outputFileRel = cardGroundingOutputRel(deck.deckId, fileStem);
+    return {
+        output: outputFileRel,
+        context: groundingContext({
+            kind: 'cards', state, deck, projectDir,
+            batchId: fileStem,
+            batchFile: entryFile,
+            batchFileRel: entryFileRel,
+            items: cards,
+            cited,
+            outputFileRel,
+            extraFiles,
+        }),
+    };
+}
+
+function describeMissingRecords(missingKeys, malformedPointers, spec) {
     const blocks = [];
     if (missingKeys.length) {
         blocks.push(`These cited records are not in any evidence file, so no fact backs a claim that relies on them:\n\n${bulletList(missingKeys, { code: true })}`);
     }
     if (malformedPointers.length) {
-        blocks.push(`These support pointers are not of the form \`<scope>/<recordId>#<factIndex>\`, so each one names no fact:\n\n${malformedPointers.map(({ pointer, titleId }) => `- \`${pointer}\` in ${titleId ? `\`${titleId}\`` : 'a title with no id'}: names no fact`).join('\n')}`);
+        blocks.push(`These ${spec.pointerField} pointers are not of the form \`<scope>/<recordId>#<factIndex>\`, so each one names no fact:\n\n${malformedPointers.map(({ pointer, itemId }) => `- \`${pointer}\` in ${itemId ? `\`${itemId}\`` : `a ${spec.itemNoun} with no id`}: names no fact`).join('\n')}`);
     }
     return blocks.length ? blocks.join('\n\n') : 'Every record the batch cites is in one of the files above.';
 }
 
 async function buildGroundingVerifyContext({ state, deck, projectDir, selectors }) {
     if (selectors.batch && selectors.file) {
-        throw new Error('Role grounding-verify takes either --batch <title-batch-id> or --file <entry-file stem>, not both.');
+        throw new Error('Role grounding-verify takes either --batch <title-batch-id> or --file <category>/<topic-stem>, not both.');
     }
     const kind = selectors.batch ? 'titles' : (selectors.file ? 'cards' : '');
     switch (kind) {
@@ -561,9 +712,9 @@ async function buildGroundingVerifyContext({ state, deck, projectDir, selectors 
         return buildTitlesGroundingContext({ state, deck, projectDir, batchId: selectors.batch });
     }
     case 'cards':
-        throw new Error('grounding-verify for card batches (--file <entry-file stem>) is not yet supported. Use --batch <title-batch-id> to check a title batch.');
+        return buildCardsGroundingContext({ state, deck, projectDir, file: selectors.file });
     default:
-        throw new Error('Role grounding-verify requires --batch <title-batch-id>.');
+        throw new Error('Role grounding-verify requires --batch <title-batch-id> (a title batch) or --file <category>/<topic-stem> (a card batch).');
     }
 }
 

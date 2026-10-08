@@ -37,18 +37,18 @@ One card = one job: a fact, state, constraint, reveal, relationship, rule, event
 
 `--json` prints `{ ok, stage, deck, checked, issues: [{ deck, kind, itemId, batch, pointer, problem, detail }] }` (`kind` is `title` or `card`). A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent`, and `report --stage cards` each card's `content.fact` and `content.injection`, next to the fact strings its pointers resolve to.
 
-**The grounding checker** makes that judgment call for titles. It is a read-only subagent with a clean context: it sees the batch file and the evidence files it cites, never the drafting history. Render its prompt with `brief <id> --role grounding-verify --deck D --batch B` (on Claude Code, dispatch it as the `loredeck-grounding-verifier` agent). For each title it decides whether the `support` facts entail the `gateIntent` and whether the gate timing matches the timing those facts describe, and writes one finding per title to `reviews/audit/grounding.<deck>.titles.<batch>.json`:
+**The grounding checker** makes that judgment call for titles and cards. It is a read-only subagent with a clean context: it sees the batch file and the evidence files it cites (for cards, also the deck's `timeline.json`), never the drafting history. Render its prompt with `brief <id> --role grounding-verify --deck D --batch B` for a title batch, or `--file <category>/<topic-stem>` for a card batch (one entry file in `drafts/<D>/`); on Claude Code, dispatch it as the `loredeck-grounding-verifier` agent. For each title it decides whether the `support` facts entail the `gateIntent` and whether the gate timing matches the timing those facts describe, and writes one finding per title to `reviews/audit/grounding.<deck>.titles.<batch>.json`. For each card it decides whether the `sourceInfo.evidenceFacts` facts entail `content.fact` and `content.injection`, and whether the context window and reveal policy match the timing those facts describe, and writes one finding per card to `reviews/audit/grounding.<deck>.cards.<category>.<topic-stem>.json`:
 
-| Verdict | Meaning |
-| --- | --- |
-| `entailed` | the cited facts state everything the claim asserts, at the timing it gives |
-| `partial` | the facts back part of the claim; the rest is not in them |
-| `unsupported` | the facts do not back the claim (including pointers that name no fact) |
-| `timing-mismatch` | the facts back the claim but place it at a different story point than the gate |
+| Verdict | Titles | Cards |
+| --- | --- | --- |
+| `entailed` | the cited facts state everything the claim asserts, at the timing it gives | the fact and injection are both backed, and the context window and reveal policy match the facts' timing |
+| `partial` | the facts back part of the claim; the rest is not in them | some of the fact or injection is not in the cited facts |
+| `unsupported` | the facts do not back the claim (including pointers that name no fact) | the facts do not back it, a pointer names no fact, or the card has no `evidenceFacts` |
+| `timing-mismatch` | the facts back the claim but place it at a different story point than the gate | backed, but the context window opens before the story point the facts describe, or the reveal policy exposes something the facts place later |
 
-Every non-`entailed` finding carries a `note` quoting the fact text it relied on. Findings are advisory in v1: they never block `gate approve`, but resolve each one (fix the title, or keep it and say why) before presenting.
+Every non-`entailed` finding carries a `note` quoting the fact text it relied on. Findings are advisory in v1: they never block `gate approve`, but resolve each one (fix the title or card, or keep it and say why) before presenting.
 
-Spot-check before every titles/cards gate: run `ground check --stage titles|cards` first and fix every issue. For titles, then run the grounding checker, resolve its findings, and read a sample of claims against their resolved facts in the titles artifact. For cards, read each claim against its resolved facts in the cards artifact and confirm the fact actually says what the claim says, not just that the pointer resolves.
+Spot-check before every titles/cards gate: run `ground check --stage titles|cards` first and fix every issue. Then run the grounding checker (per title batch, or per card entry file), resolve its findings, and read a sample of claims against their resolved facts in the titles or cards artifact, confirming the fact actually says what the claim says, not just that the pointer resolves.
 
 ## Required and expected entry fields (schema v3)
 
