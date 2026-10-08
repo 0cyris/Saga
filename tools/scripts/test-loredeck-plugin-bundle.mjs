@@ -11,15 +11,15 @@
  *      deck via the vendored health engine.
  *   3. build-skill-file.mjs packages the bundle into a well-formed .skill zip
  *      containing the expected top-level entries.
- *   4. `brief` finds its role templates from both the plugin layout and the
- *      unpacked .skill layout.
+ *   4. `brief` finds its role templates (and the draft role its schema doc)
+ *      from both the plugin layout and the unpacked .skill layout.
  */
 
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readZipArchive } from '../../src/loredecks/loredeck-package-zip.js';
 
 const repoRoot = path.resolve(fileURLToPath(new URL('.', import.meta.url)), '..', '..');
@@ -114,6 +114,13 @@ function assertBriefRenders(wrapperPath, label) {
   const brief = run(process.execPath, [wrapperPath, 'brief', 'bundle-canon', '--role', 'research', '--deck', 'bundle-canon', '--scope', 'chapters'], env);
   assert.equal(brief.status, 0, `${label}: brief failed: ${brief.stderr}`);
   assert.ok(brief.stdout.includes('## Return format') && brief.stdout.includes('"records"'), `${label}: brief output is incomplete.`);
+  // The draft brief names the schema doc by absolute path: docs/ next to cli/.
+  const briefsModule = path.join(path.dirname(wrapperPath), 'loredeck', 'lib', 'briefs.mjs');
+  const schemaDoc = run(process.execPath, ['--input-type=module', '-e',
+    `const m = await import(${JSON.stringify(pathToFileURL(briefsModule).href)}); console.log(await m.resolveSchemaDoc());`]);
+  assert.equal(schemaDoc.status, 0, `${label}: resolveSchemaDoc failed: ${schemaDoc.stderr}`);
+  assert.equal(schemaDoc.stdout.trim(), path.resolve(path.dirname(wrapperPath), '..', 'docs', 'SAGA_LOREDECK_SCHEMA.md'),
+    `${label}: the schema doc should resolve to the bundle's docs/.`);
   rmSync(workshop, { recursive: true, force: true });
 }
 assertBriefRenders(path.join(pluginRoot, 'cli', 'loredeck-plugin.mjs'), 'plugin');

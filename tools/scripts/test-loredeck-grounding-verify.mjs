@@ -4,7 +4,8 @@
  * grounding-verify --batch B` renders a clean-context prompt (batch path,
  * sorted cited evidence files, pointer reading, verdicts, findings shape,
  * return contract), resolves a batch by file name or by batchId, rejects an
- * unknown batch, reports card batches as not yet supported, and
+ * unknown batch or one whose file name and batchId disagree, lists malformed
+ * support pointers as naming no fact, reports card batches as not yet supported, and
  * `report --stage titles` summarizes findings files when present while
  * staying byte-identical when none exist.
  */
@@ -149,6 +150,35 @@ assert.ok(byId.stdout.includes(path.join(batchDir, 'second.json')), 'batchId loo
 assert.ok(byId.stdout.includes(`reviews/audit/grounding.${deckId}.titles.batch-2.json`));
 assert.ok(byId.stdout.includes('Every record the batch cites is in one of the files above.'));
 
+assert.ok(prompt.includes('The factIndex is the digits after the last `#`; a recordId may itself contain `#`.'), 'The prompt should say how to split a pointer.');
+assert.ok(prompt.includes('Judge only `id`, `gateIntent`, `support` and `evidenceRefs`; ignore any other batch fields.'), 'The prompt should name the fields to judge.');
+assert.ok(prompt.includes('If the findings file already exists, read it first, then replace it entirely.'), 'The prompt should say to replace an existing findings file.');
+
+// A file found by name must carry that batchId; findings use the canonical id.
+const byFileName = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'second');
+assert.equal(byFileName.code, 1);
+assert.match(byFileName.stderr, /plans\/title-batches\/verify-core\/second\.json has batchId batch-2; pass --batch batch-2 \(file names and batchIds must agree\)/);
+
+// Malformed support pointers are listed as naming no fact, not dropped.
+await writeJson(path.join(batchDir, 'batch-3.json'), {
+    batchId: 'batch-3',
+    deckId,
+    titles: [{
+        id: 'canon.lore.bad-pointers',
+        title: 'Bad pointers',
+        category: 'lore',
+        gateIntent: 'Always eligible.',
+        evidenceRefs: ['chapters/canon-ch-01'],
+        support: ['chapters/canon-ch-01', 'chapters/canon-ch-01#first', 'chapters/canon-ch-01#0'],
+    }],
+});
+const malformed = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-3');
+assert.equal(malformed.code, 0, malformed.stderr);
+assert.ok(malformed.stdout.includes('- `chapters/canon-ch-01` in `canon.lore.bad-pointers`: names no fact'), 'A pointer with no index should be listed.');
+assert.ok(malformed.stdout.includes('- `chapters/canon-ch-01#first` in `canon.lore.bad-pointers`: names no fact'), 'A pointer with a non-numeric index should be listed.');
+assert.ok(!malformed.stdout.includes('Every record the batch cites is in one of the files above.'), 'Malformed pointers must not be reported as all-clear.');
+await rm(path.join(batchDir, 'batch-3.json'));
+
 // --- Errors ---
 const unknownBatch = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-9');
 assert.equal(unknownBatch.code, 1);
@@ -176,6 +206,7 @@ assert.match(traversal.stderr, /Invalid --batch/);
 
 // --- The agent file defers to the role template ---
 const agentFile = await readFile(path.join(repoRoot, '.claude', 'agents', 'loredeck-grounding-verifier.md'), 'utf8');
+assert.match(agentFile, /\nmaxTurns: 40\n/);
 assert.match(agentFile, /^---\nname: loredeck-grounding-verifier\n/);
 assert.match(agentFile, /\ntools: Read, Grep, Glob, Write\n/);
 assert.match(agentFile, /\nmodel: inherit\n/);

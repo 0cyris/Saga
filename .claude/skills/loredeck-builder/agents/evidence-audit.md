@@ -43,7 +43,7 @@ Give every fact exactly one verdict from {{verdicts}}:
 - `supported`: the source text states the fact. A fact that is already written as contested, naming the sources and what each one says, is `supported` when the sources say what it reports.
 - `unsupported`: the source does not state the fact, states something different, or could not be read for this fact. The note says what the source does say, or what you could not read.
 - `contested`: sources disagree about the fact, and the fact states one side as settled. The note names the sources and what each says.
-- `out-of-scope`: the fact falls outside the source range or the continuity boundary in the scope brief. The note says which boundary.
+- `out-of-scope`: the fact falls outside the source range or the continuity boundary in the scope brief, or it breaks the scope brief's spoiler philosophy. The note says which boundary.
 
 Also look at the text of each fact for signs that the source text was damaged on the way in: a sentence cut off at the end of a fetched page, or extraction noise from a PDF (broken ligatures, run-together words, stray symbols). Mention it in that fact's note, and raise `truncated-source:<url>` or `noisy-extraction:{{evidenceFileRel}}` in your return.
 
@@ -54,6 +54,8 @@ Write exactly one file, the findings file:
 - Path: `{{outputFile}}`
 - Project-relative path: `{{outputFileRel}}`
 - Project folder: `{{projectDir}}`
+
+If the findings file already exists, read it first, then replace it entirely.
 
 It has exactly this shape, with one finding per fact ({{factCount}} in all), in file order:
 

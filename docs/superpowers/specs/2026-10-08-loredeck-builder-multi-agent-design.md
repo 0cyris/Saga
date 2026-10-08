@@ -66,7 +66,7 @@ Every subagent's final message is one JSON object and nothing else:
 
 ### 3.4 New roles (structural)
 
-Both roles are read-only. Neither may edit files. Each returns a findings file through the contract above, and the orchestrator decides what to fix.
+Both roles are read-only. Neither may edit project files; each writes only its own findings file. Each returns a findings file through the contract above, and the orchestrator decides what to fix.
 
 **A. Evidence auditor** (Stage 2, after `evidence validate`, before the evidence gate)
 
@@ -88,9 +88,9 @@ Both roles are read-only. Neither may edit files. Each returns a findings file t
 
 Both roles run on **Claude Code** through `.claude/agents/loredeck-evidence-auditor.md` and `.claude/agents/loredeck-grounding-verifier.md`:
 
-- `tools: Read, Grep, Glob` (evidence auditor also gets `WebFetch`)
+- `tools: Read, Grep, Glob, Write` (evidence auditor also gets `WebFetch`). `Write` is for the one findings file only. The write restriction is by instruction (the agent file and the brief), not by the tool allowlist, which cannot limit `Write` to one path.
 - `model: inherit`
-- `maxTurns` sized to file count
+- `maxTurns` sized to file count (60 for the evidence auditor, 40 for the grounding verifier)
 
 Other runtimes use `brief --role ...` with a generic subagent. The plugin build copies the agent files when it's built as a plugin. The `.skill` bundle relies on `brief`.
 

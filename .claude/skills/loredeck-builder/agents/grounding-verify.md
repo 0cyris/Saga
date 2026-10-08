@@ -35,7 +35,10 @@ Each of the batch's {{titleCount}} titles has:
 - `id`: the title's id. It is the `ref` of your finding.
 - `gateIntent`: the claim you are checking.
 - `support`: fact pointers of the form `<scope>/<recordId>#<factIndex>`. `<scope>` is the evidence file's top-level `scope`, `<recordId>` is a record's `id` in that file, and `<factIndex>` is a 0-based index into that record's `facts[]`. So `chapters/canon-ch-14#0` is the first fact of the record with id `canon-ch-14` in the evidence file whose `scope` is `chapters`, and `#2` would be its third fact.
+  The factIndex is the digits after the last `#`; a recordId may itself contain `#`.
 - `evidenceRefs`: the records (`<scope>/<recordId>`) the title draws on.
+
+Judge only `id`, `gateIntent`, `support` and `evidenceRefs`; ignore any other batch fields.
 
 The titles in this batch, in order:
 
@@ -65,6 +68,8 @@ Write exactly one file, the findings file:
 
 - Path: `{{outputFile}}`
 - Project-relative path: `{{outputFileRel}}`
+
+If the findings file already exists, read it first, then replace it entirely.
 
 It has exactly this shape:
 
