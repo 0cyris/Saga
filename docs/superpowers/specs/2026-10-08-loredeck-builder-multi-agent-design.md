@@ -159,6 +159,16 @@ Record every run with the numbers `--score` prints, and note the commit and chec
 
 | Variant | Date | Catch (≥85%) | False-alarm (≤10%) | Exact |
 | --- | --- | --- | --- | --- |
+| a (pre-fix fixtures) | 2026-10-08 | 11/11 = 100% | 1/5 = 20% | 15/16 = 93.8% |
+| a | 2026-10-08 | 11/11 = 100% | 0/5 = 0% | 16/16 = 100% |
+| b | 2026-10-08 | 11/11 = 100% | 0/5 = 0% | 16/16 = 100% |
+
+All three runs dispatched one fresh `loredeck-grounding-verifier` subagent per brief (16 per run), with the model inherited from the session, and passed each brief through unchanged. Each checker used about 15k tokens and 6–8 tool calls, and took 10–17 seconds. The fixture-fixed runs use commit `4e4f3b5`.
+
+- **Pre-fix run.** Its one "false alarm" was a real fixture bug. Control `control-ravenhold-order` stated the keep's later fall in a `public` card whose window opened at the story's start, and the checker returned `timing-mismatch` with an exact quote. The independent label audit had marked the same card `entailed`, and it flagged a different control (`control-mara-conscript`) that the checker passed. Both controls were fixed before the later runs. This is the generator/verifier effect from §2 at small scale: two independent checks caught different defects.
+- **A/B.** Both variants scored at the ceiling, so this fixture cannot separate them, and the §2 hypothesis is untested. Variant b did not hurt. Its checkers raised slightly more incidental `flags` (for example, a first name in an injection backed only by an uncited record), but no verdicts changed.
+- **Incidental signal.** In every run, checkers flagged the same thing on several cards: a bounded window whose `sortKeyTo` is set without a `validToAnchor`. That is a cheap deterministic rule for `ground check` or Pack Health to own (follow-up).
+- **O2.** Two clean runs on 5 controls is not enough evidence to make findings blocking. Keep them advisory. Grow the fixture first, with more controls and harder seeded cases (multi-fact cards, near-miss timing, partial overlaps), so the A/B can show a difference.
 
 Reading the result:
 
