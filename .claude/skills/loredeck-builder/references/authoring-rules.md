@@ -19,23 +19,25 @@ One card = one job: a fact, state, constraint, reveal, relationship, rule, event
 
 **Titles carry fact pointers.** Every title in a title batch has `support: ["<scope>/<recordId>#<factIndex>", ...]`, naming the specific fact(s) that back its `gateIntent`. `factIndex` is 0-based into the record's `facts[]`, so `chapters/canon-ch-14#0` is the first fact of evidence record `chapters/canon-ch-14`. Every pointer's `<scope>/<recordId>` must also appear in the title's `evidenceRefs`; `evidenceRefs` says which records a title draws on, `support` says which facts in them carry the claim. Point at as few facts as fully support the claim; if no fact does, the claim isn't ready.
 
-**`ground check <id> --stage titles [--deck D] [--json]`** checks the pointers mechanically and exits 1 on any issue. Problem codes:
+**Cards carry fact pointers too.** Every card has `sourceInfo.evidenceFacts: ["<scope>/<recordId>#<factIndex>", ...]`, naming the fact(s) that back its `content.fact` (and `content.injection`). Same format and rules as a title's `support`: each pointer's `<scope>/<recordId>` must appear in the card's `sourceInfo.evidenceRefs`. The field ships in the deck as optional authoring provenance (`docs/loredecks/SAGA_LOREDECK_SCHEMA.md` § Authoring Provenance); health, promote and packaging accept it, and the app ignores it. Re-derive pointers from the evidence when you draft the card; don't copy the title's `support` blindly, since the card's wording may need different or additional facts.
+
+**`ground check <id> --stage titles|cards [--deck D] [--json]`** checks the pointers mechanically and exits 1 on any issue. For cards it checks `sourceInfo.evidenceFacts` against `sourceInfo.evidenceRefs`, and each issue's `batch` is the entry file's path under `drafts/<deck>/` without `.json` (e.g. `characters/main_cast`); entry files are the ones listed in the manifest's `files[]`, so run `stats <draft-dir> --write` first. Problem codes:
 
 | Code | Meaning |
 | --- | --- |
-| `missing-support` | `support` is missing, empty, or not an array |
+| `missing-support` | `support` (titles) / `sourceInfo.evidenceFacts` (cards) is missing, empty, or not an array |
 | `malformed-pointer` | not `<scope>/<recordId>#<factIndex>` with a non-negative integer index |
 | `unknown-record` | no evidence record with that `<scope>/<recordId>` |
 | `unaccepted-record` | the record exists but is pending or rejected |
 | `fact-out-of-range` | the index is past the end of the record's `facts[]` |
 | `empty-fact` | the pointed-to fact is blank or not a string |
-| `duplicate-pointer` | the same pointer appears twice in one `support` list |
-| `not-in-evidence-refs` | the pointer's record isn't listed in the title's `evidenceRefs` |
-| `invalid-batch-file` | a title-batch file couldn't be parsed or has no `titles` array |
+| `duplicate-pointer` | the same pointer appears twice in one item's pointer list |
+| `not-in-evidence-refs` | the pointer's record isn't listed in the item's `evidenceRefs` (`sourceInfo.evidenceRefs` for cards) |
+| `invalid-batch-file` | a title-batch file couldn't be parsed or has no `titles` array; for cards, a listed entry file couldn't be read or has no `entries` array |
 
-`--json` prints `{ ok, stage, deck, checked, issues: [{ deck, kind, itemId, batch, pointer, problem, detail }] }`. A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent` next to the fact strings its pointers resolve to.
+`--json` prints `{ ok, stage, deck, checked, issues: [{ deck, kind, itemId, batch, pointer, problem, detail }] }` (`kind` is `title` or `card`). A passing check proves each claim points at a real, accepted fact; it does not prove the fact entails the claim. That stays a judgment call, made easier because `report --stage titles` prints each `gateIntent`, and `report --stage cards` each card's `content.fact` and `content.injection`, next to the fact strings its pointers resolve to.
 
-Spot-check before every titles/cards gate: for titles, run `ground check` first, then read each claim against its resolved facts in the titles artifact; for cards, re-open the cited evidence records and confirm each claim in the batch actually traces to a specific fact — not just that the referenced id exists.
+Spot-check before every titles/cards gate: run `ground check --stage titles|cards` first and fix every issue, then read each claim against its resolved facts in the stage artifact and confirm the fact actually says what the claim says, not just that the pointer resolves.
 
 ## Required and expected entry fields (schema v3)
 
@@ -45,6 +47,7 @@ Expected on quality decks: `kind`/`gateType`, `relevance`, `lorePurpose`, `speci
 - `id`: stable, namespaced, lowercase (`<canon>.<topic>.<slug>`), unique across the whole deck. Never renumber ids between revisions.
 - `category`: one of `character|event|location|item|spell|faction|relationship|rule|timeline|knowledge|secret|other`.
 - `sourceInfo.evidenceRefs`: array of accepted evidence keys (`<scope>/<recordId>`) — required by this workflow for every card.
+- `sourceInfo.evidenceFacts`: array of fact pointers (`<scope>/<recordId>#<factIndex>`) backing the card's claim, each inside `evidenceRefs` — required by this workflow for every card (see § Grounding).
 - Do NOT use legacy entry-local `date`/`validFrom`/`validTo`/`canonTiming`; calendar dates live only in `timeline.json`.
 
 ## Truth and reveal

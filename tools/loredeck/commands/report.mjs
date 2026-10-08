@@ -56,9 +56,10 @@ export async function runReport({ positionals, flags }) {
         extra = { groundingIssues: issues.length };
     } else if (stage === 'cards') {
         const accepted = await acceptedEvidenceKeys(projectDir);
-        const { markdown, duplicates, unbacked, crossDeckCitations } = await buildCardsArtifact(state, projectDir, accepted);
+        const groundCheck = await runGroundCheck({ stage: 'cards', state, projectDir });
+        const { markdown, duplicates, unbacked, crossDeckCitations, groundingIssues } = await buildCardsArtifact(state, projectDir, accepted, groundCheck);
         await writeTextFile(outPath, markdown);
-        extra = { duplicates: duplicates.length, unbacked: unbacked.length, crossDeckCitations: crossDeckCitations.length };
+        extra = { duplicates: duplicates.length, unbacked: unbacked.length, crossDeckCitations: crossDeckCitations.length, groundingIssues: groundingIssues.length };
         if (flags.verbose) {
             if (flags.json) {
                 extra.unbackedCards = unbacked;
@@ -86,7 +87,7 @@ export async function runReport({ positionals, flags }) {
             for (const line of extra.crossDeckCitationLines || []) console.log(line);
         }
         if (extra?.issues) console.log(`WARNING: ${extra.issues} evidence validation issue(s).`);
-        if (extra?.groundingIssues) console.log(`WARNING: ${extra.groundingIssues} grounding issue(s); run \`ground check --stage titles\` for details.`);
+        if (extra?.groundingIssues) console.log(`WARNING: ${extra.groundingIssues} grounding issue(s); run \`ground check --stage ${stage}\` for details.`);
         if (extra?.briefIssues) console.log(`WARNING: ${extra.briefIssues} scope brief completeness issue(s).`);
     }
     return 0;

@@ -13,6 +13,7 @@ import {
     listJsonFilesRecursive,
     pathExists,
     readJsonFile,
+    readJsonFileOrNull,
     toPosixRelative,
     writeJsonFile,
 } from './deck-fs.mjs';
@@ -24,6 +25,40 @@ export async function collectEntryFilePaths(deckDir) {
         .filter(file => !toPosixRelative(deckDir, file).startsWith('assets/'))
         .map(file => toPosixRelative(deckDir, file))
         .sort();
+}
+
+/**
+ * Reads a deck's entries the way review artifacts and `ground check` see them:
+ * every file listed in the manifest's files[] (root-level registry JSON is
+ * never an entry file). Returns `{ manifest, entries: [{ file, entry }],
+ * fileIssues: [{ file, detail }] }`; fileIssues lists listed files that are
+ * missing, unparseable, or have no entries array.
+ */
+export async function readDeckEntries(deckDir) {
+    const manifest = await readJsonFileOrNull(path.join(deckDir, 'loredeck.json'))
+        || await readJsonFileOrNull(path.join(deckDir, 'manifest.json'));
+    const files = Array.isArray(manifest?.files) ? manifest.files : [];
+    const entries = [];
+    const fileIssues = [];
+    for (const file of files) {
+        const filePath = path.join(deckDir, String(file));
+        if (path.dirname(filePath) === path.resolve(deckDir)) continue;
+        let json = null;
+        try {
+            json = await readJsonFile(filePath);
+        } catch (e) {
+            fileIssues.push({ file, detail: `failed to read JSON. ${e?.message || ''}`.trim() });
+            continue;
+        }
+        if (!Array.isArray(json?.entries)) {
+            fileIssues.push({ file, detail: `${file} has no entries array` });
+            continue;
+        }
+        for (const entry of json.entries) {
+            entries.push({ file, entry });
+        }
+    }
+    return { manifest, entries, fileIssues };
 }
 
 export async function readDeckTimelineForStats(deckDir, manifest) {

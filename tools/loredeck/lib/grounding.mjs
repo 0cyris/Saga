@@ -4,7 +4,7 @@
  * and the deterministic checks behind `ground check`. A pointer names the one
  * evidence fact that backs a claim; this module parses pointers, resolves them
  * against the evidence store, and checks each claim-bearing item (a title's
- * `support`, later a card's `sourceInfo.evidenceFacts`) the same way.
+ * `support`, a card's `sourceInfo.evidenceFacts`) the same way.
  *
  * Stages plug in through GROUNDING_COLLECTORS: a collector turns project files
  * into uniform items, and everything downstream is stage-agnostic.
@@ -14,6 +14,7 @@ import path from 'node:path';
 
 import { listJsonFilesRecursive, readJsonFile, toPosixRelative } from './deck-fs.mjs';
 import { collectEvidence } from './evidence-store.mjs';
+import { readDeckEntries } from './manifest-stats.mjs';
 
 export const GROUNDING_STAGES = ['titles', 'cards'];
 
@@ -94,19 +95,20 @@ export function resolveFactPointer(pointer, evidenceLookup) {
 }
 
 /**
- * Checks one claim-bearing item: `{ support, evidenceRefs }`. Every pointer
+ * Checks one claim-bearing item: `{ support, evidenceRefs, supportField? }`
+ * (supportField names the support field in issue details). Every pointer
  * must resolve to an accepted fact, and its record must be listed in the
  * item's evidenceRefs. Returns `{ resolved: [...], issues: [...] }`, where
  * issues are `{ pointer, problem, detail }`.
  */
-export function checkGroundedItem({ support, evidenceRefs }, evidenceLookup) {
+export function checkGroundedItem({ support, evidenceRefs, supportField = 'support' }, evidenceLookup) {
     const resolved = [];
     const issues = [];
     const pointers = Array.isArray(support) ? support : [];
     if (!pointers.length) {
         const detail = support === undefined || support === null
-            ? 'support is missing'
-            : (Array.isArray(support) ? 'support is empty' : 'support must be an array of pointers');
+            ? `${supportField} is missing`
+            : (Array.isArray(support) ? `${supportField} is empty` : `${supportField} must be an array of pointers`);
         issues.push({ pointer: null, problem: GROUNDING_PROBLEMS.missingSupport, detail });
         return { resolved, issues };
     }
@@ -173,14 +175,61 @@ async function collectTitleItems(state, projectDir, { deckId = '' } = {}) {
     return { items, fileIssues, groups };
 }
 
+/** Claim text for a card: `content.fact`, then `content.injection` on a new line when set. */
+function cardClaim(entry) {
+    const fact = String(entry?.content?.fact ?? '').trim();
+    const injection = String(entry?.content?.injection ?? '').trim();
+    return injection ? `${fact}\n${injection}` : fact;
+}
+
+/**
+ * Cards collector: one item per entry in each draft deck's entry files, read
+ * through readDeckEntries (the manifest's files[], as the cards report does).
+ * `batch` is the entry file's path relative to drafts/<deck>/, minus `.json`.
+ * Support is `sourceInfo.evidenceFacts`; evidenceRefs is
+ * `sourceInfo.evidenceRefs`. Unreadable entry files become `fileIssues`.
+ */
+async function collectCardItems(state, projectDir, { deckId = '' } = {}) {
+    const items = [];
+    const fileIssues = [];
+    const groups = [];
+    for (const deck of state.decks || []) {
+        if (deckId && deck.deckId !== deckId) continue;
+        const deckDir = path.join(projectDir, 'drafts', deck.deckId);
+        const { entries, fileIssues: deckFileIssues } = await readDeckEntries(deckDir);
+        for (const issue of deckFileIssues) {
+            fileIssues.push({ deck: deck.deckId, kind: 'card', itemId: null, batch: String(issue.file).replace(/\.json$/, ''), pointer: null, problem: GROUNDING_PROBLEMS.invalidBatchFile, detail: issue.detail });
+        }
+        for (const { file, entry } of entries) {
+            const batch = String(file).replace(/\.json$/, '');
+            const last = groups[groups.length - 1];
+            if (last && last.deck === deck.deckId && last.file === file) {
+                last.count += 1;
+            } else {
+                groups.push({ deck: deck.deckId, batch, file, count: 1 });
+            }
+            items.push({
+                ref: { deck: deck.deckId, kind: 'card', itemId: String(entry?.id || ''), batch },
+                entry,
+                claim: cardClaim(entry),
+                support: entry?.sourceInfo?.evidenceFacts,
+                evidenceRefs: entry?.sourceInfo?.evidenceRefs,
+                supportField: 'sourceInfo.evidenceFacts',
+            });
+        }
+    }
+    return { items, fileIssues, groups };
+}
+
 /**
  * Stage -> collector. Adding a stage means adding a collector that returns
- * `{ items: [{ ref, entry, claim, support, evidenceRefs }], fileIssues: [], groups: [] }`;
+ * `{ items: [{ ref, entry, claim, support, evidenceRefs, supportField? }], fileIssues: [], groups: [] }`;
  * `groups` (optional) lists the containers items came from, e.g. title batches,
  * so a report can show empty ones.
  */
 export const GROUNDING_COLLECTORS = {
     titles: collectTitleItems,
+    cards: collectCardItems,
 };
 
 /**
@@ -192,9 +241,6 @@ export async function runGroundCheck({ stage, state, projectDir, deckId = '', ev
         throw new Error(`Unknown grounding stage: ${JSON.stringify(stage)}. Use ${GROUNDING_STAGES.join('|')}.`);
     }
     const collector = GROUNDING_COLLECTORS[stage];
-    if (!collector) {
-        throw new Error(`ground check --stage ${stage} is not yet supported.`);
-    }
     if (deckId && !(state.decks || []).some(deck => deck.deckId === deckId)) {
         throw new Error(`Unknown deck id: ${JSON.stringify(deckId)}.`);
     }

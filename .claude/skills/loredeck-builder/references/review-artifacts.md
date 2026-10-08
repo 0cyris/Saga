@@ -8,7 +8,7 @@ Every gate is reviewed against a regenerated artifact in `workshop/<project>/rev
 | evidence | `reviews/evidence.md` | `evidence validate` / `report --stage evidence` | File validity table, validation issues, record table with statuses |
 | planning | `reviews/plan.md` | `report --stage plan` | Rationale prose (inlined from `plans/context-timeline-plan.md`, not just linked) + per-deck anchor table, window table, tag table |
 | titles | `reviews/titles.md` | `report --stage titles` | Ground-check summary line, per-batch title tables with each gate intent next to the fact strings its `support` pointers resolve to (unresolvable pointers show their problem code) + evidence refs, and a grounding-issues table |
-| cards | `reviews/cards.md` | `report --stage cards` | Per-deck card tables (context, tags, evidence), duplicate-id report, unbacked-card report |
+| cards | `reviews/cards.md` | `report --stage cards` | Ground-check summary line, per-deck card tables (context, tags, evidence), per-deck claims table with each card's `content.fact` + `content.injection` next to the fact strings its `sourceInfo.evidenceFacts` pointers resolve to, duplicate-id report, unbacked-card report, cross-deck citation report, and a grounding-issues table |
 | health | `reviews/health-<deck>.md/.json` | `health` / `promote` | Status, counts, every issue by severity |
 | package | `reviews/final.md` | `report --stage final` | Gate history, per-deck entry/category counts, last health status |
 
