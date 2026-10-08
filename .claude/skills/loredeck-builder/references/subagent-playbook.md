@@ -26,7 +26,7 @@ node tools/loredeck/loredeck-cli.mjs brief <id> --role research --deck D --scope
 
 Pass the output through unchanged; add at most a short task note after it (the source slice or URL list for this subagent, or a `deckId` to set). The rendered prompt already contains everything the subagent needs: the approved scope brief, `templates/evidence-file.json` verbatim, the authoringSignals vocabulary, the output path (`evidence/<scope>/<file>.json`, default file name = the scope), record ids already used in the scope, the source policy, the grounding rules, and the return contract below. The prompt is deterministic for a given project state, so re-rendering it for a retry gives the subagent the same instructions. Use `--file` to split one scope across several subagents (one file each, e.g. `--file chapters-01-05`), and always pair it with `--assignment` (e.g. `--assignment "chapters 1 to 5"`) so the prompt itself states the subagent's slice; without it the prompt assigns the whole scope. `brief` refuses to render while `brief/scope-brief.md` still has placeholder sections.
 
-Role templates live in `agents/` (`research.md` plus the shared `_return-contract.md`). They state the required shapes positively and on purpose say nothing about past failures; keep it that way when editing them.
+Role templates live in `agents/` (`research.md`, `evidence-audit.md`, plus the shared `_return-contract.md`). They state the required shapes positively and on purpose say nothing about past failures; keep it that way when editing them.
 
 ### Why the prompt is rendered (orchestrator-only rationale)
 
@@ -40,7 +40,19 @@ This history is for you, not for subagents — don't paste it into a brief. Nami
 
 **For PDF (or other binary/encoded) sources, extract the full readable text yourself before fanning out — never make a research subagent page through the source itself.** Per-page extraction (e.g. looping `reader.pages[i].extract_text()`) burns one tool call per page; a source of any real length exhausts the subagent's budget before it reaches the file write, and the subagent returns nothing usable. Run the extraction once in the orchestrator (`references/evidence-pipeline.md` § PDF sources has the pypdf → pdftotext → pdfminer.six fallback chain), then hand each research subagent its assigned slice of plain text in the task note — not the PDF. This also means encryption/dependency failures (missing `cryptography`, unavailable `poppler-utils`) get hit once total instead of once per subagent.
 
-On return: read the return object (below), run `evidence validate`, spot-check records against provenance, fix or regenerate weak files before presenting the evidence gate.
+On return: read the return object (below), run `evidence validate`, run the evidence checker on the file (next section), resolve its findings, spot-check a sample of records against provenance, and fix or regenerate weak files before presenting the evidence gate.
+
+## Evidence checker subagents
+
+One checker per evidence file, always in a fresh context — never the subagent (or session) that wrote the file. Render its prompt with:
+
+```
+node tools/loredeck/loredeck-cli.mjs brief <id> --role evidence-audit --deck D --scope S [--file F]
+```
+
+`--file` is the stem of an existing file in `evidence/<S>/` (default: the scope name); `brief` errors if it doesn't exist. On Claude Code, dispatch the `loredeck-evidence-auditor` agent (`.claude/agents/loredeck-evidence-auditor.md`, shipped in the plugin's `agents/`; the `.skill` bundle carries it under `claude-code-agents/`) with the rendered brief as its task — the agent file holds no instructions of its own. Other runtimes pass the brief to a generic subagent. For a `user_supplied` file, put the source text (or slice) the file was written from in the task note; for `web` files the checker re-reads `provenance.url`.
+
+The checker is read-only: it writes only `reviews/audit/evidence-<scope>[-<file>].json` and returns `counts` as `{"facts": N, "flagged": M}`. Discard anything else it touched. Its `flags[]` carry `truncated-source:<url>` (re-research from the full page) and `noisy-extraction:<file>` (re-extract the PDF per `references/evidence-pipeline.md` § PDF sources). Findings are advisory: you decide each fix, then the summary at the top of `reviews/evidence.md` shows the user what was flagged.
 
 ## Return contract
 

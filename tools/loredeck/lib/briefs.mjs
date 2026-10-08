@@ -82,6 +82,23 @@ async function readProjectText(projectDir, relPath, missingMessage) {
     return text.trim();
 }
 
+/**
+ * Reads brief/scope-brief.md and checks that it is complete enough to bound a
+ * subagent. Shared by every role that inlines the scope brief.
+ */
+async function loadCompleteScopeBrief(projectDir, { dispatching, subagent }) {
+    const scopeBrief = await readProjectText(
+        projectDir,
+        'brief/scope-brief.md',
+        `No scope brief found at ${path.join(projectDir, 'brief', 'scope-brief.md')}. Write and approve brief/scope-brief.md (Stage 1) before dispatching ${dispatching}.`,
+    );
+    const briefIssues = validateBriefSections(scopeBrief);
+    if (briefIssues.length) {
+        throw new Error(`brief/scope-brief.md is not complete, so it can't bound ${subagent} yet: ${briefIssues.join(' ')}`);
+    }
+    return scopeBrief;
+}
+
 /* ---- Role: research ---- */
 async function buildResearchContext({ state, deck, projectDir, skillDir, selectors }) {
     const scope = selectors.scope;
@@ -91,15 +108,7 @@ async function buildResearchContext({ state, deck, projectDir, skillDir, selecto
     }
     const outputFileRel = `evidence/${scope}/${fileStem}.json`;
 
-    const scopeBrief = await readProjectText(
-        projectDir,
-        'brief/scope-brief.md',
-        `No scope brief found at ${path.join(projectDir, 'brief', 'scope-brief.md')}. Write and approve brief/scope-brief.md (Stage 1) before dispatching research.`,
-    );
-    const briefIssues = validateBriefSections(scopeBrief);
-    if (briefIssues.length) {
-        throw new Error(`brief/scope-brief.md is not complete, so it can't bound a research subagent yet: ${briefIssues.join(' ')}`);
-    }
+    const scopeBrief = await loadCompleteScopeBrief(projectDir, { dispatching: 'research', subagent: 'a research subagent' });
     const evidenceTemplate = (await readFile(path.join(skillDir, 'templates', 'evidence-file.json'), 'utf8')).trimEnd();
 
     // Citation keys are <scope>/<recordId>, so new ids must not collide with
@@ -141,12 +150,97 @@ async function buildResearchContext({ state, deck, projectDir, skillDir, selecto
     };
 }
 
+/* ---- Role: evidence-audit ---- */
+export const EVIDENCE_AUDIT_VERDICTS = ['supported', 'unsupported', 'contested', 'out-of-scope'];
+
+/**
+ * Findings path for one audited evidence file: reviews/audit/evidence-<scope>.json,
+ * or evidence-<scope>-<file>.json when the file stem differs from the scope,
+ * so each auditor writes its own file.
+ */
+export function evidenceAuditOutputRel(scope, fileStem) {
+    return `reviews/audit/evidence-${scope}${fileStem && fileStem !== scope ? `-${fileStem}` : ''}.json`;
+}
+
+function describeEvidenceSource(evidence) {
+    const sourceKind = String(evidence?.sourceKind || '');
+    const url = String(evidence?.provenance?.url || '').trim();
+    const title = String(evidence?.provenance?.title || '').trim();
+    if (sourceKind === 'user_supplied') {
+        return [
+            `This file's \`sourceKind\` is \`"user_supplied"\`${title ? ` (source: ${title})` : ''}.`,
+            'The orchestrator\'s task note after this brief supplies the source text the file was written from, and that text is your source.',
+            'When the task note carries no source text, give every fact the `unsupported` verdict with the note "no source text supplied", and list the missing source in `gaps`.',
+        ].join(' ');
+    }
+    return [
+        `This file's \`sourceKind\` is \`"${sourceKind || 'web'}"\`, and its \`provenance.url\` is ${url ? `<${url}>` : 'empty'}.`,
+        'Re-read that page in full now, along with any other page a record cites in its `quotesOrRefs`.',
+        'When the orchestrator\'s task note supplies source text or more URLs, use those as well.',
+    ].join(' ');
+}
+
+async function buildEvidenceAuditContext({ state, deck, projectDir, selectors }) {
+    const scope = selectors.scope;
+    const fileStem = selectors.file ? selectors.file.replace(/\.json$/, '') : scope;
+    if (!isValidSlug(fileStem)) {
+        throw new Error(`Invalid --file ${JSON.stringify(selectors.file)}: name an evidence file stem in evidence/${scope}/, such as "${scope}".`);
+    }
+    const evidenceFileRel = `evidence/${scope}/${fileStem}.json`;
+    const evidenceFile = path.join(projectDir, ...evidenceFileRel.split('/'));
+    if (!await pathExists(evidenceFile)) {
+        throw new Error(`No evidence file at ${evidenceFileRel}. The evidence checker audits an existing file: pass --file with the stem of a file in evidence/${scope}/.`);
+    }
+    let evidence;
+    try {
+        evidence = JSON.parse(await readFile(evidenceFile, 'utf8'));
+    } catch (error) {
+        throw new Error(`${evidenceFileRel} is not valid JSON (${error?.message || error}). Run \`evidence validate\` and fix it before auditing.`);
+    }
+    const records = Array.isArray(evidence?.records) ? evidence.records : [];
+    const factCount = records.reduce((sum, record) => sum + (Array.isArray(record?.facts) ? record.facts.length : 0), 0);
+
+    const scopeBrief = await loadCompleteScopeBrief(projectDir, { dispatching: 'the evidence checker', subagent: 'an evidence-audit subagent' });
+    const outputFileRel = evidenceAuditOutputRel(scope, fileStem);
+    const continuityId = String(state.continuity?.continuityId || '');
+    return {
+        output: outputFileRel,
+        context: {
+            projectId: state.projectId,
+            projectTitle: state.title,
+            deckId: deck.deckId,
+            scope,
+            continuityId: continuityId ? `\`${continuityId}\`` : 'the continuity named in the scope brief',
+            projectDir,
+            evidenceFile,
+            evidenceFileRel,
+            recordCount: records.length,
+            factCount,
+            sourceInstruction: describeEvidenceSource(evidence),
+            outputFile: path.join(projectDir, ...outputFileRel.split('/')),
+            outputFileRel,
+            scopeBrief,
+            verdicts: EVIDENCE_AUDIT_VERDICTS.map(verdict => `\`${verdict}\``).join(', '),
+            returnWroteExample: outputFileRel,
+            returnCountsExample: '{"facts":12,"flagged":2}',
+            returnCountsNote: '`facts` is the number of findings you wrote (one per fact in the evidence file), and `flagged` is how many of them have a verdict other than `supported`.',
+            returnFlagsNote: '`truncated-source:<url>` for a source you could read only in part, and `noisy-extraction:<file>` for an evidence file whose facts carry text-extraction noise.',
+        },
+    };
+}
+
 export const BRIEF_ROLES = {
     research: {
         template: 'research.md',
         requires: ['scope'],
         accepts: ['scope', 'file', 'assignment'],
         buildContext: buildResearchContext,
+    },
+    'evidence-audit': {
+        template: 'evidence-audit.md',
+        requires: ['scope'],
+        accepts: ['scope', 'file'],
+        buildContext: buildEvidenceAuditContext,
     },
 };
 
