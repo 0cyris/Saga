@@ -230,9 +230,13 @@ function describeCardClaim(entry) {
  * with each card's claim (`content.fact` + `content.injection`) next to the
  * fact strings its `sourceInfo.evidenceFacts` pointers resolve to. The
  * duplicate-id, unbacked and cross-deck checks are independent of grounding.
+ * `findingsSummary` is the grounding verifier's summary for card batches
+ * (summarizeFindings); it goes right under the heading, and an empty string
+ * leaves the artifact exactly as it is without findings.
  */
-export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys, groundCheck = null) {
+export async function buildCardsArtifact(state, projectDir, acceptedEvidenceKeys, groundCheck = null, { findingsSummary = '' } = {}) {
     const lines = [`# Card Batches Review: ${state.title}`, ''];
+    if (findingsSummary) lines.push(findingsSummary);
     const { items: groundItems = [], issues: groundIssues = [] } = groundCheck || {};
     if (groundCheck) {
         if (groundIssues.length) {

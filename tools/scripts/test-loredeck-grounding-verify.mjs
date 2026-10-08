@@ -5,9 +5,13 @@
  * sorted cited evidence files, pointer reading, verdicts, findings shape,
  * return contract), resolves a batch by file name or by batchId, rejects an
  * unknown batch or one whose file name and batchId disagree, lists malformed
- * support pointers as naming no fact, reports card batches as not yet supported, and
- * `report --stage titles` summarizes findings files when present while
- * staying byte-identical when none exist.
+ * support pointers as naming no fact, and `report --stage titles` summarizes
+ * findings files when present while staying byte-identical when none exist.
+ * For card batches, `--file <category>/<topic-stem>` renders the cards
+ * variant (entry file, cited evidence, deck timeline, card ids, dotted
+ * findings name), rejects --batch with --file, neither, and an unknown entry
+ * file, lists malformed evidenceFacts pointers, and `report --stage cards`
+ * summarizes only card findings, staying byte-identical when none exist.
  */
 
 import assert from 'node:assert/strict';
@@ -179,6 +183,94 @@ assert.ok(malformed.stdout.includes('- `chapters/canon-ch-01#first` in `canon.lo
 assert.ok(!malformed.stdout.includes('Every record the batch cites is in one of the files above.'), 'Malformed pointers must not be reported as all-clear.');
 await rm(path.join(batchDir, 'batch-3.json'));
 
+// --- Card batches: one entry file in drafts/<deck>/ ---
+const draftsDir = path.join(projectDir, 'drafts', deckId);
+const cardsFile = path.join(draftsDir, 'characters', 'core_cast.json');
+const timelinePath = path.join(draftsDir, 'timeline.json');
+function card(id, fact, extra = {}) {
+    return {
+        id,
+        title: id,
+        category: 'character',
+        revealPolicy: 'public',
+        content: { fact, injection: `${fact} (injection)` },
+        context: { scope: 'window', validFromAnchor: 'verify.opening', validToAnchor: 'verify.ending', label: 'Whole story' },
+        ...extra,
+    };
+}
+await writeJson(cardsFile, {
+    entries: [
+        card('canon.character.mara-venn', 'Mara Venn is a 17-year-old conscript.', {
+            notes: DRAFTING_NOTE,
+            sourceInfo: { evidenceRefs: ['chapters/canon-ch-01'], evidenceFacts: ['chapters/canon-ch-01#0'] },
+        }),
+        card('canon.secret.sethe-ashen-pact', 'Warden Sethe swore to the Ashen Pact.', {
+            revealPolicy: 'private',
+            sourceInfo: { evidenceRefs: ['places/canon-place-ravenhold'], evidenceFacts: ['chapters/canon-ch-14#0', 'places/canon-place-ravenhold#0', 'ghosts/missing-card-record#0', 'chapters/canon-ch-14'] },
+        }),
+        card('canon.character.no-facts', 'Nothing cites this.'),
+    ],
+});
+
+const cardsRendered = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/core_cast');
+assert.equal(cardsRendered.code, 0, cardsRendered.stderr);
+const cardsPrompt = cardsRendered.stdout;
+assert.ok(cardsPrompt.startsWith(`# Grounding check: card batch \`characters/core_cast\` of deck \`${deckId}\``), cardsPrompt.slice(0, 200));
+assert.ok(cardsPrompt.includes(`- \`${cardsFile}\` (project-relative: \`drafts/${deckId}/characters/core_cast.json\`)`), 'The entry file path should be given.');
+assert.ok(cardsPrompt.includes(chaptersPath) && cardsPrompt.includes(placesPath), 'Every cited evidence file should be listed.');
+assert.ok(cardsPrompt.indexOf(chaptersPath) < cardsPrompt.indexOf(placesPath), 'Evidence files should be sorted.');
+assert.equal(cardsPrompt.split(chaptersPath).length - 1, 1, 'Evidence files should be deduplicated.');
+assert.ok(!cardsPrompt.includes('unrelated.json'), 'Uncited evidence files should be left out.');
+assert.ok(cardsPrompt.includes(`- \`${timelinePath}\` (project-relative: \`drafts/${deckId}/timeline.json\`)`), 'The deck timeline path should be given.');
+assert.ok(/timeline, read-only, to resolve each card's `context.validFromAnchor` and `context.validToAnchor`/.test(cardsPrompt), 'The timeline should be read-only and used to resolve anchors.');
+assert.ok(cardsPrompt.includes('`ghosts/missing-card-record`'), 'A cited record missing from the evidence should be named.');
+assert.ok(cardsPrompt.includes('- `chapters/canon-ch-14` in `canon.secret.sethe-ashen-pact`: names no fact'), 'A malformed evidenceFacts pointer should be listed.');
+assert.ok(cardsPrompt.includes('These `sourceInfo.evidenceFacts` pointers are not of the form'), 'Malformed card pointers should be named by their field.');
+assert.ok(cardsPrompt.includes('`canon.character.mara-venn`') && cardsPrompt.includes('`canon.secret.sethe-ashen-pact`') && cardsPrompt.includes('`canon.character.no-facts`'), 'Card ids should be listed.');
+assert.ok(cardsPrompt.includes('- `ref`: the card\'s `id`.'), 'The finding ref should be the card id.');
+assert.ok(cardsPrompt.includes('`content.fact` and `content.injection`'), 'The claim fields should be named.');
+assert.ok(cardsPrompt.includes('0-based index') && cardsPrompt.includes('The factIndex is the digits after the last `#`; a recordId may itself contain `#`.'));
+for (const verdict of GROUNDING_VERDICTS) {
+    assert.ok(cardsPrompt.includes(`- \`${verdict}\`:`), `The prompt should define verdict ${verdict} for cards.`);
+}
+assert.match(cardsPrompt, /`timing-mismatch`: [^\n]*context window opens before the story point[^\n]*reveal policy exposes something the facts place later/, 'timing-mismatch should cover the window and reveal policy.');
+assert.match(cardsPrompt, /`unsupported`: [^\n]*a card with no `sourceInfo.evidenceFacts`/);
+const cardsOutputRel = `reviews/audit/grounding.${deckId}.cards.characters.core_cast.json`;
+assert.ok(cardsPrompt.includes(path.join(auditDir, `grounding.${deckId}.cards.characters.core_cast.json`)), 'The findings file path should use dots.');
+assert.ok(cardsPrompt.includes(`"target": "drafts/${deckId}/characters/core_cast.json"`), 'The findings target should be the entry file.');
+assert.ok(cardsPrompt.includes(`{"status":"ok","wrote":["${cardsOutputRel}"],"counts":{"cards":3,"flagged":0},"gaps":[],"flags":[]}`), 'The return example should carry the findings path and card count.');
+assert.ok(/note[^\n]*required[^\n]*quote/i.test(cardsPrompt) && /read-only/i.test(cardsPrompt) && /nothing you know or remember/i.test(cardsPrompt));
+assert.ok(!cardsPrompt.includes(DRAFTING_NOTE), 'No drafting commentary may reach the checker.');
+assert.ok(!cardsPrompt.includes('gateIntent') && !cardsPrompt.includes('title batch'), 'The cards brief should not carry title wording.');
+assert.ok(!/\{\{\s*[A-Za-z]/.test(cardsPrompt) && !cardsPrompt.includes('<!--'));
+assert.equal(cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/core_cast').stdout, cardsPrompt, 'Card briefs should be deterministic.');
+const cardsJson = JSON.parse(cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/core_cast.json', '--json').stdout);
+assert.equal(cardsJson.output, cardsOutputRel);
+assert.equal(cardsJson.batch, null);
+
+// A bare-array entry file reads too.
+await writeJson(path.join(draftsDir, 'places', 'keeps.json'), [card('canon.location.ravenhold', 'Ravenhold Keep is a mountain garrison.', { sourceInfo: { evidenceFacts: ['places/canon-place-ravenhold#0'] } })]);
+const bare = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'places/keeps');
+assert.equal(bare.code, 0, bare.stderr);
+assert.ok(bare.stdout.includes('Every record the batch cites is in one of the files above.'));
+assert.ok(bare.stdout.includes(`reviews/audit/grounding.${deckId}.cards.places.keeps.json`));
+
+const unknownFile = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters/nobody');
+assert.equal(unknownFile.code, 1);
+assert.match(unknownFile.stderr, /No entry file at drafts\/verify-core\/characters\/nobody\.json/);
+const badFile = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters');
+assert.equal(badFile.code, 1);
+assert.match(badFile.stderr, /Invalid --file "characters": use <category>\/<topic-stem>/);
+const traversalFile = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', '../characters/core_cast');
+assert.equal(traversalFile.code, 1);
+assert.match(traversalFile.stderr, /Invalid --file/);
+
+// The cards page before any checker runs, for the byte-identical check below.
+const cardsArtifact = path.join(projectDir, 'reviews', 'cards.md');
+assert.equal(cli('report', projectId, '--stage', 'cards').code, 0);
+const cardsBaseline = await readFile(cardsArtifact, 'utf8');
+assert.ok(!cardsBaseline.includes('Grounding checker findings'));
+
 // --- Errors ---
 const unknownBatch = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-9');
 assert.equal(unknownBatch.code, 1);
@@ -188,13 +280,13 @@ const otherDeck = cli('brief', projectId, '--role', 'grounding-verify', '--deck'
 assert.equal(otherDeck.code, 1);
 assert.match(otherDeck.stderr, /No title batches found under plans\/title-batches\/verify-era\//);
 
-const cards = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--file', 'characters');
-assert.equal(cards.code, 1);
-assert.match(cards.stderr, /card batches .* not yet supported/);
-
 const neither = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId);
 assert.equal(neither.code, 1);
-assert.match(neither.stderr, /requires --batch/);
+assert.match(neither.stderr, /requires --batch <title-batch-id> \(a title batch\) or --file <category>\/<topic-stem> \(a card batch\)/);
+
+const both = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-1', '--file', 'characters/core_cast');
+assert.equal(both.code, 1);
+assert.match(both.stderr, /takes either --batch <title-batch-id> or --file <category>\/<topic-stem>, not both/);
 
 const scoped = cli('brief', projectId, '--role', 'grounding-verify', '--deck', deckId, '--batch', 'batch-1', '--scope', 'chapters');
 assert.equal(scoped.code, 1);
@@ -211,6 +303,8 @@ assert.match(agentFile, /^---\nname: loredeck-grounding-verifier\n/);
 assert.match(agentFile, /\ntools: Read, Grep, Glob, Write\n/);
 assert.match(agentFile, /\nmodel: inherit\n/);
 assert.ok(agentFile.includes('--role grounding-verify'), 'The agent file should point at the rendered brief.');
+assert.match(agentFile, /\ndescription: [^\n]*card batches/, 'The agent description should cover card batches.');
+assert.ok(agentFile.includes('--file <category>/<topic-stem>'), 'The agent file should name the card-batch brief.');
 
 // --- Report: unchanged without findings, summarized with them ---
 const titlesArtifact = path.join(projectDir, 'reviews', 'titles.md');
@@ -254,6 +348,45 @@ assert.ok(summarized.includes('| canon.location.ravenhold-keep | partial |'), 'F
 assert.ok(summarized.includes('| era.title | timing-mismatch |'), 'Findings from every deck should be summarized.');
 assert.ok(!summarized.includes('| c | unsupported |'), 'Card findings stay out of the titles artifact.');
 assert.ok(summarized.endsWith(baseline.slice(heading.length + 2)), 'The rest of the artifact should be unchanged.');
+
+// --- Report: the cards page summarizes card findings only ---
+// Titles findings are present; drop the placeholder card file written above first.
+await rm(path.join(auditDir, `grounding.${deckId}.cards.characters.json`));
+assert.equal(cli('report', projectId, '--stage', 'cards').code, 0);
+assert.equal(await readFile(cardsArtifact, 'utf8'), cardsBaseline, 'Without card findings the cards page must be byte-identical.');
+
+await writeJson(path.join(auditDir, `grounding.${deckId}.cards.characters.core_cast.json`), {
+    schemaVersion: 1,
+    role: 'grounding-verify',
+    target: `drafts/${deckId}/characters/core_cast.json`,
+    findings: [
+        { ref: 'canon.character.mara-venn', verdict: 'entailed', note: '' },
+        { ref: 'canon.secret.sethe-ashen-pact', verdict: 'timing-mismatch', note: 'chapters/canon-ch-14#0 says "Warden Sethe is revealed to have sworn to the Ashen Pact." The window opens at the opening.' },
+        { ref: 'canon.character.no-facts', verdict: 'unsupported', note: 'No sourceInfo.evidenceFacts.' },
+    ],
+});
+await writeJson(path.join(auditDir, 'grounding.verify-era.cards.lore.rules.json'), {
+    schemaVersion: 1,
+    role: 'grounding-verify',
+    target: 'drafts/verify-era/lore/rules.json',
+    findings: [{ ref: 'era.card', verdict: 'partial', note: 'Half of it is backed.' }],
+});
+const cardsReport = cli('report', projectId, '--stage', 'cards');
+assert.equal(cardsReport.code, 0, cardsReport.stderr);
+const cardsSummarized = await readFile(cardsArtifact, 'utf8');
+const [cardsHeading] = cardsBaseline.split('\n');
+assert.ok(cardsSummarized.startsWith(`${cardsHeading}\n\n## Grounding checker findings\n\n1 verified, 3 flagged across 2 findings file(s).`),
+    `The findings summary should sit at the top of the cards page:\n${cardsSummarized.slice(0, 400)}`);
+assert.ok(cardsSummarized.includes('| canon.secret.sethe-ashen-pact | timing-mismatch |'));
+assert.ok(cardsSummarized.includes('| era.card | partial |'), 'Card findings from every deck should be summarized.');
+assert.ok(!cardsSummarized.includes('canon.location.ravenhold-keep | partial') && !cardsSummarized.includes('era.title'), 'Titles findings stay out of the cards page.');
+assert.ok(cardsSummarized.endsWith(cardsBaseline.slice(cardsHeading.length + 2)), 'The rest of the cards page should be unchanged.');
+
+// And card findings stay out of the titles page.
+assert.equal(cli('report', projectId, '--stage', 'titles').code, 0);
+const titlesAfter = await readFile(titlesArtifact, 'utf8');
+assert.ok(!titlesAfter.includes('sethe-ashen-pact | timing-mismatch') && !titlesAfter.includes('era.card'), 'Card findings stay out of the titles page.');
+assert.ok(titlesAfter.includes('1 verified, 2 flagged across 2 findings file(s).'));
 
 await rm(workshopRoot, { recursive: true, force: true });
 console.log('Loredeck grounding-verify tests passed.');

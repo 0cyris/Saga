@@ -52,20 +52,22 @@ node tools/loredeck/loredeck-cli.mjs brief <id> --role evidence-audit --deck D -
 
 The checker is read-only: it writes only `reviews/audit/evidence-audit.<scope>[.<file>].json` and returns `counts` as `{"facts": N, "flagged": M}`. Discard anything else it touched. Its `flags[]` carry `truncated-source:<url>` (re-research from the full page) and `noisy-extraction:<file>` (re-extract the PDF per `references/evidence-pipeline.md` § PDF sources). Findings are advisory: you decide each fix, then the summary at the top of `reviews/evidence.md` shows the user what was flagged.
 
-## Grounding checker (titles)
+## Grounding checker (titles and cards)
 
-After drafting a title batch and getting `ground check` clean, dispatch one read-only checker per batch with the prompt from:
+After drafting a title batch, or merging a card batch, and getting `ground check` clean, dispatch one read-only checker per batch with the prompt from:
 
 ```
 node tools/loredeck/loredeck-cli.mjs brief <id> --role grounding-verify --deck D --batch B [--out P]
+node tools/loredeck/loredeck-cli.mjs brief <id> --role grounding-verify --deck D --file <category>/<topic-stem> [--out P]
 ```
 
-`B` is the batch file name or its `batchId`. On Claude Code, dispatch it as the `loredeck-grounding-verifier` agent (`.claude/agents/`, bundled in the plugin's `agents/` and in the `.skill` under `claude-code-agents/`), whose tools are reading tools plus `Write`, and whose brief restricts that `Write` to its one findings file (the restriction is by instruction, not by the tool allowlist); elsewhere use a generic subagent. Either way the rendered brief is the whole prompt (`agents/grounding-verify.md` is the single source of truth).
+`--batch B` checks a title batch; `B` is the batch file name or its `batchId`. `--file` checks a card batch: one entry file, `drafts/<D>/<category>/<topic-stem>.json`, named the same way as the drafting brief's `--file`; `brief` errors if the file doesn't exist. Pass exactly one of the two. On Claude Code, dispatch it as the `loredeck-grounding-verifier` agent (`.claude/agents/`, bundled in the plugin's `agents/` and in the `.skill` under `claude-code-agents/`), whose tools are reading tools plus `Write`, and whose brief restricts that `Write` to its one findings file (the restriction is by instruction, not by the tool allowlist); elsewhere use a generic subagent. Either way the rendered brief is the whole prompt (`agents/grounding-verify.md` is the single source of truth for both kinds).
 
-- **Keep its context clean.** Pass the brief through unchanged: no task note, no drafting rationale, no summary of what you meant. A checker that shares the drafter's context tends to share its mistakes; it sees only the batch and the evidence files it cites.
-- **On return:** open `reviews/audit/grounding.<deck>.titles.<batch>.json` (from `wrote[]`). For each non-`entailed` finding, fix the title (claim, gate, or `support`) or keep it and note why for the user. Re-run `ground check`, re-dispatch the checker if you changed the batch, then `report --stage titles` (its summary shows "N verified, M flagged") and spot-check a sample yourself.
-- Findings are advisory in v1 and never block a gate; the user sees them in the titles artifact.
-- Card batches (`--file`) are not supported yet.
+- **Keep its context clean.** Pass the brief through unchanged: no task note, no drafting rationale, no summary of what you meant. A checker that shares the drafter's context tends to share its mistakes; it sees only the batch, the evidence files it cites and, for cards, the deck's `timeline.json`.
+- **What it judges.** For a title: whether the `support` facts entail the `gateIntent`, and whether the gate timing matches. For a card: whether the `sourceInfo.evidenceFacts` facts entail `content.fact` and `content.injection`, and whether the `context` window (its anchors resolved through `timeline.json`) and the `revealPolicy` match the timing those facts describe. A card whose window opens before the story point its facts describe, or whose reveal policy exposes something the facts place later, comes back `timing-mismatch`; a card with no `evidenceFacts` comes back `unsupported`.
+- **On return:** open the findings file from `wrote[]`: `reviews/audit/grounding.<deck>.titles.<batch>.json` for titles, or `reviews/audit/grounding.<deck>.cards.<category>.<topic-stem>.json` for cards (the entry file's path under `drafts/<deck>/` with `/` replaced by `.`). For each non-`entailed` finding, fix the title (claim, gate, or `support`) or the card (fact, injection, context window, reveal policy, or `evidenceFacts`), or keep it and note why for the user. Re-run `ground check`, re-dispatch the checker if you changed the batch, then `report --stage titles` or `report --stage cards` (its summary shows "N verified, M flagged") and spot-check a sample yourself.
+- **At franchise scale,** dispatch the card checkers for a merged wave in parallel with the next drafting wave instead of waiting on them. The checker only reads, so it never races the drafters; resolve its findings in the next merge.
+- Findings are advisory in v1 and never block a gate; the user sees them at the top of the titles or cards artifact.
 
 ## Return contract
 
@@ -110,6 +112,8 @@ This history is for you, not for subagents — don't paste it into a brief.
 
 1. Confirm each returned entry file is at the `drafts/<deck>/<category>/` path its brief named, and discard anything else the subagent touched.
 2. `stats <draft-dir> --write`, then `health <project> --strict` — fix every issue.
-3. `report --stage cards` — resolve duplicate ids and unbacked cards it flags.
-4. Reconcile tag usage: if a subagent flagged a missing tag, add it to `tags.json` deliberately (and to the family vocabulary) — this is the only place new tags get added; a subagent's own output should never contain a `tags.json` edit or an undefined tag.
-5. Present the batch review artifact at the gate.
+3. `ground check <project> --stage cards` — fix every issue.
+4. Run the grounding checker on each merged entry file: one fresh-context checker per file, dispatched with `brief <id> --role grounding-verify --deck D --file <category>/<topic-stem>` (see Grounding checker above). At franchise scale, dispatch these checkers in parallel with the next drafting wave. Resolve each non-`entailed` finding: fix the card, or keep it with a reason for the user. Re-run `ground check` after any fix.
+5. `report --stage cards` — resolve duplicate ids and unbacked cards it flags; the checker's findings summary sits at the top. Spot-check a sample of cards against the facts shown next to them.
+6. Reconcile tag usage: if a subagent flagged a missing tag, add it to `tags.json` deliberately (and to the family vocabulary) — this is the only place new tags get added; a subagent's own output should never contain a `tags.json` edit or an undefined tag.
+7. Present the batch review artifact at the gate.
