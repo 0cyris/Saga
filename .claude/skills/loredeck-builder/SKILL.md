@@ -10,7 +10,7 @@ You are driving Saga's external Loredeck authoring workflow: a staged loop that 
 ## Ground rules
 
 1. **The schema reference is the only source of truth for data shapes.** Read `docs/loredecks/SAGA_LOREDECK_SCHEMA.md` before emitting deck JSON. Never invent fields, registry shapes, or health codes. `references/authoring-rules.md` condenses the practical rules.
-2. **Evidence before cards.** Lorecards may only be drafted from accepted evidence records, and every card cites its evidence in `sourceInfo.evidenceRefs`. No wiki-memory drafting.
+2. **Evidence before cards.** Lorecards may only be drafted from accepted evidence records, and every card cites its evidence in `sourceInfo.evidenceRefs` and the specific facts in `sourceInfo.evidenceFacts`. No wiki-memory drafting. A claim (a title's `gateIntent`, a card's `content.fact`) is ready only when `ground check` passes and the grounding checker has no open `unsupported` or `timing-mismatch` finding on it: fixed, or kept with a reason you give the user.
 3. **Gates are user approvals, not formalities.** Present the stage's review artifact, wait for the user's explicit approval in chat, and only then run `gate approve`. If the user rejects, revise and re-present — that is the loop.
 4. **Project state is CLI-owned.** Never hand-edit `project.json`; use the CLI so the resume contract stays valid. All other project files (briefs, evidence, plans, deck drafts) are yours to write.
 5. **The release bar is strict-clean Pack Health**: zero errors, warnings, AND suggestions. `promote` and `verify-package` enforce this; do not argue a warning is acceptable — fix it.
@@ -68,6 +68,8 @@ Full stage-by-stage instructions, gate criteria, and artifacts: this section is 
 
 ## Sizing and subagents (summary)
 
-- **Single deck** (one novel/film, ≤ ~150 cards): one deck, no subagents needed.
+Agent counts per size (research, drafting, evidence checker, grounding checker) are in the table in `references/canon-sizing.md` § Agents per deck size. The checkers run at every size.
+
+- **Single deck** (one novel/film, ≤ ~150 cards): one deck, no research or drafting subagents needed.
 - **Core + eras** (a series): `<canon>-core` plus era decks; model the split on `content/loredecks/hp-core` + `hp-year-*`; research subagents optional.
 - **Deck family** (WH40k scale): core + faction/era decks; one research subagent per evidence scope, drafting subagents per deck/batch; you own the cross-deck tag registry, continuity ids, and all merging — track each deck's stage in your task list if available, since `project.json`'s `stage` is project-wide, not per-deck (`references/state-and-resume.md`). Details: `references/canon-sizing.md`, `references/subagent-playbook.md`.

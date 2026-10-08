@@ -31,6 +31,16 @@ Multi-era, multi-faction canons (Warhammer 40k, Star Wars, long-running comics).
 - Ship incrementally: core + one or two decks to strict-clean health and import them before widening — the family grows deck by deck, each a full pass through stages 2–7. You can declare the full deck roster in `init --decks` at Stage 0 if you already know it, or add decks as you go with `deck add <project-id> --deck <id>:<role>` — either way stays within the CLI-owned `project.json` contract; never hand-edit `decks[]`.
 - The project's `stage` is project-wide, not per-deck — once the first wave's decks reach `complete`, plain `gate approve` has nothing left to approve for the *next* wave's stages 4–7. Prefer `gate approve/reopen <id> --deck <deck-id>` for the next wave's decks: it walks each deck's own `decks[].stage` independently, so later waves don't require rewinding the whole project's `stage` (and don't disturb decks from earlier waves that are already `complete`). Fall back to plain `gate reopen <id> --stage titles` (no `--deck`) only when the project-wide `stage` itself genuinely needs to move; see `references/state-and-resume.md`.
 
+## Agents per deck size
+
+| Size | Research agents | Drafting agents | Evidence checker | Grounding checker |
+| --- | --- | --- | --- | --- |
+| Single deck (≤ ~150 cards) | 0 (you research) | 0 (you draft) | 1 per evidence file (or 1 per scope) | 1 per title batch and 1 per card entry file |
+| Core + eras | 1 per scope (optional) | 0–1 per deck | 1 per evidence file | 1 per batch |
+| Franchise | 1 per scope per deck | 1 per batch | 1 per evidence file | 1 per batch, dispatched in parallel with the next drafting wave |
+
+The checkers run at every size, even when you research and draft yourself. Grounding is the most frequent failure class, and a clean-context check costs far less than a user re-reviewing a batch. Fan-out applies to research and drafting only; every agent writes exactly one file, and you stay the only writer of registries, project state and merged decks.
+
 ## Granularity within any size
 
 - **Compact**: major constraints, critical secrets, durable rules, high-impact state changes.

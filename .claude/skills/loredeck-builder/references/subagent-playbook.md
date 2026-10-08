@@ -6,9 +6,7 @@ If your runtime has a task-tracking tool, use it to track every spawned subagent
 
 ## When to fan out
 
-- Single deck: no subagents (overhead exceeds benefit).
-- Core + eras: optional — one research subagent per evidence scope if the source material is long.
-- Franchise scale: one research subagent per evidence scope, drafting subagents per deck or per card batch.
+How many of each agent to dispatch is set by the table in `references/canon-sizing.md` § Agents per deck size. In short: research and drafting fan out only for larger canons, while the evidence checker and grounding checker run at every size.
 
 ## Sizing each subagent's task
 
