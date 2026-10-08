@@ -133,10 +133,11 @@ for (const testCase of cases) {
     assert.equal(issue.problem, testCase.problem, `${testCase.name}: problem`);
 }
 
-// --- --stage cards is not supported yet; unknown stage is a usage error ---
+// --- --stage cards is supported (no cards drafted yet: nothing to check); unknown stage is a usage error ---
+// Card failure classes are covered by test-loredeck-ground-check-cards.mjs.
 const cards = cli('ground', 'check', projectId, '--stage', 'cards', '--json');
-assert.equal(cards.code, 1);
-assert.ok(cards.stderr.includes('not yet supported'), cards.stderr);
+assert.equal(cards.code, 0, cards.stderr || cards.stdout);
+assert.equal(JSON.parse(cards.stdout).checked, 0);
 assert.equal(cli('ground', 'check', projectId, '--stage', 'bogus').code, 1);
 assert.equal(cli('ground', 'check', projectId, '--stage', 'titles', '--deck', 'nope').code, 1);
 

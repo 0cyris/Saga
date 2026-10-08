@@ -518,9 +518,29 @@ Saga v3 entries are Context-native. Dates may still exist in `timeline.json` as 
 | `template` | object | Placeholder/template variable metadata for imported lorebook entries. |
 | `visibility` | object | Who knows what and when. |
 | `effects` | object | Search, blocking, protection, or injection effects. |
-| `sourceInfo` | object | Work/source metadata. |
+| `sourceInfo` | object | Work/source metadata, plus optional authoring provenance (`evidenceRefs`, `evidenceFacts`). See Authoring Provenance below. |
 | `ui` | object | Display metadata. |
 | `extensions` | object | Future metadata. |
+
+### Authoring Provenance in `sourceInfo`
+
+Decks built with the Loredeck Builder toolkit carry two optional provenance fields inside `sourceInfo`. Both are additive and ship in the deck:
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `sourceInfo.evidenceRefs` | string[] | Evidence records the card draws on, as `<scope>/<recordId>` keys into the authoring project's evidence store. |
+| `sourceInfo.evidenceFacts` | string[] | Fact pointers that back the card's claim (`content.fact` / `content.injection`), as `<scope>/<recordId>#<factIndex>`. `factIndex` is a 0-based index into that record's `facts[]`, so `chapters/canon-ch-14#0` is the first fact of record `chapters/canon-ch-14`. Every pointer's `<scope>/<recordId>` should also appear in `evidenceRefs`. |
+
+```json
+"sourceInfo": {
+  "work": "Founding Trilogy",
+  "sourceType": "book",
+  "evidenceRefs": ["chapters/canon-ch-14"],
+  "evidenceFacts": ["chapters/canon-ch-14#0"]
+}
+```
+
+Both fields are authoring provenance only. Pack Health, conformance, packaging and package verification accept them without new findings, and the runtime ignores them: the entry normalizer rebuilds `sourceInfo` from its known keys, so the fields have no in-app effect in older or current versions. The toolkit's `ground check --stage cards` verifies that each `evidenceFacts` pointer resolves to an accepted, non-empty evidence fact listed in `evidenceRefs`; it does not check that the fact entails the claim.
 
 ### Truth and Reveal Semantics
 

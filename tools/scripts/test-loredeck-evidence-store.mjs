@@ -124,7 +124,9 @@ assert.ok(verboseCardsText.stdout.includes('card.rejected-ref'), '--verbose text
 const cardsArtifact = await readFile(path.join(projectDir, 'reviews', 'cards.md'), 'utf8');
 assert.ok(cardsArtifact.includes('card.unbacked'));
 assert.ok(cardsArtifact.includes('card.rejected-ref'));
-assert.ok(!cardsArtifact.includes('| card.backed |') || !cardsArtifact.split('Cards without accepted evidence backing')[1].includes('card.backed'), 'Backed card must not be flagged.');
+// Scope the check to the unbacked section; later sections (e.g. grounding issues) may name the card for other reasons.
+const unbackedSection = cardsArtifact.split('Cards without accepted evidence backing')[1].split('\n## ')[0];
+assert.ok(!unbackedSection.includes('card.backed'), 'Backed card must not be flagged.');
 
 // evidence deckId + cross-deck citation warning (item 6)
 const familyProjectDir = path.join(workshopRoot, 'evidence-family');
